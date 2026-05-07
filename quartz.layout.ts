@@ -54,12 +54,11 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta(),
    Component.RecentNotes({
       title: "📅 最近更新",    // 列表上方的标题
       limit: 5,               // 限制显示 5 篇
       showTags: true,         // 是否显示笔记的标签
-      linkFullPages: true,    // 是否显示“查看更多”链接
     })],
   left: [
     Component.PageTitle(),

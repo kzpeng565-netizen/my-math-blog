@@ -1,6 +1,17 @@
 ---
-title: Welcome to Quartz
+title: Welcome to
+publish: "true"
+---
+欢迎来到我的个人博客！我是 Conrad Peng，这里是我记录数学推导、学习心得的地方，个人博客刚开始建立，完善ing。
+
+### 快速指引
+
+使用搜索：点击左上角的 `Search` 可以全局搜索公式或定理名。
+使用Graph: 右侧的Graph显示了链接到当前笔记的内容, 目前双链较少, 将来完善
+
+
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+###  最新更新
+
+你可以通过左侧的目录树浏览完整笔记，或者直接查看下方系统自动提取的最新文章：
