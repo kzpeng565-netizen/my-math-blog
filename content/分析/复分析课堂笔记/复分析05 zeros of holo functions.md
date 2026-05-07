@@ -18,7 +18,7 @@ $\{f_{n}(z)\}\subset \mathcal{O}(\Omega)$ 内闭一致收敛到 $f(z)$. $\gamma 
 
 **Definition**: Let $f:\Omega \to \mathbb{C}$ be a holomorphic function. A point $z\in\Omega$ is called a **zero** of $f$ if $f(z)=0$.
 
->[!Theorem 1.1: the decompostion of f on a zero point(just like the order of a zero in real number)]
+> [!Note] Theorem 1.1: the decompostion of f on a zero point(just like the order of a zero in real number)
 >Assume that $f$ is not constant. Let $z_{0}\in\Omega$ be a zero of $f$. Then there is a unique $n\in \mathbb{N}$, a neighborhood $D$ of $z_{0}$, and a nowhere zero holomorphic function $g$ on $D$ such that
 >$$
 >f(z)=(z-z_{0})^{n}\cdot g(z)
@@ -69,7 +69,7 @@ $$
 
 The **order** of the pole $z_{0}$ of $f$ is defined as the order of the zero $z_{0}$ of $g$.
 
->[!Theorem 1.2]
+> [!Note] Theorem 1.2
 >If $f$ has a pole at $z_0 \in \Omega$, then in a neighborhood of that point there exist a non-vanishing holomorphic function $h$ and a unique positive integer $n$ such that
 >$$
 >f(z) = (z - z_0)^{-n} h(z).
@@ -80,7 +80,7 @@ The **order** of the pole $z_{0}$ of $f$ is defined as the order of the zero $z_
 By the previous theorem we have $1/f(z) = (z - z_0)^n g(z)$, where $g$ is holomorphic and non-vanishing in a neighborhood of $z_0$, so the result follows with $h(z) = 1/g(z)$.
 
 
->[!Theorem 1.3]
+> [!Note] Theorem 1.3
 >If $f$ has a pole of order $n$ at $z_0$, then
 >$$
 >f(z) = \frac{a_{-n}}{(z - z_0)^n} + \frac{a_{-n+1}}{(z - z_0)^{n-1}} + \cdots + \frac{a_{-1}}{(z - z_0)} + G(z),

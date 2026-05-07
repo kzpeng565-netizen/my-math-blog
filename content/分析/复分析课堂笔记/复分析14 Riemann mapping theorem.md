@@ -5,7 +5,7 @@ tags:
 ---
 # 1. Riemann Mapping Theorem
 
->[!Theorem]
+> [!Note] Theorem
 >If $\Omega \subset \mathbb{C}$, $\Omega\neq \mathbb{C}$, $\Omega\neq \emptyset$, and $\Omega$ is simply connected, then $\Omega$ is conformally equivalent to $\mathbb{D}$.
 
 The proof proceeds in four main steps.

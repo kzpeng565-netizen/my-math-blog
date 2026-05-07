@@ -5,7 +5,7 @@ tags:
 ---
 #复分析 #课堂笔记 
 
->[!Theorem: the power series expansion of a holomorphic function]
+> [!Note] Theorem: the power series expansion of a holomorphic function
 >Suppose f is holomorphic at a open disc centered at $z_{0}$, and the closure is contained in $\Omega$, then f has power series expansion at $z_{0}$
 >$$\begin{align*}
 f(z) = \sum_{n=0}^{\infty} a_n (z - z_0)^n
@@ -63,7 +63,7 @@ f(z) = \sum_{n=0}^{\infty} \left( \frac{1}{2\pi i} \int_C \frac{f(\zeta)}{(\zeta
 \end{align*}
 $$
 
->[!推论：常规全纯函数在连通集中没有无限阶零点]
+> [!Note] 推论：常规全纯函数在连通集中没有无限阶零点
 >设 $\Omega$ 是 $\mathbb{C}$ 的一个连通开子集，令 $f:\Omega\to \mathbb{C}$ 是一个全纯映射，令 $z_{0}\in\Omega$ 为一个点。
 >假设 $f^{(n)}(z_{0})=0$ 对所有 $n\geq0$ 成立，那么 $f(z)=0$ 对所有 $z\in\Omega$ 成立。
 
@@ -81,7 +81,7 @@ $$
 另外，如果 $z\in Z$，那么由步骤1，存在一个以 $z$ 为中心的圆盘使得 $f(z)=0$，所以 $Z$ 也是一个开集（或者说包含一个开圆盘）。
 由于 $\Omega$ 是连通的，我们得到 $Z= \Omega$。
 
->[!Theorem: the isolated zeros property of holomorphic functions]
+> [!Note] Theorem: the isolated zeros property of holomorphic functions
 > Let $\Omega$ be a connected open subset of $\mathbb{C}$, and let $f: \Omega \to \mathbb{C}$ be a holomorphic function. Suppose there exists a sequence $\{z_n\}$ such that $f(z_n) = 0$ for all $n$, and $\{z_n\}$ converges to  with $z_\infty \notin \{z_n\}$ (excluding the case where the sequence is eventually constant at ). Then $f \equiv 0$ on $\Omega$.
 
 ^eb9556
@@ -122,7 +122,7 @@ This contradiction implies that our initial assumption $f \not\equiv 0$ is false
 This theorem demonstrates the *isolated zeros* property of holomorphic functions: if a holomorphic function on a connected open set is not identically zero, then its zeros must be isolated.
 
 
->[!Liouville's theorem]
+> [!Note] Liouville's theorem
 Assume that $f:\mathbb{C}\to \mathbb{C}$ is holomorphic. If f is bounded, then f is constant.
 
 ^113820

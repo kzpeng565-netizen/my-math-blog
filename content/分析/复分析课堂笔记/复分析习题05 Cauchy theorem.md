@@ -4,7 +4,7 @@ tags:
   - 分析
 ---
 #复分析 #习题 
->[!2.1]
+> [!Note] 2.1
 >Prove that
 >$$
 >\int_0^\infty \sin(x^2)  dx = \int_0^\infty \cos(x^2)  dx = \frac{\sqrt{2\pi}}{4}.
@@ -42,7 +42,7 @@ $$
 \implies \int_{0}^{\infty} \cos w^{2} \, dw=\int_{0}^{\infty} \sin w^{2} \, dw =\frac{\sqrt{2\pi}}{4} 
 $$​	
 
->[!2.12]
+> [!Note] 2.12
 >Let $u$ be a real-valued function defined on the unit disc $\mathbb{D}$. Suppose that $u$ is twice continuously differentiable and harmonic, that is,
 >$$
 >\triangle u(x, y) = 0
@@ -60,7 +60,7 @@ Hence, $f(z)=u+iv$ is a holomorphic function.
 
 
 
->[!(b)]
+> [!Note] (b)
 >(b) Deduce from this result, and from Exercise 11, the Poisson integral representation formula from the Cauchy integral formula: If $u$ is harmonic in the unit disc and continuous on its closure, then if $z = re^{i\theta}$ one has
 >$$
 >u(z) = \frac{1}{2\pi} \int_0^{2\pi} P_r(\theta - \varphi) u(\varphi)  d\varphi
@@ -82,7 +82,7 @@ $$
 u=\frac{1}{2\pi} \int_{0}^{2\pi} u(\varphi)P_{r}(\theta-\varphi) \, d\varphi 
 $$
 
->[!2.13]
+> [!Note] 2.13
 >Suppose $f$ is an analytic function defined everywhere in $\mathbb{C}$ and such that for each $z_0 \in \mathbb{C}$ at least one coefficient in the expansion
 >$$
 >f(z) = \sum_{n=0}^{\infty} c_n (z - z_0)^n

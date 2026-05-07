@@ -7,7 +7,7 @@ tags:
 
 ## 1.1 Class Equation
 
->[!a theorem that counts a set by group action]
+> [!Note] a theorem that counts a set by group action
 >Let X be a finite G-set(left action set), $Gx$ refers to an orbit. We have
 >$$
 \lvert X \rvert =\sum_{i=1}^{r}\lvert Gx_{i}​	 \rvert=\lvert X_{G} \rvert +\sum_{i=s+1}^{r}\lvert Gx_{i} \rvert
@@ -15,14 +15,14 @@ tags:
 where $X_{G}=\{x\in X|gx=x,\:\forall g\in G\}$
 
 
->[! Corollary for  G is a p-group]
+> [!Note]  Corollary for  G is a p-group
 >Let G be a group of order $p^{n}$ and let $Z$​	be a finite G-set. Then
 >$$
 \lvert X \rvert \equiv \lvert X_{G} \rvert \quad \text{mod}\  p
 $$
 
 
->[! Corollary for the set is the group itself]
+> [!Note]  Corollary for the set is the group itself
 >$$
 \lvert G \rvert =\lvert Z(G) \rvert +n_{c+1}+\dots+n_{r}
 >$$
@@ -39,7 +39,7 @@ Hence, $\lvert O(x) \rvert= \lvert G \rvert/\lvert G_{x} \rvert$ is a factor tha
 The third one is because conjugation can be seen as a group action.
 
 
->[!Corollary:  Burnside theorem]
+> [!Note] Corollary:  Burnside theorem
 Let p be prime number. The center of any p-group is nontrivial.
 
 Proof.
@@ -50,7 +50,7 @@ $\lvert G \rvert\equiv\lvert Z(G) \rvert\quad (p)$ . And we know $Z(G)\neq \empt
 
 Cauchy Theorem tells us that a finite group G has a sungroup of a prime order dividing $\lvert G \rvert$​	
 
->[! Cauchy's theorem]
+> [!Note]  Cauchy's theorem
 >Let p be a prime. Let G be a finite group and let p divide $\lvert G \rvert$. Then G has an element of order p and, consequently, a subgroup of order p.
 
 We define $X=\{(g_{1},g_{2},\dots,g_{p})|g_{i}\in G\text{ and }g_{1}g_{2}\dots g_{p}=e\}$ (just let $g_{p}=(g_{1}\dots g_{p-1})^{-1}$, so $\lvert X \rvert=\lvert G \rvert^{p-1}$ which can be devided by p) . Then, let $\sigma$ be the cycle $(1,2,\dots,p)$ act on $X$ by changing the subscript of elements. 
@@ -66,7 +66,7 @@ Necessary. If G is a p-group, but $\lvert G \rvert=p^{n}q$ (to simplify, q is a 
 
 **Definition** Let $\mathcal{F}$ be the collection of all subgroups of $G$. we define a G conjugation action $H\in \mathcal{F}\to gHg^{-1}$. $G_{H}:=\{g\in G|gHg^{-1}=H,\: \forall g\in G\}$ is a **normalizer** of $H$. We rewrite $G_{H}$ as $N[H]$
 
->[!Lemma]
+> [!Note] Lemma
 >Let H be a p-subgroup of a finite group G. Then
 >$$(N[H]:H)\equiv(G:H)(\text{mod}\: p)
 $$
@@ -88,7 +88,7 @@ $$​we completes the proof.
 This is a preparation for First Sylow Theorem.
 ## 2.1 First Sylow Theorem
 
->[! First Sylow Theorem]
+> [!Note]  First Sylow Theorem
 >Let $G$ be a finite group and let $|G|=p^n m$ where $n \geq 1$ and where $p$ does not divide $m$. Then
 >1. $G$ contains a subgroup of order $p^{i}$ for each $i$ where $1 \leq i \leq n$.
 >2. Every subgroup $H$ of $G$ of order $p^{i}$ is a normal subgroup of a subgroup of order $p^{i+1}$ for $1 \leq i < n$.
@@ -106,11 +106,11 @@ Since $M\subset N[H] / H$, we have H is a normal subgroup of the preimage of M.
 
 **Definition** **Sylow p-subgroup** refers to the maximal p-subgroup. By First Sylow Theorem, we know it's precisely the p-subgroup of order $p^{n}$
 
->[! Second Sylow Theorem]
+> [!Note]  Second Sylow Theorem
 >Let $P_{1}$ and $P_{2}$ be Sylow p-subgroups of a finite group G. Then $P_{1}$ and $P_{2}$ are conjugate subgroups of $G$.
 
 ### 2.2.1 Proof
->[!Skill: How to prove two sets are conjugate]
+> [!Note] Skill: How to prove two sets are conjugate
 >Let M and H be subsets of G. Let M act on the left coset of H, denoted by $\mathcal{L}$. If $\mathcal{L}_{M}\neq \emptyset$ (for left action), we obtain that M can be conjugated to a subgroup of H.
 
 **只对p群有用**
@@ -126,7 +126,7 @@ And the same is $M=P_{2}$ and $H=P_{1}$
 
 ## 2.3 Third Sylow Theorem
 
->[! Third Sylow Theorem]
+> [!Note]  Third Sylow Theorem
 >If G is a finite group and p divides $\lvert G \rvert$, then the number of Sylow $p$-subgroup is congruent to 1 modulo p and devides $\lvert G \rvert$
 
 ### 2.3.1 Proof   
@@ -140,7 +140,7 @@ But $P_{1}$​	is only conjugate to itself. Therefore, $P=P_{1}$, which means $\
 the order of $\mathcal{F}$ devides $\lvert G \rvert$ due to Langrange Theorem.
 # 3. applications and examples
 
->[!Fraleigh(7ed) Example37.14] 
+> [!Note] Fraleigh(7ed) Example37.14 
 No group of order 36 is simple
 
 *Such a group $G$ has either 1 or 4 subgroups of order 9 . If there is only one such subgroup, it is normal in $G$. If there are four such subgroups, let $H$ and $K$ be two of them. $H \cap K$ must have at least 3 elements, or $H K$ would have to have 81 elements, from $|H K|=|H||K| /|H \cap K|$. Thus the normalizer of $H \cap K$ has as order a multiple of $>1$ of 9 (**Since Lagrange Theorem**) and a divisor of 36 ; hence the order must be either 18 or 36 . If the order is 18 , the normalizer is then of index 2 and therefore is normal in $G$. If the order is 36 , then $H \cap K$ is normal in $G$.*

@@ -8,7 +8,7 @@ tags:
 
 ## 1.1 Residue at a Pole
 
->[! Theorem]
+> [!Note]  Theorem
 >Assume f has a pole of order n of $z_{0}$
 >Then $a_{-1}= \frac{1}{(n-1)!}\left( \frac{d}{dz} \right)^{n-1}((z-z_{0})^{n}f(z))$
 
@@ -16,7 +16,7 @@ Proof: exercise
 
 **Definition** $a_{-1}$ is called the **residue** of f at $z_{0}$, we denote $a_{-1}=\text{res}_{z_{0}}f$
 
->[! Theorem]
+> [!Note]  Theorem
 >$f: \Omega -\{z_{0}\}\to \mathbb{C}$ is holomorphic with a pole at $z_{0}$
 >Assume that the disc $\bar{D}$ containing $z_{0}$ is contained in $\Omega$. Let $C=\partial \bar{D}$ Then
 >$$
@@ -109,11 +109,11 @@ In this case, we say that f extends to a holomorphic function on $\Omega$
 
 ## 2.2 Riemann's Theorem on Removable Singularities
 
->[! Theorem]
+> [!Note]  Theorem
 >Let $f:\Omega  -\{z_{0}\}\to \mathbb{C}$ be a holomorphic function
 >Assume that f is locally bounded around $z_{0}$. Then $z_{0}$ is a removable singularity
 
->[!Lemma: the derivative of an integral with parameters]
+> [!Note] Lemma: the derivative of an integral with parameters
 >Let $C$ be a simple closed curve. Let $K(z,\zeta)$ is holomorphic on $\Omega$, for every $\zeta\in C$. If $K(z,\zeta)$ is continuous on $(\Omega,C)$, we have
 
 $$
@@ -201,7 +201,7 @@ Hence f has a pole at $z_{0}$
 ![[Pasted image 20251027152108.png|400]]
 ## 2.5 Casorati-Weierstrass Theorem
 
->[! Theorem] 本性奇点充要条件
+> [!Note]  Theorem 本性奇点充要条件
 >Suppose $f$ is holomorphic in the punctured disc $D_r(z_0) - \{z_0\}$ and has an essential singularity at $z_0$. Then, the image of $D_r(z_0) - \{z_0\}$ under $f$ is dense in the complex plane​	 $\mathbb{C}$.
 
 Proof. Assume by contradiction that $A=D_{r}(z_{0})-\{z_{0}\}$ is not dense in $\mathbb{C}$

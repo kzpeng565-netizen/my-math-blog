@@ -16,7 +16,7 @@ In other words, we can move $\gamma_0$ to $\gamma_1$ inside $\Omega$ continuousl
 
 ## 1.2 Integral of Holomorphic Functions on Homotopic Curves
 
->[! Theorem]
+> [!Note]  Theorem
 > Assume $\gamma_0, \gamma_1$ are piecewise $C^1$. Let $f: \Omega \to \mathbb{C}$ be holomorphic. If $\gamma_0, \gamma_1$ are homotopic, then $\int_{\gamma_0} f = \int_{\gamma_1} f$.
 
 ### 1.2.1 Proof of the Theorem
@@ -37,7 +37,7 @@ There exists $\varepsilon$ such that $|C_1(t) - C_2(t)| < \varepsilon$ for all $
 
 ## 1.4 Existence of Primitives on Simply Connected Domains
 
->[! Theorem]
+> [!Note]  Theorem
 > If $\Omega$ is simply connected and $f$ is holomorphic on $\Omega$, then $f$ has a primitive on $\Omega$.
 
 ### 1.4.1 Proof of the Theorem

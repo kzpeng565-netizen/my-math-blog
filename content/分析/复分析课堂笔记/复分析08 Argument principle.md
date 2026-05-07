@@ -42,7 +42,7 @@ In this previous example, $\frac{1}{2\pi i}\int \frac{f'(z)}{f(z)}dz$ computes t
 
 ## 1.3 Argument Principle Theorem
 
->[! Argument Principle]
+> [!Note]  Argument Principle
 >Let f be a meromorphic function on $\Omega$. Let D be a disc with $\bar{D}\subset\Omega$. Assume that $f(z)\neq \{0,\infty\}$ for any $z\in \partial \bar{D}=C$. Then,
 >1. exists $z_{1},\dots,z_{n}\in D$ s.t. the pole and the zeros of f are $z_{1},\dots,z_{n}$
 >2. $\frac{1}{2\pi i}\int_{C} \frac{f'(z)}{f(z)}=(\text{the numbers of zeros of f})-(\text{numbers of pole of f})$.
@@ -79,7 +79,7 @@ This completes the proof of the theorem.
 
 ^e4a105
 
->[! Rouche's Theorem]
+> [!Note]  Rouche's Theorem
 >Let $\Omega$ be an open subset of $\mathbb{C}$, Let $D$ be a disc with $\bar{D}\subset\Omega$ we write $C=\partial D$
 >Let f, g be holomorphic functions on $\Omega$. Assume that $\lvert f(z) \rvert>\lvert g(z) \rvert$ for all $z\in C$
 >Then f and $f+g$ have the same number of zeros in D.
@@ -103,7 +103,7 @@ It follows that $n_{t}$ is continuous in t. This completes the proof of Rouche's
 
 If we can ​	seperate ​	$h=f+g$ in $S$ , a simply connected open subset. $\lvert f \rvert>\lvert g \rvert$, which means the modulo of f is dominating, then the zero number of h is exactly the number of f.
 
->[!Prove fundamental theorem with Rouche's Theorem]
+> [!Note] Prove fundamental theorem with Rouche's Theorem
 
 $f(z)=\sum_{i=0}^{n}a_{i}z^{i}$ is a polynomial. We know $z^{n}$ has n roots. Then we can make $R$ is large enough such that $\lvert z^{n} \rvert>\left\lvert  \sum_{i=0}^{n}a_{i}z^{i}  \right\rvert$
 # 3. Open Mapping Theorem (考试不会考到, 但很重要)
@@ -113,7 +113,7 @@ $f(z)=\sum_{i=0}^{n}a_{i}z^{i}$ is a polynomial. We know $z^{n}$ has n roots. Th
 For any $x\in X$, let $y=f(x)\in Y$. Then there is open neighborhood $x\in U\subset X,y\in V\subset Y$ such that $V\subset f(U)$
 **Open mapping theorem is not correct in real number** Consider $f(x)=x^{2},x\in(-1,1)$. 
 
->[! Open Mapping Theorem]
+> [!Note]  Open Mapping Theorem
 >Let $f:\Omega \to \mathbb{C}$ be a holomorphic function. Then f is an open map.
 
 ## 3.1 Proof of Open Mapping Theorem
@@ -134,7 +134,7 @@ Thus $h(z)$ has a zero say $z_{1}\in D$ Then $f(z_{1})=w$. This completes the pr
 
 # 4. Maximum Principle
 
->[! Maximum Principle]
+> [!Note]  Maximum Principle
 >Let $f:\Omega \to \mathbb{C}$ be a non-constant holomorphic function ($\Omega$ is an open connected set)
 >Then $\lvert f \rvert$ cannot attain a local maximum inside $\Omega$
 

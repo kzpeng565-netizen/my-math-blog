@@ -36,7 +36,7 @@ $$
 $$
 $\left| \theta(t)-1 \right|\leq C\cdot e^{-\pi t}$ 对任意$t\geq​	1$ 对某个C成立;  $\theta(t)\leq C\cdot t^{-\frac{1}{2}}$ 对某个$C>0$, 任意$0<t<1$​	成立.
 
->[!三个函数的关系]
+> [!Note] 三个函数的关系
 >如果$\mathrm{Re}(s)>1$, 那么
 >$$
 \pi^{-\frac{s}{2}}\Gamma\left( \frac{s}{2} \right)\zeta(s)=\frac{1}{2}\int_{0}^{+\infty} u^{\left( \frac{s}{2} \right)-1}[\theta(u)-1] \, du
@@ -83,7 +83,7 @@ $$
 \pi^{-\frac{s}{2}}\Gamma\left( \frac{s}{2} \right)\zeta(s)=\frac{1}{2}\int_{0}^{+\infty} u^{\left( \frac{s}{2} \right)-1}[\theta(u)-1] \, du
 $$
 定义$\xi(s)=\pi^{-\frac{s}{2}}\Gamma\left( \frac{s}{2} \right)\zeta(s)$称为$\xi$函数, 是$\zeta$函数的修正函数, $\xi(s)=\frac{1}{2}\int_{0}^{+\infty} u^{\frac{s}{2}-1}(\theta(u)-1) \, du$ 
->[!xi函数的性质]
+> [!Note] xi函数的性质
 >当$\mathrm{Re}(s)>1$​	时, $\xi$函数是全纯的. 并且可以解析延拓到整个复平面$\mathbb{C}$上全纯, 且$s=0,s=1$是它的极点, 而且是单的. 此外, 对于任意的$s\in \mathbb{C}$, 
 >$$
 \xi(s)=\xi(1-s)\quad \text{关于}\mathrm{Re}=\frac{1}{2}\text{对称}
@@ -124,7 +124,7 @@ $$
 注意到$\int_{1}^{+\infty} \left( u^{\frac{-s-1}{2}}+u^{\frac{s}{2}-1} \right)\psi(u) \, du$是一个$s\in \mathbb{C}$上全纯的函数, 因为$\psi(u)$在无穷远处指数衰减, $\psi (u)\le Ce^{-\pi u}$.
 所以$\xi(s)$是$\mathbb{C}$上的全纯函数.
 
->[!zeta函数的极点]
+> [!Note] zeta函数的极点
 >$\xi(s)$是$\mathbb{C}$上的亚全纯函数, 在1有唯一的单极点
 
 证明
@@ -180,7 +180,7 @@ $$
 $$
 注意到$\left| s \right|^{\delta}\leq(\left| \sigma \right|+\left| t \right|)^{\delta}$. 为了求和$\sum \frac{1}{n^{\delta+\sigma_{0}}}$, 我们需要$\delta+\sigma_{0}>1$. 因此设$\delta=1-\delta_{0}+\varepsilon_{0}\implies \left| H(s) \right|\leq 2^{1-\delta}(\sum \frac{1}{n^{\delta+\sigma_{0}}})\cdot \left| s \right|^{10\delta_{0}+\varepsilon}$​	 
 
->[!命题:​]
+> [!Note] 命题:​
 >$s=\sigma+it$, 其中 $\sigma,t\in \mathbb{R}$, 那么对任意的$\sigma_{0}$$(0\leq\sigma_{0}\leq1)$ 和任意的$\varepsilon>0$, 存在常数$c_{\varepsilon}$使得
 >1. 如果$\sigma_{0}\leq\sigma$, $\left| t \right|\geq1$, 那么 $\left| \zeta(s) \right|\leq c_{\varepsilon}\left| t \right|^{1-\sigma_{0}+\varepsilon}$
 >2. 如果$1\leq\sigma,\: \left| t \right|\geq1$, 那么 $\left| \zeta'(s) \right|\leq c_{\varepsilon}\left| t \right|^{\varepsilon}$

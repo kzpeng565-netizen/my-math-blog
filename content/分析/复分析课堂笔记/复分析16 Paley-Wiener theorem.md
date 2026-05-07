@@ -22,7 +22,7 @@ $$
 
 ## 1.2 Main Theorem: Paley-Wiener
 
->[!Paley-Wiener Theorem]
+> [!Note] Paley-Wiener Theorem
 >Assume that $f:\mathbb{R}\to \mathbb{C}$ has moderate decrease, $f$ satisfies Fourier inversion and $\exists B>0, a>0$, such that $\left| \hat{f}(\xi) \right|\leq B e^{-2\pi a\left| \xi \right|}$.
 >Then, $f$ extends to a holomorphic function $f$ on $S_{a}=\{z\in \mathbb{C}\mid \left| \mathrm{Im}(z) \right|<a \}$.
 
@@ -50,7 +50,7 @@ By Fourier inversion, this function extends the original $f$.
 
 ## 2.1 Theorem 3.3: Entire Functions of Exponential Type
 
->[!Theorem 3.3]
+> [!Note] Theorem 3.3
 >Let $f:\mathbb{R}\to \mathbb{C}$ be of moderate decrease. Then $f$ extends to an entire function (holomorphic on $\mathbb{C}$) with $f(z)\leq A\cdot e^{2\pi M\left| z \right|}$ for some $A, M>0$ and all $z\in \mathbb{C}$, **if and only if** $\hat{f}(\xi)=0$ for any $\left| \xi \right|>M$.
 
 ### 2.1.1 Proof (Forward Direction Started)

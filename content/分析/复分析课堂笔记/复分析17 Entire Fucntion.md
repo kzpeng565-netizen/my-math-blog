@@ -5,7 +5,7 @@ tags:
 ---
 # 1. Jensen Formula
 
->[!Jensen Formula(零点个数与模长对数平均)]
+> [!Note] Jensen Formula(零点个数与模长对数平均)
 >设 $\Omega$ 表示包含圆盘 $D_R$ 的闭包的开集，$f$ 在 $\Omega$ 上全纯，$f(0) \ne 0$，在 $C_R$ 上不等于 0。如果 $z_1, \dots, z_N$ 表示 $f$ 在圆盘内的零点（包含重数），那么
 >$$
 \log |f(0)| = \sum_{k=1}^{N} \log\left( \frac{|z_k|}{R} \right) + \frac{1}{2\pi}\int_{0}^{2\pi} \log |f(R e^{i\theta})| \, d\theta
@@ -61,7 +61,7 @@ $$
 给出复数序列 $\{a_n\}$，我们说乘积 $\prod_{n=1}^{+\infty} (1+a_n)$ 是收敛的，只要 $\lim_{N\to\infty} \prod_{n=1}^{N} (1+a_n)$ 极限存在。
 %%在一些文献中还会要求极限不等于0%%
 
->[!Proposition]
+> [!Note] Proposition
 >假定 $\sum_{n=1}^{+\infty} |a_n| < +\infty$，那么 $\prod_{n=1}^{+\infty} (1+a_n)$ 是收敛的。而且，$\prod_{n=1}^{+\infty} (1+a_n) = 0 \iff \exists k, a_k = -1$。
 
 **证明思路：**
@@ -107,7 +107,7 @@ $$
 
 # 3. Weierstrass Product
 
->[!Theorem]
+> [!Note] Theorem
 >给定任意 $a_n$，$\lim_{n\to\infty} |a_n| = +\infty$，存在整函数 $f$，满足 $z=a_n$ 处为 0，其余地方没有零点。
 进一步地，对于任何其他的整函数 $F$，我们有 $F(z) = f(z) e^{g(z)}$，这里 $g(z)$ 是某一个整函数。
 
@@ -122,7 +122,7 @@ $$
 通过除去 $\{a_n\}$ 中的 0，我们可以选择 $f(z) = z^m \prod_{n=1}^{+\infty} E_n \left( \frac{z}{a_n} \right)$。
 接下来证明这个乘积是收敛的，并且符合要求。
 
->[!Lemma]
+> [!Note] Lemma
 >假定 $|z| \le \frac{1}{2}$，则 $|E_k(z) - 1| \le c \cdot |z|^{k+1}$ 对 $k \ge 1$，这里 $c = 2e$。
 
 **引理证明：**
@@ -160,7 +160,7 @@ $$
 **定义**: 令$f$是一个整函数, 我们说$f$的**阶小于**$\rho\in \mathbb{R}$, 如果$\exists A,B>0$, 使得 $\left| f(z) \right|\leq A\cdot e^{B\left| z \right|^{\rho}}$ 
 这关系到$f$在无穷远处的行为. 我们定义**函数f的阶**$\rho_{f}=\inf\rho$, $\rho$是满足阶数大于$f$的值
 
->[!哈达马因子分解定理 (Hadamard Factoriaztion Theorem)]
+> [!Note] 哈达马因子分解定理 (Hadamard Factoriaztion Theorem)
 令$f:\mathbb{C}\to \mathbb{C}$是一个增长阶数为$\rho_{0}$的整函数. $k=[\rho_{0}]$代表向下取整的整数.
 如果$\{a_{n}\}$是$f$的零点, 且$a_{n}\neq0\forall n$, 那么存在多项式$P$, $\text{degree }P\leq k$ 使得
 >$$

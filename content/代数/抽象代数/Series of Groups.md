@@ -11,7 +11,7 @@ $G$ is a finite sequence $H_0, H_1, \cdots, H_n$ of subgroups of $G$ such that $
 
  A subnormal (normal) series $(K_j)$ is a **refinement of a subnormal (normal) series**  $\{H_i\}$ of a group $G$ if $\{H_i\} \subseteq (K_j)$, that is, if each $H_i$ is one of the $K_j$.
 ### 1.1.1 Zassenhaus Lemma
->[!Zassenhaus Lemma]
+> [!Note] Zassenhaus Lemma
 Let $H,K \leq G$ be subgroups and $H^* \leq H,K^* \leq K$ be normal subgroups of $H$ and $K$, respectively. Then
 >1. $H^*(H \cap K^*)$ is a normal subgroup of $H^*(H \cap K)$,
 >2. $K^*(H^* \cap K)$ is a normal subgroup of $K^*(H \cap K)$, and
@@ -20,7 +20,7 @@ Let $H,K \leq G$ be subgroups and $H^* \leq H,K^* \leq K$ be normal subgroups of
 ![[Pasted image 20251025222444.png|500]]
 
 ### 1.1.2  The Schreier Theorem and Proof
->[!The Schreier Theorem and Proof ]
+> [!Note] The Schreier Theorem and Proof 
 >two series of groups must have isomorphic refinement
 
  Let $G$ be a group and let
@@ -89,7 +89,7 @@ $$
 ## 1.2 Jordan-Holder Theorem
  A subnormal series $(H_i)$  of a group $G$ is a \textbf{composition series} if all the factor groups $H_{i+1}/H_i$ are simple. A normal series $(H_i)$  of $G$ is a  **principal** or  **chief** series if all the factor groups $H_{i+1}/H_i$ are simple.
 
->[!Jordan-Holder Theorem]
+> [!Note] Jordan-Holder Theorem
 >Any two composition(principal) series of a group is isomorphic
 
 due to Scherier Theorem, if $\{H_{i}\},\{K_{i}\}$ are composition series of G, then they must have ismorphic refinement. However, every factor decided by series is simple. That is, no more subnormal group can be added to the series.
@@ -134,13 +134,13 @@ It's easy to examine $G_{k}$ are all the normal subgroup of $G$
 G is a **Nilpotent Group**, when the descending central series comes to be $\{e\}$
 It c is the smallest integer that makes $G_{c}=\{e\}$ , c is called nilpotency class of G
 
->[!Theorem]
+> [!Note] Theorem
 >If G is sovable group, then all the normal subgroup and factor group of G is solvable
 
 The theorem of normal subgroup is trival
 As for factor group, we only need to observe that $\gamma:G\to G /K$ preserve commucator in $G / K$
 
->[! Theorem]
+> [!Note]  Theorem
 G is a solvable group, and $K\triangleleft G$. Then, G is solvable if and only if both K and $G /K$ is solvable
 
 Collorary

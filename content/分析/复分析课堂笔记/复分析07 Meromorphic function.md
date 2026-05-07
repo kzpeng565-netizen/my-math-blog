@@ -85,7 +85,7 @@ Let $g(z)=f\left(  \frac{1}{z} \right)$ for $z\neq 0$. Then we say that f has a 
 
 # 3. Characterization of Rational Functions
 
->[! Theorem]
+> [!Note]  Theorem
 Assume that f is a meromorphic function on $\mathbb{C}$, such that f has pole or removable singularity at $\infty$
 Then f is a **rational function**. That is, $\exists$ polynomials $P,Q$ with $Q\not\equiv 0$, s.t. $f=\frac{P}{Q}$
 
@@ -150,7 +150,7 @@ $f_{\infty}$ is polynomial, $\sum f_{k}$ is rational, $C\in \mathbb{C}$
 ## 3.2 Discussion
 
 **Remark**
->[!method of turn a meromorphic function to a holomorphic function]
+> [!Note] method of turn a meromorphic function to a holomorphic function
 In the proof, we use the following method
 Every principal part is a meromorphic function on $\mathbb{C}$
 Thus if f has finitely many poles $p_{1},\dots,p_{n}$ and $f_{1},\dots,f_{n}$ are the principal parts then 

@@ -7,7 +7,7 @@ tags:
 
 ## 1.1 Riemann Mapping Theorem
 **Theorem** (Riemann Mapping theorem)
-> [!Riemann Mapping Theorem]
+> [!Note] Riemann Mapping Theorem
 > Every simply connected proper open subset $\Omega \subset \mathbb{C}$ is conformal to the unit disk $\mathbb{D}$.
 
 **Idea of Proof**: Consider all holomorphic maps from $\Omega$ to $\mathbb{D}$ and find an "extreme" element, then show it is a conformal map.
@@ -35,7 +35,7 @@ Set $f_n(z) = z + \frac{1}{n}$ for all $n \in \mathbb{N}_{>0}, z \in \mathbb{C}$
 
 
 **Theorem** (Montel's Theorem)
-> [!Montel's Theorem] 一致有界全纯函数族就是满足紧子集等度连续的正规族
+> [!Note] Montel's Theorem 一致有界全纯函数族就是满足紧子集等度连续的正规族
 > Assume that $\mathcal{F}$ is a family of holomorphic functions on $\Omega$ which is uniformly bounded on any compact subset.
 > Then,
 > 1.  $\mathcal{F}$ is equicontinuous on compact sets.

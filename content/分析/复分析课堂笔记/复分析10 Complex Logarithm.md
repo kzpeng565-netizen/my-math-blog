@@ -10,7 +10,7 @@ tags:
 # 1. Complex Logarithm
 
 ## 1.1 Theorem (Existence of Complex Logarithm) 
->[!Theorem]
+> [!Note] Theorem
 >Let $f:\Omega \to \mathbb{C}$ be a holomorphic function, $\Omega$ simply connected and $f(z)\neq 0$ for all $z\in\Omega$. Then there exists $g:\Omega \to \mathbb{C}$ such that $f=e^{g}$.
 
 ### 1.1.1 Proof
@@ -56,7 +56,7 @@ $$
 This means $u$ is a **harmonic function**.
 
 ## 2.3 Theorem (Harmonic Functions and Holomorphic Functions)
->[!Theorem]
+> [!Note] Theorem
 >Let $\Omega$ be a **simply connected subset** of $\mathbb{C}$. A function $u:\Omega\to \mathbb{R}$ is harmonic (i.e., $u\in C^{2}$ and $\Delta u=0$) if and only if there exists a holomorphic function $f:\Omega \to \mathbb{C}$ such that $u=\mathrm{Re}(f)$.
 
 ### 2.3.1 Proof

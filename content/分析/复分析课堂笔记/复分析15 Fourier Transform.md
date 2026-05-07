@@ -21,7 +21,7 @@ $\mathcal{F}_{a}=\left\{ f:S_{a}\to \mathbb{C}\text{ holomorphic and }\exists A>
 # 2. Main Theorems
 
 ## 2.1 Exponential Decay of the Fourier Transform
->[!Theorem]
+> [!Note] Theorem
 >Assume that $f\in \mathcal{F}_{a}$ for some $a>0$. Then for any $0<b<a$, $\exists B>0$ such that $\left| \hat{f}(\xi) \right|<Be^{-2\pi b\left| \xi \right|}$.
 
 ### 2.1.1 Proof Sketch and Details
@@ -55,7 +55,7 @@ Let $B=\pi A$. Then, $\left| \int_{L_{1}}g \right|\leq \left| \int_{L_{2}}g \rig
 %%能延拓的越远(a越大), 指数衰减越快%%
 
 ## 2.2 Fourier Inversion Formula
->[!Theorem]
+> [!Note] Theorem
 >If $f\in \mathcal{F}$, then the Fourier inversion holds. That is $f(x)=\int_{-\infty}^{+\infty} \hat{f}(\xi)e^{2\pi ix \xi}​	 \, d\xi$ for all $x\in \mathbb{R}$.
 
 ### 2.2.1 A Useful Lemma
@@ -136,7 +136,7 @@ f(x) = \int_{-\infty}^{+\infty} \hat{f}(\xi)e^{2\pi i\xi x} \, d\xi.
 $$
 
 # 3. Poisson Summation Formula
->[!Theorem]
+> [!Note] Theorem
 >Let $f\in \mathcal{F}$. Then $\sum_{n\in \mathbb{Z}}f(n)=\sum_{n\in \mathbb{Z}}\hat{f}(n)$.
 
 ## 3.1 Proof of Poisson Summation Formula

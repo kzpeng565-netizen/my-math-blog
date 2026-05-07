@@ -16,7 +16,7 @@ Let $\emptyset\neq\Omega \subset\Omega'\subset \mathbb{C}$ be connected open set
 Let $f:\Omega \to \mathbb{C}$, and $F,G:\Omega'\to \mathbb{C}$ be holomorphic functions.  
 $F$ is called an **analytic continuation** of $f$ if $F|_{\Omega}=f$.
 
->[!Proposition]
+> [!Note] Proposition
 >If $F$ and $G$ are analytic continuations of $f$ on $\Omega'$, then $F=G$.  
 >This means that holomorphic functions are **rigid**.
 
@@ -29,7 +29,7 @@ $F-G=0, \:when \: x\in\Omega'$
 
 ## Morera's Theorem
 
->[!Theorem 5.1: Morera's Theorem]
+> [!Note] Theorem 5.1: Morera's Theorem
 >Suppose $f$ is a continuous function in the open disc $D$ such that for any triangle $T$ contained in $D$:
 >$$
 >\int_{T} f(z)  dz = 0,
@@ -42,7 +42,7 @@ $\int_{T} f(z)  dz = 0,$可以得到$F=\int_{\gamma}f(z)dz$，$\gamma$是如[[�
 
 ## Sequence of Holomorphic Functions
 
->[!Theorem 5.2 内闭一致收敛推出极限函数是全纯函数]
+> [!Note] Theorem 5.2 内闭一致收敛推出极限函数是全纯函数
 >If $\{f_n\}_{n=1}^{\infty}$ is a sequence of holomorphic functions that converges uniformly to a function $f$ in every compact subset of $\Omega$, then $f$ is holomorphic in $\Omega$.
 
 此处$\Omega$是连通开集
@@ -65,7 +65,7 @@ Thus, $\int_{T}f=0$.
 **Example**: This property does not hold for $C^{\infty}$ real functions. Let $f_{n}(x)=\sqrt{x^{2}+ \frac{1}{n}}$ for all $n$, for all $x\in \mathbb{R}$.  
 $f_{n}\to f=|x|$, but $|x|$ is not differentiable at $0$.
 
->[!Theorem 5.3 原函数内闭一致连续推出导函数内闭一致收敛]
+> [!Note] Theorem 5.3 原函数内闭一致连续推出导函数内闭一致收敛
 >Under the hypotheses of the previous theorem, the sequence of derivatives $\{f_n'\}_{n=1}^{\infty}$ converges uniformly to $f'$ on every compact subset of $\Omega$.
 
 Similarly, we can show that for any $k\in\mathbb{N}$, $\{f_{n}^{(k)}\}$ converges uniformly to $f^{(k)}$ on any compact subset.
@@ -117,7 +117,7 @@ is a holomorphic function on $\Omega$.
 
 ## Holomorphic Functions Defined in terms of integral
 
->[!Theorem]
+> [!Note] Theorem
 >Let $F(z,s):\Omega \times [0,1]\to \mathbb{C}$, $(z,s)\to F(z,s)$, where $\Omega \subset \mathbb{C}$ is compact.  
 >Assume that:
 >1. For any $s\in[0,1]$, $F(z,s)$ is a holomorphic function in $z$.
@@ -166,7 +166,7 @@ This proves that $\{f_{n}\}$ converges uniformly on $\bar{D}$ to $f$, and comple
 
 ## Symmetry Principle
 
->[!Theorem 5.5: Symmetry Principle]
+> [!Note] Theorem 5.5: Symmetry Principle
 >If $f^{+}$ and $f^{-}$ are holomorphic functions in $\Omega^{+}$ and $\Omega^{-}$ respectively, that extend continuously to $I$ and
 >$$
 >f^{+}(x) = f^{-}(x) \quad \text{for all } x \in I,
@@ -186,7 +186,7 @@ We will then check with Morera's theorem.
 
 ![[Pasted image 20251020144206.png]]
 
->[!Theorem]
+> [!Note] Theorem
 >Assume that $\Omega$ is as in the previous theorem.  
 >Let $f^{+}:\Omega^{+}\to \mathbb{C}$ be a holomorphic function such that $f^{+}$ extends continuously on $I$, and that $f|_{I}$ has real values. Then the function
 >$$

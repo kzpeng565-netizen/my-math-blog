@@ -13,7 +13,7 @@ $$
 $$
 我们可以将 $\Gamma(s)$ 延拓到上半平面 $\mathrm{Re}(s) > 0$。
 
->[!命题]
+> [!Note] 命题
 >函数 $\Gamma :s\to \int_{0}^{+\infty} e^{-t}t^{s-1}  dt$ 在区域 $\{s\in \mathbb{C}\mid\mathrm{Re}(s)>0\}$ 上是良定义的全纯函数。
 
 ### 1.1.1 证明思路与过程
@@ -54,7 +54,7 @@ $$
 # 2. Gamma函数的解析延拓
 
 ## 2.1 延拓为亚纯函数
->[!定理 1.3]
+> [!Note] 定理 1.3
 >函数 $\Gamma(s)$ 首先是定义在 $\mathrm{Re}(s)>0$ 上的，它可以解析延拓到整个复数集 $\mathbb{C}$ 上的亚纯函数，它的极点都是单极点，并且就是负整数 $s=0,-1, \cdots$ 。函数 $\Gamma$ 在极点 $s=-n$ 处的留数为 $(-1)^n / n!$ ．
 
 ### 2.1.1 证明思路 (利用递推关系)
@@ -97,7 +97,7 @@ $$
 # 3. Gamma函数的函数方程与余元公式
 
 ## 3.1 余元公式 (反射公式)
->[!定理]
+> [!Note] 定理
 >对任意 $s\in \mathbb{C}$,
 >$$
 >\Gamma(1-s)\Gamma(s)= \frac{\pi}{\sin(\pi s)}
@@ -137,7 +137,7 @@ $$
 ## 4.1 倒数Gamma函数的性质
 **推论**：由余元公式可得 $\frac{1}{\Gamma(s)}= \frac{\sin \pi s}{\pi}\cdot\Gamma(1-s)$。
 
->[!定理 1.6]
+> [!Note] 定理 1.6
 >1.  $\frac{1}{\Gamma(s)}$ 是一个整函数，整数 $s=0,-1,\dots$ 是它的单零点，并且它不存在其他的零点。
 >2.  函数 $\frac{1}{\Gamma(s)}$ 是指数增长的，存在 $\left| \frac{1}{\Gamma(s)} \right|\leq c_{1}e^{c_{2}\left| s \right|\log \left| s \right|}$，因此 $\frac{1}{\Gamma(s)}$ 是一阶的，意思是对任意的 $\varepsilon>0$，存在有界函数 $c(\varepsilon)$ 使得 $\left| \frac{1}{\Gamma(s)} \right|\leq c(\varepsilon)e^{c_{2}\left| s \right|^{1+\varepsilon}}$。
 
@@ -196,7 +196,7 @@ $$
 然后 $\sum_{n=1}^{N}u_{n}=\sum_{n=1}^{N}1/n-\log(N+1)=\left( \sum_{n=1}^{N} \frac{1}{n }-\log N \right)-\log\left( 1+\frac{1}{N} \right)$。
 因此，$\sum_{n=1}^{+\infty}u_{n}$ 是绝对收敛的，又因为 $\log\left( 1+\frac{1}{N} \right)\to0$ ，当 $N\to+\infty$，我们得到 $\gamma=\sum_{n=1}^{+\infty}u_{n}$。
 
->[!定理 1.7]
+> [!Note] 定理 1.7
 >$$
 >\frac{1}{\Gamma(s)}=e^{\gamma s}\cdot s \prod_{n=1}^{+\infty} \left( 1+ \frac{s}{n} \right)e^{-\frac{s}{n}}
 >$$

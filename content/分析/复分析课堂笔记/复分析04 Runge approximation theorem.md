@@ -6,7 +6,7 @@ tags:
 #复分析 #课堂笔记
 ## 1.1 Runge's Theorem
 
->[!Theorem 5.7]
+> [!Note] Theorem 5.7
 >Any function holomorphic in a neighborhood of a compact set $K$ (which means, $f:\Omega \to \mathbb{C},\Omega \supset K$) can be approximated uniformly on $K$ by rational functions whose singularities are in $K^c$.
 >
 >If $K^c$ is connected, any function holomorphic in a neighborhood of $K$ can be approximated uniformly on $K$ by polynomials.
@@ -23,7 +23,7 @@ tags:
 
 ## 1.2 Key Lemma
 
->[!Lemma 4.8]
+> [!Note] Lemma 4.8
 >With the same notation, there are paths $\gamma_1,\dots,\gamma_{N}$ such that $\gamma_n \subset \Omega-K$ and
 >$$
 >f(z)=\sum_{n=1}^{N} \int_{\gamma_{n}} \frac{f(\xi)}{\xi-z}d\xi

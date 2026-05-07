@@ -10,7 +10,7 @@ $(f^{-1})'(z)=\frac{1}{f'(f^{-1}(z))}=\frac{1}{f'(w)},w=f^{-1}(z)$
 
 **Definition**: Let $U,V$ be open in $\mathbb{C}$. Let $f:U\to V$ be a bijective map. We say that $f$ is **biholomorphic** (or **conformal**) if $f$ is holomorphic. In this case, we say that $U,V$ are **conformally equivalent**, or $U$ and $V$ are **biholomorphic**.
 
->[!Property]
+> [!Note] Property
 >If $f:U\to V$ is conformal, then $f'(z)\neq 0$ for all $z\in U$. In particular, $f^{-1}$ is holomorphic.
 
 ### 1.1.1 Proof Outline
@@ -41,7 +41,7 @@ Let $z_1$ be one such zero. Since $f$ is not constant and $f'$ is holomorphic, t
 
 **Definition**: Unit disc $\mathbb{D}=\{z\in \mathbb{C},|z|<1\}$, Upper half-plane $\mathbb{H}=\{z\in \mathbb{C}|\mathrm{Im}(z)>0\}$.
 
->[! Theorem]
+> [!Note]  Theorem
 > Let $F(z)=\frac{i-z}{i+z}$, $G(w)=i\frac{1-w}{1+w}$. Then $F:\mathbb{H}\to \mathbb{D}$, $G:\mathbb{D}\to \mathbb{H}$ are conformal, and $F\circ G(w)=w$, $G\circ F(z)=z$.
 
 ### 1.2.1 Proof of the Theorem
@@ -104,7 +104,7 @@ u|_{\partial\Omega}=f
 $$
 where $f$ is a given continuous function on $\partial\Omega$, and we assume $\lim_{z\to+\infty,z\in \partial\Omega}|f(z)|=0$. 
 
->[! Lemma]
+> [!Note]  Lemma
 > Let $F:U\to V$ be a conformal map. Let $u:U\to \mathbb{R}$ be a $C^2$ function. Then, $u$ is harmonic if and only if $u\circ F$ is harmonic on $U$.
 
 ### 1.4.1 Proof of the Lemma

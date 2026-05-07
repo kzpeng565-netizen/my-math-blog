@@ -5,7 +5,7 @@ tags:
 ---
 #抽象代数 #习题 
 
->[!练习1-1]
+> [!Note] 练习1-1
 >设 $p$ 和 $q$ 是两个不同的素数，$p<q$。证明：阶为 $pq$ 的群 $G$ 只有如下两种可能：
 >（i）循环群；
 >（ii）$G$ 是非交换的，此时其 Sylow $q$－子群是正规的，而且 $p \mid (q-1)$。
@@ -49,7 +49,7 @@ $$
 设 $Q=\langle a\rangle$ 且 $P=\langle b\rangle$ 。那么共轭作用 $b^i \mapsto \phi_{b^i}\left(a^j\right)=b^i a^j b^{-i}$ 是 $P \cong C_p$ 到 $\operatorname{Aut}\left(C_q\right)=C_{q-1}$的非平凡同态。设 $\phi_b(a)=a^r$ 即可得到之前的表现。如果 $r_1, r_2$ 是两个不同的解，则存在 $n \not \equiv 0(\bmod q)$ 使得 $r_2=n r_1$ ，用 $a^n$ 替代 $a$ 即可知得到上述表现与 $r$ 无关。
 最后，我们知道 $G$ 一定是亚循环群（循环群被循环群的扩张），故 $G$ 可解。当 $|G|=15$ 时，因 $3 \nmid(5-1)=4$ ，我们知道 15 阶群只能为循环群。
 
->[!练习1-2]
+> [!Note] 练习1-2
 > 设 $p$ 和 $q$ 是奇素数。证明: 阶为 $2pq$ 的群是可解的。
 
 根据六个条件: $n_{2}\equiv 1(\text{mod }2);\: n_{p}\equiv 1(\text{mod }p);\:n_{q}\equiv 1(\text{mod q})$$n_{2}|2pq;\:n_{p}|2pq;\:n_{q}|2pq$ 
@@ -77,7 +77,7 @@ $$
 由Sylow/ Cauchy, G中有2n阶元$\sigma$ $\phi(\sigma)=(a_{1},b_{1})\dots(a_{n},b_{n})$形如此
 $$G\to S_{2n}\to \{\pm1\},\sigma \to p(\sigma)\to-1\: \text{is onto, then}\:ker(sgn(\phi))​	​	​	​	​	​	​	\triangleleft G $$​	​	**例** 90阶群不是单群
 
->[!练习1-3]
+> [!Note] 练习1-3
 >设 $G$ 为一个单群，阶为 $p^{\alpha} m$，其中 $\alpha \geqslant 1$，且 $m$ 不被 $p$ 整除。记 $n_{p}$ 为 $G$ 的 Sylow $p$－子群个数。证明 $|G| \mid n_{p}!$。
 
 记所有的Sylow p-subgroup的集合为$\mathcal{L}$, $\lvert \mathcal{L} \rvert=n_{p}$
@@ -88,7 +88,7 @@ $$G\to S_{2n}\to \{\pm1\},\sigma \to p(\sigma)\to-1\: \text{is onto, then}\:ker(
 下面这个方法适用于$n_{p}$小, $\lvert G \rvert$大, $G$非单
 $G\curvearrowright Sylo(G)$, 有同态$\rho:G\to S_{n_{p}},g\to \{P\to gPg^{-1}\}$ $ker(\rho)=\{e\}$ $\lvert G \rvert|n_{p}!$
 
->[!练习1-4]
+> [!Note] 练习1-4
 >证明：若群的阶为 $p^{m} q^{n}$，其中 $p<q$，$1 \leqslant m \leqslant 2$，$n \geqslant 1$，则该群不是单群。
 
 假设该群是单群, 则Sylow子群每一个共轭类至少与两个元素.
@@ -100,7 +100,7 @@ $n_{p}\equiv1 \quad(\text{mod }p)=1\quad(\text{mod 2})$​	所以$n_{p}=3^{k}$
 $n_{q}=n_{3}=4$ $\lvert G \rvert|n_{3}! =24$ 然而$\lvert G \rvert=4\cdot3^{n}$
 
 
->[!练习1-5]
+> [!Note] 练习1-5
 >证明：阶为 $p^{2} q$ 或 $p^{3} q$ 的群都不是单群。
 
 假设不是单群
@@ -119,7 +119,7 @@ $n_{p}=q$ 可以得到$q>p$
 ($nq=p^{3}$​) 如果$n_{p}$大,$p$小, 计算元素
 所有的Sylow q-子群的并$-\{e\}$, 有$p^{3}(q-1)$个元, 正好留下来$p^{3}$​	个元组成$Sylow$ p-子群是唯一的. 所以$G$ 不是单群.
 
->[!练习1-6]
+> [!Note] 练习1-6
 >试证明，若群 $G$ 的阶 $\leq 59$，则该群可解。
 
 ![[习题课6.pdf#page=3&rect=62,264,541,410|习题课6, p.3]]
@@ -150,7 +150,7 @@ $$
 同样 $\langle P, Q\rangle$ 的阶大于 27 且是 9 的倍数。所以 $|\langle P, Q\rangle|=36,72$ 或 144 。显然 $|\langle P, Q\rangle|$ 不能为 72 。如果 $|\langle P, Q\rangle|=144$ ，此时由于 $P$ 和 $Q$ 是交换群，我们有 $P \cap Q \triangleleft\langle P, Q\rangle$ ，于是 $|M|=1$ 。而所有 Sylow 3－子群一共包含除单位元外共 $16 \times(9-1)=128$ 个元素。而剩余的 16 个元素将导致 $n_2$ 只能为 1 ，矛盾。所以 $|\langle P, Q\rangle|=36$ 。此时 $G$ 在 $|\langle P, Q\rangle|$ 的左陪集上的作用诱导由 $G$ 到 $S_4$ 的单同态。但是又有 $|G| \nmid 4$ ！。因此 $G$ 一定非单。
 
 
->[!练习2-1]
+> [!Note] 练习2-1
 >在 $A_{5}$ 中找出 Sylow 2－子群、Sylow 3－子群、Sylow 5－子群的个数。
 
 
@@ -176,13 +176,13 @@ Since Syl_2(A_5) is a conjugacy class, it follows that these five subgroups are 
 设$x$是2阶元
 那么 $\lvert  \rvert$
 
->[!练习2-2]
+> [!Note] 练习2-2
 >设 $G$ 为一个阶为 60 的单群。证明 $G$ 的 2－Sylow 子群的个数等于 5 或 15。
 
 $n_{2}$是奇数, 所以$n_{2}=3,5,15$, 只需排除3
 设$\mathcal{L}$是所有Sylow 2-子群的集合, $\varphi:G\to S(\mathcal{L}),g\to gPg^{-1}$ 是一个群同态, 由于G是单群, $\varphi$是单同态. $\lvert S(\mathcal{L}) \rvert=6<\lvert G \rvert$, 与单射矛盾, 因此只可能为5, 15
 
->[!练习2-3]
+> [!Note] 练习2-3
 >由此推得 $G$ 一定含有一个阶为 12 的子群。
 
 如果$n_{2}=5$, 设$\mathcal{S}$是所有Sylow 2-子群的集合, 由于$G$的共轭作用在$\mathcal{S}$上只有一个轨道. $|\mathcal{S}|=|O(P)|=|G /Stab(P)|= \frac{|G|}{|N(P)|}$ where $N(P)$ is normalizer of P.
@@ -215,7 +215,7 @@ $\lvert C_{G}(k) \rvert<15$​	, so $\lvert C_{G}(k) \rvert>12$
 
 
 
->[!练习2-4]
+> [!Note] 练习2-4
 >作出你的结论。
 
 解答。考虑 $G$ 在左陪集 $G / H$ 上的左乘作用，我们知道 $G$ 同构于 $S_5$ 的子群。而 $A_5$ 是 $S_5$ 的唯一指数为 2 的子群（因为任意元素的平方都在 $A_5$ 内）。所以必有 $G$ 同构于 $A_5$ 。
@@ -235,7 +235,7 @@ $act:GL_{n}(\mathbb{F}_{q})\to \mathbb{F}_{q}^{\times},\lvert \mathbb{F} ^{\time
 Therefore, we have $\lvert SL_{n}(\mathbb{F}_{q}) \rvert= \frac{\lvert GL_{n}(\mathbb{F}_{q}) \rvert}{q-1}$
 $\lvert PSL_{n}(\mathbb{F}_{q}) \rvert= \frac{\lvert SL_{n}(\mathbb{F})_{q} \rvert}{gcd(n,q-1)}$​	
 
->[!练习3-1]
+> [!Note] 练习3-1
 >求 $\mathrm{GL}_{n}(\mathbb{F}_{p})$ 的阶。
 
 对第一行分析, 第一行不能为0, 有$p^{n}-1$种
@@ -244,7 +244,7 @@ $\lvert PSL_{n}(\mathbb{F}_{q}) \rvert= \frac{\lvert SL_{n}(\mathbb{F})_{q} \rve
 ...
 $\lvert GL_{n}(\mathbb{F}_{p}) \rvert=\prod_{k=0}^{n-1}(p^{n}-p^{k})$ 
 
->[!练习3-2]
+> [!Note] 练习3-2
 >写出一个 $\mathrm{GL}_{n}(\mathbb{F}_{p})$ 的 $p$－Sylow 子群。
 
 $\lvert GL_{n}(\mathbb{F}_{p}) \rvert=\prod_{k=0}^{n-1}(p^{n}-p^{k})=p^{\frac{n(n-1)}{2}}(p^{n}-1)(p^{n-1}-1)\dots(p-1)$ 
@@ -259,7 +259,7 @@ $$
 $$​	矩阵在 $\star$ 处取任意值, 对角线是1 下三角全为0.
 可以看出, 这样的矩阵构成一个乘法群, 阶为$p^{\frac{n(n-1)}{2}}$
 
->[!练习3-3]
+> [!Note] 练习3-3
 >计算 $\mathrm{GL}_{n}(\mathbb{F}_{p})$ 的 $p$－Sylow 子群的个数（给出显式公式）。
 
 思路: 已经得到了一个p-子群, 那么只需要计算共轭类即可. 如果能知道3-2中的群的正规子群阶数, 问题就能被解决.
@@ -281,7 +281,7 @@ $$
 $$
 
 
->[!练习3-4]
+> [!Note] 练习3-4
 >验证上述个数满足 Sylow 第三定理。
 
 $n_{p}=\prod_{j=1}^{n}(1+p+p^{2}+\dots+p^{j-1})$ ​	对每一项显然有$1+p+\dots+p^{j-1}\equiv1(\text{mod p})$ 
@@ -289,7 +289,7 @@ $\lvert GL_{n}(\mathbb{F}_{p}) \rvert=p^{\frac{n(n-1)}{2}}(p^{n}-1)(p^{n-1}-1)\d
 $n_{p}=\prod_{j=1}^{n} \frac{p^{j} - 1}{p - 1}$ 
 ​所以$n_{p}\:|\:\lvert GL_{n}(\mathbb{F}_{p})​	​	 \rvert$
 
->[!练习4-1]
+> [!Note] 练习4-1
 >当 $n>2$ 且 $n \neq 6$ 时，$S_{n}$ 的所有自同构都是内自同构。
 
 ### 补充的引导题目
@@ -304,7 +304,7 @@ $n_{p}=\prod_{j=1}^{n} \frac{p^{j} - 1}{p - 1}$
 (1)检验后显然
 (2)
 
->[!引理: 两个置换共轭当且仅当循环分解具有相同类型]
+> [!Note] 引理: 两个置换共轭当且仅当循环分解具有相同类型
 
 证明: 对任意 $\tau \in S_n$ ，有 $\tau\left(i_1 i_2 \ldots \ldots i_r\right) \tau^{-1}=\left(\tau\left(i_1\right) \tau\left(i_2\right) \ldots \ldots \tau\left(i_r\right)\right)$设 $\alpha$ 和 $\beta$ 有相同的轮换结构。
 $$
@@ -318,7 +318,7 @@ $$
 \end{aligned}
 $$
 
->[!共轭类计算公式]
+> [!Note] 共轭类计算公式
 对于共轭类型形如$1^{a_{1}}2^{a_{2}}\dots k^{a_{k}}$的置换, $a_{i}$代表在一个置换中长度为i循环的个数, 并且$a_{1}+2a_{2}+\dots+ka_{k}=n$则共轭类的大小为 
 >$$
  \frac{n!}{\prod_{i=1}^{k} (i^{a_{i}}a_{i}!)}
@@ -338,7 +338,7 @@ $$
 
 
 
->[!练习4-2]
+> [!Note] 练习4-2
 >$S_{6}$ 存在不是内自同构的自同构。
 
 $S_6$ 有外自同构，可将传递置换表示映射到另一类共轭类（如将 15 个对换映射到 15 个三元积对换）。

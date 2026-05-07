@@ -28,7 +28,7 @@ f^{(n)}(z) = \frac{n!}{2\pi i} \int_{C} \frac{f(\zeta)}{(\zeta - z)^{n+1}} \, d\
 
 # 1.Cauchy 定理的证明
 ## 1.1 证明全纯函数在开集内一定有原函数
->[!a basic theorem of primitive]
+> [!Note] a basic theorem of primitive
 if a continuous function  has a primitive $F$ in$\Omega$ , and $\gamma$ is a curve in $\Omega$ that begins at $w_1$ and ends at $w_2$, then
 >$$
 \begin{align*}
@@ -45,7 +45,7 @@ $$
 \end{align*}$$
 So for any closed curve $\gamma$ , the integration equals 0
 
->[! theorem 1.1] 
+> [!Note]  theorem 1.1 
 >If $\Omega$ is an open set in $\mathbb{C}$, and $T \subseteq \Omega$ a triangle whose interior is also contained in $\Omega$, then$\int_{T} f(z) \, dz = 0\textit{whenever}$ $f$ is holomorphic in $\Omega$. 
 
 ![[Pasted image 20251013133848.png]]
@@ -74,7 +74,7 @@ $$
 \end{align*}
 $$
 
->[! Theorem 2.1 主要定理]
+> [!Note]  Theorem 2.1 主要定理
 >a holomorphic function in an open disc has a primitive in that disc
 
 without loss of generality, we assume the center of the disc D is $0\in \mathbb{Z}$
@@ -127,7 +127,7 @@ due to the porperty of open set we can find a slightly open set that contains C 
 ![[Pasted image 20251013143417.png|400]]
 # 2. Cauchy integral formula
 
->[!Theorem 4.1]
+> [!Note] Theorem 4.1
 > Suppose $f$ is holomorphic in an open set that contains the closure of a disc $D$. If $C$ denotes the boundary circle of this disc with the positive orientation, then
 >$$
 \begin{align*}
@@ -158,7 +158,7 @@ $$
 f(z)= \frac{1}{2\pi i} \int_{C} \frac{f(\xi)}{\xi-z}d\xi
 $$
 
->[! derivative for n tiems]
+> [!Note]  derivative for n tiems
 If $f$ is holomorphic in an open set $\Omega$, then $f$ has infinitely many complex derivatives in $\Omega$. Moreover, if $C \subset \Omega$ is a circle whose interior is also contained in $\Omega$, then
 >$$
 \begin{align*}

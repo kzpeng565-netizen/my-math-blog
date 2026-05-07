@@ -6,7 +6,7 @@ tags:
 # 1. Schwarz Lemma
 
 ## 1.1 Schwarz Lemma
->[!Schwarz Lemma]
+> [!Note] Schwarz Lemma
 >Let $f:\mathbb{D}\to \mathbb{D}$ be a holomorphic function such that $f(0)=0$. Then:
 >1. $\lvert f(z) \rvert\leq \lvert z \rvert,\: \forall z\in \mathbb{D}$
 >2. If $\exists z_{0}\in \mathbb{D}$ with $\lvert f(z_{0}) \rvert=\lvert z_{0} \rvert$, then $f$ is a rotation
@@ -56,7 +56,7 @@ Thus $\lvert \psi_{\alpha}(e^{i\theta}) \rvert=1$.
 Bijectivity follows from $\psi_{\alpha}\circ\psi_{\alpha}(z)=z$.
 
 ## 2.2 Classification of Automorphisms of $\mathbb{D}$
->[!Theorem: Automorphisms of the Unit Disk]
+> [!Note] Theorem: Automorphisms of the Unit Disk
 >Let $f:\mathbb{D}\to \mathbb{D}$ be an automorphism. Then $\exists\alpha\in \mathbb{D}$, $\theta\in[0,2\pi)$, such that $f(z)= e^{i\theta}\cdot \frac{\alpha-z}{1-\bar{\alpha}z}$
 
 **Key point** $f(\alpha)=0$ $g(z)=f(\psi_{\alpha}(z))$ is an automorphism $0\to0$. 
@@ -89,7 +89,7 @@ Thus $Aut(\mathbb{H})\cong Aut(\mathbb{D})$.
 
 For $M=\begin{pmatrix}a & b \\ c & d\end{pmatrix}\in SL_{2}(\mathbb{R})$, define $f_{M}(z)=\frac{az+b}{cz+d}$.
 
->[!Theorem: Automorphisms of the Upper Half-Plane]
+> [!Note] Theorem: Automorphisms of the Upper Half-Plane
 >Every automorphism of $\mathbb{H}$ can be written as $f(z)=\frac{az+b}{cz+d}$ for some $\begin{pmatrix}a & b \\ c & d\end{pmatrix}\in SL_{2}(\mathbb{R})$
 
 ### 3.2.1 Proof Outline
