@@ -81,3 +81,18 @@ export const defaultListPageLayout: PageLayout = {
   ],
   right: [],
 }
+
+comments: {
+    provider: 'giscus',
+    options: {
+      repo: 'kzpeng565-netizen/my-math-blog',
+      repoId: 'R_kgDOSWdnRw',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOSWdnR84C8g7E',
+      mapping: 'pathname',
+      strict: false,
+      reactionsEnabled: true,
+      inputPosition: 'bottom',
+      theme: 'preferred_color_scheme', // 跟随系统暗黑/白天模式
+    }
+  },
