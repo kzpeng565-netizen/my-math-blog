@@ -8,8 +8,8 @@ tags:
 > [!Note] Theorem: the power series expansion of a holomorphic function
 >Suppose f is holomorphic at a open disc centered at $z_{0}$, and the closure is contained in $\Omega$, then f has power series expansion at $z_{0}$
 >$$\begin{align*}
-f(z) = \sum_{n=0}^{\infty} a_n (z - z_0)^n
-\end{align*}$$
+> f(z) = \sum_{n=0}^{\infty} a_n (z - z_0)^n
+> \end{align*}$$
 
 
 $a_{n}= \frac{f^{(n)}}{n!}$And the convergent radius is at list the radius of D

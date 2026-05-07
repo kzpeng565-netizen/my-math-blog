@@ -10,7 +10,7 @@ tags:
 > [!Note] a theorem that counts a set by group action
 >Let X be a finite G-set(left action set), $Gx$ refers to an orbit. We have
 >$$
-\lvert X \rvert =\sum_{i=1}^{r}\lvert Gx_{i}​	 \rvert=\lvert X_{G} \rvert +\sum_{i=s+1}^{r}\lvert Gx_{i} \rvert
+> \lvert X \rvert =\sum_{i=1}^{r}\lvert Gx_{i}​	 \rvert=\lvert X_{G} \rvert +\sum_{i=s+1}^{r}\lvert Gx_{i} \rvert
 >$$
 where $X_{G}=\{x\in X|gx=x,\:\forall g\in G\}$
 
@@ -18,13 +18,13 @@ where $X_{G}=\{x\in X|gx=x,\:\forall g\in G\}$
 > [!Note]  Corollary for  G is a p-group
 >Let G be a group of order $p^{n}$ and let $Z$​	be a finite G-set. Then
 >$$
-\lvert X \rvert \equiv \lvert X_{G} \rvert \quad \text{mod}\  p
-$$
+> \lvert X \rvert \equiv \lvert X_{G} \rvert \quad \text{mod}\  p
+> $$
 
 
 > [!Note]  Corollary for the set is the group itself
 >$$
-\lvert G \rvert =\lvert Z(G) \rvert +n_{c+1}+\dots+n_{r}
+> \lvert G \rvert =\lvert Z(G) \rvert +n_{c+1}+\dots+n_{r}
 >$$
 >where $n_{i}$ refers to numbers of conjugation class
 
@@ -69,7 +69,7 @@ Necessary. If G is a p-group, but $\lvert G \rvert=p^{n}q$ (to simplify, q is a 
 > [!Note] Lemma
 >Let H be a p-subgroup of a finite group G. Then
 >$$(N[H]:H)\equiv(G:H)(\text{mod}\: p)
-$$
+> $$
 
 
 ^05529e

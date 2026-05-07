@@ -31,10 +31,10 @@ f^{(n)}(z) = \frac{n!}{2\pi i} \int_{C} \frac{f(\zeta)}{(\zeta - z)^{n+1}} \, d\
 > [!Note] a basic theorem of primitive
 if a continuous function  has a primitive $F$ in$\Omega$ , and $\gamma$ is a curve in $\Omega$ that begins at $w_1$ and ends at $w_2$, then
 >$$
-\begin{align*}
-\int_\gamma f(z) \, dz = F(w_2) - F(w_1).
-\end{align*}
-$$
+> \begin{align*}
+> \int_\gamma f(z) \, dz = F(w_2) - F(w_1).
+> \end{align*}
+> $$
 
 $$
 \begin{align*}
@@ -130,9 +130,9 @@ due to the porperty of open set we can find a slightly open set that contains C 
 > [!Note] Theorem 4.1
 > Suppose $f$ is holomorphic in an open set that contains the closure of a disc $D$. If $C$ denotes the boundary circle of this disc with the positive orientation, then
 >$$
-\begin{align*}
-f(z) = \frac{1}{2\pi i} \int_C \frac{f(\zeta)}{\zeta - z} d\zeta \quad \text{for any point } z \in D.
-\end{align*}$$
+> \begin{align*}
+> f(z) = \frac{1}{2\pi i} \int_C \frac{f(\zeta)}{\zeta - z} d\zeta \quad \text{for any point } z \in D.
+> \end{align*}$$
 
 ==注意条件要求包含圆盘的开邻域全纯== 
 ![[Pasted image 20251013143933.png|400]]
@@ -161,9 +161,9 @@ $$
 > [!Note]  derivative for n tiems
 If $f$ is holomorphic in an open set $\Omega$, then $f$ has infinitely many complex derivatives in $\Omega$. Moreover, if $C \subset \Omega$ is a circle whose interior is also contained in $\Omega$, then
 >$$
-\begin{align*}
-f^{(n)}(z) = \frac{n!}{2\pi i} \int_{C} \frac{f(\zeta)}{(\zeta - z)^{n+1}} \, d\zeta
-\end{align*}$$
+> \begin{align*}
+> f^{(n)}(z) = \frac{n!}{2\pi i} \int_{C} \frac{f(\zeta)}{(\zeta - z)^{n+1}} \, d\zeta
+> \end{align*}$$
 for all $z$ in the interior of $C$.
 
 $$

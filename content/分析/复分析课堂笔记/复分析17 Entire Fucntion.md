@@ -8,7 +8,7 @@ tags:
 > [!Note] Jensen Formula(零点个数与模长对数平均)
 >设 $\Omega$ 表示包含圆盘 $D_R$ 的闭包的开集，$f$ 在 $\Omega$ 上全纯，$f(0) \ne 0$，在 $C_R$ 上不等于 0。如果 $z_1, \dots, z_N$ 表示 $f$ 在圆盘内的零点（包含重数），那么
 >$$
-\log |f(0)| = \sum_{k=1}^{N} \log\left( \frac{|z_k|}{R} \right) + \frac{1}{2\pi}\int_{0}^{2\pi} \log |f(R e^{i\theta})| \, d\theta
+> \log |f(0)| = \sum_{k=1}^{N} \log\left( \frac{|z_k|}{R} \right) + \frac{1}{2\pi}\int_{0}^{2\pi} \log |f(R e^{i\theta})| \, d\theta
 >$$
 
 **Remark**

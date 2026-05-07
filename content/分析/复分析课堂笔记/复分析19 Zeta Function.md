@@ -39,7 +39,7 @@ $\left| \theta(t)-1 \right|\leq C\cdot e^{-\pi t}$ 对任意$t\geq​	1$ 对某�
 > [!Note] 三个函数的关系
 >如果$\mathrm{Re}(s)>1$, 那么
 >$$
-\pi^{-\frac{s}{2}}\Gamma\left( \frac{s}{2} \right)\zeta(s)=\frac{1}{2}\int_{0}^{+\infty} u^{\left( \frac{s}{2} \right)-1}[\theta(u)-1] \, du
+> \pi^{-\frac{s}{2}}\Gamma\left( \frac{s}{2} \right)\zeta(s)=\frac{1}{2}\int_{0}^{+\infty} u^{\left( \frac{s}{2} \right)-1}[\theta(u)-1] \, du
 >$$
 
 $$
@@ -86,8 +86,8 @@ $$
 > [!Note] xi函数的性质
 >当$\mathrm{Re}(s)>1$​	时, $\xi$函数是全纯的. 并且可以解析延拓到整个复平面$\mathbb{C}$上全纯, 且$s=0,s=1$是它的极点, 而且是单的. 此外, 对于任意的$s\in \mathbb{C}$, 
 >$$
-\xi(s)=\xi(1-s)\quad \text{关于}\mathrm{Re}=\frac{1}{2}\text{对称}
-$$
+> \xi(s)=\xi(1-s)\quad \text{关于}\mathrm{Re}=\frac{1}{2}\text{对称}
+> $$
 
 证明
 $\theta(u)=u^{-\frac{1}{2}}\theta(u^{-1})$  for $u>0$. 令$\psi(u)=\frac{1}{2}(\theta(u)-1),\psi(u)=\sum_{n=1}^{+\infty}e^{-\pi n^{2}u}$.

@@ -34,7 +34,7 @@ $$
 > [!Note] 例子-模p不可约判定
 >令 $f(x) = x^4 - x - 1 \in \mathbb{Z}[x]$，它是首一的。取素数 $p=2$，模 2 后得到：
 >$$
-\bar{f}(x) = x^4 + x + 1 \in \mathbb{F}_2[x].
+> \bar{f}(x) = x^4 + x + 1 \in \mathbb{F}_2[x].
 >$$
 >接下来验证 $\bar{f}(x)$ 在 $\mathbb{F}_2$ 上不可约。
 
