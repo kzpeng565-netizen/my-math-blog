@@ -38,7 +38,12 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+  title: "笔记目录", // 左侧显示的标题
+  folderDefaultState: "open", // 👈 核心：设为 open 即可默认展开
+  folderClickBehavior: "collapse", // 点击文件夹标题时折叠/展开
+  useSavedState: true, // 记录用户上次的折叠状态（可选）
+}),
   ],
   right: [
     Component.Graph(),
@@ -49,7 +54,13 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()
+   Component.RecentNotes({
+      title: "📅 最近更新",    // 列表上方的标题
+      limit: 5,               // 限制显示 5 篇
+      showTags: true,         // 是否显示笔记的标签
+      linkFullPages: true,    // 是否显示“查看更多”链接
+    })],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
@@ -62,7 +73,12 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      title: "笔记目录",
+      folderDefaultState: "open", // 已为你设置为默认展开
+      folderClickBehavior: "collapse",
+      useSavedState: true,
+    }),
   ],
   right: [],
 }
