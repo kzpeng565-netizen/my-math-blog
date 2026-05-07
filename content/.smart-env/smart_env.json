@@ -1,0 +1,80 @@
+{
+  "is_obsidian_vault": true,
+  "smart_blocks": {
+    "embed_blocks": true,
+    "min_chars": 200
+  },
+  "smart_sources": {
+    "single_file_data_path": ".smart-env/smart_sources.json",
+    "min_chars": 200,
+    "embed_model": {
+      "adapter": "lm_studio",
+      "transformers": {
+        "legacy_transformers": false,
+        "model_key": "TaylorAI/bge-micro-v2"
+      },
+      "TaylorAI/bge-micro-v2": {},
+      "lm_studio": {
+        "model_key": "text-embedding-bge-large-zh-v1.5",
+        "models": {
+          "text-embedding-bge-large-zh-v1.5": {
+            "id": "text-embedding-bge-large-zh-v1.5",
+            "model_name": "text-embedding-bge-large-zh-v1.5",
+            "max_tokens": 2048,
+            "description": "LM Studio model: text-embedding-bge-large-zh-v1.5",
+            "adapter": "lm_studio"
+          },
+          "text-embedding-nomic-embed-text-v1.5": {
+            "id": "text-embedding-nomic-embed-text-v1.5",
+            "model_name": "text-embedding-nomic-embed-text-v1.5",
+            "max_tokens": 512,
+            "description": "LM Studio model: text-embedding-nomic-embed-text-v1.5",
+            "adapter": "lm_studio"
+          }
+        }
+      },
+      "": {},
+      "text-embedding-bge-large-zh-v1.5": {}
+    },
+    "excluded_headings": "",
+    "file_exclusions": "Untitled",
+    "folder_exclusions": "copilot,Excalidraw,markdown output"
+  },
+  "ribbon_icons": {
+    "connections": true,
+    "random_note": false
+  },
+  "smart_view_filter": {
+    "render_markdown": true,
+    "show_full_path": false,
+    "exclude_blocks_from_source_connections": false,
+    "exclude_frontmatter_blocks": true,
+    "expanded_view": true,
+    "results_limit": "20"
+  },
+  "language": "en",
+  "new_user": true,
+  "re_import_wait_time": 13,
+  "smart_chat_threads": {
+    "chat_model": {
+      "adapter": "ollama",
+      "ollama": {}
+    },
+    "active_thread_key": "",
+    "system_prompt": "",
+    "detect_self_referential": true,
+    "review_context": true,
+    "stream": true,
+    "language": "en",
+    "modifier_key_to_send": "shift",
+    "use_tool_calls": true
+  },
+  "smart_notices": {
+    "muted": {
+      "embedding_complete": true,
+      "done_import": true,
+      "embedding_paused": true
+    }
+  },
+  "version": ""
+}
