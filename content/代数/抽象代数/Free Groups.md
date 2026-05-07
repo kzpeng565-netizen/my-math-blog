@@ -25,7 +25,7 @@ Abel群的自由分解
 # 2. 自由群的同态定理
 
 > [!Note] 自由群的泛性质
-设群 $G$ 由集合 $A=\left\{a_i \mid i \in I\right\}$ 生成，$G^{\prime}$ 是任意一个群。如果对于每个 $i \in I$，在 $G^{\prime}$ 中任意指定了一个元素 $a_i^{\prime}$（这些元素可以重复），那么**至多**存在一个同态 $\phi: G \rightarrow G^{\prime}$ 满足 $\phi\left(a_i\right)=a_i{ }^{\prime}$。如果 **G 在 A 上是自由的**，则**恰好**存在一个这样的同态。
+> 设群 $G$ 由集合 $A=\left\{a_i \mid i \in I\right\}$ 生成，$G^{\prime}$ 是任意一个群。如果对于每个 $i \in I$，在 $G^{\prime}$ 中任意指定了一个元素 $a_i^{\prime}$（这些元素可以重复），那么**至多**存在一个同态 $\phi: G \rightarrow G^{\prime}$ 满足 $\phi\left(a_i\right)=a_i{ }^{\prime}$。如果 **G 在 A 上是自由的**，则**恰好**存在一个这样的同态。
 
 **注**：条件“$G$ 由 $A$ 生成”意味着生成元之间可能存在关系，例如可能有 $m \neq n$ 使得 $a^{m}=a^{n}$。而当 $G$ 在 $A$ 上自由时，所有形如 $a^{k}$ 的元素都是互不相同的。
 
@@ -47,7 +47,7 @@ $$
 因为 $F[A]$ 中的元素都是唯一的约化词形式，不存在两个不同的形式乘积表示同一个群元素，所以 $\psi$ 是良定义的。由于指数运算在 $G^{\prime}$ 和 $G$ 中遵循形式相同的规则，易验证对任意 $x, y \in G$，有 $\psi(x y)=\psi(x) \psi(y)$。因此，$\psi$ 确实是一个满足要求的同态。
 
 > [!Note]  推论
-任一群 $G^{\prime}$ 都是某个自由群 $G$ 的同态像。
+> 任一群 $G^{\prime}$ 都是某个自由群 $G$ 的同态像。
 
 设 $G^{\prime}$ 的生成元集为 $\left\{a_i{ }^{\prime} \mid i \in I\right\}$。取一个与之下标集相同的集合 $A=\left\{a_i \mid i \in I\right\}$，并令 $G=F[A]$ 为由 $A$ 生成的自由群。根据上述定理，存在同态 $\psi: G \to G^{\prime}$ 使得 $\psi\left(a_i\right)=a_i{ }^{\prime}$。显然，$\psi$ 的像就是整个 $G^{\prime}$。
 

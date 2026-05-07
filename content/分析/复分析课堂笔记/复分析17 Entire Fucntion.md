@@ -109,7 +109,7 @@ $$
 
 > [!Note] Theorem
 >给定任意 $a_n$，$\lim_{n\to\infty} |a_n| = +\infty$，存在整函数 $f$，满足 $z=a_n$ 处为 0，其余地方没有零点。
-进一步地，对于任何其他的整函数 $F$，我们有 $F(z) = f(z) e^{g(z)}$，这里 $g(z)$ 是某一个整函数。
+> 进一步地，对于任何其他的整函数 $F$，我们有 $F(z) = f(z) e^{g(z)}$，这里 $g(z)$ 是某一个整函数。
 
 **证明思路：**
 假设 $f$ 存在，那么 $\frac{F(z)}{f(z)}$ 是在 $\mathbb{C}$ 上全纯函数，并且没有零点。
@@ -161,8 +161,8 @@ $$
 这关系到$f$在无穷远处的行为. 我们定义**函数f的阶**$\rho_{f}=\inf\rho$, $\rho$是满足阶数大于$f$的值
 
 > [!Note] 哈达马因子分解定理 (Hadamard Factoriaztion Theorem)
-令$f:\mathbb{C}\to \mathbb{C}$是一个增长阶数为$\rho_{0}$的整函数. $k=[\rho_{0}]$代表向下取整的整数.
-如果$\{a_{n}\}$是$f$的零点, 且$a_{n}\neq0\forall n$, 那么存在多项式$P$, $\text{degree }P\leq k$ 使得
+> 令$f:\mathbb{C}\to \mathbb{C}$是一个增长阶数为$\rho_{0}$的整函数. $k=[\rho_{0}]$代表向下取整的整数.
+> 如果$\{a_{n}\}$是$f$的零点, 且$a_{n}\neq0\forall n$, 那么存在多项式$P$, $\text{degree }P\leq k$ 使得
 >$$
 >f(z)=e^{P(z)}z^{m}\prod_{n=1}^{+\infty}E_{n}\left( \frac{z}{a_{n}} \right)
 >$$

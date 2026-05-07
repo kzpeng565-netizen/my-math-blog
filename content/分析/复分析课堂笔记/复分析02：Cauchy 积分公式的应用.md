@@ -123,7 +123,7 @@ This theorem demonstrates the *isolated zeros* property of holomorphic functions
 
 
 > [!Note] Liouville's theorem
-Assume that $f:\mathbb{C}\to \mathbb{C}$ is holomorphic. If f is bounded, then f is constant.
+> Assume that $f:\mathbb{C}\to \mathbb{C}$ is holomorphic. If f is bounded, then f is constant.
 
 ^113820
 

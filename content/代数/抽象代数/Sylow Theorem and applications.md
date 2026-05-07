@@ -12,7 +12,7 @@ tags:
 >$$
 > \lvert X \rvert =\sum_{i=1}^{r}\lvert Gx_{i}​	 \rvert=\lvert X_{G} \rvert +\sum_{i=s+1}^{r}\lvert Gx_{i} \rvert
 >$$
-where $X_{G}=\{x\in X|gx=x,\:\forall g\in G\}$
+> where $X_{G}=\{x\in X|gx=x,\:\forall g\in G\}$
 
 
 > [!Note]  Corollary for  G is a p-group
@@ -40,7 +40,7 @@ The third one is because conjugation can be seen as a group action.
 
 
 > [!Note] Corollary:  Burnside theorem
-Let p be prime number. The center of any p-group is nontrivial.
+> Let p be prime number. The center of any p-group is nontrivial.
 
 Proof.
 $\lvert G \rvert\equiv\lvert Z(G) \rvert\quad (p)$ . And we know $Z(G)\neq \emptyset$, So $\lvert Z(G) \rvert>1$ 
@@ -141,7 +141,7 @@ the order of $\mathcal{F}$ devides $\lvert G \rvert$ due to Langrange Theorem.
 # 3. applications and examples
 
 > [!Note] Fraleigh(7ed) Example37.14 
-No group of order 36 is simple
+> No group of order 36 is simple
 
 *Such a group $G$ has either 1 or 4 subgroups of order 9 . If there is only one such subgroup, it is normal in $G$. If there are four such subgroups, let $H$ and $K$ be two of them. $H \cap K$ must have at least 3 elements, or $H K$ would have to have 81 elements, from $|H K|=|H||K| /|H \cap K|$. Thus the normalizer of $H \cap K$ has as order a multiple of $>1$ of 9 (**Since Lagrange Theorem**) and a divisor of 36 ; hence the order must be either 18 or 36 . If the order is 18 , the normalizer is then of index 2 and therefore is normal in $G$. If the order is 36 , then $H \cap K$ is normal in $G$.*
 

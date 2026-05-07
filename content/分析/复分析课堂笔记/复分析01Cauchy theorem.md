@@ -29,7 +29,7 @@ f^{(n)}(z) = \frac{n!}{2\pi i} \int_{C} \frac{f(\zeta)}{(\zeta - z)^{n+1}} \, d\
 # 1.Cauchy 定理的证明
 ## 1.1 证明全纯函数在开集内一定有原函数
 > [!Note] a basic theorem of primitive
-if a continuous function  has a primitive $F$ in$\Omega$ , and $\gamma$ is a curve in $\Omega$ that begins at $w_1$ and ends at $w_2$, then
+> if a continuous function  has a primitive $F$ in$\Omega$ , and $\gamma$ is a curve in $\Omega$ that begins at $w_1$ and ends at $w_2$, then
 >$$
 > \begin{align*}
 > \int_\gamma f(z) \, dz = F(w_2) - F(w_1).
@@ -159,12 +159,12 @@ f(z)= \frac{1}{2\pi i} \int_{C} \frac{f(\xi)}{\xi-z}d\xi
 $$
 
 > [!Note]  derivative for n tiems
-If $f$ is holomorphic in an open set $\Omega$, then $f$ has infinitely many complex derivatives in $\Omega$. Moreover, if $C \subset \Omega$ is a circle whose interior is also contained in $\Omega$, then
+> If $f$ is holomorphic in an open set $\Omega$, then $f$ has infinitely many complex derivatives in $\Omega$. Moreover, if $C \subset \Omega$ is a circle whose interior is also contained in $\Omega$, then
 >$$
 > \begin{align*}
 > f^{(n)}(z) = \frac{n!}{2\pi i} \int_{C} \frac{f(\zeta)}{(\zeta - z)^{n+1}} \, d\zeta
 > \end{align*}$$
-for all $z$ in the interior of $C$.
+> for all $z$ in the interior of $C$.
 
 $$
 \frac{\partial^{k}}{\partial z^{k}}\left(  \frac{f(\xi)}{\xi-z} \right)= \frac{k!f(\xi)}{(\xi-z)^{k+1}}

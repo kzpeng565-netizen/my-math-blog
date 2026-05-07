@@ -12,7 +12,7 @@ $G$ is a finite sequence $H_0, H_1, \cdots, H_n$ of subgroups of $G$ such that $
  A subnormal (normal) series $(K_j)$ is a **refinement of a subnormal (normal) series**  $\{H_i\}$ of a group $G$ if $\{H_i\} \subseteq (K_j)$, that is, if each $H_i$ is one of the $K_j$.
 ### 1.1.1 Zassenhaus Lemma
 > [!Note] Zassenhaus Lemma
-Let $H,K \leq G$ be subgroups and $H^* \leq H,K^* \leq K$ be normal subgroups of $H$ and $K$, respectively. Then
+> Let $H,K \leq G$ be subgroups and $H^* \leq H,K^* \leq K$ be normal subgroups of $H$ and $K$, respectively. Then
 >1. $H^*(H \cap K^*)$ is a normal subgroup of $H^*(H \cap K)$,
 >2. $K^*(H^* \cap K)$ is a normal subgroup of $K^*(H \cap K)$, and
 >3. The factor groups $H^*(H \cap K)/H^*(H \cap K^*)$, $K^*(H \cap K)/K^*(H^* \cap K)$, and $(H \cap K)/(H^* \cap K)(H \cap K^*)$ are all isomorphic.
@@ -141,7 +141,7 @@ The theorem of normal subgroup is trival
 As for factor group, we only need to observe that $\gamma:G\to G /K$ preserve commucator in $G / K$
 
 > [!Note]  Theorem
-G is a solvable group, and $K\triangleleft G$. Then, G is solvable if and only if both K and $G /K$ is solvable
+> G is a solvable group, and $K\triangleleft G$. Then, G is solvable if and only if both K and $G /K$ is solvable
 
 Collorary
 H and K are solvable subgroup of G, then HK is also a solvable subgroup
