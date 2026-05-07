@@ -2,7 +2,8 @@
 tags:
   - 分析
 title: 阿贝尔变换
-permalink: abel-transformation
+aliases:
+  - 阿贝尔变换
 ---
 阿贝尔变换是指求和式 $\sum_{i=1}^n a_ib_i$ 的以下变换. 设 $A_k = \sum_{i=1}^k a_i$，再取 $A_0 = 0$，则
  $$
