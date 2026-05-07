@@ -19,6 +19,16 @@ export const sharedPageComponents: SharedLayout = {
         inputPosition: 'bottom',
       }
     }),
+    // 核心：添加一个条件渲染器
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "📅 最近更新",
+        limit: 5,
+        showTags: true,
+      }),
+      // 只有当页面的 slug 是 "index"（即首页）时才渲染
+      condition: (page) => page.fileData.slug === "index",
+    }),
   ],
   footer: Component.Footer({
     links: {
@@ -68,12 +78,7 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta(),
-   Component.RecentNotes({
-      title: "📅 最近更新",    // 列表上方的标题
-      limit: 5,               // 限制显示 5 篇
-      showTags: true,         // 是否显示笔记的标签
-    })],
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta(),],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
