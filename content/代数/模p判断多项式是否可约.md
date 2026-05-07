@@ -2,6 +2,7 @@
 tags:
   - 代数
   - 多项式
+publish: "true"
 ---
  
 ## 1. 简述 
