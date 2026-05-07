@@ -6,6 +6,16 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+        // 核心：添加一个条件渲染器
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "📅 最近更新",
+        limit: 5,
+        showTags: true,
+      }),
+      // 只有当页面的 slug 是 "index"（即首页）时才渲染
+      condition: (page) => page.fileData.slug === "index",
+    }),
     Component.Comments({
       provider: 'giscus',
       options: {
@@ -18,17 +28,7 @@ export const sharedPageComponents: SharedLayout = {
         reactionsEnabled: true,
         inputPosition: 'bottom',
       }
-    }),
-    // 核心：添加一个条件渲染器
-    Component.ConditionalRender({
-      component: Component.RecentNotes({
-        title: "📅 最近更新",
-        limit: 5,
-        showTags: true,
-      }),
-      // 只有当页面的 slug 是 "index"（即首页）时才渲染
-      condition: (page) => page.fileData.slug === "index",
-    }),
+    })
   ],
   footer: Component.Footer({
     links: {
