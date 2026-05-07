@@ -2,8 +2,6 @@
 
 // put your custom CSS here!
 
-@use "./base.scss";
-
 // 1. 让左侧边栏强制瘦身 (默认是 380px，我们把它缩减到 240px)
 .page .left.sidebar {
   width: 240px !important; // 你可以根据感觉自己微调这个数字，比如 200px 或 280px
