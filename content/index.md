@@ -1,6 +1,7 @@
 ---
 title: Welcome to Conrad's Math World
 publish: "true"
+color: "#87CEEB"
 ---
 欢迎来到我的个人博客！我是 Conrad Peng，这里是我记录数学推导、学习心得的地方，个人博客刚开始建立，完善ing
 
