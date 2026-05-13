@@ -48,29 +48,40 @@ $$
 **我们算得公式, 对公式直接求导验证波方程即可** 
 
 ---
-$Lu=\sum_{\left| \alpha \right|\leq l}a_{\alpha}(x)\partial^{\alpha}u$ , $\alpha=(\alpha_{1},\dots,\alpha_{n})$ 
+
+一般地Duhamel Principle
+$$
+Lu=\sum_{\left| \alpha \right|\leq l}a_{\alpha}(x)\partial^{\alpha}u,\qquad \alpha=(\alpha_{1},\dots,\alpha_{n})
+$$
+
 $$
 \left\{\begin{array}{l}
-\frac{\partial^k u}{\partial t^k}+L u=f(x, t) \\
-u \|_{t=0}^n=\left.\frac{\partial u}{\partial t}\right|_{t=0}=\left.\cdots \frac{\partial^{k+} u}{\partial t^{k-1} u}\right|_{t=0}=0
+\frac{\partial^k u}{\partial t^k}+L u=f(x,t)\\
+u|_{t=0}=\left.\frac{\partial u}{\partial t}\right|_{t=0}=\cdots=\left.\frac{\partial^{k-1} u}{\partial t^{k-1}}\right|_{t=0}=0
 \end{array}\right.
 $$
+
 $$
 \left\{\begin{array}{l}
-\frac{\partial^k u}{\partial t^k}-L u=0 \\
-\left.u\right|_{t=\tau}=\left.\cdots \frac{\partial^{k-2}}{\partial t^{k-2}} u\right|_{t=\tau}=\left.0 \quad \frac{\partial^{k-1}}{\partial t^{k-1}} u\right|_{t=\tau}=f(x, \tau)
+\frac{\partial^k u}{\partial t^k}-L u=0\\
+u|_{t=\tau}=\cdots=\left.\frac{\partial^{k-2} u}{\partial t^{k-2}}\right|_{t=\tau}=0\quad\left.\frac{\partial^{k-1} u}{\partial t^{k-1}}\right|_{t=\tau}=f(x,\tau)
 \end{array}\right.
 $$
 
 $$
 \begin{aligned}
-\frac{\partial}{\partial t} \int_0^t W(x, t, \tau) d \tau & =W(x, t, \tau)+\int_0^t \frac{\partial}{\partial t} M(x, t, \tau) d \tau \\
-\frac{\partial^2}{\partial t^2} \int_0^t W(x, t, \tau) d \tau= & \frac{\partial}{\partial t} M(x, t, t)+\int_0^t \frac{\partial^2}{\partial^t} W(x, t, \tau) d \tau \\
-\frac{\partial^{k-1}}{\partial t^{k-1}} \int_0^t W(x, t, \tau) d \tau= & \frac{\partial^{k-2}}{\partial t^{k-2}} W(x, t, t)+\int_0^t \frac{\partial^{k-1}}{\partial t^{k-1}} W(x, t, \tau) d \tau \\
-\frac{\partial^k}{\partial t^k} \int_0^t W(x, t, \tau) d \tau= & \frac{\partial^{k-1}}{\partial t^{k-1}} W(x, t, \tau)+\int_0^t \frac{\partial^k}{\partial^t t^k} W(x, t, \tau) d \tau \\
-& =f(x, t)+L\int_0^tW(x,t,\tau)d\tau
+\frac{\partial}{\partial t} \int_0^t W(x, t, \tau) d \tau 
+  & = W(x, t, t) + \int_0^t \frac{\partial}{\partial t} W(x, t, \tau) d \tau \\
+\frac{\partial^2}{\partial t^2} \int_0^t W(x, t, \tau) d \tau 
+  & = \frac{\partial}{\partial t} W(x, t, t) + \int_0^t \frac{\partial^2}{\partial t^2} W(x, t, \tau) d \tau \\
+\frac{\partial^{k-1}}{\partial t^{k-1}} \int_0^t W(x, t, \tau) d \tau 
+  & = \frac{\partial^{k-2}}{\partial t^{k-2}} W(x, t, t) + \int_0^t \frac{\partial^{k-1}}{\partial t^{k-1}} W(x, t, \tau) d \tau \\
+\frac{\partial^k}{\partial t^k} \int_0^t W(x, t, \tau) d \tau 
+  & = \frac{\partial^{k-1}}{\partial t^{k-1}} W(x, t, t) + \int_0^t \frac{\partial^k}{\partial t^k} W(x, t, \tau) d \tau \\
+  & = f(x, t) + L\int_0^t W(x,t,\tau)\,d\tau
 \end{aligned}
 $$
+
 
 
 ---
