@@ -1,17 +1,30 @@
 @use "./base.scss";
 
 // put your custom CSS here!
-// 1. 让左侧边栏强制瘦身 (默认是 380px，我们把它缩减到 240px)
-.page .left.sidebar {
-  width: 240px !important; // 你可以根据感觉自己微调这个数字，比如 200px 或 280px
+/* 1. 缩小搜索栏和组件整体字体 */
+.search-button {
+  font-size: 0.85rem !important; 
+  padding: 0.3rem 0.6rem !important;
 }
-
-// 2. (可选) 边栏变窄后，为了防止文件夹名字太长被挤得疯狂换行，可以把目录字体稍微调小一点点
 .explorer {
-  font-size: 0.9rem;
+  font-size: 0.85rem !important; 
 }
 
-// 3. (把节省下来的空间还给中间的正文)
-.page {
-  max-width: 1400px; 
+/* 2. 强制左侧栏置顶对齐 (突破 margin 失效的限制) */
+.page .left {
+  align-self: start !important; /* 在 Grid 布局中强制顶部对齐 */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 3. 彻底重写桌面端网格，强制正文居中并缩小间隙 */
+@media all and (min-width: 1200px) {
+  .page {
+    /* Quartz 默认使用 3 列 Grid，我们直接重定义列宽比例 */
+    /* 左边栏 250px | 中间正文最大 800px | 右边栏 250px (即使为空也占位以保证严格居中) */
+    grid-template-columns: 250px minmax(auto, 800px) 250px !important;
+    gap: 2rem !important; /* 强制缩小列与列之间的巨大空隙 */
+    justify-content: center !important; /* 整个网格居中对齐 */
+    max-width: 1400px !important;
+  }
 }
