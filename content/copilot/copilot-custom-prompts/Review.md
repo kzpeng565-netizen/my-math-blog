@@ -3,7 +3,7 @@ copilot-command-context-menu-enabled: true
 copilot-command-slash-enabled: true
 copilot-command-context-menu-order: 40
 copilot-command-model-key: ""
-copilot-command-last-used: 0
+copilot-command-last-used: 1780853646781
 ---
 作为我极其理性的学术导师，请无情地复盘我近期的效率表现。
 请读取我记录番茄钟的笔记 {[[番茄钟统计与每日习惯]]} ，并比对我 {[[ToDo-已经规划好的任务]]} 中的 `[🍅:: 预估/实际]` 数据。

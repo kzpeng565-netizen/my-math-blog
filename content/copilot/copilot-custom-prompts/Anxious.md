@@ -3,7 +3,7 @@ copilot-command-context-menu-enabled: true
 copilot-command-slash-enabled: true
 copilot-command-context-menu-order: 30
 copilot-command-model-key: deepseek-v4-pro|deepseek
-copilot-command-last-used: 0
+copilot-command-last-used: 1780853563833
 ---
 我现在事情太多，极其焦虑，想要逃避现实去建政或刷手机。请立刻接管我的大脑！
 读取 {[[任务管理readme]]} 中的『严格四象限分类』原则，以及我当前的待办池 {[[ToDo-任务集合]]}。
