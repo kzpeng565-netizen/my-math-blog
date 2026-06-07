@@ -113,7 +113,7 @@
     "native_notice_warning": true,
     "native_notice_error": true,
     "native_notice_attention": false,
-    "native_notice_milestone": true
+    "native_notice_milestone": false
   },
   "lookup_lists": {
     "results_collection_key": "smart_blocks",
