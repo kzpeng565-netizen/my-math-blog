@@ -3,7 +3,7 @@ copilot-command-context-menu-enabled: true
 copilot-command-slash-enabled: true
 copilot-command-context-menu-order: 90
 copilot-command-model-key: deepseek-v4-pro|deepseek
-copilot-command-last-used: 0
+copilot-command-last-used: 1780899702660
 ---
 我已经学到极限了，认知带宽彻底耗尽，感觉很累很无聊。
 请给我提供 3 个绝对低耗能、不刺激多巴胺的平静恢复方案，引导我做有意义的事，严禁让我放纵：
