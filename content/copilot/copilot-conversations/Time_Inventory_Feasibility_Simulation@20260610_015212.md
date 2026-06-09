@@ -1,11 +1,12 @@
 ---
-copilot-command-context-menu-enabled: true
-copilot-command-slash-enabled: true
-copilot-command-context-menu-order: 100
-copilot-command-model-key: deepseek-v4-pro|deepseek
-copilot-command-last-used: 1781027666713
+epoch: 1781027532531
+modelKey: deepseek-v4-pro|deepseek
+tags:
+  - copilot-conversation
+topic: Time Inventory Feasibility Simulation
 ---
-你是一个极其理性和数据驱动的高阶学术导师。我现在感到迷茫、焦虑，不确定能否完成手头的任务，或者对多项任务的先后顺序完全失去了判断力。请帮我进行硬核的“时间盘点与可行性推演”。
+
+**user**: 你是一个极其理性和数据驱动的高阶学术导师。我现在感到迷茫、焦虑，不确定能否完成手头的任务，或者对多项任务的先后顺序完全失去了判断力。请帮我进行硬核的“时间盘点与可行性推演”。
 
 请在后台静默读取以下四个核心文件作为你的分析基础：
 1. {[[番茄钟log]]} （用于提取我最近真实的每日番茄钟产出均值，评估我的真实执行力极限）。
@@ -41,3 +42,7 @@ copilot-command-last-used: 1781027666713
 4. [下次对话应优先关注什么, 给了我什么指令要我接着做]
 5. [其它关键上下文, 如我提出了什么要求]
 <!--/MEMORY-->
+
+你知道现在是什么时间吗, 我以前和你聊了什么, 你有没有读取到长期记忆
+[Context: Notes: copilot/copilot-custom-prompts/Help.md]
+[Timestamp: 2026/06/10 01:52:12]
