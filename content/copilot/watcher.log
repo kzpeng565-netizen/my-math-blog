@@ -1,0 +1,56 @@
+[00:48:04] ==================================================
+[00:48:04] Copilot Memory Watcher started
+[00:48:04] Watching: D:\mathblog\quartz\content\copilot\copilot-conversations
+[00:48:04] Memory: D:\mathblog\quartz\content\copilot\copilot-command-memory
+[00:48:04] 
+[00:48:04] Existing files: 3
+[00:49:24] Processing: 你是一个极其理性和数据驱动的高阶学术导师。我现在感到迷@20260610_004922.md
+[00:49:24]   Memory saved to coach.json (116 chars)
+[00:49:29] Processing: 时间盘点与推演@20260610_004922.md
+[00:49:29]   Memory saved to coach.json (116 chars)
+[00:49:32] Processing: 时间盘点与推演@20260610_004922.md
+[00:49:32]   Memory saved to coach.json (116 chars)
+[00:49:35] Processing: 时间盘点与推演@20260610_004922.md
+[00:49:35]   Memory saved to coach.json (116 chars)
+[00:50:05] Processing: 时间盘点与推演@20260610_004922.md
+[00:50:05]   Memory saved to coach.json (116 chars)
+[00:50:08] Processing: 时间盘点与推演@20260610_004922.md
+[00:50:08]   Memory saved to coach.json (116 chars)
+[00:50:11] Processing: 时间盘点与推演@20260610_004922.md
+[00:50:11]   Memory saved to coach.json (116 chars)
+[00:50:26] Processing: 时间盘点与推演@20260610_004922.md
+[00:50:26]   Memory saved to coach.json (116 chars)
+[00:50:29] Processing: 时间盘点与推演@20260610_004922.md
+[00:50:29]   Memory saved to coach.json (116 chars)
+[00:50:34] ERROR: [WinError 2] 系统找不到指定的文件。: 'D:\\mathblog\\quartz\\content\\copilot\\copilot-conversations\\你是一个极其理性和数据驱动的高阶学术导师。我现在感到迷@20260610_005030.md'
+[00:50:41] Processing: 时间盘点可行性推演@20260610_005030.md
+[00:50:41]   Memory saved to coach.json (116 chars)
+[00:51:08] Processing: 时间盘点可行性推演@20260610_005030.md
+[00:51:08]   Memory saved to coach.json (116 chars)
+[00:51:11] Processing: 时间盘点可行性推演@20260610_005030.md
+[00:51:11]   Memory saved to coach.json (116 chars)
+[00:51:14] Processing: 时间盘点可行性推演@20260610_005030.md
+[00:51:14]   Memory saved to coach.json (116 chars)
+[00:51:17] Processing: 时间盘点可行性推演@20260610_005030.md
+[00:51:17]   Memory saved to coach.json (116 chars)
+[00:55:17] Processing: 时间盘点可行性推演@20260610_005030.md
+[00:55:17]   Memory saved to coach.json (116 chars)
+[00:55:20] Processing: 时间盘点可行性推演@20260610_005030.md
+[00:55:20]   Memory saved to coach.json (116 chars)
+[00:55:23] Processing: 时间盘点可行性推演@20260610_005030.md
+[00:55:23]   Memory saved to coach.json (116 chars)
+[00:55:31] Processing: Help@20260610_005529.md
+[00:55:31]   No CP-MEMORY-GROUP found, skipped
+[00:55:36] Processing: Help_Request@20260610_005529.md
+[00:55:36]   No CP-MEMORY-GROUP found, skipped
+[00:55:39] Processing: Help_Request@20260610_005529.md
+[00:55:39]   No CP-MEMORY-GROUP found, skipped
+[00:55:42] Processing: Help_Request@20260610_005529.md
+[00:55:42]   No CP-MEMORY-GROUP found, skipped
+[00:56:17] ERROR: [WinError 2] 系统找不到指定的文件。: 'D:\\mathblog\\quartz\\content\\copilot\\copilot-conversations\\你是一个极其理性和数据驱动的高阶学术导师。我现在感到迷@20260610_005613.md'
+[00:56:24] Processing: 硬核时间盘点推演@20260610_005613.md
+[00:56:24]   Memory saved to coach.json (116 chars)
+[00:56:46] Processing: 硬核时间盘点推演@20260610_005613.md
+[00:56:46]   Memory saved to coach.json (116 chars)
+[00:56:49] Processing: 硬核时间盘点推演@20260610_005613.md
+[00:56:49]   Memory saved to coach.json (116 chars)

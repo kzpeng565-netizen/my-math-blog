@@ -3,7 +3,7 @@ copilot-command-context-menu-enabled: true
 copilot-command-slash-enabled: true
 copilot-command-context-menu-order: 100
 copilot-command-model-key: deepseek-v4-pro|deepseek
-copilot-command-last-used: 1781021297790
+copilot-command-last-used: 1781024155126
 ---
 你是一个极其理性和数据驱动的高阶学术导师。我现在感到迷茫、焦虑，不确定能否完成手头的任务，或者对多项任务的先后顺序完全失去了判断力。请帮我进行硬核的“时间盘点与可行性推演”。
 
@@ -23,7 +23,7 @@ copilot-command-last-used: 1781021297790
 
 ### 💾 记忆锚点
 <!--CP-MEMORY-GROUP:coach-->
-请用每项一句话（不超过 20 字）总结本轮对话的核心状态：
+请用每项一句话（不超过 20 字）总结本轮对话的核心状态, 填入[]当中, 禁止改变下面的格式, 便于自动程序做正则表达式识别
 <!--MEMORY-->
 0. [当前的时间]
 1. [导师判断的当前优先级以及原因]
