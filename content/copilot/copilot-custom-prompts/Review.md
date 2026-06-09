@@ -4,8 +4,6 @@ copilot-command-slash-enabled: true
 copilot-command-context-menu-order: 40
 copilot-command-model-key: deepseek-v4-pro|deepseek
 copilot-command-last-used: 1780922865188
-copilot-command-memory-group: coach
-copilot-command-output-file: 导师-对话日志.md
 ---
 作为我极其理性的学术导师，请复盘我近期的效率表现。
 请读取我记录番茄钟的笔记 {[[番茄钟log]]} ，并比对我 {[[ToDo-已经规划好的任务]]} 中的 `[🍅:: 实际/预估]` 数据。
@@ -14,6 +12,8 @@ copilot-command-output-file: 导师-对话日志.md
 3. 给我制定一条明天的改进策略
 
 ### 💾 记忆锚点
+<!--CP-MEMORY-GROUP:coach-->
+<!--CP-OUTPUT:导师-对话日志.md-->
 请用每项一句话（不超过 20 字）总结本轮对话的核心状态：
 <!--MEMORY-->
 0. [当前的时间]
