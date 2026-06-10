@@ -3,7 +3,7 @@ copilot-command-context-menu-enabled: true
 copilot-command-slash-enabled: true
 copilot-command-context-menu-order: 40
 copilot-command-model-key: deepseek-v4-pro|deepseek
-copilot-command-last-used: 1780922865188
+copilot-command-last-used: 1781058612224
 ---
 作为我极其理性的学术导师，请复盘我近期的效率表现。
 请读取我记录番茄钟的笔记 {[[番茄钟log]]} ，并比对我 {[[ToDo-已经规划好的任务]]} 中的 `[🍅:: 实际/预估]` 数据。
@@ -11,15 +11,14 @@ copilot-command-last-used: 1780922865188
 2. 客观评价我这一天的真实执行力 , 对于高效的部分提出表扬。
 3. 给我制定一条明天的改进策略
 
-### 💾 记忆锚点
-<!--CP-MEMORY-GROUP:coach-->
-<!--CP-OUTPUT:导师-对话日志.md-->
-请用每项一句话（不超过 20 字）总结本轮对话的核心状态：
+### 💾 在结尾完成下一次指导的记忆储存
+<!--CP-MEMORY-GROUP:copilot/导师记忆-coach-->
+请用每项一句话（不超过 20 字）总结本轮对话的核心状态, 填入[]当中, 禁止改变下面的格式, 自动程序会做正则表达式识别, 成为长期记忆. 将下面的内容输出出来:
 <!--MEMORY-->
 0. [当前的时间]
 1. [导师判断的当前优先级以及原因]
 2. [我的学习状态/情绪]
-3. [过去一段对话时间我在做什么工作, 学习效率怎么样]
-4. [下次对话应优先关注什么]
+3. [过去一段对话时间我在做什么事情, 学习效率怎么样]
+4. [下次对话应优先关注什么, 给了我什么指令要我接着做]
 5. [其它关键上下文, 如我提出了什么要求]
 <!--/MEMORY-->
