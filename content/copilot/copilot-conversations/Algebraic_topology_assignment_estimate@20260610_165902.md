@@ -1,9 +1,12 @@
 ---
 epoch: 1781081942291
-modelKey: deepseek-v4-pro|deepseek
+modelKey: "deepseek-v4-pro|deepseek"
+topic: "Algebraic topology assignment estimate"
+
+
+
 tags:
   - copilot-conversation
-topic: Algebraic topology assignment estimate
 ---
 
 **user**: 这份作业你预计一下要多久
