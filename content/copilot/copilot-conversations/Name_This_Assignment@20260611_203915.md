@@ -10,7 +10,7 @@ tags:
 ---
 
 **user**: 给这份作业取一个名字
-[Context: Notes: 拓扑/13..md]
+[Context: Notes: 拓扑/13. 同调群与正合列练习.md]
 [Timestamp: 2026/06/11 20:39:15]
 
 **ai**: 
