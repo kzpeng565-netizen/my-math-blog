@@ -19,17 +19,6 @@
 
 ---
 [[分析/实分析/14.]]
-习题 14．1．设 $\mathbb{R}^n \backslash\{0\}$ 被表示成 $\mathbb{R}_{+} \times \mathbb{S}^{n-1}$ ，其中 $\mathbb{R}_{+}=\{0<r<\infty\}$ ．证明： $\mathbb{R}^n \backslash\{0\}$ 中的每个开集能被写作这个乘积中开长方体的可列并。
-提示 考察如下形式长方体的可列族
-
-$$
-\left\{r_j<r<r_k^{\prime}\right\} \times\left\{\gamma \in \mathbb{S}^{n-1}:\left|\gamma-\gamma_{\ell}\right|<1 / m\right\} .
-$$
-
-
-这里 $r_j$ 和 $r_k^{\prime}$ 取遍所有的正有理数，$\left\{\gamma_{\ell}\right\}$ 是 $\mathbb{S}^{n-1}$ 的一个可列稠密集．
-习题 14．2．设 $\left(X_j, \mathcal{M}_j, \mu_j\right), 1 \leqslant j \leqslant k$ ，是有限个测度空间．证明：能够在 $X=X_1 \times X_2 \times \cdots \times X_k$ 上构造一个乘积测度 $\mu_1 \times \mu_2 \times \cdots \times \mu_k$ ．
-提示 对任何 $E \subset X$ 具有形式 $E=E_1 \times E_2 \times \cdots \times E_k$ ，其中对所有 $j$ 有 $E_j \in \mathcal{M}_j$ ，定义 $\mu_0(E)=\prod_{j=1}^k \mu_j\left(E_j\right)$ 。验证 $\mu_0$ 可延拓成这类集合的有限互不相交并所构成的代数 $\mathcal{A}$ 上的一个准测度，然后应用 Carathéodory－Hahn 延拓定理．
 
 习题 14．3．令 $X=Y=[0,1], \mathcal{M}=\mathcal{N}=\mathcal{B}_{[0,1]}, \mu=$ Lebesgue 测度，$\nu=$ 记数测度．证明：若 $D=\{(x, x): x \in[0,1]\}$ 是 $X \times Y$ 中的对角集，则 $\iint \chi_D d \mu d \nu$ ， $\iint \chi_D d \nu d \mu$ 和 $\int \chi_D d(\mu \times \nu)$ 均不相等。
 
@@ -42,3 +31,11 @@ $$
 
 证明： $\int|f| d(\mu \times \nu)=\infty$ ，且 $\iint f d \mu d \nu$ 和 $\iint f d \nu d \mu$ 存在但不相等．
 习题 14．5．对哪些 $a, b \in \mathbb{R},|x|^a|\ln | x| |^b$ 在 $\left\{x \in \mathbb{R}^n:|x|<1 / 2\right\}$ 上 Lebesgue 可积？在 $\left\{x \in \mathbb{R}^n:|x|>2\right\}$ 上呢？
+
+---
+1.  （此为p121问题2）证明G(x,y)=G(y,x)（这里我们追求严格的数学证明，因此我们用G(x,y)=\Phi(x-y)=\phi^{x}(y)这个定义作为出发点） 
+
+2. 利用傅立叶方法推导上半平面的Poisson公式（特别的，计算\frac{1}{1+x^{2}}的傅立叶变换）
+3. 考虑上半平面的边值问题（假设边界值g连续，假设u在上半片面内部调和），证明（格林公式）给出的u在边界连续，（即x趋于边界上x^{*}， 有u（x）趋于g(x^{*})）
+4.对圆盘平行的完成问题2，3
+5.P121 1，5，6，7，8
