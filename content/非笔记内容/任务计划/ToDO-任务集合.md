@@ -3,6 +3,93 @@
 **提示, 你需要优先阅读**[[任务管理readme]]
 %%AI可能面临的提问是: 完成任务管理, 完成时间管理, 完成规划%%
 
+
+---
+
+实分析[[15.测度性质与分解习题]]
+# 1. L-S测度的基本性质
+
+> [!Note] 习题15.1
+> 设 $F$ 递增且右连续，$\mu_{F}$ 为相应的测度．证明：$\mu_{F}(\{a\})=F(a)- F\left(a^{-}\right), \mu_{F}([a, b))=F\left(b^{-}\right)-F\left(a^{-}\right), \mu_{F}([a, b])=F(b)-F\left(a^{-}\right)$，和 $\mu_{F}((a, b))= F\left(b^{-}\right)-F(a)$.
+
+# 2. 带号测度的基本性质
+
+> [!Note] 习题15.2
+> 设 $\nu$ 是可测空间 $(X, \mathcal{M})$ 上的带号测度，证明：
+> （i）$E \in \mathcal{M}$ 是 $\nu$－零集当且仅当 $|\nu|(E)=0$ ；
+> （ii）$\nu \perp \mu$ 当且仅当 $|\nu| \perp \mu$ 当且仅当 $\nu^{+} \perp \mu$ 且 $\nu^{-} \perp \mu$ ．
+
+> [!Note] 习题15.3
+> 设 $\nu$ 是可测空间 $(X, \mathcal{M})$ 上的带号测度，证明：
+> （i）$L^{1}(X, \nu)=L^{1}(X,|\nu|)$ ．
+> （ii）若 $f \in L^{1}(X, \nu)$ ，则 $\left|\int f d \nu\right| \leqslant \int|f| d|\nu|$ ．
+> （iii）若 $E \in \mathcal{M}$ ，则 $|\nu|(E)=\sup \left\{\left|\int_{E} f d \nu\right|:|f| \leqslant 1\right\}$ ．
+
+# 3. 带号测度 $\nu^{+},\nu^{-},|\nu|$ 的表达式
+
+> [!Note] 习题15.4
+> 设 $\nu$ 是可测空间 $(X, \mathcal{M})$ 上的带号测度，$E \in \mathcal{M}$ 。证明：
+> （i）$\nu^{+}(E)=\sup \{\nu(F): F \in \mathcal{M}, F \subset E\}$ 和 $\nu^{-}(E)=-\inf \{\nu(F): F \in \mathcal{M}, F \subset E\}$.
+> （ii）$|\nu|(E)=\sup \left\{\sum_{j=1}^{n}\left|\nu\left(E_{j}\right)\right|: n \in \mathbb{N}, E_{1}, \cdots, E_{n}\right.$ 互不相交且 $\left.\bigcup_{j=1}^{n} E_{j}=E\right\}$ 。
+
+# 4. Lebesgue分解与Borel测度
+
+> [!Note] 习题15.5
+> 设 $F$ 是 $\mathbb{R}$ 上的递增规范化函数，设 $F=F_{A}+F_{C}+F_{J}$ 为 $F$ 的 Lebesgue 分解，其中 $F_{A}$ 绝对连续，$F_{C}$ 连续且 $F_{C}^{\prime}=0$ a．e，$F_{J}$ 为纯跳跃函数。设 $\mu=\mu_{A}+\mu_{C}+\mu_{J}$ ，其中 $\mu, \mu_{A}, \mu_{C}, \mu_{J}$ 分别为相应于 $F, F_{A}, F_{C}, F_{J}$ 的 Borel测度．证明：
+> （i）$\mu_{A}$ 关于 Lebesgue 测度绝对连续，且对于每个 Lebesgue 可测集 $E$ 有 $\mu_{A}(E)=\int_{E} F^{\prime}(x) d x$.
+> （ii）若 $F$ 绝对连续，则当 $f$ 和 $f F^{\prime}$ 可积时，有
+> 
+>  $$
+>  \int f d \mu=\int f d F=\int f(x) F^{\prime}(x) d x
+>  $$
+> 
+> （iii）$\mu_{C}+\mu_{J}$ 与 Lebesgue 测度是相互奇异的．
+
+# 5. 带号测度关系的若干结论
+
+> [!Note] 习题15.6
+> 设 $\nu, \nu_{1}, \nu_{2}$ 是 $(X, \mathcal{M})$ 上的带号测度，$\mu$ 是 $\mathcal{M}$ 上的正测度，证明：
+> （i）若 $\nu_{1} \perp \mu$ 且 $\nu_{2} \perp \mu$ ，则 $\nu_{1}+\nu_{2} \perp \mu$ ．
+> （ii）若 $\nu_{1} \ll \mu$ 且 $\nu_{2} \ll \mu$ ，则 $\nu_{1}+\nu_{2} \ll \mu$ 。
+> （iii）若 $\nu_{1} \perp \nu_{2}$ ，则 $\left|\nu_{1}\right| \perp\left|\nu_{2}\right|$ ．
+> （iv）$\nu \ll|\nu|$ ．
+> （v）若 $\nu \perp \mu$ 且 $\nu \ll \mu$ ，则 $\nu=0$ ．
+
+# 6. 绝对连续与奇异性的等价刻画
+
+> [!Note] 习题15.7
+> 设 $\mu$ 为正测度，$\nu$ 为带号测度。证明：$\nu \ll \mu$ 当且仅当 $|\nu| \ll \mu$ 也当且仅当 $\nu^{+} \ll \mu$ 且 $\nu^{-} \ll \mu$ 。
+
+# 7. 正测度序列的奇异与绝对连续性质
+
+> [!Note] 习题15.8
+> 设 $\mu$ 和 $\left\{\nu_{j}\right\}_{j=1}^{\infty}$ 均为正测度．证明：
+> （i）若对所有 $j$ 有 $\nu_{j} \perp \mu$ ，则 $\sum_{j=1}^{\infty} \nu_{j} \perp \mu$ ；
+> （ii）若对所有 $j$ 有 $\nu_{j} \ll \mu$ ，则 $\sum_{j=1}^{\infty} \nu_{j} \ll \mu$ ．
+
+# 8. 积测度与Radon-Nikodym导数
+
+> [!Note] 习题15.9
+> 对 $j=1,2$ ，令 $\mu_{j}, \nu_{j}$ 是 $\left(X_{j}, \mathcal{M}_{j}\right)$ 上的 $\sigma$－有限测度且 $\nu_{j} \ll \mu_{j}$ 。证明：$\nu_{1} \times \nu_{2} \ll \mu_{1} \times \mu_{2}$ 且
+> >
+> > $$
+> > \frac{d\left(\nu_{1} \times \nu_{2}\right)}{d\left(\mu_{1} \times \mu_{2}\right)}\left(x_{1}, x_{2}\right)=\frac{d \nu_{1}}{d \mu_{1}}\left(x_{1}\right) \frac{d \nu_{2}}{d \mu_{2}}\left(x_{2}\right), \quad\left(\mu_{1} \times \mu_{2}\right) \text {-a.e. }
+> > $$
+
+# 9. Lebesgue分解的反例
+
+> [!Note] 习题15.10
+> 令 $X=[0,1], \mathcal{M}=\mathcal{B}_{[0,1]}, m=$ Lebesgue 测度，$\mu=\mathcal{M}$ 上的计数测度．证明：
+> （i）$m \ll \mu$ ，但对任何 $f$ 有 $d m \neq f d \mu$ 。
+> （ii）$\mu$ 关于 $m$ 不存在 Lebesgue 分解．
+
+# 10. 测度绝对连续的表示
+
+> [!Note] 习题15.11
+> 设 $\mu, \nu$ 是 $(X, \mathcal{M})$ 上的 $\sigma$－有限测度且 $\nu \ll \mu$ ，令 $\lambda=\mu+\nu$ 。证明：若 $f=d \nu / d \lambda$ ，则 $0 \leqslant f<1 \mu$－a．e．且 $d \nu / d \mu=f /(1-f)$ ．
+
+
+
 ---
 群公告
 第五章作业：6，8，15，16，贾老师第五章PPT最后一页3道题，共7题。
