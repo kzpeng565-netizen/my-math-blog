@@ -77,3 +77,136 @@ $$
 
 你的笔记里直接写 $\deg(g)=\deg(f(x))+\deg(x^{-1})=-1$ 已经隐含了零伦条件 $\deg(f)=0$，结合上下文没有问题。
 [Timestamp: 2026/06/13 19:42:50]
+
+**user**: 这个加法性质证明证明
+[Context: Notes: 拓扑/映射度的使用.md]
+[Timestamp: 2026/06/13 19:48:56]
+
+**ai**: 
+<think>我们被要求证明映射度的加法性质：对于连续映射 $f,g: S^1 \to S^1$（将 $S^1$ 视作复平面上的单位圆），定义乘法 $fg(x) = f(x)\cdot g(x)$（复数乘法），则 $\deg(fg) = \deg(f) + \deg(g)$。
+
+在笔记“映射度的使用”中，提到“加法性质: $deg(fg)=deg(f)+deg(g)$​, $f,g:S^{1}\to S^{1}$”。我们需要给出证明。用户希望证明这个性质。
+
+我们需要提供严格的证明。可以使用基本群的语言，因为 $\pi_1(S^1,1) \cong \mathbb{Z}$，而映射度对应于诱导同态 $f_*: \mathbb{Z} \to \mathbb{Z}$ 的像（即乘以 $\deg(f)$）。对于乘法映射 $fg$，它在基本群上的作用可以用 $f$ 和 $g$ 的作用表示。已知基本群 $S^1$ 的群运算是加法（来自道路的连接），而映射 $f$ 诱导的同态乘以 $\deg(f)$。那么 $fg$ 的诱导同态如何与乘法结构相关？我们视 $S^1$ 是拓扑群（复数乘法群），则乘法映射 $S^1 \times S^1 \to S^1$ 诱导基本群同态 $\pi_1(S^1 \times S^1) \cong \pi_1(S^1) \oplus \pi_1(S^1) \to \pi_1(S^1)$，也就是 $(a,b) \mapsto a+b$。而 $fg$ 是复合 $S^1 \xrightarrow{\Delta} S^1 \times S^1 \xrightarrow{f \times g} S^1 \times S^1 \xrightarrow{m} S^1$，其中 $\Delta(x)=(x,x)$，$m$ 是乘法。那么在基本群层面，$\Delta_*: \mathbb{Z} \to \mathbb{Z}\oplus\mathbb{Z}$ 是对角映射 $1 \mapsto (1,1)$，$(f\times g)_*: (a,b) \mapsto (\deg(f) a, \deg(g) b)$，$m_*: (a,b) \mapsto a+b$。复合得到 $1 \mapsto (1,1) \mapsto (\deg(f),\deg(g)) \mapsto \deg(f)+\deg(g)$。所以 $(fg)_*(1) = \deg(f)+\deg(g)$，因此 $\deg(fg) = \deg(f)+\deg(g)$。
+
+可以解释得更初等：利用覆盖空间提升的方法。设提升 $\tilde{f}, \tilde{g}: \mathbb{R} \to \mathbb{R}$ 使得 $f(e^{2\pi i t}) = e^{2\pi i \tilde{f}(t)}$，同样 $g$。那么 $fg(e^{2\pi i t}) = f(e^{2\pi i t}) g(e^{2\pi i t}) = e^{2\pi i (\tilde{f}(t) + \tilde{g}(t))}$。那么 $\tilde{f}+\tilde{g}$ 是 $fg$ 的一个提升。映射度 $\deg(fg) = (\tilde{f}+\tilde{g})(1) - (\tilde{f}+\tilde{g})(0) = (\tilde{f}(1)-\tilde{f}(0)) + (\tilde{g}(1)-\tilde{g}(0)) = \deg(f) + \deg(g)$。这需要说明提升的选取以及唯一性。由于 $fg$ 的提升与 $\tilde{f}+\tilde{g}$ 可能差一个常数整数，但度数差不变。更准确地说，选取提升 $\tilde{f}, \tilde{g}$ 满足 $\tilde{f}(0)=0, \tilde{g}(0)=0$ 那么 $\tilde{f}+\tilde{g}$ 也是提升且 $(fg)(e^{2\pi i 0})=f(1)g(1)=1$，所以提升满足 $\tilde{f}(0)+\tilde{g}(0)=0$？如果是这样，可以选择以 0 开始。总之提升方法证明很简单，适合初等水平。
+
+另外，可以用同伦论：映射 $fg$ 在基本群中的像就是 $f$ 和 $g$ 在复数乘法群下的乘积，因为 $\pi_1$ 的群运算是回路拼接，而复乘法对应于回路拼接？实际上把 $S^1$ 视为拓扑群，基本群的加法和群的乘法结构相容：回路 $\alpha, \beta$ 的逐点乘积 $\alpha \cdot \beta$ 同伦于 $\alpha$ 然后 $\beta$ 的拼接，因为 $S^1$ 是拓扑群时有 $\alpha * \beta \simeq \alpha \cdot \beta$。利用这个事实，可以得到 $(fg)_* (1) = f_*(1) + g_*(1)$。这个更代数拓扑一些。
+
+无论哪种方式，我们都可以给出证明。考虑到用户笔记是基于拓扑课程的，可能更喜欢基本群或提升的方法。我们给出一个清晰简明的证明，使用覆盖空间提升方法，并结合基本群解释。
+
+注意用户前面提到的“映射度的使用”笔记中提了加法性质。我们给出证明时要回应“证明这个加法性质”。
+
+结合上下文，用户之前问了习题中关于映射度计算是否正确，现在又问证明加法性质。我们以友好、教学的方式回答。
+
+回答结构：
+- 回顾问题：要求证明 $\deg(fg) = \deg(f) + \deg(g)$。
+- 提供两种证明：
+  1. 使用提升和覆盖空间（直观，利用实数覆盖）。
+  2. 使用基本群（更代数拓扑）。
+- 注意说明 $S^1$ 是拓扑群时的相容性。
+- 总结。
+
+最终输出用中文，带数学公式。</think>这是一个非常核心的性质，我们来透彻地证明它。  
+先把设置说清楚：把圆周看作复平面上的单位圆 \(S^1 = \{z\in\mathbb{C}: |z|=1\}\)，赋予复数乘法使之成为拓扑群。对于连续映射 \(f,g: S^1 \to S^1\)，定义乘积映射  
+\[
+(fg)(z) = f(z)\cdot g(z).
+\]  
+目标：\(\deg(fg) = \deg(f) + \deg(g)\)。
+
+下面给出两种证明——一种用覆盖空间提升，非常直观；另一种用基本群，体现代数结构。
+
+---
+
+## 证明一：用覆盖空间的提升法
+
+**回忆映射度的提升定义**：  
+复盖映射 \(p: \mathbb{R} \to S^1, \; t \mapsto e^{2\pi i t}\) 是泛复盖。对任意连续映射 \(h: S^1 \to S^1\)，存在一个提升 \(\tilde{h}: \mathbb{R} \to \mathbb{R}\) 使得  
+\[
+h(e^{2\pi i t}) = e^{2\pi i \tilde{h}(t)}, \qquad \forall t\in\mathbb{R}.
+\]  
+映射度定义为  
+\[
+\deg(h) = \tilde{h}(1) - \tilde{h}(0).
+\]  
+（提升在相差一个整常数的意义下唯一，但差值这个整数是唯一确定的。）
+
+**对 \(f\) 和 \(g\) 分别取提升**  
+选取 \(\tilde{f}, \tilde{g}: \mathbb{R}\to\mathbb{R}\)，满足  
+\[
+f(e^{2\pi i t}) = e^{2\pi i \tilde{f}(t)},\quad
+g(e^{2\pi i t}) = e^{2\pi i \tilde{g}(t)}.
+\]  
+并可以规范地要求 \(\tilde{f}(0)=0,\ \tilde{g}(0)=0\)（这不影响度数，只是让书写更干净）。
+
+**构造 \(fg\) 的提升**  
+计算：
+\[
+(fg)(e^{2\pi i t}) = f(e^{2\pi i t})\, g(e^{2\pi i t})
+= e^{2\pi i \tilde{f}(t)}\, e^{2\pi i \tilde{g}(t)}
+= e^{2\pi i \big(\tilde{f}(t) + \tilde{g}(t)\big)}.
+\]  
+所以映射 \(\widetilde{fg}(t) := \tilde{f}(t) + \tilde{g}(t)\) 正好是 \(fg\) 的一个提升。
+
+**度数的加法**  
+按照定义：
+\[
+\begin{aligned}
+\deg(fg) &= \widetilde{fg}(1) - \widetilde{fg}(0) \\
+&= \big(\tilde{f}(1)+\tilde{g}(1)\big) - \big(\tilde{f}(0)+\tilde{g}(0)\big) \\
+&= \big(\tilde{f}(1)-\tilde{f}(0)\big) + \big(\tilde{g}(1)-\tilde{g}(0)\big) \\
+&= \deg(f) + \deg(g).
+\end{aligned}
+\]
+证毕。
+
+---
+
+## 证明二：用基本群的同态观点
+
+把映射度看作诱导同态在 \(\pi_1\) 上的作用：\(\pi_1(S^1,1)\cong \mathbb{Z}\)，生成元记作 \(1\)。则连续映射 \(h: S^1\to S^1\) 给出  
+\[
+h_*: \mathbb{Z} \to \mathbb{Z}, \quad h_*(1) = \deg(h).
+\]
+
+**关键事实：** 在拓扑群 \(S^1\) 中，回路拼接与逐点乘积同伦。确切地说，若 \(\alpha, \beta\) 是以 \(1\) 为基点的回路，则回路 \(\alpha * \beta\)（先走 \(\alpha\) 再走 \(\beta\)）与逐点乘积回路 \(t\mapsto \alpha(t)\beta(t)\) 同伦。因此乘积映射  
+\[
+m: S^1\times S^1 \to S^1,\quad m(z,w)=zw
+\]  
+诱导的同态 \(m_*: \pi_1(S^1\times S^1) \cong \mathbb{Z}\oplus\mathbb{Z} \to \pi_1(S^1)\cong\mathbb{Z}\) 就是加法：  
+\[
+m_*(a,b) = a + b.
+\]
+
+**组合映射**  
+\(fg\) 可分解为：
+\[
+S^1 \xrightarrow{\;\Delta\;} S^1 \times S^1 \xrightarrow{\;f\times g\;} S^1 \times S^1 \xrightarrow{\;m\;} S^1,
+\]  
+其中 \(\Delta(x)=(x,x)\) 是对角映射。逐项查看诱导同态：
+- \(\Delta_*: \mathbb{Z} \to \mathbb{Z}\oplus\mathbb{Z}\)，\(\Delta_*(1) = (1,1)\)。
+- \((f\times g)_*: \mathbb{Z}\oplus\mathbb{Z} \to \mathbb{Z}\oplus\mathbb{Z}\)，\((a,b) \mapsto (\deg(f)\,a,\; \deg(g)\,b)\)。
+- \(m_*: (a,b) \mapsto a+b\)。
+
+复合：
+\[
+(fg)_*(1) = m_*\big( (f\times g)_*(\Delta_*(1)) \big)
+= m_*\big( \deg(f), \deg(g) \big)
+= \deg(f) + \deg(g).
+\]  
+因此 \(\deg(fg) = \deg(f) + \deg(g)\)。
+
+---
+
+## 小结
+
+- 从提升的角度看，乘积映射相当于把实数提升加起来，度数就是终点减起点，自然可加。
+- 从基本群的角度看，乘积映射在群结构下对应加法同态，度数的加性就是基本群同态保持加法。
+
+两种视角都指向同一个优雅的事实：  
+\[
+\boxed{\deg(fg) = \deg(f) + \deg(g)}.
+\]  
+
+你在笔记中做的习题恰好用到了这个性质：假定 \(f\) 零伦（度数为 0），取 \(g(z)=z^{-1}\)（度数为 -1），于是 \(fg\) 的度数就是 -1，再与可缩矛盾推出不动点。现在你知道了度数加性的来龙去脉，整个推理就严丝合缝了。
+[Timestamp: 2026/06/13 19:49:25]
