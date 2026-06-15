@@ -804,3 +804,488 @@ $$
 
 **要点**：$\mathbb{C}P^k \setminus \mathbb{C}P^{k-1} \cong \mathbb{R}^{2k}$，每一步添一个 $2k$-cell，胞腔只在偶数维，边界全零，同调即链群。
 [Timestamp: 2026/06/15 21:24:11]
+
+**user**: ### 题目 14-5：计算 (H_*(T^2)), (H_*(\mathrm{Klein\ Bottle}))
+
+我们使用胞腔同调计算。对于由多边形边识别得到的闭曲面，通常有一个标准 CW 分解：一个 (0)-胞腔，若干个 (1)-胞腔，一个 (2)-胞腔。因此胞腔链复形形如
+
+[
+0\to C_2\xrightarrow{d_2}C_1\xrightarrow{d_1}C_0\to 0.
+]
+
+因为只有一个 (0)-胞腔，每个 (1)-胞腔的两个端点都贴到同一个顶点上，所以
+
+[
+d_1=0.
+]
+
+于是关键只剩下计算 (d_2)。若 (2)-胞腔的贴附词为 (w)，则 (d_2) 由 (w) 的交换化给出：每个字母正向出现一次贡献 (+1)，反向出现一次贡献 (-1)。
+
+---
+
+### 一、计算 (H_*(T^2))
+
+环面 (T^2) 可由一个正方形按如下边识别得到：
+
+[
+aba^{-1}b^{-1}.
+]
+
+因此它有 CW 分解
+
+[
+T^2=e^0\cup e_a^1\cup e_b^1\cup e^2.
+]
+
+所以胞腔链群为
+
+[
+C_2\cong \mathbb Z,\qquad C_1\cong \mathbb Z\langle a,b\rangle,\qquad C_0\cong \mathbb Z.
+]
+
+由于只有一个 (0)-胞腔，
+
+[
+d_1=0.
+]
+
+下面计算 (d_2)。贴附词为
+
+[
+aba^{-1}b^{-1}.
+]
+
+在 (H_1) 中只看每个字母的指数和，因此
+
+[
+d_2(e^2)=a+b-a-b=0.
+]
+
+所以胞腔链复形为
+
+[
+0\to \mathbb Z\xrightarrow{0}\mathbb Z^2\xrightarrow{0}\mathbb Z\to 0.
+]
+
+于是
+
+[
+H_2(T^2)=\ker d_2\cong \mathbb Z,
+]
+
+[
+H_1(T^2)=\ker d_1/\operatorname{Im}d_2\cong \mathbb Z^2/0\cong \mathbb Z^2,
+]
+
+[
+H_0(T^2)=C_0/\operatorname{Im}d_1\cong \mathbb Z.
+]
+
+因此
+
+[
+H_k(T^2)\cong
+\begin{cases}
+\mathbb Z,& k=0,\
+\mathbb Z^2,& k=1,\
+\mathbb Z,& k=2,\
+0,& k\ge 3.
+\end{cases}
+]
+
+---
+
+### 二、计算 (H_*(\mathrm{Klein\ Bottle}))
+
+Klein bottle 可由一个正方形按如下边识别得到：
+
+[
+aba^{-1}b.
+]
+
+因此它有 CW 分解
+
+[
+K=e^0\cup e_a^1\cup e_b^1\cup e^2.
+]
+
+所以胞腔链群为
+
+[
+C_2\cong \mathbb Z,\qquad C_1\cong \mathbb Z\langle a,b\rangle,\qquad C_0\cong \mathbb Z.
+]
+
+同样地，因为只有一个 (0)-胞腔，
+
+[
+d_1=0.
+]
+
+现在计算 (d_2)。贴附词为
+
+[
+aba^{-1}b.
+]
+
+交换化后得到
+
+[
+d_2(e^2)=a+b-a+b=2b.
+]
+
+也就是说，在基 ({a,b}) 下，
+
+[
+d_2:\mathbb Z\to \mathbb Z^2,\qquad 1\mapsto (0,2).
+]
+
+所以胞腔链复形为
+
+[
+0\to \mathbb Z\xrightarrow{d_2}\mathbb Z^2\xrightarrow{0}\mathbb Z\to 0,
+]
+
+其中
+
+[
+d_2(1)=(0,2).
+]
+
+于是
+
+[
+H_2(K)=\ker d_2.
+]
+
+因为 (d_2(1)=(0,2)\neq 0)，所以 (d_2) 是单射，因此
+
+[
+H_2(K)=0.
+]
+
+再算一维同调：
+
+[
+H_1(K)=\ker d_1/\operatorname{Im}d_2.
+]
+
+由于 (d_1=0)，所以
+
+[
+\ker d_1=C_1\cong \mathbb Z^2.
+]
+
+而
+
+[
+\operatorname{Im}d_2=\langle 2b\rangle.
+]
+
+因此
+
+[
+H_1(K)\cong \mathbb Z\langle a,b\rangle/\langle 2b\rangle.
+]
+
+也就是
+
+[
+H_1(K)\cong \mathbb Z\oplus \mathbb Z/2.
+]
+
+最后
+
+[
+H_0(K)=C_0/\operatorname{Im}d_1\cong \mathbb Z.
+]
+
+因此
+
+[
+H_k(K)\cong
+\begin{cases}
+\mathbb Z,& k=0,\
+\mathbb Z\oplus \mathbb Z/2,& k=1,\
+0,& k=2,\
+0,& k\ge 3.
+\end{cases}
+]
+
+---
+
+### 三、普遍情形：闭曲面的胞腔同调计算方法
+
+对于标准闭曲面，通常可以用一个 (0)-胞腔、若干个 (1)-胞腔、一个 (2)-胞腔来表示。设
+
+[
+C_2\cong \mathbb Z,\qquad C_1\cong \mathbb Z^r,\qquad C_0\cong \mathbb Z.
+]
+
+因为只有一个 (0)-胞腔，所以
+
+[
+d_1=0.
+]
+
+关键是计算
+
+[
+d_2:C_2\to C_1.
+]
+
+若 (2)-胞腔的贴附词是 (w)，则 (d_2(1)) 等于 (w) 中各个字母的指数和组成的向量。
+
+换句话说：
+
+[
+d_2(1)=\sum_i \epsilon_i a_i,
+]
+
+其中 (\epsilon_i) 是字母 (a_i) 在贴附词中正向出现次数减去反向出现次数。
+
+因此：
+
+[
+H_2=\ker d_2,
+]
+
+[
+H_1=\mathbb Z^r/\langle d_2(1)\rangle,
+]
+
+[
+H_0\cong \mathbb Z.
+]
+
+对于可定向闭曲面 (\Sigma_g)，贴附词为
+
+[
+a_1b_1a_1^{-1}b_1^{-1}\cdots a_gb_ga_g^{-1}b_g^{-1}.
+]
+
+每个字母都正反各出现一次，所以指数和全部为 (0)。因此
+
+[
+d_2=0.
+]
+
+于是
+
+[
+H_2(\Sigma_g)\cong \mathbb Z,
+]
+
+[
+H_1(\Sigma_g)\cong \mathbb Z^{2g},
+]
+
+[
+H_0(\Sigma_g)\cong \mathbb Z.
+]
+
+所以
+
+[
+H_k(\Sigma_g)\cong
+\begin{cases}
+\mathbb Z,& k=0,\
+\mathbb Z^{2g},& k=1,\
+\mathbb Z,& k=2,\
+0,& k\ge 3.
+\end{cases}
+]
+
+对于不可定向闭曲面 (N_m=#^m\mathbb{R}P^2)，标准贴附词为
+
+[
+a_1^2a_2^2\cdots a_m^2.
+]
+
+因此
+
+[
+d_2(1)=2a_1+2a_2+\cdots+2a_m.
+]
+
+也就是说
+
+[
+d_2:\mathbb Z\to \mathbb Z^m,\qquad 1\mapsto (2,2,\dots,2).
+]
+
+因为 (d_2\neq 0)，所以
+
+[
+H_2(N_m)=0.
+]
+
+又因为
+
+[
+H_1(N_m)\cong \mathbb Z^m/\langle (2,2,\dots,2)\rangle,
+]
+
+由 Smith 标准型可得
+
+[
+\mathbb Z^m/\langle (2,2,\dots,2)\rangle\cong \mathbb Z^{m-1}\oplus \mathbb Z/2.
+]
+
+所以
+
+[
+H_k(N_m)\cong
+\begin{cases}
+\mathbb Z,& k=0,\
+\mathbb Z^{m-1}\oplus \mathbb Z/2,& k=1,\
+0,& k=2,\
+0,& k\ge 3.
+\end{cases}
+]
+
+特别地，Klein bottle 是 (N_2)，因此
+
+[
+H_1(K)\cong \mathbb Z\oplus \mathbb Z/2,\qquad H_2(K)=0.
+]
+
+---
+
+### 四、总结
+
+环面 (T^2) 的贴附词是
+
+[
+aba^{-1}b^{-1}.
+]
+
+交换化为
+
+[
+a+b-a-b=0.
+]
+
+所以
+
+[
+H_0(T^2)\cong \mathbb Z,\qquad H_1(T^2)\cong \mathbb Z^2,\qquad H_2(T^2)\cong \mathbb Z.
+]
+
+Klein bottle 的贴附词是
+
+[
+aba^{-1}b.
+]
+
+交换化为
+
+[
+a+b-a+b=2b.
+]
+
+所以
+
+[
+H_0(K)\cong \mathbb Z,\qquad H_1(K)\cong \mathbb Z\oplus \mathbb Z/2,\qquad H_2(K)=0.
+]
+
+帮我把它精简, 按照之前的要求. 同时改变latex的包裹格式
+[Context: Notes: 拓扑/14. 正合三元组, 同调与映射度.md]
+[Timestamp: 2026/06/15 23:32:07]
+
+**ai**: 
+<think>我们需要把用户提供的关于$T^2$和Klein bottle同调计算的详细解答，精简成符合之前要求的笔记形式。之前的要求是：转化为精炼的笔记式文字，不要有大标题（即不要#），但可以用粗体区分小节。另外注意LaTeX格式，不用\[...\]而用$$...$$，行内用$...$。这次用户还特别提到“同时改变latex的包裹格式”，就是要把原文中的\[...\]都改成$$...$$，以及\(...\)改成$...$。原文中有很多\[...\]和\(没用\)，可能用了\(...\)？用户原文中有`aba^{-1}b^{-1}`等用了\(...\)？其实原文用了`\(aba^{-1}b^{-1}\)`这样的行内公式？看用户消息中：`aba^{-1}b^{-1}` 没有用`\(`，而是直接文本？不，用户给出的原文是markdown，里面用了`\(...\)`？我检查一下：用户说“帮我把它精简, 按照之前的要求. 同时改变latex的包裹格式”。前面用户给出的原文中，我看到的片段是：`H_*(T^2)`, `H_*(\mathrm{Klein Bottle})`，然后正文用了`\(T^2\)`? 实际上，用户消息中有的地方是`\(T^2\)`，有的地方是`$$`？看原文：开头“我们使用胞腔同调计算。...一个标准 CW 分解：一个 0-胞腔，若干个 1-胞腔，一个 2-胞腔。因此胞腔链复形形如 \[ 0\to C_2\xrightarrow{d_2}C_1\xrightarrow{d_1}C_0\to 0. \]” 有\[...\]。所以需要改成$$...$$。另外行内公式如`\(d_1=0\)`等，需要改成`$d_1=0$`。我会在精简时统一改。此外，内容要精简：去掉“我们使用...”这类叙述，直接给出计算过程和结果，保留关键贴附词、链复形、d_2、同调。还要包含普遍情形：可定向曲面与不可定向曲面的同调，但可能只需要简要总结，因为题目要求计算$T^2$和Klein bottle，可能普遍情形作为补充。用户原文最后有“普遍情形”部分，可用于笔记。我们最终输出精炼笔记，加入到“14. 正合三元组, 同调与映射度”笔记中，作为第4节“曲面的同调群计算”下的内容。但用户现在要求的是精简这段解答，作为该题目的答案。活动笔记是“14. 正合三元组, 同调与映射度”，题目14-5就是计算曲面的同调。所以我们给出的精简笔记可以对应这个题目。需要包含$T^2$和$K$的计算，以及普遍方法。但注意不要大标题（可能不要#或##），可以使用**粗体**作为标题。
+
+策略：输出如下内容：
+
+**$T^2$ 的同调**  
+- 贴附词：$aba^{-1}b^{-1}$，CW分解：$e^0\cup e_a^1\cup e_b^1\cup e^2$  
+- 链群：$C_2\cong\mathbb Z$，$C_1\cong\mathbb Z\langle a,b\rangle$，$C_0\cong\mathbb Z$  
+- $d_1=0$，$d_2$由交换化给出：$d_2(e^2)=a+b-a-b=0$，故$d_2=0$  
+- 链复形：$0\to\mathbb Z\xrightarrow{0}\mathbb Z^2\xrightarrow{0}\mathbb Z\to0$  
+- 同调：$H_2\cong\mathbb Z$，$H_1\cong\mathbb Z^2$，$H_0\cong\mathbb Z$，其余为0  
+
+**Klein bottle 的同调**  
+- 贴附词：$aba^{-1}b$，CW分解：$e^0\cup e_a^1\cup e_b^1\cup e^2$  
+- $d_1=0$，$d_2(e^2)=a+b-a+b=2b$，即$d_2(1)=(0,2)$  
+- $d_2$单射，故$H_2=0$；$\ker d_1=\mathbb Z^2$，$\operatorname{Im}d_2=\langle 2b\rangle$，所以$H_1\cong \mathbb Z\oplus \mathbb Z/2$  
+- $H_0\cong\mathbb Z$，其余为0  
+
+**普遍闭曲面**（可略，但可作为方法）  
+- 一个0-cell，$r$个1-cell（与贴附词字母对应），一个2-cell；$d_1=0$  
+- $d_2(1) = \sum \epsilon_i a_i$，其中$\epsilon_i$为字母的正向出现次数减反向出现次数  
+- 可定向$\Sigma_g$：贴附词$\prod_{i=1}^g a_i b_i a_i^{-1} b_i^{-1}$，$d_2=0$，故$H_2=\mathbb Z$，$H_1=\mathbb Z^{2g}$，$H_0=\mathbb Z$  
+- 不可定向$N_m$：贴附词$a_1^2\cdots a_m^2$，$d_2(1)=(2,\dots,2)$，故$H_2=0$，$H_1\cong\mathbb Z^{m-1}\oplus\mathbb Z/2$，$H_0=\mathbb Z$  
+特别地，Klein bottle是$N_2$。
+
+用简洁的列表式，避免长句。改公式包裹。不要用`\[`而是`$$`。不要用`\(`而是`$`。例如`d_1=0`写成`$d_1=0$`，数组用`$\mathbb Z^2$`等。
+
+另外，原内容中有“因此胞腔链复形形如 \[ 0\to... \]”，我们改成`$$ 0\to ... \to 0. $$`。还要保证所有公式都是正确的。对于$d_2$映射，可以用`$d_2:\mathbb Z\to \mathbb Z^2$`。
+
+还有，原文中`\operatorname{Im}`，保留。
+
+最终输出精炼版。我将输出完整的精简笔记，可直接放入笔记中。注意不要大标题，所以我用粗体“$\mathbf{T^2}$ 的同调”等，不用`#`。
+
+我们将在回答中提供这个精简内容。</think>**$T^2$ 的同调**  
+- 贴附词：$aba^{-1}b^{-1}$。CW 分解：$e^0 \cup e_a^1 \cup e_b^1 \cup e^2$。  
+- 链群：$C_2 \cong \mathbb Z$，$C_1 \cong \mathbb Z\langle a,b\rangle$，$C_0 \cong \mathbb Z$。  
+- $d_1 = 0$（单一 0-cell）。交换化给出 $d_2(e^2) = a+b-a-b = 0$，所以 $d_2 = 0$。  
+- 链复形：$$ 0 \to \mathbb Z \xrightarrow{0} \mathbb Z^2 \xrightarrow{0} \mathbb Z \to 0. $$  
+- 同调：  
+  $H_2(T^2) \cong \mathbb Z$，  
+  $H_1(T^2) \cong \mathbb Z^2$，  
+  $H_0(T^2) \cong \mathbb Z$，  
+  其余 $0$。
+
+**Klein bottle 的同调**  
+- 贴附词：$aba^{-1}b$。CW 分解：$e^0 \cup e_a^1 \cup e_b^1 \cup e^2$。  
+- 链群同 $T^2$，$d_1 = 0$。  
+- 交换化得 $d_2(e^2) = a+b-a+b = 2b$，即 $d_2(1) = (0,2)$。  
+- $d_2$ 是单射，故 $H_2(K) = 0$。  
+- $\ker d_1 = \mathbb Z^2$，$\operatorname{Im} d_2 = \langle 2b \rangle$，于是  
+  $H_1(K) \cong \mathbb Z\langle a,b\rangle / \langle 2b \rangle \cong \mathbb Z \oplus \mathbb Z/2$。  
+- $H_0(K) \cong \mathbb Z$，其余 $0$。
+
+**一般闭曲面的胞腔同调方法**  
+设 $C_2 \cong \mathbb Z$，$C_1 \cong \mathbb Z^r$（$r$ 为 1-cell 个数），$C_0 \cong \mathbb Z$，$d_1=0$。  
+$d_2(1) = \sum_i \epsilon_i a_i$，其中 $\epsilon_i$ 是贴附词中字母 $a_i$ 的正向次数减反向次数。  
+- 可定向曲面 $\Sigma_g$：贴附词 $\prod_{i=1}^g a_i b_i a_i^{-1} b_i^{-1}$，所有 $\epsilon_i = 0$，故 $d_2 = 0$。  
+  同调：$H_2 \cong \mathbb Z$，$H_1 \cong \mathbb Z^{2g}$，$H_0 \cong \mathbb Z$。  
+- 不可定向曲面 $N_m = \#^m \mathbb{R}P^2$：贴附词 $a_1^2 a_2^2 \cdots a_m^2$，$d_2(1) = (2,2,\dots,2)$。  
+  $d_2 \neq 0$ 单射 $\Rightarrow H_2 = 0$；  
+  $H_1 \cong \mathbb Z^m / \langle (2,\dots,2) \rangle \cong \mathbb Z^{m-1} \oplus \mathbb Z/2$；  
+  $H_0 \cong \mathbb Z$。  
+
+特别地，$T^2 = \Sigma_1$，Klein bottle $= N_2$，与前述一致。
+[Timestamp: 2026/06/15 23:32:40]
+
+**user**: 不要项目符号
+[Context: Notes: 拓扑/14. 正合三元组, 同调与映射度.md]
+[Timestamp: 2026/06/15 23:32:47]
+
+**ai**: 
+<think>我们需要根据用户的最新要求调整之前生成的精简笔记。用户说“不要项目符号”，意思是不用无序列表 `-` 开头。之前的笔记中用了 `- ` 列表。所以我们需要改写成不使用项目符号的段落形式，但仍然保持精炼和笔记式。同时，仍要遵守之前的要求：不要大标题（即没有 `#`），但可以使用粗体作为小节标题；LaTeX 公式使用 `$...$` 和 `$$...$$`，不要 `\[ \]`。还要把内容整合到同一笔记中，可能是活动笔记“14. 正合三元组, 同调与映射度”下的第 4 节。我们已经提供了精简版但用了列表。现在要移除列表，改用连续的句子，可能用分段和粗体区分。
+
+需要输出的内容包含 T^2 和 Klein bottle 的同调计算，以及一般闭曲面的方法。需要将它们串联起来，去掉项目符号。可以用类似这样的结构：粗体标题“T^2 的同调”，然后是一段文字叙述贴附词、CW 分解、链群、d_1、d_2 计算、链复形、同调结果。再类似地“Klein bottle 的同调”，以及“一般闭曲面”的段落。不要列表项。但可以使用分号或逗号分隔。确保数学公式在行内或行间。因为要求“笔记式文字”，可以保留简短的句子，但不要项目符号。例如：“它的 CW 分解为 ...，链群为 ...。由于只有一个 0-胞腔，d_1=0。交换化给出 d_2(e^2)=0，故 d_2=0。同调群为 H_2 ≅ Z, H_1 ≅ Z^2, H_0 ≅ Z。” 这样就行。
+
+同时，注意之前我们生成了“一般闭曲面的胞腔同调方法”，也要改成无列表的段落。可以使用粗体“可定向曲面 Σ_g”和“不可定向曲面 N_m”分开叙述。
+
+还要注意“改变latex的包裹格式”：原来回答中已经用了 $$ 和 $，没问题。这次只需要调整去掉项目符号。
+
+最终回复应该只是精炼后的笔记内容，没有大标题，没有项目符号，公式正确。</think>**$T^2$ 的同调**  
+$T^2$ 的贴附词为 $aba^{-1}b^{-1}$，CW 分解为 $e^0 \cup e_a^1 \cup e_b^1 \cup e^2$。胞腔链群 $C_2 \cong \mathbb Z$，$C_1 \cong \mathbb Z\langle a,b\rangle$，$C_0 \cong \mathbb Z$。因为只有一个 $0$-胞腔，$d_1 = 0$。交换化给出 $d_2(e^2) = a+b-a-b = 0$，即 $d_2 = 0$。链复形为 
+$$ 0 \to \mathbb Z \xrightarrow{0} \mathbb Z^2 \xrightarrow{0} \mathbb Z \to 0. $$
+于是 $H_2(T^2) \cong \mathbb Z$，$H_1(T^2) \cong \mathbb Z^2$，$H_0(T^2) \cong \mathbb Z$，其余维数为 $0$。
+
+**Klein bottle 的同调**  
+Klein bottle 的贴附词为 $aba^{-1}b$，CW 分解与 $T^2$ 相同：$e^0 \cup e_a^1 \cup e_b^1 \cup e^2$，故链群同样。仍由单一 $0$-胞腔得 $d_1 = 0$。交换化给出 $d_2(e^2) = a+b-a+b = 2b$，即 $d_2(1) = (0,2)$。$d_2$ 是单射，因此 $H_2(K) = 0$。$\ker d_1 = \mathbb Z^2$，$\operatorname{Im} d_2 = \langle 2b \rangle$，所以 $H_1(K) \cong \mathbb Z\langle a,b\rangle / \langle 2b \rangle \cong \mathbb Z \oplus \mathbb Z/2$。$H_0(K) \cong \mathbb Z$，其余为 $0$。
+
+**一般闭曲面的胞腔同调方法**  
+对由多边形边识别给出的闭曲面，常取一个 $0$-胞腔、$r$ 个 $1$-胞腔（与贴附词字母对应）和一个 $2$-胞腔。于是 $C_2 \cong \mathbb Z$，$C_1 \cong \mathbb Z^r$，$C_0 \cong \mathbb Z$ 且 $d_1=0$。$d_2$ 由贴附词决定：若贴附词为 $w$，则 $d_2(1) = \sum_i \epsilon_i a_i$，其中 $\epsilon_i$ 是字母 $a_i$ 的正向出现次数减去反向出现次数。  
+
+**可定向曲面 $\Sigma_g$** 的贴附词 $\prod_{i=1}^g a_i b_i a_i^{-1} b_i^{-1}$ 使所有 $\epsilon_i = 0$，故 $d_2 = 0$。因此同调为 $H_2(\Sigma_g) \cong \mathbb Z$，$H_1(\Sigma_g) \cong \mathbb Z^{2g}$，$H_0(\Sigma_g) \cong \mathbb Z$。  
+
+**不可定向曲面 $N_m = \#^m \mathbb{R}P^2$** 的贴附词 $a_1^2 a_2^2 \cdots a_m^2$ 给出 $d_2(1) = (2,2,\dots,2)$。此时 $d_2$ 是单射，故 $H_2(N_m) = 0$。$H_1(N_m) \cong \mathbb Z^m / \langle (2,\dots,2) \rangle \cong \mathbb Z^{m-1} \oplus \mathbb Z/2$，$H_0(N_m) \cong \mathbb Z$。  
+
+特例：$T^2 = \Sigma_1$，Klein bottle $= N_2$，与前述计算一致。
+[Timestamp: 2026/06/15 23:33:10]
