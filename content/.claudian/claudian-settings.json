@@ -42,14 +42,14 @@
       "safeMode": "workspace-write",
       "cliPath": "",
       "cliPathsByHost": {
-        "xyh": "C:\\Users\\15345\\AppData\\Local\\OpenAI\\Codex\\bin\\f1c7ee7a13db5fed\\codex.exe"
+        "device:a65af03f-bce5-4793-af1e-205a19208756": "C:\\Users\\15345\\AppData\\Local\\OpenAI\\Codex\\bin\\f1c7ee7a13db5fed\\codex.exe"
       },
       "customModels": "",
       "reasoningSummary": "detailed",
       "environmentVariables": "",
       "environmentHash": "",
       "installationMethodsByHost": {
-        "xyh": "native-windows"
+        "device:a65af03f-bce5-4793-af1e-205a19208756": "native-windows"
       },
       "wslDistroOverridesByHost": {}
     },
@@ -84,9 +84,12 @@
     "codex": "gpt-5.5"
   },
   "savedProviderEffort": {
-    "claude": "high"
+    "claude": "high",
+    "codex": "high"
   },
-  "savedProviderServiceTier": {},
+  "savedProviderServiceTier": {
+    "codex": "default"
+  },
   "savedProviderThinkingBudget": {},
   "savedProviderPermissionMode": {
     "claude": "yolo",
@@ -98,6 +101,6 @@
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
   "expandFileEditsByDefault": false,
-  "chatViewPlacement": "left-sidebar",
+  "chatViewPlacement": "main-tab",
   "hiddenProviderCommands": {}
 }
