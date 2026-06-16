@@ -1,10 +1,10 @@
-### Hopf Lemma (极简版)
+### Hopf Lemma 全局极大值版本
 
 **定理：**
 
 设单位球$B_1\subset\mathbb{R}^n$，
-1. 函数$u\in C^2(B_1)\cap C(\overline{B_1})$在球内满足$\Delta u\ge 0$。若存在边界点
-2. $x_0\in\partial B_1$，使得对所有内部点$x\in B_1$均有$u(x)<u(x_0)$，
+1. 函数$u\in C^2(B_1)\cap C(\overline{B_1})$在球内满足$\Delta u\ge 0$。
+2. 若存在边界点$x_0\in\partial B_1$，使得对所有内部点$x\in B_1$均有$u(x)<u(x_0)$, 而且在边界上是唯一的极大值点
 3. 且$u$在$x_0$处外法向导数存在，则必有$\frac{\partial u}{\partial n}(x_0)>0$。
 ​	​	![[Pasted image 20260616093635.png|300]]
 ### 证明
@@ -29,7 +29,7 @@
 
 在$A$内$\Delta w=\Delta u+\varepsilon\Delta v>0$，$w$为严格次调和函数，最大值只能在边界$\partial A$取得。由上步知，在$\overline{A}$上恒有$w(x)\le u(x_0)$。
 
-**5. 导出矛盾**
+**5. 取法向量**
 函数 $w$ 沿外法向 $n$ 的方向导数定义为：
 $$\frac{\partial w}{\partial n}(x_0)=\lim_{t\to0^+}\frac{w(x_0)-w(x_0-tn)}{t}$$
 
@@ -48,9 +48,9 @@ $\frac{\partial u}{\partial n}(x_0)\ge 2\varepsilon\alpha e^{-\alpha}>0$。证�
 
 **定理**：  
 设 $u\in C^{2}(B_{1})\cap C^{1}(\overline{B_{1}})$，$\Delta u\ge 0$。若 $x_{0}\in\partial B_{1}$ 满足  
-$$u(x_{0})=\max_{\overline{B_{1}}}u,$$  
-且 $u$ 非常数，则  
-$$\frac{\partial u}{\partial n}(x_{0})>0.$$  
+$$u(x_{0})=\max_{\overline{B_{1}}}u,$$
+**且 $u$ 非常数**，则  
+$$\frac{\partial u}{\partial n}(x_{0})>0.$$
 对单位球 $n=x_{0}$。
 
 **证明思路**  
@@ -82,3 +82,28 @@ $$u(x_{0})-u(x_{0}-tn)\ge\varepsilon w(x_{0}-tn).$$
 由 $u\le u(x_{0})$ 外加正函数 $w$ 得 $u+\varepsilon w\le u(x_{0})$，即  
 $$u(x_{0})-u\ge\varepsilon w(x),$$  
 从而迫使 $u$ 从内部靠近边界时有一阶严格增长，故外法向导数必 $>0$。
+
+## 用Hopf引理证明强极值原理
+
+**补充严密性：球必须完全留在区域内才能用 Hopf 引理**  
+设 $M=\max_{\Omega}u$，$F=\{x\in\Omega:u(x)=M\}$，目标是证 $F=\Omega$。  
+
+- $F$ 是闭集（由连续性）。  
+- 证 $F$ 也是开集：  
+  取 $p\in F\subseteq\Omega$，可选 $\rho>0$ 使 $B_{2\rho}(p)\subset\Omega$。  
+  反设 $p$ 附近有低值点，即存在 $a\in B_{\rho}(p)$ 满足 $u(a)<M$。  
+  令 $r=\operatorname{dist}(a,F)$，则 $r\le|a-p|<\rho$，因此 $B_{r}(a)\subset B_{2\rho}(p)\subset\Omega$。  
+  这一步保证了球完全在 $\Omega$ 内部，不碰到 $\partial\Omega$。  
+
+- 由 $r$ 的定义，存在 $y\in\partial B_{r}(a)\cap F$，且在 $B_{r}(a)$ 内部没有 $F$ 的点，所以  
+  $u<M$ 在 $B_{r}(a)$ 内，而 $u(y)=M$。  
+  此时可对 $u$ 在球 $B_{r}(a)$ 上应用 Hopf 引理（$y$ 为边界最大值点），得  
+  $\frac{\partial u}{\partial n}(y)>0$（$n$ 为 $B_{r}(a)$ 在 $y$ 处的外法向）。  
+
+- 另一方面，$y\in F\subset\Omega$ 是区域内的内部点，且 $u$ 在 $y$ 取全局最大值，故梯度为零，$\nabla u(y)=0$，特别有 $\frac{\partial u}{\partial n}(y)=0$。  
+  矛盾。  
+
+因此 $p$ 附近不可能有低值点，$p$ 是 $F$ 的内点，$F$ 为开集。  
+结合 $F$ 闭、$\Omega$ 连通，得 $F=\Omega$，即 $u\equiv M$。  
+
+**核心**：通过选择足够靠近 $\Omega$ 内部的辅助球，确保球不先碰边界，才能用 Hopf 引理制造矛盾。
