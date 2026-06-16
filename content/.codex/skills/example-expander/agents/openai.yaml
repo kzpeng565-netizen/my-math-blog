@@ -1,0 +1,4 @@
+interface:
+  display_name: "例子扩展"
+  short_description: "围绕给定想法扩展一个高区分度数学例子。"
+  default_prompt: "使用 $example-expander 围绕这个想法构造一个高区分度例子，并给出构造过程和评分。"
