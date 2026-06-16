@@ -1,0 +1,4 @@
+interface:
+  display_name: "PDF Search"
+  short_description: "Search PDF body text with page-aware context."
+  default_prompt: "Use $pdf-search to search this PDF's body text and report page numbers with context."

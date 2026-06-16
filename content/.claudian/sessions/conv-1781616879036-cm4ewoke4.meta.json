@@ -4,8 +4,8 @@
   "title": "Respond to greeting",
   "titleGenerationStatus": "success",
   "createdAt": 1781616879036,
-  "updatedAt": 1781617767350,
-  "lastResponseAt": 1781617767350,
+  "updatedAt": 1781618526296,
+  "lastResponseAt": 1781618526296,
   "sessionId": "019ed0a4-26b5-7723-89a1-8fce2521138f",
   "providerState": {
     "threadId": "019ed0a4-26b5-7723-89a1-8fce2521138f",
@@ -13,12 +13,12 @@
     "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
   },
   "usage": {
-    "inputTokens": 31809,
+    "inputTokens": 31829,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 17792,
+    "cacheReadInputTokens": 4992,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 31809,
+    "contextTokens": 31829,
     "percentage": 12,
     "model": "gpt-5.5"
   }
