@@ -28,13 +28,10 @@ $$
 
 命题 4．25．设 $\nu$ 是 $(X, \mathcal{M})$ 上的 $\sigma$－有限带号测度，$\mu, \lambda$ 是 $\sigma$－有限测度且 $\nu \ll \mu$ 且 $\mu \ll \lambda$ 。
 （i）若 $g \in L^1(X, \nu)$ ，则 $g(d \nu / d \mu) \in L^1(X, \mu)$ 且
-
 $$
 \int_X g d \nu=\int_X g \frac{d \nu}{d \mu} d \mu
 $$
-
 （ii）$\nu \ll \lambda$ ，且 Radon－Nikodym 导数满足：
-
 $$
 \frac{d \nu}{d \lambda}=\frac{d \nu}{d \mu} \cdot \frac{d \mu}{d \lambda} \quad \lambda \text {-a.e. }
 $$
