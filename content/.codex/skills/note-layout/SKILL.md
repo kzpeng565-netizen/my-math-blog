@@ -7,6 +7,8 @@ description: Format mathematical Obsidian notes according to the user's Chinese 
 
 Use this skill to format the current note, selected text, or pasted content. Preserve the author's content, voice, proof ideas, comments, and remarks.
 
+Default to returning formatted Markdown in chat. Edit a file only when the user explicitly asks to write the result into the note/article or to modify the current note.
+
 ## Core Reference
 
 Read and follow `.codex/references/中文数学笔记格式.md`. It is the authoritative distilled format guide based on the user's original Copilot prompt `copilot/copilot-custom-prompts/笔记排版.md`.
@@ -22,7 +24,7 @@ If reading vault notes is allowed and a concrete example is needed, inspect `[[�
    - examples/counterexamples,
    - rough AI-generated text.
 2. Choose the smallest structure that fits:
-   - Full note: use numbered headings.
+   - Full note: use numbered headings, and default the first major section to `# 1. ...`.
    - Local passage: avoid unnecessary headings; use bold labels.
    - Important theorem: use `[!Note]` callout.
    - Definition/corollary/remark: use bold inline labels.
@@ -32,6 +34,7 @@ If reading vault notes is allowed and a concrete example is needed, inspect `[[�
 
 ## Required Format Rules
 
+- Every full-note/article layout starts numbering from `# 1. ...` by default, even when the original note has no explicit number.
 - Major section: `# 1.xxx`
 - Knowledge unit or important theorem: `## 1.1 xxx`
 - Proof idea/process/discussion: `### 1.1.1 xxx`
@@ -71,6 +74,8 @@ $$
 4. If a typo or likely mathematical input error is corrected, mark it with `*(修正说明)*`.
 5. Do not add answers, extra explanations, or new claims unless the user asks.
 6. Do not delete content merely because it is informal; format it first.
+7. Local trimming and cleanup are allowed when they remove redundancy or formatting noise, but do not remove mathematical substance.
+8. Do not rewrite the whole note unless the user explicitly asks for full reconstruction.
 
 ## Mini Example
 
@@ -99,4 +104,4 @@ Formatted output:
 
 ## Output
 
-If editing a file, use `local_patch` and report an EditAudit. If the user asks only for formatted output, return only the formatted Markdown unless a brief note is necessary.
+If editing a file, use `local_patch` and do not report after formatting-only changes. If the user asks only for formatted output, return only the formatted Markdown unless a brief note is necessary.

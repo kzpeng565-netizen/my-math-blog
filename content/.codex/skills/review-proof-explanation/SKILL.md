@@ -13,7 +13,7 @@ For note-ready Chinese output, follow `.codex/references/中文数学笔记格�
 
 Every final proof explanation must score at least 85/100 on the rubric. If a draft scores below 85, revise it before presenting it as final.
 
-Default mode is read-only unless the user explicitly asks to edit a file.
+Default output is chat-only unless the user explicitly asks to write the explanation into a note/article or modify a file.
 
 ## Generation Workflow
 
@@ -130,3 +130,5 @@ When the user asks for a final polished explanation, include only a short final 
 ## Editing Files
 
 If revising a note file, use `$math-note-editor` in `local_patch` mode by default. Revise only the proof explanation being reviewed, then rescore.
+
+Do not produce an EditPlan for a routine proof-explanation insertion or local polishing request. Produce an EditPlan only if the user asks for structural reorganization, broad deletion, or full rewrite.

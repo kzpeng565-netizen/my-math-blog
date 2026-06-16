@@ -13,14 +13,14 @@ This framework is a starting point for using Codex through Claudian as a mathema
 ## Core Workflows
 
 - Search and synthesize: find relevant notes or PDFs, separate sources, then answer.
-- Local edit: prepare an EditPlan, patch a narrow range, then produce an EditAudit.
+- Local edit: patch the requested range directly when the user explicitly asks to write into the note/article. Do not report pure formatting changes. Produce a brief EditAudit only for mathematical content changes, deletion, restructuring, scoring loops, or risk. Use an EditPlan only for broad, structural, risky, or ambiguous changes.
 - Example construction: propose examples or counterexamples, verify hypotheses and conclusions, then provide a note-ready version.
 - Article restructuring: diagnose the reading path, propose a new outline, then edit only after approval.
 - Self-review loop: draft, score, revise weakest dimensions, stop at threshold.
 
 ## Recommended Operating Rules
 
-- Use `read_only` for broad questions.
+- For questions, explanations, and examples, output in chat by default unless the user explicitly asks to write into a file.
 - Use `local_patch` for normal note edits.
 - Use `structured_edit` only after approving an outline.
 - Use rubrics for generated examples, counterexamples, article structure, and final blog polish.
