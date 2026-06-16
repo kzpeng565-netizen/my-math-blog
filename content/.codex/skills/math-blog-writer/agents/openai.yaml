@@ -1,0 +1,7 @@
+interface:
+  display_name: "数学博客写作"
+  short_description: "把数学草稿整理成忠实、紧凑、有洞见的中文博客文章。"
+  default_prompt: "Use $math-blog-writer to turn my math draft into a concise, faithful, insight-driven Chinese blog post."
+
+policy:
+  allow_implicit_invocation: true
