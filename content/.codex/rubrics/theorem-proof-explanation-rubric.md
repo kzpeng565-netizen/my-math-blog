@@ -1,93 +1,228 @@
-# Theorem Proof Explanation Rubric
+# 定理证明解释评分器
 
-Use this rubric when evaluating an explanation of a theorem proof, especially for blog notes, study notes, or AI-generated proof commentary.
+用于评价或生成“定理证明讲解”。目标不是只检查证明是否正确，而是检查读者是否能获得证明的机制、关键桥梁和可迁移方法。
 
-Threshold: 88/100. If rigor is below 30/40, revise before accepting. If essence is below 22/30, the explanation may be correct but not useful enough.
+总分 100 分。达标线：85 分。低于 85 分必须继续润色，不能作为最终稿。
 
-## 1. Format And Readability: 30
+## Insight Gate
 
-- No unnecessary headings: 5
-  - Do not use section titles when the proof can be explained directly.
-  - Prefer compact prose, bold emphasis, numbered steps, and bullet points.
-- Structured but not bloated: 6
-  - Use **bold key phrases**, `1. 2. 3.` numbering, and bullet points where they help scanning.
-  - Avoid decorative structure and long preambles.
-- Correct math formatting: 6
-  - Inline formulas use `$...$`.
-  - Display formulas use `$$...$$`.
-  - Do not leave raw TeX outside math delimiters.
-- Compact display math: 4
-  - Do not insert extra blank lines between adjacent display formulas.
-  - Keep related equations visually close.
-- Step markers: 5
-  - Each proof step should have a simple transition such as "First", "Next", "Finally", "Step 1", or a short equivalent.
-  - The reader should always know what the current step is doing.
-- Overall density: 4
-  - The explanation is compact enough to read smoothly.
-  - No repeated filler such as "it is obvious", "clearly", or empty motivational sentences.
+先做这三个读者复述测试。任一项失败，最终分数封顶 80，即使格式和严谨性得分很高。
 
-## 2. Rigor And Justification: 40
+1. **为什么这个定理应该是真的？**
+   - 解释必须给出定理背后的主机制，而不是只复述结论。
+2. **证明中最关键的转化是什么？**
+   - 解释必须点出“从什么转化到什么”，例如从空间分割转化到测度分解。
+3. **最难的一步为什么成立？**
+   - 解释必须说明关键桥梁的依据，例如唯一性来自 Hahn 分解唯一性，而不是纯代数变形。
 
-- Logical order: 10
-  - Assumptions, definitions, constructions, and conclusions appear in a coherent order.
-  - No conclusion is used before it is proved or introduced.
-- Justified claims: 12
-  - Important claims have a reason: a definition, theorem, computation, diagram, or previously established fact.
-  - Nontrivial implications are not skipped.
-- Hypotheses are used correctly: 7
-  - The explanation identifies where key hypotheses enter.
-  - It does not silently strengthen or weaken the theorem.
-- No inflated language: 4
-  - Avoid grand, vague, or overconfident wording.
-  - Prefer precise statements over rhetorical flourish.
-- Error and uncertainty handling: 7
-  - If a step is subtle, say why it is subtle.
-  - If a proof gap remains, mark it explicitly instead of hiding it with polished prose.
+额外封顶规则：
 
-## 3. Essence And Proof Strategy: 30
+- 没有 **核心想法**：封顶 75。
+- 没有“关键桥梁”说明：封顶 82。
+- 没有说明复杂构造或辅助对象的动机：封顶 84。
+- 有明确数学错误：封顶 60，严重时直接退回。
+- 公式没有使用 `$...$` 或 `$$...$$`：封顶 80。
+- 输出是逐句验证流水账，没有证明路线图：封顶 80。
+- 使用废弃颜色标记格式：封顶 80。
 
-- Core idea summary: 8
-  - The explanation includes one or two sentences stating the central idea of the proof.
-  - This summary should appear before or near the beginning of the detailed proof.
-- Construction motivation: 8
-  - For complicated objects, maps, sequences, covers, filtrations, diagrams, or reductions, explain why they are introduced.
-  - The reader should see the logic behind the construction, not only the construction itself.
-- Global proof thread: 8
-  - The steps are connected by a clear strategy.
-  - The explanation does not feel like a list of isolated algebraic or logical moves.
-- Local-to-global clarity: 3
-  - Each technical step is tied back to the goal of the proof.
-- Reusable insight: 3
-  - The explanation helps the reader recognize the method in similar proofs.
+## 1. 格式与 Obsidian 排版：15 分
 
-## Required Review Output
+- **标题使用克制：2 分**
+  - 2 分：局部证明解释不滥用标题，结构服务阅读。
+  - 1 分：标题略多或略少，但不妨碍理解。
+  - 0 分：标题堆砌或结构混乱。
+- **步骤编号与加粗标签：3 分**
+  - 3 分：使用 `1. 2. 3.` 或清晰步骤，并用 **加粗短语** 标明每步作用。
+  - 2 分：有步骤，但标签不够有信息量。
+  - 1 分：步骤存在但不清楚。
+  - 0 分：没有可见步骤。
+- **公式格式：3 分**
+  - 3 分：行内公式均为 `$...$`，行间公式均为 `$$...$$`。
+  - 2 分：少量瑕疵。
+  - 1 分：多处混乱。
+  - 0 分：大量公式未正确包裹。
+- **行间公式紧凑：2 分**
+  - 2 分：公式和正文之间没有多余空行。
+  - 1 分：少量冗余空行。
+  - 0 分：版面松散，公式被切碎。
+- **符合中文数学笔记格式：3 分**
+  - 3 分：遵守 `.codex/references/中文数学笔记格式.md`。
+  - 2 分：大体符合。
+  - 1 分：只符合一部分。
+  - 0 分：不像目标笔记格式。
+- **整体紧凑性：2 分**
+  - 2 分：语言紧凑，不重复。
+  - 1 分：略啰嗦。
+  - 0 分：明显拖沓。
 
-When scoring, use this format:
+## 2. 证明路线图与结构感：20 分
+
+- **定理定位：4 分**
+  - 4 分：开头说明本定理与前置定理、核心工具或证明策略的关系。
+  - 3 分：提到核心工具，并大致说明作用。
+  - 2 分：只提到工具，没有解释作用。
+  - 1 分：工具零散出现。
+  - 0 分：没有定位。
+- **自然分块：4 分**
+  - 4 分：按存在性/唯一性、构造/验证、正向/反向等自然结构分块。
+  - 3 分：分块合理但不够锋利。
+  - 2 分：分块勉强可读。
+  - 1 分：分块不服务证明。
+  - 0 分：没有结构。
+- **每块有任务说明：4 分**
+  - 4 分：每块都说明“这部分要完成什么”。
+  - 3 分：多数块有任务说明。
+  - 2 分：只有总任务，没有局部任务。
+  - 1 分：任务说明散乱。
+  - 0 分：只有推导，没有任务。
+- **验证清单清楚：4 分**
+  - 4 分：明确列出要验证的条件，例如“正测度、相减等于原测度、互相奇异”。
+  - 3 分：验证项基本完整。
+  - 2 分：有遗漏或顺序混乱。
+  - 1 分：验证目标模糊。
+  - 0 分：读者不知道在验证什么。
+- **关键步骤突出：4 分**
+  - 4 分：明确标出“最关键的一步”并解释其作用。
+  - 3 分：关键步骤可见但不够突出。
+  - 2 分：关键步骤被淹没。
+  - 1 分：关键步骤只是一句带过。
+  - 0 分：看不出关键步骤。
+
+## 3. 内容严谨性与依据：25 分
+
+- **假设和目标明确：4 分**
+  - 4 分：清楚说明已知条件、要证明什么。
+  - 3 分：目标清楚，假设略隐含。
+  - 2 分：部分假设或目标不清。
+  - 1 分：证明对象模糊。
+  - 0 分：看不出在证明什么。
+- **定义使用准确：4 分**
+  - 4 分：相关定义使用准确，如 Hahn 分解、正集、负集、互相奇异等。
+  - 3 分：基本准确，有轻微不严谨。
+  - 2 分：定义表达不完整。
+  - 1 分：定义有误导性。
+  - 0 分：定义错误。
+- **关键断言有依据：6 分**
+  - 6 分：每个关键断言都有定义、定理、可加性、唯一性或计算支撑。
+  - 5 分：只有极小跳步。
+  - 4 分：有若干依据不足。
+  - 2-3 分：关键断言经常跳过。
+  - 0-1 分：大量无依据陈述。
+- **逻辑链闭合：5 分**
+  - 5 分：从构造到验证再到结论完全闭合。
+  - 4 分：整体闭合，有轻微省略。
+  - 3 分：有一两处明显跳跃。
+  - 2 分：需要读者自行补很多步骤。
+  - 0-1 分：逻辑断裂。
+- **不偷换命题：3 分**
+  - 3 分：没有改变定理条件或结论。
+  - 2 分：表述略宽泛但不致命。
+  - 1 分：有潜在偷换。
+  - 0 分：改变了命题。
+- **细节敏感性：3 分**
+  - 3 分：微妙处会解释或标注。
+  - 2 分：能处理主要细节。
+  - 1 分：忽略多个微妙点。
+  - 0 分：用漂亮话掩盖空隙。
+
+## 4. 洞见、机制与构造动机：30 分
+
+- **核心想法有机制感：6 分**
+  - 6 分：一两句话说明“为什么定理应该成立”，并揭示证明机制。
+  - 5 分：核心想法准确，但机制略弱。
+  - 4 分：核心想法基本正确，但偏概括。
+  - 2-3 分：只复述结论或定义。
+  - 0-1 分：没有真正核心想法。
+- **正向机制清楚：5 分**
+  - 5 分：说明如何从核心工具推出目标结构。
+  - 4 分：正向机制基本清楚。
+  - 3 分：只说明构造，没有解释为何有效。
+  - 1-2 分：正向机制模糊。
+  - 0 分：没有正向机制。
+- **反向机制或唯一性机制清楚：5 分**
+  - 5 分：说明任意候选对象如何反过来恢复核心结构或被核心定理锁定。
+  - 4 分：唯一性机制基本清楚。
+  - 3 分：只给代数推导，没有解释来源。
+  - 1-2 分：唯一性解释模糊。
+  - 0 分：没有唯一性机制。
+- **关键桥梁解释到位：5 分**
+  - 5 分：明确指出关键桥梁，并解释它为什么连接两端。
+  - 4 分：桥梁存在但解释略短。
+  - 3 分：桥梁可推断但未点明。
+  - 1-2 分：桥梁很弱。
+  - 0 分：没有桥梁。
+- **复杂构造动机：4 分**
+  - 4 分：解释为什么引入特定集合、映射、分解或辅助对象。
+  - 3 分：主要构造有动机。
+  - 2 分：构造动机不完整。
+  - 1 分：构造突然出现。
+  - 0 分：完全没有动机。
+- **读者复述测试：3 分**
+  - 3 分：读者读完能用自己的话复述证明主线。
+  - 2 分：能复述大概，但关键点不稳。
+  - 1 分：只能复述步骤，不能复述机制。
+  - 0 分：读完仍不知道证明为什么自然。
+- **可迁移方法感：2 分**
+  - 2 分：读者能看出类似证明中可复用的方法。
+  - 1 分：方法感很弱。
+  - 0 分：只是本题推导。
+
+## 5. 表达风格与读者体验：10 分
+
+- **避免流水账：3 分**
+  - 3 分：有导航感，不只是逐句验证。
+  - 2 分：局部有导航。
+  - 1 分：主要是清单式验证。
+  - 0 分：完全流水账。
+- **克制而不浮夸：2 分**
+  - 2 分：表达准确、有力度、不夸张。
+  - 1 分：略有修饰但不影响严谨。
+  - 0 分：浮夸或不专业。
+- **术语和记号稳定：2 分**
+  - 2 分：前后一致。
+  - 1 分：少量不统一。
+  - 0 分：影响理解。
+- **保留原信息：2 分**
+  - 2 分：保留用户关键内容，只改善表达。
+  - 1 分：略有压缩但不损核心。
+  - 0 分：删掉有用信息或大面积改写。
+- **结尾回扣有效：1 分**
+  - 1 分：结尾能回扣证明机制或定理意义。
+  - 0 分：没有有效总结。
+
+## 评分输出格式
 
 ```text
-Format And Readability: __/30
-Rigor And Justification: __/40
-Essence And Proof Strategy: __/30
-Total: __/100
+Insight Gate：
+- 为什么这个定理应该是真的：通过/不通过
+- 关键转化是什么：通过/不通过
+- 最难一步为什么成立：通过/不通过
+- 封顶规则触发：无/说明
 
-Strong points:
+格式与排版：__/15
+路线图与结构感：__/20
+严谨性与依据：__/25
+洞见、机制与构造动机：__/30
+表达与读者体验：__/10
+总分：__/100
+
+最低分项：
 - ...
 
-Weak points:
-- ...
-
-Required revisions:
+必须修改：
 1. ...
 2. ...
 3. ...
 ```
 
-## Revision Rule
+## 润色循环规则
 
-Revise the proof explanation if:
+如果总分低于 85，或者 Insight Gate 未通过：
 
-- Total score is below 88.
-- Rigor And Justification is below 30.
-- Essence And Proof Strategy is below 22.
-- The proof has no explicit core idea summary.
-- The proof contains formulas not wrapped in `$...$` or `$$...$$`.
+1. 先修 Insight Gate，而不是先修辞藻。
+2. 找出最低分的大类。
+3. 只针对最低分项进行局部润色，不要大面积重写。
+4. 重新评分。
+5. 重复直到总分至少 85 且 Insight Gate 全部通过。
+
+如果三轮后仍低于 85 或 Insight Gate 仍未通过，不要标为最终稿；说明“未达标”，并列出仍需人工确认的数学问题或结构问题。

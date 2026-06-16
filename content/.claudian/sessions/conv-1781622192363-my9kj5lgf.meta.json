@@ -1,0 +1,26 @@
+{
+  "id": "conv-1781622192363-my9kj5lgf",
+  "providerId": "codex",
+  "title": "Refine Jordan decomposition proof explanation",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781622192363,
+  "updatedAt": 1781622632928,
+  "lastResponseAt": 1781622460327,
+  "sessionId": "019ed0f5-399e-7c40-9422-29b7086c9208",
+  "providerState": {
+    "threadId": "019ed0f5-399e-7c40-9422-29b7086c9208",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\16\\rollout-2026-06-16T23-03-17-019ed0f5-399e-7c40-9422-29b7086c9208.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "分析/实分析/带号测度分解定理.md",
+  "usage": {
+    "inputTokens": 37000,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 13696,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 37000,
+    "percentage": 14,
+    "model": "gpt-5.5"
+  }
+}

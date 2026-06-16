@@ -15,6 +15,7 @@ Use a task-specific rubric from `.codex/rubrics/` when available. Otherwise use 
 4. Revise only what addresses those weaknesses.
 5. Rescore.
 6. Stop when the threshold is met, after three iterations, or when more progress needs user input.
+7. If a task-specific rubric requires a minimum score, do not present a below-threshold draft as final. Mark it as not yet accepted and explain what still blocks improvement.
 
 ## Output
 
