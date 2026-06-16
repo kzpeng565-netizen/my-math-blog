@@ -1,0 +1,25 @@
+{
+  "id": "conv-1781616879036-cm4ewoke4",
+  "providerId": "codex",
+  "title": "Respond to greeting",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781616879036,
+  "updatedAt": 1781617767350,
+  "lastResponseAt": 1781617767350,
+  "sessionId": "019ed0a4-26b5-7723-89a1-8fce2521138f",
+  "providerState": {
+    "threadId": "019ed0a4-26b5-7723-89a1-8fce2521138f",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\16\\rollout-2026-06-16T21-34-44-019ed0a4-26b5-7723-89a1-8fce2521138f.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "usage": {
+    "inputTokens": 31809,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 17792,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 31809,
+    "percentage": 12,
+    "model": "gpt-5.5"
+  }
+}
