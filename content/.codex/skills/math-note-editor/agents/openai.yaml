@@ -1,0 +1,4 @@
+interface:
+  display_name: "Math Note Editor"
+  short_description: "Edit math notes with narrow, auditable changes."
+  default_prompt: "Use $math-note-editor to revise this math note with a narrow edit plan."

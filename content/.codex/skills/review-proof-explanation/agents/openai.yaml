@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Proof Explanation"
+  short_description: "Score theorem proof explanations with the proof rubric."
+  default_prompt: "Use $review-proof-explanation to score this theorem proof explanation."

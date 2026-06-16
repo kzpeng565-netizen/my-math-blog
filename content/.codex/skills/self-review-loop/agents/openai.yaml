@@ -1,0 +1,4 @@
+interface:
+  display_name: "Self Review Loop"
+  short_description: "Score drafts against rubrics and iterate locally."
+  default_prompt: "Use $self-review-loop to score this draft and revise until it meets the rubric."

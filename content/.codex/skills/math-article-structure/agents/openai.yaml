@@ -1,0 +1,4 @@
+interface:
+  display_name: "Math Article Structure"
+  short_description: "Improve the structure of mathematical blog articles."
+  default_prompt: "Use $math-article-structure to diagnose and improve this article structure."

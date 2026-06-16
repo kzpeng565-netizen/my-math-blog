@@ -1,0 +1,4 @@
+interface:
+  display_name: "Math Example Builder"
+  short_description: "Construct and verify examples and counterexamples."
+  default_prompt: "Use $math-example-builder to construct verified examples or counterexamples."
