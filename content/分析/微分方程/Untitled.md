@@ -84,7 +84,11 @@ $$u(x_{0})-u\ge\varepsilon w(x),$$
 从而迫使 $u$ 从内部靠近边界时有一阶严格增长，故外法向导数必 $>0$。
 
 ## 用Hopf引理证明强极值原理
-
+设 $\Omega$ 连通**开集**，$u \in C^2(\Omega), ~ \Delta u \geq 0$ 。若存在 $x_0 \in \Omega$ ，使
+$$
+u\left(x_0\right)=\max _{\Omega} u=M .
+$$
+要证 $u \equiv M$ 。
 **补充严密性：球必须完全留在区域内才能用 Hopf 引理**  
 设 $M=\max_{\Omega}u$，$F=\{x\in\Omega:u(x)=M\}$，目标是证 $F=\Omega$。  
 
