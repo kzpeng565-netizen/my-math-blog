@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI内容格式整理"
+  short_description: "整理 AI 生成内容为紧凑的 Obsidian 笔记格式。"
+  default_prompt: "使用 $ai-content-format-cleanup 整理这段 AI 生成内容，保持简洁并保留原意。"

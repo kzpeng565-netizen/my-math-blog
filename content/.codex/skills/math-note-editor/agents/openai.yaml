@@ -1,4 +1,4 @@
 interface:
-  display_name: "Math Note Editor"
-  short_description: "Edit math notes with narrow, auditable changes."
-  default_prompt: "Use $math-note-editor to revise this math note with a narrow edit plan."
+  display_name: "数学笔记编辑"
+  short_description: "以局部、可审计的方式修改数学笔记。"
+  default_prompt: "使用 $math-note-editor 修改这篇数学笔记，先给局部修改计划。"

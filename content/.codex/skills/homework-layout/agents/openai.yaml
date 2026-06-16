@@ -1,0 +1,4 @@
+interface:
+  display_name: "作业排版"
+  short_description: "把作业题整理成 Obsidian 标注块格式。"
+  default_prompt: "使用 $homework-layout 排版这些作业题，不要添加答案。"

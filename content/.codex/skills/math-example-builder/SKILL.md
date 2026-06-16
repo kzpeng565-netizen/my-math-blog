@@ -7,12 +7,14 @@ description: Construct, test, and refine mathematical examples and counterexampl
 
 Build examples as mathematical objects plus verification, not as decorative prose.
 
+For Chinese note-ready output, follow `.codex/references/中文数学笔记格式.md`.
+
 ## Example Output
 
 ```text
-Concept:
+Core idea:
 Example:
-Hypotheses check:
+Verification:
 What it illustrates:
 Minimality or naturalness:
 Note-ready Markdown:
@@ -34,6 +36,7 @@ Note-ready Markdown:
 
 - Verify every hypothesis and conclusion.
 - Prefer simple examples first.
+- Include one or two sentences explaining the core idea before details.
 - If a claim is false only under missing hypotheses, state the missing hypothesis.
 - For advanced claims, include a proof sketch or a source request.
 - Use `.codex/rubrics/example-quality-rubric.md` when scoring or iterating.

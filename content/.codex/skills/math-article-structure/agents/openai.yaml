@@ -1,4 +1,4 @@
 interface:
-  display_name: "Math Article Structure"
-  short_description: "Improve the structure of mathematical blog articles."
-  default_prompt: "Use $math-article-structure to diagnose and improve this article structure."
+  display_name: "文章结构整理"
+  short_description: "诊断并改进数学博客文章结构。"
+  default_prompt: "使用 $math-article-structure 诊断这篇文章的结构，先给方案，不要直接修改。"

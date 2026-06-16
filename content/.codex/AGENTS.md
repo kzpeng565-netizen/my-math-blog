@@ -11,6 +11,7 @@ This vault is a mathematical knowledge base and blog workspace. Work conservativ
 - If the request is exploratory, analytical, or broad, answer first and do not write files unless the user asks for edits.
 - Distinguish sources: current note, other vault notes, PDF sources, model knowledge, and web sources.
 - For mathematical claims that are nontrivial, provide a verification sketch or mark uncertainty.
+- For Chinese mathematical explanations, examples, counterexamples, or proof commentary, follow `.codex/references/中文数学笔记格式.md` when note-ready formatting is requested.
 
 ## Edit Modes
 

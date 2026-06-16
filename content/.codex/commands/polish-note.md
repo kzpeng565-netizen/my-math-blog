@@ -1,16 +1,16 @@
-# polish-note
+# 润色笔记
 
-Use `$math-note-editor` and mode: `local_patch`.
+使用 `$math-note-editor`，模式为 `local_patch`。
 
-Task:
+任务：
 
-Polish the requested section of a mathematical note. Preserve the structure, claims, examples, links, and notation unless explicitly asked otherwise.
+润色数学笔记中指定的部分。除非用户明确要求，否则保留原结构、数学命题、例子、链接和记号。
 
-Rules:
+规则：
 
-- Do not rewrite the whole note.
-- Keep formulas in Obsidian-compatible LaTeX.
-- Mark uncertain mathematical claims instead of silently strengthening them.
-- After editing, score with `.codex/rubrics/math-note-rubric.md`.
+- 不重写整篇笔记。
+- 公式保持 Obsidian 兼容的 LaTeX 格式。
+- 对不确定的数学断言做标注，不要偷偷加强原命题。
+- 修改后使用 `.codex/rubrics/math-note-rubric.md` 评分。
 
-Output an EditAudit after changes.
+修改后输出 `EditAudit`。

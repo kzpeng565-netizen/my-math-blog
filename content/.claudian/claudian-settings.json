@@ -103,6 +103,6 @@
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
   "expandFileEditsByDefault": false,
-  "chatViewPlacement": "main-tab",
+  "chatViewPlacement": "left-sidebar",
   "hiddenProviderCommands": {}
 }

@@ -1,24 +1,24 @@
-# restructure-article
+# 整理文章结构
 
-Use `$math-article-structure`.
+使用 `$math-article-structure`。
 
-Task:
+任务：
 
-Improve the structure of a mathematical blog article.
+改进数学博客文章的结构。
 
-First pass must be read-only.
+第一轮必须只读分析，不直接修改。
 
-Output:
+固定输出格式：
 
 ```text
-Current main thread:
-Where readers may get lost:
-Proposed outline:
-Move map:
-Sections to preserve unchanged:
-Sections needing local rewrite:
-Rubric score:
-Need approval before editing: yes
+当前主线：
+读者可能卡住的地方：
+建议大纲：
+移动映射：
+需要保持不变的小节：
+需要局部重写的小节：
+评分：
+修改前是否需要确认：是
 ```
 
-After approval, use `structured_edit` and preserve original mathematical content unless explicitly asked to rewrite it.
+用户批准后，使用 `structured_edit`。除非用户明确要求重写，否则保留原有数学内容。

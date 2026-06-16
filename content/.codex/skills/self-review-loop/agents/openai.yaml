@@ -1,4 +1,4 @@
 interface:
-  display_name: "Self Review Loop"
-  short_description: "Score drafts against rubrics and iterate locally."
-  default_prompt: "Use $self-review-loop to score this draft and revise until it meets the rubric."
+  display_name: "自我评分迭代"
+  short_description: "按评分器打分，并局部迭代到达标。"
+  default_prompt: "使用 $self-review-loop 按评分器给这份草稿打分，并在需要时局部修改。"

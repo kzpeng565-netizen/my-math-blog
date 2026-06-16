@@ -1,16 +1,16 @@
-# expand-blog-section
+# 扩展博客小节
 
-Use `$math-note-editor`, `$math-example-builder`, and `$self-review-loop`.
+使用 `$math-note-editor`、`$math-example-builder` 和 `$self-review-loop`。
 
-Task:
+任务：
 
-Expand only the requested section into blog-ready prose.
+只把指定小节扩展成适合博客阅读的文字。
 
-Rules:
+规则：
 
-- Do not alter other sections.
-- Add at most one new example unless asked for more.
-- Keep the original mathematical point.
-- Score with both the math note rubric and the example rubric when examples are added.
+- 不修改其他小节。
+- 除非用户要求更多，否则最多新增一个例子。
+- 保持原来的数学重点。
+- 如果新增例子，同时使用数学笔记评分器和例子评分器。
 
-Output an EditAudit after changes.
+修改后输出 `EditAudit`。

@@ -1,25 +1,25 @@
-# find-examples
+# 寻找例子
 
-Use `$math-example-builder` and `$self-review-loop`.
+使用 `$math-example-builder` 和 `$self-review-loop`。
 
-Task:
+任务：
 
-Construct examples for the requested concept, theorem, article section, or note.
+为指定概念、定理、文章小节或笔记构造例子。
 
-Output:
+固定输出格式：
 
 ```text
-Concept:
-Example 1:
-- Object:
-- Why it fits:
-- What it teaches:
-Example 2:
-- Object:
-- Why it fits:
-- What it teaches:
-Score:
-Note-ready Markdown:
+概念：
+例子 1：
+- 对象：
+- 为什么符合要求：
+- 它说明了什么：
+例子 2：
+- 对象：
+- 为什么符合要求：
+- 它说明了什么：
+评分：
+可直接放入笔记的 Markdown：
 ```
 
-Use `.codex/rubrics/example-quality-rubric.md`. Do not edit files unless asked.
+使用 `.codex/rubrics/example-quality-rubric.md`。除非用户明确要求，否则不要修改文件。

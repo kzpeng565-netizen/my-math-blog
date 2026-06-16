@@ -1,0 +1,26 @@
+{
+  "id": "conv-1781621036691-p6u0r7n82",
+  "providerId": "codex",
+  "title": "Explain Jordan decomposition theorem",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781621036691,
+  "updatedAt": 1781621365527,
+  "lastResponseAt": 1781621365527,
+  "sessionId": "019ed0e3-9785-7cb1-ba49-a85d87d06636",
+  "providerState": {
+    "threadId": "019ed0e3-9785-7cb1-ba49-a85d87d06636",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\16\\rollout-2026-06-16T22-44-01-019ed0e3-9785-7cb1-ba49-a85d87d06636.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "分析/实分析/带号测度分解定理.md",
+  "usage": {
+    "inputTokens": 26649,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 21376,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 26649,
+    "percentage": 10,
+    "model": "gpt-5.5"
+  }
+}

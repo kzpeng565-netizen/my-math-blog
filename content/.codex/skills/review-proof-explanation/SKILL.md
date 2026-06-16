@@ -9,6 +9,8 @@ Use `.codex/rubrics/theorem-proof-explanation-rubric.md`.
 
 Default mode: read-only. Do not edit files unless the user explicitly asks for revision.
 
+For note-ready Chinese proof explanations, follow `.codex/references/中文数学笔记格式.md`.
+
 ## Review Output
 
 ```text

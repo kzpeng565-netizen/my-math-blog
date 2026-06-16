@@ -1,4 +1,4 @@
 interface:
-  display_name: "PDF Search"
-  short_description: "Search PDF body text with page-aware context."
-  default_prompt: "Use $pdf-search to search this PDF's body text and report page numbers with context."
+  display_name: "PDF正文搜索"
+  short_description: "搜索 PDF 正文并返回页码和上下文。"
+  default_prompt: "使用 $pdf-search 搜索这份 PDF 的正文，给出页码和上下文。"

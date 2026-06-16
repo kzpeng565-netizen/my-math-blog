@@ -1,35 +1,35 @@
-# review-proof-explanation
+# 证明解释评分
 
-Use `$self-review-loop`.
+使用 `$self-review-loop`。
 
-Task:
+任务：
 
-Review an explanation of a theorem proof using `.codex/rubrics/theorem-proof-explanation-rubric.md`.
+使用 `.codex/rubrics/theorem-proof-explanation-rubric.md` 评价一段定理证明解释。
 
-Focus:
+重点：
 
-- Formatting: no unnecessary headings, compact layout, `$...$` and `$$...$$`, no extra blank lines between display formulas.
-- Rigor: clear logic, justified claims, no inflated language.
-- Essence: one or two sentence core idea, motivation for complex constructions, and a global proof thread.
+- 格式：不使用多余标题，整体紧凑，公式使用 `$...$` 和 `$$...$$`，行间公式之间没有多余空行。
+- 严谨性：逻辑清楚，陈述有依据，不使用浮夸表述。
+- 抓住本质：有一两句话概括核心想法，解释复杂构造背后的动机，并有整体证明思路。
 
-Output:
+固定输出格式：
 
 ```text
-Format And Readability: __/30
-Rigor And Justification: __/40
-Essence And Proof Strategy: __/30
-Total: __/100
+格式与可读性：__/30
+严谨性与依据：__/40
+本质与证明思路：__/30
+总分：__/100
 
-Strong points:
+优点：
 - ...
 
-Weak points:
+问题：
 - ...
 
-Required revisions:
+必须修改：
 1. ...
 2. ...
 3. ...
 ```
 
-Do not edit files unless the user asks for revision. If asked to revise, use `local_patch` unless the user explicitly requests a rewrite.
+除非用户要求修改，否则不要编辑文件。如果用户要求修改，默认使用 `local_patch`，除非用户明确要求重写。

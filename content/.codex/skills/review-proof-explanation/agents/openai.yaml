@@ -1,4 +1,4 @@
 interface:
-  display_name: "Review Proof Explanation"
-  short_description: "Score theorem proof explanations with the proof rubric."
-  default_prompt: "Use $review-proof-explanation to score this theorem proof explanation."
+  display_name: "证明解释评分"
+  short_description: "按证明解释评分器评价定理证明讲解。"
+  default_prompt: "使用 $review-proof-explanation 给这段定理证明解释打分，只评价，不修改。"

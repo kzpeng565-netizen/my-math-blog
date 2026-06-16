@@ -1,22 +1,22 @@
-# review-before-edit
+# 修改前审查
 
-Use mode: `read_only`.
+使用模式：`read_only`。
 
-Task:
+任务：
 
-Review the current note or specified file before editing. Do not modify files.
+在修改前审查当前笔记或指定文件。不要修改文件。
 
-Output:
+固定输出格式：
 
 ```text
-Diagnosis:
-Relevant existing structure:
-Potential mathematical risks:
-EditPlan:
-- Scope:
-- Preserve:
-- Add:
-- Remove:
-- Risks:
-Need approval before editing: yes/no
+诊断：
+相关原有结构：
+潜在数学风险：
+EditPlan：
+- 修改范围：
+- 保留内容：
+- 新增内容：
+- 删除内容：
+- 风险：
+修改前是否需要确认：是/否
 ```

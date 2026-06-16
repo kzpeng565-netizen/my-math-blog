@@ -1,22 +1,22 @@
-# build-counterexamples
+# 构造反例
 
-Use `$math-example-builder` and `$self-review-loop`.
+使用 `$math-example-builder` 和 `$self-review-loop`。
 
-Task:
+任务：
 
-Construct counterexamples for a proposed mathematical claim.
+为一个数学命题构造反例。
 
-Required output:
+固定输出格式：
 
 ```text
-Claim being tested:
-Counterexample:
-Hypotheses check:
-Conclusion failure:
-Why this is natural:
-Possible variants:
-Score:
-Note-ready Markdown:
+被检验的命题：
+反例对象：
+前提检查：
+结论为何失败：
+为什么这个反例自然：
+可能的变体：
+评分：
+可直接放入笔记的 Markdown：
 ```
 
-Correctness must score at least 28/35 on `.codex/rubrics/example-quality-rubric.md`.
+正确性必须在 `.codex/rubrics/example-quality-rubric.md` 中至少达到 28/35。
