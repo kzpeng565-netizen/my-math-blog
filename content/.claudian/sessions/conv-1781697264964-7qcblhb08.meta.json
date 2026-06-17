@@ -4,8 +4,8 @@
   "title": "检查 Obsidian Vault 笔记可用性",
   "titleGenerationStatus": "success",
   "createdAt": 1781697264964,
-  "updatedAt": 1781697529440,
-  "lastResponseAt": 1781697529440,
+  "updatedAt": 1781698395457,
+  "lastResponseAt": 1781698395457,
   "sessionId": "019ed56e-be00-74d1-a848-ee5944c97dc6",
   "providerState": {
     "threadId": "019ed56e-be00-74d1-a848-ee5944c97dc6",
@@ -14,13 +14,13 @@
   },
   "currentNote": "非笔记内容/任务计划/ToDo-任务集合.md",
   "usage": {
-    "inputTokens": 22069,
+    "inputTokens": 57191,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 19840,
+    "cacheReadInputTokens": 56704,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 22069,
-    "percentage": 9,
+    "contextTokens": 57191,
+    "percentage": 22,
     "model": "gpt-5.5"
   }
 }

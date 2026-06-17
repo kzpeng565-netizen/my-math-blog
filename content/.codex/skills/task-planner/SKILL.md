@@ -1,4 +1,4 @@
----
+﻿---
 name: task-planner
 description: "Plan the user's Obsidian task collection into executable Obsidian Tasks entries. Use when the user asks to complete task management, time planning, schedule tasks, process ToDo-任务集合, or generate/write Tasks code. This skill reads the user's task management README, task collection, and already-planned tasks; follows Obsidian links in the task collection; estimates math work by 20/40/60-minute difficulty tiers; writes planned entries into ToDo-已经规划好的任务.md; and removes successfully planned task blocks from ToDo-任务集合.md."
 ---
@@ -29,9 +29,9 @@ If a task collection block contains an Obsidian wikilink that points to a homewo
 4. If a block contains an Obsidian wikilink such as `[[15.测度性质与分解习题]]`, follow the link and read the linked note to determine the actual task content.
 5. For homework notes, count `[!Note]` blocks as the primary unit of work. If there are no `[!Note]` blocks, use numbered exercise headings or explicit listed questions.
 6. Estimate time and priority, then create one Tasks line per independent homework/major item. Do not split one homework note into many Tasks lines, but do not merge two different homework links merely because they belong to the same course.
-7. Append the planned Tasks code and a concise advice note to `ToDo-已经规划好的任务.md`.
-8. Remove only the task blocks that were successfully planned from `ToDo-任务集合.md`.
-9. Keep unplanned blocks in `ToDo-任务集合.md` when links cannot be opened, task content is missing, or no deadline can be reasonably inferred.
+7. Append the newly planned Tasks code and a concise advice note to the end of `ToDo-已经规划好的任务.md`; never delete, overwrite, or reorganize previously planned content in that file.
+8. Remove only task blocks that both (a) were successfully planned and (b) contain an Obsidian wikilink to an archived homework/task note. If a homework/task block in `ToDo-任务集合.md` has no wikilink, keep it in the collection even after creating a planned Tasks line, because it has not been archived yet.
+9. Keep unplanned blocks in `ToDo-任务集合.md` when links cannot be opened or task content is missing. If the task content is visible but no DDL can be inferred, still include it in the schedule, use the current date as `⏳`, omit a firm due date only when Tasks syntax would break, and add `(ddl未知)` to the task name; blocks without Obsidian wikilinks must still remain in the collection after planning.
 10. In the final response, show the Tasks lines that were written, summarize why each estimate was chosen, and list any blocks left unplanned.
 
 ## Link Following
@@ -116,7 +116,7 @@ If the task gives an explicit deadline, respect it. If not:
 - 拓扑作业：默认周四晚上习题课截止。
 - 微分方程作业：默认周二截止，最晚周三习题课。
 - 原子物理：优先使用任务集合或老师通知中的截止时间。
-- Unknown course/task: do not invent a firm date. Keep it unplanned or write a note asking for the missing deadline.
+- Unknown course/task: do not invent a firm date. Still include the task when its content is visible, mark the task name with `(ddl未知)`, and use the current date as the scheduled day. If a due date is required by the local Tasks workflow, use the scheduled date as a placeholder and clearly explain that the real DDL is unknown.
 
 `⏳` is the scheduled day. Choose a start date no later than the deadline, usually today for urgent/overdue work and 1-3 days before the deadline for larger tasks.
 
@@ -137,7 +137,8 @@ Rules:
 - Do not list all exercise numbers in the task description.
 - Keep one line per independent homework note or major item.
 - Do not merge two different homework links into one Tasks line just because they are from the same course; preserve the user's assignment-level phrasing and links.
-- If estimated time is impossible, use `[🍅:: ]` and keep the task block in the collection.
+- If estimated time is impossible, use `[🍅:: ]` and keep the task block in the collection. If only DDL is unknown but the content is visible, do not leave it unplanned; add `(ddl未知)` to the task name and explain the placeholder date.
+- A task collection block without any Obsidian wikilink may still be planned when its content and deadline are visible, but it must remain in `ToDo-任务集合.md`; only linked, archived blocks may be removed after successful planning.
 - Do not use `tasks` fences inside the files unless the local file already uses them. The final chat response may show a Markdown code block.
 
 ## Advice Note
@@ -167,3 +168,4 @@ After editing files, report:
 ```
 
 Also state that the planned blocks were removed from `ToDo-任务集合.md`.
+
