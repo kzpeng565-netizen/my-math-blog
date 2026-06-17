@@ -4,23 +4,22 @@
   "title": "Plan Obsidian tasks and update all estimates",
   "titleGenerationStatus": "success",
   "createdAt": 1781695107226,
-  "updatedAt": 1781696243903,
-  "lastResponseAt": 1781696243903,
+  "updatedAt": 1781697250738,
+  "lastResponseAt": 1781697176362,
   "sessionId": "019ed54d-d156-72a1-aff9-466a8008d65e",
   "providerState": {
     "threadId": "019ed54d-d156-72a1-aff9-466a8008d65e",
     "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\17\\rollout-2026-06-17T19-18-32-019ed54d-d156-72a1-aff9-466a8008d65e.jsonl",
     "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
   },
-  "currentNote": "非笔记内容/任务计划/ToDo-已经规划好的任务.md",
   "usage": {
-    "inputTokens": 69961,
+    "inputTokens": 103724,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 68480,
+    "cacheReadInputTokens": 103296,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 69961,
-    "percentage": 27,
+    "contextTokens": 103724,
+    "percentage": 40,
     "model": "gpt-5.5"
   }
 }

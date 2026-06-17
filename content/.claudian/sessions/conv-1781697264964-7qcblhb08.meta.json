@@ -1,0 +1,26 @@
+{
+  "id": "conv-1781697264964-7qcblhb08",
+  "providerId": "codex",
+  "title": "检查 Obsidian Vault 笔记可用性",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781697264964,
+  "updatedAt": 1781697529440,
+  "lastResponseAt": 1781697529440,
+  "sessionId": "019ed56e-be00-74d1-a848-ee5944c97dc6",
+  "providerState": {
+    "threadId": "019ed56e-be00-74d1-a848-ee5944c97dc6",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\17\\rollout-2026-06-17T19-54-30-019ed56e-be00-74d1-a848-ee5944c97dc6.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "非笔记内容/任务计划/ToDo-任务集合.md",
+  "usage": {
+    "inputTokens": 22069,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 19840,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 22069,
+    "percentage": 9,
+    "model": "gpt-5.5"
+  }
+}

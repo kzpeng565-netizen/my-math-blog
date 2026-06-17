@@ -19,6 +19,8 @@ Read these files before planning:
 
 The task collection is the source of truth for tasks to add. The already-planned file is the source of truth for avoiding duplicates.
 
+If a task collection block contains an Obsidian wikilink that points to a homework note, treat that wikilink as part of the task identity and preserve it in the final Tasks line.
+
 ## Required Workflow
 
 1. Read the three canonical files.
@@ -26,7 +28,7 @@ The task collection is the source of truth for tasks to add. The already-planned
 3. For each block, decide whether it is already planned by comparing course name, linked note, task title, and obvious aliases against `ToDo-已经规划好的任务.md`.
 4. If a block contains an Obsidian wikilink such as `[[15.测度性质与分解习题]]`, follow the link and read the linked note to determine the actual task content.
 5. For homework notes, count `[!Note]` blocks as the primary unit of work. If there are no `[!Note]` blocks, use numbered exercise headings or explicit listed questions.
-6. Estimate time and priority, then create one aggregated Tasks line per course or major item. Do not split one course's homework into many Tasks lines.
+6. Estimate time and priority, then create one Tasks line per independent homework/major item. Do not split one homework note into many Tasks lines, but do not merge two different homework links merely because they belong to the same course.
 7. Append the planned Tasks code and a concise advice note to `ToDo-已经规划好的任务.md`.
 8. Remove only the task blocks that were successfully planned from `ToDo-任务集合.md`.
 9. Keep unplanned blocks in `ToDo-任务集合.md` when links cannot be opened, task content is missing, or no deadline can be reasonably inferred.
@@ -35,6 +37,8 @@ The task collection is the source of truth for tasks to add. The already-planned
 ## Link Following
 
 If the collection contains only a link, the linked note must be inspected before planning.
+
+Preserve homework wikilinks in the final Tasks line. For example, a collection block `实分析[[15.测度性质与分解习题]]` should become a task name like `完成实分析作业[[15.测度性质与分解习题]]`, not merely `完成实分析作业`.
 
 When resolving a wikilink:
 
@@ -129,8 +133,10 @@ Every planned task line must use this shape:
 Rules:
 
 - Keep task names short.
+- Preserve the original homework wikilink from `ToDo-任务集合.md` in the task name when present, e.g. `完成实分析作业[[15.测度性质与分解习题]]`.
 - Do not list all exercise numbers in the task description.
-- Keep one line per course or major item.
+- Keep one line per independent homework note or major item.
+- Do not merge two different homework links into one Tasks line just because they are from the same course; preserve the user's assignment-level phrasing and links.
 - If estimated time is impossible, use `[🍅:: ]` and keep the task block in the collection.
 - Do not use `tasks` fences inside the files unless the local file already uses them. The final chat response may show a Markdown code block.
 
