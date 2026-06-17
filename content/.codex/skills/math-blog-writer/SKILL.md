@@ -37,9 +37,10 @@ Extract their reusable style, not their mathematical content:
 ## Workflow
 
 1. Identify the source scope: current selection, current note, provided draft, or named notes.
-2. Extract four items before writing:
-   - 核心问题：the concrete question, obstruction, theorem, example, or confusion.
-   - 破局点：the trick, construction, contrast, or viewpoint actually present in the draft.
+2. Extract five items before writing:
+   - 文章发动机：why this article needs to exist; the concrete trouble, contrast, or confusion.
+   - 破局动作：the executable trick, construction, path correction, multiplier, example, or viewpoint actually present in the draft.
+   - 证据载体：the example, formula, picture, counterexample, theorem, or computation that does real argumentative work.
    - 材料边界：what is allowed and what must not be invented.
    - 文章形状：the natural structure suggested by the material.
 3. Choose a structure from the material. Do not force fixed modules such as `The Setup / Heuristic / The Key Trick / Deep Reflection`.
