@@ -49,15 +49,18 @@ Use `1 🍅 = 40 分钟`.
 
 For mathematics homework, assign every problem or `[!Note]` block to exactly one of three tiers:
 
-- **20 分钟**：定义直接应用、短计算、单一结论、证明链很短。
-- **40 分钟**：中等证明或计算，需要串联 1-2 个核心定理，步骤较多但路线明确。
-- **60 分钟**：逻辑复杂、定理本身较重、计算长、需要查课本/PPT、或题目明显包含多个子目标。
+- **20 分钟**：简单概念题、定义直接应用、短计算、单一结论、套用定理即可完成的题目。
+- **40 分钟**：一般定理应用题或推广题，需要串联 1-2 个核心定理，步骤较多但路线明确。
+- **60 分钟**：比较难的构造题或证明题，证明路线不标准、构造性强、计算很长，或一个 `[!Note]`/题目内有三个及以上小问。
+
+Do not assign 60 minutes merely because a theorem name is advanced or the topic is important. Standard applications and routine extensions of heavy theorems are usually 40 minutes unless they require a genuinely difficult construction/proof or have three or more subquestions.
 
 Do not create extra categories such as "calculation type", "proof type", or "formatting time". Do not estimate from the user's familiarity or weakness. Difficulty is based only on:
 
 - theorem logic complexity,
-- theorem complexity,
+- whether the task is a routine application/extension or a genuinely difficult construction/proof,
 - amount of calculation,
+- number of subquestions inside the same `[!Note]` or problem,
 - whether textbook/PPT lookup is needed.
 
 Total tomatoes:
