@@ -1,4 +1,4 @@
----
+﻿---
 name: task-planner
 description: "Plan the user's Obsidian task collection into executable Obsidian Tasks entries. Use when the user asks to complete task management, time planning, schedule tasks, process ToDo-任务集合, or generate/write Tasks code. This skill reads the user's task management README, task collection, and already-planned tasks; follows Obsidian links in the task collection; estimates math work by 20/40/60-minute difficulty tiers; writes planned entries into ToDo-已经规划好的任务.md; and removes successfully planned task blocks from ToDo-任务集合.md."
 ---

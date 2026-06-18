@@ -1,0 +1,4 @@
+interface:
+  display_name: "任务规划"
+  short_description: "读取任务集合并生成可写入的 Obsidian Tasks 规划。"
+  default_prompt: "Use $task-planner to read my task collection, plan only the listed tasks, write the planned Tasks entries, and remove planned items from the collection."
