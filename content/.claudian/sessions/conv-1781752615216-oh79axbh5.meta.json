@@ -4,8 +4,8 @@
   "title": "Plan daily review schedule for three courses",
   "titleGenerationStatus": "success",
   "createdAt": 1781752615217,
-  "updatedAt": 1781753110449,
-  "lastResponseAt": 1781753110449,
+  "updatedAt": 1781753818623,
+  "lastResponseAt": 1781753818623,
   "sessionId": "019ed8bb-573e-7ae2-abb5-ec4818fa3b42",
   "providerState": {
     "threadId": "019ed8bb-573e-7ae2-abb5-ec4818fa3b42",
@@ -14,13 +14,13 @@
   },
   "currentNote": "非笔记内容/任务计划/ToDo-任务集合.md",
   "usage": {
-    "inputTokens": 52207,
+    "inputTokens": 74468,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 49536,
+    "cacheReadInputTokens": 72064,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 52207,
-    "percentage": 20,
+    "contextTokens": 74468,
+    "percentage": 29,
     "model": "gpt-5.5"
   }
 }
