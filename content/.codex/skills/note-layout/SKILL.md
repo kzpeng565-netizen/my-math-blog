@@ -28,7 +28,7 @@ If reading vault notes is allowed and a concrete example is needed, inspect `[[�
    - Local passage: avoid unnecessary headings; use bold labels.
    - Important theorem: use `[!Note]` callout.
    - Definition/corollary/remark: use bold inline labels.
-   - Proof explanation: use `**核心想法**` plus numbered steps.
+   - Proof explanation: prefer one compact `证明思路` / `证明过程` subsection with `**核心想法**` plus numbered steps; do not promote each proof step to its own heading.
    - Example/counterexample: use `**例子**`, `**验证**`, `**说明**` or `**反例**`, `**前提检查**`, `**结论失败**`.
 3. Preserve original mathematical content. Only format, lightly organize, and mark likely corrections.
 
@@ -37,7 +37,9 @@ If reading vault notes is allowed and a concrete example is needed, inspect `[[�
 - Every full-note/article layout starts numbering from `# 1. ...` by default, even when the original note has no explicit number.
 - Major section: `# 1.xxx`
 - Knowledge unit or important theorem: `## 1.1 xxx`
-- Proof idea/process/discussion: `### 1.1.1 xxx`
+- Proof idea/process/discussion: `### 1.1.1 xxx` only when it is a whole local subsection under a theorem/knowledge unit.
+- Do not split a continuous proof into many `###` headings such as “定义候选族 / 取上确界 / 用 MCT / 反证”. Keep these as numbered steps or bold labels inside one `证明过程` subsection.
+- If a proof passage is short or conceptually one proof, collapse it to one heading such as `## 1.3 证明过程` or `### 1.2.1 证明过程`, then use `1. **步骤名**：...`.
 - Do not use "例题", "例1", or "Example" as a heading.
 - Important theorem:
 

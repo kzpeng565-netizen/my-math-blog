@@ -27,78 +27,59 @@
 
 **核心想法**：从 $\nu$ 中尽可能“榨取”出对 $\mu$ 绝对连续的部分 $\int f\,d\mu$，榨干后的残余必然是完全奇异的 $\lambda$。
 
-### 1.2.1 定义候选密度函数族
+## 1.3 证明过程
 
-令
-$$
-\mathcal{F}
-= \left\{f: X \to [0, \infty] \mid f \text{ 可测},\ \int_E f\,d\mu \le \nu(E),\ \forall E \in \mathcal{M}\right\}.
-$$
+**核心想法**：先在有限测度情形下，从 $\nu$ 中找出一个最大的绝对连续部分 $f\,d\mu$，再证明剩下的部分只能与 $\mu$ 奇异。
 
-$\mathcal{F}$ 收集了所有积分不超过 $\nu$ 的密度。关键性质：$\mathcal{F}$ 对取最大值封闭，即若 $f,g \in \mathcal{F}$，则 $\max(f,g) \in \mathcal{F}$。这允许我们将两个密度在不同区域的优势“拼接”成一个更大的合法密度。
+1. **构造候选密度族**：定义
+   $$
+   \mathcal{F}
+   = \left\{f: X \to [0, \infty] \mid f \text{ 可测},\ \int_E f\,d\mu \le \nu(E),\ \forall E \in \mathcal{M}\right\}.
+   $$
+   $\mathcal{F}$ 收集了所有积分不超过 $\nu$ 的密度。关键性质是 $\mathcal{F}$ 对取最大值封闭：若 $f,g\in\mathcal{F}$，则 $\max(f,g)\in\mathcal{F}$。这允许我们把不同区域上的较优密度拼接起来。
 
-### 1.2.2 取上确界并构造单调逼近序列
+2. **取上确界并逼近最大密度**：在标准证明中，先假设测度有限。令
+   $$
+   a = \sup_{f \in \mathcal{F}} \int_X f\,d\mu.
+   $$
+   由 $\nu$ 有限知 $a\le \nu(X)<\infty$。取 $\{f_n\}\subset\mathcal{F}$ 使 $\int_X f_n\,d\mu\to a$，再令 $g_n=\max(f_1,\dots,f_n)$，则 $g_n\in\mathcal{F}$ 且单调递增。设 $g_n\nearrow f$。
 
-**在标准证明当中，我们先假设测度有限。**
+3. **用 MCT 得到最大绝对连续部分**：对任意 $E\in\mathcal{M}$，由单调收敛定理，
+   $$
+   \int_E f\,d\mu
+   = \lim_{n\to\infty}\int_E g_n\,d\mu
+   \le \nu(E),
+   $$
+   因此 $f\in\mathcal{F}$。于是 $f\,d\mu$ 就是能从 $\nu$ 中榨取出的最大绝对连续部分，记为 $\rho$。
 
-令
-$$
-a = \sup_{f \in \mathcal{F}} \int_X f\,d\mu.
-$$
+4. **证明残余部分奇异**：定义 $d\lambda=d\nu-f\,d\mu$，由 $f\in\mathcal{F}$ 知 $\lambda$ 是正测度。若 $\lambda$ 不垂直于 $\mu$，则由引理 4.23，存在 $E$ 及 $\varepsilon>0$ 使在 $E$ 上 $\lambda\ge \varepsilon\mu$。对任意可测子集 $F\subset E$，
+   $$
+   \nu(F)-\int_F f\,d\mu \ge \varepsilon\mu(F)
+   \quad\Longrightarrow\quad
+   \int_F(f+\varepsilon\chi_E)\,d\mu \le \nu(F).
+   $$
+   这推出 $f+\varepsilon\chi_E\in\mathcal{F}$，但它在全空间的积分为 $a+\varepsilon\mu(E)>a$，与 $a$ 是上确界矛盾。因此 $\lambda\perp\mu$。
 
-由 $\nu$ 有限知 $a \le \nu(X) < \infty$。取序列 $\{f_n\} \subset \mathcal{F}$ 使
-$$
-\int_X f_n\,d\mu \to a.
-$$
+整个过程从构造候选集、逼近上确界，到用极限定理和反证法完成分解，体现了变分法中“极值对象的构造与验证”的核心范式。
 
-利用封闭性，令 $g_n = \max(f_1,\dots,f_n)$，则 $g_n \in \mathcal{F}$ 且单调递增，设 $g_n \nearrow f$。
+## 1.4 Radon-Nikodym 导数的线性性质
 
-### 1.2.3 用单调收敛定理提取最大绝对连续部分
-
-对任意 $E \in \mathcal{M}$，由 MCT，
-$$
-\int_E f\,d\mu
-= \lim_{n \to \infty} \int_E g_n\,d\mu
-\le \nu(E),
-$$
-故 $f \in \mathcal{F}$。于是 $f\,d\mu$ 就是能榨取出的最大绝对连续部分，即 $\rho$。
-
-### 1.2.4 反证法证明残余部分奇异
-
-定义 $d\lambda = d\nu - f\,d\mu$，由 $f \in \mathcal{F}$ 知 $\lambda$ 是正测度。
-
-假设 $\lambda$ 不垂直于 $\mu$，由引理 4.23，存在 $E$ 及 $\varepsilon>0$ 使在 $E$ 上 $\lambda \ge \varepsilon \mu$。对任意可测子集 $F \subset E$，
-$$
-\nu(F) - \int_F f\,d\mu \ge \varepsilon \mu(F)
-\quad\Longrightarrow\quad
-\int_F (f + \varepsilon \chi_E)\,d\mu \le \nu(F).
-$$
-
-这推出 $f + \varepsilon \chi_E \in \mathcal{F}$，但它在全空间的积分为 $a + \varepsilon \mu(E) > a$，与 $a$ 是上确界矛盾。故 $\lambda \perp \mu$ 成立。
-
-整个过程从构造候选集、逼近上确界，到用极限定理和反证法完成分解，充分体现了变分法中“极值对象的构造与验证”的核心范式。
-
-## 1.3 Radon-Nikodym 导数的线性性质
-
-**性质**：Radon-Nikodym 导数满足线性性质。
-
-**回顾定义**：设 $\nu_1,\nu_2 \ll \mu$ 为 $\sigma$-有限带号测度，则存在 $f_i = d\nu_i/d\mu$，使得 $\nu_i(E)=\int_E f_i\,d\mu$ 对一切可测集 $E$ 成立。
-
-**构造积分等式**：对 $\nu=\nu_1+\nu_2$，有
-$$
-\nu(E)
-=\nu_1(E)+\nu_2(E)
-=\int_E f_1\,d\mu+\int_E f_2\,d\mu
-=\int_E (f_1+f_2)\,d\mu.
-$$
-其中最后一步使用了 Lebesgue 积分的线性性。
-
-**利用唯一性**：上式表明 $\nu$ 关于 $\mu$ 的 R-N 导数为 $f_1+f_2$，由 $\mu$-a.e. 唯一性即得
+**性质**：若 $\nu_1,\nu_2\ll\mu$ 为 $\sigma$-有限带号测度，则
 $$
 \frac{d(\nu_1+\nu_2)}{d\mu}
 =\frac{d\nu_1}{d\mu}+\frac{d\nu_2}{d\mu}
 \quad \mu\text{-a.e.}
 $$
+
+**证明**：设 $f_i=d\nu_i/d\mu$，则对一切可测集 $E$，有
+$$
+(\nu_1+\nu_2)(E)
+=\nu_1(E)+\nu_2(E)
+=\int_E f_1\,d\mu+
+\int_E f_2\,d\mu
+=\int_E(f_1+f_2)\,d\mu.
+$$
+由 Radon-Nikodym 导数的 $\mu$-a.e. 唯一性，即得结论。
 
 # 2. Radon-Nikodym 导数的换元与链式法则
 
