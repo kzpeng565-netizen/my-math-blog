@@ -53,6 +53,17 @@ $$
 整个过程从构造候选集、逼近上确界，到用极限定理和反证法完成分解，充分体现了变分法中“极值对象的构造与验证”的核心范式。
 
 
+**性质: Radon-Nikodym导数满足线性性质**
+**回顾定义**：设 $\nu_1,\nu_2 \ll \mu$ 为 $\sigma$-有限带号测度，则存在 $f_i = d\nu_i/d\mu$ 使得 $\nu_i(E)=\int_E f_i d\mu$ 对一切可测集 $E$ 成立。
+
+**构造积分等式**：对 $\nu=\nu_1+\nu_2$，有
+$$\nu(E)=\nu_1(E)+\nu_2(E)=\int_E f_1 d\mu+\int_E f_2 d\mu=\int_E (f_1+f_2)d\mu$$
+其中最后一步使用了 Lebesgue 积分的线性性。
+
+**利用唯一性**：上式表明 $\nu$ 关于 $\mu$ 的 R-N 导数为 $f_1+f_2$，由 $\mu$-a.e. 唯一性即得
+$$\frac{d(\nu_1+\nu_2)}{d\mu}=\frac{d\nu_1}{d\mu}+\frac{d\nu_2}{d\mu}\quad \mu\text{-a.e.}$$
+
+
 命题 4．25．设 $\nu$ 是 $(X, \mathcal{M})$ 上的 $\sigma$－有限带号测度，$\mu, \lambda$ 是 $\sigma$－有限测度且 $\nu \ll \mu$ 且 $\mu \ll \lambda$ 。
 （i）若 $g \in L^1(X, \nu)$ ，则 $g(d \nu / d \mu) \in L^1(X, \mu)$ 且
 $$
@@ -63,3 +74,31 @@ $$
 \frac{d \nu}{d \lambda}=\frac{d \nu}{d \mu} \cdot \frac{d \mu}{d \lambda} \quad \lambda \text {-a.e. }
 $$
 
+**(i) 证明积分换元公式：$\int_X g d\nu = \int_X g \frac{d\nu}{d\mu} d\mu$**  
+核心目标是将关于 $\nu$ 的积分通过 Radon-Nikodym 导数 $\frac{d\nu}{d\mu}$ 转化为关于 $\mu$ 的积分。
+
+**前置准备：化归为正测度**  
+通过 Jordan 分解，任何带号测度 $\nu$ 可分解为 $\nu = \nu^+ - \nu^-$。由于积分和导数都是线性的，可直接假设 $\nu$ 是正测度，从而 $\frac{d\nu}{d\mu} \ge 0$，避免符号带来的麻烦。
+
+接下来是“四步提拔法”：
+
+1. **指示函数**：设 $g = \chi_E$（$E \in \mathcal{M}$）。左边 $\int_X \chi_E d\nu = \nu(E)$；右边由 R-N 导数定义 $\nu(E) = \int_E \frac{d\nu}{d\mu} d\mu = \int_X \chi_E \frac{d\nu}{d\mu} d\mu$。等式成立。
+
+2. **简单函数**：设 $g = \sum c_i \chi_{E_i}$。由积分的线性，等式对每个 $\chi_{E_i}$ 成立则对线性组合成立。
+
+3. **非负可测函数**：设 $g \ge 0$ 可测，存在简单函数列 $g_n \nearrow g$。对等式两边用**单调收敛定理 (MCT)**：左边 $\int_X g d\nu = \lim\int_X g_n d\nu$，右边 $\int_X g_n \frac{d\nu}{d\mu}d\mu \to \int_X g \frac{d\nu}{d\mu}d\mu$（因 $\frac{d\nu}{d\mu}\ge 0$）。由第 2 步对每个 $n$ 成立，取极限后等式仍成立。
+
+4. **一般 $L^1$ 函数**：$g = g^+ - g^-$，$g^+, g^-$ 非负可测，分别应用第 3 步，再相减即得。
+
+**(ii) 证明链式法则：$\frac{d\nu}{d\lambda} = \frac{d\nu}{d\mu} \cdot \frac{d\mu}{d\lambda}$ $\lambda$-a.e.**  
+已知 $\nu \ll \mu$ 且 $\mu \ll \lambda$。利用 (i) 的结论构造积分等式，再脱去积分号。
+
+1. **构造两套积分表达**：对任意可测集 $E$，考虑 $\nu(E)$。  
+   - 第一套：由 $\nu \ll \lambda$ 得 $\nu(E) = \int_E \frac{d\nu}{d\lambda} d\lambda$。  
+   - 第二套：由 $\nu \ll \mu$ 得 $\nu(E) = \int_E \frac{d\nu}{d\mu} d\mu$。将 $\chi_E \frac{d\nu}{d\mu}$ 视为函数 $g$，应用命题 (i) 将 $\mu$ 积分转为 $\lambda$ 积分：$\int_X \left(\chi_E \frac{d\nu}{d\mu}\right) d\mu = \int_X \left(\chi_E \frac{d\nu}{d\mu}\right) \frac{d\mu}{d\lambda} d\lambda = \int_E \left(\frac{d\nu}{d\mu} \frac{d\mu}{d\lambda}\right) d\lambda$。
+
+2. **两式相减**：两个积分都等于 $\nu(E)$，故 $\int_E \left( \frac{d\nu}{d\lambda} - \frac{d\nu}{d\mu} \frac{d\mu}{d\lambda} \right) d\lambda = 0$ 对任意 $E\in\mathcal{M}$ 成立。
+
+3. **脱去积分号**：若对所有 $E$ 有 $\int_E f d\lambda = 0$，则 $f = 0$ $\lambda$-a.e.。因此 $\frac{d\nu}{d\lambda} = \frac{d\nu}{d\mu} \frac{d\mu}{d\lambda}$ $\lambda$-a.e.。
+
+这部分逻辑严密流畅。“四步提拔法”是极强大的工具，在 Fubini 定理、拉东测度等章节会反复出现。
