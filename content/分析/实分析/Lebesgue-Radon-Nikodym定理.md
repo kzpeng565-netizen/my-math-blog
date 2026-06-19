@@ -45,11 +45,11 @@
    由 $\nu$ 有限知 $a\le \nu(X)<\infty$。取 $\{f_n\}\subset\mathcal{F}$ 使 $\int_X f_n\,d\mu\to a$，再令 $g_n=\max(f_1,\dots,f_n)$，则 $g_n\in\mathcal{F}$ 且单调递增。设 $g_n\nearrow f$。
 
 3. **用 MCT 得到最大绝对连续部分**：对任意 $E\in\mathcal{M}$，由单调收敛定理，
-   $$
+$$
    \int_E f\,d\mu
    = \lim_{n\to\infty}\int_E g_n\,d\mu
    \le \nu(E),
-   $$
+$$
    因此 $f\in\mathcal{F}$。于是 $f\,d\mu$ 就是能从 $\nu$ 中榨取出的最大绝对连续部分，记为 $\rho$。
 
 4. **证明残余部分奇异**：定义 $d\lambda=d\nu-f\,d\mu$，由 $f\in\mathcal{F}$ 知 $\lambda$ 是正测度。若 $\lambda$ 不垂直于 $\mu$，则由引理 4.23，存在 $E$ 及 $\varepsilon>0$ 使在 $E$ 上 $\lambda\ge \varepsilon\mu$。对任意可测子集 $F\subset E$，
@@ -109,31 +109,32 @@ $$
 
 核心目标是将关于 $\nu$ 的积分通过 Radon-Nikodym 导数 $\frac{d\nu}{d\mu}$ 转化为关于 $\mu$ 的积分。
 
-### 2.1.1 前置准备：化归为正测度
+**证明过程**：
 
-通过 Jordan 分解，任何带号测度 $\nu$ 可分解为 $\nu = \nu^+ - \nu^-$。由于积分和导数都是线性的，可直接假设 $\nu$ 是正测度，从而 $\frac{d\nu}{d\mu} \ge 0$，避免符号带来的麻烦。
+1. **化归为正测度**：通过 Jordan 分解，任何带号测度 $\nu$ 可分解为 $\nu = \nu^+ - \nu^-$。由于积分和导数都是线性的，可直接假设 $\nu$ 是正测度，从而 $\frac{d\nu}{d\mu} \ge 0$，避免符号带来的麻烦。
 
-接下来是“四步提拔法”：
+2. **指示函数**：设 $g = \chi_E$（$E \in \mathcal{M}$）。左边 $\int_X \chi_E\,d\nu = \nu(E)$；右边由 R-N 导数定义：
+$$
+\nu(E)
+= \int_E \frac{d\nu}{d\mu}\,d\mu
+= \int_X \chi_E \frac{d\nu}{d\mu}\,d\mu.
+$$
 
-1. **指示函数**：设 $g = \chi_E$（$E \in \mathcal{M}$）。左边 $\int_X \chi_E\,d\nu = \nu(E)$；右边由 R-N 导数定义
-   $$
-   \nu(E)
-   = \int_E \frac{d\nu}{d\mu}\,d\mu
-   = \int_X \chi_E \frac{d\nu}{d\mu}\,d\mu.
-   $$
-   等式成立。
+因此等式成立。
 
-2. **简单函数**：设 $g = \sum c_i \chi_{E_i}$。由积分的线性，等式对每个 $\chi_{E_i}$ 成立则对线性组合成立。
+3. **简单函数**：设 $g = \sum c_i \chi_{E_i}$。由积分的线性，等式对每个 $\chi_{E_i}$ 成立则对线性组合成立。
 
-3. **非负可测函数**：设 $g \ge 0$ 可测，存在简单函数列 $g_n \nearrow g$。对等式两边用 **单调收敛定理 (MCT)**：左边 $\int_X g\,d\nu = \lim\int_X g_n\,d\nu$，右边
-   $$
-   \int_X g_n \frac{d\nu}{d\mu}\,d\mu
-   \to
-   \int_X g \frac{d\nu}{d\mu}\,d\mu
-   $$
-   （因 $\frac{d\nu}{d\mu}\ge 0$）。由第 2 步对每个 $n$ 成立，取极限后等式仍成立。
+4. **非负可测函数**：设 $g \ge 0$ 可测，存在简单函数列 $g_n \nearrow g$。对等式两边用 **单调收敛定理 (MCT)**：左边 $\int_X g\,d\nu = \lim\int_X g_n\,d\nu$，右边由于 $\frac{d\nu}{d\mu}\ge 0$，有
 
-4. **一般 $L^1$ 函数**：$g = g^+ - g^-$，$g^+, g^-$ 非负可测，分别应用第 3 步，再相减即得。
+$$
+\int_X g_n \frac{d\nu}{d\mu}\,d\mu
+\to
+\int_X g \frac{d\nu}{d\mu}\,d\mu.
+$$
+
+由第 3 步对每个 $n$ 成立，取极限后等式仍成立。
+
+5. **一般 $L^1$ 函数**：$g = g^+ - g^-$，$g^+, g^-$ 非负可测，分别应用第 4 步，再相减即得。
 
 ## 2.2 链式法则
 
@@ -146,42 +147,38 @@ $$
 
 已知 $\nu \ll \mu$ 且 $\mu \ll \lambda$。利用 (i) 的结论构造积分等式，再脱去积分号。
 
-1. **构造两套积分表达**：对任意可测集 $E$，考虑 $\nu(E)$。
+**证明过程**：
 
-   - 第一套：由 $\nu \ll \lambda$ 得
-     $$
-     \nu(E) = \int_E \frac{d\nu}{d\lambda}\,d\lambda.
-     $$
+1. **先得到绝对连续关系**：由 $\nu \ll \mu$ 且 $\mu \ll \lambda$，立刻有 $\nu \ll \lambda$，所以 $\frac{d\nu}{d\lambda}$ 存在。
 
-   - 第二套：由 $\nu \ll \mu$ 得
-     $$
-     \nu(E) = \int_E \frac{d\nu}{d\mu}\,d\mu.
-     $$
-     将 $\chi_E \frac{d\nu}{d\mu}$ 视为函数 $g$，应用命题 (i) 将 $\mu$ 积分转为 $\lambda$ 积分：
-     $$
-     \int_X \left(\chi_E \frac{d\nu}{d\mu}\right)\,d\mu
-     =
-     \int_X \left(\chi_E \frac{d\nu}{d\mu}\right)\frac{d\mu}{d\lambda}\,d\lambda
-     =
-     \int_E \left(\frac{d\nu}{d\mu}\frac{d\mu}{d\lambda}\right)\,d\lambda.
-     $$
+2. **构造两套积分表达**：对任意可测集 $E$，考虑 $\nu(E)$。一方面，由 $\nu \ll \lambda$ 得
+$$
+\nu(E) = \int_E \frac{d\nu}{d\lambda}\,d\lambda.
+$$
 
-2. **两式相减**：两个积分都等于 $\nu(E)$，故
-   $$
-   \int_E \left(
-   \frac{d\nu}{d\lambda}
-   -
-   \frac{d\nu}{d\mu}\frac{d\mu}{d\lambda}
-   \right)\,d\lambda = 0
-   $$
-   对任意 $E\in\mathcal{M}$ 成立。
+另一方面，由 $\nu \ll \mu$ 得 $\nu(E) = \int_E \frac{d\nu}{d\mu}\,d\mu$。将 $\chi_E \frac{d\nu}{d\mu}$ 视为函数 $g$，应用命题 (i) 将 $\mu$ 积分转为 $\lambda$ 积分：
+$$
+\nu(E)
+=\int_X \left(\chi_E \frac{d\nu}{d\mu}\right)\,d\mu
+=\int_X \left(\chi_E \frac{d\nu}{d\mu}\right)\frac{d\mu}{d\lambda}\,d\lambda
+=\int_E \left(\frac{d\nu}{d\mu}\frac{d\mu}{d\lambda}\right)\,d\lambda.
+$$
 
-3. **脱去积分号**：若对所有 $E$ 有 $\int_E f\,d\lambda = 0$，则 $f = 0$ $\lambda$-a.e.。因此
-   $$
-   \frac{d\nu}{d\lambda}
-   =
-   \frac{d\nu}{d\mu}\frac{d\mu}{d\lambda}
-   \quad \lambda\text{-a.e.}
-   $$
+3. **两式相减**：两个积分都等于 $\nu(E)$，故对任意 $E\in\mathcal{M}$，
+$$
+\int_E \left(
+\frac{d\nu}{d\lambda}
+-
+\frac{d\nu}{d\mu}\frac{d\mu}{d\lambda}
+\right)\,d\lambda = 0.
+$$
+
+4. **脱去积分号**：若对所有 $E$ 有 $\int_E f\,d\lambda = 0$，则 $f = 0$ $\lambda$-a.e.。因此
+$$
+\frac{d\nu}{d\lambda}
+=
+\frac{d\nu}{d\mu}\frac{d\mu}{d\lambda}
+\quad \lambda\text{-a.e.}
+$$
 
 这部分逻辑严密流畅。“四步提拔法”是极强大的工具，在 Fubini 定理、拉东测度等章节会反复出现。

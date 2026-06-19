@@ -65,6 +65,7 @@ $$
 $$
 ```
 
+- When a display formula appears near a numbered or bulleted list item, keep the `$$` lines at the beginning of the line with no leading spaces. Prefer prose plus an unindented display block over nested bullets containing indented `$$` blocks, because Obsidian/Markdown can misparse indented display math inside lists.
 - In callouts, every formula line must begin with `>`.
 - Do not use deprecated color-marker syntax.
 
