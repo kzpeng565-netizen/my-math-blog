@@ -81,6 +81,35 @@ $$
 $$
 由 Radon-Nikodym 导数的 $\mu$-a.e. 唯一性，即得结论。
 
+## 1.5 唯一性
+**1. Lebesgue 分解的唯一性**
+假设存在两组分解：
+$$\nu = \lambda_1 + \rho_1 = \lambda_2 + \rho_2$$
+其中 $\lambda_1, \lambda_2 \perp \mu$，$\rho_1, \rho_2 \ll \mu$。由于 $\sigma$-有限，可移项相减，令 $\omega = \lambda_1 - \lambda_2 = \rho_2 - \rho_1$。证明 $\omega = 0$：
+- **奇异性的传递**：存在零测集 $A_1, A_2$（$\mu(A_1)=\mu(A_2)=0$），使得 $\lambda_1$ 集中在 $A_1$，$\lambda_2$ 集中在 $A_2$。令 $A = A_1 \cup A_2$，则 $\mu(A)=0$，且 $\lambda_1,\lambda_2$ 在 $A^c$ 上为 $0$，故 $\omega$ 在 $A^c$ 上也为 $0$，即 $\omega \perp \mu$。
+- **绝对连续性的传递**：$\rho_1,\rho_2 \ll \mu$，由线性性得 $\omega \ll \mu$。
+- **得出矛盾**：$\omega$ 集中在 $A$ 上（$\omega(A^c)=0$），而 $\mu(A)=0$ 及 $\omega \ll \mu$ 推出 $\omega(A)=0$，因此 $\omega=0$。
+故 $\lambda_1=\lambda_2$，$\rho_1=\rho_2$，分解唯一。
+
+**2. Radon-Nikodym 导数 $f$ 的唯一性（几乎处处唯一）**
+假设 $f_1,f_2$ 满足 $d\rho = f_1 d\mu = f_2 d\mu$。对任意可测集 $E$，
+$$\int_E f_1 d\mu = \int_E f_2 d\mu \implies \int_E (f_1-f_2) d\mu = 0$$
+
+## 1.6 例子-F绝对连续的L-S测度
+
+当 $F$ 绝对连续且单调递增时，可诱导有限正测度。由 Radon-Nikodym 定理，存在积分核 $f$，使 $F$ 写成 $f$ 的积分。
+
+**1. 存在性**  
+$F$ 诱导 Lebesgue-Stieltjes 测度 $\mu_F$，满足 $\mu_F((c, d]) = F(d) - F(c)$。由绝对连续得 $\mu_F \ll m$。Radon-Nikodym 定理给出 $f \in L^1$，使得对任意 Borel 集 $A$：
+$$\mu_F(A) = \int_A f dm$$
+取 $A=[a,x]$ 得：
+$$F(x) - F(a) = \int_a^x f(t) dt$$
+
+**2. 唯一性**   
+差商：
+$$\frac{F(x+h)-F(x)}{h} = \frac1h \int_x^{x+h} f(t) dt$$
+由 Lebesgue 微分定理，右边极限几乎处处等于 $f(x)$，故左边极限几乎处处存在且等于 $f(x)$，即：
+$$F'(x) = f(x) \quad m\text{-a.e.}$$
 # 2. Radon-Nikodym 导数的换元与链式法则
 
 > [!Note] 命题 4.25
