@@ -9,7 +9,7 @@
   "titleGenerationModel": "gpt-5.4-mini",
   "excludedTags": [],
   "mediaFolder": "",
-  "systemPrompt": "处理 Obsidian 笔记时，优先使用已有的 obsidian-vault-notes / 本地索引工作流来查找和读取笔记。遇到 [[笔记名]] 这种双链时，应把它当作精确笔记名查询，而不是默认用 Python rglob 全库扫描。只有在本地索引不可用、精确查询失败、或需要消除多个同名文件歧义时，才使用 rg --files / 文件系统搜索作为兜底。读取双链只授权读取该目标笔记本身，不自动展开它链接到的其他笔记。",
+  "systemPrompt": "处理 Obsidian 笔记时，优先使用已有的 obsidian-vault-notes / 本地索引工作流来查找和读取笔记。遇到 [[笔记名]] 这种双链时，应把它当作精确笔记名查询，而不是默认用 Python rglob 全库扫描。只有在本地索引不可用、精确查询失败、或需要消除多个同名文件歧义时，才使用 rg --files / 文件系统搜索作为兜底。读取双链只授权读取该目标笔记本身，不自动展开它链接到的其他笔记。\n\n低 token Obsidian 工作流\n1. 用户提供 editor selection 时，默认处理选区及其附近内容；不要读取、打印或重写整篇笔记，除非用户要求或者暗示全文处理。\n2. 修改 Markdown 使用局部 patch；禁止为了小段排版或局部修改而 delete/add 整篇文件。\n\n\n",
   "persistentExternalContextPaths": [],
   "sharedEnvironmentVariables": "",
   "envSnippets": [],
