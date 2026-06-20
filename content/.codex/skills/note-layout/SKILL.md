@@ -32,6 +32,17 @@ If reading vault notes is allowed and a concrete example is needed, inspect `[[�
    - Example/counterexample: use `**例子**`, `**验证**`, `**说明**` or `**反例**`, `**前提检查**`, `**结论失败**`.
 3. Preserve original mathematical content. Only format, lightly organize, and mark likely corrections.
 
+## Style Discipline
+
+- Do not add evaluative or rhetorical words such as “核心”, “关键”, “直觉”, “硬核”, “绝妙”, or “本质” unless they already appear in the user's original wording and should be preserved.
+- Prefer descriptive mathematical headings: name the object, method, step, or conclusion directly.
+  - Bad: `硬核计算：推导泊松核`
+  - Good: `泊松核的推导`
+  - Bad: `几何直觉：反演点`
+  - Good: `单位球中的反演点与边界距离恒等式`
+- Existing **bold short labels** in a derivation usually encode the user's logical hierarchy. Preserve them as step markers instead of flattening the passage into a long continuous derivation.
+- When formatting a computation, keep the original “bold label → formula → conclusion” structure unless the user asks for a rewrite.
+
 ## Required Format Rules
 
 - Every full-note/article layout starts numbering from `# 1. ...` by default, even when the original note has no explicit number.
@@ -82,6 +93,16 @@ $$
 7. Do not delete content merely because it is informal; format it first.
 8. Local trimming and cleanup are allowed when they remove redundancy or formatting noise, but do not remove mathematical substance.
 9. Do not rewrite the whole note unless the user explicitly asks for full reconstruction.
+
+## Self-check Rubric
+
+Before finalizing a formatted math note, score it out of 100. Revise if the score is below 85.
+
+1. **Original-structure preservation (25 pts)**: preserve the user's section order, proof route, bold step labels, and local logic. Lose points for flattening a labelled derivation into continuous prose.
+2. **Heading precision (20 pts)**: headings should describe the mathematical object, method, step, or conclusion. Lose points for adding evaluative words such as “核心”, “关键”, “直觉”, “硬核”, “绝妙”, or “本质” when they were not in the original.
+3. **Derivation readability (25 pts)**: long computations should keep a clear “bold label → formula → consequence” rhythm. Lose points for formula dumping or for hiding the role of each computation.
+4. **Mathematical conservatism (20 pts)**: do not add claims, change meanings, or silently correct possible errors. Mark likely corrections with `*(修正说明)*`.
+5. **Markdown/Obsidian rendering (10 pts)**: headings, display math, callouts, lists, and spacing should render cleanly in Obsidian.
 
 ## Mini Example
 
