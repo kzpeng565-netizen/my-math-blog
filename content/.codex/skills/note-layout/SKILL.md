@@ -65,6 +65,8 @@ $$
 $$
 ```
 
+- Preserve the author's inline/display math choice: do not promote short inline formulas in definitions, assumptions, or numbered conditions into display equations merely for formatting.
+- Keep display formulas compact with adjacent prose; do not add an empty line between the closing `$$` and the next explanatory line or list continuation.
 - When a display formula appears near a numbered or bulleted list item, keep the `$$` lines at the beginning of the line with no leading spaces. Prefer prose plus an unindented display block over nested bullets containing indented `$$` blocks, because Obsidian/Markdown can misparse indented display math inside lists.
 - In callouts, every formula line must begin with `>`.
 - Do not use deprecated color-marker syntax.
@@ -74,11 +76,12 @@ $$
 1. Keep the original proof content, viewpoint, and expression as much as possible.
 2. Keep English text in English and Chinese text in Chinese; in mixed notes, mainly use Chinese.
 3. Preserve `%%批注%%`, `*(批注)*`, existing **bold** text, and everything after **Remark**.
-4. If a typo or likely mathematical input error is corrected, mark it with `*(修正说明)*`.
-5. Do not add answers, extra explanations, or new claims unless the user asks.
-6. Do not delete content merely because it is informal; format it first.
-7. Local trimming and cleanup are allowed when they remove redundancy or formatting noise, but do not remove mathematical substance.
-8. Do not rewrite the whole note unless the user explicitly asks for full reconstruction.
+4. Preserve whether formulas were written inline or display-style unless there is a clear readability or rendering reason to change it.
+5. If a typo or likely mathematical input error is corrected, mark it with `*(修正说明)*`.
+6. Do not add answers, extra explanations, or new claims unless the user asks.
+7. Do not delete content merely because it is informal; format it first.
+8. Local trimming and cleanup are allowed when they remove redundancy or formatting noise, but do not remove mathematical substance.
+9. Do not rewrite the whole note unless the user explicitly asks for full reconstruction.
 
 ## Mini Example
 
