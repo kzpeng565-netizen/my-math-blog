@@ -1,6 +1,6 @@
 ---
 epoch: 1781929631689
-modelKey: "deepseek-v4-pro|deepseek"
+modelKey: "deepseek-reasoner|deepseek"
 topic: "Area integral convergence condition"
 
 
