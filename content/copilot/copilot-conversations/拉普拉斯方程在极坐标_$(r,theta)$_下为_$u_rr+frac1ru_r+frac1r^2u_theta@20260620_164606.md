@@ -99,3 +99,47 @@ $$
 **user**: 不要用1.2.3加粗
 [Context: Notes: 分析/微分方程/调和方程格林函数的推导.md]
 [Timestamp: 2026/06/20 16:46:27]
+
+**ai**: 
+<think>我们被问到不要用1.2.3加粗。分析上下文：用户之前说“把这个证明写的更简洁, 适合考场上书写”，我们给出了一个带编号和加粗的回答。现在用户说“不要用1.2.3加粗”，意思是不要使用加粗的编号标题。可能希望用纯文本，或者用其他方式。
+
+我们需要修改回答，去掉加粗和编号形式，但保持简洁，适合考场书写。可以改为连续段落，或者用符号列表但不加粗。或者直接用自然语言。
+
+考虑到“适合考场上书写”，可能希望紧凑，所以可以用分段不加编号但用逻辑连接。或者用无序列表（-）。但用户明确说“不要用1.2.3加粗”，所以避免序号加粗。我们可以保留序数但不用加粗，比如：1. 2. 3. 但不要加粗。或者直接一段一段写，用“首先”，“其次”等。
+
+安全做法：去掉加粗，将序号改为普通数字后加点，或者用“第一步”“第二步”等中文但不加粗。
+
+另外，注意不要改变内容，只是格式调整。
+
+我们重写回答。</think>好的，下面是不使用加粗编号的简洁版本，适合考场书写：
+
+---
+
+**单位圆盘泊松核（傅里叶方法）**
+
+分离变量。极坐标下拉普拉斯方程 $u_{rr}+\frac{1}{r}u_r+\frac{1}{r^2}u_{\theta\theta}=0$，设 $u(r,\theta)=R(r)\Theta(\theta)$，得到 $\Theta''+n^2\Theta=0$（$n$ 整数），$r^2R''+rR'-n^2R=0$。
+
+解得 $\Theta(\theta)=e^{in\theta}$，径向方程通解 $R_n(r)=A_n r^{|n|}+B_n r^{-|n|}$。由 $r=0$ 处有界得 $B_n=0$，故
+$$u(r,\theta)=\sum_{n=-\infty}^{\infty}C_n r^{|n|}e^{in\theta}.$$
+
+代入边界条件 $u(1,\theta)=g(\theta)$，得 $g(\theta)=\sum C_n e^{in\theta}$，因此傅里叶系数
+$$C_n=\frac{1}{2\pi}\int_0^{2\pi}g(\tau)e^{-in\tau}d\tau.$$
+
+将其代回原式并交换求和与积分：
+$$u(r,\theta)=\frac{1}{2\pi}\int_0^{2\pi}g(\tau)\left(\sum_{n=-\infty}^{\infty}r^{|n|}e^{in(\theta-\tau)}\right)d\tau.$$
+
+令 $\varphi=\theta-\tau$，计算内和：
+$$
+\begin{aligned}
+S&=\sum_{n=-\infty}^{\infty}r^{|n|}e^{in\varphi}
+=1+\sum_{n=1}^{\infty}(re^{i\varphi})^n+\sum_{n=1}^{\infty}(re^{-i\varphi})^n\\
+&=1+\frac{re^{i\varphi}}{1-re^{i\varphi}}+\frac{re^{-i\varphi}}{1-re^{-i\varphi}}
+=\frac{1-r^2}{1-2r\cos\varphi+r^2}.
+\end{aligned}
+$$
+
+最终得到圆盘的泊松积分公式：
+$$u(r,\theta)=\frac{1}{2\pi}\int_0^{2\pi}\frac{1-r^2}{1-2r\cos(\theta-\tau)+r^2}\,g(\tau)\,d\tau.$$
+
+核函数 $K(r,\theta-\tau)=\dfrac{1-r^2}{1-2r\cos(\theta-\tau)+r^2}$ 即为单位圆盘的泊松核。
+[Timestamp: 2026/06/20 16:46:37]
