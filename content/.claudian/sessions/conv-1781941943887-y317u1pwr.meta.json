@@ -1,0 +1,26 @@
+{
+  "id": "conv-1781941943887-y317u1pwr",
+  "providerId": "codex",
+  "title": "Format Obsidian math notes",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781941943888,
+  "updatedAt": 1781942656789,
+  "lastResponseAt": 1781942656789,
+  "sessionId": "019ee404-48b0-7181-ab7e-e363cc14454a",
+  "providerState": {
+    "threadId": "019ee404-48b0-7181-ab7e-e363cc14454a",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\20\\rollout-2026-06-20T15-52-31-019ee404-48b0-7181-ab7e-e363cc14454a.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "分析/微分方程/调和方程格林函数的推导.md",
+  "usage": {
+    "inputTokens": 56774,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 48512,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 56774,
+    "percentage": 22,
+    "model": "gpt-5.5"
+  }
+}

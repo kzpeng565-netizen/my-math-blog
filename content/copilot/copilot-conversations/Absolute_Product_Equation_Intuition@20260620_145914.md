@@ -11,7 +11,7 @@ tags:
 
 **user**: |y-x|=|x|\,|y-\tilde{x}|
 这个式子怎么直观理解
-[Context: Notes: 分析/微分方程/调和方程格林公式.md]
+[Context: Notes: 分析/微分方程/调和方程格林函数的推导.md]
 [Timestamp: 2026/06/20 14:59:14]
 
 **ai**: 
