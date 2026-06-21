@@ -1,0 +1,26 @@
+{
+  "id": "conv-1782042160065-trzd7fhox",
+  "providerId": "codex",
+  "title": "Create Obsidian pomodoro log cleaner",
+  "titleGenerationStatus": "success",
+  "createdAt": 1782042160066,
+  "updatedAt": 1782042510014,
+  "lastResponseAt": 1782042510014,
+  "sessionId": "019ee9fd-7c7e-71a2-bbe6-c05f554a4054",
+  "providerState": {
+    "threadId": "019ee9fd-7c7e-71a2-bbe6-c05f554a4054",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\21\\rollout-2026-06-21T19-42-49-019ee9fd-7c7e-71a2-bbe6-c05f554a4054.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "非笔记内容/任务计划/番茄钟log.md",
+  "usage": {
+    "inputTokens": 26457,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 25984,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 26457,
+    "percentage": 10,
+    "model": "gpt-5.5"
+  }
+}

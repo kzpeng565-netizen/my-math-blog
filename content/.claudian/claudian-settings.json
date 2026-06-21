@@ -85,7 +85,7 @@
   },
   "savedProviderEffort": {
     "claude": "medium",
-    "codex": "high"
+    "codex": "medium"
   },
   "savedProviderServiceTier": {
     "codex": "default"
