@@ -1,4 +1,4 @@
 interface:
-  display_name: "任务规划"
-  short_description: "读取任务集合并生成可写入的 Obsidian Tasks 规划。"
-  default_prompt: "Use $task-planner to read my task collection, plan only the listed tasks, write the planned Tasks entries, and remove planned items from the collection."
+  display_name: "假期任务规划"
+  short_description: "统筹假期学习、生活事项、家教任务并生成可执行的 Obsidian Tasks 计划。"
+  default_prompt: "Use $task-planner to turn my holiday study, life, and tutoring tasks into a realistic Obsidian Tasks plan."

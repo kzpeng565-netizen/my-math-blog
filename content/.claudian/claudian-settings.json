@@ -1,144 +1,106 @@
 {
-    "userName":  "",
-    "permissionMode":  "yolo",
-    "model":  "haiku",
-    "thinkingBudget":  "off",
-    "effortLevel":  "medium",
-    "serviceTier":  "default",
-    "enableAutoTitleGeneration":  true,
-    "titleGenerationModel":  "gpt-5.4-mini",
-    "excludedTags":  [
-
-                     ],
-    "mediaFolder":  "",
-    "systemPrompt":  "处理 Obsidian 笔记时，优先使用已有的 obsidian-vault-notes / 本地索引工作流来查找和读取笔记。遇到 [[笔记名]] 这种双链时，应把它当作精确笔记名查询，而不是默认用 Python rglob 全库扫描。只有在本地索引不可用、精确查询失败、或需要消除多个同名文件歧义时，才使用 rg --files / 文件系统搜索作为兜底。读取双链只授权读取该目标笔记本身，不自动展开它链接到的其他笔记。\n\n低 token Obsidian 工作流\n1. 用户提供 editor selection 时，默认处理选区及其附近内容；不要读取、打印或重写整篇笔记，除非用户要求或者暗示全文处理。\n2. 修改 Markdown 使用局部 patch；禁止为了小段排版或局部修改而 delete/add 整篇文件。\n\n\n",
-    "persistentExternalContextPaths":  [
-
-                                       ],
-    "sharedEnvironmentVariables":  "",
-    "envSnippets":  [
-
-                    ],
-    "customContextLimits":  {
-
-                            },
-    "customModelAliases":  {
-
-                           },
-    "keyboardNavigation":  {
-                               "scrollUpKey":  "w",
-                               "scrollDownKey":  "s",
-                               "focusInputKey":  "i"
-                           },
-    "requireCommandOrControlEnterToSend":  false,
-    "locale":  "zh-CN",
-    "providerConfigs":  {
-                            "claude":  {
-                                           "safeMode":  "acceptEdits",
-                                           "cliPath":  "",
-                                           "cliPathsByHost":  {
-
-                                                              },
-                                           "loadUserSettings":  true,
-                                           "enableChrome":  false,
-                                           "enableBangBash":  false,
-                                           "enableOpus1M":  false,
-                                           "enableSonnet1M":  false,
-                                           "customModels":  "",
-                                           "lastModel":  "haiku",
-                                           "environmentVariables":  "",
-                                           "environmentHash":  ""
-                                       },
-                            "codex":  {
-                                          "enabled":  true,
-                                          "safeMode":  "workspace-write",
-                                          "cliPath":  "",
-                                          "cliPathsByHost":  {
-                                                                 "device:a65af03f-bce5-4793-af1e-205a19208756":  "C:\\Users\\15345\\AppData\\Local\\OpenAI\\Codex\\bin\\a7c12ebff69fb123\\codex.exe"
-                                                             },
-                                          "customModels":  "",
-                                          "reasoningSummary":  "detailed",
-                                          "environmentVariables":  "",
-                                          "environmentHash":  "",
-                                          "installationMethodsByHost":  {
-                                                                            "device:a65af03f-bce5-4793-af1e-205a19208756":  "native-windows"
-                                                                        },
-                                          "wslDistroOverridesByHost":  {
-
-                                                                       }
-                                      },
-                            "opencode":  {
-                                             "cliPath":  "",
-                                             "cliPathsByHost":  {
-
-                                                                },
-                                             "enabled":  false,
-                                             "environmentHash":  "",
-                                             "environmentVariables":  "OPENCODE_ENABLE_EXA=1",
-                                             "modelAliases":  {
-
-                                                              },
-                                             "preferredThinkingByModel":  {
-
-                                                                          },
-                                             "selectedMode":  "",
-                                             "thinkingOptionsByModel":  {
-
-                                                                        },
-                                             "visibleModels":  [
-
-                                                               ]
-                                         },
-                            "pi":  {
-                                       "cliPath":  "",
-                                       "cliPathsByHost":  {
-
-                                                          },
-                                       "discoveredModels":  [
-
-                                                            ],
-                                       "enabled":  false,
-                                       "environmentHash":  "",
-                                       "environmentVariables":  "",
-                                       "modelAliases":  {
-
-                                                        },
-                                       "preferredThinkingByModel":  {
-
-                                                                    },
-                                       "toolMode":  "all",
-                                       "visibleModels":  [
-
-                                                         ]
-                                   }
-                        },
-    "settingsProvider":  "claude",
-    "savedProviderModel":  {
-                               "claude":  "haiku",
-                               "codex":  "gpt-5.5"
-                           },
-    "savedProviderEffort":  {
-                                "claude":  "medium",
-                                "codex":  "medium"
-                            },
-    "savedProviderServiceTier":  {
-                                     "codex":  "default"
-                                 },
-    "savedProviderThinkingBudget":  {
-
-                                    },
-    "savedProviderPermissionMode":  {
-                                        "claude":  "yolo",
-                                        "codex":  "yolo"
-                                    },
-    "lastCustomModel":  "",
-    "maxTabs":  3,
-    "tabBarPosition":  "input",
-    "enableAutoScroll":  true,
-    "deferMathRenderingDuringStreaming":  true,
-    "expandFileEditsByDefault":  false,
-    "chatViewPlacement":  "left-sidebar",
-    "hiddenProviderCommands":  {
-
-                               }
+  "userName": "",
+  "permissionMode": "yolo",
+  "model": "opus",
+  "thinkingBudget": "off",
+  "effortLevel": "high",
+  "serviceTier": "default",
+  "enableAutoTitleGeneration": true,
+  "titleGenerationModel": "gpt-5.4-mini",
+  "excludedTags": [],
+  "mediaFolder": "",
+  "systemPrompt": "处理 Obsidian 笔记时，优先使用已有的 obsidian-vault-notes / 本地索引工作流来查找和读取笔记。遇到 [[笔记名]] 这种双链时，应把它当作精确笔记名查询，而不是默认用 Python rglob 全库扫描。只有在本地索引不可用、精确查询失败、或需要消除多个同名文件歧义时，才使用 rg --files / 文件系统搜索作为兜底。读取双链只授权读取该目标笔记本身，不自动展开它链接到的其他笔记。\n\n低 token Obsidian 工作流\n1. 用户提供 editor selection 时，默认处理选区及其附近内容；不要读取、打印或重写整篇笔记，除非用户要求或者暗示全文处理。\n2. 修改 Markdown 使用局部 patch；禁止为了小段排版或局部修改而 delete/add 整篇文件。\n\n\n",
+  "persistentExternalContextPaths": [],
+  "sharedEnvironmentVariables": "",
+  "envSnippets": [],
+  "customContextLimits": {},
+  "customModelAliases": {},
+  "keyboardNavigation": {
+    "scrollUpKey": "w",
+    "scrollDownKey": "s",
+    "focusInputKey": "i"
+  },
+  "requireCommandOrControlEnterToSend": false,
+  "locale": "zh-CN",
+  "providerConfigs": {
+    "claude": {
+      "safeMode": "acceptEdits",
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "loadUserSettings": true,
+      "enableChrome": false,
+      "enableBangBash": false,
+      "enableOpus1M": false,
+      "enableSonnet1M": false,
+      "customModels": "",
+      "lastModel": "opus",
+      "environmentVariables": "",
+      "environmentHash": ""
+    },
+    "codex": {
+      "enabled": true,
+      "safeMode": "workspace-write",
+      "cliPath": "",
+      "cliPathsByHost": {
+        "device:a65af03f-bce5-4793-af1e-205a19208756": "C:\\Users\\15345\\AppData\\Local\\OpenAI\\Codex\\bin\\a7c12ebff69fb123\\codex.exe"
+      },
+      "customModels": "",
+      "reasoningSummary": "detailed",
+      "environmentVariables": "",
+      "environmentHash": "",
+      "installationMethodsByHost": {
+        "device:a65af03f-bce5-4793-af1e-205a19208756": "native-windows"
+      },
+      "wslDistroOverridesByHost": {}
+    },
+    "opencode": {
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "enabled": false,
+      "environmentHash": "",
+      "environmentVariables": "OPENCODE_ENABLE_EXA=1",
+      "modelAliases": {},
+      "preferredThinkingByModel": {},
+      "selectedMode": "",
+      "thinkingOptionsByModel": {},
+      "visibleModels": []
+    },
+    "pi": {
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "discoveredModels": [],
+      "enabled": false,
+      "environmentHash": "",
+      "environmentVariables": "",
+      "modelAliases": {},
+      "preferredThinkingByModel": {},
+      "toolMode": "all",
+      "visibleModels": []
+    }
+  },
+  "settingsProvider": "claude",
+  "savedProviderModel": {
+    "claude": "opus",
+    "codex": "gpt-5.5"
+  },
+  "savedProviderEffort": {
+    "claude": "high",
+    "codex": "high"
+  },
+  "savedProviderServiceTier": {
+    "codex": "default"
+  },
+  "savedProviderThinkingBudget": {},
+  "savedProviderPermissionMode": {
+    "claude": "yolo",
+    "codex": "yolo"
+  },
+  "lastCustomModel": "",
+  "maxTabs": 3,
+  "tabBarPosition": "input",
+  "enableAutoScroll": true,
+  "deferMathRenderingDuringStreaming": true,
+  "expandFileEditsByDefault": false,
+  "chatViewPlacement": "left-sidebar",
+  "hiddenProviderCommands": {}
 }

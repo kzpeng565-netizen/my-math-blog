@@ -1,11 +1,11 @@
 ---
 name: task-planner
-description: "Plan the user's Obsidian task collection into executable Obsidian Tasks entries. Use when the user asks to complete task management, time planning, schedule tasks, process ToDo-任务集合, or generate/write Tasks code. This skill reads the user's task management README, task collection, and already-planned tasks; follows Obsidian links in the task collection; estimates math work by 20/40/60-minute difficulty tiers; writes planned entries into ToDo-已经规划好的任务.md; and removes successfully planned task blocks from ToDo-任务集合.md."
+description: "Plan a holiday or other unstructured period across study projects, life errands, tutoring acquisition and delivery, driving practice, appointments, and fixed commitments. Use when the user asks to organize a vacation, create a weekly or daily plan, process an Obsidian task collection, balance learning with personal responsibilities, or write executable Obsidian Tasks. Read the user's task-management files, estimate total occupancy including travel and preparation, respect capacity and dependencies, write the plan, and safely preserve unresolved source items."
 ---
 
-# Task Planner
+# Holiday Task Planner
 
-Use this skill to turn the user's own items in `ToDo-任务集合.md` into planned Obsidian Tasks entries. Do not invent review tasks or add extra study plans that are not listed in the task collection.
+Turn the user's own holiday tasks into a realistic layered plan. Plan study, life, and tutoring together instead of optimizing one category in isolation. Do not invent goals, reviews, habits, deadlines, or appointments that are absent from the source material.
 
 Use `.codex/rubrics/task-planning-rubric.md` to check the result before finalizing.
 
@@ -17,155 +17,61 @@ Read these files before planning:
 - `非笔记内容/任务计划/ToDo-任务集合.md`
 - `非笔记内容/任务计划/ToDo-已经规划好的任务.md`
 
-The task collection is the source of truth for tasks to add. The already-planned file is the source of truth for avoiding duplicates.
+Treat the task collection as the source of tasks and the already-planned file as the source for duplicate detection. Also read any linked holiday plan, calendar, tutoring order, homework, reading, driving, or appointment note needed to understand a task.
 
-If a task collection block contains an Obsidian wikilink that points to a homework note, treat that wikilink as part of the task identity and preserve it in the final Tasks line.
+Use the current environment date. Extract the holiday range, fixed commitments, weekly availability, stated priorities, and preferred work pattern from the files or current request. Do not assume semester course times or course-specific deadlines.
+
+Read `references/holiday-planning-rules.md` before splitting, estimating, prioritizing, or scheduling tasks.
 
 ## Required Workflow
 
-1. Read the three canonical files.
-2. Split `ToDo-任务集合.md` into independent task blocks using `---` separators.
-3. For each block, decide whether it is already planned by comparing course name, linked note, task title, and obvious aliases against `ToDo-已经规划好的任务.md`.
-4. If a block contains an Obsidian wikilink such as `[[15.测度性质与分解习题]]`, follow the link and read the linked note to determine the actual task content.
-5. For homework notes, count `[!Note]` blocks as the primary unit of work. If there are no `[!Note]` blocks, use numbered exercise headings or explicit listed questions.
-6. Estimate time and priority, then create one Tasks line per independent homework/major item. Do not split one homework note into many Tasks lines, but do not merge two different homework links merely because they belong to the same course.
-7. Append the newly planned Tasks code and a concise advice note to the end of `ToDo-已经规划好的任务.md`; never delete, overwrite, or reorganize previously planned content in that file.
-8. Remove only task blocks that both (a) were successfully planned and (b) contain an Obsidian wikilink to an archived homework/task note. If a homework/task block in `ToDo-任务集合.md` has no wikilink, keep it in the collection even after creating a planned Tasks line, because it has not been archived yet.
-9. Keep unplanned blocks in `ToDo-任务集合.md` when links cannot be opened or task content is missing. If the task content is visible but no DDL can be inferred, still include it in the schedule, use the current date as `⏳`, omit a firm due date only when Tasks syntax would break, and add `(ddl未知)` to the task name; blocks without Obsidian wikilinks must still remain in the collection after planning.
-10. In the final response, show the Tasks lines that were written, summarize why each estimate was chosen, and list any blocks left unplanned.
+1. Read the canonical files and relevant wikilinks.
+2. Split the collection by `---` when present. Within a large mixed block, recognize headings, numbered lists, checklists, dates, and paragraphs as possible source units; do not treat an entire multi-project block as one task.
+3. Compare task name, project, wikilink, date, location, and obvious aliases with the already-planned file. Do not emit duplicates.
+4. Normalize each new item into: task type, project, completion condition, visible scope, duration evidence, deadline, earliest start, fixed or flexible timing, dependencies, location/travel, energy demand, and uncertainty.
+5. Separate outcomes from actions. Convert holiday outcomes into weekly milestones and near-term executable actions. Keep a user-supplied weekly structure unless it is impossible under current capacity.
+6. Calculate capacity after fixed commitments, travel, basic recovery, and a 15–20% buffer. Never fill every available hour. If demand exceeds capacity, preserve hard commitments and core goals, defer lower-value work, and report the conflict.
+7. Estimate full occupancy and priority using the reference rules. Include preparation, travel, waiting, delivery, and follow-up when they consume time.
+8. Schedule the next 1–7 days concretely. For later weeks, prefer milestones and flexible weekly targets over invented daily precision. When the user explicitly requests a full-holiday plan, create dated weekly milestones plus only the necessary fixed events.
+9. Write one Tasks line per independently executable action, fixed event, or meaningful milestone. Batch repetitive actions only when they share one completion condition and time window.
+10. Append new Tasks lines and a concise plan note to `ToDo-已经规划好的任务.md`. Never delete, overwrite, or reorganize existing planned content.
+11. Remove a source unit only when it was successfully written, its boundary is unambiguous, and removing it will not destroy context for unresolved items. Remove a whole `---` block only when every task in it was planned. Otherwise keep it and rely on duplicate detection in later runs.
+12. Report written Tasks lines, capacity or conflict decisions, and every source item kept because it was unresolved or unsafe to remove.
 
-## Link Following
+## Link Handling
 
-If the collection contains only a link, the linked note must be inspected before planning.
+Resolve a wikilink by exact filename stem first, then choose the vault note whose path matches the task context. Preserve identity-bearing wikilinks in the final task name.
 
-Preserve homework wikilinks in the final Tasks line. For example, a collection block `实分析[[15.测度性质与分解习题]]` should become a task name like `完成实分析作业[[15.测度性质与分解习题]]`, not merely `完成实分析作业`.
+If a linked note is unavailable, do not invent its scope. Keep the source item and state which note or information is needed. A missing link does not prevent other independent tasks in the same block from being planned.
 
-When resolving a wikilink:
+## Dates and Priority
 
-- Search by exact filename stem first.
-- Prefer Markdown notes inside the vault root.
-- If multiple candidates exist, choose the one whose path best matches the course context in the task block.
-- If no note is found, do not estimate. Say: `请补充 xx 文件的具体内容，否则无法排入计划。`
+Respect explicit deadlines and fixed dates. Use `⏳` for the scheduled day and `📅` only for a real or clearly stated due date. When no due date exists, schedule the task without `📅`; do not duplicate the scheduled date as a fake deadline.
 
-## Time Estimation
-
-Use `1 🍅 = 40 分钟`.
-
-For mathematics homework, assign every problem or `[!Note]` block to exactly one of three tiers:
-
-- **20 分钟**：简单概念题、定义直接应用、短计算、单一结论、套用定理即可完成的题目。
-- **40 分钟**：一般定理应用题或推广题，需要串联 1-2 个核心定理，步骤较多但路线明确。
-- **60 分钟**：比较难的构造题或证明题，证明路线不标准、构造性强、计算很长，或一个 `[!Note]`/题目内有三个及以上小问。
-
-Do not assign 60 minutes merely because a theorem name is advanced or the topic is important. Standard applications and routine extensions of heavy theorems are usually 40 minutes unless they require a genuinely difficult construction/proof or have three or more subquestions.
-
-Do not create extra categories such as "calculation type", "proof type", or "formatting time". Do not estimate from the user's familiarity or weakness. Difficulty is based only on:
-
-- theorem logic complexity,
-- whether the task is a routine application/extension or a genuinely difficult construction/proof,
-- amount of calculation,
-- number of subquestions inside the same `[!Note]` or problem,
-- whether textbook/PPT lookup is needed.
-
-Total tomatoes:
-
-```text
-总分钟 = 20 * 简单题数 + 40 * 中等题数 + 60 * 困难题数
-总番茄钟 = ceil(总分钟 / 40)
-```
-
-For non-math homework, use the same 20/40/60 tier idea when the task is question-based. If the task cannot be counted from visible content, leave `[🍅:: ]` and explain what must be supplied.
-
-## Priority Mapping
-
-Use Obsidian Tasks priority semantics:
-
-- `🔺` = Highest
-- `⏫` = High
-- `🔼` = Medium
-- no symbol = Normal
-- `🔽` = Low
-- `⏬` = Lowest
-
-Estimate priority from:
-
-- hard deadline,
-- how close or overdue the deadline is,
-- whether it is course homework,
-- whether it relates to an upcoming exam,
-- whether it needs textbook/PPT lookup and may expand.
-
-Do not call these symbols "four quadrants". They are Tasks priority markers.
-
-Suggested mapping:
-
-- `🔺`: due today/tomorrow, overdue hard homework, or immediate course deadline.
-- `⏫`: important course task due soon or exam-adjacent homework.
-- `🔼`: useful but less urgent course/knowledge work.
-- no symbol: ordinary task without strong pressure.
-- `🔽`: low-priority task.
-- `⏬`: can be safely deferred.
-
-## Dates
-
-Use the current date from the environment.
-
-If the task gives an explicit deadline, respect it. If not:
-
-- 实分析作业：默认周四课上截止。
-- 拓扑作业：默认周四晚上习题课截止。
-- 微分方程作业：默认周二截止，最晚周三习题课。
-- 原子物理：优先使用任务集合或老师通知中的截止时间。
-- Unknown course/task: do not invent a firm date. Still include the task when its content is visible, mark the task name with `(ddl未知)`, and use the current date as the scheduled day. If a due date is required by the local Tasks workflow, use the scheduled date as a placeholder and clearly explain that the real DDL is unknown.
-
-`⏳` is the scheduled day. Choose a start date no later than the deadline, usually today for urgent/overdue work and 1-3 days before the deadline for larger tasks.
-
-`📅` is the due date.
+Use Obsidian Tasks priority semantics: `🔺` Highest, `⏫` High, `🔼` Medium, no symbol Normal, `🔽` Low, `⏬` Lowest. Do not call these markers Eisenhower quadrants.
 
 ## Tasks Format
 
-Every planned task line must use this shape:
+Use one of these valid shapes:
 
 ```markdown
 - [ ] #task 任务名 [🍅:: 0/预计番茄钟] 优先级 ⏳ YYYY-MM-DD 📅 YYYY-MM-DD
+- [ ] #task 任务名 [🍅:: 0/预计番茄钟] 优先级 ⏳ YYYY-MM-DD
 ```
 
-Rules:
+Omit the priority marker when priority is Normal. Keep task names short, preserve useful wikilinks, and do not put estimates or long explanations in the name. Use `[🍅:: ]` only when visible information cannot support a responsible estimate, and keep that source item unresolved.
 
-- Keep task names short.
-- Preserve the original homework wikilink from `ToDo-任务集合.md` in the task name when present, e.g. `完成实分析作业[[15.测度性质与分解习题]]`.
-- Do not list all exercise numbers in the task description.
-- Keep one line per independent homework note or major item.
-- Do not merge two different homework links into one Tasks line just because they are from the same course; preserve the user's assignment-level phrasing and links.
-- If estimated time is impossible, use `[🍅:: ]` and keep the task block in the collection. If only DDL is unknown but the content is visible, do not leave it unplanned; add `(ddl未知)` to the task name and explain the placeholder date.
-- A task collection block without any Obsidian wikilink may still be planned when its content and deadline are visible, but it must remain in `ToDo-任务集合.md`; only linked, archived blocks may be removed after successful planning.
-- Do not use `tasks` fences inside the files unless the local file already uses them. The final chat response may show a Markdown code block.
+## Plan Note
 
-## Advice Note
+After the appended Tasks lines, add a short plain-text note containing:
 
-After the Tasks lines appended to `ToDo-已经规划好的任务.md`, include a concise plain-text note with:
+- the current planning horizon and main focus;
+- the capacity or buffer assumption;
+- at most three starting or batching suggestions;
+- missing information and scheduling conflicts.
 
-- task focus,
-- limited starting advice,
-- difficulty summary,
-- any missing information.
-
-Keep the advice short. It should help start execution, not become a study plan.
+Keep this note operational. Do not turn it into a second, unrelated plan.
 
 ## Final Response
 
-After editing files, report:
-
-```text
-已写入的 Tasks 代码：
-...
-
-简短说明：
-- ...
-
-未规划/保留在任务集合：
-- ...
-```
-
-Also state that the planned blocks were removed from `ToDo-任务集合.md`.
-
+Show the exact Tasks lines written, summarize the key scheduling decisions, list unresolved items retained in the collection, and state which source blocks or units were removed.
