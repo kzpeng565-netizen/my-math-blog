@@ -4,6 +4,23 @@
   "title": "Plan tasks with task-planner",
   "titleGenerationStatus": "success",
   "createdAt": 1783878379440,
-  "updatedAt": 1783878501963,
-  "sessionId": null
+  "updatedAt": 1783878770135,
+  "lastResponseAt": 1783878770135,
+  "sessionId": "019f576f-e847-71a0-8d0b-4c671d21587e",
+  "providerState": {
+    "threadId": "019f576f-e847-71a0-8d0b-4c671d21587e",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\13\\rollout-2026-07-13T01-46-24-019f576f-e847-71a0-8d0b-4c671d21587e.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "非笔记内容/任务计划/ToDo-任务集合.md",
+  "usage": {
+    "inputTokens": 33669,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 33152,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 33669,
+    "percentage": 13,
+    "model": "gpt-5.5"
+  }
 }
