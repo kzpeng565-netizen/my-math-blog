@@ -1,77 +1,73 @@
 ---
 name: task-planner
-description: "Plan a holiday or other unstructured period across study projects, life errands, tutoring acquisition and delivery, driving practice, appointments, and fixed commitments. Use when the user asks to organize a vacation, create a weekly or daily plan, process an Obsidian task collection, balance learning with personal responsibilities, or write executable Obsidian Tasks. Read the user's task-management files, estimate total occupancy including travel and preparation, respect capacity and dependencies, write the plan, and safely preserve unresolved source items."
+description: "Plan a holiday or other unstructured period across study projects, life errands, tutoring, driving, appointments, and personal systems. Use when the user asks to organize a vacation, group a mixed Obsidian task collection into projects and categories, balance learning with personal responsibilities, or write executable Obsidian Tasks without excessive fragmentation or over-merging. Infer projects, build moderate-size execution bundles, validate daily capacity, write categorized Tasks, and preserve unresolved source items."
 ---
 
 # Holiday Task Planner
 
-Turn the user's own holiday tasks into a realistic layered plan. Plan study, life, and tutoring together instead of optimizing one category in isolation. Do not invent goals, reviews, habits, deadlines, or appointments that are absent from the source material.
+Turn the user's holiday tasks into a categorized, capacity-safe plan. Analyze fine-grained actions internally, but output a compact set of coherent execution bundles. Do not invent goals, deadlines, appointments, availability, or confirmed outcomes.
 
-Use `.codex/rubrics/task-planning-rubric.md` to check the result before finalizing.
+Use `.codex/rubrics/task-planning-rubric.md` to score and revise the result before finalizing.
 
 ## Canonical Files
 
 Read these files before planning:
 
-- `非笔记内容/任务计划/任务管理readme.md`
+- `非笔记内容/任务计划/假期任务管理readme.md`
 - `非笔记内容/任务计划/ToDo-任务集合.md`
 - `非笔记内容/任务计划/ToDo-已经规划好的任务.md`
 
-Treat the task collection as the source of tasks and the already-planned file as the source for duplicate detection. Also read any linked holiday plan, calendar, tutoring order, homework, reading, driving, or appointment note needed to understand a task.
+For `$task-planner`, the holiday README takes precedence. Treat `任务管理readme.md` and links that request it as legacy semester instructions belonging to `$study-planner`; do not apply their course, examination, four-quadrant, or fixed-course-deadline rules.
 
-Use the current environment date. Extract the holiday range, fixed commitments, weekly availability, stated priorities, and preferred work pattern from the files or current request. Do not assume semester course times or course-specific deadlines.
+Treat the collection as the source of tasks and the planned file as the source for duplicate detection. Read relevant holiday-plan, tutoring, reading, driving, appointment, or project wikilinks when needed. Use the current environment date.
 
-Read `references/holiday-planning-rules.md` before splitting, estimating, prioritizing, or scheduling tasks.
+Read `references/holiday-planning-rules.md` before classifying, grouping, estimating, or scheduling.
 
 ## Required Workflow
 
-1. Read the canonical files and relevant wikilinks.
-2. Split the collection by `---` when present. Within a large mixed block, recognize headings, numbered lists, checklists, dates, and paragraphs as possible source units; do not treat an entire multi-project block as one task.
-3. Compare task name, project, wikilink, date, location, and obvious aliases with the already-planned file. Do not emit duplicates.
-4. Normalize each new item into: task type, project, completion condition, visible scope, duration evidence, deadline, earliest start, fixed or flexible timing, dependencies, location/travel, energy demand, and uncertainty.
-5. Separate outcomes from actions. Convert holiday outcomes into weekly milestones and near-term executable actions. Keep a user-supplied weekly structure unless it is impossible under current capacity.
-6. Calculate capacity after fixed commitments, travel, basic recovery, and a 15–20% buffer. Never fill every available hour. If demand exceeds capacity, preserve hard commitments and core goals, defer lower-value work, and report the conflict.
-7. Estimate full occupancy and priority using the reference rules. Include preparation, travel, waiting, delivery, and follow-up when they consume time.
-8. Schedule the next 1–7 days concretely. For later weeks, prefer milestones and flexible weekly targets over invented daily precision. When the user explicitly requests a full-holiday plan, create dated weekly milestones plus only the necessary fixed events.
-9. Write one Tasks line per independently executable action, fixed event, or meaningful milestone. Batch repetitive actions only when they share one completion condition and time window.
-10. Append new Tasks lines and a concise plan note to `ToDo-已经规划好的任务.md`. Never delete, overwrite, or reorganize existing planned content.
-11. Remove a source unit only when it was successfully written, its boundary is unambiguous, and removing it will not destroy context for unresolved items. Remove a whole `---` block only when every task in it was planned. Otherwise keep it and rely on duplicate detection in later runs.
-12. Report written Tasks lines, capacity or conflict decisions, and every source item kept because it was unresolved or unsafe to remove.
+1. Read the canonical files and relevant wikilinks. Extract the holiday range, fixed commitments, stated capacity, priorities, and work-pattern preferences.
+2. Split the collection into source units. Classify each unit as an executable action, project outcome, constraint/preference, or advice/reference. Only actions and project outcomes may produce Tasks lines.
+3. Compare names, projects, wikilinks, dates, locations, and aliases with the planned file. Exclude duplicates.
+4. Extract atomic actions for internal analysis. Record each action's project, completion condition, time evidence, date window, dependency, context/location, energy demand, and uncertainty. Do not emit Tasks yet.
+5. Infer a small set of user-specific categories, then cluster actions into projects by shared outcome. Categories are display groups; projects drive aggregation. Do not create empty or purely template-driven categories.
+6. Estimate atomic actions, then combine compatible actions into execution bundles using the reference rules. Prefer 2–6 🍅 per Tasks line, reconsider mergeable 1 🍅 lines, and split bundles above 8 🍅 unless they are indivisible fixed events.
+7. Separate long outcomes into a few meaningful stages. For the next 1–7 days, schedule concrete bundles. For later weeks, prefer milestones in the plan note unless the user explicitly requests full-holiday Tasks.
+8. Calculate daily capacity after fixed events, travel, waiting, preparation, and buffer. Use the fallback capacity from the holiday README only when the user supplies none. Sum planned tomatoes for every scheduled date and revise until no day exceeds capacity.
+9. Assign dates and priorities. Respect dependencies and do not schedule a contingent follow-up as if an external result were guaranteed.
+10. Run a granularity review: merge same-project, same-day short lines when compatible; split lines that combine dates, locations, dependencies, energy modes, or more than 8 🍅; remove any task derived only from advice or explanation.
+11. Append one dated planning batch to `ToDo-已经规划好的任务.md`. Inside the batch, use dynamically numbered `## N. 类别名称` headings and place every Tasks line under exactly one category.
+12. Append a concise plan note with capacity, deferred work, uncertainties, and at most three starting suggestions. Never overwrite or reorganize existing planned content.
+13. Remove a source unit only when it was successfully written, its boundary is unambiguous, and removal preserves unresolved context. Remove a whole `---` block only when all its tasks were planned.
+14. Report categorized Tasks written, aggregation decisions, daily capacity check, unresolved items, and removed source units.
 
 ## Link Handling
 
-Resolve a wikilink by exact filename stem first, then choose the vault note whose path matches the task context. Preserve identity-bearing wikilinks in the final task name.
-
-If a linked note is unavailable, do not invent its scope. Keep the source item and state which note or information is needed. A missing link does not prevent other independent tasks in the same block from being planned.
+Resolve wikilinks by exact filename stem first, then choose the vault note matching the project context. Preserve identity-bearing wikilinks in the final task name. If a link is unavailable, keep that source item unresolved and state what is missing; continue with independent items.
 
 ## Dates and Priority
 
-Respect explicit deadlines and fixed dates. Use `⏳` for the scheduled day and `📅` only for a real or clearly stated due date. When no due date exists, schedule the task without `📅`; do not duplicate the scheduled date as a fake deadline.
+Use `⏳` for the actual scheduled day and `📅` only for a real or clearly stated due date. When no due date exists, omit `📅` rather than copying the scheduled date.
 
-Use Obsidian Tasks priority semantics: `🔺` Highest, `⏫` High, `🔼` Medium, no symbol Normal, `🔽` Low, `⏬` Lowest. Do not call these markers Eisenhower quadrants.
+Use Obsidian Tasks priority semantics: `🔺` Highest, `⏫` High, `🔼` Medium, no symbol Normal, `🔽` Low, `⏬` Lowest. Do not call them Eisenhower quadrants.
 
-## Tasks Format
+## Output Format
 
-Use one of these valid shapes:
+Use a dated batch with inferred categories:
 
 ```markdown
+# YYYY-MM-DD 假期任务规划
+
+## 1. 类别名称
+
 - [ ] #task 任务名 [🍅:: 0/预计番茄钟] 优先级 ⏳ YYYY-MM-DD 📅 YYYY-MM-DD
-- [ ] #task 任务名 [🍅:: 0/预计番茄钟] 优先级 ⏳ YYYY-MM-DD
+
+## 2. 类别名称
+
+- [ ] #task 任务名 [🍅:: 0/预计番茄钟] ⏳ YYYY-MM-DD
 ```
 
-Omit the priority marker when priority is Normal. Keep task names short, preserve useful wikilinks, and do not put estimates or long explanations in the name. Use `[🍅:: ]` only when visible information cannot support a responsible estimate, and keep that source item unresolved.
-
-## Plan Note
-
-After the appended Tasks lines, add a short plain-text note containing:
-
-- the current planning horizon and main focus;
-- the capacity or buffer assumption;
-- at most three starting or batching suggestions;
-- missing information and scheduling conflicts.
-
-Keep this note operational. Do not turn it into a second, unrelated plan.
+Omit Normal priority and nonexistent due dates. Keep names compact; a parenthetical list of 2–4 tightly related deliverables is allowed when it makes a merged bundle verifiable. Use `[🍅:: ]` only when visible information cannot support a responsible estimate, and keep that source item unresolved.
 
 ## Final Response
 
-Show the exact Tasks lines written, summarize the key scheduling decisions, list unresolved items retained in the collection, and state which source blocks or units were removed.
+Show the exact categorized Tasks written. Summarize why actions were merged or split, show each scheduled date's tomato total against capacity, list unresolved items, and state which source units were removed.

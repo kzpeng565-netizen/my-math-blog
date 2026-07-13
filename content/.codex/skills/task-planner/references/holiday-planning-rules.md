@@ -1,93 +1,115 @@
 # Holiday Planning Rules
 
-Use these rules to normalize, estimate, prioritize, and schedule mixed holiday tasks.
+Use these rules to classify source material, infer projects, build execution bundles, estimate time, and validate the schedule.
 
-## Task Types and Completion Units
+## Source Classification
+
+Classify every source unit before generating Tasks:
+
+- **Action**: directly executable and verifiable.
+- **Project outcome**: requires multiple stages or sessions.
+- **Constraint/preference**: controls scheduling but is not itself a task.
+- **Advice/reference**: examples, scripts, criteria, explanations, or methods used to perform a task.
+
+Do not convert each numbered sentence, suggestion, screening rule, or learning question into a task. A long block may contain all four classes.
+
+## Project and Category Inference
+
+Infer a project from shared outcome, not merely shared nouns. For example, resume preparation, outreach, follow-up, and order comparison belong to the broader tutoring-acquisition project but may be different execution stages.
+
+Infer categories after projects are known. Use short user-facing names such as tutoring, mathematics study, driving, life/errands, or personal systems only when the input supports them. Order categories by current priority, fixed dates, and dependency pressure. Emit only non-empty categories.
+
+## Controlled Aggregation
+
+Extract and estimate atomic actions internally. Turn compatible atoms into one execution bundle when they share:
+
+- one project and execution stage;
+- one day or scheduling window;
+- one location, tool set, or work context;
+- one combined completion condition;
+- no external wait or decision boundary between them.
+
+Prefer bundles of 2–6 🍅. Permit up to 8 🍅 when the bundle is coherent and fits the verified day. A single 1 🍅 task is allowed only for an independent fixed event, a blocking confirmation, or a short action that cannot share context with another task.
+
+Split a bundle when dates, locations, energy modes, outputs, or dependencies differ; when an external reply can change the next action; when the name needs a long list to define completion; or when the total exceeds 8 🍅. Split large work into a few stages, not into one line per tomato.
+
+Use this review after drafting:
+
+```text
+same project + same day + same context + no wait boundary + combined <= 8 🍅
+=> merge unless separate tracking has clear value
+
+different day/location/output/dependency/energy mode OR combined > 8 🍅
+=> split
+```
+
+Do not merge unrelated errands merely to reach 2 🍅. Do not merge an entire week of reading and writing into one scheduled-day task.
+
+## Task Types
 
 ### Study projects
 
-Distinguish reading, exercises, notes, blog writing, review, and mentor communication. Treat a broad outcome such as “finish four chapters” as a project, not one executable task. Create weekly milestones with observable outputs, then create actions for the next 1–7 days.
+Separate reading/comprehension, exercises, notes, writing, revision, and mentor communication when they need different dates or produce independent outputs. A broad goal such as finishing four chapters is a project. Near-term work becomes 2–6 🍅 bundles; later work remains a milestone until its week approaches unless full-holiday Tasks are explicitly requested.
 
-Keep one task when one sitting has one completion condition. Split work when stages need different dates or energy, such as blog outline, draft, and revision. Do not split every subsection into a separate line merely to make the plan look detailed.
+### Life and driving
 
-### Life and driving tasks
-
-Include preparation, round-trip travel, likely waiting, and the actual errand. Combine errands only when they share a route and can realistically be completed in the same outing. Treat appointments, driving lessons, and exams as fixed events once confirmed; treat arranging or confirming them as separate prerequisite actions.
+Include preparation, round-trip travel, waiting, and the errand. Combine online errands when they share context; combine physical errands only when they share a realistic route. Treat arranging an appointment as a separate blocker when the actual event is not confirmed.
 
 ### Tutoring acquisition
 
-Separate resume/material preparation, batch outreach, lead follow-up, trial lessons, order comparison, and acceptance decisions. Batch repetitive outreach by a measurable target such as “contact 5 suitable leads.” Do not create teaching sessions before an order and time are confirmed.
+Typical stages are materials, batch outreach, lead follow-up, trial lesson, comparison, and acceptance. Merge resume, proof materials, and a tracking sheet when prepared in one work block. Keep outreach separate from later follow-up when replies are required. Do not create teaching sessions before an order and time are confirmed.
 
-Evaluate an opportunity using total occupancy and, when data is present, real hourly earnings:
+When data exists, use:
 
 ```text
 真实时薪 = 扣除信息费后的总收入 /（授课 + 通勤 + 等待 + 必要备课）
 ```
 
-Do not reject or accept an order on the user's behalf unless the user's stated threshold makes the decision mechanical.
-
 ### Tutoring delivery
 
-Account for lesson preparation, travel, teaching, and follow-up. Keep them as separate tasks when they occur on different days or require different contexts. For a single compact session, a combined task may include the full occupancy estimate.
+Account for preparation, travel, teaching, and follow-up. Merge them only when they form one compact session and share a date; otherwise keep the stages separate.
 
 ## Estimation
 
-Use `1 🍅 = 40 minutes`. Estimate from visible scope, not from importance or the user's self-assessed ability.
+Use `1 🍅 = 40 minutes`. Estimate atomic actions before aggregation and sum them without adding arbitrary coordination time.
 
 For mathematics exercises, classify each visible problem or `[!Note]` block:
 
-- 20 minutes: direct definition or theorem use, short calculation, or one simple conclusion.
+- 20 minutes: direct definition/theorem use, short calculation, or one simple conclusion.
 - 40 minutes: routine proof/application requiring several steps or 1–2 central results.
 - 60 minutes: nonstandard construction/proof, long calculation, or at least three substantial subquestions.
 
-Calculate `ceil(total minutes / 40)`. Do not assign 60 minutes merely because a theorem is advanced.
+Calculate `ceil(total minutes / 40)`. Do not infer difficulty from an advanced theorem name alone.
 
-For reading and writing, estimate from the visible section, proof density, and required output. As fallback anchors rather than automatic prices:
+For reading and writing, estimate from visible scope, proof density, and required output. Fallback anchors are: bounded skim 1–2 🍅; dense concept/proof unit 2–4 🍅; structured notes 1–3 🍅; blog outline 1 🍅; draft 3–5 🍅; revision 1–2 🍅.
 
-- orient or skim one bounded section: 1–2 🍅;
-- deeply read one dense concept/proof unit: 2–4 🍅;
-- produce structured notes from understood material: 1–3 🍅;
-- blog outline: 1 🍅; first draft: 3–5 🍅; revision: 1–2 🍅.
-
-For errands and tutoring, estimate total occupied time rather than active work alone. If travel, scope, or appointment duration is unknown and materially changes the result, use `[🍅:: ]` and request the missing information.
+For errands and tutoring, estimate total occupied time. If missing travel, scope, waiting, or appointment information materially changes the result, use `[🍅:: ]` and keep the item unresolved instead of inventing precision.
 
 ## Capacity and Energy
 
-Start from the user's stated weekly pattern and fixed commitments. Subtract travel and fixed events before allocating flexible work. Reserve 15–20% of usable time for overruns and recovery.
+Use stated capacity first. Otherwise use the holiday README fallback of at most 6 planned tomatoes per day. Only raise this to at most 8 when the user identifies a high-intensity day or a schedule that clearly supports it.
 
-Place demanding mathematics, proof reading, and substantive writing in high-energy blocks. Place outreach, formatting, simple errands, and follow-up in lower-energy blocks. Unless the user's demonstrated routine supports more, avoid scheduling more than two or three deep-work blocks on one day.
+Subtract fixed events, travel, waiting, and preparation before allocating flexible work. Preserve 15–20% unallocated time when capacity is stated as clock hours rather than already-buffered tomatoes.
 
-On tutoring or travel-heavy days, schedule only light study unless the user explicitly has capacity. Batch compatible errands and communications to reduce context switching.
+Place mathematics, proof reading, and substantive writing in high-energy blocks. Place outreach, formatting, online errands, and follow-up in lower-energy blocks. On travel- or tutoring-heavy days, schedule only light study unless capacity explicitly supports more.
 
-## Priority
+After drafting, build a per-date table:
 
-Determine priority from:
+```text
+date | planned tomatoes | available tomatoes | pass/fail
+```
 
-1. hard deadline or fixed time;
-2. whether the task blocks another task;
-3. contribution to the user's stated holiday goals;
-4. whether an opportunity window will close;
-5. financial or practical consequence;
-6. ease of batching with a fixed trip;
-7. available energy and recovery cost.
+Revise every failed date before writing. An unknown-duration task prevents claiming that date is capacity-safe; either obtain the estimate, schedule it alone with caution, or keep it unresolved.
 
-Suggested mapping:
+## Priority and Conflict Resolution
 
-- `🔺`: due within a day, overdue hard commitment, fixed exam/lesson at immediate risk, or a prerequisite blocking today's critical work.
-- `⏫`: due soon, high-consequence commitment, or central weekly milestone at risk.
-- `🔼`: meaningful progress toward a core holiday goal without immediate pressure.
-- no symbol: ordinary task with a reasonable place in the current horizon.
+Determine priority from hard deadlines, blocking dependencies, contribution to stated goals, closing opportunity windows, consequence, batching value, and recovery cost.
+
+- `🔺`: immediate hard commitment or critical blocker.
+- `⏫`: due soon, high consequence, or central milestone at risk.
+- `🔼`: meaningful progress toward a core goal without immediate pressure.
+- no symbol: ordinary current-horizon task.
 - `🔽`: useful but safely deferrable.
-- `⏬`: optional work that should yield first when capacity is exceeded.
+- `⏬`: optional and first to yield under overload.
 
-## Conflict Resolution
-
-When the plan exceeds capacity, resolve in this order:
-
-1. preserve fixed events and hard deadlines;
-2. preserve prerequisites and the user's primary holiday goal;
-3. reduce frequency or scope of secondary goals;
-4. defer optional errands and speculative opportunities;
-5. expose the remaining tradeoff instead of double-booking or hiding it.
-
-Do not silently schedule two location-bound tasks at overlapping times. Do not make a weekly plan depend on an unconfirmed tutoring order, appointment, or lesson.
+When demand exceeds capacity: preserve fixed events and hard deadlines; then prerequisites and the primary goal; reduce secondary scope; defer optional work; expose any remaining tradeoff. Never double-book location-bound work or assume an unconfirmed external outcome.
