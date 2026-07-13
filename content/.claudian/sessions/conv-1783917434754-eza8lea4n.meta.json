@@ -1,0 +1,26 @@
+{
+  "id": "conv-1783917434754-eza8lea4n",
+  "providerId": "codex",
+  "title": "规划假期任务清单",
+  "titleGenerationStatus": "success",
+  "createdAt": 1783917434754,
+  "updatedAt": 1783917838761,
+  "lastResponseAt": 1783917838761,
+  "sessionId": "019f59c3-da5d-78a0-83a9-fcfd684ea827",
+  "providerState": {
+    "threadId": "019f59c3-da5d-78a0-83a9-fcfd684ea827",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\13\\rollout-2026-07-13T12-37-20-019f59c3-da5d-78a0-83a9-fcfd684ea827.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "非笔记内容/任务计划/ToDo-任务集合.md",
+  "usage": {
+    "inputTokens": 45335,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 44928,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 45335,
+    "percentage": 18,
+    "model": "gpt-5.5"
+  }
+}
