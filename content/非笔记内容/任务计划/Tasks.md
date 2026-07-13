@@ -5,7 +5,7 @@ group by priority
 hide tags
 ```
 
-**预计需要🍅:** 12个
+**预计需要🍅:** 6个
 **今日完成题目数量 :**       (每日>3)
 ```dataviewjs
 const pages = dv.pages();
