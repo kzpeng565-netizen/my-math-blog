@@ -1,7 +1,7 @@
 {
   "userName": "",
   "permissionMode": "yolo",
-  "model": "opus",
+  "model": "sonnet",
   "thinkingBudget": "off",
   "effortLevel": "high",
   "serviceTier": "default",
@@ -9,7 +9,7 @@
   "titleGenerationModel": "gpt-5.4-mini",
   "excludedTags": [],
   "mediaFolder": "",
-  "systemPrompt": "处理 Obsidian 笔记时，优先使用已有的 obsidian-vault-notes / 本地索引工作流来查找和读取笔记。遇到 [[笔记名]] 这种双链时，应把它当作精确笔记名查询，而不是默认用 Python rglob 全库扫描。只有在本地索引不可用、精确查询失败、或需要消除多个同名文件歧义时，才使用 rg --files / 文件系统搜索作为兜底。读取双链只授权读取该目标笔记本身，不自动展开它链接到的其他笔记。\n\n低 token Obsidian 工作流\n1. 用户提供 editor selection 时，默认处理选区及其附近内容；不要读取、打印或重写整篇笔记，除非用户要求或者暗示全文处理。\n2. 修改 Markdown 使用局部 patch；禁止为了小段排版或局部修改而 delete/add 整篇文件。\n\n\n",
+  "systemPrompt": "处理 Obsidian 笔记时，优先使用已有的 obsidian-vault-notes / 本地索引工作流来查找和读取笔记。遇到 [[笔记名]] 这种双链时，应把它当作精确笔记名查询，而不是默认用 Python rglob 全库扫描。只有在本地索引不可用、精确查询失败、或需要消除多个同名文件歧义时，才使用 rg --files / 文件系统搜索作为兜底。读取双链只授权读取该目标笔记本身，不自动展开它链接到的其他笔记。\n\n低 token Obsidian 工作流\n1. 用户提供 editor selection 时，默认处理选区及其附近内容；不要读取、打印或重写整篇笔记，除非用户要求或者暗示全文处理。\n2. 修改 Markdown 使用局部 patch；禁止为了小段排版或局部修改而 delete/add 整篇文件。\n\n微信提醒规则\n中大型任务完成提醒：当完成涉及多步骤、多个文件、较长整理/写作/代码修改/验证/PDF阅读等中大型任务后，在最终回复中给出清晰的任务标题和完成摘要，以便已配置的 Codex notify 脚本通过 PushPlus 微信渠道发送完成提醒。小任务、简单问答、短句修改不需要特别提醒。不要重复手动触发提醒；若提醒失败，不阻塞任务，只简短说明。\n\n\n\n",
   "persistentExternalContextPaths": [],
   "sharedEnvironmentVariables": "",
   "envSnippets": [],
@@ -30,10 +30,8 @@
       "loadUserSettings": true,
       "enableChrome": false,
       "enableBangBash": false,
-      "enableOpus1M": false,
-      "enableSonnet1M": false,
       "customModels": "",
-      "lastModel": "opus",
+      "lastModel": "sonnet",
       "environmentVariables": "",
       "environmentHash": ""
     },
@@ -41,10 +39,10 @@
       "enabled": true,
       "safeMode": "workspace-write",
       "cliPath": "",
-      "cliPathsByHost": {
-        "device:a65af03f-bce5-4793-af1e-205a19208756": "C:\\Users\\15345\\AppData\\Local\\OpenAI\\Codex\\bin\\a7c12ebff69fb123\\codex.exe"
-      },
+      "cliPathsByHost": {},
       "customModels": "",
+      "modelAliases": {},
+      "visibleModels": null,
       "reasoningSummary": "detailed",
       "environmentVariables": "",
       "environmentHash": "",
@@ -80,8 +78,8 @@
   },
   "settingsProvider": "claude",
   "savedProviderModel": {
-    "claude": "opus",
-    "codex": "gpt-5.5"
+    "claude": "sonnet",
+    "codex": "gpt-5.4-mini"
   },
   "savedProviderEffort": {
     "claude": "high",
@@ -97,10 +95,10 @@
   },
   "lastCustomModel": "",
   "maxTabs": 3,
-  "tabBarPosition": "input",
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
   "expandFileEditsByDefault": false,
   "chatViewPlacement": "left-sidebar",
-  "hiddenProviderCommands": {}
+  "hiddenProviderCommands": {},
+  "tabBarPosition": "input"
 }
