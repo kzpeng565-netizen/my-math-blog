@@ -1,0 +1,177 @@
+[
+  {
+    "section": "1.1",
+    "title": "Examples of Ergodic Behavior",
+    "source_pdf_pages": "20-21",
+    "pages": 2,
+    "file": "Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf"
+  },
+  {
+    "section": "1.2",
+    "title": "Equidistribution for Polynomials",
+    "source_pdf_pages": "22-22",
+    "pages": 1,
+    "file": "Ch01_Sec02_Equidistribution_for_Polynomials.pdf"
+  },
+  {
+    "section": "1.3",
+    "title": "Szemeredi's Theorem",
+    "source_pdf_pages": "23-23",
+    "pages": 1,
+    "file": "Ch01_Sec03_Szemeredi_s_Theorem.pdf"
+  },
+  {
+    "section": "1.4",
+    "title": "Indefinite Quadratic Forms and Oppenheim's Conjecture",
+    "source_pdf_pages": "24-25",
+    "pages": 2,
+    "file": "Ch01_Sec04_Indefinite_Quadratic_Forms_and_Oppenheim_s_Conjecture.pdf"
+  },
+  {
+    "section": "1.5",
+    "title": "Littlewood's Conjecture",
+    "source_pdf_pages": "26-26",
+    "pages": 1,
+    "file": "Ch01_Sec05_Littlewood_s_Conjecture.pdf"
+  },
+  {
+    "section": "1.6",
+    "title": "Integral Quadratic Forms",
+    "source_pdf_pages": "27-27",
+    "pages": 1,
+    "file": "Ch01_Sec06_Integral_Quadratic_Forms.pdf"
+  },
+  {
+    "section": "1.7",
+    "title": "Dynamics on Homogeneous Spaces",
+    "source_pdf_pages": "28-28",
+    "pages": 1,
+    "file": "Ch01_Sec07_Dynamics_on_Homogeneous_Spaces.pdf"
+  },
+  {
+    "section": "1.8",
+    "title": "An Overview of Ergodic Theory",
+    "source_pdf_pages": "29-31",
+    "pages": 3,
+    "file": "Ch01_Sec08_An_Overview_of_Ergodic_Theory.pdf"
+  },
+  {
+    "section": "2.1",
+    "title": "Measure-Preserving Transformations",
+    "source_pdf_pages": "32-39",
+    "pages": 8,
+    "file": "Ch02_Sec01_Measure_Preserving_Transformations.pdf"
+  },
+  {
+    "section": "2.2",
+    "title": "Recurrence",
+    "source_pdf_pages": "40-41",
+    "pages": 2,
+    "file": "Ch02_Sec02_Recurrence.pdf"
+  },
+  {
+    "section": "2.3",
+    "title": "Ergodicity",
+    "source_pdf_pages": "42-46",
+    "pages": 5,
+    "file": "Ch02_Sec03_Ergodicity.pdf"
+  },
+  {
+    "section": "2.4",
+    "title": "Associated Unitary Operators",
+    "source_pdf_pages": "47-50",
+    "pages": 4,
+    "file": "Ch02_Sec04_Associated_Unitary_Operators.pdf"
+  },
+  {
+    "section": "2.5",
+    "title": "The Mean Ergodic Theorem",
+    "source_pdf_pages": "51-55",
+    "pages": 5,
+    "file": "Ch02_Sec05_The_Mean_Ergodic_Theorem.pdf"
+  },
+  {
+    "section": "2.6",
+    "title": "Pointwise Ergodic Theorem",
+    "source_pdf_pages": "56-66",
+    "pages": 11,
+    "file": "Ch02_Sec06_Pointwise_Ergodic_Theorem.pdf"
+  },
+  {
+    "section": "2.7",
+    "title": "Strong-Mixing and Weak-Mixing",
+    "source_pdf_pages": "67-72",
+    "pages": 6,
+    "file": "Ch02_Sec07_Strong_Mixing_and_Weak_Mixing.pdf"
+  },
+  {
+    "section": "2.8",
+    "title": "Proof of Weak-Mixing Equivalences",
+    "source_pdf_pages": "73-79",
+    "pages": 7,
+    "file": "Ch02_Sec08_Proof_of_Weak_Mixing_Equivalences.pdf"
+  },
+  {
+    "section": "2.9",
+    "title": "Induced Transformations",
+    "source_pdf_pages": "80-87",
+    "pages": 8,
+    "file": "Ch02_Sec09_Induced_Transformations.pdf"
+  },
+  {
+    "section": "3.1",
+    "title": "Elementary Properties",
+    "source_pdf_pages": "88-94",
+    "pages": 7,
+    "file": "Ch03_Sec01_Elementary_Properties.pdf"
+  },
+  {
+    "section": "3.2",
+    "title": "The Continued Fraction Map and the Gauss Measure",
+    "source_pdf_pages": "95-105",
+    "pages": 11,
+    "file": "Ch03_Sec02_The_Continued_Fraction_Map_and_the_Gauss_Measure.pdf"
+  },
+  {
+    "section": "3.3",
+    "title": "Badly Approximable Numbers",
+    "source_pdf_pages": "106-109",
+    "pages": 4,
+    "file": "Ch03_Sec03_Badly_Approximable_Numbers.pdf"
+  },
+  {
+    "section": "3.4",
+    "title": "Invertible Extension of the Continued Fraction Map",
+    "source_pdf_pages": "110-115",
+    "pages": 6,
+    "file": "Ch03_Sec04_Invertible_Extension_of_the_Continued_Fraction_Map.pdf"
+  },
+  {
+    "section": "4.1",
+    "title": "Existence of Invariant Measures",
+    "source_pdf_pages": "116-121",
+    "pages": 6,
+    "file": "Ch04_Sec01_Existence_of_Invariant_Measures.pdf"
+  },
+  {
+    "section": "4.2",
+    "title": "Ergodic Decomposition",
+    "source_pdf_pages": "122-123",
+    "pages": 2,
+    "file": "Ch04_Sec02_Ergodic_Decomposition.pdf"
+  },
+  {
+    "section": "4.3",
+    "title": "Unique Ergodicity",
+    "source_pdf_pages": "124-128",
+    "pages": 5,
+    "file": "Ch04_Sec03_Unique_Ergodicity.pdf"
+  },
+  {
+    "section": "4.4",
+    "title": "Measure Rigidity and Equidistribution",
+    "source_pdf_pages": "129-139",
+    "pages": 11,
+    "file": "Ch04_Sec04_Measure_Rigidity_and_Equidistribution.pdf"
+  }
+]
