@@ -1,0 +1,16 @@
+{
+  "id": "conv-1784172827187-oxqgknsex",
+  "providerId": "codex",
+  "title": "测试微信提示功能",
+  "titleGenerationStatus": "success",
+  "createdAt": 1784172827187,
+  "updatedAt": 1784173061259,
+  "lastResponseAt": 1784173038426,
+  "sessionId": "019f68fc-d62e-74b1-b692-fd82cfddb9ed",
+  "providerState": {
+    "threadId": "019f68fc-d62e-74b1-b692-fd82cfddb9ed",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\16\\rollout-2026-07-16T11-33-53-019f68fc-d62e-74b1-b692-fd82cfddb9ed.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "非笔记内容/任务计划/ToDo-已经规划好的任务.md"
+}
