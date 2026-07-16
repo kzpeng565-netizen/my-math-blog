@@ -1,0 +1,26 @@
+{
+  "id": "conv-1784186691791-3otypoc1z",
+  "providerId": "codex",
+  "title": "确认 PDF 阅读能力",
+  "titleGenerationStatus": "success",
+  "createdAt": 1784186691792,
+  "updatedAt": 1784186826801,
+  "lastResponseAt": 1784186826801,
+  "sessionId": "019f69d0-7551-7fa2-ad5e-47f70deee6f9",
+  "providerState": {
+    "threadId": "019f69d0-7551-7fa2-ad5e-47f70deee6f9",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\16\\rollout-2026-07-16T15-25-02-019f69d0-7551-7fa2-ad5e-47f70deee6f9.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "非笔记内容/任务计划/Tasks.md",
+  "usage": {
+    "inputTokens": 14466,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 6016,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 14466,
+    "percentage": 6,
+    "model": "gpt-5.5"
+  }
+}
