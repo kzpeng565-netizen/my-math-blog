@@ -4,8 +4,8 @@
   "title": "确认 PDF 阅读能力",
   "titleGenerationStatus": "success",
   "createdAt": 1784186691792,
-  "updatedAt": 1784186826801,
-  "lastResponseAt": 1784186826801,
+  "updatedAt": 1784187497312,
+  "lastResponseAt": 1784187497312,
   "sessionId": "019f69d0-7551-7fa2-ad5e-47f70deee6f9",
   "providerState": {
     "threadId": "019f69d0-7551-7fa2-ad5e-47f70deee6f9",
@@ -14,12 +14,12 @@
   },
   "currentNote": "非笔记内容/任务计划/Tasks.md",
   "usage": {
-    "inputTokens": 14466,
+    "inputTokens": 15001,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 6016,
+    "cacheReadInputTokens": 14208,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 14466,
+    "contextTokens": 15001,
     "percentage": 6,
     "model": "gpt-5.5"
   }
