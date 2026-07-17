@@ -1,11 +1,27 @@
 {
   "id": "conv-1784190297729-zqwfsnths",
   "providerId": "codex",
-  "title": "遍历论/GTM259 给我一个开始Chapter1的引导",
-  "titleGenerationStatus": "failed",
+  "title": "Send WeChat notification",
+  "titleGenerationStatus": "success",
   "createdAt": 1784190297730,
-  "updatedAt": 1784304530598,
-  "lastResponseAt": 1784190327794,
-  "sessionId": null,
-  "currentNote": "遍历论/GTM259/Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf"
+  "updatedAt": 1784309140270,
+  "lastResponseAt": 1784309140270,
+  "sessionId": "019f7118-9736-7690-8e4d-8ad7c27475a5",
+  "selectedModel": "gpt-5.5",
+  "providerState": {
+    "threadId": "019f7118-9736-7690-8e4d-8ad7c27475a5",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\18\\rollout-2026-07-18T01-21-09-019f7118-9736-7690-8e4d-8ad7c27475a5.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "遍历论/GTM259/Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf",
+  "usage": {
+    "inputTokens": 16666,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 14208,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 16666,
+    "percentage": 6,
+    "model": "gpt-5.5"
+  }
 }
