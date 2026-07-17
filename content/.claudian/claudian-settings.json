@@ -39,7 +39,9 @@
       "enabled": true,
       "safeMode": "workspace-write",
       "cliPath": "",
-      "cliPathsByHost": {},
+      "cliPathsByHost": {
+        "device:a65af03f-bce5-4793-af1e-205a19208756": "C:\\Users\\15345\\.codex\\plugins\\.plugin-appserver\\codex.exe"
+      },
       "customModels": "",
       "modelAliases": {},
       "visibleModels": null,
