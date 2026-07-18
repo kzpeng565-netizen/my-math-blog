@@ -87,7 +87,7 @@ For errands and tutoring, estimate total occupied time. If missing travel, scope
 
 ## Capacity and Energy
 
-Use stated capacity first. Otherwise use the holiday README fallback of at most 6 planned tomatoes per day. Only raise this to at most 8 when the user identifies a high-intensity day or a schedule that clearly supports it.
+Use stated capacity first. Otherwise use the holiday README fallback of at most 8 planned tomatoes per day. Do not exceed 8 unless the user explicitly supplies a higher capacity and the schedule clearly supports it.
 
 Subtract fixed events, travel, waiting, and preparation before allocating flexible work. Preserve 15–20% unallocated time when capacity is stated as clock hours rather than already-buffered tomatoes.
 
