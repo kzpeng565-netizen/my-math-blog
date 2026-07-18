@@ -4,8 +4,8 @@
   "title": "Plan study and life after injury",
   "titleGenerationStatus": "success",
   "createdAt": 1784304732782,
-  "updatedAt": 1784349600410,
-  "lastResponseAt": 1784349600410,
+  "updatedAt": 1784349963409,
+  "lastResponseAt": 1784349963408,
   "sessionId": "019f70d9-8b84-7190-9e56-8b4a964249ca",
   "selectedModel": "gpt-5.6-sol",
   "providerState": {
@@ -15,13 +15,13 @@
   },
   "currentNote": "非笔记内容/任务计划/ToDo-已经规划好的任务.md",
   "usage": {
-    "inputTokens": 153715,
+    "inputTokens": 163213,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 6912,
+    "cacheReadInputTokens": 162560,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 153715,
-    "percentage": 59,
+    "contextTokens": 163213,
+    "percentage": 63,
     "model": "gpt-5.6-sol"
   }
 }
