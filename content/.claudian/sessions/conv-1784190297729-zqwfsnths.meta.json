@@ -4,8 +4,8 @@
   "title": "Send WeChat notification",
   "titleGenerationStatus": "success",
   "createdAt": 1784190297730,
-  "updatedAt": 1784309343897,
-  "lastResponseAt": 1784309343897,
+  "updatedAt": 1784337848625,
+  "lastResponseAt": 1784337848625,
   "sessionId": "019f7118-9736-7690-8e4d-8ad7c27475a5",
   "selectedModel": "gpt-5.5",
   "providerState": {
@@ -15,12 +15,12 @@
   },
   "currentNote": "遍历论/GTM259/Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf",
   "usage": {
-    "inputTokens": 17949,
+    "inputTokens": 18372,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 17280,
+    "cacheReadInputTokens": 5504,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 17949,
+    "contextTokens": 18372,
     "percentage": 7,
     "model": "gpt-5.5"
   }
