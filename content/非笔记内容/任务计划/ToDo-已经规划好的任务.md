@@ -23,11 +23,11 @@
 
 ## 3. 数学学习
 
-- [ ] #task 遍历论第1天：精读[[遍历论/GTM259/Ch02_Sec01_Measure_Preserving_Transformations.pdf|GTM259 §2.1]]定义2.1与例2.2–2.5，建立六问笔记框架 [🍅:: 0/4] ⏫ ⏳ 2026-07-18 ^6x1q
+- [ ] #task 遍历论第1天：精读[[Ch02_Sec01_Measure_Preserving_Transformations.pdf|GTM259 §2.1]]定义2.1与例2.2–2.5，建立六问笔记框架 [🍅:: 0/4] ⏫ ⏳ 2026-07-18 ^6x1q
 - [ ] #task 完成GTM259 §2.1后半（Lemma 2.6、factor/isomorphism、典型例子、习题2.1.1–2.1.3）并补全六问笔记 [🍅:: 0/6] 🔼 ⏳ 2026-07-19
-- [ ] #task 快速浏览[[遍历论/GTM259/Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf|GTM259 §1.1]]与[[遍历论/GTM259/Ch01_Sec08_An_Overview_of_Ergodic_Theory.pdf|§1.8]]，整理章节路线图 [🍅:: 0/3] 🔼 ⏳ 2026-07-20 ^shkr
-- [ ] #task 精读[[遍历论/GTM259/Ch02_Sec02_Recurrence.pdf|GTM259 §2.2 Recurrence]]，整理Poincaré重现定理六问笔记并完成1–2道核心习题 [🍅:: 0/6] 🔼 ⏳ 2026-07-21 ^lz1e
-- [ ] #task 开始[[遍历论/GTM259/Ch02_Sec03_Ergodicity.pdf|GTM259 §2.3 Ergodicity]]（定义、不变集/函数、典型例子）并整理六问笔记 [🍅:: 0/6] 🔼 ⏳ 2026-07-22
+- [ ] #task 快速浏览[[Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf|GTM259 §1.1]]与[[Ch01_Sec08_An_Overview_of_Ergodic_Theory.pdf|§1.8]]，整理章节路线图 [🍅:: 0/3] 🔼 ⏳ 2026-07-20 ^shkr
+- [ ] #task 精读[[Ch02_Sec02_Recurrence.pdf|GTM259 §2.2 Recurrence]]，整理Poincaré重现定理六问笔记并完成1–2道核心习题 [🍅:: 0/6] 🔼 ⏳ 2026-07-21 ^lz1e
+- [ ] #task 开始[[Ch02_Sec03_Ergodicity.pdf|GTM259 §2.3 Ergodicity]]（定义、不变集/函数、典型例子）并整理六问笔记 [🍅:: 0/6] 🔼 ⏳ 2026-07-22
 - [ ] #task 收束遍历论启动周产出（§2.1–2.3笔记、一页路线图、核心习题与下周卡点清单） [🍅:: 0/6] 🔼 ⏳ 2026-07-24
 
 ## 4. 生活与设备
