@@ -6,7 +6,7 @@
   "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
-  "titleGenerationModel": "gpt-5.4-mini",
+  "titleGenerationModel": "",
   "excludedTags": [],
   "mediaFolder": "",
   "systemPrompt": "处理 Obsidian 笔记时，优先使用已有的 obsidian-vault-notes / 本地索引工作流来查找和读取笔记。遇到 [[笔记名]] 这种双链时，应把它当作精确笔记名查询，而不是默认用 Python rglob 全库扫描。只有在本地索引不可用、精确查询失败、或需要消除多个同名文件歧义时，才使用 rg --files / 文件系统搜索作为兜底。读取双链只授权读取该目标笔记本身，不自动展开它链接到的其他笔记。\n\n低 token Obsidian 工作流\n1. 用户提供 editor selection 时，默认处理选区及其附近内容；不要读取、打印或重写整篇笔记，除非用户要求或者暗示全文处理。\n2. 修改 Markdown 使用局部 patch；禁止为了小段排版或局部修改而 delete/add 整篇文件。\n\n## PushPlus 主动通知规则\n\n默认情况下，不要添加 PushPlus 主动通知标记。通知脚本会保存完整的任务结果，正常回复不需要为了通知而缩短。\n\n当且仅当用户明确要求在本轮任务完成后发送 PushPlus、微信、手机系统或手表主动提醒，或者明确要求测试主动通知时：\n\n1. 正常提供完整的最终回复，不要缩短正文。\n2. 在最终回复的第一行提供简洁、明确的任务完成标题，使其适合作为通知摘要。\n3. 在最终回复的最后一个非空行，单独添加以下隐藏标记：\n   <!-- pushplus:active -->\n4. 该标记必须位于最后一行、独占一行且只出现一次。\n5. 如果用户只是在询问、讨论或排查通知机制，而没有明确要求本轮发送主动提醒，不得添加该标记。\n\n",

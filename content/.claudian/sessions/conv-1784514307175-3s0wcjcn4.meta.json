@@ -1,0 +1,27 @@
+{
+  "id": "conv-1784514307175-3s0wcjcn4",
+  "providerId": "codex",
+  "title": "把日期19号的挪到20号, 以此类推20号挪到21号",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1784514307176,
+  "updatedAt": 1784514601104,
+  "lastResponseAt": 1784514601104,
+  "sessionId": "019f7d57-6526-72f0-ad8b-7811dfb19f4a",
+  "selectedModel": "gpt-5.6-sol",
+  "providerState": {
+    "threadId": "019f7d57-6526-72f0-ad8b-7811dfb19f4a",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\20\\rollout-2026-07-20T10-25-12-019f7d57-6526-72f0-ad8b-7811dfb19f4a.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "非笔记内容/任务计划/ToDo-已经规划好的任务.md",
+  "usage": {
+    "inputTokens": 27223,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 25344,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 27223,
+    "percentage": 11,
+    "model": "gpt-5.6-sol"
+  }
+}
