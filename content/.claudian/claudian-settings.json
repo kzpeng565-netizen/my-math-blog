@@ -81,11 +81,11 @@
   "settingsProvider": "claude",
   "savedProviderModel": {
     "claude": "sonnet",
-    "codex": "gpt-5.4-mini"
+    "codex": "gpt-5.6-sol"
   },
   "savedProviderEffort": {
     "claude": "high",
-    "codex": "high"
+    "codex": "medium"
   },
   "savedProviderServiceTier": {
     "codex": "default"
