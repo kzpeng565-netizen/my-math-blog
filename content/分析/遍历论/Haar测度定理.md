@@ -37,11 +37,14 @@ $$\prod_{K\in\mathcal K}[0,(K:K_0)]=\{f:\mathcal K\to\mathbb R:0\leq f(K)\leq(K:
 
 每个区间 $[0,(K:K_0)]$ 是有限闭区间，故紧。Tychonoff 定理给出 $X$ 紧。[[2. 度量空间与Sigma-代数习题#2.5 有界闭集族的有限交性质]] 
 
-$\mathcal K$ 可能不可数，因此需用**子网**或有限交性质。
+$\mathcal K$ 可能不可数，因此需用**子网或有限交性质**。
 
-对单位元开邻域 $V$，定义 $T(V)=\{\mu_U:U\subseteq V,\ U\text{ 是单位元开邻域}\}$，再定义 $C(V)=\overline{T(V)}\subseteq X$。
+对单位元开邻域 $V$，定义 $T(V)=\{\mu_U:U\subseteq V,\ U\text{ 是单位元开邻域}\}$，再定义 $C(V)=\overline{T(V)}\subseteq X$ 
 
-$\{C(V)\}$ 有有限交性质：任取 $V_1,\dots,V_r$，令 $W=V_1\cap\cdots\cap V_r$，$W$ 仍是单位元开邻域且 $W\subseteq V_i$，故 $T(W)\subseteq T(V_i)$，从而 $C(W)\subseteq C(V_i)$，于是 $C(W)\subseteq\bigcap_{i=1}^r C(V_i)$，所以交集非空。因为 $X$ 紧、每个 $C(V)$ 闭，有限交性质给出  
+ $\{C(V)\}$ 有有限交性质：
+ - **验证开邻域有限交非空** 任取 $V_1,\dots,V_r$，令 $W=V_1\cap\cdots\cap V_r$，$W$ 仍是单位元开邻域且 $W\subseteq V_i$，故 $T(W)\subseteq T(V_i)$ 
+ - **验证闭包有限交非空:** 从而 $C(W)\subseteq C(V_i)$，于是 $C(W)\subseteq\bigcap_{i=1}^r C(V_i)$，所以交集非空。因为 $X$ 紧、每个 $C(V)$ 闭，有限交性质给出  
+ - **根据引理, 任意交非空**
 $$\bigcap_{V\ni e}C(V)\neq\varnothing.$$  
 取 $\mu\in\bigcap_{V\ni e}C(V)$，即当 $U$ 缩向单位元时 $\mu_U$ 的聚点。
 
@@ -52,10 +55,22 @@ $$ (K_1\cup K_2:U) \leq (K_1:U)+(K_2:U). $$
 因此极限满足  
 $$ \mu(K_1\cup K_2) \leq \mu(K_1)+\mu(K_2). $$  
 真正困难的是反向不等式。假设 $K_1,K_2$ 是不相交的紧集。由于空间是 Hausdorff，两个不交紧集可以用不交开集分开。于是可以把 $U$ 取得足够小，使得任何一个平移 $gU$ 都不可能同时碰到 $K_1$ 和 $K_2$。这时，任何覆盖 $K_1\cup K_2$ 的小块都可以分成两组：一组覆盖 $K_1$，另一组覆盖 $K_2$。因此对充分小的 $U$，  
-$$ (K_1\cup K_2:U) = (K_1:U)+(K_2:U). $$  
-取极限便得到  
-$$ \mu(K_1\cup K_2) = \mu(K_1)+\mu(K_2). $$  
-所以 $\mu$ 在两两不交的紧集上具有有限可加性。这正是整个构造中最核心的一步。
+$$ (K_1\cup K_2:U) = (K_1:U)+(K_2:U). $$
+
+**在一般的拓扑群上找足够小的开集的方法如下:**
+
+要找的不相交紧集上的“充分小”邻域 $U$，意思是找一个单位元邻域 $V$，使得对于任意 $U\subseteq V$，左平移 $gU$ 不能同时与 $K_1,K_2$ 相交。
+
+等价地，我们要避免 $U^{-1}U$ 碰到 $K_1^{-1}K_2$，构造过程为：
+
+- **关键观察**：若 $gU$ 同时碰 $K_1,K_2$，则存在 $u_1,u_2\in U$ 使 $x=gu_1,y=gu_2$，于是
+  $$u_1^{-1}u_2 = x^{-1}y \in U^{-1}U\cap K_1^{-1}K_2.$$
+  因此只要保证 $U^{-1}U$ 与 $K_1^{-1}K_2$ 不交即可。
+
+- **构造不相交的条件**：
+  - $K_1,K_2$ 不交紧 $\Rightarrow$ $K_1^{-1}K_2$ 紧且 $e\notin K_1^{-1}K_2$.
+  - 取单位元的开邻域 $W$ 使 $W\cap K_1^{-1}K_2=\varnothing$.
+  - 由群乘法连续性，存在邻域 $V$ 使 $V^{-1}V\subseteq W$.
 
 **从紧集上的“体积”扩张为 Borel 测度**  
 先对开集 $O$ 定义  
