@@ -1,0 +1,27 @@
+/* Obsidian handout answer spaces.
+   Use: <div class="blank-s|blank|blank-l|blank-xl"></div> */
+
+.blank-s,
+.blank,
+.blank-l,
+.blank-xl {
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-sizing: border-box !important;
+  break-inside: avoid;
+}
+
+.blank-s { height: 12mm; }
+.blank   { height: 28mm; }
+.blank-l { height: 50mm; }
+.blank-xl { height: 80mm; }
+
+@media print {
+  .blank-s { height: 12mm !important; }
+  .blank   { height: 28mm !important; }
+  .blank-l { height: 50mm !important; }
+  .blank-xl { height: 80mm !important; }
+}

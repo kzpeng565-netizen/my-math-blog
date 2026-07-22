@@ -1,0 +1,4 @@
+interface:
+  display_name: "讲义留白批处理"
+  short_description: "把 Markdown 连续空行安全转换为可打印的留白块"
+  default_prompt: "批量检查并将讲义中的连续空行转换为统一的 blank 留白块，先预览再修改。"
