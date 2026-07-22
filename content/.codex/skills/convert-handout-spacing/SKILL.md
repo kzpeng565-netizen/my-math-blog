@@ -17,14 +17,14 @@ description: Safely convert runs of manually inserted blank lines in Obsidian Ma
 4. 必须先预览，不带 `--write` 运行脚本：
 
    ```powershell
-   python ".claude/skills/convert-handout-spacing/scripts/convert_blank_lines.py" "目标文件或文件夹"
+   python ".codex/skills/convert-handout-spacing/scripts/convert_blank_lines.py" "目标文件或文件夹"
    ```
 
 5. 需要查看实际替换内容时加 `--diff`。根据预览结果确认范围和分级是否合理。
 6. 用户已经明确要求修改或批量处理时，执行写入：
 
    ```powershell
-   python ".claude/skills/convert-handout-spacing/scripts/convert_blank_lines.py" "目标文件或文件夹" --write
+   python ".codex/skills/convert-handout-spacing/scripts/convert_blank_lines.py" "目标文件或文件夹" --write
    ```
 
 7. 再运行一次 dry-run；预期显示 `0 个留白区域`。最后检查 `git diff --stat` 和相关文件的 diff。

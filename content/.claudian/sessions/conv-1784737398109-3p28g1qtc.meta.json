@@ -1,0 +1,27 @@
+{
+  "id": "conv-1784737398109-3p28g1qtc",
+  "providerId": "codex",
+  "title": "$convert-handout-spacing",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1784737398112,
+  "updatedAt": 1784738033062,
+  "lastResponseAt": 1784738033062,
+  "sessionId": "019f8aa3-7f02-7410-a088-fc3f7fc7d187",
+  "selectedModel": "gpt-5.6-sol",
+  "providerState": {
+    "threadId": "019f8aa3-7f02-7410-a088-fc3f7fc7d187",
+    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\23\\rollout-2026-07-23T00-23-23-019f8aa3-7f02-7410-a088-fc3f7fc7d187.jsonl",
+    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
+  },
+  "currentNote": "非笔记内容/数学物理家教/初高衔接1 从因式分解与不等式.md",
+  "usage": {
+    "inputTokens": 27468,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 25344,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 27468,
+    "percentage": 11,
+    "model": "gpt-5.6-sol"
+  }
+}
