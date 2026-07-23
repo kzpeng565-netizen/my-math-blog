@@ -106,13 +106,15 @@ printf 'DEVICE_ID=%s\n' "`$(syncthing cli show system | python3 -c 'import json,
     $status.phase = "configure_windows"
     $windowsDevices = & $localSyncthing cli config devices list
     if ($windowsDevices -notcontains $status.pi_device_id) {
-        & $localSyncthing cli config devices add --device-id=$status.pi_device_id --name="RaspberryPi"
+        $piDeviceArgument = "--device-id=$($status.pi_device_id)"
+        & $localSyncthing cli config devices add $piDeviceArgument "--name=RaspberryPi"
         if ($LASTEXITCODE -ne 0) { throw "Adding the Pi device to Windows Syncthing failed." }
     }
 
     $sharedDevices = & $localSyncthing cli config folders activitywatch-sync devices list
     if ($sharedDevices -notcontains $status.pi_device_id) {
-        & $localSyncthing cli config folders activitywatch-sync devices add --device-id=$status.pi_device_id
+        $piDeviceArgument = "--device-id=$($status.pi_device_id)"
+        & $localSyncthing cli config folders activitywatch-sync devices add $piDeviceArgument
         if ($LASTEXITCODE -ne 0) { throw "Sharing the ActivityWatch folder with the Pi failed." }
     }
 

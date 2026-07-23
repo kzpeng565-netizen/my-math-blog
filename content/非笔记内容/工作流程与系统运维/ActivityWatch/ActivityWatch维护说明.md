@@ -7,6 +7,7 @@
 第一版只区分：
 
 - 工作；
+  - AI；
 - 数学学习；
 - 系统维护；
 - 家教；
@@ -14,7 +15,7 @@
 - 娱乐；
 - 未分类。
 
-==Edge 和 Chrome 默认归为“浏览器”；网页版 ChatGPT 也保持为“浏览器”，只有 ChatGPT 桌面应用归入“工作”。知乎、Reddit、YouTube、Twitter、X 的标题规则层级更深，会覆盖“浏览器”而归入直接娱乐；B 站和小红书归入可能娱乐。==
+==Edge 和 Chrome 默认归为“浏览器”；ChatGPT、chatgpt.com、gemini.com、deepseek.com 匹配层级更深的“工作 > AI”，因此会覆盖“浏览器”和普通“工作”。知乎、Reddit、YouTube、Twitter、X 归入直接娱乐；B 站和小红书归入可能娱乐。==
 
 ## 2. 运行架构
 
@@ -70,10 +71,10 @@ aw-qt\aw-qt.toml
 自己维护的分类源文件：
 
 ```text
-D:\mathblog\quartz\content\非笔记内容\代码文件\ActivityWatch\categories-v4.json
+D:\mathblog\quartz\content\非笔记内容\工作流程与系统运维\ActivityWatch\categories-v5.json
 ```
 
-==`categories-v1.json`、`categories-v2.json` 和 `categories-v3.json` 保留旧方案，`categories-v4.json` 是当前使用版本。== JSON 文件用于阅读、比较、Git 版本管理和恢复；ActivityWatch 实际运行时使用的是服务器中保存的 `classes` 设置。
+==`categories-v1.json` 至 `categories-v4.json` 保留旧方案，`categories-v5.json` 是当前使用版本。== JSON 文件用于阅读、比较、Git 版本管理和恢复；ActivityWatch 实际运行时使用的是服务器中保存的 `classes` 设置。
 
 ## 4. 一条分类规则怎样工作
 
@@ -81,16 +82,16 @@ D:\mathblog\quartz\content\非笔记内容\代码文件\ActivityWatch\categories
 
 ```json
 {
-  "name": ["家教"],
+  "name": ["工作", "AI"],
   "rule": {
     "type": "regex",
-    "regex": "wemeetapp[.]exe|腾讯会议",
+    "regex": "ChatGPT|chatgpt[.]com|Gemini|gemini[.]com|DeepSeek|deepseek[.]com",
     "ignore_case": true
   }
 }
 ```
 
-- `name` 是分类名称。这里表示“家教”。
+- `name` 是分类层级。这里表示“工作 > AI”。
 - `type: regex` 表示使用正则表达式匹配。
 - `regex` 同时匹配事件中的应用名 `app` 和窗口标题 `title`。
 - `|` 表示“或者”。
@@ -103,7 +104,7 @@ D:\mathblog\quartz\content\非笔记内容\代码文件\ActivityWatch\categories
 msedge.exe + “首页 - 知乎”
 ```
 
-==浏览器进程先匹配“浏览器”。如果窗口标题同时匹配具体娱乐网站，则采用层级更深的“娱乐 > 直接娱乐”或“娱乐 > 可能娱乐”；网页版 ChatGPT 不再单独识别为工作。==
+==浏览器进程先匹配“浏览器”。如果窗口标题同时匹配 ChatGPT、Gemini 或 DeepSeek，则采用层级更深的“工作 > AI”；匹配具体娱乐网站时，则采用“娱乐 > 直接娱乐”或“娱乐 > 可能娱乐”。这里的优先级来自层级深度，不来自 `score`。==
 
 ## 5. 怎样修改
 
@@ -119,18 +120,18 @@ msedge.exe + “首页 - 知乎”
 
 1. 在设置页点击 `Export`。
 2. 将导出的 `aw-category-export.json` 与当前版本比较。
-3. 确认有效后保存为下一个版本，例如 `categories-v5.json`，不要直接覆盖旧版本。
+3. 确认有效后保存为下一个版本，例如 `categories-v6.json`，不要直接覆盖旧版本。
 
 从源文件恢复：
 
 1. 在设置页点击 `Import`。
-2. 选择需要恢复的版本；当前版本是 `categories-v4.json`。
+2. 选择需要恢复的版本；当前版本是 `categories-v5.json`。
 3. 检查分类树。
 4. 点击 `Save`。
 
 ## 6. 已知限制
 
-- ==当前没有浏览器 URL watcher，Edge 和 Chrome 默认计入“浏览器”；能从窗口标题识别的网站会被更具体的娱乐规则覆盖。==
+- ==当前没有浏览器 URL watcher，主要依赖窗口标题中的 ChatGPT、Gemini、DeepSeek 或域名文字识别 AI 服务；匹配成功后会覆盖“浏览器”。==
 - 知乎即使偶尔用于查资料，当前规则仍会直接计入娱乐。
 - B 站和小红书保留为“可能娱乐”，以后再根据实际误判细分。
 - `x.com` 很少直接出现在窗口标题中，不能用单独的字母 `X` 匹配，否则会产生大量误判。
