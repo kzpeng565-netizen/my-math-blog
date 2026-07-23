@@ -1,0 +1,113 @@
+{
+  "categories": [
+    {
+      "name": ["正事"],
+      "rule": {
+        "type": "regex",
+        "regex": "msedge[.]exe|chrome[.]exe|ChatGPT[.]exe|Obsidian[.]exe|WINWORD[.]EXE|mathpix-snipping-tool[.]exe|clash-verge[.]exe|explorer[.]exe|PCManager[.]exe|Taskmgr[.]exe|SearchHost[.]exe|aw-qt[.]exe|ActivityWatch|Cold Turkey Blocker[.]exe",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#35B779",
+        "score": 10
+      }
+    },
+    {
+      "name": ["正事", "数学与笔记"],
+      "rule": {
+        "type": "regex",
+        "regex": "Obsidian[.]exe|mathpix-snipping-tool[.]exe|Mathpix",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#2A9D8F"
+      }
+    },
+    {
+      "name": ["正事", "AI 辅助"],
+      "rule": {
+        "type": "regex",
+        "regex": "ChatGPT[.]exe|ChatGPT",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#52B788"
+      }
+    },
+    {
+      "name": ["正事", "文档工作"],
+      "rule": {
+        "type": "regex",
+        "regex": "WINWORD[.]EXE|Microsoft Word",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#74C69D"
+      }
+    },
+    {
+      "name": ["正事", "系统维护"],
+      "rule": {
+        "type": "regex",
+        "regex": "clash-verge[.]exe|explorer[.]exe|PCManager[.]exe|Taskmgr[.]exe|SearchHost[.]exe|aw-qt[.]exe|ActivityWatch|Cold Turkey Blocker[.]exe",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#40916C"
+      }
+    },
+    {
+      "name": ["沟通"],
+      "rule": {
+        "type": "regex",
+        "regex": "Weixin[.]exe|微信|wemeetapp[.]exe|腾讯会议",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#4EA8DE",
+        "score": 0
+      }
+    },
+    {
+      "name": ["娱乐"],
+      "rule": {
+        "type": "none"
+      },
+      "data": {
+        "color": "#E76F51",
+        "score": -10
+      }
+    },
+    {
+      "name": ["娱乐", "信息流（可能娱乐）"],
+      "rule": {
+        "type": "regex",
+        "regex": "zhihu[.]com|知乎|bilibili[.]com|哔哩哔哩|xiaohongshu[.]com|小红书",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#F4A261"
+      }
+    },
+    {
+      "name": ["娱乐", "偶尔娱乐（待复核）"],
+      "rule": {
+        "type": "regex",
+        "regex": "reddit[.]com|Reddit|youtube[.]com|YouTube|twitter[.]com|Twitter|x[.]com",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#E9C46A"
+      }
+    },
+    {
+      "name": ["Uncategorized"],
+      "rule": {
+        "type": "none"
+      },
+      "data": {
+        "color": "#CCCCCC"
+      }
+    }
+  ]
+}
