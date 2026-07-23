@@ -6,7 +6,7 @@
 **目前我已经放假** 
 
 ---
-⏳代表 scheduled day；📅代表 deadline；1 🍅 = 40 分钟
+⏳代表 scheduled day；📅代表 deadline；1 🍅 = 40 分钟 ; 🔁代表recurring 例如- [ ] #task a 🔁 every day 📅 2026-07-24 
 
 # 2026-07-18 恢复期任务重排
 
