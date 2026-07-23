@@ -1,6 +1,6 @@
 # ActivityWatch 维护说明
 
-<!-- ai_provenance: source=codex; date=2026-07-23; verification=checked; retrieved_notes="" -->
+<!-- ai_provenance: source=codex; date=2026-07-24; verification=user-confirmed; retrieved_notes="" -->
 
 ## 1. 当前目标
 
@@ -69,10 +69,10 @@ aw-qt\aw-qt.toml
 自己维护的分类源文件：
 
 ```text
-D:\mathblog\quartz\content\非笔记内容\代码文件\ActivityWatch\categories-v2.json
+D:\mathblog\quartz\content\非笔记内容\代码文件\ActivityWatch\categories-v3.json
 ```
 
-==`categories-v1.json` 保留最初方案，`categories-v2.json` 是当前使用版本。== JSON 文件用于阅读、比较、Git 版本管理和恢复；ActivityWatch 实际运行时使用的是服务器中保存的 `classes` 设置。
+==`categories-v1.json` 和 `categories-v2.json` 保留旧方案，`categories-v3.json` 是当前使用版本。== JSON 文件用于阅读、比较、Git 版本管理和恢复；ActivityWatch 实际运行时使用的是服务器中保存的 `classes` 设置。
 
 ## 4. 一条分类规则怎样工作
 
@@ -80,16 +80,16 @@ D:\mathblog\quartz\content\非笔记内容\代码文件\ActivityWatch\categories
 
 ```json
 {
-  "name": ["数学学习"],
+  "name": ["家教"],
   "rule": {
     "type": "regex",
-    "regex": "Obsidian[.]exe|mathpix-snipping-tool[.]exe|wemeetapp[.]exe|腾讯会议",
+    "regex": "wemeetapp[.]exe|腾讯会议",
     "ignore_case": true
   }
 }
 ```
 
-- `name` 是分类名称。这里表示“数学学习”。
+- `name` 是分类名称。这里表示“家教”。
 - `type: regex` 表示使用正则表达式匹配。
 - `regex` 同时匹配事件中的应用名 `app` 和窗口标题 `title`。
 - `|` 表示“或者”。
@@ -123,7 +123,7 @@ msedge.exe + “首页 - 知乎”
 从源文件恢复：
 
 1. 在设置页点击 `Import`。
-2. 选择需要恢复的版本；当前版本是 `categories-v2.json`。
+2. 选择需要恢复的版本；当前版本是 `categories-v3.json`。
 3. 检查分类树。
 4. 点击 `Save`。
 
@@ -133,7 +133,7 @@ msedge.exe + “首页 - 知乎”
 - 知乎即使偶尔用于查资料，当前规则仍会直接计入娱乐。
 - B 站和小红书保留为“可能娱乐”，以后再根据实际误判细分。
 - `x.com` 很少直接出现在窗口标题中，不能用单独的字母 `X` 匹配，否则会产生大量误判。
-- 腾讯会议 `wemeetapp.exe` 用于上网课，归入“数学学习”。
-- “家教”分类暂时没有自动规则，等出现稳定的应用名或窗口标题后再补。
+- ==腾讯会议 `wemeetapp.exe` 归入“家教”。==
+- ==Obsidian 既用于数学学习，也可能用于家教准备，因此应用级统计统一归入“工作”。==
 
 后续修改应依据真实误判记录，每次只改一两条规则。
