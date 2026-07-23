@@ -87,7 +87,7 @@ syncthing cli config folders list | grep -Fx 'activitywatch-sync' >/dev/null ||
 syncthing cli config folders activitywatch-sync devices list | grep -Fx '$windowsDeviceId' >/dev/null ||
   syncthing cli config folders activitywatch-sync devices add --device-id='$windowsDeviceId'
 printf 'VERSION=%s\n' "`$(syncthing --version | head -n 1)"
-printf 'DEVICE_ID=%s\n' "`$(syncthing device-id)"
+printf 'DEVICE_ID=%s\n' "`$(syncthing cli show system | python3 -c 'import json,sys; print(json.load(sys.stdin)["myID"])')"
 "@
     $piConfig = Invoke-SSHCommand -SSHSession $session -Command $piConfigCommand -TimeOut 120
     if ($piConfig.ExitStatus -ne 0) {

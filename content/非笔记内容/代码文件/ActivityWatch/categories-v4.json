@@ -1,0 +1,105 @@
+{
+  "categories": [
+    {
+      "name": ["工作"],
+      "rule": {
+        "type": "regex",
+        "regex": "ChatGPT[.]exe|WINWORD[.]EXE|Microsoft Word|Weixin[.]exe|微信|Obsidian[.]exe",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#4EA8DE",
+        "score": 10
+      }
+    },
+    {
+      "name": ["数学学习"],
+      "rule": {
+        "type": "regex",
+        "regex": "mathpix-snipping-tool[.]exe|Mathpix",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#2A9D8F",
+        "score": 10
+      }
+    },
+    {
+      "name": ["系统维护"],
+      "rule": {
+        "type": "regex",
+        "regex": "clash-verge[.]exe|explorer[.]exe|PCManager[.]exe|Taskmgr[.]exe|SearchHost[.]exe|aw-qt[.]exe|ActivityWatch|Cold Turkey Blocker[.]exe",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#40916C",
+        "score": 10
+      }
+    },
+    {
+      "name": ["家教"],
+      "rule": {
+        "type": "regex",
+        "regex": "wemeetapp[.]exe|腾讯会议",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#9B5DE5",
+        "score": 10
+      }
+    },
+    {
+      "name": ["浏览器"],
+      "rule": {
+        "type": "regex",
+        "regex": "msedge[.]exe|chrome[.]exe",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#577590",
+        "score": 0
+      }
+    },
+    {
+      "name": ["娱乐"],
+      "rule": {
+        "type": "none"
+      },
+      "data": {
+        "color": "#E76F51",
+        "score": -10
+      }
+    },
+    {
+      "name": ["娱乐", "直接娱乐"],
+      "rule": {
+        "type": "regex",
+        "regex": "zhihu[.]com|知乎|reddit[.]com|Reddit|youtube[.]com|YouTube|twitter[.]com|Twitter|x[.]com",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#E76F51"
+      }
+    },
+    {
+      "name": ["娱乐", "可能娱乐"],
+      "rule": {
+        "type": "regex",
+        "regex": "bilibili[.]com|哔哩哔哩|xiaohongshu[.]com|小红书",
+        "ignore_case": true
+      },
+      "data": {
+        "color": "#F4A261"
+      }
+    },
+    {
+      "name": ["Uncategorized"],
+      "rule": {
+        "type": "none"
+      },
+      "data": {
+        "color": "#CCCCCC"
+      }
+    }
+  ]
+}
