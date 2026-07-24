@@ -72,7 +72,7 @@ def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> 
     for key, label in (
         ("work", "工作"),
         ("entertainment", "娱乐"),
-        ("brief_communication", "短暂通信"),
+        ("brief_communication", "通信"),
         ("rest", "休息"),
         ("other", "其他"),
         ("uncertain", "无法判断"),
@@ -96,7 +96,7 @@ def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> 
             f"- 娱乐偏离总时长：{mixing.get('entertainment_deviation_minutes', 0)} 分钟",
             f"- 最长娱乐偏离：{mixing.get('longest_entertainment_deviation_minutes', 0)} 分钟",
             f"- 工作与娱乐转换：{mixing.get('work_entertainment_transition_count', 0)} 次",
-            f"- 短暂通信：{mixing.get('brief_communication_minutes', 0)} 分钟",
+            f"- 通信（不计入娱乐混杂）：{mixing.get('brief_communication_minutes', 0)} 分钟",
             f"- 同任务工具切换（不计分）：{mixing.get('same_task_tool_switches_not_scored', 0)} 次",
             f"- 最长连续工作：{mixing.get('longest_continuous_work_minutes', 0)} 分钟",
             "",

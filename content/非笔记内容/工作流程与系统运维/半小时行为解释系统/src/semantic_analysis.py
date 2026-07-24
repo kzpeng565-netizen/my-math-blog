@@ -258,8 +258,12 @@ def extract_semantic_timeline_with_deepseek(
     errors: list[str] = []
     result: dict[str, Any] = {}
     correction_attempts = 0
+    segment_model = {
+        **settings["model"],
+        **settings.get("semantic_model", {}),
+    }
     for correction_attempts in range(3):
-        result, generation = _request_json_report(settings["model"], messages)
+        result, generation = _request_json_report(segment_model, messages)
         errors = _validate_semantic_timeline(
             result,
             period_start,

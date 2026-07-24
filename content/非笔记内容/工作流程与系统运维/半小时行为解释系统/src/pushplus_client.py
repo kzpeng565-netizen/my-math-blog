@@ -45,7 +45,7 @@ def build_wechat_message(
         (
             f"**时间估计：** 工作 {allocation.get('work', {}).get('estimate_minutes', 0)} 分钟"
             f"｜娱乐 {allocation.get('entertainment', {}).get('estimate_minutes', 0)} 分钟"
-            f"｜短暂通信 {allocation.get('brief_communication', {}).get('estimate_minutes', 0)} 分钟"
+            f"｜通信 {allocation.get('brief_communication', {}).get('estimate_minutes', 0)} 分钟"
             f"｜休息 {allocation.get('rest', {}).get('estimate_minutes', 0)} 分钟"
             f"｜其他 {allocation.get('other', {}).get('estimate_minutes', 0)} 分钟"
             f"｜无法判断 {allocation.get('uncertain', {}).get('estimate_minutes', 0)} 分钟"
@@ -57,7 +57,7 @@ def build_wechat_message(
             f"｜最长 {mixing.get('longest_entertainment_deviation_minutes', 0)} 分钟"
         ),
         (
-            f"**不计为偏离：** 短暂通信 {mixing.get('brief_communication_minutes', 0)} 分钟"
+            f"**不计为娱乐偏离：** 通信 {mixing.get('brief_communication_minutes', 0)} 分钟"
             f"｜同任务工具切换 {mixing.get('same_task_tool_switches_not_scored', 0)} 次"
         ),
         "",

@@ -13,6 +13,10 @@
     "timeout_seconds": 120,
     "retries": 2
   },
+  "semantic_model": {
+    "thinking": "disabled",
+    "max_tokens": 6000
+  },
   "processing": {
     "minimum_evidence_seconds": 30,
     "max_timeline_segments": 240,

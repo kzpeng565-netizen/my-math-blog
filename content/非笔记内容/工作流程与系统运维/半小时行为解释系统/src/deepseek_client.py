@@ -30,7 +30,7 @@ CATEGORY_KEYS = (
 CATEGORY_LABELS = {
     "work": "工作",
     "entertainment": "娱乐",
-    "brief_communication": "短暂通信",
+    "brief_communication": "通信",
     "rest": "休息",
     "other": "其他",
     "uncertain": "无法判断",
@@ -52,11 +52,11 @@ def _request_json_report(
         "max_tokens": int(model["max_tokens"]),
         "stream": False,
     }
-    request_data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     retries = int(model.get("retries", 2))
     last_error: Exception | None = None
 
     for attempt in range(retries + 1):
+        request_data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         request = Request(
             model["endpoint"],
             data=request_data,
@@ -71,6 +71,11 @@ def _request_json_report(
                 response_body = json.loads(response.read().decode("utf-8"))
             content = response_body["choices"][0]["message"].get("content", "")
             if not content.strip():
+                if (
+                    response_body["choices"][0].get("finish_reason") == "length"
+                    and payload.get("thinking", {}).get("type") == "enabled"
+                ):
+                    payload["thinking"] = {"type": "disabled"}
                 raise ValueError(
                     "DeepSeek returned empty content "
                     f"(finish_reason={response_body['choices'][0].get('finish_reason')}, "
@@ -179,6 +184,34 @@ def _normalize_report(
         or mixing_metrics.get("interpretation_note", ""),
     }
     report.pop("fragmentation_assessment", None)
+
+    allocation = report["estimated_time_allocation"]
+    primary_task = report["primary_work_task"] or "未明确主要任务"
+    work_minutes = allocation["work"]["estimate_minutes"]
+    entertainment_minutes = allocation["entertainment"]["estimate_minutes"]
+    communication_minutes = allocation["brief_communication"]["estimate_minutes"]
+    rest_minutes = allocation["rest"]["estimate_minutes"]
+    deviation_count = mixing_metrics["entertainment_deviation_count"]
+    deviation_minutes = mixing_metrics["entertainment_deviation_minutes"]
+    longest_deviation = mixing_metrics[
+        "longest_entertainment_deviation_minutes"
+    ]
+    if deviation_count:
+        mixing_sentence = (
+            f"工作中出现{deviation_count}次超过30秒的娱乐偏离，"
+            f"共{deviation_minutes}分钟，最长{longest_deviation}分钟。"
+        )
+    else:
+        mixing_sentence = "没有发现工作过程中超过30秒的娱乐偏离。"
+    deterministic_summary = (
+        f"主要任务：{primary_task}。工作{work_minutes}分钟，"
+        f"娱乐{entertainment_minutes}分钟，通信{communication_minutes}分钟，"
+        f"确认休息{rest_minutes}分钟。{mixing_sentence}"
+    )
+    report["concise_report"] = deterministic_summary
+    report.setdefault("state_assessment", {})[
+        "one_sentence"
+    ] = deterministic_summary
 
     computer_quality = computer_facts.get("quality", {})
     phone_quality = phone_facts.get("quality", {})
