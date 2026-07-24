@@ -8,11 +8,14 @@
 
 ```text
 电脑 ActivityWatch（只监听 localhost:5600）
-→ Windows 计划任务每 5 分钟运行 aw-sync
+→ Windows 计划任务每 5 分钟调用隐藏启动器
+→ 隐藏启动器运行 PowerShell 同步脚本和 aw-sync
 → C:\Users\15345\ActivityWatchSync
 → Syncthing 加密传输
 → 树莓派 /home/conrad/workspace/activitywatch-sync
 ```
+
+==计划任务调用 `run-activitywatch-sync-hidden.vbs`，由它在不可见窗口中启动 `push-activitywatch.ps1`。隐藏启动器只负责运行方式；实际同步、状态记录和错误日志仍由 PowerShell 脚本负责。==
 
 ActivityWatch 的 `5600` 端口没有暴露到局域网。官方不建议直接运行远程 ActivityWatch Server，因为 API 没有身份认证；当前方案使用官方支持的 `aw-sync` 同步目录，再由 Syncthing 传输。
 
@@ -32,6 +35,8 @@ ActivityWatch 的 `5600` 端口没有暴露到局域网。官方不建议直接�
 | 内容                  | 位置                                                                                       |
 | ------------------- | ---------------------------------------------------------------------------------------- |
 | 本手册与脚本              | `D:\mathblog\quartz\content\非笔记内容\工作流程与系统运维\ActivityWatch树莓派同步`                          |
+| 后台隐藏启动器             | `run-activitywatch-sync-hidden.vbs`                                                      |
+| 同步逻辑脚本              | `push-activitywatch.ps1`                                                                 |
 | ActivityWatch 原始数据库 | `C:\Users\15345\AppData\Local\activitywatch\activitywatch\aw-server\peewee-sqlite.v2.db` |
 | 电脑端同步目录             | `C:\Users\15345\ActivityWatchSync`                                                       |
 | 电脑端同步状态             | `C:\Users\15345\AppData\Local\ActivityWatchPiSync\status.json`                           |
@@ -46,7 +51,7 @@ ActivityWatch 的 `5600` 端口没有暴露到局域网。官方不建议直接�
 正常情况下无需手动操作：
 
 1. ActivityWatch 随 Windows 登录启动。
-2. `ActivityWatch Sync to Pi` 每 5 分钟更新同步数据库。
+2. `ActivityWatch Sync to Pi` 每 5 分钟通过隐藏启动器更新同步数据库，不显示 PowerShell 窗口。
 3. `Syncthing for ActivityWatch` 登录后持续把变化发送到树莓派。
 4. 树莓派以 `receiveonly` 模式接收，不主动改写电脑数据。
 
