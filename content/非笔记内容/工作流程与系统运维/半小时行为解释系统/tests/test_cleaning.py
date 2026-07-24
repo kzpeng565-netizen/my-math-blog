@@ -58,6 +58,7 @@ class CleaningTests(unittest.TestCase):
             "estimated_time_allocation": {
                 "work": {"estimate_minutes": 25},
                 "rest": {"estimate_minutes": 3},
+                "other": {"estimate_minutes": 0},
                 "uncertain": {"estimate_minutes": 2},
             },
             "fragmentation_assessment": {
@@ -76,6 +77,7 @@ class CleaningTests(unittest.TestCase):
         self.assertEqual(title, "行为核验 20:00—20:30")
         self.assertIn("工作估计25分钟", content)
         self.assertIn("工作 25 分钟", content)
+        self.assertIn("其他 0 分钟", content)
         self.assertIn("切换 3 次", content)
         self.assertIn("这段理解是否正确", content)
         self.assertIn("不会触发屏蔽", content)

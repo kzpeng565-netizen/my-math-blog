@@ -45,6 +45,7 @@ def build_wechat_message(
         (
             f"**时间估计：** 工作 {allocation.get('work', {}).get('estimate_minutes', 0)} 分钟"
             f"｜休息 {allocation.get('rest', {}).get('estimate_minutes', 0)} 分钟"
+            f"｜其他 {allocation.get('other', {}).get('estimate_minutes', 0)} 分钟"
             f"｜无法判断 {allocation.get('uncertain', {}).get('estimate_minutes', 0)} 分钟"
         ),
         (
