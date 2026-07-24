@@ -1,5 +1,6 @@
 import sys
 import unittest
+from datetime import datetime
 from pathlib import Path
 
 
@@ -7,6 +8,7 @@ SRC = Path(__file__).resolve().parents[1] / "src"
 sys.path.insert(0, str(SRC))
 
 from common import clean_title, domain_from_url, merge_timeline
+from pushplus_client import build_wechat_message
 
 
 class CleaningTests(unittest.TestCase):
@@ -44,6 +46,24 @@ class CleaningTests(unittest.TestCase):
         merged = merge_timeline(items, ("state",))
         self.assertEqual(len(merged), 1)
         self.assertEqual(merged[0]["duration_seconds"], 120)
+
+    def test_wechat_message_contains_verification_fields(self):
+        report = {
+            "concise_report": "电脑主要用于阅读数学资料。",
+            "verification_question": "这段理解是否正确？",
+            "data_quality_assessment": {
+                "level": "medium",
+                "issues": ["浏览器标题覆盖不足。"],
+            },
+        }
+        start = datetime.fromisoformat("2026-07-24T20:00:00+08:00")
+        end = datetime.fromisoformat("2026-07-24T20:30:00+08:00")
+        title, content = build_wechat_message(report, start, end)
+        self.assertEqual(title, "行为核验 20:00—20:30")
+        self.assertIn("电脑主要用于阅读数学资料", content)
+        self.assertIn("这段理解是否正确", content)
+        self.assertIn("不会触发屏蔽", content)
+        self.assertIn("在 Codex 中反馈", content)
 
 
 if __name__ == "__main__":

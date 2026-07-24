@@ -19,6 +19,7 @@ from computer_facts import extract_computer_facts
 from cross_device import compare_devices
 from deepseek_client import interpret_with_deepseek
 from phone_facts import extract_phone_facts
+from pushplus_client import send_report_via_wechat
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -191,6 +192,16 @@ def run(arguments) -> dict[str, Any]:
 
     atomic_write_json(report_json_path, report)
     atomic_write_text(report_md_path, _report_markdown(report, start, end))
+    if arguments.no_push:
+        delivery = {
+            "status": "skipped",
+            "channel": "wechat",
+            "reason": "--no-push was supplied",
+        }
+    else:
+        delivery = send_report_via_wechat(report, start, end)
+    receipt_path = output_root / "pushplus_receipts" / day / f"{period_id}.json"
+    atomic_write_json(receipt_path, delivery)
     state = {
         "last_successful_period_start": iso_timestamp(start),
         "last_successful_period_end": iso_timestamp(end),
@@ -206,6 +217,7 @@ def run(arguments) -> dict[str, Any]:
         "report_json": str(report_json_path),
         "report_markdown": str(report_md_path),
         "model": report.get("_generation", {}).get("model"),
+        "pushplus": delivery,
     }
 
 
@@ -216,6 +228,11 @@ def main() -> int:
     parser.add_argument("--start", help="ISO 8601 period start")
     parser.add_argument("--end", help="ISO 8601 period end")
     parser.add_argument("--force", action="store_true")
+    parser.add_argument(
+        "--no-push",
+        action="store_true",
+        help="Generate files without sending the PushPlus WeChat message",
+    )
     arguments = parser.parse_args()
     try:
         result = run(arguments)

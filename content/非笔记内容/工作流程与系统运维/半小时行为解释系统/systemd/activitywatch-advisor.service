@@ -9,6 +9,7 @@ User=conrad
 Group=conrad
 WorkingDirectory=/home/conrad/workspace/activitywatch-advisor
 EnvironmentFile=/home/conrad/.config/activitywatch-advisor/env
+EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/pushplus.env
 ExecStart=/usr/bin/python3 /home/conrad/workspace/activitywatch-advisor/src/run_half_hour.py
 UMask=0077
 NoNewPrivileges=true
