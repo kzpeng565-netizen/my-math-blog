@@ -1,8 +1,8 @@
 [Unit]
-Description=Run the behavior interpreter at minute 03 and 33
+Description=Run the behavior interpreter at minute 08 and 38
 
 [Timer]
-OnCalendar=*-*-* *:03,33:00
+OnCalendar=*-*-* *:08,38:00
 Persistent=true
 AccuracySec=30s
 Unit=activitywatch-advisor.service

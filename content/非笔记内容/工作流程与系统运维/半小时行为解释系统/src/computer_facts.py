@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import sqlite3
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -113,8 +114,10 @@ def _compact_timeline(
     timeline: list[dict[str, Any]], noise_gap_seconds: float
 ) -> list[dict[str, Any]]:
     compact: list[dict[str, Any]] = []
-    identity_keys = ("app", "app_display", "title", "domain", "context_source")
+    identity_keys = ("app", "app_display", "title")
     for item in timeline:
+        if item.get("duration_seconds", 0) <= 0.01:
+            continue
         if (
             item.get("context_source") == "missing"
             and item.get("duration_seconds", 0) <= noise_gap_seconds
@@ -125,11 +128,25 @@ def _compact_timeline(
             same_identity = all(
                 previous.get(key) == item.get(key) for key in identity_keys
             )
-            if same_identity:
+            previous_end = datetime_to_ns(datetime.fromisoformat(previous["end"]))
+            item_start = datetime_to_ns(datetime.fromisoformat(item["start"]))
+            gap_seconds = max(0.0, (item_start - previous_end) / 1_000_000_000)
+            if same_identity and gap_seconds <= noise_gap_seconds:
                 previous["end"] = item["end"]
                 previous["duration_seconds"] = round(
                     previous["duration_seconds"] + item["duration_seconds"], 3
                 )
+                if not previous.get("domain") and item.get("domain"):
+                    previous["domain"] = item["domain"]
+                sources = set()
+                for source_text in (
+                    previous.get("context_source", ""),
+                    item.get("context_source", ""),
+                ):
+                    sources.update(
+                        source for source in source_text.split("+") if source
+                    )
+                previous["context_source"] = "+".join(sorted(sources))
                 continue
         compact.append(dict(item))
     return compact
@@ -210,6 +227,35 @@ def extract_computer_facts(
         if target:
             web_events_by_app[target].extend(bucket_events.get(bucket["id"], []))
 
+    title_domain_votes: dict[str, Counter[str]] = {}
+    page_observations: dict[tuple[str, str], dict[str, Any]] = {}
+    for events in web_events_by_app.values():
+        for event in events:
+            title = clean_title(event["data"].get("title"), max_title)
+            domain = domain_from_url(event["data"].get("url"))
+            if not title:
+                continue
+            if domain:
+                title_domain_votes.setdefault(title, Counter())[domain] += 1
+            key = (domain, title)
+            observation = page_observations.setdefault(
+                key,
+                {
+                    "domain": domain,
+                    "title": title,
+                    "first_seen_ns": event["start"],
+                    "last_seen_ns": event["end"],
+                    "raw_event_count": 0,
+                },
+            )
+            observation["first_seen_ns"] = min(
+                observation["first_seen_ns"], event["start"]
+            )
+            observation["last_seen_ns"] = max(
+                observation["last_seen_ns"], event["end"]
+            )
+            observation["raw_event_count"] += 1
+
     boundaries = {start_ns, end_ns}
     for event in window_events:
         left, right = clip_interval(event["start"], event["end"], start_ns, end_ns)
@@ -229,7 +275,9 @@ def extract_computer_facts(
     domain_seconds: Counter[str] = Counter()
     title_seconds: Counter[tuple[str, str, str]] = Counter()
     browser_seconds = 0.0
-    browser_web_context_seconds = 0.0
+    browser_exact_web_overlap_seconds = 0.0
+    browser_resolved_domain_seconds = 0.0
+    browser_title_seconds = 0.0
     observed_active_seconds = 0.0
 
     for left, right in zip(ordered, ordered[1:]):
@@ -268,13 +316,20 @@ def extract_computer_facts(
         context_source = "window"
         if app in web_events_by_app:
             browser_seconds += duration_seconds
+            if window_title:
+                browser_title_seconds += duration_seconds
             web_event = _covering(web_events_by_app[app], left, right)
             if web_event:
                 web_title = clean_title(web_event["data"].get("title"), max_title)
                 domain = domain_from_url(web_event["data"].get("url"))
                 title = web_title or window_title
                 context_source = "web"
-                browser_web_context_seconds += duration_seconds
+                browser_exact_web_overlap_seconds += duration_seconds
+            elif window_title in title_domain_votes:
+                domain = title_domain_votes[window_title].most_common(1)[0][0]
+                context_source = "title_match"
+            if domain:
+                browser_resolved_domain_seconds += duration_seconds
 
         observed_active_seconds += duration_seconds
         display_app = _display_app(app, settings.get("computer_app_names", {}))
@@ -315,8 +370,18 @@ def extract_computer_facts(
 
     active_seconds = status_seconds["not-afk"]
     coverage = observed_active_seconds / active_seconds if active_seconds else 0.0
-    browser_context_coverage = (
-        browser_web_context_seconds / browser_seconds if browser_seconds else 1.0
+    browser_exact_overlap = (
+        browser_exact_web_overlap_seconds / browser_seconds
+        if browser_seconds
+        else 1.0
+    )
+    browser_domain_coverage = (
+        browser_resolved_domain_seconds / browser_seconds
+        if browser_seconds
+        else 1.0
+    )
+    browser_title_coverage = (
+        browser_title_seconds / browser_seconds if browser_seconds else 1.0
     )
     unknown_status_seconds = status_seconds["unknown"]
     if coverage >= 0.9 and unknown_status_seconds <= 60:
@@ -326,8 +391,38 @@ def extract_computer_facts(
     else:
         quality = "low"
     browser_share = browser_seconds / active_seconds if active_seconds else 0.0
-    if browser_share >= 0.3 and browser_context_coverage < 0.5 and quality == "high":
+    if browser_share >= 0.3 and browser_domain_coverage < 0.5 and quality == "high":
         quality = "medium"
+
+    material_issues: list[str] = []
+    if coverage < 0.9:
+        material_issues.append(
+            f"电脑活跃窗口只覆盖{round(coverage * 100, 1)}%。"
+        )
+    if browser_share >= 0.3 and browser_domain_coverage < 0.5:
+        material_issues.append(
+            f"浏览器前台时间中只有{round(browser_domain_coverage * 100, 1)}%能关联到域名。"
+        )
+    if unknown_status_seconds > 60:
+        material_issues.append(
+            f"电脑活动状态未知{rounded_minutes(unknown_status_seconds)}分钟。"
+        )
+    if timeline_truncated:
+        material_issues.append("电脑时间线超过上限，已截断。")
+
+    observed_pages = [
+        {
+            "domain": item["domain"],
+            "title": item["title"],
+            "first_seen": ns_to_iso(item["first_seen_ns"], timezone_name),
+            "last_seen": ns_to_iso(item["last_seen_ns"], timezone_name),
+            "raw_event_count": item["raw_event_count"],
+        }
+        for item in sorted(
+            page_observations.values(),
+            key=lambda value: (value["first_seen_ns"], value["title"]),
+        )[:50]
+    ]
 
     return {
         "schema_version": 1,
@@ -364,18 +459,22 @@ def extract_computer_facts(
             }
             for key, seconds in title_seconds.most_common(30)
         ],
+        "observed_pages": observed_pages,
         "status_timeline": public_status_timeline,
         "timeline": timeline,
         "quality": {
             "level": quality,
             "active_window_coverage": round(coverage, 3),
-            "browser_web_context_coverage": round(browser_context_coverage, 3),
+            "browser_title_coverage": round(browser_title_coverage, 3),
+            "browser_domain_context_coverage": round(browser_domain_coverage, 3),
+            "web_watcher_exact_time_overlap": round(browser_exact_overlap, 3),
             "browser_share_of_active_time": round(browser_share, 3),
             "timeline_truncated": timeline_truncated,
+            "material_issues": material_issues,
             "limitations": [
                 "AFK只表示电脑无键鼠操作，不等于休息。",
-                "网页标题和当前标签页可能过期或不能完整代表实际阅读内容。",
-                "未匹配网页事件时保留窗口标题，不强行推断网页用途。",
+                "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+                "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。",
             ],
         },
     }

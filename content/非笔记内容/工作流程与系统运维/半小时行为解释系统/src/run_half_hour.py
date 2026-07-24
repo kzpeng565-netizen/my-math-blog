@@ -50,62 +50,91 @@ def _parse_period(arguments, timezone_name: str) -> tuple[datetime, datetime]:
 
 
 def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> str:
+    state = report.get("state_assessment", {})
+    allocation = report.get("estimated_time_allocation", {})
+    fragmentation = report.get("fragmentation_assessment", {})
     lines = [
-        f"# 半小时行为解释：{start:%Y-%m-%d %H:%M}—{end:%H:%M}",
+        f"# 半小时状态核验：{start:%Y-%m-%d %H:%M}—{end:%H:%M}",
         "",
-        report.get("concise_report", "AI 未提供总述。"),
+        state.get("one_sentence")
+        or report.get("concise_report", "AI 未提供状态结论。"),
         "",
-        "## 电脑端",
+        "## 时间核算",
         "",
-        report.get("computer_interpretation", {}).get(
-            "likely_explanation", "没有可靠解释。"
-        ),
-        "",
-        "## 手机端",
-        "",
-        report.get("phone_interpretation", {}).get(
-            "likely_explanation", "没有可靠解释。"
-        ),
-        "",
-        "## 不确定性",
-        "",
+        "| 类型 | 估计 | 合理范围 |",
+        "|---|---:|---:|",
     ]
-    uncertainties = []
-    uncertainties.extend(
-        report.get("computer_interpretation", {}).get("uncertainties", [])
-    )
-    uncertainties.extend(
-        report.get("phone_interpretation", {}).get("uncertainties", [])
-    )
-    uncertainties.extend(
-        report.get("data_quality_assessment", {}).get("issues", [])
-    )
-    if uncertainties:
-        lines.extend(f"- {item}" for item in uncertainties)
-    else:
-        lines.append("- 没有额外说明。")
-    lines.extend(["", "## 可选择建议", ""])
-    suggestions = report.get("gentle_suggestions", [])
-    if suggestions:
-        lines.extend(f"- {item}" for item in suggestions[:2])
-    else:
-        lines.append("- 这段数据不需要形成建议。")
-    verification_question = report.get("verification_question", "").strip()
-    if verification_question:
-        lines.extend(
-            [
-                "",
-                "## 抽样核对",
-                "",
-                verification_question,
-            ]
+    for key, label in (
+        ("work", "工作"),
+        ("rest", "休息"),
+        ("other", "其他"),
+        ("uncertain", "无法判断"),
+    ):
+        item = allocation.get(key, {})
+        estimate = item.get("estimate_minutes", 0)
+        interval = item.get("range_minutes", [estimate, estimate])
+        interval_text = (
+            f"{interval[0]}—{interval[1]} 分钟"
+            if isinstance(interval, list) and len(interval) == 2
+            else "未提供"
         )
+        lines.append(f"| {label} | {estimate} 分钟 | {interval_text} |")
     lines.extend(
         [
             "",
+            "## 碎片化",
+            "",
+            f"- 等级：{fragmentation.get('level', 'unknown')}",
+            f"- 有意义的上下文块：{fragmentation.get('meaningful_context_blocks', 0)}",
+            f"- 上下文切换：{fragmentation.get('context_switch_count', 0)} 次",
+            f"- 少于一分钟的短块：{fragmentation.get('short_context_blocks', 0)}",
+            f"- 至少五分钟的持续块：{fragmentation.get('sustained_context_blocks', 0)}",
+            f"- 最长连续上下文：{fragmentation.get('longest_context_minutes', 0)} 分钟",
+            "",
+            fragmentation.get("interpretation", "没有提供碎片化解释。"),
+            "",
+            "## 时间线",
+            "",
+        ]
+    )
+    timeline = report.get("timeline_summary", [])
+    if timeline:
+        for item in timeline:
+            lines.append(
+                f"- {item.get('time_range', '')}｜{item.get('likely_state', '')}"
+                f"｜{item.get('minutes', 0)} 分钟："
+                + "；".join(item.get("evidence", []))
+            )
+    else:
+        lines.append("- 没有形成可靠时间线。")
+    lines.extend(
+        [
+            "",
+            "## 电脑与手机",
+            "",
+            f"- 电脑：{report.get('computer_summary', '没有可靠解释。')}",
+            f"- 手机：{report.get('phone_summary', '没有可靠解释。')}",
+            "",
+            "## 会改变结论的不确定性",
+            "",
+        ]
+    )
+    uncertainties = report.get("material_uncertainties", [])
+    if uncertainties:
+        lines.extend(f"- {item}" for item in uncertainties[:2])
+    else:
+        lines.append("- 没有达到报告阈值的不确定性。")
+    verification_question = report.get("verification_question", "").strip()
+    lines.extend(
+        [
+            "",
+            "## 核验问题",
+            "",
+            verification_question or "这段状态和时间估计是否符合实际？",
+            "",
             "---",
             "",
-            "本报告只用于检验 AI 的行为解释能力，不会触发任何自动干预。",
+            "本报告只用于检验 AI 的状态解释能力，不会触发任何自动干预。",
             "",
         ]
     )
@@ -113,29 +142,63 @@ def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> 
 
 
 def _local_no_activity_report(start: datetime, end: datetime) -> dict[str, Any]:
+    period_minutes = round((end - start).total_seconds() / 60, 2)
     return {
         "period": f"{iso_timestamp(start)}/{iso_timestamp(end)}",
-        "concise_report": "这一时段没有足够的电脑或手机活动证据，因此没有调用 AI。",
-        "computer_interpretation": {
-            "facts": [],
-            "likely_explanation": "电脑活动证据不足。",
+        "state_assessment": {
+            "label": "unclear",
             "confidence": "low",
-            "uncertainties": ["可能处于离开、睡眠或采集缺失状态。"],
+            "one_sentence": f"这{period_minutes}分钟没有足够设备活动，状态无法判断。",
         },
-        "phone_interpretation": {
-            "facts": [],
-            "likely_explanation": "手机活动证据不足。",
-            "confidence": "low",
-            "uncertainties": ["不能据此判断是否正在休息。"],
+        "observed_metrics": {
+            "computer_active_minutes": 0.0,
+            "computer_afk_minutes": period_minutes,
+            "phone_screen_on_minutes": 0.0,
+            "no_detected_device_interaction_minutes": period_minutes,
         },
-        "cross_device_observations": [],
-        "likely_activities": [],
-        "data_quality_assessment": {
+        "estimated_time_allocation": {
+            "work": {
+                "estimate_minutes": 0.0,
+                "range_minutes": [0.0, period_minutes],
+                "evidence": [],
+            },
+            "rest": {
+                "estimate_minutes": 0.0,
+                "range_minutes": [0.0, period_minutes],
+                "evidence": [],
+            },
+            "other": {
+                "estimate_minutes": 0.0,
+                "range_minutes": [0.0, period_minutes],
+                "evidence": [],
+            },
+            "uncertain": {
+                "estimate_minutes": period_minutes,
+                "range_minutes": [0.0, period_minutes],
+                "evidence": ["没有足够设备活动证据。"],
+            },
+            "total_minutes": period_minutes,
+        },
+        "fragmentation_assessment": {
             "level": "low",
-            "issues": ["有效活动证据不足。"],
+            "meaningful_context_blocks": 0,
+            "context_switch_count": 0,
+            "short_context_blocks": 0,
+            "sustained_context_blocks": 0,
+            "longest_context_minutes": 0.0,
+            "interpretation": "没有足够活动，不能评价工作碎片化。",
         },
+        "timeline_summary": [],
+        "computer_summary": "没有检测到足够电脑活动。",
+        "phone_summary": "没有检测到足够手机活动。",
+        "material_uncertainties": ["无设备交互不能区分休息、离开和离线工作。"],
+        "data_quality": {
+            "level": "low",
+            "material_issues": ["有效活动证据不足。"],
+        },
+        "concise_report": f"状态不明；{period_minutes}分钟均无法可靠分类。",
         "gentle_suggestions": [],
-        "verification_question": "",
+        "verification_question": "这段时间是在休息、离开设备，还是进行离线活动？",
         "_generation": {"provider": "local_rule", "model": None},
     }
 
@@ -165,7 +228,7 @@ def run(arguments) -> dict[str, Any]:
     phone = extract_phone_facts(settings, start, end)
     cross = compare_devices(computer, phone, settings["timezone"])
     combined = {
-        "schema_version": 1,
+        "schema_version": 2,
         "period": computer["period"],
         "computer_facts_file": str(computer_path),
         "phone_facts_file": str(phone_path),

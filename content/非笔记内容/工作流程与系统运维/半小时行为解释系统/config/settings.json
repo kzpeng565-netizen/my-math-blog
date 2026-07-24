@@ -9,7 +9,7 @@
     "endpoint": "https://api.deepseek.com/chat/completions",
     "name": "deepseek-v4-flash",
     "thinking": "enabled",
-    "max_tokens": 2400,
+    "max_tokens": 6000,
     "timeout_seconds": 120,
     "retries": 2
   },
@@ -18,8 +18,8 @@
     "max_timeline_segments": 240,
     "timeline_noise_gap_seconds": 3,
     "title_max_characters": 180,
-    "heartbeat_fresh_seconds": 600,
-    "heartbeat_stale_seconds": 1200
+    "heartbeat_fresh_seconds": 1200,
+    "heartbeat_stale_seconds": 2700
   },
   "computer_app_names": {
     "msedge.exe": "Microsoft Edge",
@@ -41,6 +41,7 @@
   },
   "phone_app_names": {
     "com.tencent.mm": "微信",
+    "com.tencent.mobileqq": "QQ",
     "tv.danmaku.bili": "哔哩哔哩",
     "com.bbk.launcher2": "手机桌面",
     "com.llamalab.automate": "Automate",

@@ -189,12 +189,27 @@ def extract_phone_facts(
         collector_quality = "low"
 
     unknown_seconds = screen_seconds["unknown"]
+    unknown_foreground_seconds = app_seconds["亮屏但前台应用未知"]
     if collector_quality == "high" and unknown_seconds <= 60:
         overall_quality = "high"
     elif collector_quality != "low" and unknown_seconds <= 300:
         overall_quality = "medium"
     else:
         overall_quality = "low"
+
+    material_issues: list[str] = []
+    if collector_quality == "low":
+        material_issues.append("采集器长时间没有心跳，可能存在数据缺口。")
+    if unknown_seconds > 60:
+        material_issues.append(
+            f"屏幕状态未知{rounded_minutes(unknown_seconds)}分钟。"
+        )
+    if unknown_foreground_seconds > 60:
+        material_issues.append(
+            f"亮屏期间前台应用未知{rounded_minutes(unknown_foreground_seconds)}分钟。"
+        )
+    if timeline_truncated:
+        material_issues.append("手机时间线超过上限，已截断。")
 
     return {
         "schema_version": 1,
@@ -242,6 +257,7 @@ def extract_phone_facts(
                 "level": collector_quality,
             },
             "timeline_truncated": timeline_truncated,
+            "material_issues": material_issues,
             "limitations": [
                 "亮屏表示屏幕开启，不保证用户持续注视或操作。",
                 "前台应用只说明当时显示的应用，不直接表示使用目的。",
