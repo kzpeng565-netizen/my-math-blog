@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+from datetime import datetime
 from statistics import median
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from common import parse_timestamp, rounded_minutes
 
@@ -44,6 +46,38 @@ def _union_seconds(intervals: list[tuple[float, float]]) -> float:
         else:
             merged.append([start, end])
     return sum(end - start for start, end in merged)
+
+
+def _intersection_intervals(
+    left: list[tuple[float, float]], right: list[tuple[float, float]]
+) -> list[tuple[float, float]]:
+    intersections = [
+        (max(left_start, right_start), min(left_end, right_end))
+        for left_start, left_end in left
+        for right_start, right_end in right
+        if left_start < right_end and left_end > right_start
+    ]
+    merged: list[list[float]] = []
+    for start, end in sorted(intersections):
+        if end <= start:
+            continue
+        if merged and start <= merged[-1][1]:
+            merged[-1][1] = max(merged[-1][1], end)
+        else:
+            merged.append([start, end])
+    return [(start, end) for start, end in merged]
+
+
+def _confirmed_rest_intervals(
+    computer_afk: list[tuple[float, float]],
+    phone_off: list[tuple[float, float]],
+    minimum_seconds: float,
+) -> list[tuple[float, float]]:
+    return [
+        (start, end)
+        for start, end in _intersection_intervals(computer_afk, phone_off)
+        if end - start >= minimum_seconds
+    ]
 
 
 def _computer_context_metrics(
@@ -93,8 +127,9 @@ def _computer_context_metrics(
 
 
 def compare_devices(
-    computer: dict[str, Any], phone: dict[str, Any], timezone_name: str
+    computer: dict[str, Any], phone: dict[str, Any], settings: dict[str, Any]
 ) -> dict[str, Any]:
+    timezone_name = settings["timezone"]
     computer_active = _intervals(
         computer.get("status_timeline", []), "status", "not-afk", timezone_name
     )
@@ -111,6 +146,15 @@ def compare_devices(
     period_end = parse_timestamp(computer["period"]["end"], timezone_name)
     period_seconds = (period_end - period_start).total_seconds()
     any_device_interaction_seconds = _union_seconds(computer_active + phone_on)
+    rest_rules = settings.get("state_rules", {})
+    rest_minimum_seconds = float(
+        rest_rules.get("rest_minimum_continuous_inactive_seconds", 180)
+    )
+    confirmed_rest = _confirmed_rest_intervals(
+        computer_afk, phone_off, rest_minimum_seconds
+    )
+    timezone = ZoneInfo(timezone_name)
+    confirmed_rest_seconds = _union_seconds(confirmed_rest)
 
     return {
         "schema_version": 2,
@@ -133,9 +177,34 @@ def compare_devices(
             "no_detected_device_interaction_minutes": rounded_minutes(
                 max(0.0, period_seconds - any_device_interaction_seconds)
             ),
+            "confirmed_rest_minutes": rounded_minutes(confirmed_rest_seconds),
             "note": (
-                "无设备交互不等于休息；它也可能是看视频、阅读、思考或离开。"
+                "confirmed_rest_minutes按用户确认的跨设备连续无操作规则计算。"
             ),
+        },
+        "rest_rule": {
+            "minimum_continuous_inactive_seconds": rest_minimum_seconds,
+            "devices_evaluated": rest_rules.get(
+                "rest_required_devices", ["computer", "phone"]
+            ),
+            "future_devices_not_connected": rest_rules.get(
+                "future_devices", ["tablet"]
+            ),
+            "condition": (
+                "电脑连续AFK达到阈值，且所有已接入移动设备均无操作。"
+            ),
+            "confirmed_intervals": [
+                {
+                    "start": datetime.fromtimestamp(start, timezone).isoformat(
+                        timespec="seconds"
+                    ),
+                    "end": datetime.fromtimestamp(end, timezone).isoformat(
+                        timespec="seconds"
+                    ),
+                    "minutes": rounded_minutes(end - start),
+                }
+                for start, end in confirmed_rest
+            ],
         },
         "computer_fragmentation_metrics": _computer_context_metrics(
             computer.get("timeline", []), timezone_name
@@ -156,6 +225,6 @@ def compare_devices(
         },
         "limitations": [
             "这里只计算时间重叠，不推断分心、休息或行为动机。",
-            "工作和休息时长由AI结合标题、应用顺序和这些客观指标估计。",
+            "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。",
         ],
     }

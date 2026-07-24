@@ -104,6 +104,7 @@ def _normalize_report(
         "no_detected_device_interaction_minutes": observed[
             "no_detected_device_interaction_minutes"
         ],
+        "confirmed_rest_minutes": observed["confirmed_rest_minutes"],
     }
 
     deterministic = cross_device_facts["computer_fragmentation_metrics"]
@@ -147,7 +148,9 @@ def _normalize_report(
 
 
 def _validate_report(
-    report: dict[str, Any], period_minutes: float
+    report: dict[str, Any],
+    period_minutes: float,
+    confirmed_rest_minutes: float = 0.0,
 ) -> list[str]:
     errors: list[str] = []
     state_label = report.get("state_assessment", {}).get("label")
@@ -171,6 +174,13 @@ def _validate_report(
             errors.append(f"{key}的估计值不在range_minutes内")
     if len(estimates) == 4 and abs(sum(estimates.values()) - period_minutes) > 0.2:
         errors.append("工作、休息、其他、无法判断的估计总和不等于时段长度")
+    if (
+        "rest" in estimates
+        and abs(estimates["rest"] - confirmed_rest_minutes) > 0.2
+    ):
+        errors.append(
+            "休息分钟数必须等于跨设备无操作规则确认的confirmed_rest_minutes"
+        )
 
     timeline = report.get("timeline_summary", [])
     timeline_totals = {key: 0.0 for key in category_keys}
@@ -244,12 +254,17 @@ def interpret_with_deepseek(
     period_minutes = float(
         cross_device_facts["time_accounting_observed"]["period_minutes"]
     )
+    confirmed_rest_minutes = float(
+        cross_device_facts["time_accounting_observed"]["confirmed_rest_minutes"]
+    )
     for correction_attempts in range(3):
         report, generation = _request_json_report(model, messages)
         report = _normalize_report(
             report, computer_facts, phone_facts, cross_device_facts
         )
-        errors = _validate_report(report, period_minutes)
+        errors = _validate_report(
+            report, period_minutes, confirmed_rest_minutes
+        )
         if not errors:
             break
         messages.extend(

@@ -9,6 +9,7 @@ sys.path.insert(0, str(SRC))
 
 from common import clean_title, domain_from_url, merge_timeline
 from computer_facts import _compact_timeline
+from cross_device import _confirmed_rest_intervals
 from deepseek_client import _validate_report
 from pushplus_client import build_wechat_message
 
@@ -154,6 +155,41 @@ class CleaningTests(unittest.TestCase):
         errors = _validate_report(report, 30)
         self.assertTrue(any("work" in error for error in errors))
         self.assertTrue(any("other" in error for error in errors))
+
+    def test_rest_requires_three_minutes_of_cross_device_inactivity(self):
+        computer_afk = [(0, 120), (300, 600)]
+        phone_off = [(0, 600)]
+        confirmed = _confirmed_rest_intervals(computer_afk, phone_off, 180)
+        self.assertEqual(confirmed, [(300, 600)])
+
+    def test_rest_validation_uses_confirmed_rest_minutes(self):
+        report = {
+            "state_assessment": {"label": "mixed_work_and_rest"},
+            "estimated_time_allocation": {
+                "work": {
+                    "estimate_minutes": 26.72,
+                    "range_minutes": [26, 27],
+                },
+                "rest": {
+                    "estimate_minutes": 3.28,
+                    "range_minutes": [3, 4],
+                },
+                "other": {
+                    "estimate_minutes": 0,
+                    "range_minutes": [0, 0],
+                },
+                "uncertain": {
+                    "estimate_minutes": 0,
+                    "range_minutes": [0, 0],
+                },
+            },
+            "timeline_summary": [
+                {"likely_state": "工作", "minutes": 26.72},
+                {"likely_state": "休息", "minutes": 3.28},
+            ],
+        }
+        errors = _validate_report(report, 30, confirmed_rest_minutes=0)
+        self.assertTrue(any("confirmed_rest_minutes" in error for error in errors))
 
 
 if __name__ == "__main__":

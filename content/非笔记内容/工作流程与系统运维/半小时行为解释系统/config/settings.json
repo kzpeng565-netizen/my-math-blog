@@ -21,6 +21,16 @@
     "heartbeat_fresh_seconds": 1200,
     "heartbeat_stale_seconds": 2700
   },
+  "state_rules": {
+    "rest_minimum_continuous_inactive_seconds": 180,
+    "rest_required_devices": [
+      "computer",
+      "phone"
+    ],
+    "future_devices": [
+      "tablet"
+    ]
+  },
   "computer_app_names": {
     "msedge.exe": "Microsoft Edge",
     "chrome.exe": "Google Chrome",

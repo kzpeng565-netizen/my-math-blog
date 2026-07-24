@@ -141,20 +141,36 @@ def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> 
     return "\n".join(lines)
 
 
-def _local_no_activity_report(start: datetime, end: datetime) -> dict[str, Any]:
+def _local_no_activity_report(
+    start: datetime, end: datetime, cross: dict[str, Any]
+) -> dict[str, Any]:
     period_minutes = round((end - start).total_seconds() / 60, 2)
+    observed = cross["time_accounting_observed"]
+    confirmed_rest = float(observed["confirmed_rest_minutes"])
+    uncertain_minutes = round(period_minutes - confirmed_rest, 2)
     return {
         "period": f"{iso_timestamp(start)}/{iso_timestamp(end)}",
         "state_assessment": {
-            "label": "unclear",
-            "confidence": "low",
-            "one_sentence": f"这{period_minutes}分钟没有足够设备活动，状态无法判断。",
+            "label": "resting"
+            if confirmed_rest >= period_minutes - 0.2
+            else "unclear",
+            "confidence": "high" if confirmed_rest else "low",
+            "one_sentence": (
+                f"跨设备无操作规则确认休息{confirmed_rest}分钟，"
+                f"其余{uncertain_minutes}分钟无法判断。"
+            ),
         },
         "observed_metrics": {
-            "computer_active_minutes": 0.0,
-            "computer_afk_minutes": period_minutes,
-            "phone_screen_on_minutes": 0.0,
-            "no_detected_device_interaction_minutes": period_minutes,
+            "computer_active_minutes": observed["computer_not_afk_minutes"],
+            "computer_afk_minutes": observed["computer_afk_minutes"],
+            "phone_screen_on_minutes": observed["phone_screen_on_minutes"],
+            "simultaneous_computer_active_phone_on_minutes": cross[
+                "overlap_minutes"
+            ]["computer_not_afk_and_phone_on"],
+            "no_detected_device_interaction_minutes": observed[
+                "no_detected_device_interaction_minutes"
+            ],
+            "confirmed_rest_minutes": confirmed_rest,
         },
         "estimated_time_allocation": {
             "work": {
@@ -163,9 +179,11 @@ def _local_no_activity_report(start: datetime, end: datetime) -> dict[str, Any]:
                 "evidence": [],
             },
             "rest": {
-                "estimate_minutes": 0.0,
-                "range_minutes": [0.0, period_minutes],
-                "evidence": [],
+                "estimate_minutes": confirmed_rest,
+                "range_minutes": [confirmed_rest, confirmed_rest],
+                "evidence": ["符合跨设备连续无操作休息规则。"]
+                if confirmed_rest
+                else [],
             },
             "other": {
                 "estimate_minutes": 0.0,
@@ -173,8 +191,8 @@ def _local_no_activity_report(start: datetime, end: datetime) -> dict[str, Any]:
                 "evidence": [],
             },
             "uncertain": {
-                "estimate_minutes": period_minutes,
-                "range_minutes": [0.0, period_minutes],
+                "estimate_minutes": uncertain_minutes,
+                "range_minutes": [uncertain_minutes, uncertain_minutes],
                 "evidence": ["没有足够设备活动证据。"],
             },
             "total_minutes": period_minutes,
@@ -196,7 +214,10 @@ def _local_no_activity_report(start: datetime, end: datetime) -> dict[str, Any]:
             "level": "low",
             "material_issues": ["有效活动证据不足。"],
         },
-        "concise_report": f"状态不明；{period_minutes}分钟均无法可靠分类。",
+        "concise_report": (
+            f"确认休息{confirmed_rest}分钟，"
+            f"其余{uncertain_minutes}分钟无法可靠分类。"
+        ),
         "gentle_suggestions": [],
         "verification_question": "这段时间是在休息、离开设备，还是进行离线活动？",
         "_generation": {"provider": "local_rule", "model": None},
@@ -226,7 +247,7 @@ def run(arguments) -> dict[str, Any]:
 
     computer = extract_computer_facts(settings, start, end)
     phone = extract_phone_facts(settings, start, end)
-    cross = compare_devices(computer, phone, settings["timezone"])
+    cross = compare_devices(computer, phone, settings)
     combined = {
         "schema_version": 2,
         "period": computer["period"],
@@ -243,7 +264,7 @@ def run(arguments) -> dict[str, Any]:
         + float(phone["screen"]["on_minutes"])
     ) * 60
     if evidence_seconds < int(settings["processing"]["minimum_evidence_seconds"]):
-        report = _local_no_activity_report(start, end)
+        report = _local_no_activity_report(start, end, cross)
     else:
         report = interpret_with_deepseek(
             settings,
