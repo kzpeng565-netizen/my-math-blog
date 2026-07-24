@@ -31,7 +31,7 @@ def build_wechat_message(
     issues = quality.get("material_issues", [])
     state = report.get("state_assessment", {})
     allocation = report.get("estimated_time_allocation", {})
-    fragmentation = report.get("fragmentation_assessment", {})
+    mixing = report.get("mixing_assessment", {})
     summary = _compact_text(report.get("concise_report"), 650)
     question = _compact_text(report.get("verification_question"), 240)
 
@@ -44,14 +44,21 @@ def build_wechat_message(
         f"**状态：** `{state.get('label', 'unclear')}`",
         (
             f"**时间估计：** 工作 {allocation.get('work', {}).get('estimate_minutes', 0)} 分钟"
+            f"｜娱乐 {allocation.get('entertainment', {}).get('estimate_minutes', 0)} 分钟"
+            f"｜短暂通信 {allocation.get('brief_communication', {}).get('estimate_minutes', 0)} 分钟"
             f"｜休息 {allocation.get('rest', {}).get('estimate_minutes', 0)} 分钟"
             f"｜其他 {allocation.get('other', {}).get('estimate_minutes', 0)} 分钟"
             f"｜无法判断 {allocation.get('uncertain', {}).get('estimate_minutes', 0)} 分钟"
         ),
         (
-            f"**碎片化：** {fragmentation.get('level', 'unknown')}"
-            f"｜切换 {fragmentation.get('context_switch_count', 0)} 次"
-            f"｜最长连续 {fragmentation.get('longest_context_minutes', 0)} 分钟"
+            f"**工作—娱乐混杂：** {mixing.get('level', 'unknown')}"
+            f"｜娱乐偏离 {mixing.get('entertainment_deviation_count', 0)} 次"
+            f"｜共 {mixing.get('entertainment_deviation_minutes', 0)} 分钟"
+            f"｜最长 {mixing.get('longest_entertainment_deviation_minutes', 0)} 分钟"
+        ),
+        (
+            f"**不计为偏离：** 短暂通信 {mixing.get('brief_communication_minutes', 0)} 分钟"
+            f"｜同任务工具切换 {mixing.get('same_task_tool_switches_not_scored', 0)} 次"
         ),
         "",
         f"**数据质量：** `{level}`",

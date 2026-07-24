@@ -12,6 +12,7 @@ from computer_facts import _compact_timeline
 from cross_device import _confirmed_rest_intervals
 from deepseek_client import _validate_report
 from pushplus_client import build_wechat_message
+from semantic_analysis import calculate_work_entertainment_mixing
 
 
 class CleaningTests(unittest.TestCase):
@@ -57,14 +58,19 @@ class CleaningTests(unittest.TestCase):
             "state_assessment": {"label": "focused_work"},
             "estimated_time_allocation": {
                 "work": {"estimate_minutes": 25},
+                "entertainment": {"estimate_minutes": 1},
+                "brief_communication": {"estimate_minutes": 0.2},
                 "rest": {"estimate_minutes": 3},
-                "other": {"estimate_minutes": 0},
-                "uncertain": {"estimate_minutes": 2},
+                "other": {"estimate_minutes": 0.8},
+                "uncertain": {"estimate_minutes": 0},
             },
-            "fragmentation_assessment": {
+            "mixing_assessment": {
                 "level": "low",
-                "context_switch_count": 3,
-                "longest_context_minutes": 12,
+                "entertainment_deviation_count": 1,
+                "entertainment_deviation_minutes": 1,
+                "longest_entertainment_deviation_minutes": 1,
+                "brief_communication_minutes": 0.2,
+                "same_task_tool_switches_not_scored": 3,
             },
             "data_quality": {
                 "level": "medium",
@@ -77,8 +83,9 @@ class CleaningTests(unittest.TestCase):
         self.assertEqual(title, "行为核验 20:00—20:30")
         self.assertIn("工作估计25分钟", content)
         self.assertIn("工作 25 分钟", content)
-        self.assertIn("其他 0 分钟", content)
-        self.assertIn("切换 3 次", content)
+        self.assertIn("娱乐 1 分钟", content)
+        self.assertIn("娱乐偏离 1 次", content)
+        self.assertIn("同任务工具切换 3 次", content)
         self.assertIn("这段理解是否正确", content)
         self.assertIn("不会触发屏蔽", content)
         self.assertIn("在 Codex 中反馈", content)
@@ -130,6 +137,14 @@ class CleaningTests(unittest.TestCase):
                     "estimate_minutes": 25,
                     "range_minutes": [20, 28],
                 },
+                "entertainment": {
+                    "estimate_minutes": 0,
+                    "range_minutes": [0, 0],
+                },
+                "brief_communication": {
+                    "estimate_minutes": 0,
+                    "range_minutes": [0, 0],
+                },
                 "rest": {
                     "estimate_minutes": 3,
                     "range_minutes": [2, 5],
@@ -166,11 +181,19 @@ class CleaningTests(unittest.TestCase):
 
     def test_rest_validation_uses_confirmed_rest_minutes(self):
         report = {
-            "state_assessment": {"label": "mixed_work_and_rest"},
+            "state_assessment": {"label": "focused_work"},
             "estimated_time_allocation": {
                 "work": {
                     "estimate_minutes": 26.72,
                     "range_minutes": [26, 27],
+                },
+                "entertainment": {
+                    "estimate_minutes": 0,
+                    "range_minutes": [0, 0],
+                },
+                "brief_communication": {
+                    "estimate_minutes": 0,
+                    "range_minutes": [0, 0],
                 },
                 "rest": {
                     "estimate_minutes": 3.28,
@@ -192,6 +215,136 @@ class CleaningTests(unittest.TestCase):
         }
         errors = _validate_report(report, 30, confirmed_rest_minutes=0)
         self.assertTrue(any("confirmed_rest_minutes" in error for error in errors))
+
+    def test_entertainment_over_thirty_seconds_inside_work_is_deviation(self):
+        semantic = {
+            "segments": [
+                {
+                    "start": "2026-07-24T20:00:00+08:00",
+                    "end": "2026-07-24T20:10:00+08:00",
+                    "duration_seconds": 600,
+                    "activity": "work",
+                },
+                {
+                    "start": "2026-07-24T20:10:00+08:00",
+                    "end": "2026-07-24T20:10:31+08:00",
+                    "duration_seconds": 31,
+                    "activity": "entertainment",
+                    "relationship_to_work": "entertainment_detour",
+                    "task": "浏览知乎",
+                    "evidence": ["zhihu.com"],
+                    "confidence": "high",
+                },
+                {
+                    "start": "2026-07-24T20:10:31+08:00",
+                    "end": "2026-07-24T20:30:00+08:00",
+                    "duration_seconds": 1169,
+                    "activity": "work",
+                },
+            ]
+        }
+        cross = {
+            "computer_fragmentation_metrics": {
+                "context_switch_count": 8,
+                "context_blocks": [],
+            }
+        }
+        settings = {
+            "timezone": "Asia/Shanghai",
+            "state_rules": {
+                "entertainment_deviation_minimum_seconds": 30
+            },
+        }
+        result = calculate_work_entertainment_mixing(
+            semantic, cross, settings
+        )
+        self.assertEqual(result["entertainment_deviation_count"], 1)
+        self.assertEqual(result["level"], "low")
+
+    def test_exactly_thirty_seconds_is_not_deviation(self):
+        semantic = {
+            "segments": [
+                {
+                    "start": "2026-07-24T20:00:00+08:00",
+                    "end": "2026-07-24T20:10:00+08:00",
+                    "duration_seconds": 600,
+                    "activity": "work",
+                },
+                {
+                    "start": "2026-07-24T20:10:00+08:00",
+                    "end": "2026-07-24T20:10:30+08:00",
+                    "duration_seconds": 30,
+                    "activity": "entertainment",
+                    "relationship_to_work": "entertainment_detour",
+                },
+                {
+                    "start": "2026-07-24T20:10:30+08:00",
+                    "end": "2026-07-24T20:30:00+08:00",
+                    "duration_seconds": 1170,
+                    "activity": "work",
+                },
+            ]
+        }
+        result = calculate_work_entertainment_mixing(
+            semantic,
+            {
+                "computer_fragmentation_metrics": {
+                    "context_switch_count": 2,
+                    "context_blocks": [],
+                }
+            },
+            {
+                "timezone": "Asia/Shanghai",
+                "state_rules": {
+                    "entertainment_deviation_minimum_seconds": 30
+                },
+            },
+        )
+        self.assertEqual(result["entertainment_deviation_count"], 0)
+        self.assertEqual(result["level"], "none")
+
+    def test_brief_message_does_not_break_work_or_count_as_deviation(self):
+        semantic = {
+            "segments": [
+                {
+                    "start": "2026-07-24T20:00:00+08:00",
+                    "end": "2026-07-24T20:10:00+08:00",
+                    "duration_seconds": 600,
+                    "activity": "work",
+                },
+                {
+                    "start": "2026-07-24T20:10:00+08:00",
+                    "end": "2026-07-24T20:10:10+08:00",
+                    "duration_seconds": 10,
+                    "activity": "brief_communication",
+                },
+                {
+                    "start": "2026-07-24T20:10:10+08:00",
+                    "end": "2026-07-24T20:30:00+08:00",
+                    "duration_seconds": 1190,
+                    "activity": "work",
+                },
+            ]
+        }
+        result = calculate_work_entertainment_mixing(
+            semantic,
+            {
+                "computer_fragmentation_metrics": {
+                    "context_switch_count": 5,
+                    "context_blocks": [],
+                }
+            },
+            {
+                "timezone": "Asia/Shanghai",
+                "state_rules": {
+                    "entertainment_deviation_minimum_seconds": 30
+                },
+            },
+        )
+        self.assertEqual(result["entertainment_deviation_count"], 0)
+        self.assertEqual(result["brief_communication_minutes"], 0.17)
+        self.assertEqual(result["longest_continuous_work_minutes"], 30.0)
+        self.assertEqual(result["level"], "none")
 
 
 if __name__ == "__main__":

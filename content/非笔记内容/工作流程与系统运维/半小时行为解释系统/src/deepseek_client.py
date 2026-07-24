@@ -12,10 +12,28 @@ from urllib.request import Request, urlopen
 QUALITY_ORDER = {"low": 0, "medium": 1, "high": 2}
 STATE_LABELS = {
     "focused_work",
-    "fragmented_work",
-    "mixed_work_and_rest",
+    "work_with_brief_checkins",
+    "work_with_entertainment_detour",
+    "work_disrupted_by_entertainment",
+    "entertainment",
     "resting",
     "unclear",
+}
+CATEGORY_KEYS = (
+    "work",
+    "entertainment",
+    "brief_communication",
+    "rest",
+    "other",
+    "uncertain",
+)
+CATEGORY_LABELS = {
+    "work": "工作",
+    "entertainment": "娱乐",
+    "brief_communication": "短暂通信",
+    "rest": "休息",
+    "other": "其他",
+    "uncertain": "无法判断",
 }
 
 
@@ -91,6 +109,8 @@ def _normalize_report(
     computer_facts: dict[str, Any],
     phone_facts: dict[str, Any],
     cross_device_facts: dict[str, Any],
+    semantic_timeline: dict[str, Any],
+    mixing_metrics: dict[str, Any],
 ) -> dict[str, Any]:
     observed = cross_device_facts["time_accounting_observed"]
     overlap = cross_device_facts["overlap_minutes"]
@@ -107,23 +127,58 @@ def _normalize_report(
         "confirmed_rest_minutes": observed["confirmed_rest_minutes"],
     }
 
-    deterministic = cross_device_facts["computer_fragmentation_metrics"]
-    model_fragmentation = report.setdefault("fragmentation_assessment", {})
-    model_fragmentation.update(
-        {
-            "meaningful_context_blocks": deterministic[
-                "meaningful_context_blocks"
+    allocation_seconds = {key: 0.0 for key in CATEGORY_KEYS}
+    allocation_evidence = {key: [] for key in CATEGORY_KEYS}
+    timeline_summary: list[dict[str, Any]] = []
+    for segment in semantic_timeline.get("segments", []):
+        activity = segment["activity"]
+        allocation_seconds[activity] += float(segment["duration_seconds"])
+        evidence = [str(item) for item in segment.get("evidence", [])]
+        allocation_evidence[activity].extend(evidence)
+        start = str(segment["start"])[11:16]
+        end = str(segment["end"])[11:16]
+        timeline_summary.append(
+            {
+                "time_range": f"{start}-{end}",
+                "likely_state": CATEGORY_LABELS[activity],
+                "minutes": round(float(segment["duration_seconds"]) / 60, 2),
+                "task": segment.get("task", ""),
+                "work_category": segment.get("work_category", ""),
+                "relationship_to_work": segment.get(
+                    "relationship_to_work", "uncertain"
+                ),
+                "devices": segment.get("devices", []),
+                "evidence": evidence,
+                "confidence": segment.get("confidence", "low"),
+            }
+        )
+    report["estimated_time_allocation"] = {
+        key: {
+            "estimate_minutes": round(allocation_seconds[key] / 60, 2),
+            "range_minutes": [
+                round(allocation_seconds[key] / 60, 2),
+                round(allocation_seconds[key] / 60, 2),
             ],
-            "context_switch_count": deterministic["context_switch_count"],
-            "short_context_blocks": deterministic[
-                "short_context_blocks_under_60_seconds"
-            ],
-            "sustained_context_blocks": deterministic[
-                "sustained_context_blocks_at_least_5_minutes"
-            ],
-            "longest_context_minutes": deterministic["longest_context_minutes"],
+            "evidence": list(dict.fromkeys(allocation_evidence[key]))[:4],
         }
+        for key in CATEGORY_KEYS
+    }
+    report["estimated_time_allocation"]["total_minutes"] = observed[
+        "period_minutes"
+    ]
+    report["timeline_summary"] = timeline_summary
+    report["primary_work_task"] = semantic_timeline.get(
+        "primary_work_task", ""
     )
+
+    model_mixing = report.setdefault("mixing_assessment", {})
+    interpretation = model_mixing.get("interpretation", "")
+    report["mixing_assessment"] = {
+        **mixing_metrics,
+        "interpretation": interpretation
+        or mixing_metrics.get("interpretation_note", ""),
+    }
+    report.pop("fragmentation_assessment", None)
 
     computer_quality = computer_facts.get("quality", {})
     phone_quality = phone_facts.get("quality", {})
@@ -140,8 +195,13 @@ def _normalize_report(
         "level": quality_level,
         "material_issues": material_issues,
     }
-    report["material_uncertainties"] = report.get(
-        "material_uncertainties", []
+    report["material_uncertainties"] = list(
+        dict.fromkeys(
+            [
+                *semantic_timeline.get("material_uncertainties", []),
+                *report.get("material_uncertainties", []),
+            ]
+        )
     )[:2]
     report["gentle_suggestions"] = []
     return report
@@ -158,9 +218,8 @@ def _validate_report(
         errors.append("state_assessment.label不在允许列表中")
 
     allocation = report.get("estimated_time_allocation", {})
-    category_keys = ("work", "rest", "other", "uncertain")
     estimates: dict[str, float] = {}
-    for key in category_keys:
+    for key in CATEGORY_KEYS:
         item = allocation.get(key, {})
         try:
             estimate = float(item["estimate_minutes"])
@@ -172,8 +231,11 @@ def _validate_report(
         estimates[key] = estimate
         if not lower <= estimate <= upper:
             errors.append(f"{key}的估计值不在range_minutes内")
-    if len(estimates) == 4 and abs(sum(estimates.values()) - period_minutes) > 0.2:
-        errors.append("工作、休息、其他、无法判断的估计总和不等于时段长度")
+    if (
+        len(estimates) == len(CATEGORY_KEYS)
+        and abs(sum(estimates.values()) - period_minutes) > 0.2
+    ):
+        errors.append("各类语义时间估计总和不等于时段长度")
     if (
         "rest" in estimates
         and abs(estimates["rest"] - confirmed_rest_minutes) > 0.2
@@ -183,13 +245,8 @@ def _validate_report(
         )
 
     timeline = report.get("timeline_summary", [])
-    timeline_totals = {key: 0.0 for key in category_keys}
-    label_to_key = {
-        "工作": "work",
-        "休息": "rest",
-        "其他": "other",
-        "无法判断": "uncertain",
-    }
+    timeline_totals = {key: 0.0 for key in CATEGORY_KEYS}
+    label_to_key = {value: key for key, value in CATEGORY_LABELS.items()}
     timeline_total = 0.0
     for item in timeline:
         try:
@@ -205,8 +262,8 @@ def _validate_report(
             errors.append("timeline_summary使用了未允许的状态标签")
     if abs(timeline_total - period_minutes) > 0.2:
         errors.append("timeline_summary分钟数总和不等于时段长度")
-    if len(estimates) == 4:
-        for key in category_keys:
+    if len(estimates) == len(CATEGORY_KEYS):
+        for key in CATEGORY_KEYS:
             if abs(timeline_totals[key] - estimates[key]) > 0.2:
                 errors.append(f"timeline_summary中的{key}分钟数与时间核算不一致")
 
@@ -217,6 +274,8 @@ def _validate_report(
         "心跳事件距离",
         "网页覆盖率仅",
         "手机打断",
+        "上下文切换频繁",
+        "高度碎片化",
     )
     for phrase in banned_phrases:
         if phrase in serialized:
@@ -230,6 +289,8 @@ def interpret_with_deepseek(
     computer_facts: dict[str, Any],
     phone_facts: dict[str, Any],
     cross_device_facts: dict[str, Any],
+    semantic_timeline: dict[str, Any],
+    mixing_metrics: dict[str, Any],
 ) -> dict[str, Any]:
     model = settings["model"]
     system_prompt = prompt_path.read_text(encoding="utf-8")
@@ -237,12 +298,14 @@ def interpret_with_deepseek(
         "computer_facts": computer_facts,
         "phone_facts": phone_facts,
         "cross_device_facts": cross_device_facts,
+        "semantic_timeline": semantic_timeline,
+        "deterministic_work_entertainment_mixing": mixing_metrics,
     }
     messages = [
         {"role": "system", "content": system_prompt},
         {
             "role": "user",
-            "content": "请根据事实层输出状态核验JSON：\n"
+            "content": "请根据语义时间线和确定性混杂指标输出状态核验JSON：\n"
             + json.dumps(evidence, ensure_ascii=False, separators=(",", ":")),
         },
     ]
@@ -260,7 +323,12 @@ def interpret_with_deepseek(
     for correction_attempts in range(3):
         report, generation = _request_json_report(model, messages)
         report = _normalize_report(
-            report, computer_facts, phone_facts, cross_device_facts
+            report,
+            computer_facts,
+            phone_facts,
+            cross_device_facts,
+            semantic_timeline,
+            mixing_metrics,
         )
         errors = _validate_report(
             report, period_minutes, confirmed_rest_minutes

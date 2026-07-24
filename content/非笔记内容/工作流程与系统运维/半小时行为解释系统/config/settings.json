@@ -17,12 +17,14 @@
     "minimum_evidence_seconds": 30,
     "max_timeline_segments": 240,
     "timeline_noise_gap_seconds": 3,
+    "semantic_context_minutes": 5,
     "title_max_characters": 180,
     "heartbeat_fresh_seconds": 1200,
     "heartbeat_stale_seconds": 2700
   },
   "state_rules": {
     "rest_minimum_continuous_inactive_seconds": 180,
+    "entertainment_deviation_minimum_seconds": 30,
     "rest_required_devices": [
       "computer",
       "phone"

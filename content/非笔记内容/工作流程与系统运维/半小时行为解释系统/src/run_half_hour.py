@@ -20,11 +20,16 @@ from cross_device import compare_devices
 from deepseek_client import interpret_with_deepseek
 from phone_facts import extract_phone_facts
 from pushplus_client import send_report_via_wechat
+from semantic_analysis import (
+    calculate_work_entertainment_mixing,
+    extract_semantic_timeline_with_deepseek,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SETTINGS = PROJECT_ROOT / "config" / "settings.json"
 DEFAULT_PROMPT = PROJECT_ROOT / "prompts" / "half-hour-interpreter.md"
+DEFAULT_SEGMENT_PROMPT = PROJECT_ROOT / "prompts" / "semantic-segmenter.md"
 
 
 def _automatic_period(timezone_name: str) -> tuple[datetime, datetime]:
@@ -52,7 +57,7 @@ def _parse_period(arguments, timezone_name: str) -> tuple[datetime, datetime]:
 def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> str:
     state = report.get("state_assessment", {})
     allocation = report.get("estimated_time_allocation", {})
-    fragmentation = report.get("fragmentation_assessment", {})
+    mixing = report.get("mixing_assessment", {})
     lines = [
         f"# 半小时状态核验：{start:%Y-%m-%d %H:%M}—{end:%H:%M}",
         "",
@@ -66,6 +71,8 @@ def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> 
     ]
     for key, label in (
         ("work", "工作"),
+        ("entertainment", "娱乐"),
+        ("brief_communication", "短暂通信"),
         ("rest", "休息"),
         ("other", "其他"),
         ("uncertain", "无法判断"),
@@ -82,16 +89,18 @@ def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> 
     lines.extend(
         [
             "",
-            "## 碎片化",
+            "## 工作—娱乐混杂",
             "",
-            f"- 等级：{fragmentation.get('level', 'unknown')}",
-            f"- 有意义的上下文块：{fragmentation.get('meaningful_context_blocks', 0)}",
-            f"- 上下文切换：{fragmentation.get('context_switch_count', 0)} 次",
-            f"- 少于一分钟的短块：{fragmentation.get('short_context_blocks', 0)}",
-            f"- 至少五分钟的持续块：{fragmentation.get('sustained_context_blocks', 0)}",
-            f"- 最长连续上下文：{fragmentation.get('longest_context_minutes', 0)} 分钟",
+            f"- 等级：{mixing.get('level', 'unknown')}",
+            f"- 超过30秒的娱乐偏离：{mixing.get('entertainment_deviation_count', 0)} 次",
+            f"- 娱乐偏离总时长：{mixing.get('entertainment_deviation_minutes', 0)} 分钟",
+            f"- 最长娱乐偏离：{mixing.get('longest_entertainment_deviation_minutes', 0)} 分钟",
+            f"- 工作与娱乐转换：{mixing.get('work_entertainment_transition_count', 0)} 次",
+            f"- 短暂通信：{mixing.get('brief_communication_minutes', 0)} 分钟",
+            f"- 同任务工具切换（不计分）：{mixing.get('same_task_tool_switches_not_scored', 0)} 次",
+            f"- 最长连续工作：{mixing.get('longest_continuous_work_minutes', 0)} 分钟",
             "",
-            fragmentation.get("interpretation", "没有提供碎片化解释。"),
+            mixing.get("interpretation", "没有提供工作—娱乐混杂解释。"),
             "",
             "## 时间线",
             "",
@@ -102,7 +111,8 @@ def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> 
         for item in timeline:
             lines.append(
                 f"- {item.get('time_range', '')}｜{item.get('likely_state', '')}"
-                f"｜{item.get('minutes', 0)} 分钟："
+                f"｜{item.get('minutes', 0)} 分钟"
+                f"｜{item.get('task', '')}："
                 + "；".join(item.get("evidence", []))
             )
     else:
@@ -178,6 +188,16 @@ def _local_no_activity_report(
                 "range_minutes": [0.0, period_minutes],
                 "evidence": [],
             },
+            "entertainment": {
+                "estimate_minutes": 0.0,
+                "range_minutes": [0.0, 0.0],
+                "evidence": [],
+            },
+            "brief_communication": {
+                "estimate_minutes": 0.0,
+                "range_minutes": [0.0, 0.0],
+                "evidence": [],
+            },
             "rest": {
                 "estimate_minutes": confirmed_rest,
                 "range_minutes": [confirmed_rest, confirmed_rest],
@@ -197,14 +217,19 @@ def _local_no_activity_report(
             },
             "total_minutes": period_minutes,
         },
-        "fragmentation_assessment": {
-            "level": "low",
-            "meaningful_context_blocks": 0,
-            "context_switch_count": 0,
-            "short_context_blocks": 0,
-            "sustained_context_blocks": 0,
-            "longest_context_minutes": 0.0,
-            "interpretation": "没有足够活动，不能评价工作碎片化。",
+        "mixing_assessment": {
+            "level": "none",
+            "entertainment_deviation_count": 0,
+            "entertainment_deviation_minutes": 0.0,
+            "all_entertainment_minutes": 0.0,
+            "longest_entertainment_deviation_minutes": 0.0,
+            "work_entertainment_transition_count": 0,
+            "brief_communication_minutes": 0.0,
+            "longest_continuous_work_minutes": 0.0,
+            "same_task_tool_switches_not_scored": 0,
+            "raw_foreground_context_switches_not_scored": 0,
+            "deviations": [],
+            "interpretation": "没有足够活动，未发现工作—娱乐混杂。",
         },
         "timeline_summary": [],
         "computer_summary": "没有检测到足够电脑活动。",
@@ -224,6 +249,36 @@ def _local_no_activity_report(
     }
 
 
+def _local_semantic_failure_report(
+    start: datetime, end: datetime, cross: dict[str, Any], errors: list[str]
+) -> dict[str, Any]:
+    report = _local_no_activity_report(start, end, cross)
+    period_minutes = round((end - start).total_seconds() / 60, 2)
+    confirmed_rest = float(
+        cross["time_accounting_observed"]["confirmed_rest_minutes"]
+    )
+    uncertain_minutes = round(period_minutes - confirmed_rest, 2)
+    report["state_assessment"] = {
+        "label": "unclear",
+        "confidence": "low",
+        "one_sentence": (
+            f"设备事实已采集，但AI时间段解释未通过校验；"
+            f"确认休息{confirmed_rest}分钟，其余{uncertain_minutes}分钟暂不归类。"
+        ),
+    }
+    report["computer_summary"] = "电脑事实已保存，等待语义时间段重新解释。"
+    report["phone_summary"] = "手机事实已保存，等待语义时间段重新解释。"
+    report["material_uncertainties"] = ["AI语义时间线未通过一致性检查。"]
+    report["data_quality"]["material_issues"] = [
+        *report["data_quality"].get("material_issues", []),
+        "AI语义时间线未通过一致性检查。",
+    ]
+    report["concise_report"] = report["state_assessment"]["one_sentence"]
+    report["verification_question"] = "这段时间的主要活动是什么？"
+    report["_validation"] = {"passed": False, "errors": errors}
+    return report
+
+
 def run(arguments) -> dict[str, Any]:
     settings_path = Path(arguments.settings).resolve()
     settings = load_json(settings_path)
@@ -235,6 +290,10 @@ def run(arguments) -> dict[str, Any]:
     computer_path = output_root / "computer_facts" / day / f"{period_id}.json"
     phone_path = output_root / "phone_facts" / day / f"{period_id}.json"
     combined_path = output_root / "combined_facts" / day / f"{period_id}.json"
+    semantic_path = (
+        output_root / "semantic_timelines" / day / f"{period_id}.json"
+    )
+    mixing_path = output_root / "mixing_metrics" / day / f"{period_id}.json"
     report_json_path = output_root / "ai_reports" / day / f"{period_id}.json"
     report_md_path = output_root / "ai_reports" / day / f"{period_id}.md"
 
@@ -248,31 +307,78 @@ def run(arguments) -> dict[str, Any]:
     computer = extract_computer_facts(settings, start, end)
     phone = extract_phone_facts(settings, start, end)
     cross = compare_devices(computer, phone, settings)
-    combined = {
-        "schema_version": 2,
-        "period": computer["period"],
-        "computer_facts_file": str(computer_path),
-        "phone_facts_file": str(phone_path),
-        "cross_device_facts": cross,
-    }
     atomic_write_json(computer_path, computer)
     atomic_write_json(phone_path, phone)
-    atomic_write_json(combined_path, combined)
 
     evidence_seconds = (
         float(computer["activity"]["not_afk_minutes"])
         + float(phone["screen"]["on_minutes"])
     ) * 60
     if evidence_seconds < int(settings["processing"]["minimum_evidence_seconds"]):
+        semantic = {
+            "schema_version": 1,
+            "source": "local_no_activity",
+            "period": computer["period"],
+            "primary_work_task": "",
+            "segments": [],
+            "material_uncertainties": ["有效设备活动不足，未调用AI解释时间段。"],
+            "_validation": {"passed": True, "errors": []},
+            "_generation": {"provider": "local_rule", "model": None},
+        }
+        mixing = calculate_work_entertainment_mixing(
+            semantic, cross, settings
+        )
         report = _local_no_activity_report(start, end, cross)
     else:
-        report = interpret_with_deepseek(
+        context_minutes = int(
+            settings["processing"].get("semantic_context_minutes", 5)
+        )
+        context_start = start - timedelta(minutes=context_minutes)
+        context_end = end + timedelta(minutes=context_minutes)
+        context_computer = extract_computer_facts(
+            settings, context_start, context_end
+        )
+        context_phone = extract_phone_facts(settings, context_start, context_end)
+        semantic = extract_semantic_timeline_with_deepseek(
             settings,
-            Path(arguments.prompt).resolve(),
+            Path(arguments.segment_prompt).resolve(),
             computer,
             phone,
             cross,
+            context_computer,
+            context_phone,
         )
+        mixing = calculate_work_entertainment_mixing(semantic, cross, settings)
+        if semantic.get("_validation", {}).get("passed"):
+            report = interpret_with_deepseek(
+                settings,
+                Path(arguments.prompt).resolve(),
+                computer,
+                phone,
+                cross,
+                semantic,
+                mixing,
+            )
+        else:
+            report = _local_semantic_failure_report(
+                start,
+                end,
+                cross,
+                semantic.get("_validation", {}).get("errors", []),
+            )
+
+    atomic_write_json(semantic_path, semantic)
+    atomic_write_json(mixing_path, mixing)
+    combined = {
+        "schema_version": 3,
+        "period": computer["period"],
+        "computer_facts_file": str(computer_path),
+        "phone_facts_file": str(phone_path),
+        "semantic_timeline_file": str(semantic_path),
+        "mixing_metrics_file": str(mixing_path),
+        "cross_device_facts": cross,
+    }
+    atomic_write_json(combined_path, combined)
 
     atomic_write_json(report_json_path, report)
     atomic_write_text(report_md_path, _report_markdown(report, start, end))
@@ -298,6 +404,8 @@ def run(arguments) -> dict[str, Any]:
         "computer_facts": str(computer_path),
         "phone_facts": str(phone_path),
         "combined_facts": str(combined_path),
+        "semantic_timeline": str(semantic_path),
+        "mixing_metrics": str(mixing_path),
         "report_json": str(report_json_path),
         "report_markdown": str(report_md_path),
         "model": report.get("_generation", {}).get("model"),
@@ -309,6 +417,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Generate one half-hour behavior report")
     parser.add_argument("--settings", default=str(DEFAULT_SETTINGS))
     parser.add_argument("--prompt", default=str(DEFAULT_PROMPT))
+    parser.add_argument(
+        "--segment-prompt", default=str(DEFAULT_SEGMENT_PROMPT)
+    )
     parser.add_argument("--start", help="ISO 8601 period start")
     parser.add_argument("--end", help="ISO 8601 period end")
     parser.add_argument("--force", action="store_true")
