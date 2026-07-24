@@ -89,6 +89,16 @@ def _report_markdown(report: dict[str, Any], start: datetime, end: datetime) -> 
         lines.extend(f"- {item}" for item in suggestions[:2])
     else:
         lines.append("- 这段数据不需要形成建议。")
+    verification_question = report.get("verification_question", "").strip()
+    if verification_question:
+        lines.extend(
+            [
+                "",
+                "## 抽样核对",
+                "",
+                verification_question,
+            ]
+        )
     lines.extend(
         [
             "",
@@ -124,6 +134,7 @@ def _local_no_activity_report(start: datetime, end: datetime) -> dict[str, Any]:
             "issues": ["有效活动证据不足。"],
         },
         "gentle_suggestions": [],
+        "verification_question": "",
         "_generation": {"provider": "local_rule", "model": None},
     }
 
