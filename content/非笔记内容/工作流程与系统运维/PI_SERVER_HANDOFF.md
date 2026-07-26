@@ -26,13 +26,13 @@
                      |
           +----------+-----------+
           |                      |
-    computer_facts.py    phone_facts.py
-          |                      |
-    computer_facts/       phone_facts/
-          |                      |
-          +----------+-----------+
+    computer_facts.py    phone_facts.py    tablet_facts.py
+          |                      |                |
+    computer_facts/       phone_facts/      tablet_facts/
+          |                      |                |
+          +----------+-----------+----------------+
                      |
-           cross_device.py (时间重叠)
+           cross_device.py (三设备融合，平板为辅助)
                      |
            combined_facts/
                      |
@@ -92,6 +92,7 @@
 | 手机传入镜像 | `/home/conrad/phone_usage/incoming/` | phone-usage-receiver | 最近一次上传的原始请求体 |
 | 电脑事实 | `data/computer_facts/YYYY-MM-DD/HH-MM.json` | computer_facts.py | 去重、AFK 处理后的电脑活动事实 |
 | 手机事实 | `data/phone_facts/YYYY-MM-DD/HH-MM.json` | phone_facts.py | 去重、亮灭屏重建后的手机活动事实 |
+| 平板事实 | `data/tablet_facts/YYYY-MM-DD/HH-MM.json` | tablet_facts.py | 去重、亮灭屏重建后的平板活动事实（辅助数据源） |
 | 合并事实 | `data/combined_facts/YYYY-MM-DD/HH-MM.json` | cross_device.py | 两台设备的时间重叠统计 |
 | 语义时间线 | `data/semantic_timelines/YYYY-MM-DD/HH-MM.json` | DeepSeek 第1次 | 互斥语义段（work/entertainment/communication/rest/other/uncertain） |
 | 混杂指标 | `data/mixing_metrics/YYYY-MM-DD/HH-MM.json` | semantic_analysis.py | 程序确定性计算的工作-娱乐混杂 |
@@ -108,7 +109,7 @@
 | 路径 | 用途 |
 |---|---|
 | `/home/conrad/workspace/activitywatch-advisor/` | 行为解释系统主目录 |
-| `.../src/` | Python 脚本（run_half_hour.py, computer_facts.py, phone_facts.py, cross_device.py, deepseek_client.py, semantic_analysis.py, pushplus_client.py, common.py） |
+| `.../src/` | Python 脚本（run_half_hour.py, computer_facts.py, phone_facts.py, tablet_facts.py, cross_device.py, deepseek_client.py, semantic_analysis.py, pushplus_client.py, common.py） |
 | `.../prompts/` | half-hour-interpreter.md, semantic-segmenter.md |
 | `.../config/settings.json` | 应用名映射、模型配置、阈值参数 |
 | `.../data/` | 所有输出（见上表） |
@@ -133,7 +134,7 @@
 | `cockpit.socket` | active | Web 管理 9090 |
 | `filebrowser.service` | active | 文件管理 8080 |
 
-**[已由服务器核实]** 最新一次 systemd timer 触发：`2026-07-26 00:08:00`（正在执行中）。
+**[已由服务器核实]** 最新一次 systemd timer 触发：`2026-07-27 01:38`（已完成）。平板已全链路接入。
 
 ### 4.3 配置要点
 
@@ -144,7 +145,7 @@
 - 语义切段使用非思考模式（`semantic_model.thinking = "disabled"`）
 - 休息规则：电脑 AFK >= 3 分钟 **且** 所有已连接移动设备均无活动
 - 娱乐偏离：工作中被 AI 判为娱乐且持续 > 30 秒
-- 当前已连接设备：`computer`, `phone`；未来预留 `tablet`
+- 当前已连接设备：`computer`, `phone`, `tablet`（平板为辅助数据源）
 
 ## 5. 已验证成功的功能
 
@@ -156,6 +157,7 @@
 4. ActivityWatch Windows 端采集并通过 Syncthing 同步到树莓派 -- 已验证
 5. `computer_facts.py` 从 SQLite 提取并清洗电脑事实 -- 已验证
 6. `phone_facts.py` 从 JSONL 提取并清洗手机事实 -- 已验证
+7. `tablet_facts.py` 从 JSONL 提取并清洗平板事实 -- 已验证
 7. DeepSeek 语义时间线生成（第1次调用）-- 已验证
 8. 程序校验语义时间线并计算混杂指标 -- 已验证
 9. DeepSeek 报告生成（第2次调用）-- 已验证
@@ -213,7 +215,8 @@
 
 1. **确认手机数据流**：等待 2026-07-26 第一个 15 分钟上传周期（约 00:15），确认 `archive/2026-07-26/` 目录被创建且包含数据
 2. **确认定时器完成**：检查 `journalctl` 确认 00:08 触发的任务是否成功完成（包括 PushPlus 推送）
-3. **生成 PROJECT_STATE.md / DECISIONS.md / NEXT_STEPS.md**：按用户原要求，方便其它 AI 接手
+3. **生成 PROJECT_STATE.md / DECISIONS.md / NEXT_STEPS.md**：已完成（2026-07-27 更新）
+4. **平板数据接入**：已完成（2026-07-27），包括接收端白名单、事实提取、三设备融合、AI prompt 适配
 4. **观察数据质量**：积累 3-7 天完整数据后再做下一步改动
 5. **夜间静默**：考虑在 00:00-07:00 间跳过 PushPlus 推送（当前所有时段都推送，包括无活动的凌晨）
 6. **数据增长监控**：运行一周后计算真实日增长量，与预估的 1.4 MB/天对比

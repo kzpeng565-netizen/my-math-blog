@@ -1,3 +1,4 @@
+<!-- ai_provenance: updated=2026-07-27 -->
 <!-- ai_provenance: source=codex; date=2026-07-26; verification=server-verified -->
 
 # 半小时行为解释系统——NEXT_STEPS
@@ -17,6 +18,12 @@ ssh pi.local "ls -lh /home/conrad/phone_usage/archive/2026-07-26/"
 ### ☐ 2. 验证 00:08 生成的报告质量
 
 读取 `/home/conrad/workspace/activitywatch-advisor/data/ai_reports/2026-07-25/23-30.md`，确认 23:30—00:00 的核验报告合理。
+
+### ✅ 14. 平板数据接入
+平板已通过相同 Funnel 入口上传数据。接收端白名单增加 tablet_foreground/screen/heartbeat。phone_facts.py 增加 device 过滤，新建 tablet_facts.py。cross_device.py 支持三设备融合（平板为辅助数据源）。AI prompt 适配平板上下文。
+
+### ✅ 15. 设备语义修正
+平板亮屏不加入 any_device_interaction 和 minimum_evidence_seconds。休息判定只要求电脑 AFK + 手机熄屏，平板亮屏降低置信度但不否决。平板作为辅助数据源，仅在电脑和手机均无证据时作为低置信度 fallback。
 
 ## 短期（本周）
 

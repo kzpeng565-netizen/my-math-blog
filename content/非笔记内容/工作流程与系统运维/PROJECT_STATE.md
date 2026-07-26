@@ -6,7 +6,7 @@
 
 ## 系统是什么
 
-一个运行在树莓派上的**半小时行为解释系统**。每半小时自动收集电脑（ActivityWatch + Syncthing）和手机（Android Automate）的使用数据，清洗后交 DeepSeek V4 Flash 生成语义时间线和核验报告，通过 PushPlus 微信公众号推送给用户。当前阶段**只核验 AI 的理解能力，不做任何自动干预**。
+一个运行在树莓派上的**半小时行为解释系统**。每半小时自动收集电脑（ActivityWatch + Syncthing）、手机和平板（Android Automate）的使用数据，清洗后交 DeepSeek V4 Flash 生成语义时间线和核验报告，通过 PushPlus 微信公众号推送给用户。当前阶段**只核验 AI 的理解能力，不做任何自动干预**。
 
 ## 当前版本：第三版
 
@@ -22,7 +22,7 @@
 
 | 组件 | 状态 | 说明 |
 |---|---|---|
-| `phone-usage-receiver.service` | active | Flask 服务器监听 `127.0.0.1:8765`，接收手机三文件上传 |
+| `phone-usage-receiver.service` | active | Flask 服务器监听 `127.0.0.1:8765`，接收手机和平板共六文件上传（foreground/screen/heartbeat x 2） |
 | `phone-usage-maintenance.timer` | active | 每日 03:30 归档压缩（>30 天）和清理（>365 天） |
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | triggered by timer | 单次执行，完成后退出 |
@@ -46,6 +46,13 @@
 | Automate `Phone Usage Logger` 流 | 运行中 | 采集 foreground/screen/heartbeat，每 15 分钟上传 |
 | Clash | 运行中 | 代理（与 HTTPS 上传无冲突，已验证） |
 
+### Android 平板
+
+| 组件 | 状态 | 说明 |
+|---|---|---|
+| Automate 平板采集流 | 运行中 | 采集 tablet_foreground/screen/heartbeat，每约 2 分钟上传 |
+| 设备型号 | Huawei | 使用相同 token 和 Funnel 入口，文件名为 tablet_* 前缀 |
+
 ## 当前数据量
 
 - 2026-07-25 全天：48 个时段全部有输出（~29 KB/时段，含所有数据层）
@@ -56,8 +63,8 @@
 
 1. 手机 → Tailscale Funnel → 树莓派 数据上传与归档
 2. 电脑 → Syncthing → 树莓派 数据同步
-3. computer_facts.py / phone_facts.py 独立清洗
-4. cross_device.py 双设备时间重叠计算
+3. computer_facts.py / phone_facts.py / tablet_facts.py 独立清洗
+4. cross_device.py 三设备时间重叠计算（平板为辅助数据源）
 5. DeepSeek 生成语义时间线（非思考模式，避免 token 耗尽）
 6. 语义时间线校验（分钟总和、时间连续性、休息规则一致性）
 7. 工作-娱乐混杂指标计算（>30s 偏离检测）
@@ -74,4 +81,4 @@
 
 ## 中断位置
 
-上一轮 ChatGPT 会话在额度耗尽后分叉。中断前正在生成 PROJECT_STATE / DECISIONS / NEXT_STEPS。系统本身未受影响，定时器持续运行。最新一条报告为 `2026-07-26 00:08` 生成的 `23:30—00:00`。
+上一轮 ChatGPT 会话在额度耗尽后分叉。中断前正在生成 PROJECT_STATE / DECISIONS / NEXT_STEPS。系统本身未受影响，定时器持续运行。最新一条报告为 `2026-07-27 01:38`。平板已接入全链路，timer 正常运行。
