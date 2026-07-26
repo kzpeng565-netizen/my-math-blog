@@ -3,7 +3,7 @@ copilot-command-context-menu-enabled: true
 copilot-command-slash-enabled: true
 copilot-command-context-menu-order: 120
 copilot-command-model-key: deepseek-reasoner|deepseek
-copilot-command-last-used: 1785033377579
+copilot-command-last-used: 1785047150962
 ---
 1. 用$和$$包围latex, 而不是\(和\[
 2. 去掉所有的标题, 只使用加粗来强调
