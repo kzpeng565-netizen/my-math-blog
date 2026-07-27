@@ -4,8 +4,8 @@
   "title": "$task-planner 重新帮我规划任务",
   "titleGenerationStatus": "failed",
   "createdAt": 1785164252445,
-  "updatedAt": 1785164768868,
-  "lastResponseAt": 1785164768868,
+  "updatedAt": 1785165610188,
+  "lastResponseAt": 1785165610188,
   "sessionId": "019fa414-c5f4-76e0-97f3-89615709e386",
   "selectedModel": "gpt-5.6-sol",
   "providerState": {
@@ -15,13 +15,13 @@
   },
   "currentNote": "非笔记内容/任务计划/ToDo-已经规划好的任务.md",
   "usage": {
-    "inputTokens": 56933,
+    "inputTokens": 58881,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 55040,
+    "cacheReadInputTokens": 56064,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 56933,
-    "percentage": 22,
+    "contextTokens": 58881,
+    "percentage": 23,
     "model": "gpt-5.6-sol"
   }
 }
