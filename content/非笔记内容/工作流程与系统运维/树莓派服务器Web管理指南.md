@@ -115,14 +115,10 @@ systemctl status filebrowser.service --no-pager -l
 journalctl -u filebrowser.service --no-pager -n 100
 ```
 ## 1. 访问与登录
-- Cockpit：`https://pi.local:9090`
-- File Browser：`https://pi.local:8080`
 + Cockpit：`https://pi.local:9090`
 + File Browser：`https://pi.local:8080`
 + Monaco Lite：`https://pi.taild4d3f7.ts.net:8443`（需要 Tailscale）
-两者使用不同的登录凭据：
 三者使用不同的登录凭据：
-- File Browser 使用账户 `conrad` 及 File Browser 自己的密码，不一定与 Linux 密码相同。
 + File Browser 使用账户 `conrad` 及 File Browser 自己的密码，不一定与 Linux 密码相同。
 + Monaco Lite 使用 HTTP Basic Auth，用户名 `conrad`，密码存储在 `/etc/pi-editor.env`（`root:root`，权限 600）。
 - 不要通过 File Browser 处理其凭据数据库或 TLS 私钥。

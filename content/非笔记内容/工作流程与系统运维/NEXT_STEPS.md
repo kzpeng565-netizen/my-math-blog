@@ -5,6 +5,64 @@
 
 > 本文档描述下一步工作计划，按优先级排列。状态：☐ 待开始 / ◐ 进行中 / ☑ 已完成。
 
+<!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-07-28 当前接管清单
+
+==本节取代下方早期条目中的过时状态；下方旧计划保留作为项目演进记录。==
+
+### ☐ A1. 用户安装 Windows 定时导出任务（唯一必要人工部署步骤）
+
+**[代码已完成][当前无法由 Codex 完成权限提升]**
+
+以管理员身份打开 PowerShell，执行：
+
+```powershell
+& 'D:\mathblog\tools\behavior-context-exporter\scripts\install_exporter_task.ps1'
+```
+
+安装后确认任务名为 `Behavior Context Exporter`，使用 `pythonw.exe`，登录时启动并每 20 分钟重复。脚本自身带文件锁；日常运行不弹窗口。
+
+### ☐ A2. 观察影子模式 3—7 天
+
+**[系统已部署][需要用户核验]**
+
+重点检查 PushPlus 半小时消息中的“影子判断”：
+
+- 正常数学学习是否被误判为无主线或低效；
+- 持续知乎/高刺激内容是否被识别；
+- 合理休息是否保持静默；
+- 推荐任务是否符合 Claudian 最近规划说明；
+- 番茄钟缺失是否始终被视为不确定，而非负面证据；
+- `last_known_good` 上下文是否避免产生强任务建议。
+
+### ☐ A3. 检查日/周统计
+
+**[定时器已部署][需要用户核验]**
+
+- 日报：每天 09:00，统计前一天；
+- 周报：每周一 09:05，统计上一自然周；
+- 检查报告数、工作/娱乐/休息分钟、娱乐偏离和影子候选数量是否合理；
+- 成功回执位于 `data/statistics/pushplus_receipts/`。
+
+### ☑ A4. 完成无活动静默和 token 短路
+
+**[已由服务器核实]**
+
+==电脑没有非 AFK 活动且手机、平板均无亮屏时，不调用 DeepSeek、不发 PushPlus，但仍归档事实、上下文、本地报告、影子候选和统计。真实历史窗口已验证 `model: null`、`reason: all_devices_inactive`。==
+
+### ☐ A5. 完整版验收
+
+进入正式有限提醒前必须确认：
+
+1. `shadow_mode` 已连续运行至少 3 天；
+2. 全设备无活动路径仍停止 AI 调用并继续归档；
+3. 误报不会打断正常数学学习或合理休息；
+4. 同类提醒冷却至少 60 分钟；
+5. 每次只给一个可在 5—10 分钟内启动的动作；
+6. 陈旧上下文和数据不足时不发强建议；
+7. 正式提醒不得修改 Obsidian 任务。
+
 ## 立即要做
 
 ### ☐ 1. 确认今天手机数据流正常
@@ -35,11 +93,11 @@ ssh pi.local "ls -lh /home/conrad/phone_usage/archive/2026-07-26/"
 - 休息判断是否准确
 - 娱乐偏离检测是否合理
 
-### ☐ 4. 夜间静默推送
+### ☑ 4. 无活动静默推送
 
-在 `run_half_hour.py` 或 `pushplus_client.py` 中增加时段判断：00:00—07:00 的无活动时段跳过 PushPlus 推送（仍生成报告文件但不推送）。配置项可放在 `settings.json` 中。
+==已实现为比固定夜间时段更准确的设备状态规则：电脑无非 AFK 活动且手机、平板无亮屏时跳过 AI 和 PushPlus，但仍生成全部归档。日报和周报移到白天。==
 
-**当前问题**：凌晨 48 个时段全部推送，大量"电脑无活动、手机熄屏"消息无意义。
+**验证结果**：真实无活动窗口已返回 `push_suppressed_for_inactivity: true`。
 
 ### ☐ 5. 数据增长确认
 
@@ -55,19 +113,21 @@ sudo systemctl restart activitywatch-advisor.service
 
 ## 中期（2-4 周）
 
-### ☐ 7. 全天分析脚本
+### ◐ 7. 日/周统计脚本
 
-基于已有 `computer_facts`、`phone_facts` 和 `semantic_timelines` 数据层，编写只读分析脚本：
+==已基于 `ai_reports`、`mixing_metrics`、影子候选和 PushPlus 回执实现只读聚合：==
 - 每日工作/娱乐/休息总时长
 - 娱乐偏离高发时段
 - 最长连续工作时间
 - 手机与电脑使用的时段分布
 
-**不需要重新读取原始事件**，复用已保存的事实摘要即可。
+**不需要重新读取原始事件**，复用已保存的事实摘要即可。日报/周报已通过 systemd timer 和 PushPlus 实际验证。
 
-### ☐ 8. 接入任务计划对照
+仍待扩展：娱乐偏离高发时段、跨日最长连续工作以及更长历史趋势。
 
-让 OP/Claude 制定计划时额外输出标准 JSON（任务名、计划时长、允许的应用类别）。比对计划与实际行为：
+### ☑ 8. 接入只读 Obsidian 任务上下文
+
+==已改为不要求任务 ID 或额外标准 JSON：Windows 只读导出 Profile、已规划任务和番茄钟日志；树莓派校验、缓存、精简后只用于解释和影子建议。==
 
 ```text
 计划：学习 Haar 测度 25 分钟
@@ -75,7 +135,7 @@ sudo systemctl restart activitywatch-advisor.service
 偏离：知乎浏览 9 分钟不在计划内
 ```
 
-这步需要先在 OP/Claude 端约定 JSON 格式，然后在树莓派端增加对照模块。
+==Obsidian 仍是唯一任务权威源，树莓派不得回写或维护第二份任务状态。==
 
 ### ☐ 9. 报告查看页面
 

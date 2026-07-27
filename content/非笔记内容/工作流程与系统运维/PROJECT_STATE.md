@@ -8,13 +8,27 @@
 
 一个运行在树莓派上的**半小时行为解释系统**。每半小时自动收集电脑（ActivityWatch + Syncthing）、手机和平板（Android Automate）的使用数据，清洗后交 DeepSeek V4 Flash 生成语义时间线和核验报告，通过 PushPlus 微信公众号推送给用户。当前阶段**只核验 AI 的理解能力，不做任何自动干预**。
 
-## 当前版本：第三版
+## 当前版本：第四版（只读 Obsidian 上下文 + 影子判断）
 
 三轮迭代已完成：
 
 - **第一版**：叙事型报告。用户反馈"没有直接回答工作多久、休息多久"——被否定。
 - **第二版**：指标先行，程序计算确定性数字（工作时间、休息时间等），AI 只负责语义解释。加入用户确认的休息规则（电脑 AFK ≥ 3 分钟 + 手机熄屏）。
-- **第三版（当前）**：引入两层 AI 调用——第一次生成语义时间线（work/entertainment/communication/rest/other/uncertain），程序据此计算工作-娱乐混杂指标，第二次 AI 只负责解释结果并生成报告。核心创新是**工作-娱乐混杂检测**：工作中被 AI 判断为娱乐且持续 > 30 秒才算一次偏离，30 秒及以下不计。
+- **第三版**：引入两层 AI 调用——第一次生成语义时间线（work/entertainment/communication/rest/other/uncertain），程序据此计算工作-娱乐混杂指标，第二次 AI 只负责解释结果并生成报告。核心创新是**工作-娱乐混杂检测**：工作中被 AI 判断为娱乐且持续 > 30 秒才算一次偏离，30 秒及以下不计。
+- ==**第四版（2026-07-28 当前）**：增加只读 Obsidian 任务上下文、last-known-good 回退、上下文归档、影子干预候选和日/周统计。影子判断随原半小时 PushPlus 消息发送，但不会执行干预。全设备无活动时停止 AI 调用并跳过 PushPlus，仍完整归档。==
+
+<!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+## 2026-07-28 部署状态
+
+==以下状态已在树莓派上实际部署并核验。==
+
+- **[已由服务器核实]** 项目目录已初始化 Git，当前分支为 `feature/obsidian-behavior-context`，最新提交为 `cea8620634fdb27f553109fdc5c5a2a598686c6a`。
+- **[已由服务器核实]** 树莓派、Syncthing 和三个 advisor timer 均处于正常运行状态，系统状态为 `running`。
+- **[已由服务器核实]** 主项目 26 项测试、Windows 导出器 5 项测试全部通过。
+- **[已由服务器核实]** 真实无活动窗口验证得到 `model: null`、`push_suppressed_for_inactivity: true`、`reason: all_devices_inactive`，同时事实、报告和候选文件仍被写入。
+- **[已由服务器核实]** 每日统计、每周统计以及包含影子判断的半小时消息均已通过 PushPlus 实际发送并取得 `accepted` 回执。
+- **[已由服务器核实]** AI 状态解释同时保存为 `data/ai_reports/YYYY-MM-DD/HH-MM.json` 和 `.md`；语义时间线、混杂指标、上下文快照、影子候选和发送回执均有独立归档。
 
 ## 当前运行的组件
 
@@ -26,6 +40,8 @@
 | `phone-usage-maintenance.timer` | active | 每日 03:30 归档压缩（>30 天）和清理（>365 天） |
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | triggered by timer | 单次执行，完成后退出 |
+| `activitywatch-advisor-daily-summary.timer` | active, enabled | 每天 09:00 发送前一天统计 |
+| `activitywatch-advisor-weekly-summary.timer` | active, enabled | 每周一 09:05 发送上一自然周统计 |
 | `syncthing@conrad.service` | active | 同步 Windows ActivityWatch 数据到树莓派 |
 | `tailscaled.service` | active | Tailscale VPN + Funnel（公网入口 for 手机） |
 | `cockpit.socket` | active | Web 管理界面 `https://pi.local:9090` |
@@ -38,6 +54,8 @@
 | ActivityWatch | 运行中 | 记录窗口标题、网页标签页、AFK 状态 |
 | ActivityWatch Web Watcher (Edge 插件) | 运行中 | 记录浏览器标签页 URL 和标题 |
 | Syncthing | 运行中 | 同步 `C:\Users\15345\ActivityWatchSync` 到树莓派 |
+| Behavior Context Exporter | 已部署，定时任务待人工安装 | 只读导出 Profile、计划任务和番茄钟日志到 `C:\Users\15345\BehaviorContextSync` |
+| Behavior Context Syncthing | 已配置 | Windows Send Only → 树莓派 Receive Only，文件夹 ID 为 `behavior-context` |
 
 ### Android 手机
 
@@ -71,14 +89,22 @@
 8. DeepSeek 生成最终核验报告
 9. PushPlus 微信公众号推送
 10. systemd timer 自动调度
+11. ==Obsidian 三文件只读导出、原子写入和源文件哈希验证==
+12. ==Syncthing 独立上下文文件夹单向同步，中文文件名和 UTF-8 内容验证==
+13. ==树莓派上下文 schema 校验、last-known-good 回退和实际使用快照归档==
+14. ==影子候选生成并随半小时 PushPlus 消息供人工核验，正式干预保持关闭==
+15. ==每日/每周统计生成、白天定时发送和发送回执去重==
+16. ==DeepSeek 非法 JSON 时降级归档，不再导致整个 systemd 流程失败==
+17. ==电脑无非 AFK 活动且手机、平板均无亮屏时，不调用 AI、不发 PushPlus但继续归档==
 
 ## 当前限制
 
-- 没有读取任务计划，不与 OP/Claude 对照
-- 夜间（00:00-07:00）无活动时段仍然推送报告
-- 手机跨午夜最后一段数据可能遗漏（Automate 每次只上传当天文件）
-- 微信公众号回复不会写回系统
+- ==正式干预尚未启用；`shadow_mode` 必须保持为 `true`，至少人工观察 3—7 天。==
+- ==Windows 导出器代码和配置已经部署，但 Windows Task Scheduler 注册需要用户以管理员 PowerShell 手工执行一次。==
+- 目前只实现最近 60 分钟影子预筛选；120 分钟历史、正式冷却期和有限提醒仍待后续版本。
+- 手机跨午夜最后一段数据可能遗漏（Automate 每次只上传当天文件）。
+- 微信公众号回复不会写回系统，核验意见仍需在 Codex 中反馈。
 
-## 中断位置
+## 当前交接点
 
-上一轮 ChatGPT 会话在额度耗尽后分叉。中断前正在生成 PROJECT_STATE / DECISIONS / NEXT_STEPS。系统本身未受影响，定时器持续运行。最新一条报告为 `2026-07-27 01:38`。平板已接入全链路，timer 正常运行。
+==2026-07-28 本轮实现和部署已经完成，没有停留在代码未部署状态。树莓派功能分支工作区干净，三个 timer 已启用。下一位 Agent 应优先确认 Windows 定时导出任务是否已由用户安装，然后观察 PushPlus 中的影子判断、日报和周报，而不是重新实现上下文接入。==

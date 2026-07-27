@@ -11,6 +11,10 @@
 
 用户（Conrad）建立一个**个人行为反馈中枢**，在树莓派上每半小时自动收集电脑与手机使用数据，清洗后交 AI 解释，通过 PushPlus 微信公众号发送短核验消息。当前阶段（第一至第三版）**只核验 AI 理解能力，不自动干预**。
 
+<!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+==**[已由用户确认][已由服务器核实] 2026-07-28 已进入第四版：增加只读 Obsidian 上下文、影子判断、日/周统计、PushPlus 人工核验和全设备无活动静默。正式干预仍未启用。**==
+
 总体数据流：
 
 ```text
@@ -19,6 +23,12 @@
 手机: Automate (Android) ---> HTTPS PUT ---> Tailscale Funnel ---> phone-usage-receiver.service (127.0.0.1:8765)
                                                            |
                                                     /home/conrad/phone_usage/archive/
+                                                           |
+Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Send Only
+                                                           |
+                              /home/conrad/workspace/behavior-context-sync/ (Receive Only)
+                                                           |
+                                      obsidian_context.py (校验 + last-known-good)
                                                            |
                      +-------------------------------------+
                      |
@@ -42,10 +52,15 @@
                      |
            DeepSeek V4 Flash 第2次: half-hour-interpreter (解释与报告)
                      |
-           ai_reports/ (JSON + Markdown)
+           ai_reports/ (JSON + Markdown) + intervention_candidates/
                      |
-           pushplus_client.py → 微信公众号
+           pushplus_client.py → 微信公众号（AI解释 + 影子判断）
+                     |
+           statistics_notifier.py → 日报 09:00 / 周报周一 09:05
 ```
+
+> [!important]
+> ==**[已由用户确认][已由服务器核实] 当电脑没有非 AFK 活动（含无电脑消息/数据），且手机、平板均无亮屏证据时，不调用 DeepSeek、不发送 PushPlus；仍归档事实、上下文、本地报告、影子候选和统计。完整版必须保留该 token 节省短路。**==
 
 ## 2. 手机、电脑与树莓派之间的数据流
 
@@ -99,6 +114,12 @@
 | AI 报告 | `data/ai_reports/YYYY-MM-DD/HH-MM.{json,md}` | DeepSeek 第2次 | 最终解释报告 |
 | PushPlus 回执 | `data/pushplus_receipts/YYYY-MM-DD/HH-MM.json` | pushplus_client.py | 微信推送状态 |
 | 处理状态 | `data/state/processing-state.json` | run_half_hour.py | 最后一次成功处理的时段 |
+| 上下文 LKG 缓存 | `data/context_cache/current.json` | obsidian_context.py | 最近一份通过校验的 Obsidian 快照 |
+| 实际上下文归档 | `data/context_snapshots/YYYY-MM-DD/HH-MM.json` | run_half_hour.py | 记录当时 AI 实际看到的任务、来源和年龄 |
+| 影子候选 | `data/intervention_candidates/YYYY-MM-DD/HH-MM.json` | behavior_advisor.py | 记录如果正式模式启用是否会建议干预；不执行 |
+| 每日统计 | `data/statistics/daily/YYYY-MM-DD.json` | behavior_statistics.py | 聚合当日报告、混杂和影子候选 |
+| 每周统计 | `data/statistics/weekly/YYYY-Www.json` | behavior_statistics.py | 聚合自然周 |
+| 统计推送回执 | `data/statistics/pushplus_receipts/{daily,weekly}/` | statistics_notifier.py | 去重和审计日/周统计发送 |
 
 ## 4. 树莓派上相关目录、脚本、服务及运行状态
 
@@ -118,6 +139,12 @@
 | `/home/conrad/.config/activitywatch-advisor/env` | DeepSeek API 密钥（权限 600） |
 | `/home/conrad/.config/activitywatch-advisor/pushplus.env` | PushPlus 用户令牌（权限 600） |
 | `/home/conrad/phone_usage/` | 手机数据接收端（receiver.py, maintenance.py, token.txt） |
+| `/home/conrad/workspace/behavior-context-sync/` | Obsidian 上下文 Syncthing Receive Only 目录 |
+| `.../src/obsidian_context.py` | 上下文校验、精简与 last-known-good 回退 |
+| `.../src/behavior_advisor.py` | 确定性影子预筛选 |
+| `.../src/behavior_statistics.py` | 日/周聚合 |
+| `.../src/statistics_notifier.py` | 日/周 PushPlus 通知与回执去重 |
+| `D:\mathblog\tools\behavior-context-exporter\` | Windows 实际运行的只读导出器、配置、测试及安装/卸载脚本 |
 
 ### 4.2 服务
 
@@ -129,6 +156,8 @@
 | `phone-usage-maintenance.timer` | active | 每日约 03:30 归档压缩/清理 |
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | inactive (dead, triggered by timer) | 单次分析，完成后退出 |
+| `activitywatch-advisor-daily-summary.timer` | active, enabled | 每天 09:00 发送前一天统计 |
+| `activitywatch-advisor-weekly-summary.timer` | active, enabled | 周一 09:05 发送上一自然周统计 |
 | `syncthing@conrad.service` | active | 同步 ActivityWatch 数据 |
 | `tailscaled.service` | active | Tailscale VPN + Funnel |
 | `cockpit.socket` | active | Web 管理 9090 |
@@ -143,9 +172,13 @@
 - 模型：DeepSeek V4 Flash (`https://api.deepseek.com/chat/completions`)
 - 计时器偏移到 `08` 和 `38` 分，为手机约 15 分钟上传留时间
 - 语义切段使用非思考模式（`semantic_model.thinking = "disabled"`）
-- 休息规则：电脑 AFK >= 3 分钟 **且** 所有已连接移动设备均无活动
+- 确认休息规则：电脑 AFK >= 3 分钟 **且** 手机熄屏；平板亮屏只降低置信度
+- AI/推送静默规则：电脑无非 AFK 活动 **且** 手机、平板均无亮屏
 - 娱乐偏离：工作中被 AI 判为娱乐且持续 > 30 秒
 - 当前已连接设备：`computer`, `phone`, `tablet`（平板为辅助数据源）
+- Obsidian 上下文：schema v1，导出器 v2，树莓派只读
+- `behavior_advisor.shadow_mode = true`，正式干预不得提前启用
+- 全设备无活动证据阈值使用 `processing.minimum_evidence_seconds`（当前 30 秒）
 
 ## 5. 已验证成功的功能
 
@@ -165,6 +198,13 @@
 11. 定时器每半小时自动触发全流程 -- 已验证（2026-07-25 全天 48 个时段均已产出报告）
 12. 手机心率检测与休息规则 -- 已验证
 13. 工作-娱乐混杂指标（>30s 偏离判定）-- 已验证
+14. Obsidian 三文件只读导出、任务解析、中文路径及原子写入 -- 已验证（Windows 5 项测试）
+15. Behavior Context Syncthing Send Only → Receive Only、中文文件名和 SHA-256 -- 已验证
+16. 上下文 schema 校验、冲突文件忽略、last-known-good 回退和完全不可用降级 -- 已验证
+17. 影子候选生成、归档并合并进半小时 PushPlus 消息 -- 已验证
+18. 每日/每周统计定时生成、PushPlus 实际发送及回执去重 -- 已验证
+19. DeepSeek 非法 JSON 降级为本地低置信度报告，不中断主流程 -- 已验证
+20. 全设备无活动时 `model: null`、PushPlus `all_devices_inactive`、仍完整归档 -- 已验证
 
 **[已由服务器核实]** 2026-07-25 的数据：`ai_reports/` 下有 48 个 JSON+MD 文件（00:00 至 23:30），所有时段均有产出。
 
@@ -181,24 +221,26 @@
 | 手机上传晚于定时器触发 | 定时器推迟到 08/38 分 |
 | AI 多次输出固定免责声明 | 第二版简化 Prompt，只保留会改变结论的 1-2 条不确定性 |
 | 碎片化指标（切换次数）不合适 | 用户明确需求是"工作-娱乐混杂"而非"切换次数"；第三版改为基于语义时间线的偏离检测 |
+| 番茄钟 `end-begin` 明显超过 40 分钟 | 用户说明来自中途暂停后继续；工作量只按 `duration`，墙钟跨度不视为坏数据或低效 |
+| DeepSeek 返回非法 JSON 导致 systemd service failed | 捕获 AI 请求/解析异常，保留事实并生成本地低置信度报告，随后实际重跑成功 |
+| 午夜收到大量无活动消息 | 改为全设备状态静默：无电脑非 AFK 活动且手机/平板无亮屏时，停止 AI 和 PushPlus但继续归档 |
+| 日报/周报在午夜发送 | 调整为日报 09:00、周报周一 09:05 |
 
-## 7. 当前中断位置
+## 7. 当前接管状态
 
-**[已由服务器核实]**
-
-- 上半轮（ChatGPT 会话）：额度耗尽中断
-- 中断时正在处理："生成 PROJECT_STATE.md / DECISIONS.md / NEXT_STEPS.md"
-- 上一个实时生成的报告：`2026-07-25 23:00—23:30`（23:38 完成并推送）
-- 当前状态：`activitywatch-advisor.timer` 正在运行 `2026-07-26 00:08` 触发的服务（处理 23:30—00:00）
-- 手机数据：`incoming/` 有 2026-07-25 的最后一轮上传（132KB foreground），但 `archive/2026-07-26/` 尚未创建（新一天的数据还未开始上传）
+==**[已由服务器核实] 本节旧中断信息已被 2026-07-28 状态取代。当前没有未部署代码：功能分支工作区干净，最新提交为 `cea8620634fdb27f553109fdc5c5a2a598686c6a`，系统状态 `running`，三个 advisor timer 均 active。**==
 
 ## 8. 尚未完成或尚未验证的事项
 
-**[仅讨论过]** 但未执行：
+**[已由服务器核实]** 当前尚未完成：
 
-- PROJECT_STATE.md / DECISIONS.md / NEXT_STEPS.md -- 未生成
-- 全天归因分析 -- 仅讨论，未实施
-- 与任务计划（OP）的对照 -- 仅讨论
+- Windows Task Scheduler 尚需用户以管理员 PowerShell 运行一次安装脚本
+- 影子模式尚未完成 3—7 天人工观察，不得启用正式提醒
+- 120 分钟历史、正式 60 分钟冷却和有限提醒尚未实现
+- 微信核验回复自动回写尚未实现
+
+**[仅讨论过]**：
+
 - 替代信息流平台（树莓派信息过滤）-- 仅讨论
 - 自动管控（Cold Turkey / 不做手机控联动）-- 仅讨论
 - AI 维护提示词和 Skills -- 仅讨论
@@ -207,22 +249,19 @@
 
 - 手机端 Automate 流是否仍然正常运行（需查看今天上新数据确认）
 - DeepSeek API 密钥是否需要轮换（架构文档建议在部署后轮换）
-- PushPlus 每日推送量是否有上限（大量夜间无活动时段也推送了）
+- 正式提醒启用前的影子误报率是否足够低
 
 ## 9. 下一步最合理的操作顺序
 
 **[建议顺序]**
 
-1. **确认手机数据流**：等待 2026-07-26 第一个 15 分钟上传周期（约 00:15），确认 `archive/2026-07-26/` 目录被创建且包含数据
-2. **确认定时器完成**：检查 `journalctl` 确认 00:08 触发的任务是否成功完成（包括 PushPlus 推送）
-3. **生成 PROJECT_STATE.md / DECISIONS.md / NEXT_STEPS.md**：已完成（2026-07-27 更新）
-4. **平板数据接入**：已完成（2026-07-27），包括接收端白名单、事实提取、三设备融合、AI prompt 适配
-4. **观察数据质量**：积累 3-7 天完整数据后再做下一步改动
-5. **夜间静默**：考虑在 00:00-07:00 间跳过 PushPlus 推送（当前所有时段都推送，包括无活动的凌晨）
-6. **数据增长监控**：运行一周后计算真实日增长量，与预估的 1.4 MB/天对比
-7. **API 密钥轮换**：在 DeepSeek 控制台生成新密钥，更新 `/home/conrad/.config/activitywatch-advisor/env`
-8. **计划对照**：积累足够数据后，接入 OP 的任务计划进行计划-实际对照
-9. **信息过滤平台**：在行为数据可靠后，建设树莓派上的替代信息供给系统
+1. ==**安装 Windows 定时导出任务**：管理员 PowerShell 运行 `D:\mathblog\tools\behavior-context-exporter\scripts\install_exporter_task.ps1`。==
+2. ==**观察影子判断 3—7 天**：核对数学学习、知乎、休息、陈旧上下文和候选任务。==
+3. ==**检查日/周统计**：日报 09:00、周报周一 09:05；核对报告数与分钟数。==
+4. **数据增长监控**：运行一周后计算真实日增长量。
+5. **API 密钥轮换**：在 DeepSeek 控制台生成新密钥并更新私有环境文件。
+6. **完整版验收**：确认无活动时仍停止 AI、继续归档；确认冷却期、单动作和数据不足不提醒。
+7. **信息过滤平台**：在行为数据可靠后再建设替代信息供给系统。
 
 ## 10. 后续 Agent 接管时的注意事项
 
@@ -240,3 +279,99 @@
 10. **不要修改 `server-layout.md` 未经过验证的部分**
 11. **Obsidian vault 路径**：`D:\mathblog\quartz\content`，项目文档应放在 `非笔记内容/工作流程与系统运维/`
 12. **此文件是交接文档**：后续 Agent 接手时应先阅读此文件，再阅读 `server-layout.md` 和 `半小时行为解释系统——架构与维护.md`
+13. ==**Obsidian 是唯一任务权威源**：不得从树莓派修改任务、日期、完成状态或番茄钟进度。==
+14. ==**番茄钟只作弱参考**：使用声明 `duration`；无记录不是无学习，长墙钟跨度可来自暂停。==
+15. ==**全设备无活动必须静默**：不调用 DeepSeek、不发 PushPlus，但所有本地归档必须继续。==
+16. ==**正式提醒未启用**：`shadow_mode` 必须保持 `true`，除非用户在观察 3—7 天后明确授权。==
+17. ==**AI 报告有存档**：`data/ai_reports/` 同时保留 JSON 和 Markdown，不要只依赖微信消息。==
+
+## 11. Obsidian 上下文与通知子系统操作手册
+
+### 11.1 Windows 导出
+
+**[已由本机核实]**
+
+```powershell
+cd D:\mathblog\tools\behavior-context-exporter
+python .\behavior_context_exporter.py
+python -m unittest discover -s .\tests -v
+```
+
+输出目录：
+
+```text
+C:\Users\15345\BehaviorContextSync
+├── context_snapshot.json
+├── sync_heartbeat.json
+├── raw\
+└── logs\
+```
+
+==导出器只读源笔记；源文件内容哈希已验证与快照一致。源文件未变化且导出器版本未变化时，只更新心跳。错误不得覆盖上一份正确快照。==
+
+安装/卸载 Windows 定时任务：
+
+```powershell
+& 'D:\mathblog\tools\behavior-context-exporter\scripts\install_exporter_task.ps1'
+& 'D:\mathblog\tools\behavior-context-exporter\scripts\remove_exporter_task.ps1'
+```
+
+安装时若出现 Access Denied，必须以管理员身份运行。日常任务使用 `pythonw.exe`，每 20 分钟执行并禁止并发。
+
+### 11.2 Syncthing
+
+**[已由服务器核实]**
+
+- 文件夹 ID：`behavior-context`
+- Windows：`C:\Users\15345\BehaviorContextSync`，Send Only
+- 树莓派：`/home/conrad/workspace/behavior-context-sync`，Receive Only
+- 忽略：`logs`、`exporter.lock`、`*.tmp`
+- 不得混入 `activitywatch-sync`
+
+### 11.3 树莓派检查命令
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+git status --short --branch
+python3 -m unittest discover -s tests -v
+systemctl is-system-running
+systemctl list-timers \
+  activitywatch-advisor.timer \
+  activitywatch-advisor-daily-summary.timer \
+  activitywatch-advisor-weekly-summary.timer \
+  --no-pager
+journalctl -u activitywatch-advisor.service -n 100 --no-pager
+```
+
+查看最近归档：
+
+```bash
+find data/ai_reports -type f | sort | tail
+find data/context_snapshots -type f | sort | tail
+find data/intervention_candidates -type f | sort | tail
+find data/pushplus_receipts -type f | sort | tail
+find data/statistics/pushplus_receipts -type f | sort | tail
+```
+
+### 11.4 systemd 安装或恢复
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+sudo install -m 0644 systemd/activitywatch-advisor-daily-summary.service /etc/systemd/system/
+sudo install -m 0644 systemd/activitywatch-advisor-daily-summary.timer /etc/systemd/system/
+sudo install -m 0644 systemd/activitywatch-advisor-weekly-summary.service /etc/systemd/system/
+sudo install -m 0644 systemd/activitywatch-advisor-weekly-summary.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now \
+  activitywatch-advisor.timer \
+  activitywatch-advisor-daily-summary.timer \
+  activitywatch-advisor-weekly-summary.timer
+```
+
+### 11.5 卸载新增上下文层
+
+1. 暂停或移除 Syncthing `behavior-context` 文件夹；
+2. 禁用并移除 daily/weekly summary timer 和 service；
+3. 在 Git 中恢复本功能提交涉及的代码；
+4. 可选删除 `data/context_cache`、`data/context_snapshots`、`data/intervention_candidates` 和 `data/statistics`；
+5. ==不得删除或修改 Obsidian 三份源笔记。==
