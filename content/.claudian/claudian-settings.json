@@ -85,7 +85,7 @@
   },
   "savedProviderEffort": {
     "claude": "high",
-    "codex": "high"
+    "codex": "medium"
   },
   "savedProviderServiceTier": {
     "codex": "default"
@@ -95,7 +95,7 @@
     "claude": "yolo",
     "codex": "yolo"
   },
-  "lastCustomModel": "",
+  "lastCustomModel": "claude-code/deepseek-v4-pro[1m]",
   "maxTabs": 3,
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
