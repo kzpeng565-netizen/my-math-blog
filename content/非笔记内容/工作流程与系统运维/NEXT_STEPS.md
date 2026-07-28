@@ -45,6 +45,12 @@
 - 检查报告数、工作/娱乐/休息分钟、娱乐偏离和影子候选数量是否合理；
 - 成功回执位于 `data/statistics/pushplus_receipts/`。
 
+### ☑ A3.1 每日生活复盘 ntfy 推送
+
+**[已由服务器核实]**
+
+==`activitywatch-advisor-daily-life.timer` 已启用，每天 09:00 生成前一天每日生活复盘并通过 ntfy 推送。统计数字由脚本生成，DeepSeek V4 Pro 只负责建议层；成功回执位于 `data/statistics/ntfy_receipts/daily_life/`。2026-07-29 已对 2026-07-28 样例完成一次真实 ntfy 推送，并通过 systemd 手动启动验证防重复。==
+
 ### ☑ A4. 完成无活动静默和 token 短路
 
 **[已由服务器核实]**

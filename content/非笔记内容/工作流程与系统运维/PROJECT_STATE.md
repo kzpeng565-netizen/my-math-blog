@@ -18,6 +18,7 @@
 - ==**第四版（2026-07-28 当前）**：增加只读 Obsidian 任务上下文、last-known-good 回退、上下文归档、影子干预候选和日/周统计。影子判断随原半小时 PushPlus 消息发送，但不会执行干预。全设备无活动时停止 AI 调用并跳过 PushPlus，仍完整归档。==
 - ==**第四版补充（2026-07-28 已部署）**：手机桌面快捷方式异常反馈已接入 `/annotation`。手机只上传 `category` 和可选 `message`；树莓派生成接收时间、编号、当前/候选半小时窗口，并关联最近 90 分钟内接收时间之前的 AI 报告和同窗口事实层。反馈仅作为人工调试标注，不触发 DeepSeek、不修改任务、不自动修复配置。==
 - ==**第五版（2026-07-28 已部署）**：清洗后的电脑、手机、平板事实先由 `fact_tagger.py` 按 `config/tag_rules.json` 打可追踪标签；统一保留“前5分钟 + 正式30分钟 + 后5分钟”的40分钟事实窗口。程序锁定高置信度通信、娱乐和确认休息，吸收1—3秒采样缝隙，DeepSeek只组合未锁定候选单元并输出语义；程序恢复精确秒数、拆开越界分组、计算混杂，第二次 DeepSeek只解释精简摘要。==
+- ==**第五版补充（2026-07-29 已部署）**：新增每日生活复盘 `daily_life_statistics.py` 与 ntfy 推送入口 `daily_life_notifier.py`。每天 09:00 统计前一天总工作、各类工作、娱乐、通信、AI使用、手机睡眠边界，并结合 Obsidian 任务、番茄钟和 Profile 生成建议；建议层单独使用 DeepSeek V4 Pro，推送走 ntfy，receipt 位于 `data/statistics/ntfy_receipts/daily_life/`。==
 
 <!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
@@ -49,6 +50,7 @@
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | triggered by timer | 单次执行，完成后退出 |
 | `activitywatch-advisor-daily-summary.timer` | active, enabled | 每天 09:00 发送前一天统计 |
+| `activitywatch-advisor-daily-life.timer` | active, enabled | 每天 09:00 生成前一天每日生活复盘，并通过 ntfy 推送；建议层使用 DeepSeek V4 Pro |
 | `activitywatch-advisor-weekly-summary.timer` | active, enabled | 每周一 09:05 发送上一自然周统计 |
 | `syncthing@conrad.service` | active | 同步 Windows ActivityWatch 数据到树莓派 |
 | `tailscaled.service` | active | Tailscale VPN + Funnel（公网入口 for 手机） |
@@ -108,6 +110,7 @@
 18. ==手机或平板最后一条亮屏记录超过 `heartbeat_stale_seconds`（当前 2700 秒）后转为 `unknown`，不会因采集器停止而把亮屏状态无限外推；AI 与通知共用同一个前置静默判断。==
 19. ==手机异常反馈 `/annotation`：Bearer token 鉴权、表单/JSON 解析、分类校验、4 KiB 请求体限制、raw JSON 原子写入、daily/UNREVIEWED Markdown 从 raw 重建、最近报告关联、中文 message 保存、手机真实提交验收。==
 20. ==可配置规则标签、统一40分钟事实层、程序锁定边界、AI候选单元压缩、越界分组自动拆分、逐次 token/缓存/费用审计。==
+21. ==每日生活复盘生成与 ntfy 推送：统计工作/娱乐/通信/AI使用、手机睡眠边界和候选效率问题；DeepSeek V4 Pro 只写建议，不修改程序计算的分钟数。2026-07-29 已手动真实推送一次并取得 ntfy accepted 回执。==
 
 ## 当前限制
 
@@ -120,4 +123,4 @@
 
 ## 当前交接点
 
-==2026-07-28 本轮实现和部署已经完成，没有停留在代码未部署状态。树莓派三个 timer 已启用；`/annotation` 手机异常反馈已验收。第五版的标签规则、统一40分钟事实层和成本瘦身已通过49项测试与两个真实历史窗口回放，但尚未提交 Git。后续接管重点：观察真实 timer 的 token 费用和标签误判；扩充或禁用规则时只编辑 `config/tag_rules.json`，先运行规则校验，再隔离回放。==
+==2026-07-29 每日生活复盘与 ntfy 推送已部署并启用：`activitywatch-advisor-daily-life.timer` 每天 09:00 运行，`report_model.name=deepseek-v4-pro`。2026-07-28 样例已真实推送成功；systemd 手动启动已验证 receipt 防重复。当前远端工作区仍包含多项未提交修改，交接时不得误称工作区干净。==

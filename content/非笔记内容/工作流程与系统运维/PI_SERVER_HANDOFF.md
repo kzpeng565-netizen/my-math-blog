@@ -66,7 +66,8 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
                      |
            pushplus_client.py → 微信公众号（AI解释 + 影子判断）
                      |
-           statistics_notifier.py → 日报 09:00 / 周报周一 09:05
+           statistics_notifier.py → PushPlus 日报 09:00 / 周报周一 09:05
+           daily_life_notifier.py → ntfy 每日生活复盘 09:00（建议层用 DeepSeek V4 Pro）
 ```
 
 > [!important]
@@ -164,6 +165,8 @@ message=可选说明
 | 每日统计 | `data/statistics/daily/YYYY-MM-DD.json` | behavior_statistics.py | 聚合当日报告、混杂和影子候选 |
 | 每周统计 | `data/statistics/weekly/YYYY-Www.json` | behavior_statistics.py | 聚合自然周 |
 | 统计推送回执 | `data/statistics/pushplus_receipts/{daily,weekly}/` | statistics_notifier.py | 去重和审计日/周统计发送 |
+| 每日生活复盘 | `data/statistics/daily_life/YYYY-MM-DD.{json,md}` | daily_life_statistics.py | ==统计工作、娱乐、通信、AI使用、手机睡眠边界，并保存 DeepSeek V4 Pro 建议== |
+| 每日生活复盘 ntfy 回执 | `data/statistics/ntfy_receipts/daily_life/YYYY-MM-DD.json` | daily_life_notifier.py | ==ntfy 推送去重和审计== |
 
 ## 4. 树莓派上相关目录、脚本、服务及运行状态
 
@@ -205,6 +208,7 @@ message=可选说明
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | inactive (dead, triggered by timer) | 单次分析，完成后退出 |
 | `activitywatch-advisor-daily-summary.timer` | active, enabled | 每天 09:00 发送前一天统计 |
+| `activitywatch-advisor-daily-life.timer` | active, enabled | ==每天 09:00 生成前一天每日生活复盘并通过 ntfy 推送；建议层使用 DeepSeek V4 Pro== |
 | `activitywatch-advisor-weekly-summary.timer` | active, enabled | 周一 09:05 发送上一自然周统计 |
 | `syncthing@conrad.service` | active | 同步 ActivityWatch 数据 |
 | `tailscaled.service` | active | Tailscale VPN + Funnel |
@@ -220,6 +224,7 @@ message=可选说明
 **[已由服务器核实]**
 
 - 模型：DeepSeek V4 Flash (`https://api.deepseek.com/chat/completions`)
+- ==每日生活复盘建议层：`settings.json` 中 `report_model.name = deepseek-v4-pro`；它只解释脚本给出的候选项和明日优先任务，不重算分钟数。==
 - 计时器偏移到 `08` 和 `38` 分，为手机约 15 分钟上传留时间
 - 语义切段使用非思考模式（`semantic_model.thinking = "disabled"`）
 - ==语义上下文固定为40分钟：正式30分钟加前后各5分钟；不再分别发送重叠的30分钟和40分钟 JSON。==
@@ -234,6 +239,7 @@ message=可选说明
 - 全设备无活动证据阈值使用 `processing.minimum_evidence_seconds`（当前 30 秒）
 - ==手机异常反馈使用 `ZoneInfo("Asia/Shanghai")` 生成接收时间；`annotation_id` 由时间戳和随机后缀组成，不依赖用户输入；目录权限 700，文件权限 600。==
 - ==反馈关联算法：扫描最近 `data/ai_reports`，选取已存在、生成/修改时间不晚于 `received_at`、90 分钟内时间最近的 `.md` 报告作为 `primary_related_report`；再按该报告的日期和 `HH-MM` 文件名寻找同窗口事实层。==
+- ==ntfy 私有配置位于 `/home/conrad/.config/activitywatch-advisor/ntfy.env`，权限 600；文档不得记录 topic/token。`daily_life_notifier.py` 手动运行时也会默认读取该文件。==
 
 ## 5. 已验证成功的功能
 

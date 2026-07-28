@@ -1,5 +1,5 @@
 [Unit]
-Description=Generate a half-hour computer and phone behavior interpretation
+Description=Generate and send yesterday's daily life report through ntfy
 After=network-online.target syncthing@conrad.service phone-usage-receiver.service
 Wants=network-online.target
 
@@ -9,8 +9,8 @@ User=conrad
 Group=conrad
 WorkingDirectory=/home/conrad/workspace/activitywatch-advisor
 EnvironmentFile=/home/conrad/.config/activitywatch-advisor/env
-EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/pushplus.env
-ExecStart=/usr/bin/python3 /home/conrad/workspace/activitywatch-advisor/src/run_half_hour.py
+EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/ntfy.env
+ExecStart=/usr/bin/python3 /home/conrad/workspace/activitywatch-advisor/src/daily_life_notifier.py
 UMask=0077
 NoNewPrivileges=true
 PrivateTmp=true
