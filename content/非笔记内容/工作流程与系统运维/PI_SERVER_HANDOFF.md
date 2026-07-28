@@ -15,6 +15,8 @@
 
 ==**[已由用户确认][已由服务器核实] 2026-07-28 已进入第四版：增加只读 Obsidian 上下文、影子判断、日/周统计、PushPlus 人工核验和全设备无活动静默。正式干预仍未启用。**==
 
+==**[已由用户确认][已由服务器核实] 同日完成第五版：清洗事实先经过可配置标签层，统一向语义模型提供40分钟精简事实；程序锁定确定性段并恢复精确时间，AI只解释未锁定候选。第二次模型只接收活动总量、至少30秒的重要片段和设备Top摘要。**==
+
 总体数据流：
 
 ```text
@@ -50,11 +52,15 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
                      |
            combined_facts/
                      |
-           DeepSeek V4 Flash 第1次: semantic-segmenter (语义时间线)
+           fact_tagger.py + config/tag_rules.json
                      |
-           semantic_analysis.py (校验 + 计算工作-娱乐混杂指标)
+           tagged_facts/ (统一40分钟、可追踪tag、程序锁定边界)
                      |
-           DeepSeek V4 Flash 第2次: half-hour-interpreter (解释与报告)
+           DeepSeek V4 Flash 第1次: 只组合未锁定候选单元
+                     |
+           semantic_analysis.py (恢复精确秒数 + 越界拆分 + 混杂指标)
+                     |
+           DeepSeek V4 Flash 第2次: 解释精简语义摘要
                      |
            ai_reports/ (JSON + Markdown) + intervention_candidates/
                      |
@@ -171,7 +177,10 @@ message=可选说明
 | `.../src/` | Python 脚本（run_half_hour.py, computer_facts.py, phone_facts.py, tablet_facts.py, cross_device.py, deepseek_client.py, semantic_analysis.py, pushplus_client.py, common.py） |
 | `.../prompts/` | half-hour-interpreter.md, semantic-segmenter.md |
 | `.../config/settings.json` | 应用名映射、模型配置、阈值参数 |
+| `.../config/tag_rules.json` | ==可增删、禁用、调优的事实标签与高置信度锁定规则；不要把规则硬编码进 prompt== |
+| `.../src/fact_tagger.py` | ==规则校验、统一40分钟事实块、程序标签、AI候选压缩；CLI 可解释单块命中过程== |
 | `.../data/` | 所有输出（见上表） |
+| `.../data/tagged_facts/YYYY-MM-DD/HH-MM.json` | ==完整可审计的标签事实层；AI实际接收的是其精简候选视图== |
 | `.../tests/` | test_cleaning.py、test_user_annotations.py 等 |
 | `.../systemd/` | systemd unit 文件 |
 | `/home/conrad/.config/activitywatch-advisor/env` | DeepSeek API 密钥（权限 600） |
@@ -213,6 +222,9 @@ message=可选说明
 - 模型：DeepSeek V4 Flash (`https://api.deepseek.com/chat/completions`)
 - 计时器偏移到 `08` 和 `38` 分，为手机约 15 分钟上传留时间
 - 语义切段使用非思考模式（`semantic_model.thinking = "disabled"`）
+- ==语义上下文固定为40分钟：正式30分钟加前后各5分钟；不再分别发送重叠的30分钟和40分钟 JSON。==
+- ==标签规则支持 `enabled`、`priority`、`add_tags`、`remove_tags`、`locked_activity` 和 `force_boundary`；规则修改后先执行 `python3 src/fact_tagger.py --rules config/tag_rules.json`。==
+- ==DeepSeek每次请求保存 prompt/completion/cache token、请求次数和按 `settings.json` 价格估算的人民币成本。==
 - 确认休息规则：电脑 AFK >= 3 分钟 **且** 手机熄屏；平板亮屏只降低置信度
 - AI/推送静默规则：电脑无非 AFK 活动 **且** 手机、平板均无当前亮屏证据；==手机或平板屏幕事件超过 2700 秒后转为 `unknown`，不再沿用旧亮屏==
 - 娱乐偏离：工作中被 AI 判为娱乐且持续 > 30 秒

@@ -97,6 +97,22 @@
 6. 陈旧上下文和数据不足时不发强建议；
 7. 正式提醒不得修改 Obsidian 任务。
 
+### ☑ A6. 可配置事实标签与 DeepSeek 成本优化
+
+**[已由服务器核实]**
+
+==已部署统一40分钟标签事实层、程序锁定边界、候选单元压缩、第二次AI摘要输入和逐请求费用记录。49项测试通过；19:00与20:00两个隔离历史窗口完成真实DeepSeek回放。两窗平均约0.0095元，按48窗/日粗算约0.46元。==
+
+后续只需观察和迭代规则：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+python3 src/fact_tagger.py --rules config/tag_rules.json
+git diff -- config/tag_rules.json
+```
+
+Monaco Lite 中编辑 `/home/conrad/workspace/activitywatch-advisor/config/tag_rules.json`。每次只改一类识别规则，先校验，再用隔离输出目录回放一个已知窗口；不要直接修改历史正式报告。
+
 ## 立即要做
 
 ### ☐ 1. 确认今天手机数据流正常
