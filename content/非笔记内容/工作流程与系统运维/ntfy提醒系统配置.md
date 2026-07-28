@@ -2,7 +2,7 @@
 
 # ntfy提醒系统配置
 
-> 本文档交接树莓派上的“深夜设备使用提醒”模块。它是 `activitywatch-advisor` 项目下的独立确定性提醒策略，不属于半小时 AI 影子干预，也不启用 Automate 弹窗、锁屏、语音或手机端网页。
+> 本文档交接树莓派上的 ntfy 提醒模块。目前包括“深夜设备使用提醒”和“15:00 任务进度提醒”。它们都不修改 Obsidian，不启用 Automate 弹窗、锁屏、语音或手机端网页。
 
 ## 当前状态
 
@@ -16,6 +16,10 @@
 - 00:33 已经由真实夜间调度发送第一层 ntfy 提醒，状态为 `LEVEL_1_SENT`
 - ntfy 主题已经配置在树莓派私有文件 `/home/conrad/.config/activitywatch-advisor/ntfy.env`
 - 真实主题不得写入 Git、Markdown 交接文档、README 示例或聊天摘要
+
+==**[已由服务器核实，2026-07-29 01:10 CST]** 新增 `afternoon-task-check.timer`：每天 15:00 检查当天 Obsidian 规划任务完成度。如果已完成任务数量和番茄钟综合进度不到全天一半，则通过 ntfy 向手机发送高优先级提醒。判断层会调用 DeepSeek V4 Flash 辅助裁决；模型失败时退回确定性规则。==
+
+==当前安装状态：`afternoon-task-check.timer` 为 `enabled` / `active`，下一次触发为 `2026-07-29 15:00:00 CST`；`afternoon-task-check.service` 是 oneshot，未到时间前显示 `inactive (dead)` 是正常状态。==
 
 ## 目标
 
@@ -44,9 +48,15 @@
 | `src/notifications/base.py` | 通知结果类型 |
 | `src/notifications/ntfy.py` | ntfy HTTP POST 发送器 |
 | `tools/test_ntfy.py` | 复用正式模块的 ntfy 测试命令 |
+| `src/afternoon_task_check.py` | ==15:00 任务进度检查：读取 Obsidian 同步快照、任务 Markdown 和番茄钟日志，必要时调用 DeepSeek V4 Flash 裁决并发送 ntfy== |
+| `tests/test_afternoon_task_check.py` | ==任务进度解析与番茄钟兜底测试== |
 | `tests/test_bedtime_reminder.py` | 状态机测试 |
+| `systemd/afternoon-task-check.service` | ==15:00 任务进度检查 oneshot 服务模板== |
+| `systemd/afternoon-task-check.timer` | ==每天 15:00 调度模板== |
 | `systemd/bedtime-reminder.service` | oneshot systemd 服务模板 |
 | `systemd/bedtime-reminder.timer` | 每分钟夜间调度模板 |
+| `/etc/systemd/system/afternoon-task-check.service` | ==已安装的正式 systemd service== |
+| `/etc/systemd/system/afternoon-task-check.timer` | ==已安装的正式 systemd timer== |
 | `/etc/systemd/system/bedtime-reminder.service` | 已安装的正式 systemd service |
 | `/etc/systemd/system/bedtime-reminder.timer` | 已安装的正式 systemd timer |
 | `/home/conrad/.config/activitywatch-advisor/ntfy.env` | 私有 ntfy 配置，权限 600 |
@@ -161,6 +171,44 @@ maximum_data_age_seconds = 120
 
 注意：ntfy JSON API 内部使用数字优先级发送，模块对外仍保留 `default` / `high` 语义。
 
+## 15:00 任务进度提醒
+
+<!-- ai_provenance: source=codex; date=2026-07-29; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+==目标：如果下午三点当天计划还没有完成一半，就向手机发一条克制的进度提醒。==
+
+读取来源：
+
+```text
+/home/conrad/workspace/behavior-context-sync/context_snapshot.json
+/home/conrad/workspace/behavior-context-sync/raw/ToDo-已经规划好的任务.md
+/home/conrad/workspace/behavior-context-sync/raw/番茄钟log.md
+```
+
+判断口径：
+
+- ==当天任务：`⏳ YYYY-MM-DD` 或 `📅 YYYY-MM-DD` 等于当天的 `#task`。==
+- ==任务数量：`- [x]` 计为已完成，`- [ ]` 计为未完成。==
+- ==番茄钟：优先使用任务行 `[🍅:: 已完成/总数]`；如果当天番茄钟日志更多，则用当天日志的 40 分钟等价量兜底。==
+- ==综合进度：任务完成比例和番茄完成比例各占一半；可用证据不足时只使用可用比例。低于 0.5 时确定性规则认为应该提醒。==
+- ==DeepSeek V4 Flash 会读取上述摘要并输出 JSON 裁决；如果 API 不可用、JSON 非法或超时，则使用确定性规则继续。==
+
+发送内容：
+
+```text
+标题：下午任务进度提醒 YYYY-MM-DD
+优先级：high
+正文包含：综合进度百分比、已完成/未完成任务数、番茄钟进度、判断理由、下一步建议。
+```
+
+回执位置：
+
+```text
+data/statistics/ntfy_receipts/afternoon_task_check/YYYY-MM-DD.json
+```
+
+`--no-push` dry run 会写 `dry_run: true`，但不会阻止 15:00 正式检查；只有 `accepted` 或 `not_needed` 会被当作当天已完成检查。
+
 ## systemd 操作
 
 查看：
@@ -168,8 +216,12 @@ maximum_data_age_seconds = 120
 ```bash
 systemctl status bedtime-reminder.timer --no-pager
 systemctl status bedtime-reminder.service --no-pager
+systemctl status afternoon-task-check.timer --no-pager
+systemctl status afternoon-task-check.service --no-pager
 systemctl list-timers bedtime-reminder.timer --no-pager
+systemctl list-timers afternoon-task-check.timer --no-pager
 journalctl -u bedtime-reminder.service --no-pager -n 100
+journalctl -u afternoon-task-check.service --no-pager -n 100
 ```
 
 启用或恢复：
@@ -181,20 +233,29 @@ sudo cp systemd/bedtime-reminder.timer /etc/systemd/system/
 sudo systemd-analyze verify /etc/systemd/system/bedtime-reminder.service /etc/systemd/system/bedtime-reminder.timer
 sudo systemctl daemon-reload
 sudo systemctl enable --now bedtime-reminder.timer
+sudo cp systemd/afternoon-task-check.service /etc/systemd/system/
+sudo cp systemd/afternoon-task-check.timer /etc/systemd/system/
+sudo systemd-analyze verify /etc/systemd/system/afternoon-task-check.service /etc/systemd/system/afternoon-task-check.timer
+sudo systemctl daemon-reload
+sudo systemctl enable --now afternoon-task-check.timer
 ```
 
 停止：
 
 ```bash
 sudo systemctl disable --now bedtime-reminder.timer
+sudo systemctl disable --now afternoon-task-check.timer
 ```
 
 回滚 systemd：
 
 ```bash
 sudo systemctl disable --now bedtime-reminder.timer
+sudo systemctl disable --now afternoon-task-check.timer
 sudo rm -f /etc/systemd/system/bedtime-reminder.service
 sudo rm -f /etc/systemd/system/bedtime-reminder.timer
+sudo rm -f /etc/systemd/system/afternoon-task-check.service
+sudo rm -f /etc/systemd/system/afternoon-task-check.timer
 sudo systemctl daemon-reload
 ```
 
@@ -212,6 +273,7 @@ rm -f data/state/bedtime-reminder-state.json data/state/bedtime-reminder-state.l
 ```bash
 cd /home/conrad/workspace/activitywatch-advisor
 python3 -m unittest tests.test_bedtime_reminder -v
+python3 -m unittest tests.test_afternoon_task_check -v
 python3 -m unittest discover -s tests -v
 ```
 
@@ -224,6 +286,14 @@ set -a
 set +a
 python3 -m tools.test_ntfy --level 1
 python3 -m tools.test_ntfy --level 2
+```
+
+15:00 任务进度 dry run：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+python3 src/afternoon_task_check.py --date 2026-07-29 --no-push --force
+python3 src/afternoon_task_check.py --date 2026-07-29 --no-ai --no-push --force
 ```
 
 加速状态机测试：
@@ -248,6 +318,9 @@ BEDTIME_REMINDER_TEST_MODE=true python3 src/bedtime_reminder.py \
 - `python3 -m tools.test_ntfy --level 2`：返回 `accepted`，优先级 `high`。
 - `bedtime-reminder.timer` 已启用并处于 active。
 - 2026-07-29 00:33 真实夜间调度已发送第一层，状态进入 `LEVEL_1_SENT`。
+- ==`afternoon-task-check.timer` 已启用并处于 active；`systemd-analyze verify` 通过，下一次触发为 `2026-07-29 15:00:00 CST`。==
+- ==`python3 -m unittest tests.test_afternoon_task_check -v`：2 项通过。==
+- ==`python3 src/afternoon_task_check.py --date 2026-07-29 --no-push --force`：DeepSeek V4 Flash 返回 `should_send: true`，估算费用约 0.000701 元；未发送手机通知。==
 
 定位 ntfy 400 时曾发过少量 ASCII 最小测试消息，不属于策略提醒。
 
@@ -283,5 +356,8 @@ error
 - 不要加入 Automate 覆盖弹窗、自动锁屏、语音播报或提示音。
 - 不要把平板亮屏单独作为触发条件。
 - 不要因为数据缺失或过期而补发大量通知。
+- ==不要把 15:00 任务进度提醒做成修改 Obsidian 任务的自动化；它只读任务、番茄钟和快照，只发送通知和写 receipt。==
+- ==不要把 `--no-push` dry run 的 `skipped` 回执当成当天已经检查完成；正式去重只认 `accepted` 或 `not_needed`。==
 - `bedtime-reminder.service` 是 oneshot，运行成功后显示 `inactive (dead)` 是正常状态。
+- ==`afternoon-task-check.service` 也是 oneshot；未到 15:00 前显示 `inactive (dead)` 是正常状态。==
 - 半小时 AI 的 `shadow_mode` 仍然是另一套系统；通用行为建议干预仍未启用。

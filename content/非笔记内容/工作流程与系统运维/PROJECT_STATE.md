@@ -19,6 +19,8 @@
 - ==**第四版补充（2026-07-28 已部署）**：手机桌面快捷方式异常反馈已接入 `/annotation`。手机只上传 `category` 和可选 `message`；树莓派生成接收时间、编号、当前/候选半小时窗口，并关联最近 90 分钟内接收时间之前的 AI 报告和同窗口事实层。反馈仅作为人工调试标注，不触发 DeepSeek、不修改任务、不自动修复配置。==
 - ==**第五版（2026-07-28 已部署）**：清洗后的电脑、手机、平板事实先由 `fact_tagger.py` 按 `config/tag_rules.json` 打可追踪标签；统一保留“前5分钟 + 正式30分钟 + 后5分钟”的40分钟事实窗口。程序锁定高置信度通信、娱乐和确认休息，吸收1—3秒采样缝隙，DeepSeek只组合未锁定候选单元并输出语义；程序恢复精确秒数、拆开越界分组、计算混杂，第二次 DeepSeek只解释精简摘要。==
 - ==**第五版补充（2026-07-29 已部署）**：新增每日生活复盘 `daily_life_statistics.py` 与 ntfy 推送入口 `daily_life_notifier.py`。每天 09:00 统计前一天总工作、各类工作、娱乐前三项目、通信、AI使用分项和AI用途前三、手机睡眠边界，并结合 Obsidian 任务、番茄钟和 Profile 生成建议；建议层单独使用 DeepSeek V4 Pro，推送走纯文本 emoji 格式 ntfy，receipt 位于 `data/statistics/ntfy_receipts/daily_life/`。==
+- ==**第五版补充（2026-07-29 已部署）**：新增每日生活复盘 `daily_life_statistics.py` 与 ntfy 推送入口 `daily_life_notifier.py`。每天 09:00 统计前一天总工作、各类工作、娱乐前三项目、通信、AI使用分项和AI用途前三、手机睡眠边界，并结合 Obsidian 任务、番茄钟和 Profile 生成建议；建议层单独使用 DeepSeek V4 Pro，推送走纯文本 emoji 格式 ntfy，receipt 位于 `data/statistics/ntfy_receipts/daily_life/`。==
+- ==**第五版补充二（2026-07-29 已部署）**：Windows 端新增当前用户计划任务 `Behavior Context Exporter Timer`，每 20 分钟运行只读 Obsidian 上下文导出器；树莓派端新增 `afternoon_task_check.py` 与 `afternoon-task-check.timer`，每天 15:00 综合当天任务完成数与番茄钟进度，必要时调用 DeepSeek V4 Flash 辅助判断，并通过 ntfy 向手机发送高优先级提醒。==
 
 <!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
@@ -51,6 +53,7 @@
 | `activitywatch-advisor.service` | triggered by timer | 单次执行，完成后退出 |
 | `activitywatch-advisor-daily-summary.timer` | disabled, inactive | 旧 PushPlus 日统计已停用，避免 09:00 发送旧版总数摘要 |
 | `activitywatch-advisor-daily-life.timer` | active, enabled | 每天 09:00 生成前一天每日生活复盘，并通过纯文本 emoji ntfy 推送；建议层使用 DeepSeek V4 Pro |
+| `afternoon-task-check.timer` | active, enabled | ==每天 15:00 检查当天 Obsidian 规划任务是否完成过半；未过半时调用 DeepSeek V4 Flash 辅助裁决并通过 ntfy 提醒手机== |
 | `activitywatch-advisor-weekly-summary.timer` | active, enabled | 每周一 09:05 发送上一自然周统计 |
 | `bedtime-reminder.timer` | active, enabled | ==深夜设备使用 ntfy 提醒；每分钟夜间唤醒，策略窗口为 00:30—04:30== |
 | `bedtime-reminder.service` | triggered by timer | ==oneshot 状态机；发送 ntfy、写入 `data/state/bedtime-reminder-state.json` 与 `data/bedtime_reminder/events.jsonl`== |
@@ -66,7 +69,7 @@
 | ActivityWatch | 运行中 | 记录窗口标题、网页标签页、AFK 状态 |
 | ActivityWatch Web Watcher (Edge 插件) | 运行中 | 记录浏览器标签页 URL 和标题 |
 | Syncthing | 运行中 | 同步 `C:\Users\15345\ActivityWatchSync` 到树莓派 |
-| Behavior Context Exporter | 已部署，定时任务待人工安装 | 只读导出 Profile、计划任务和番茄钟日志到 `C:\Users\15345\BehaviorContextSync` |
+| Behavior Context Exporter | ==已部署，每 20 分钟更新== | ==当前用户计划任务 `Behavior Context Exporter Timer` 已创建并测试通过；只读导出 Profile、计划任务和番茄钟日志到 `C:\Users\15345\BehaviorContextSync`。原管理员安装的 `Behavior Context Exporter` 仍保留，但当前可靠周期由 Timer 任务承担。== |
 | Behavior Context Syncthing | 已配置 | Windows Send Only → 树莓派 Receive Only，文件夹 ID 为 `behavior-context` |
 
 ### Android 手机
@@ -114,6 +117,7 @@
 20. ==可配置规则标签、统一40分钟事实层、程序锁定边界、AI候选单元压缩、越界分组自动拆分、逐次 token/缓存/费用审计。==
 21. ==每日生活复盘生成与 ntfy 推送：统计工作/娱乐/通信/AI使用、手机睡眠边界和候选效率问题；DeepSeek V4 Pro 只写建议，不修改程序计算的分钟数。2026-07-29 已手动真实推送一次并取得 ntfy accepted 回执。==
 22. ==深夜设备使用 ntfy 提醒：`bedtime_stop` 策略、独立 ntfy 模块、两层升级状态机、120 秒数据新鲜度保护、04:30 强制重置、JSONL 日志和 systemd timer 已部署。详见 [[ntfy提醒系统配置]]。==
+23. ==15:00 任务进度 ntfy 提醒：`afternoon_task_check.py` 读取 Obsidian 同步快照、原始任务 Markdown 与番茄钟日志；综合任务完成数量和番茄进度，低于一半时调用 DeepSeek V4 Flash 辅助判断是否发送高优先级 ntfy。`systemd-analyze verify` 通过，`afternoon-task-check.timer` 已启用，下一次触发为 2026-07-29 15:00 CST；测试 `tests.test_afternoon_task_check` 2 项通过。==
 
 ## 当前限制
 

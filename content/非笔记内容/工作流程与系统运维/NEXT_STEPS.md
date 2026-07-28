@@ -11,17 +11,19 @@
 
 ==本节取代下方早期条目中的过时状态；下方旧计划保留作为项目演进记录。==
 
-### ☐ A1. 用户安装 Windows 定时导出任务（唯一必要人工部署步骤）
+### ☑ A1. Windows 只读上下文导出每 20 分钟更新
 
-**[代码已完成][当前无法由 Codex 完成权限提升]**
+**[已由本机核实]**
 
-以管理员身份打开 PowerShell，执行：
+==当前用户计划任务 `Behavior Context Exporter Timer` 已创建，使用 `D:\anaconda\pythonw.exe` 运行 `D:\mathblog\tools\behavior-context-exporter\behavior_context_exporter.py`，每 20 分钟更新 `C:\Users\15345\BehaviorContextSync`。手动启动测试返回 `LastTaskResult = 0`，下一次运行时间正常显示。==
+
+原管理员安装脚本仍保留；若以后要重新安装原任务，以管理员身份打开 PowerShell，执行：
 
 ```powershell
 & 'D:\mathblog\tools\behavior-context-exporter\scripts\install_exporter_task.ps1'
 ```
 
-安装后确认任务名为 `Behavior Context Exporter`，使用 `pythonw.exe`，登录时启动并每 20 分钟重复。脚本自身带文件锁；日常运行不弹窗口。
+==注意：旧任务 `Behavior Context Exporter` 只靠 LogonTrigger 启动，曾出现安装后未进入重复链的问题；现在可靠周期由 `Behavior Context Exporter Timer` 承担。脚本自身带文件锁，重复运行不会破坏快照。==
 
 ### ☐ A2. 观察影子模式 3—7 天
 
@@ -50,6 +52,21 @@
 **[已由服务器核实]**
 
 ==`activitywatch-advisor-daily-life.timer` 已启用，每天 09:00 生成前一天每日生活复盘并通过 ntfy 推送。统计数字由脚本生成，DeepSeek V4 Pro 只负责建议层；成功回执位于 `data/statistics/ntfy_receipts/daily_life/`。2026-07-29 已对 2026-07-28 样例完成一次真实 ntfy 推送，并通过 systemd 手动启动验证防重复。==
+
+### ☑ A3.2 15:00 任务进度 ntfy 提醒
+
+**[已由服务器核实]**
+
+==`afternoon-task-check.timer` 已启用，每天 15:00 读取 Obsidian 同步任务和番茄钟。若当天计划综合进度不到一半，则调用 DeepSeek V4 Flash 辅助判断是否发送提醒；模型失败时使用确定性规则兜底。回执位于 `data/statistics/ntfy_receipts/afternoon_task_check/`。2026-07-29 dry run 已验证：V4 Flash 返回 `should_send: true`，但因 `--no-push` 没有向手机发送。==
+
+检查命令：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+systemctl status afternoon-task-check.timer --no-pager
+systemctl list-timers afternoon-task-check.timer --no-pager
+python3 src/afternoon_task_check.py --date 2026-07-29 --no-push --force
+```
 
 ### ☑ A4. 完成无活动静默和 token 短路
 

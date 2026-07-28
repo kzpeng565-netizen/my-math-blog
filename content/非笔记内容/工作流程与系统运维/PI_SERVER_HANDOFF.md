@@ -68,6 +68,7 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
                      |
            statistics_notifier.py → PushPlus 周报周一 09:05（旧日报 timer 已停用）
            daily_life_notifier.py → ntfy 每日生活复盘 09:00（纯文本 emoji，建议层用 DeepSeek V4 Pro）
+           afternoon_task_check.py → ntfy 15:00 任务进度提醒（V4 Flash 辅助判断）
 ```
 
 > [!important]
@@ -167,6 +168,7 @@ message=可选说明
 | 统计推送回执 | `data/statistics/pushplus_receipts/{daily,weekly}/` | statistics_notifier.py | 去重和审计日/周统计发送 |
 | 每日生活复盘 | `data/statistics/daily_life/YYYY-MM-DD.{json,md}` | daily_life_statistics.py | ==统计工作、工作分解、娱乐前三、通信、AI使用分项、AI用途前三、手机睡眠边界，并保存 DeepSeek V4 Pro 建议== |
 | 每日生活复盘 ntfy 回执 | `data/statistics/ntfy_receipts/daily_life/YYYY-MM-DD.json` | daily_life_notifier.py | ==ntfy 推送去重和审计== |
+| 15:00 任务进度 ntfy 回执 | `data/statistics/ntfy_receipts/afternoon_task_check/YYYY-MM-DD.json` | afternoon_task_check.py | ==记录当天任务数量、完成数、番茄进度、V4 Flash 裁决、发送结果；`--no-push` dry run 会标记 `dry_run: true`== |
 | 深夜提醒状态 | `data/state/bedtime-reminder-state.json` | bedtime_reminder.py | ==`bedtime_stop` 当前状态、事件 ID、第一层发送时间、第二层次数和冷却时间== |
 | 深夜提醒日志 | `data/bedtime_reminder/events.jsonl` | bedtime_reminder.py | ==ntfy 两层提醒的状态迁移、数据年龄、设备摘要和发送结果== |
 
@@ -197,10 +199,12 @@ message=可选说明
 | `.../src/behavior_statistics.py` | 日/周聚合 |
 | `.../src/statistics_notifier.py` | 日/周 PushPlus 通知与回执去重 |
 | `.../src/user_annotations.py` | ==手机异常反馈校验、编号、报告关联、raw JSON 保存和 Markdown 重建== |
+| `.../src/afternoon_task_check.py` | ==每天 15:00 检查当天 Obsidian 任务是否完成过半；可调用 DeepSeek V4 Flash 辅助判断，并通过 ntfy 提醒手机== |
 | `.../config/bedtime_reminder.json` | ==深夜设备使用提醒策略配置：00:30—04:30、两层升级、25分钟冷却、120秒数据新鲜度== |
 | `.../src/bedtime_reminder.py` | ==深夜 ntfy 提醒状态机、触发判断、文件锁、状态持久化和 JSONL 日志== |
 | `.../src/notifications/ntfy.py` | ==可复用 ntfy 发送模块；主题从私有 env 读取，不硬编码== |
 | `.../tools/test_ntfy.py` | ==复用正式 ntfy 模块的 level 1 / level 2 测试命令== |
+| `.../tests/test_afternoon_task_check.py` | ==任务进度提醒解析和番茄钟兜底测试== |
 | `/home/conrad/.config/activitywatch-advisor/ntfy.env` | ==ntfy 私有配置，权限 600；真实主题不得写入 Git 或 Markdown== |
 | `D:\mathblog\tools\behavior-context-exporter\` | Windows 实际运行的只读导出器、配置、测试及安装/卸载脚本 |
 
@@ -216,6 +220,7 @@ message=可选说明
 | `activitywatch-advisor.service` | inactive (dead, triggered by timer) | 单次分析，完成后退出 |
 | `activitywatch-advisor-daily-summary.timer` | disabled, inactive | 旧 PushPlus 日统计已停用，避免 09:00 发送旧版总数摘要 |
 | `activitywatch-advisor-daily-life.timer` | active, enabled | ==每天 09:00 生成前一天每日生活复盘并通过纯文本 emoji ntfy 推送；建议层使用 DeepSeek V4 Pro== |
+| `afternoon-task-check.timer` | active, enabled | ==每天 15:00 检查当天 Obsidian 任务完成数和番茄钟是否过半；必要时通过 ntfy 高优先级提醒手机== |
 | `activitywatch-advisor-weekly-summary.timer` | active, enabled | 周一 09:05 发送上一自然周统计 |
 | `bedtime-reminder.timer` | active, enabled | ==深夜设备使用 ntfy 提醒调度；每分钟夜间唤醒，策略窗口 00:30—04:30== |
 | `bedtime-reminder.service` | inactive/dead after success | ==oneshot 状态机；成功后 inactive 是正常状态== |
@@ -234,6 +239,7 @@ message=可选说明
 
 - 模型：DeepSeek V4 Flash (`https://api.deepseek.com/chat/completions`)
 - ==每日生活复盘建议层：`settings.json` 中 `report_model.name = deepseek-v4-pro`；它只解释脚本给出的候选项和明日优先任务，不重算分钟数。推送正文先展示程序计算的完整数字复盘，AI建议只能追加在后面。ntfy 正文使用纯文本 emoji 格式，不依赖 Markdown。==
+- ==15:00 任务进度提醒使用 `settings.json` 中 `model.name = deepseek-v4-flash`，但强制关闭 thinking 并把 `max_tokens` 限制在 1200 以内。V4 Flash 只输出是否发送提醒的 JSON 裁决；失败时使用确定性规则兜底。==
 - 计时器偏移到 `08` 和 `38` 分，为手机约 15 分钟上传留时间
 - 语义切段使用非思考模式（`semantic_model.thinking = "disabled"`）
 - ==语义上下文固定为40分钟：正式30分钟加前后各5分钟；不再分别发送重叠的30分钟和40分钟 JSON。==
@@ -250,6 +256,7 @@ message=可选说明
 - ==反馈关联算法：扫描最近 `data/ai_reports`，选取已存在、生成/修改时间不晚于 `received_at`、90 分钟内时间最近的 `.md` 报告作为 `primary_related_report`；再按该报告的日期和 `HH-MM` 文件名寻找同窗口事实层。==
 - ==ntfy 私有配置位于 `/home/conrad/.config/activitywatch-advisor/ntfy.env`，权限 600；文档不得记录 topic/token。`daily_life_notifier.py` 手动运行时也会默认读取该文件。==
 - ==深夜设备使用提醒详见 [[ntfy提醒系统配置]]：主通道为 ntfy，第一层 `default`，第二层 `high`，每次升级前重新检查手机/电脑活动，数据年龄超过120秒不升级。它与每日生活复盘共用 ntfy 配置，但状态机、日志和 systemd timer 完全独立。==
+- ==15:00 任务进度提醒详见 [[ntfy提醒系统配置]]：只读 Obsidian 任务和番茄钟，不修改任务；`--no-push` dry run 不会阻止当天 15:00 正式检查。==
 
 ## 5. 已验证成功的功能
 

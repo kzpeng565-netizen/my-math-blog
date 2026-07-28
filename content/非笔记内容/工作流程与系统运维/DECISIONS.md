@@ -328,6 +328,26 @@
 
 ==窗口外任何状态都会回到 `DISABLED`，不补发旧通知，不恢复旧升级任务。当策略配置变动导致 `policy_hash` 改变时，下一次进入有效窗口会重新初始化事件状态。==
 
+<!-- ai_provenance: source=codex; date=2026-07-29; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/ntfy提醒系统配置.md,非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+## 15:00 任务进度提醒决策（2026-07-29）
+
+### D43. Windows Obsidian 上下文导出必须有独立时间触发 【有效】
+
+==只挂在 LogonTrigger 上的计划任务可能在安装后不进入重复链。当前采用 `Behavior Context Exporter Timer` 作为可靠周期任务，每 20 分钟运行只读导出器，输出到 `C:\Users\15345\BehaviorContextSync`，再由 Syncthing 单向同步到树莓派。原导出器脚本仍保留文件锁和原子写入。==
+
+### D44. 15:00 任务进度提醒只读 Obsidian，不修改任务 【有效】
+
+==`afternoon_task_check.py` 只读取 `context_snapshot.json`、`raw/ToDo-已经规划好的任务.md` 和 `raw/番茄钟log.md`。它不勾选任务、不调整番茄字段、不延期、不重排任务，也不写回 Windows 或 Obsidian。唯一持久化输出是 ntfy receipt。==
+
+### D45. “是否完成一半”同时看任务数量和番茄钟 【有效】
+
+==当天任务由 `⏳ YYYY-MM-DD` 或 `📅 YYYY-MM-DD` 等于当天的 `#task` 定义。`- [x]` 计为已完成，`- [ ]` 计为未完成；番茄钟优先使用任务字段 `[🍅:: 已完成/总数]`，若当天 `番茄钟log.md` 的 40 分钟等价量更多，则用日志兜底。任务完成比例和番茄比例各占一半，综合低于 0.5 时确定性规则认为需要提醒。==
+
+### D46. V4 Flash 只辅助裁决，失败时退回确定性规则 【有效】
+
+==下午提醒会把进度摘要交给 DeepSeek V4 Flash 输出 JSON：`should_send`、`reason`、`confidence`、`suggested_next_action`。模型不可用、超时或 JSON 非法时，不中断流程，直接使用确定性规则；通知文案保持克制，只说明进度和下一步，不责备用户。==
+
 ## 已废弃的决策
 
 - **Windows 端用 Python 脚本上传**：因 PowerShell 弹窗问题，改为 Syncthing 同步。
@@ -343,3 +363,4 @@
 - 根据人工反馈扩充或禁用 `config/tag_rules.json` 中的应用/标题规则
 - 影子模式观察 3—7 天后，误报率是否足以进入有限提醒
 - 是否把 60 分钟历史扩展为 120 分钟，并实现正式提醒冷却期
+- ==15:00 任务进度提醒是否应把“预留整个下午的外出/康复/上课任务”单独折算为非番茄任务，避免番茄比例和任务数量比例冲突。==
