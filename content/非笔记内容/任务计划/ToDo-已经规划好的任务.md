@@ -10,7 +10,7 @@
 1. 数学学习
 
 
-- [ ] #task 完成GTM259 §2.1剩余部分（Lemma 2.6、factor/isomorphism、例子、习题2.1.1–2.1.3）并补全六问笔记 [🍅:: 4/6] ⏫ ⏳ 2026-07-28 ^6627
+- [ ] #task 完成GTM259 §2.1剩余部分（Lemma 2.6、factor/isomorphism、例子、习题2.1.1–2.1.3）并补全六问笔记 [🍅:: 5/6] ⏫ ⏳ 2026-07-28 ^6627
 - [ ] #task 快速浏览[[Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf|GTM259 §1.1]]与[[Ch01_Sec08_An_Overview_of_Ergodic_Theory.pdf|§1.8]]，整理章节路线图 [🍅:: 0/3] ⏫ ⏳ 2026-07-28
 - [ ] #task 精读[[Ch02_Sec02_Recurrence.pdf|GTM259 §2.2 Recurrence]]，整理Poincaré重现定理六问笔记并完成1–2道核心习题 [🍅:: 0/6] ⏫ ⏳ 2026-07-29
 - [ ] #task 开始[[Ch02_Sec03_Ergodicity.pdf|GTM259 §2.3 Ergodicity]]（定义、不变集/函数、典型例子）并整理六问笔记 [🍅:: 0/6] 🔼 ⏳ 2026-08-04
