@@ -1,16 +1,14 @@
 #时间管理 
 
-
-**目前我已经放假** 
-
----
+**目前我已经放*** 
 ⏳代表 scheduled day；📅代表 deadline；1 🍅 = 40 分钟 ; 🔁代表recurring 例如- [ ] #task a 🔁 every day 📅 2026-07-24 
 
 
 
-# 2026-07-27 假期任务规划
+2026-07-27 假期任务规划
 
-## 1. 数学学习
+1. 数学学习
+
 
 - [ ] #task 完成GTM259 §2.1剩余部分（Lemma 2.6、factor/isomorphism、例子、习题2.1.1–2.1.3）并补全六问笔记 [🍅:: 2/6] ⏫ ⏳ 2026-07-28
 - [ ] #task 快速浏览[[Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf|GTM259 §1.1]]与[[Ch01_Sec08_An_Overview_of_Ergodic_Theory.pdf|§1.8]]，整理章节路线图 [🍅:: 0/3] ⏫ ⏳ 2026-07-28
