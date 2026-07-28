@@ -27,7 +27,7 @@
 
 - **[已由服务器核实]** 项目目录已初始化 Git，当前分支为 `feature/obsidian-behavior-context`。==手机异常反馈接入已提交为 `6462485 feat: add phone annotation intake and review logs`；静默修复仍是已部署但尚未提交的工作区修改：`src/phone_facts.py`、`src/run_half_hour.py`、`src/tablet_facts.py`、`tests/test_cleaning.py`。==
 - **[已由服务器核实]** 树莓派、Syncthing 和三个 advisor timer 均处于正常运行状态，系统状态为 `running`。
-- **[已由服务器核实]** ==手机异常反馈接入后，主项目 42 项测试全部通过；Windows 导出器 5 项测试此前已通过。==
+- **[已由服务器核实]** ==手机异常反馈接入阶段当时有 42 项测试通过；第五版完成后主项目现为 49 项测试全部通过。Windows 导出器 5 项测试此前已通过。==
 - **[已由服务器核实]** ==使用 2026-07-28 04:00—04:30 历史数据在隔离输出目录回放：过期平板“亮屏”不再跨日外推，平板事实为 `on_minutes: 0`、`unknown_minutes: 30`；结果为 `model: null`、`push_suppressed_for_inactivity: true`，且全部本地归档仍生成。==
 - **[已由服务器核实]** 每日统计、每周统计以及包含影子判断的半小时消息均已通过 PushPlus 实际发送并取得 `accepted` 回执。
 - **[已由服务器核实]** AI 状态解释同时保存为 `data/ai_reports/YYYY-MM-DD/HH-MM.json` 和 `.md`；语义时间线、混杂指标、上下文快照、影子候选和发送回执均有独立归档。

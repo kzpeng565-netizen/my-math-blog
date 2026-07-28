@@ -9,11 +9,11 @@
 
 **[已由旧对话确认]**
 
-用户（Conrad）建立一个**个人行为反馈中枢**，在树莓派上每半小时自动收集电脑与手机使用数据，清洗后交 AI 解释，通过 PushPlus 微信公众号发送短核验消息。当前阶段（第一至第三版）**只核验 AI 理解能力，不自动干预**。
+用户（Conrad）建立一个**个人行为反馈中枢**，在树莓派上每半小时自动收集电脑、手机和平板使用数据，经独立清洗、可配置标签和确定性时间组装后交 AI 解释，通过 PushPlus 微信公众号发送短核验消息。当前第五版仍然**只核验 AI 理解能力，不自动干预**。
 
 <!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
-==**[已由用户确认][已由服务器核实] 2026-07-28 已进入第四版：增加只读 Obsidian 上下文、影子判断、日/周统计、PushPlus 人工核验和全设备无活动静默。正式干预仍未启用。**==
+==**[已由用户确认][已由服务器核实] 第四版增加了只读 Obsidian 上下文、影子判断、日/周统计、PushPlus 人工核验和全设备无活动静默；这些能力在第五版继续保留。正式干预仍未启用。**==
 
 ==**[已由用户确认][已由服务器核实] 同日完成第五版：清洗事实先经过可配置标签层，统一向语义模型提供40分钟精简事实；程序锁定确定性段并恢复精确时间，AI只解释未锁定候选。第二次模型只接收活动总量、至少30秒的重要片段和设备Top摘要。**==
 
@@ -246,23 +246,25 @@ message=可选说明
 5. `computer_facts.py` 从 SQLite 提取并清洗电脑事实 -- 已验证
 6. `phone_facts.py` 从 JSONL 提取并清洗手机事实 -- 已验证
 7. `tablet_facts.py` 从 JSONL 提取并清洗平板事实 -- 已验证
-7. DeepSeek 语义时间线生成（第1次调用）-- 已验证
-8. 程序校验语义时间线并计算混杂指标 -- 已验证
-9. DeepSeek 报告生成（第2次调用）-- 已验证
-10. PushPlus 微信公众号推送 -- 已验证
-11. 定时器每半小时自动触发全流程 -- 已验证（2026-07-25 全天 48 个时段均已产出报告）
-12. 手机心率检测与休息规则 -- 已验证
-13. 工作-娱乐混杂指标（>30s 偏离判定）-- 已验证
-14. Obsidian 三文件只读导出、任务解析、中文路径及原子写入 -- 已验证（Windows 5 项测试）
-15. Behavior Context Syncthing Send Only → Receive Only、中文文件名和 SHA-256 -- 已验证
-16. 上下文 schema 校验、冲突文件忽略、last-known-good 回退和完全不可用降级 -- 已验证
-17. 影子候选生成、归档并合并进半小时 PushPlus 消息 -- 已验证
-18. 每日/每周统计定时生成、PushPlus 实际发送及回执去重 -- 已验证
-19. DeepSeek 非法 JSON 降级为本地低置信度报告，不中断主流程 -- 已验证
-20. 全设备无活动时 `model: null`、PushPlus `all_devices_inactive`、仍完整归档 -- 已验证
-21. ==过期手机/平板亮屏状态不再跨时段外推，且同一个前置静默判断同时跳过 DeepSeek 和 PushPlus -- 已用 2026-07-28 04:00—04:30 历史窗口隔离回放验证；主项目 29 项测试通过==
-22. ==手机异常反馈接入 -- 已验证。localhost 集成测试覆盖表单、JSON、中文 message、空说明、`category=4` 空说明、非法分类、超长 message、缺失/错误 token、报告不存在仍保存、Markdown 从 raw 重建和同秒不同 ID；接入后主项目 42 项测试通过。==
-23. ==手机真实提交 -- 已验证。2026-07-28 19:40:45 与 19:40:58 两条真实反馈均返回 `201`，保存到 `data/user_annotations/raw/2026-07-28/`，并重建当日 Markdown 与 `UNREVIEWED.md`。==
+8. DeepSeek 语义时间线生成（第1次调用）-- 已验证
+9. 程序校验语义时间线并计算混杂指标 -- 已验证
+10. DeepSeek 报告生成（第2次调用）-- 已验证
+11. PushPlus 微信公众号推送 -- 已验证
+12. 定时器每半小时自动触发全流程 -- 已验证（2026-07-25 全天 48 个时段均已产出报告）
+13. 手机心率检测与休息规则 -- 已验证
+14. 工作-娱乐混杂指标（>30s 偏离判定）-- 已验证
+15. Obsidian 三文件只读导出、任务解析、中文路径及原子写入 -- 已验证（Windows 5 项测试）
+16. Behavior Context Syncthing Send Only → Receive Only、中文文件名和 SHA-256 -- 已验证
+17. 上下文 schema 校验、冲突文件忽略、last-known-good 回退和完全不可用降级 -- 已验证
+18. 影子候选生成、归档并合并进半小时 PushPlus 消息 -- 已验证
+19. 每日/每周统计定时生成、PushPlus 实际发送及回执去重 -- 已验证
+20. DeepSeek 非法 JSON 降级为本地低置信度报告，不中断主流程 -- 已验证
+21. 全设备无活动时 `model: null`、PushPlus `all_devices_inactive`、仍完整归档 -- 已验证
+22. ==过期手机/平板亮屏状态不再跨时段外推，且同一个前置静默判断同时跳过 DeepSeek 和 PushPlus -- 已用 2026-07-28 04:00—04:30 历史窗口隔离回放验证。==
+23. ==手机异常反馈接入 -- 已验证。localhost 集成测试覆盖表单、JSON、中文 message、空说明、`category=4` 空说明、非法分类、超长 message、缺失/错误 token、报告不存在仍保存、Markdown 从 raw 重建和同秒不同 ID。==
+24. ==手机真实提交 -- 已验证。2026-07-28 19:40:45 与 19:40:58 两条真实反馈均返回 `201`，保存到 `data/user_annotations/raw/2026-07-28/`，并重建当日 Markdown 与 `UNREVIEWED.md`。==
+25. ==第五版标签事实层 -- 已验证。`config/tag_rules.json` 当前10条启用规则，规则 SHA-256 可追踪；统一40分钟事实层、候选单元压缩、程序锁定边界和越界分组拆分均有测试覆盖。主项目现有49项测试通过。==
+26. ==第五版真实调用 -- 已验证。19:00和20:00隔离回放均覆盖1800秒；正式21:30—22:00窗口由22:08 timer成功运行并推送，无缓存时两次调用合计估算约0.0137元。==
 
 **[已由服务器核实]** 2026-07-25 的数据：`ai_reports/` 下有 48 个 JSON+MD 文件（00:00 至 23:30），所有时段均有产出。
 
@@ -285,10 +287,11 @@ message=可选说明
 | 2026-07-28 凌晨 02:00—08:00 仍每半小时推送 | 根因是平板 2026-07-27 00:41:44 的最后一条 `screen=on` 在无心跳时被无限外推，每个时段误算为平板亮屏 30 分钟。现以 `heartbeat_stale_seconds=2700` 限制屏幕状态寿命，过期后记为 `unknown`；静默判断移到 AI 分支之前并复用于 PushPlus。 |
 | 日报/周报在午夜发送 | 调整为日报 09:00、周报周一 09:05 |
 | 手机反馈首次真实测试返回 401 | 2026-07-28 19:38 两次请求到达 `/annotation`，但缺少合法 Bearer 鉴权头；确认 Automate 请求头应为 `Authorization: Bearer <token>`，修正后 19:40 两次真实提交均返回 201 并落盘。 |
+| DeepSeek 成本约1.3元/日且时间段偶有吞并 | 增加可配置标签事实层，统一为40分钟精简输入；程序锁定通信/休息等边界并吸收1—3秒采样缝隙，AI只返回候选单元语义，程序恢复精确秒数并拆开越界分组；第二次调用只解释摘要。 |
 
 ## 7. 当前接管状态
 
-==**[已由服务器核实] 本节旧中断信息已被 2026-07-28 状态取代。本次静默修复已经部署，系统状态 `running`，三个 advisor timer 均 active。手机异常反馈接入已提交为 `6462485 feat: add phone annotation intake and review logs`；当前仍有四个尚未提交但已部署的静默修复文件：`src/phone_facts.py`、`src/run_half_hour.py`、`src/tablet_facts.py`、`tests/test_cleaning.py`。**==
+==**[已由服务器核实] 系统状态为 `running`，三个 advisor timer 均 active。手机异常反馈接入已提交为 `6462485 feat: add phone annotation intake and review logs`。静默修复与第五版标签/成本改造已经部署但尚未提交；当前工作区包含9个修改文件和2个新增文件，必须以树莓派项目中的 `git status --short` 为准，不得误称工作区干净。部署前备份位于 `/home/conrad/workspace/backups/activitywatch-advisor-pre-tag-20260728-211923/`。**==
 
 ## 8. 尚未完成或尚未验证的事项
 
@@ -296,6 +299,7 @@ message=可选说明
 
 - Windows Task Scheduler 尚需用户以管理员 PowerShell 运行一次安装脚本
 - 影子模式尚未完成 3—7 天人工观察，不得启用正式提醒
+- 第五版虽已通过历史回放和一次正式 timer，但整体准确率仍需用 `/annotation` 连续观察 3—7 天；当前只能确认时间边界和已知行为识别更稳定
 - 120 分钟历史、正式 60 分钟冷却和有限提醒尚未实现
 - 微信核验回复自动回写尚未实现
 - ==手机异常反馈已有入口和 raw/Markdown 记录，但尚未实现人工处理界面、`status` 更新流程或基于反馈的 prompt/config 候选修改流程。==
@@ -317,12 +321,13 @@ message=可选说明
 **[建议顺序]**
 
 1. ==**安装 Windows 定时导出任务**：管理员 PowerShell 运行 `D:\mathblog\tools\behavior-context-exporter\scripts\install_exporter_task.ps1`。==
-2. ==**观察影子判断 3—7 天**：核对数学学习、知乎、休息、陈旧上下文和候选任务。==
-3. ==**检查日/周统计**：日报 09:00、周报周一 09:05；核对报告数与分钟数。==
-4. **数据增长监控**：运行一周后计算真实日增长量。
-5. **API 密钥轮换**：在 DeepSeek 控制台生成新密钥并更新私有环境文件。
-6. **完整版验收**：确认无活动时仍停止 AI、继续归档；确认冷却期、单动作和数据不足不提醒。
-7. **信息过滤平台**：在行为数据可靠后再建设替代信息供给系统。
+2. ==**观察第五版准确率与费用 3—7 天**：核对数学学习、知乎、通信、确认休息和真实不确定段；用 `/annotation` 统计每100份报告的行为误判数。==
+3. ==**维护标签规则**：只编辑 `config/tag_rules.json`，先执行规则校验，再隔离回放已知窗口；一次只改一类规则。==
+4. ==**检查日/周统计**：日报 09:00、周报周一 09:05；核对报告数与分钟数。==
+5. **数据增长监控**：运行一周后计算真实日增长量。
+6. **API 密钥轮换**：在 DeepSeek 控制台生成新密钥并更新私有环境文件。
+7. **完整版验收**：确认无活动时仍停止 AI、继续归档；确认冷却期、单动作和数据不足不提醒。
+8. **信息过滤平台**：在行为数据可靠后再建设替代信息供给系统。
 
 ## 10. 后续 Agent 接管时的注意事项
 
@@ -332,8 +337,8 @@ message=可选说明
 2. **不要暴露密钥**：DeepSeek API 密钥在 `/home/conrad/.config/activitywatch-advisor/env`（600 权限）；PushPlus token 在 `.../pushplus.env`；上传 token 在 `/home/conrad/phone_usage/token.txt`
 3. **服务只监听 localhost**：`phone-usage-receiver` 只在 `127.0.0.1:8765`，通过 Tailscale Funnel 对外暴露
 4. **定时器是 enabled**：修改后需要 `systemctl daemon-reload`
-5. **配置文件的位置**：`settings.json` 在 `activitywatch-advisor/config/`；不要与 `.config/activitywatch-advisor/env` 混淆
-6. **输出数据结构**：computer_facts 和 phone_facts 设计为可复用层，全天分析时可直接读取而不重新处理原始事件
+5. **配置文件的位置**：`settings.json` 和 `tag_rules.json` 在 `activitywatch-advisor/config/`；不要与 `.config/activitywatch-advisor/env` 混淆
+6. **输出数据结构**：computer_facts、phone_facts、tablet_facts 和 tagged_facts 均为可复用层，全天分析时可直接读取而不重新处理原始事件
 7. **手机数据可能有延迟**：约 15 分钟上传一次，timer 在 08/38 分运行就是为了等待最近一轮上传
 8. **休息规则是用户确认的**：不要修改 AFK >= 3 分钟 + 手机熄屏的判断逻辑
 9. **推送是单向的**：微信公众号回复不会写回系统；==手机桌面快捷 `/annotation` 是当前人工反馈入口==
