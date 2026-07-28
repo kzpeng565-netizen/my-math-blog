@@ -4,7 +4,7 @@
   "title": "$task-planner 重新帮我规划任务",
   "titleGenerationStatus": "failed",
   "createdAt": 1785164252445,
-  "updatedAt": 1785165610188,
+  "updatedAt": 1785253018169,
   "lastResponseAt": 1785165610188,
   "sessionId": "019fa414-c5f4-76e0-97f3-89615709e386",
   "selectedModel": "gpt-5.6-sol",

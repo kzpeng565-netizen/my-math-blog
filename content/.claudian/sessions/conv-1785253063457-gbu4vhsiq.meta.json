@@ -1,0 +1,10 @@
+{
+  "id": "conv-1785253063457-gbu4vhsiq",
+  "providerId": "codex",
+  "title": "$task-planner 重新规划任务, 今天已经过去了, 从明天开始安排",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1785253063457,
+  "updatedAt": 1785253063512,
+  "sessionId": null,
+  "selectedModel": "gpt-5.6-sol"
+}
