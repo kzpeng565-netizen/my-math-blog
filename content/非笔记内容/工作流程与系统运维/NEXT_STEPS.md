@@ -49,7 +49,13 @@
 
 **[已由服务器核实]**
 
-==电脑没有非 AFK 活动且手机、平板均无亮屏时，不调用 DeepSeek、不发 PushPlus，但仍归档事实、上下文、本地报告、影子候选和统计。真实历史窗口已验证 `model: null`、`reason: all_devices_inactive`。==
+==电脑没有非 AFK 活动且手机、平板均无当前亮屏证据时，不调用 DeepSeek、不发 PushPlus，但仍归档事实、上下文、本地报告、影子候选和统计。2026-07-28 已修复手机/平板旧亮屏状态跨时段外推：屏幕事件超过 2700 秒后转为 `unknown`；同一个前置静默结果同时控制 AI 和 PushPlus。凌晨 04:00—04:30 隔离回放已验证平板 `on_minutes: 0`、`unknown_minutes: 30`、`model: null`、`push_suppressed_for_inactivity: true`，全部归档存在；主项目 29 项测试通过。==
+
+### ☐ A4.1 观察下一次真实夜间运行
+
+**[代码与历史回放已完成][需要运行观察]**
+
+==连续检查至少一个 02:00—08:00 夜间窗口，确认没有新的半小时 PushPlus 回执，同时日志返回 `push_suppressed_for_inactivity: true`。若平板产生新的真实亮屏事件，则该时段允许推送，不算误报。==
 
 ### ☐ A5. 完整版验收
 

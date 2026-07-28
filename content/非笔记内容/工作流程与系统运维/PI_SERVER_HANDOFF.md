@@ -163,7 +163,7 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
 | `cockpit.socket` | active | Web 管理 9090 |
 | `filebrowser.service` | active | 文件管理 8080 |
 
-**[已由服务器核实]** 最新一次 systemd timer 触发：`2026-07-27 01:38`（已完成）。平板已全链路接入。
+**[已由服务器核实]** 最新一次修复后 systemd timer 触发：`2026-07-28 11:08`（已完成，service 最终为 inactive/dead 的正常 oneshot 状态）。该时段手机真实亮屏 1.2 分钟，故正常调用模型并推送；平板旧亮屏已转为 `unknown`，未再造成虚假活动。
 
 ### 4.3 配置要点
 
@@ -173,7 +173,7 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
 - 计时器偏移到 `08` 和 `38` 分，为手机约 15 分钟上传留时间
 - 语义切段使用非思考模式（`semantic_model.thinking = "disabled"`）
 - 确认休息规则：电脑 AFK >= 3 分钟 **且** 手机熄屏；平板亮屏只降低置信度
-- AI/推送静默规则：电脑无非 AFK 活动 **且** 手机、平板均无亮屏
+- AI/推送静默规则：电脑无非 AFK 活动 **且** 手机、平板均无当前亮屏证据；==手机或平板屏幕事件超过 2700 秒后转为 `unknown`，不再沿用旧亮屏==
 - 娱乐偏离：工作中被 AI 判为娱乐且持续 > 30 秒
 - 当前已连接设备：`computer`, `phone`, `tablet`（平板为辅助数据源）
 - Obsidian 上下文：schema v1，导出器 v2，树莓派只读
@@ -205,6 +205,7 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
 18. 每日/每周统计定时生成、PushPlus 实际发送及回执去重 -- 已验证
 19. DeepSeek 非法 JSON 降级为本地低置信度报告，不中断主流程 -- 已验证
 20. 全设备无活动时 `model: null`、PushPlus `all_devices_inactive`、仍完整归档 -- 已验证
+21. ==过期手机/平板亮屏状态不再跨时段外推，且同一个前置静默判断同时跳过 DeepSeek 和 PushPlus -- 已用 2026-07-28 04:00—04:30 历史窗口隔离回放验证；主项目 29 项测试通过==
 
 **[已由服务器核实]** 2026-07-25 的数据：`ai_reports/` 下有 48 个 JSON+MD 文件（00:00 至 23:30），所有时段均有产出。
 
@@ -224,11 +225,12 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
 | 番茄钟 `end-begin` 明显超过 40 分钟 | 用户说明来自中途暂停后继续；工作量只按 `duration`，墙钟跨度不视为坏数据或低效 |
 | DeepSeek 返回非法 JSON 导致 systemd service failed | 捕获 AI 请求/解析异常，保留事实并生成本地低置信度报告，随后实际重跑成功 |
 | 午夜收到大量无活动消息 | 改为全设备状态静默：无电脑非 AFK 活动且手机/平板无亮屏时，停止 AI 和 PushPlus但继续归档 |
+| 2026-07-28 凌晨 02:00—08:00 仍每半小时推送 | 根因是平板 2026-07-27 00:41:44 的最后一条 `screen=on` 在无心跳时被无限外推，每个时段误算为平板亮屏 30 分钟。现以 `heartbeat_stale_seconds=2700` 限制屏幕状态寿命，过期后记为 `unknown`；静默判断移到 AI 分支之前并复用于 PushPlus。 |
 | 日报/周报在午夜发送 | 调整为日报 09:00、周报周一 09:05 |
 
 ## 7. 当前接管状态
 
-==**[已由服务器核实] 本节旧中断信息已被 2026-07-28 状态取代。当前没有未部署代码：功能分支工作区干净，最新提交为 `cea8620634fdb27f553109fdc5c5a2a598686c6a`，系统状态 `running`，三个 advisor timer 均 active。**==
+==**[已由服务器核实] 本节旧中断信息已被 2026-07-28 状态取代。本次静默修复已经部署，系统状态 `running`，三个 advisor timer 均 active。Git 基线提交为 `cea8620634fdb27f553109fdc5c5a2a598686c6a`；当前有四个尚未提交但已部署的文件：`src/phone_facts.py`、`src/run_half_hour.py`、`src/tablet_facts.py`、`tests/test_cleaning.py`。**==
 
 ## 8. 尚未完成或尚未验证的事项
 
@@ -284,6 +286,8 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
 15. ==**全设备无活动必须静默**：不调用 DeepSeek、不发 PushPlus，但所有本地归档必须继续。==
 16. ==**正式提醒未启用**：`shadow_mode` 必须保持 `true`，除非用户在观察 3—7 天后明确授权。==
 17. ==**AI 报告有存档**：`data/ai_reports/` 同时保留 JSON 和 Markdown，不要只依赖微信消息。==
+18. ==**不要恢复旧的移动设备状态外推**：手机或平板超过 `heartbeat_stale_seconds` 的最后屏幕事件必须视为 `unknown`；`unknown` 不等于亮屏，也不应阻止无活动静默。==
+19. ==**AI 和通知必须共用前置静默结果**：不得在调用 DeepSeek 后才单独判断是否推送。==
 
 ## 11. Obsidian 上下文与通知子系统操作手册
 
@@ -342,6 +346,18 @@ systemctl list-timers \
   --no-pager
 journalctl -u activitywatch-advisor.service -n 100 --no-pager
 ```
+
+检查本次静默修复：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+git diff -- src/phone_facts.py src/run_half_hour.py src/tablet_facts.py tests/test_cleaning.py
+python3 -m unittest discover -s tests -v
+journalctl -u activitywatch-advisor.service --since today --no-pager \
+  | grep '"push_suppressed_for_inactivity": true'
+```
+
+==修复前文件备份位于 `/home/conrad/workspace/backups/activitywatch-advisor/2026-07-28-stale-tablet-ai-short-circuit/`。隔离回放目录位于 `/tmp/activitywatch-advisor-regression-20260728/`，不属于正式归档。==
 
 查看最近归档：
 
