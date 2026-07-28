@@ -57,6 +57,34 @@
 
 ==连续检查至少一个 02:00—08:00 夜间窗口，确认没有新的半小时 PushPlus 回执，同时日志返回 `push_suppressed_for_inactivity: true`。若平板产生新的真实亮屏事件，则该时段允许推送，不算误报。==
 
+### ☑ A4.2 完成手机异常反馈接入
+
+**[已由服务器核实][已由用户真实提交验收]**
+
+==`phone-usage-receiver.service` 已增加 `POST /annotation`，手机 Automate 桌面快捷方式按表单协议提交 `category` 和 `message`。2026-07-28 19:40:45 与 19:40:58 两条真实手机反馈均返回 `201` 并保存到 raw JSON；`UNREVIEWED.md` 与当日 daily Markdown 已自动重建。==
+
+核对位置：
+
+```text
+/home/conrad/workspace/activitywatch-advisor/data/user_annotations/raw/YYYY-MM-DD/*.json
+/home/conrad/workspace/activitywatch-advisor/data/user_annotations/daily/YYYY-MM-DD.md
+/home/conrad/workspace/activitywatch-advisor/data/user_annotations/UNREVIEWED.md
+```
+
+当前已知 Git 状态：
+
+```text
+6462485 feat: add phone annotation intake and review logs
+```
+
+==注意：该提交只包含手机异常反馈接入和文档/测试；静默修复四文件仍是远端工作区未提交改动，不要混入后续反馈处理提交。==
+
+### ☐ A4.3 设计人工反馈处理流程
+
+**[数据入口已完成][处理流程待设计]**
+
+==第一版只记录人工标注，不提供网页处理界面，也不自动修改 `status`。后续若要处理反馈，应先设计显式流程：谁可以把记录从 `unreviewed` 改为 `reviewed`，是否写 review note，是否需要生成对 prompt/config 的候选修改，以及如何避免 AI 自动改 raw JSON。==
+
 ### ☐ A5. 完整版验收
 
 进入正式有限提醒前必须确认：
@@ -147,6 +175,8 @@ sudo systemctl restart activitywatch-advisor.service
 
 在 File Browser 可访问的 workspace 中生成静态 HTML 页面，显示最近几天的报告摘要和趋势图。或者用 Cockpit 的自定义页面。
 
+==若实现报告查看页面，应一并显示 `data/user_annotations/UNREVIEWED.md` 或 raw JSON 列表，但第一版不要在网页里自动修改反馈状态。==
+
 ### ☐ 10. 手机应用名映射扩充
 
 当前 `phone_app_names` 只映射了微信、QQ、哔哩哔哩等少量应用。在 `settings.json` 中增加更多常用应用（小红书、知乎、淘宝等）的包名到中文名的映射。
@@ -194,3 +224,5 @@ sudo systemctl restart activitywatch-advisor.service
 4. `journalctl -u phone-usage-receiver.service --since "1 hour ago" --no-pager | grep "PUT"` → 应有最近上传记录
 5. `ls /home/conrad/phone_usage/archive/$(date +%F)/` → 当天三个 JSONL 文件存在且非空
 6. 查看最近一条 PushPlus 微信消息 → 内容合理
+7. ==`journalctl -u phone-usage-receiver.service --since "1 hour ago" --no-pager | grep "/annotation"` → 若刚用手机反馈，应看到 `201`；`401/403` 说明 Authorization 头或 token 错误。==
+8. ==`ls /home/conrad/workspace/activitywatch-advisor/data/user_annotations/daily/$(date +%F).md` → 若刚反馈，应看到当日 Markdown 更新时间刷新。==

@@ -227,6 +227,42 @@
 
 ==移动设备最后一条屏幕事件只在 `processing.heartbeat_stale_seconds`（当前 2700 秒）内延续；超过该时限且没有新事件时，状态转为 `unknown`，不得把旧“亮屏”无限外推。设备事实生成后立即计算一次全设备静默结果：该结果同时控制是否进入 DeepSeek 分支和是否发送 PushPlus，避免 AI 与通知使用两套不同判断。`unknown` 表示没有当前亮屏证据，不阻止静默，但必须作为数据质量问题归档。==
 
+<!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 手机异常反馈决策（2026-07-28）
+
+==以下决策已经部署到 `phone-usage-receiver.service`，并已通过 localhost 集成测试和两条真实手机提交验收。==
+
+### D32. 手机反馈只上传分类和说明 【有效】
+
+**[已由用户确认][已由服务器核实]**
+
+==手机 Automate 桌面快捷方式只提交 `category` 与可选 `message`，不提交时间戳、报告编号、设备状态、任务信息或上下文文件路径。接收时间、`annotation_id`、半小时窗口和相关报告/事实层全部由树莓派生成。==
+
+### D33. `/annotation` 复用现有手机上传 token，但使用 Bearer 鉴权 【有效】
+
+**[已由服务器核实]**
+
+==`/annotation` 使用 `/home/conrad/phone_usage/token.txt` 中的现有 token，要求请求头 `Authorization: Bearer <token>`，并用 `hmac.compare_digest` 做安全比较。旧 `/upload/` 数据上传仍使用 `X-Upload-Token`，不得为了反馈功能破坏原协议。==
+
+### D34. 人工反馈是调试标注，不触发自动修复 【有效】
+
+**[已由用户确认][已由服务器核实]**
+
+==反馈记录的 `status` 初始为 `unreviewed`。接收期间不调用 DeepSeek 或其他外部 AI，不读取聊天、通知正文、短信或截图，不自动修改 Profile、ToDo、Prompt、任务计划或系统配置。==
+
+### D35. Raw JSON 是事实记录，Markdown 是派生视图 【有效】
+
+**[已由服务器核实]**
+
+==每条反馈保存为 `data/user_annotations/raw/YYYY-MM-DD/<annotation_id>.json`，使用 UTF-8、临时文件和 `os.replace` 原子写入，文件权限为 600，目录权限为 700。`daily/YYYY-MM-DD.md` 和 `UNREVIEWED.md` 每次从 raw JSON 原子重建，不直接无保护 append。==
+
+### D36. 反馈关联最近已生成的报告，而不是强绑接收时间窗口 【有效】
+
+**[已由用户确认][已由服务器核实]**
+
+==用户通常在读到刚推送的报告后提交反馈，所以 `primary_related_report` 从最近 `ai_reports` 中选择：文件存在、生成/修改时间不晚于接收时间、与接收时间相差不超过 90 分钟、时间上最近的一份。记录仍保留接收时间所在的当前半小时窗口，以及“上一窗口 + 当前窗口”两个候选窗口，方便人工复核。==
+
 ## 已废弃的决策
 
 - **Windows 端用 Python 脚本上传**：因 PowerShell 弹窗问题，改为 Syncthing 同步。
@@ -234,6 +270,7 @@
 - **第一版单一 AI 调用**：因无法区分语义判断和数值计算，改为两层 AI + 程序中间层。
 - **碎片化指（切换次数）**：用户反馈不适用，改为工作-娱乐混杂。
 - **AFK 即休息**：用户纠正，改为 AFK ≥ 3 分钟 + 所有设备无活动。
+- **用微信公众号回复作为反馈回写**：当前改为手机桌面快捷 `/annotation` 保存人工标注；公众号回复仍不写回系统。
 
 ## 待评估的决策
 

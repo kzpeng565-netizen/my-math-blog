@@ -16,6 +16,7 @@
 - **第二版**：指标先行，程序计算确定性数字（工作时间、休息时间等），AI 只负责语义解释。加入用户确认的休息规则（电脑 AFK ≥ 3 分钟 + 手机熄屏）。
 - **第三版**：引入两层 AI 调用——第一次生成语义时间线（work/entertainment/communication/rest/other/uncertain），程序据此计算工作-娱乐混杂指标，第二次 AI 只负责解释结果并生成报告。核心创新是**工作-娱乐混杂检测**：工作中被 AI 判断为娱乐且持续 > 30 秒才算一次偏离，30 秒及以下不计。
 - ==**第四版（2026-07-28 当前）**：增加只读 Obsidian 任务上下文、last-known-good 回退、上下文归档、影子干预候选和日/周统计。影子判断随原半小时 PushPlus 消息发送，但不会执行干预。全设备无活动时停止 AI 调用并跳过 PushPlus，仍完整归档。==
+- ==**第四版补充（2026-07-28 已部署）**：手机桌面快捷方式异常反馈已接入 `/annotation`。手机只上传 `category` 和可选 `message`；树莓派生成接收时间、编号、当前/候选半小时窗口，并关联最近 90 分钟内接收时间之前的 AI 报告和同窗口事实层。反馈仅作为人工调试标注，不触发 DeepSeek、不修改任务、不自动修复配置。==
 
 <!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
@@ -23,13 +24,15 @@
 
 ==以下状态已在树莓派上实际部署并核验。==
 
-- **[已由服务器核实]** 项目目录已初始化 Git，当前分支为 `feature/obsidian-behavior-context`，基线提交为 `cea8620634fdb27f553109fdc5c5a2a598686c6a`；==本次静默修复已部署但尚未提交，工作区修改为 `src/phone_facts.py`、`src/run_half_hour.py`、`src/tablet_facts.py`、`tests/test_cleaning.py`。==
+- **[已由服务器核实]** 项目目录已初始化 Git，当前分支为 `feature/obsidian-behavior-context`。==手机异常反馈接入已提交为 `6462485 feat: add phone annotation intake and review logs`；静默修复仍是已部署但尚未提交的工作区修改：`src/phone_facts.py`、`src/run_half_hour.py`、`src/tablet_facts.py`、`tests/test_cleaning.py`。==
 - **[已由服务器核实]** 树莓派、Syncthing 和三个 advisor timer 均处于正常运行状态，系统状态为 `running`。
-- **[已由服务器核实]** 主项目 29 项测试、Windows 导出器 5 项测试全部通过。
+- **[已由服务器核实]** ==手机异常反馈接入后，主项目 42 项测试全部通过；Windows 导出器 5 项测试此前已通过。==
 - **[已由服务器核实]** ==使用 2026-07-28 04:00—04:30 历史数据在隔离输出目录回放：过期平板“亮屏”不再跨日外推，平板事实为 `on_minutes: 0`、`unknown_minutes: 30`；结果为 `model: null`、`push_suppressed_for_inactivity: true`，且全部本地归档仍生成。==
 - **[已由服务器核实]** 每日统计、每周统计以及包含影子判断的半小时消息均已通过 PushPlus 实际发送并取得 `accepted` 回执。
 - **[已由服务器核实]** AI 状态解释同时保存为 `data/ai_reports/YYYY-MM-DD/HH-MM.json` 和 `.md`；语义时间线、混杂指标、上下文快照、影子候选和发送回执均有独立归档。
 - **[已由服务器核实]** ==修复部署后的首次真实 timer 于 2026-07-28 11:08 正常完成；该白天时段手机真实亮屏 1.2 分钟，因此按设计正常调用模型并推送，不属于静默窗口。==
+- **[已由服务器核实]** ==`phone-usage-receiver.service` 已增加 `POST /annotation`，继续只监听 `127.0.0.1:8765`。Tailscale Funnel 仍为 `https://pi.taild4d3f7.ts.net` → `http://127.0.0.1:8765`。==
+- **[已由用户确认][已由服务器核实]** ==手机真实提交已验收：2026-07-28 19:40:45 和 19:40:58 两条反馈均返回 `201` 并落盘，分别关联 `data/ai_reports/2026-07-28/19-00.md`。此前 19:38 的两次 `401` 已定位为手机端 `Authorization` 头未正确传递，修正后恢复。==
 
 ## 当前运行的组件
 
@@ -37,7 +40,7 @@
 
 | 组件 | 状态 | 说明 |
 |---|---|---|
-| `phone-usage-receiver.service` | active | Flask 服务器监听 `127.0.0.1:8765`，接收手机和平板共六文件上传（foreground/screen/heartbeat x 2） |
+| `phone-usage-receiver.service` | active | 标准库 `http.server` 接收服务监听 `127.0.0.1:8765`，接收手机/平板共六文件上传，并提供 `/annotation` 手机异常反馈入口 |
 | `phone-usage-maintenance.timer` | active | 每日 03:30 归档压缩（>30 天）和清理（>365 天） |
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | triggered by timer | 单次执行，完成后退出 |
@@ -63,6 +66,7 @@
 | 组件 | 状态 | 说明 |
 |---|---|---|
 | Automate `Phone Usage Logger` 流 | 运行中 | 采集 foreground/screen/heartbeat，每 15 分钟上传 |
+| Automate 桌面异常反馈快捷方式 | 已验收 | ==通过 `POST /annotation` 上传分类和说明，2026-07-28 已有两条真实手机反馈成功落盘== |
 | Clash | 运行中 | 代理（与 HTTPS 上传无冲突，已验证） |
 
 ### Android 平板
@@ -98,6 +102,7 @@
 16. ==DeepSeek 非法 JSON 时降级归档，不再导致整个 systemd 流程失败==
 17. ==电脑无非 AFK 活动且手机、平板均无亮屏时，不调用 AI、不发 PushPlus但继续归档==
 18. ==手机或平板最后一条亮屏记录超过 `heartbeat_stale_seconds`（当前 2700 秒）后转为 `unknown`，不会因采集器停止而把亮屏状态无限外推；AI 与通知共用同一个前置静默判断。==
+19. ==手机异常反馈 `/annotation`：Bearer token 鉴权、表单/JSON 解析、分类校验、4 KiB 请求体限制、raw JSON 原子写入、daily/UNREVIEWED Markdown 从 raw 重建、最近报告关联、中文 message 保存、手机真实提交验收。==
 
 ## 当前限制
 
@@ -105,9 +110,9 @@
 - ==Windows 导出器代码和配置已经部署，但 Windows Task Scheduler 注册需要用户以管理员 PowerShell 手工执行一次。==
 - 目前只实现最近 60 分钟影子预筛选；120 分钟历史、正式冷却期和有限提醒仍待后续版本。
 - 手机跨午夜最后一段数据可能遗漏（Automate 每次只上传当天文件）。
-- 微信公众号回复不会写回系统，核验意见仍需在 Codex 中反馈。
-- ==本次 2026-07-28 静默修复尚未创建 Git 提交；交接时不得误称树莓派项目工作区干净。==
+- 微信公众号回复不会写回系统；==当前已新增手机桌面快捷异常反馈作为人工标注入口，但它仍不自动改任务或触发修复。==
+- ==2026-07-28 手机异常反馈接入已有 Git 提交 `6462485`；静默修复四文件仍未提交，交接时不得误称树莓派项目工作区干净。==
 
 ## 当前交接点
 
-==2026-07-28 本轮实现和部署已经完成，没有停留在代码未部署状态。树莓派三个 timer 已启用；功能分支包含四个已部署但尚未提交的静默修复文件。下一位 Agent 应先观察一个完整夜间窗口，再确认 Windows 定时导出任务是否已由用户安装，并继续检查 PushPlus 中的影子判断、日报和周报。==
+==2026-07-28 本轮实现和部署已经完成，没有停留在代码未部署状态。树莓派三个 timer 已启用；`/annotation` 手机异常反馈已通过真实手机提交验收并提交为 `6462485`。功能分支仍包含四个已部署但尚未提交的静默修复文件。后续接管重点：完整夜间窗口观察、Windows 定时导出任务安装状态确认、PushPlus 影子判断/日报/周报检查，以及 `data/user_annotations/UNREVIEWED.md` 未处理反馈复核。==
