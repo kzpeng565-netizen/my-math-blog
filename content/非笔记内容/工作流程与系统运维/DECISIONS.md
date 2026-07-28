@@ -300,6 +300,34 @@
 
 ==用户通常在读到刚推送的报告后提交反馈，所以 `primary_related_report` 从最近 `ai_reports` 中选择：文件存在、生成/修改时间不晚于接收时间、与接收时间相差不超过 90 分钟、时间上最近的一份。记录仍保留接收时间所在的当前半小时窗口，以及“上一窗口 + 当前窗口”两个候选窗口，方便人工复核。==
 
+<!-- ai_provenance: source=codex; date=2026-07-29; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/ntfy提醒系统配置.md" -->
+
+## 深夜 ntfy 提醒决策（2026-07-29）
+
+### D37. 深夜停止设备使用采用独立确定性策略 【有效】
+
+==`bedtime_stop` 不依赖 DeepSeek，不修改 Obsidian，不属于半小时 AI 影子干预。它只在 `00:30—04:30` 判断手机或电脑是否仍有新鲜活跃证据，并通过 ntfy 发送两层提醒。通用 AI 正式干预仍保持未启用。==
+
+### D38. ntfy 为主通知渠道，PushPlus 不同时发送 【有效】
+
+==深夜提醒主通道为 ntfy，PushPlus 仅保留为明确配置后才可能启用的备用通道。默认不同时发送，避免重复提醒。真实 `NTFY_TOPIC` 只存放在 `/home/conrad/.config/activitywatch-advisor/ntfy.env`，不得写入 Git、README 示例或交接文档。==
+
+### D39. 每次升级前重新检查设备活动 【有效】
+
+==第一层发送后等待5分钟，只有重新检查仍触发时才进入第二层。第二层最多3次、间隔1分钟；每一次发送前也必须重新检查。条件停止或数据过期时立即停止后续升级并回到等待状态。==
+
+### D40. 过期数据默认不升级 【有效】
+
+==`maximum_data_age_seconds` 当前为120秒。电脑 ActivityWatch 或手机心跳/屏幕事实超过新鲜度窗口时，不把旧状态当作“仍在使用”。如果主要数据都不新鲜，状态机记录 `activity_data_stale`，不补发、不连发。==
+
+### D41. 树莓派持久化状态并用文件锁防重复 【有效】
+
+==状态写入 `data/state/bedtime-reminder-state.json`，结构化日志写入 `data/bedtime_reminder/events.jsonl`。状态文件包含 event_id、current_state、level_1_sent_at、level_2_count、last_notification_at、cooldown_until、round_count 和 policy_hash。执行时使用 lock 文件，避免同一分钟多个调度器重复发送。==
+
+### D42. 04:30 后强制恢复白天禁用 【有效】
+
+==窗口外任何状态都会回到 `DISABLED`，不补发旧通知，不恢复旧升级任务。当策略配置变动导致 `policy_hash` 改变时，下一次进入有效窗口会重新初始化事件状态。==
+
 ## 已废弃的决策
 
 - **Windows 端用 Python 脚本上传**：因 PowerShell 弹窗问题，改为 Syncthing 同步。

@@ -18,7 +18,7 @@
 - ==**第四版（2026-07-28 当前）**：增加只读 Obsidian 任务上下文、last-known-good 回退、上下文归档、影子干预候选和日/周统计。影子判断随原半小时 PushPlus 消息发送，但不会执行干预。全设备无活动时停止 AI 调用并跳过 PushPlus，仍完整归档。==
 - ==**第四版补充（2026-07-28 已部署）**：手机桌面快捷方式异常反馈已接入 `/annotation`。手机只上传 `category` 和可选 `message`；树莓派生成接收时间、编号、当前/候选半小时窗口，并关联最近 90 分钟内接收时间之前的 AI 报告和同窗口事实层。反馈仅作为人工调试标注，不触发 DeepSeek、不修改任务、不自动修复配置。==
 - ==**第五版（2026-07-28 已部署）**：清洗后的电脑、手机、平板事实先由 `fact_tagger.py` 按 `config/tag_rules.json` 打可追踪标签；统一保留“前5分钟 + 正式30分钟 + 后5分钟”的40分钟事实窗口。程序锁定高置信度通信、娱乐和确认休息，吸收1—3秒采样缝隙，DeepSeek只组合未锁定候选单元并输出语义；程序恢复精确秒数、拆开越界分组、计算混杂，第二次 DeepSeek只解释精简摘要。==
-- ==**第五版补充（2026-07-29 已部署）**：新增每日生活复盘 `daily_life_statistics.py` 与 ntfy 推送入口 `daily_life_notifier.py`。每天 09:00 统计前一天总工作、各类工作、娱乐、通信、AI使用、手机睡眠边界，并结合 Obsidian 任务、番茄钟和 Profile 生成建议；建议层单独使用 DeepSeek V4 Pro，推送走 ntfy，receipt 位于 `data/statistics/ntfy_receipts/daily_life/`。==
+- ==**第五版补充（2026-07-29 已部署）**：新增每日生活复盘 `daily_life_statistics.py` 与 ntfy 推送入口 `daily_life_notifier.py`。每天 09:00 统计前一天总工作、各类工作、娱乐前三项目、通信、AI使用分项和AI用途前三、手机睡眠边界，并结合 Obsidian 任务、番茄钟和 Profile 生成建议；建议层单独使用 DeepSeek V4 Pro，推送走纯文本 emoji 格式 ntfy，receipt 位于 `data/statistics/ntfy_receipts/daily_life/`。==
 
 <!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
@@ -49,9 +49,11 @@
 | `phone-usage-maintenance.timer` | active | 每日 03:30 归档压缩（>30 天）和清理（>365 天） |
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | triggered by timer | 单次执行，完成后退出 |
-| `activitywatch-advisor-daily-summary.timer` | active, enabled | 每天 09:00 发送前一天统计 |
-| `activitywatch-advisor-daily-life.timer` | active, enabled | 每天 09:00 生成前一天每日生活复盘，并通过 ntfy 推送；建议层使用 DeepSeek V4 Pro |
+| `activitywatch-advisor-daily-summary.timer` | disabled, inactive | 旧 PushPlus 日统计已停用，避免 09:00 发送旧版总数摘要 |
+| `activitywatch-advisor-daily-life.timer` | active, enabled | 每天 09:00 生成前一天每日生活复盘，并通过纯文本 emoji ntfy 推送；建议层使用 DeepSeek V4 Pro |
 | `activitywatch-advisor-weekly-summary.timer` | active, enabled | 每周一 09:05 发送上一自然周统计 |
+| `bedtime-reminder.timer` | active, enabled | ==深夜设备使用 ntfy 提醒；每分钟夜间唤醒，策略窗口为 00:30—04:30== |
+| `bedtime-reminder.service` | triggered by timer | ==oneshot 状态机；发送 ntfy、写入 `data/state/bedtime-reminder-state.json` 与 `data/bedtime_reminder/events.jsonl`== |
 | `syncthing@conrad.service` | active | 同步 Windows ActivityWatch 数据到树莓派 |
 | `tailscaled.service` | active | Tailscale VPN + Funnel（公网入口 for 手机） |
 | `cockpit.socket` | active | Web 管理界面 `https://pi.local:9090` |
@@ -111,16 +113,21 @@
 19. ==手机异常反馈 `/annotation`：Bearer token 鉴权、表单/JSON 解析、分类校验、4 KiB 请求体限制、raw JSON 原子写入、daily/UNREVIEWED Markdown 从 raw 重建、最近报告关联、中文 message 保存、手机真实提交验收。==
 20. ==可配置规则标签、统一40分钟事实层、程序锁定边界、AI候选单元压缩、越界分组自动拆分、逐次 token/缓存/费用审计。==
 21. ==每日生活复盘生成与 ntfy 推送：统计工作/娱乐/通信/AI使用、手机睡眠边界和候选效率问题；DeepSeek V4 Pro 只写建议，不修改程序计算的分钟数。2026-07-29 已手动真实推送一次并取得 ntfy accepted 回执。==
+22. ==深夜设备使用 ntfy 提醒：`bedtime_stop` 策略、独立 ntfy 模块、两层升级状态机、120 秒数据新鲜度保护、04:30 强制重置、JSONL 日志和 systemd timer 已部署。详见 [[ntfy提醒系统配置]]。==
 
 ## 当前限制
 
 - ==正式干预尚未启用；`shadow_mode` 必须保持为 `true`，至少人工观察 3—7 天。==
 - ==Windows 导出器代码和配置已经部署，但 Windows Task Scheduler 注册需要用户以管理员 PowerShell 手工执行一次。==
-- 目前只实现最近 60 分钟影子预筛选；120 分钟历史、正式冷却期和有限提醒仍待后续版本。
+- 目前只实现最近 60 分钟影子预筛选；120 分钟历史和通用 AI 有限提醒仍待后续版本。==深夜停止设备使用已经作为独立确定性 ntfy 策略上线，不依赖 AI、不回写 Obsidian、不使用 Automate 弹窗。==
 - 手机跨午夜最后一段数据可能遗漏（Automate 每次只上传当天文件）。
 - 微信公众号回复不会写回系统；==当前已新增手机桌面快捷异常反馈作为人工标注入口，但它仍不自动改任务或触发修复。==
 - ==2026-07-28 手机异常反馈接入已有 Git 提交 `6462485`；静默修复和第五版标签/成本改造仍未提交，当前修改与新增文件以树莓派 `git status --short` 为准，交接时不得误称工作区干净。==
 
 ## 当前交接点
 
-==2026-07-29 每日生活复盘与 ntfy 推送已部署并启用：`activitywatch-advisor-daily-life.timer` 每天 09:00 运行，`report_model.name=deepseek-v4-pro`。2026-07-28 样例已真实推送成功；systemd 手动启动已验证 receipt 防重复。当前远端工作区仍包含多项未提交修改，交接时不得误称工作区干净。==
+==2026-07-29 每日生活复盘与 ntfy 推送已部署并启用：`activitywatch-advisor-daily-life.timer` 每天 09:00 运行，`report_model.name=deepseek-v4-pro`。正文为程序计算的纯文本 emoji 数字复盘，包含工作分解、娱乐前三、AI分项和AI用途前三；AI建议追加在程序输出之后。旧 `activitywatch-advisor-daily-summary.timer` 已停用。2026-07-28 样例已真实推送成功；systemd 手动启动已验证 receipt 防重复。当前远端工作区仍包含多项未提交修改，交接时不得误称工作区干净。==
+
+<!-- ai_provenance: source=codex; date=2026-07-29; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/ntfy提醒系统配置.md" -->
+
+==2026-07-29 深夜 ntfy 提醒系统已上线：`bedtime-reminder.timer` 为 enabled/active，`bedtime-reminder.service` 最近运行 success。真实 ntfy 主题只保存在 `/home/conrad/.config/activitywatch-advisor/ntfy.env`，不要写入 Git。00:33 已由真实夜间调度发送第一层提醒，状态为 `LEVEL_1_SENT`。详细配置、测试、停止和回滚命令见 [[ntfy提醒系统配置]]。==

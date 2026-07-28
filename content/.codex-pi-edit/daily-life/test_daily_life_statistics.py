@@ -87,6 +87,18 @@ class DailyLifeStatisticsTests(unittest.TestCase):
                         "end": "2026-07-28T11:40:00+08:00",
                         "app_display": "ChatGPT",
                         "domain": "chatgpt.com",
+                    },
+                    {
+                        "start": "2026-07-28T12:00:00+08:00",
+                        "end": "2026-07-28T12:20:00+08:00",
+                        "app_display": "ChatGPT",
+                        "domain": "chatgpt.com",
+                    },
+                    {
+                        "start": "2026-07-28T13:00:00+08:00",
+                        "end": "2026-07-28T13:10:00+08:00",
+                        "app_display": "DeepSeek",
+                        "domain": "chat.deepseek.com",
                     }
                 ]
             }
@@ -137,7 +149,11 @@ class DailyLifeStatisticsTests(unittest.TestCase):
             summary = build_daily_life_summary(root, day, context)
             self.assertEqual(summary["daily_totals"]["work_minutes"], 120)
             self.assertEqual(summary["daily_totals"]["entertainment_minutes"], 45)
-            self.assertEqual(summary["ai_usage"]["total_minutes"], 100)
+            self.assertEqual(summary["entertainment_breakdown"]["top_tasks"][0]["name"], "浏览知乎")
+            self.assertEqual(summary["ai_usage"]["total_minutes"], 130)
+            self.assertEqual(summary["ai_usage"]["by_activity"]["entertainment"], 20)
+            self.assertEqual(summary["ai_usage"]["by_activity"]["brief_communication"], 10)
+            self.assertEqual(summary["ai_usage"]["top_tasks"][0]["name"], "学习GTM259")
             self.assertEqual(
                 summary["phone_sleep_boundary"]["last_phone_use_at_night"], "23:30"
             )
@@ -152,6 +168,12 @@ class DailyLifeStatisticsTests(unittest.TestCase):
             markdown = render_markdown(summary)
             self.assertIn("总工作", markdown)
             self.assertIn("手机睡眠边界", markdown)
+            self.assertIn("娱乐项目 Top 3", markdown)
+            self.assertIn("AI用途 Top 3", markdown)
+            self.assertNotIn("\n# ", markdown)
+            self.assertNotIn("\n## ", markdown)
+            self.assertNotIn("\n- ", markdown)
+            self.assertNotIn("\n> ", markdown)
 
     def test_sleep_boundary_does_not_invent_morning_pickup(self):
         with tempfile.TemporaryDirectory() as directory:

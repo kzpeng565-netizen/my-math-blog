@@ -66,8 +66,8 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
                      |
            pushplus_client.py → 微信公众号（AI解释 + 影子判断）
                      |
-           statistics_notifier.py → PushPlus 日报 09:00 / 周报周一 09:05
-           daily_life_notifier.py → ntfy 每日生活复盘 09:00（建议层用 DeepSeek V4 Pro）
+           statistics_notifier.py → PushPlus 周报周一 09:05（旧日报 timer 已停用）
+           daily_life_notifier.py → ntfy 每日生活复盘 09:00（纯文本 emoji，建议层用 DeepSeek V4 Pro）
 ```
 
 > [!important]
@@ -165,8 +165,10 @@ message=可选说明
 | 每日统计 | `data/statistics/daily/YYYY-MM-DD.json` | behavior_statistics.py | 聚合当日报告、混杂和影子候选 |
 | 每周统计 | `data/statistics/weekly/YYYY-Www.json` | behavior_statistics.py | 聚合自然周 |
 | 统计推送回执 | `data/statistics/pushplus_receipts/{daily,weekly}/` | statistics_notifier.py | 去重和审计日/周统计发送 |
-| 每日生活复盘 | `data/statistics/daily_life/YYYY-MM-DD.{json,md}` | daily_life_statistics.py | ==统计工作、娱乐、通信、AI使用、手机睡眠边界，并保存 DeepSeek V4 Pro 建议== |
+| 每日生活复盘 | `data/statistics/daily_life/YYYY-MM-DD.{json,md}` | daily_life_statistics.py | ==统计工作、工作分解、娱乐前三、通信、AI使用分项、AI用途前三、手机睡眠边界，并保存 DeepSeek V4 Pro 建议== |
 | 每日生活复盘 ntfy 回执 | `data/statistics/ntfy_receipts/daily_life/YYYY-MM-DD.json` | daily_life_notifier.py | ==ntfy 推送去重和审计== |
+| 深夜提醒状态 | `data/state/bedtime-reminder-state.json` | bedtime_reminder.py | ==`bedtime_stop` 当前状态、事件 ID、第一层发送时间、第二层次数和冷却时间== |
+| 深夜提醒日志 | `data/bedtime_reminder/events.jsonl` | bedtime_reminder.py | ==ntfy 两层提醒的状态迁移、数据年龄、设备摘要和发送结果== |
 
 ## 4. 树莓派上相关目录、脚本、服务及运行状态
 
@@ -195,6 +197,11 @@ message=可选说明
 | `.../src/behavior_statistics.py` | 日/周聚合 |
 | `.../src/statistics_notifier.py` | 日/周 PushPlus 通知与回执去重 |
 | `.../src/user_annotations.py` | ==手机异常反馈校验、编号、报告关联、raw JSON 保存和 Markdown 重建== |
+| `.../config/bedtime_reminder.json` | ==深夜设备使用提醒策略配置：00:30—04:30、两层升级、25分钟冷却、120秒数据新鲜度== |
+| `.../src/bedtime_reminder.py` | ==深夜 ntfy 提醒状态机、触发判断、文件锁、状态持久化和 JSONL 日志== |
+| `.../src/notifications/ntfy.py` | ==可复用 ntfy 发送模块；主题从私有 env 读取，不硬编码== |
+| `.../tools/test_ntfy.py` | ==复用正式 ntfy 模块的 level 1 / level 2 测试命令== |
+| `/home/conrad/.config/activitywatch-advisor/ntfy.env` | ==ntfy 私有配置，权限 600；真实主题不得写入 Git 或 Markdown== |
 | `D:\mathblog\tools\behavior-context-exporter\` | Windows 实际运行的只读导出器、配置、测试及安装/卸载脚本 |
 
 ### 4.2 服务
@@ -207,9 +214,11 @@ message=可选说明
 | `phone-usage-maintenance.timer` | active | 每日约 03:30 归档压缩/清理 |
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | inactive (dead, triggered by timer) | 单次分析，完成后退出 |
-| `activitywatch-advisor-daily-summary.timer` | active, enabled | 每天 09:00 发送前一天统计 |
-| `activitywatch-advisor-daily-life.timer` | active, enabled | ==每天 09:00 生成前一天每日生活复盘并通过 ntfy 推送；建议层使用 DeepSeek V4 Pro== |
+| `activitywatch-advisor-daily-summary.timer` | disabled, inactive | 旧 PushPlus 日统计已停用，避免 09:00 发送旧版总数摘要 |
+| `activitywatch-advisor-daily-life.timer` | active, enabled | ==每天 09:00 生成前一天每日生活复盘并通过纯文本 emoji ntfy 推送；建议层使用 DeepSeek V4 Pro== |
 | `activitywatch-advisor-weekly-summary.timer` | active, enabled | 周一 09:05 发送上一自然周统计 |
+| `bedtime-reminder.timer` | active, enabled | ==深夜设备使用 ntfy 提醒调度；每分钟夜间唤醒，策略窗口 00:30—04:30== |
+| `bedtime-reminder.service` | inactive/dead after success | ==oneshot 状态机；成功后 inactive 是正常状态== |
 | `syncthing@conrad.service` | active | 同步 ActivityWatch 数据 |
 | `tailscaled.service` | active | Tailscale VPN + Funnel |
 | `cockpit.socket` | active | Web 管理 9090 |
@@ -224,7 +233,7 @@ message=可选说明
 **[已由服务器核实]**
 
 - 模型：DeepSeek V4 Flash (`https://api.deepseek.com/chat/completions`)
-- ==每日生活复盘建议层：`settings.json` 中 `report_model.name = deepseek-v4-pro`；它只解释脚本给出的候选项和明日优先任务，不重算分钟数。==
+- ==每日生活复盘建议层：`settings.json` 中 `report_model.name = deepseek-v4-pro`；它只解释脚本给出的候选项和明日优先任务，不重算分钟数。推送正文先展示程序计算的完整数字复盘，AI建议只能追加在后面。ntfy 正文使用纯文本 emoji 格式，不依赖 Markdown。==
 - 计时器偏移到 `08` 和 `38` 分，为手机约 15 分钟上传留时间
 - 语义切段使用非思考模式（`semantic_model.thinking = "disabled"`）
 - ==语义上下文固定为40分钟：正式30分钟加前后各5分钟；不再分别发送重叠的30分钟和40分钟 JSON。==
@@ -240,6 +249,7 @@ message=可选说明
 - ==手机异常反馈使用 `ZoneInfo("Asia/Shanghai")` 生成接收时间；`annotation_id` 由时间戳和随机后缀组成，不依赖用户输入；目录权限 700，文件权限 600。==
 - ==反馈关联算法：扫描最近 `data/ai_reports`，选取已存在、生成/修改时间不晚于 `received_at`、90 分钟内时间最近的 `.md` 报告作为 `primary_related_report`；再按该报告的日期和 `HH-MM` 文件名寻找同窗口事实层。==
 - ==ntfy 私有配置位于 `/home/conrad/.config/activitywatch-advisor/ntfy.env`，权限 600；文档不得记录 topic/token。`daily_life_notifier.py` 手动运行时也会默认读取该文件。==
+- ==深夜设备使用提醒详见 [[ntfy提醒系统配置]]：主通道为 ntfy，第一层 `default`，第二层 `high`，每次升级前重新检查手机/电脑活动，数据年龄超过120秒不升级。它与每日生活复盘共用 ntfy 配置，但状态机、日志和 systemd timer 完全独立。==
 
 ## 5. 已验证成功的功能
 
@@ -271,6 +281,7 @@ message=可选说明
 24. ==手机真实提交 -- 已验证。2026-07-28 19:40:45 与 19:40:58 两条真实反馈均返回 `201`，保存到 `data/user_annotations/raw/2026-07-28/`，并重建当日 Markdown 与 `UNREVIEWED.md`。==
 25. ==第五版标签事实层 -- 已验证。`config/tag_rules.json` 当前10条启用规则，规则 SHA-256 可追踪；统一40分钟事实层、候选单元压缩、程序锁定边界和越界分组拆分均有测试覆盖。主项目现有49项测试通过。==
 26. ==第五版真实调用 -- 已验证。19:00和20:00隔离回放均覆盖1800秒；正式21:30—22:00窗口由22:08 timer成功运行并推送，无缓存时两次调用合计估算约0.0137元。==
+27. ==深夜设备使用 ntfy 提醒 -- 已验证。`bedtime_stop` 两层状态机、私有 `ntfy.env`、systemd timer、level 1/2 ntfy 测试和 61 项主项目测试均已通过；2026-07-29 00:33 真实夜间调度已发送第一层。详见 [[ntfy提醒系统配置]]。==
 
 **[已由服务器核实]** 2026-07-25 的数据：`ai_reports/` 下有 48 个 JSON+MD 文件（00:00 至 23:30），所有时段均有产出。
 
@@ -332,7 +343,7 @@ message=可选说明
 4. ==**检查日/周统计**：日报 09:00、周报周一 09:05；核对报告数与分钟数。==
 5. **数据增长监控**：运行一周后计算真实日增长量。
 6. **API 密钥轮换**：在 DeepSeek 控制台生成新密钥并更新私有环境文件。
-7. **完整版验收**：确认无活动时仍停止 AI、继续归档；确认冷却期、单动作和数据不足不提醒。
+7. **完整版验收**：确认无活动时仍停止 AI、继续归档；确认通用 AI 干预的冷却期、单动作和数据不足不提醒。==另行观察 [[ntfy提醒系统配置]] 中的深夜提醒完整夜间链路，尤其是 04:30 重置。==
 8. **信息过滤平台**：在行为数据可靠后再建设替代信息供给系统。
 
 ## 10. 后续 Agent 接管时的注意事项
@@ -354,11 +365,12 @@ message=可选说明
 13. ==**Obsidian 是唯一任务权威源**：不得从树莓派修改任务、日期、完成状态或番茄钟进度。==
 14. ==**番茄钟只作弱参考**：使用声明 `duration`；无记录不是无学习，长墙钟跨度可来自暂停。==
 15. ==**全设备无活动必须静默**：不调用 DeepSeek、不发 PushPlus，但所有本地归档必须继续。==
-16. ==**正式提醒未启用**：`shadow_mode` 必须保持 `true`，除非用户在观察 3—7 天后明确授权。==
-17. ==**AI 报告有存档**：`data/ai_reports/` 同时保留 JSON 和 Markdown，不要只依赖微信消息。==
-18. ==**不要恢复旧的移动设备状态外推**：手机或平板超过 `heartbeat_stale_seconds` 的最后屏幕事件必须视为 `unknown`；`unknown` 不等于亮屏，也不应阻止无活动静默。==
-19. ==**AI 和通知必须共用前置静默结果**：不得在调用 DeepSeek 后才单独判断是否推送。==
-20. ==**不要把反馈当作自动修复指令**：`data/user_annotations/raw/` 是人工调试标注，AI 不得自动修改 raw JSON，不得在接收请求时调用 DeepSeek，也不得直接改任务或配置。==
+16. ==**通用 AI 正式干预未启用**：`shadow_mode` 必须保持 `true`，除非用户在观察 3—7 天后明确授权。深夜停止设备使用是独立的确定性 ntfy 策略，已上线；不要把两者混为一谈。==
+17. ==**ntfy 主题保密**：真实 `NTFY_TOPIC` 只存在于 `/home/conrad/.config/activitywatch-advisor/ntfy.env`；交接、README 和 Git 示例只写占位符。==
+18. ==**AI 报告有存档**：`data/ai_reports/` 同时保留 JSON 和 Markdown，不要只依赖微信消息。==
+19. ==**不要恢复旧的移动设备状态外推**：手机或平板超过 `heartbeat_stale_seconds` 的最后屏幕事件必须视为 `unknown`；`unknown` 不等于亮屏，也不应阻止无活动静默。==
+20. ==**AI 和通知必须共用前置静默结果**：不得在调用 DeepSeek 后才单独判断是否推送。==
+21. ==**不要把反馈当作自动修复指令**：`data/user_annotations/raw/` 是人工调试标注，AI 不得自动修改 raw JSON，不得在接收请求时调用 DeepSeek，也不得直接改任务或配置。==
 
 ## 11. Obsidian 上下文与通知子系统操作手册
 

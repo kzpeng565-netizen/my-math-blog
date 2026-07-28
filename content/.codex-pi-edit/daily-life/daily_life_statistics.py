@@ -150,6 +150,44 @@ def _work_breakdown(segments: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _segment_task_name(segment: dict[str, Any], fallback: str) -> str:
+    task = str(segment.get("task", "")).strip()
+    if task:
+        return task
+    evidence = segment.get("evidence", [])
+    if evidence:
+        return str(evidence[0])[:80]
+    return fallback
+
+
+def _task_breakdown(
+    segments: list[dict[str, Any]],
+    *,
+    activity: str,
+    fallback: str,
+    limit: int = 3,
+) -> list[dict[str, Any]]:
+    by_task: Counter[str] = Counter()
+    evidence_by_task: dict[str, str] = {}
+    for segment in segments:
+        if segment.get("activity") != activity:
+            continue
+        seconds = float(segment.get("duration_seconds", 0) or 0)
+        task = _segment_task_name(segment, fallback)
+        by_task[task] += seconds
+        evidence = segment.get("evidence", [])
+        if evidence and task not in evidence_by_task:
+            evidence_by_task[task] = str(evidence[0])[:160]
+    return [
+        {
+            "name": name,
+            "minutes": _minutes(seconds),
+            "evidence": evidence_by_task.get(name, ""),
+        }
+        for name, seconds in by_task.most_common(limit)
+    ]
+
+
 def _merge_same_kind_segments(
     entries: list[dict[str, Any]],
     *,
@@ -279,11 +317,17 @@ def _ai_usage(
 ) -> dict[str, Any]:
     total_seconds = sum((end - start).total_seconds() for start, end in ai_intervals)
     by_activity: Counter[str] = Counter()
+    by_task: Counter[str] = Counter()
+    task_activity: dict[str, str] = {}
     for ai_start, ai_end in ai_intervals:
         for segment in segments:
             seconds = _overlap_seconds(ai_start, ai_end, segment["_start_dt"], segment["_end_dt"])
             if seconds:
-                by_activity[str(segment.get("activity", "uncertain"))] += seconds
+                activity = str(segment.get("activity", "uncertain"))
+                task = _segment_task_name(segment, activity)
+                by_activity[activity] += seconds
+                by_task[task] += seconds
+                task_activity.setdefault(task, activity)
     return {
         "total_minutes": _minutes(total_seconds),
         "by_activity": {
@@ -293,6 +337,14 @@ def _ai_usage(
             "other": _minutes(by_activity["other"]),
             "uncertain": _minutes(by_activity["uncertain"]),
         },
+        "top_tasks": [
+            {
+                "name": name,
+                "activity": task_activity.get(name, "uncertain"),
+                "minutes": _minutes(seconds),
+            }
+            for name, seconds in by_task.most_common(3)
+        ],
     }
 
 
@@ -561,6 +613,12 @@ def build_daily_life_summary(
     ai_intervals = _ai_intervals(output_root, day)
     ai_usage = _ai_usage(ai_intervals, segments)
     work = _work_breakdown(segments)
+    entertainment = _task_breakdown(
+        segments,
+        activity="entertainment",
+        fallback="未细分娱乐",
+        limit=3,
+    )
     sleep = _sleep_boundary(output_root, day)
     tasks = _task_candidates(obsidian_context)
     long_blocks = _long_blocks(segments, ai_intervals)
@@ -580,6 +638,7 @@ def build_daily_life_summary(
             "uncertain_minutes": totals["uncertain"],
         },
         "work_breakdown": work,
+        "entertainment_breakdown": {"top_tasks": entertainment},
         "phone_sleep_boundary": sleep,
         "ai_usage": ai_usage,
         "work_entertainment_mixing": mixing,
@@ -617,6 +676,7 @@ def generate_ai_advice(
             "period",
             "daily_totals",
             "work_breakdown",
+            "entertainment_breakdown",
             "phone_sleep_boundary",
             "ai_usage",
             "work_entertainment_mixing",
@@ -648,74 +708,94 @@ def _format_minutes(value: Any) -> str:
     return f"{hours}小时{mins}分" if hours else f"{mins}分"
 
 
+def _rank_label(index: int) -> str:
+    labels = ("①", "②", "③", "④", "⑤")
+    return labels[index - 1] if 0 < index <= len(labels) else str(index)
+
+
 def render_markdown(summary: dict[str, Any]) -> str:
     totals = summary["daily_totals"]
     sleep = summary["phone_sleep_boundary"]
     ai = summary["ai_usage"]
     lines = [
-        f"# 每日行为复盘：{summary['period']}",
+        f"📊 每日行为复盘：{summary['period']}",
         "",
-        f"- 有效半小时报告：{summary.get('report_count', 0)} 份",
-        f"- 总工作：{_format_minutes(totals['work_minutes'])}",
-        f"- 娱乐：{_format_minutes(totals['entertainment_minutes'])}",
-        f"- 通信：{_format_minutes(totals['communication_minutes'])}",
-        f"- AI使用：{_format_minutes(ai['total_minutes'])}",
+        "🧮 总览",
+        f"有效半小时报告：{summary.get('report_count', 0)} 份",
+        f"总工作：{_format_minutes(totals['work_minutes'])}",
+        f"总娱乐：{_format_minutes(totals['entertainment_minutes'])}",
+        f"总通信：{_format_minutes(totals['communication_minutes'])}",
+        f"AI使用：{_format_minutes(ai['total_minutes'])}",
         "",
-        "## 主要工作",
+        "🧠 工作分解",
     ]
     for item in summary["work_breakdown"]["by_category"]:
-        lines.append(f"- {item['name']}：{_format_minutes(item['minutes'])}")
-    lines.extend(["", "## 任务用时 Top"])
+        lines.append(f"{item['name']}：{_format_minutes(item['minutes'])}")
+    lines.extend(["", "📌 工作项目 Top"])
     for item in summary["work_breakdown"]["top_tasks"][:5]:
-        lines.append(f"- {item['name']}：{_format_minutes(item['minutes'])}")
+        lines.append(f"{item['name']}：{_format_minutes(item['minutes'])}")
+    lines.extend(["", "🎮 娱乐项目 Top 3"])
+    entertainment_tasks = summary.get("entertainment_breakdown", {}).get("top_tasks", [])
+    if entertainment_tasks:
+        for index, item in enumerate(entertainment_tasks[:3], start=1):
+            lines.append(f"{_rank_label(index)} {item['name']}：{_format_minutes(item['minutes'])}")
+    else:
+        lines.append("没有明显娱乐项目")
     lines.extend(
         [
             "",
-            "## 手机睡眠边界",
-            f"- 晚上停止玩手机：{sleep.get('last_phone_use_at_night') or '未知'}",
-            f"- 早上拿起手机：{sleep.get('first_phone_use_in_morning') or '未知'}",
-            f"- 扣除20分钟入睡后估计睡眠：{_format_minutes(sleep.get('sleep_estimate_minutes_minus_20'))}",
+            "📱 手机睡眠边界",
+            f"晚上停止玩手机：{sleep.get('last_phone_use_at_night') or '未知'}",
+            f"早上拿起手机：{sleep.get('first_phone_use_in_morning') or '未知'}",
+            f"扣除20分钟入睡后估计睡眠：{_format_minutes(sleep.get('sleep_estimate_minutes_minus_20'))}",
             "",
-            "## AI使用",
-            f"- 工作：{_format_minutes(ai['by_activity'].get('work', 0))}",
-            f"- 娱乐：{_format_minutes(ai['by_activity'].get('entertainment', 0))}",
-            f"- 通信：{_format_minutes(ai['by_activity'].get('brief_communication', 0))}",
-            f"- 无法判断：{_format_minutes(ai['by_activity'].get('uncertain', 0))}",
+            "🤖 AI使用",
+            f"总计：{_format_minutes(ai['total_minutes'])}",
+            f"用于工作：{_format_minutes(ai['by_activity'].get('work', 0))}",
+            f"用于娱乐：{_format_minutes(ai['by_activity'].get('entertainment', 0))}",
+            f"用于通信：{_format_minutes(ai['by_activity'].get('brief_communication', 0))}",
+            f"无法判断：{_format_minutes(ai['by_activity'].get('uncertain', 0))}",
             "",
-            "## 候选检查",
+            "🤖 AI用途 Top 3",
         ]
     )
+    if ai.get("top_tasks"):
+        for index, item in enumerate(ai["top_tasks"][:3], start=1):
+            lines.append(f"{_rank_label(index)} {item['name']}：{_format_minutes(item['minutes'])}")
+    else:
+        lines.append("没有明显AI用途")
+    lines.extend(["", "🧩 候选检查"])
     if summary.get("long_blocks"):
-        lines.append("- 过长时间块：" + "；".join(
+        lines.append("过长时间块：" + "；".join(
             f"{item['start']}-{item['end']} {item['label']} {item['minutes']}分钟"
             for item in summary["long_blocks"][:3]
         ))
     else:
-        lines.append("- 过长时间块：没有明显候选")
+        lines.append("过长时间块：没有明显候选")
     if summary.get("efficiency_flags"):
-        lines.append("- 可能低效：" + "；".join(item["label"] for item in summary["efficiency_flags"][:3]))
+        lines.append("可能低效：" + "；".join(item["label"] for item in summary["efficiency_flags"][:3]))
     else:
-        lines.append("- 可能低效：没有明显候选")
+        lines.append("可能低效：没有明显候选")
     if summary.get("system_review_flags"):
-        lines.append("- 系统调整候选：" + "；".join(item["label"] for item in summary["system_review_flags"][:3]))
+        lines.append("系统调整候选：" + "；".join(item["label"] for item in summary["system_review_flags"][:3]))
     else:
-        lines.append("- 系统调整候选：没有明显候选")
+        lines.append("系统调整候选：没有明显候选")
     advice = summary.get("ai_advice")
     if advice:
-        lines.extend(["", "## AI复盘建议", advice.get("concise_advice", "")])
+        lines.extend(["", "💡 AI复盘建议", advice.get("concise_advice", "")])
         priorities = advice.get("tomorrow_priorities", [])
         if priorities:
             lines.append("")
             lines.append("明天优先：")
             for item in priorities[:3]:
                 lines.append(
-                    f"- {item.get('title', '')}：{item.get('starter_action', '')}"
+                    f"{item.get('title', '')}：{item.get('starter_action', '')}"
                 )
     if summary["data_quality"].get("issues"):
-        lines.extend(["", "## 数据质量"])
-        lines.extend(f"- {item}" for item in summary["data_quality"]["issues"])
+        lines.extend(["", "⚠️ 数据质量"])
+        lines.extend(str(item) for item in summary["data_quality"]["issues"])
     lines.append("")
-    lines.append("> 统计数字由脚本生成；AI只解释候选并给建议，不修改分钟数。")
+    lines.append("说明：统计数字由脚本生成；AI只解释候选并给建议，不修改分钟数。")
     return "\n".join(lines)
 
 

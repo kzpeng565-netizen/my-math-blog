@@ -119,6 +119,25 @@ git diff -- config/tag_rules.json
 
 Monaco Lite 中编辑 `/home/conrad/workspace/activitywatch-advisor/config/tag_rules.json`。每次只改一类识别规则，先校验，再用隔离输出目录回放一个已知窗口；不要直接修改历史正式报告。
 
+### ◐ A7. 观察深夜 ntfy 提醒系统
+
+<!-- ai_provenance: source=codex; date=2026-07-29; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/ntfy提醒系统配置.md" -->
+
+==`bedtime-reminder.timer` 已部署并启用，详见 [[ntfy提醒系统配置]]。2026-07-29 00:33 真实夜间调度已发送第一层，状态进入 `LEVEL_1_SENT`。后续需要观察完整 00:30—04:30 夜间窗口：确认第一层、5分钟复查、第二层最多3次、25分钟冷却和04:30重置是否都符合预期。==
+
+检查命令：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+systemctl status bedtime-reminder.timer --no-pager
+systemctl status bedtime-reminder.service --no-pager
+journalctl -u bedtime-reminder.service --no-pager -n 100
+cat data/state/bedtime-reminder-state.json
+tail -n 50 data/bedtime_reminder/events.jsonl
+```
+
+==注意：这不是通用 AI 正式干预。`shadow_mode` 仍应保持 `true`；深夜提醒只做确定性的 ntfy 通知，不修改 Obsidian，不控制手机，不启用 Automate 弹窗。==
+
 ## 立即要做
 
 ### ☐ 1. 确认今天手机数据流正常
