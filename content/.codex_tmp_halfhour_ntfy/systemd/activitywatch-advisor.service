@@ -1,6 +1,6 @@
 [Unit]
-Description=Evaluate the system-maintenance time guard
-After=network-online.target syncthing@conrad.service
+Description=Generate a half-hour computer and phone behavior interpretation
+After=network-online.target syncthing@conrad.service phone-usage-receiver.service
 Wants=network-online.target
 
 [Service]
@@ -9,8 +9,9 @@ User=conrad
 Group=conrad
 WorkingDirectory=/home/conrad/workspace/activitywatch-advisor
 EnvironmentFile=/home/conrad/.config/activitywatch-advisor/env
-EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/ntfy.env
-ExecStart=/usr/bin/python3 /home/conrad/workspace/activitywatch-advisor/src/sysadmin_time_guard.py
+EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/pushplus.env
+EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/ntfy-halfhour.env
+ExecStart=/usr/bin/python3 /home/conrad/workspace/activitywatch-advisor/src/run_half_hour.py
 UMask=0077
 NoNewPrivileges=true
 PrivateTmp=true

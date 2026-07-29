@@ -392,3 +392,60 @@ error
 - `bedtime-reminder.service` 是 oneshot，运行成功后显示 `inactive (dead)` 是正常状态。
 - ==`afternoon-task-check.service` 也是 oneshot；未到 15:00 前显示 `inactive (dead)` 是正常状态。==
 - 半小时 AI 的 `shadow_mode` 仍然是另一套系统；通用行为建议干预仍未启用。
+
+## 系统维护时间提醒
+
+**[已由服务器核验，2026-07-29 09:54 CST]**
+
+目标：当最近 30 分钟主要在做系统维护时，通过 ntfy 提醒切回数学学习或放松；当最近 60 分钟时间段里系统维护持续占据主要位置时，发送高优先级警告。提醒发送后，只有连续 1 小时没有系统维护证据，状态才会重置。
+
+文件位置：
+
+| 文件 | 作用 |
+|---|---|
+| `config/sysadmin_time_guard.json` | 系统维护判定关键词、30/60 分钟阈值、1 小时冷却、通知文案 |
+| `src/sysadmin_time_guard.py` | 读取 ActivityWatch 最近 60 分钟电脑时间线，判定系统维护占比，维护状态机并发送 ntfy |
+| `tests/test_sysadmin_time_guard.py` | 状态机、升级、冷却和关键词分类单元测试 |
+| `systemd/sysadmin-time-guard.service` | oneshot 服务模板 |
+| `systemd/sysadmin-time-guard.timer` | 每 5 分钟运行一次的 timer |
+| `/etc/systemd/system/sysadmin-time-guard.service` | 已安装的正式 systemd service |
+| `/etc/systemd/system/sysadmin-time-guard.timer` | 已安装的正式 systemd timer |
+| `data/state/sysadmin-time-guard-state.json` | 正式状态文件 |
+| `data/sysadmin_time_guard/events.jsonl` | 正式结构化日志 |
+| `data/state/sysadmin-time-guard-dry-run-state.json` | `--no-push` dry run 状态文件 |
+| `data/sysadmin_time_guard/dry-run-events.jsonl` | `--no-push` dry run 日志 |
+
+当前安装状态：
+
+- `sysadmin-time-guard.timer`：`enabled` / `active`
+- `sysadmin-time-guard.service`：oneshot，手动运行成功后显示 `inactive (dead)` 是正常状态
+- 2026-07-29 09:54 CST 手动正式运行一次，结果为 `no_action`，未发送 ntfy；当时最近 30 分钟系统维护占比约 25.5%，最近 60 分钟约 17.1%
+
+判定口径：
+
+- 直接读取 ActivityWatch 最近 60 分钟电脑前台时间线，不等待半小时行为解释归档。
+- 系统维护证据包括终端、VS Code、树莓派/Cockpit/File Browser/Monaco Lite、systemd、journalctl、Tailscale、DNS、ntfy、activitywatch-advisor 等应用、域名或标题关键词。
+- 标题中出现数学、作业、证明等关键词时，会优先排除为非系统维护。
+- 数据过期时不补发提醒，只写日志。
+
+阈值：
+
+```text
+30 分钟提醒：最近 30 分钟活跃时间中，系统维护占比 >= 75%
+60 分钟警告：最近 60 分钟活跃时间中，系统维护占比 >= 65%，且首尾 10 分钟都有维护证据
+冷却重置：连续 60 分钟没有系统维护证据
+调度频率：每 5 分钟
+```
+
+常用命令：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+python3 -m unittest tests.test_sysadmin_time_guard -v
+python3 -m py_compile src/sysadmin_time_guard.py
+python3 src/sysadmin_time_guard.py --no-push
+systemctl status sysadmin-time-guard.timer --no-pager
+systemctl status sysadmin-time-guard.service --no-pager
+systemctl list-timers sysadmin-time-guard.timer --no-pager
+journalctl -u sysadmin-time-guard.service --no-pager -n 50
+```
