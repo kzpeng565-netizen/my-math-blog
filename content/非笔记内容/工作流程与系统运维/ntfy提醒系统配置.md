@@ -19,7 +19,7 @@
 
 ==**[已由服务器核实，2026-07-29 01:10 CST]** 新增 `afternoon-task-check.timer`：每天 15:00 检查当天 Obsidian 规划任务完成度。如果已完成任务数量和番茄钟综合进度不到全天一半，则通过 ntfy 向手机发送高优先级提醒。判断层会调用 DeepSeek V4 Flash 辅助裁决；模型失败时退回确定性规则。==
 
-==当前安装状态：`afternoon-task-check.timer` 为 `enabled` / `active`，下一次触发为 `2026-07-29 15:00:00 CST`；`afternoon-task-check.service` 是 oneshot，未到时间前显示 `inactive (dead)` 是正常状态。==
+==当前安装状态：`afternoon-task-check.timer` 为 `enabled` / `active`；`afternoon-task-check.service` 是 oneshot，未到时间前显示 `inactive (dead)` 是正常状态。2026-07-29 09:20 CST 已手动正式发送一次，ntfy 返回 `accepted`，message_id 为 `Tbg4g2XHqlSh`；因此当天 15:00 定时器会因已有成功回执而跳过重复发送。==
 
 ## 目标
 
@@ -321,6 +321,37 @@ BEDTIME_REMINDER_TEST_MODE=true python3 src/bedtime_reminder.py \
 - ==`afternoon-task-check.timer` 已启用并处于 active；`systemd-analyze verify` 通过，下一次触发为 `2026-07-29 15:00:00 CST`。==
 - ==`python3 -m unittest tests.test_afternoon_task_check -v`：2 项通过。==
 - ==`python3 src/afternoon_task_check.py --date 2026-07-29 --no-push --force`：DeepSeek V4 Flash 返回 `should_send: true`，估算费用约 0.000701 元；未发送手机通知。==
+- ==`python3 src/afternoon_task_check.py --date 2026-07-29 --force`：2026-07-29 09:20 CST 正式发送成功，ntfy 返回 `accepted`，message_id 为 `Tbg4g2XHqlSh`。==
+
+## DNS 修复记录
+
+==2026-07-29 09:13 CST 首次正式发送失败：DeepSeek 与 ntfy 均报 `Temporary failure in name resolution`。原因是 Tailscale 接管 `/etc/resolv.conf` 后把 DNS 查询转给 DHCP/router DNS `192.168.0.252`，而该上游无响应。==
+
+已执行修复：
+
+```bash
+sudo tailscale set --accept-dns=false
+sudo nmcli connection modify 'netplan-eth0' ipv4.ignore-auto-dns yes ipv4.dns '8.8.8.8 223.5.5.5'
+sudo nmcli connection up 'netplan-eth0'
+```
+
+当前预期：
+
+```text
+/etc/resolv.conf 由 NetworkManager 生成
+nameserver 8.8.8.8
+nameserver 223.5.5.5
+```
+
+验证：
+
+```bash
+getent hosts ntfy.sh
+getent hosts api.deepseek.com
+tailscale status --peers=false
+```
+
+Tailscale Funnel 仍显示 `https://pi.taild4d3f7.ts.net` 开启；该 DNS 修复不应影响手机上传入口。
 
 定位 ntfy 400 时曾发过少量 ASCII 最小测试消息，不属于策略提醒。
 

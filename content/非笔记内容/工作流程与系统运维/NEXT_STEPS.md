@@ -59,6 +59,8 @@
 
 ==`afternoon-task-check.timer` 已启用，每天 15:00 读取 Obsidian 同步任务和番茄钟。若当天计划综合进度不到一半，则调用 DeepSeek V4 Flash 辅助判断是否发送提醒；模型失败时使用确定性规则兜底。回执位于 `data/statistics/ntfy_receipts/afternoon_task_check/`。2026-07-29 dry run 已验证：V4 Flash 返回 `should_send: true`，但因 `--no-push` 没有向手机发送。==
 
+==2026-07-29 09:20 CST 已正式发送一次，ntfy 返回 `accepted`，message_id 为 `Tbg4g2XHqlSh`。当天 15:00 timer 会因已有成功回执而不重复发；后续自然日照常 15:00 检查。==
+
 检查命令：
 
 ```bash

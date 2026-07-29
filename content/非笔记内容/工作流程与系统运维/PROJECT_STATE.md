@@ -118,6 +118,8 @@
 21. ==每日生活复盘生成与 ntfy 推送：统计工作/娱乐/通信/AI使用、手机睡眠边界和候选效率问题；DeepSeek V4 Pro 只写建议，不修改程序计算的分钟数。2026-07-29 已手动真实推送一次并取得 ntfy accepted 回执。==
 22. ==深夜设备使用 ntfy 提醒：`bedtime_stop` 策略、独立 ntfy 模块、两层升级状态机、120 秒数据新鲜度保护、04:30 强制重置、JSONL 日志和 systemd timer 已部署。详见 [[ntfy提醒系统配置]]。==
 23. ==15:00 任务进度 ntfy 提醒：`afternoon_task_check.py` 读取 Obsidian 同步快照、原始任务 Markdown 与番茄钟日志；综合任务完成数量和番茄进度，低于一半时调用 DeepSeek V4 Flash 辅助判断是否发送高优先级 ntfy。`systemd-analyze verify` 通过，`afternoon-task-check.timer` 已启用，下一次触发为 2026-07-29 15:00 CST；测试 `tests.test_afternoon_task_check` 2 项通过。==
+24. ==15:00 任务进度提醒真实发送验收：2026-07-29 09:20 CST 手动正式运行 `afternoon_task_check.py --force`，V4 Flash 返回 `should_send: true`，ntfy 返回 `accepted`，message_id 为 `Tbg4g2XHqlSh`。当天已有成功回执，因此 15:00 定时器不会重复发送。==
+25. ==DNS 修复：2026-07-29 首次正式发送时 Pi 端 DeepSeek/ntfy 域名解析失败。已关闭 Tailscale DNS 接管并将 NetworkManager `netplan-eth0` 固定 DNS 为 `8.8.8.8 223.5.5.5`；`getent hosts ntfy.sh` 与 `getent hosts api.deepseek.com` 已恢复。==
 
 ## 当前限制
 

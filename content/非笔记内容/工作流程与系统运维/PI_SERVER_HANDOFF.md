@@ -257,6 +257,7 @@ message=可选说明
 - ==ntfy 私有配置位于 `/home/conrad/.config/activitywatch-advisor/ntfy.env`，权限 600；文档不得记录 topic/token。`daily_life_notifier.py` 手动运行时也会默认读取该文件。==
 - ==深夜设备使用提醒详见 [[ntfy提醒系统配置]]：主通道为 ntfy，第一层 `default`，第二层 `high`，每次升级前重新检查手机/电脑活动，数据年龄超过120秒不升级。它与每日生活复盘共用 ntfy 配置，但状态机、日志和 systemd timer 完全独立。==
 - ==15:00 任务进度提醒详见 [[ntfy提醒系统配置]]：只读 Obsidian 任务和番茄钟，不修改任务；`--no-push` dry run 不会阻止当天 15:00 正式检查。==
+- ==DNS 当前由 NetworkManager 管理：`netplan-eth0` 忽略 DHCP DNS，固定使用 `8.8.8.8 223.5.5.5`；Tailscale `accept-dns=false`。这是 2026-07-29 修复 DeepSeek/ntfy 解析失败后的状态。Tailscale Funnel 仍保持开启。==
 
 ## 5. 已验证成功的功能
 
