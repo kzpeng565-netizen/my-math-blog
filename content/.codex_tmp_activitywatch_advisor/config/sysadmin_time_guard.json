@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "timezone": "Asia/Shanghai",
+  "activity": {
+    "lookback_minutes": 60,
+    "level_1_window_minutes": 30,
+    "level_2_window_minutes": 60,
+    "cooldown_clear_minutes": 60,
+    "minimum_active_seconds": 60,
+    "level_1_maintenance_ratio": 0.75,
+    "level_2_maintenance_ratio": 0.65,
+    "level_2_minimum_edge_ratio": 0.4,
+    "maximum_data_age_seconds": 600
+  },
+  "classification": {
+    "maintenance_apps": [
+      "powershell.exe",
+      "WindowsTerminal.exe",
+      "Code.exe",
+      "xterm",
+      "ssh",
+      "cmd.exe"
+    ],
+    "maintenance_domains": [
+      "pi.local",
+      "pi.taild4d3f7.ts.net",
+      "192.168.0.229",
+      "100.109.89.52",
+      "ntfy.sh"
+    ],
+    "maintenance_title_keywords": [
+      "activitywatch-advisor",
+      "systemd",
+      "journalctl",
+      "tailscale",
+      "cockpit",
+      "file browser",
+      "monaco lite",
+      "pi-editor",
+      "ntfy",
+      "dns",
+      "ssh",
+      "树莓派",
+      "系统维护",
+      "服务器",
+      "运维"
+    ],
+    "non_maintenance_title_keywords": [
+      "数学",
+      "math",
+      "homework",
+      "作业",
+      "定理",
+      "证明"
+    ]
+  },
+  "level_1": {
+    "title": "系统维护已经 30 分钟",
+    "message": "你已经连续一段时间在做系统维护。现在适合切回数学学习，或者离开屏幕放松一下。",
+    "priority": "default"
+  },
+  "level_2": {
+    "title": "系统维护已经占用太久",
+    "message": "最近一小时基本都被系统维护占住了。请立刻收束当前操作，转去数学学习或休息。",
+    "priority": "high"
+  }
+}
