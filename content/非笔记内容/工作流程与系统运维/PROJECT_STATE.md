@@ -208,3 +208,26 @@ systemctl cat activitywatch-advisor.service | grep EnvironmentFile
 ```text
 half_hour_reminder_check_ntfy
 ```
+## 2026-07-29 当前状态补充
+
+### 系统维护超时提醒
+
+系统维护超时提醒已部署并运行。`sysadmin-time-guard.timer` 为 `enabled / active`，每 5 分钟执行一次。当前实现不依赖半小时 AI prompt，而是在确定性分类层直接判断最近 30/60 分钟系统维护占比。
+
+本次修正解决了 `ChatGPT.exe` 标题只有 `ChatGPT` 导致维护对话漏计的问题：当 `ChatGPT.exe` 或 `Codex.exe` 与明确系统维护片段间隔不超过 300 秒时，会继承为系统维护。数学、作业、定理、证明、`math`、`homework` 等关键词优先排除，避免数学学习中的 ChatGPT 被识别为系统维护。浏览器不作为通用桥接应用。
+
+验证状态：
+
+- `python3 -m unittest discover -s tests -v`：76 项通过。
+- 合成 5 个时间段验证通过。
+- 真实 `10:00/10:05/10:10/10:15/10:20` 五个时刻 dry-run 验证通过。
+- 2026-07-29 10:30 CST 自动发送一次高优先级系统维护超时提醒，ntfy 返回 `accepted`，message_id 为 `Se0coKi8Fz0j`。
+- 当前状态为 `COOLDOWN`，仍需连续 1 小时没有系统维护证据才会重置。
+
+### 半小时提醒检测系统
+
+半小时提醒检测系统已命名更正并接入 ntfy。它只在 `would_intervene=true` 时发送提醒；`would_intervene=false`、`--no-push`、全设备无活动静默时只写 skipped 回执。正式回执路径为：
+
+```text
+data/ntfy_receipts/half_hour_reminder_check/YYYY-MM-DD/HH-MM.json
+```

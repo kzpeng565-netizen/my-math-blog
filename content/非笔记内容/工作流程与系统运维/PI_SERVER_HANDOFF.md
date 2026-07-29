@@ -567,3 +567,43 @@ systemctl cat activitywatch-advisor.service | grep EnvironmentFile
 ```text
 half_hour_reminder_check_ntfy
 ```
+## 2026-07-29 接管补充：提醒系统
+
+### 系统维护超时提醒
+
+`sysadmin-time-guard.timer` 已启用，每 5 分钟运行 `src/sysadmin_time_guard.py`。该系统直接读取最近 60 分钟 ActivityWatch 电脑前台时间线，不依赖半小时 AI prompt。此次修正位于确定性分类层：
+
+- `ChatGPT.exe` / `Codex.exe` 可作为上下文桥接应用。
+- 只有当它们与明确系统维护片段间隔不超过 300 秒时，才继承为系统维护。
+- 数学/作业/定理/证明/`math`/`homework` 等排除词优先，不继承。
+- 浏览器不是通用桥接应用；浏览器页面必须自己命中 Pi/systemd/ntfy 等维护证据才算维护。
+
+关键文件：
+
+```text
+/home/conrad/workspace/activitywatch-advisor/config/sysadmin_time_guard.json
+/home/conrad/workspace/activitywatch-advisor/src/sysadmin_time_guard.py
+/home/conrad/workspace/activitywatch-advisor/tests/test_sysadmin_time_guard.py
+/home/conrad/workspace/activitywatch-advisor/data/state/sysadmin-time-guard-state.json
+/home/conrad/workspace/activitywatch-advisor/data/sysadmin_time_guard/events.jsonl
+```
+
+2026-07-29 10:30 CST 自动运行已发送一次高优先级提醒，并进入 `COOLDOWN`。状态重置条件仍是连续 1 小时没有系统维护证据。
+
+### 半小时提醒检测系统
+
+正式名称为“半小时提醒检测系统”。它接在半小时 AI 主流程后，只在 `intervention_candidates` 中 `would_intervene=true` 时向独立 ntfy 半小时订阅发送提醒；不会执行干预，不会修改 Obsidian 任务。
+
+回执路径：
+
+```text
+data/ntfy_receipts/half_hour_reminder_check/YYYY-MM-DD/HH-MM.json
+```
+
+私有 ntfy env：
+
+```text
+/home/conrad/.config/activitywatch-advisor/ntfy-halfhour.env
+```
+
+真实 topic 不得写入 Git、README 或交接文档。

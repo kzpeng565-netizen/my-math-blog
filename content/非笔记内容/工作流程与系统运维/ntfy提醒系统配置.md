@@ -449,3 +449,69 @@ systemctl status sysadmin-time-guard.service --no-pager
 systemctl list-timers sysadmin-time-guard.timer --no-pager
 journalctl -u sysadmin-time-guard.service --no-pager -n 50
 ```
+## 系统维护时间提醒邻近上下文规则修正
+
+**[已由服务器核验，2026-07-29 10:35 CST]**
+
+问题层级：`src/sysadmin_time_guard.py` 的系统维护分类层。原先脚本逐个 ActivityWatch 前台片段独立判断，`ChatGPT.exe` 的窗口标题通常只有 `ChatGPT`，因此夹在 Pi/File Browser/systemd/ntfy 等明确维护片段之间的系统维护对话没有被计入维护时间。
+
+已修正：
+
+- 保留直接命中规则：Pi 地址、File Browser、Monaco Lite、systemd、journalctl、Tailscale、DNS、ntfy、activitywatch-advisor、树莓派、服务器、运维等仍直接算作系统维护。
+- 新增邻近上下文继承：`ChatGPT.exe` 和 `Codex.exe` 如果与明确系统维护片段间隔不超过 300 秒，则继承为系统维护。
+- 数学/作业/定理/证明/math/homework 等排除词优先级更高；含这些排除词的 ChatGPT/Codex 片段不会因邻近维护而被计入系统维护。
+- 浏览器不再作为通用桥接应用；知乎、普通网页、数学资料不会仅因靠近维护片段而被继承。浏览器页面必须自己命中 Pi/systemd/ntfy 等维护证据才算维护。
+- 日志 evidence 新增 `maintenance_source_seconds` 和 `context_bridge_items`，可审计直接命中与邻近继承分别贡献了多少秒。
+
+验证：
+
+- `python3 -m unittest discover -s tests -v`：76 项通过。
+- 合成 5 个时间段验证通过：直接 Pi 维护、维护夹着 ChatGPT、超过 5 分钟间隔的 ChatGPT、数学 ChatGPT、普通浏览器/数学 ChatGPT。
+- 真实 5 个时刻 `10:00/10:05/10:10/10:15/10:20` dry-run 均能识别维护相关 ChatGPT；其中 `10:20` 在收窄规则下 30 分钟维护占比约 `0.859`，60 分钟占比约 `0.685`，但 60 分钟首段证据不足，因此只满足 30 分钟提醒，不满足 60 分钟警告。
+- 收窄规则下 `10:30` 和 `10:35` 仍满足 60 分钟警告条件，因此 10:30 发出的高优先级提醒并非只由浏览器误桥接导致。
+## 2026-07-29 当前提醒系统补充
+
+### 系统维护超时提醒
+
+当前问题定位在 `src/sysadmin_time_guard.py` 的系统维护分类层。该提醒每 5 分钟直接读取 ActivityWatch 最近 60 分钟电脑前台时间线，不依赖半小时 AI prompt。
+
+已上线邻近上下文继承规则：
+
+- 直接维护证据：Pi/File Browser/Monaco Lite/systemd/journalctl/Tailscale/DNS/ntfy/activitywatch-advisor/树莓派/服务器/运维等。
+- 桥接应用：仅 `ChatGPT.exe`、`Codex.exe`。
+- 桥接条件：与明确维护片段间隔不超过 300 秒。
+- 排除优先：数学、作业、定理、证明、`math`、`homework` 等关键词优先排除，不继承为维护。
+- 浏览器不作为通用桥接应用；知乎、普通网页、数学资料不能仅因邻近维护而被计入维护。
+
+验证结果：
+
+- 主测试集 `python3 -m unittest discover -s tests -v`：76 项通过。
+- 合成 5 个时间段均符合预期：直接 Pi 维护、维护夹着 ChatGPT、超过 5 分钟间隔的 ChatGPT、数学 ChatGPT、普通浏览器/数学 ChatGPT。
+- 真实 5 个时刻 `10:00/10:05/10:10/10:15/10:20` dry-run 能正确识别维护相关 ChatGPT。
+- 2026-07-29 10:30 CST 自动运行发送一次高优先级 ntfy，message_id 为 `Se0coKi8Fz0j`，随后进入 `COOLDOWN`。
+
+审计字段：
+
+```text
+data/sysadmin_time_guard/events.jsonl
+summary.maintenance_ratio_30m
+summary.maintenance_ratio_60m
+evidence.maintenance_source_seconds
+evidence.context_bridge_items
+```
+
+### 半小时提醒检测系统
+
+正式名称统一为“半小时提醒检测系统”。半小时流程的 ntfy 回执路径为：
+
+```text
+data/ntfy_receipts/half_hour_reminder_check/YYYY-MM-DD/HH-MM.json
+```
+
+主流程返回字段为：
+
+```text
+half_hour_reminder_check_ntfy
+```
+
+它只在内部候选 `would_intervene=true` 时发送 ntfy；否则只写 skipped 回执。

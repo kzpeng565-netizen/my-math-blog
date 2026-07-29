@@ -286,3 +286,24 @@ sudo systemctl restart activitywatch-advisor.service
 6. 查看最近一条 PushPlus 微信消息 → 内容合理
 7. ==`journalctl -u phone-usage-receiver.service --since "1 hour ago" --no-pager | grep "/annotation"` → 若刚用手机反馈，应看到 `201`；`401/403` 说明 Authorization 头或 token 错误。==
 8. ==`ls /home/conrad/workspace/activitywatch-advisor/data/user_annotations/daily/$(date +%F).md` → 若刚反馈，应看到当日 Markdown 更新时间刷新。==
+## 2026-07-29 后续检查清单
+
+### 系统维护超时提醒
+
+- 观察 `sysadmin-time-guard.timer` 在进入 `COOLDOWN` 后是否只在连续 1 小时没有系统维护证据时重置。
+- 如后续出现误报，优先查看 `data/sysadmin_time_guard/events.jsonl` 中的 `maintenance_source_seconds` 和 `context_bridge_items`，确认是直接命中还是邻近继承造成。
+- 不要把浏览器重新加入 `context_bridge_apps`；普通网页、知乎、数学资料必须自行命中维护关键词才算维护。
+- 如数学学习中的 ChatGPT 被误计，先补充 `non_maintenance_title_keywords`，再跑 `tests.test_sysadmin_time_guard`。
+
+### 半小时提醒检测系统
+
+- 保持正式名称为“半小时提醒检测系统”，不要在对外文档中称为“影子提醒”。
+- 确认 ntfy 只在 `would_intervene=true` 时发送；`would_intervene=false`、`--no-push`、全设备无活动静默都只能写 skipped 回执。
+- 常用验证：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+python3 -m unittest tests.test_sysadmin_time_guard -v
+python3 -m unittest tests.test_half_hour_reminder_check_ntfy -v
+journalctl -u sysadmin-time-guard.service --since "1 hour ago" --no-pager
+```
