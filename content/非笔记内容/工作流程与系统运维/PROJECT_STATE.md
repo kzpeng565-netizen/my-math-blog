@@ -385,6 +385,8 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 ==我的专注花园已提供“直接安排”表单：可新建、改标题/日期/优先级/番茄数、推迟一天和标记完成，用户无需输入 Tasks emoji。循环任务在 v1 不允许从网页完成。Next Action 状态已合并 Pi 的即时视图，并明确提供上海时区的时间戳、日期、时分与星期。==
 
+==2026-08-05 已部署专注—任务一体化：Focus Garden 的开始页可选关联一个近期任务（默认不关联）并选择电脑＋手机、仅电脑、仅手机或仅计时。完成关联会话后，以该任务专属的 40 分钟累计生成 `advance_tomatoes` queue mutation；Pi Context Sync 使用绝对目标值的单调写回，网络或插件重试不会重复计数。全局植物奖励保持独立。New Pomodoro Timer 已改为花园同款配色、默认 40 分钟，开始工作段会通过 Pi MagicDNS 创建同一 Focus Garden 会话，且不再直接写任务番茄。==
+
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/任务计划/ToDo-已经规划好的任务.md" -->
 
 ## 2026-08-04：专注花园电脑＋手机正式启用

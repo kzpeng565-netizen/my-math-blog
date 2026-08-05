@@ -1037,6 +1037,14 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ==已将“直接安排任务”从 Next Action 拆出，新增侧栏“任务清单”页。静态文件仍为 `/home/conrad/services/focus-garden/static/index.html` 与 `static/app.js`；页面不引入新 API、端口或公开路由，继续只使用既有的 `/api/tasks` 和 `/api/tasks/mutations` loopback bridge。部署前备份在 `/home/conrad/workspace/activitywatch-advisor/backups/focus-garden-task-list-20260805-171019/`。==
 
+## 2026-08-05：Focus Garden 关联任务与番茄结算
+
+==`focus_sessions` 已迁移增加 `task_id`、`task_title` 与 `source`；`task_focus_balances` 和 `task_focus_settlements` 是任务专属 40 分钟累计账本。`GardenService.reconcile_focus()` 完成会话后，才通过固定 loopback bridge 向 advisor 的 `/api/task-sync/mutations` 投递 `advance_tomatoes`。这不是 Pi 直写 Markdown：advisor 只保留 queue，Pi Context Sync 读取 effective task view 后以单调的绝对目标更新 `[🍅:: current/total]`，再导出快照并 ack。==
+
+==`advance_tomatoes` payload 的 `settlement_id` 必须是稳定 session ID，advisor 对相同 ID 去重；任务没有正数 🍅 预估、已从快照消失或已经达到预估时，settlement 标记为 skipped，只保留 Focus Garden 历史。Focus Garden 的全局 `focus_credit_minutes` 与任务账本完全分离。==
+
+==公开入口仍仅为 `https://pi.taild4d3f7.ts.net:8460` 的 tailnet-only Serve。`POST /api/focus/start` 新接受可选 `task_id`、`task_title`、`source`，以及空 targets（仅计时）；非空 targets 继续只允许 `windows` / `phone`，并复用已有受限介入通道。==
+
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md" -->
 
 ## 2026-08-05：Focus Garden 分级植物规则
