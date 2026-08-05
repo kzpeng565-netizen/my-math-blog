@@ -371,6 +371,16 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
 
+## 2026-08-05：可暂停的番茄锁定会话
+
+==New Pomodoro Timer 与网页 Focus Garden 复用同一个 Windows `computer-intervention-agent`，没有新增番茄专用 agent。Cold Turkey 由 agent 以未硬锁的 `-start` 会话开启，并在暂停、取消或专注完成时用 `-stop` 关闭；不再传 `-lock`。==
+
+==每轮专注只可暂停一次。暂停时 Pi 会保持会话为 paused、阻止结算、请求 agent 解除电脑锁定；恢复时重新下发同一 profile 的 allowlist。曾暂停的会话完成后有效成长和任务番茄累计均按原时长的一半计算（40 分钟即 20 分钟）。==
+
+==Windows agent 的现有心跳增加 `active_locks` 派生的 lease 状态；“系统状态”页显示 Cold Turkey 为 active/idle 以及当前 block。网页与插件都可选深度 profile（常刷网站＋bilibili）或轻度 profile（不锁 bilibili）。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
 ## 2026-08-05 状态更新：花园系统健康面板
 
 ==专注花园“系统状态”已改为只读健康面板。它通过 Pi 本机读取服务状态、任务 mutation queue、Obsidian 快照/同步检查的新鲜度、Windows agent 与 Android Focus Bridge 心跳、行为上下文、最近报告及 SQLite 备份新鲜度；不展示任务正文、原始行为日志或任何密钥。==

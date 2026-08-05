@@ -1007,6 +1007,16 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
 
+## 2026-08-05：番茄可暂停 lease 部署
+
+==Pi 已部署 `focus_garden/database.py`、`server.py`、`cold_turkey.py`，Advisor 的 `computer_intervention.py`、`web_app.py`，以及 `/static/lease-status.js`。部署前备份位于 `/home/conrad/backups/focus-garden/20260805-pomodoro-lease` 和 `/home/conrad/backups/activitywatch-advisor/20260805-pomodoro-lease`。==
+
+==新增接口：`POST /api/focus/pause {pause_minutes}`、`POST /api/focus/resume`，以及仅供同机 Focus Garden 调用的 Advisor `POST /api/interventions/manual-focus/release {blocks}`。不要对外暴露 Advisor；Garden 仍只通过 loopback 请求它。==
+
+==Windows `D:\tools\computer-intervention-agent\agent.py` 已改为现有 agent 的 `mode=release` 分支和 Cold Turkey `-start`/`-stop` lease，计划任务 `ComputerInterventionAgent` 已重启。系统状态 API 的 `bridges.windows.lease_state` 与 `lease_blocks` 是网页展示的唯一来源。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
 ## 2026-08-05：Focus Garden 系统健康面板与 Windows heartbeat
 
 ==`focus-garden.service` 新增只读 `GET /api/system-status`。它在同机汇总五项 systemd 服务、`data/task_sync/state.json` queue、Obsidian snapshot/heartbeat、`windows-main` agent state、Android bridge、context cache、最近半小时报告及同步 archive SQLite 的更新时间；接口不返回任务正文、行为原始数据或密钥。浏览器只从既有 tailnet-only `:8460` 访问它，未新增端口、Serve/Funnel 或写入能力。==

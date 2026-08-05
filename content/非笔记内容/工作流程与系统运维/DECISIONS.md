@@ -467,6 +467,16 @@
 
 <!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
 
+### D62. 番茄锁定是 agent 托管的可撤销 lease【有效】
+
+==New Pomodoro Timer 不拥有第二个锁机 agent；它只通过 Pi 发送结构化 start/release 请求给既有 Windows `computer-intervention-agent`。该 agent 对 allowlist block 执行 Cold Turkey `-start <block>` 与 `-stop <block>`，禁止为番茄钟使用 `-lock` 硬锁。==
+
+### D63. 一次暂停换取半额成长【有效】
+
+==每个 Focus Garden session 最多暂停一次，暂停分钟数为显式输入。暂停阻止结算并请求释放电脑 lease；恢复会重启同 profile 的 allowlist。只要使用过暂停，整轮最终有效专注分钟、植物积分和关联任务番茄积分统一按原计划时长的 1/2 结算。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
 ### D68. 健康面板只聚合状态和新鲜度，不读取用户内容【有效】
 
 ==“系统状态”页只可汇总固定服务的 active/inactive、任务 queue 数量、快照/备份的更新时间、以及 Windows/Android bridge 的心跳年龄。它不得返回 Tasks 标题、Obsidian 正文、原始行为事件、token、cookie 或任意可执行指令；Pi 不因该面板而获得修改 Markdown 或 Windows 的权限。==

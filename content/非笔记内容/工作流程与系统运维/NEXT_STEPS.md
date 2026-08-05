@@ -470,6 +470,12 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
+### ☐ P1：日常验证一次“暂停—恢复—半额结算”
+
+==选择仅电脑的 40 分钟专注，确认系统状态页先显示 Cold Turkey active；暂停一次并输入分钟数，确认其变为 idle；恢复后回到 active，完成后确认本轮只累积 20 分钟有效成长。不要在验证时选择手机锁定，因为当前暂停 release 只保证 Windows Cold Turkey lease。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=implementation-verified; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
 ## 2026-08-05 后续事项：健康面板与运行状态
 
 ### ☑ 已完成：系统状态真实健康面板
