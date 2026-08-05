@@ -467,6 +467,12 @@
 
 <!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
 
+### D64. 暂停是一次定时的锁机租约，而非手动恢复按钮【有效】
+
+==暂停前必须输入并确认 1—120 分钟。Pi 保存唯一暂停记录和截止时刻，先经既有 Windows agent 停止 Cold Turkey，再由后台 reconciler 在截止时自动重新下发同一 profile 与 targets；网页或 Obsidian 不在线也不影响恢复。暂停一次即永久标记该 session 按半额成长与番茄结算，不能通过提早点“继续”规避。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
 ### D62. 番茄锁定是 agent 托管的可撤销 lease【有效】
 
 ==New Pomodoro Timer 不拥有第二个锁机 agent；它只通过 Pi 发送结构化 start/release 请求给既有 Windows `computer-intervention-agent`。该 agent 对 allowlist block 执行 Cold Turkey `-start <block>` 与 `-stop <block>`，禁止为番茄钟使用 `-lock` 硬锁。==

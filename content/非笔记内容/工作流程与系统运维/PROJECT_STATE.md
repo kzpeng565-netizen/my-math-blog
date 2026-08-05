@@ -371,6 +371,14 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
 
+## 2026-08-05 状态更新：统一的定时暂停
+
+==网页 Focus Garden 与 New Pomodoro Timer 现在共享一次定时暂停：用户先输入 1—120 分钟并确认；Pi 权威 SQLite 记录暂停开始与恢复截止时刻，立即请求既有 Windows agent 解除 Cold Turkey 会话。专注服务的后台 reconciler 每 2 秒检查截止时刻，因此网页和 Obsidian 都关闭时仍会自动恢复原锁定范围与计时。==
+
+==每个 session 仍只能暂停一次。确认过暂停后，完成结算的植物成长与关联任务番茄均固定按原计划时长的一半计算；约定的暂停时长会完整延后 session 的结束时间，不能由前端开关决定。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
 ## 2026-08-05：可暂停的番茄锁定会话
 
 ==New Pomodoro Timer 与网页 Focus Garden 复用同一个 Windows `computer-intervention-agent`，没有新增番茄专用 agent。Cold Turkey 由 agent 以未硬锁的 `-start` 会话开启，并在暂停、取消或专注完成时用 `-stop` 关闭；不再传 `-lock`。==

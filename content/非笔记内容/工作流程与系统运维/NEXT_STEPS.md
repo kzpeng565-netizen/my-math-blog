@@ -470,6 +470,12 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
+### ☐ P1：用一次真实的短暂停闭环复核自动恢复
+
+==在正常专注中选择一次 1—3 分钟暂停，确认 Windows agent 的 Cold Turkey 会话停止、网页显示倒计时、截止后无需点击就恢复计时和锁定；再确认 session 标记为曾暂停且结算仅按半额。不要为了此项测试使用手机的不可逆硬锁。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
 ### ☐ P1：日常验证一次“暂停—恢复—半额结算”
 
 ==选择仅电脑的 40 分钟专注，确认系统状态页先显示 Cold Turkey active；暂停一次并输入分钟数，确认其变为 idle；恢复后回到 active，完成后确认本轮只累积 20 分钟有效成长。不要在验证时选择手机锁定，因为当前暂停 release 只保证 Windows Cold Turkey lease。==
