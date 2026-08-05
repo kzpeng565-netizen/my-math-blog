@@ -371,6 +371,14 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
 
+## 2026-08-05 状态更新：花园系统健康面板
+
+==专注花园“系统状态”已改为只读健康面板。它通过 Pi 本机读取服务状态、任务 mutation queue、Obsidian 快照/同步检查的新鲜度、Windows agent 与 Android Focus Bridge 心跳、行为上下文、最近报告及 SQLite 备份新鲜度；不展示任务正文、原始行为日志或任何密钥。==
+
+==新增 `GET /api/system-status`，仍只经既有 8838 loopback 与 8460 tailnet-only Serve 提供。Windows `ComputerInterventionAgent` 已为登录后计划任务，并每 5 分钟向既有 Next Action loopback API 发送轻量 heartbeat；它不新增远程命令能力。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
 ## 2026-08-05 状态更新：任务网页写回桥
 
 ==已部署任务同步 v1：`ToDo-任务集合.md`、`ToDo-已经规划好的任务.md`、`已完成任务.md` 进入同一同步范围；每个任务以 Obsidian block ID（新 ID 为 8 位小写字母数字）作为稳定键。Pi 只持久化网页操作意图和即时有效任务视图；Pi 不直接写 Markdown，Obsidian 的 Pi Context Sync 插件在打开 Vault 后写回并在新的快照抵达 Pi 后确认队列。==

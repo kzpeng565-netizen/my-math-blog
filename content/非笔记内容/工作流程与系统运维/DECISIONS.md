@@ -467,6 +467,16 @@
 
 <!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
 
+### D68. 健康面板只聚合状态和新鲜度，不读取用户内容【有效】
+
+==“系统状态”页只可汇总固定服务的 active/inactive、任务 queue 数量、快照/备份的更新时间、以及 Windows/Android bridge 的心跳年龄。它不得返回 Tasks 标题、Obsidian 正文、原始行为事件、token、cookie 或任意可执行指令；Pi 不因该面板而获得修改 Markdown 或 Windows 的权限。==
+
+### D69. Windows agent 采用计划任务启动并提交独立心跳【有效，取代 D56】
+
+==`ComputerInterventionAgent` 在用户登录后的交互会话中通过 `pythonw.exe` 启动，保留 Tk 弹窗能力。它每 5 分钟向固定的 `/api/computer-interventions/heartbeat` 写入在线状态、版本、最近轮询状态和活跃锁定数量；heartbeat 仅用于可观测性，失败不阻断正常 pending request 轮询。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
 ### D62. 任务网页采用 Pi 意图队列、Obsidian 单写者【有效；取代 D20/D21 的相关部分】
 
 ==网页新建、编辑、推迟和完成操作先写入 Pi 的持久化 mutation queue，并立即覆盖 Next Action 的有效任务视图；只有 Obsidian Pi Context Sync 插件能修改三个任务 Markdown。插件写入后运行导出器，且仅当 Pi 收到具有匹配哈希的新快照时确认并删除 queue 项。这样关闭 Obsidian 时网页仍能立即影响建议，同时不存在 Pi 与本地 Markdown 双写冲突。==

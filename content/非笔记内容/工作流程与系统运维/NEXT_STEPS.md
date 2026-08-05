@@ -470,6 +470,22 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
+## 2026-08-05 后续事项：健康面板与运行状态
+
+### ☑ 已完成：系统状态真实健康面板
+
+==花园已显示 Pi 服务、任务 queue、Obsidian 快照、同步检查、Windows/Android bridge、上下文缓存、最近报告和 SQLite 备份的新鲜度。Windows agent 已切换为计划任务启动并已成功发送 heartbeat。==
+
+### ☐ 待观察：日常心跳与陈旧状态语义
+
+==连续日常使用 3—7 天，确认 Windows heartbeat 在登录、休眠、网络中断和恢复后的显示符合实际；Android 超过 20 分钟、Windows 超过 12 分钟应显示 stale，而不能伪装为在线。==
+
+### ☐ 待设计：统一 current_state 输入契约
+
+==先盘点 Next Action 与半小时语义/影子介入的既有输入和输出，明确哪些确定性摘要可复用；未经确认前不替换 AI prompt、不增加自动干预，也不让任何状态文件成为第二个任务写入端。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
 ### ☑ P2：任务网页写回桥与 Next Action 实时任务上下文
 
 ==已部署并验收：Windows Syncthing 已恢复与 Pi 连通；新快照中的任务 ID 缺失数为 0；Pi Next Action 状态实测含上海时区当前时间和带 ID 的有效任务。花园的任务界面与 Pi loopback bridge 已启用。==

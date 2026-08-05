@@ -1007,6 +1007,16 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
 
+## 2026-08-05：Focus Garden 系统健康面板与 Windows heartbeat
+
+==`focus-garden.service` 新增只读 `GET /api/system-status`。它在同机汇总五项 systemd 服务、`data/task_sync/state.json` queue、Obsidian snapshot/heartbeat、`windows-main` agent state、Android bridge、context cache、最近半小时报告及同步 archive SQLite 的更新时间；接口不返回任务正文、行为原始数据或密钥。浏览器只从既有 tailnet-only `:8460` 访问它，未新增端口、Serve/Funnel 或写入能力。==
+
+==`activitywatch-advisor-web.service` 新增 `POST /api/computer-interventions/heartbeat`，仅记录 Windows agent 的轻量在线事实。`D:\tools\computer-intervention-agent\agent.py` 每 300 秒调用一次；agent 仍只使用 allowlist 执行本机 Cold Turkey，heartbeat 失败不会中止 pending request 的轮询。`ComputerInterventionAgent` 当前为用户登录后的计划任务，入口是 `D:\anaconda\pythonw.exe` 与 `launch_agent.pyw`。==
+
+==2026-08-05 验证：`focus-garden.service`、backup timer、advisor web/timer 和 Syncthing 均 active；`/api/system-status` 显示任务 queue 为 0、Windows 与 Android bridge 在线、archive backup 新鲜。部署前备份位于 `/home/conrad/workspace/activitywatch-advisor/backups/system-health-20260805-204533/`。Pi 上花园测试 15/15 通过；advisor 全量测试 101 项中 100 通过、1 项既有 Next Action fixture 因期望任务标题未进入测试状态而失败，未改动 `next_action.py`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
 ## 2026-08-05：Windows 到 Pi 统一使用 MagicDNS
 
 ==Pi Context Sync 的 SSH 校验、`D:\MyFocusGarden` 开发副本的只读 Pi 同步，以及 Windows 的 `ssh pi.local` 别名均已改为使用 `pi.taild4d3f7.ts.net`。不得在运行配置中固定 `100.109.89.52` 或局域网 DHCP 地址；Tailscale IP 仅可作为当时的诊断信息。MagicDNS SSH 与快照哈希校验已实际通过。==

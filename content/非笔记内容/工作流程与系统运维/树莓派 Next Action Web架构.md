@@ -272,3 +272,11 @@ POST /api/next-action with unresolved active suggestion         -> 409 pending_o
 ==请求状态中固定包含上海时区的时间戳、日期、时分、星期、时区和 UTC 偏移。AI 仍只可从有效任务标题中选择工作/学习建议，不能把建议反馈或网页状态直接写入 Obsidian。==
 
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/任务计划/ToDo-已经规划好的任务.md" -->
+
+## 2026-08-05：Windows agent heartbeat
+
+==Next Action 新增 `POST /api/computer-interventions/heartbeat`，由 Windows 本地 agent 在既有私有访问链路上每 5 分钟调用。它只更新 server-side agent state 的在线事实，不能领取 request、不能生成建议、不能修改 task mutation，也不能执行任意命令。==
+
+==Focus Garden 仅在 Pi loopback 中读取该状态并展示为健康摘要；Windows heartbeat 超过 12 分钟标记 stale。页面经 :8460 的 tailnet-only Serve 访问，未增加任何公网 API。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
