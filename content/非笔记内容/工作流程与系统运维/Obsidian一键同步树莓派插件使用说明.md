@@ -77,6 +77,12 @@ D:\mathblog\tools\behavior-context-exporter\behavior_context_exporter.json
 
 如果左侧栏没有按钮，先重启 Obsidian，或在第三方插件页面确认 `Pi Context Sync` 已启用。
 
+## 2026-08-06：SSH 校验等待策略
+
+==远端哈希校验仍只读、仍使用 `pi.taild4d3f7.ts.net` 和指定私钥；为容忍通过 DERP 的 Tailnet 建连，连接超时从 4 秒提高到 12 秒，总校验窗口从 20 秒提高到 45 秒，并启用 `IdentitiesOnly=yes`，确保只使用配置的 Pi 密钥。出现“暂未确认”只代表在窗口内没有得到相同 SHA-256，不表示本地导出失败；Syncthing 会继续重试。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=local-verified; retrieved_notes="Pi Context Sync runtime/source and MagicDNS SHA-256 command" -->
+
 如果改完 ToDo 后马上点击，插件会主动保存当前打开的目标 note；但如果文件在外部编辑器里打开并且外部编辑器没有保存，插件只能读取磁盘上的旧内容。
 
 ## 更新插件
