@@ -1009,7 +1009,7 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ## 2026-08-05：Focus Garden 自动暂停恢复
 
-==数据库暂停记录增加恢复截止时刻。POST /api/focus/pause 仍只允许每个 session 一次，接收 1—120 分钟并向现有 Windows agent 排队 release；focus-garden 的 2 秒 reconciler 到期后自动走 resume，恢复相同的 profile、blocks 与 targets。静态网页由 static/focus-pause-ui.js 显示倒计时，没有手动“继续”入口；New Pomodoro Timer 本地计时也在同一截止时刻自动继续。==
+==数据库暂停记录增加恢复截止时刻。POST /api/focus/pause 仍只允许每个 session 一次，接收 1—120 分钟并向现有 Windows agent 排队 release；focus-garden 的 2 秒 reconciler 到期后自动走 resume，恢复相同的电脑 profile 与 blocks。静态网页由 static/focus-pause-ui.js 显示倒计时，没有手动“继续”入口；New Pomodoro Timer 本地计时也在同一截止时刻自动继续。手机 Quick Pomodoro 暂无远程停止 API，暂停期不改变其已启动时长。==
 
 ==部署前备份位于 /home/conrad/backups/focus-garden/20260805-auto-pause。已通过 20 项本地单测、两个 JavaScript 语法检查，Pi 重启后 focus-garden.service active、127.0.0.1:8838 bootstrap 与 pause UI 静态文件均返回成功。==
 

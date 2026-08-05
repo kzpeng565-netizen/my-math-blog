@@ -469,7 +469,7 @@
 
 ### D64. 暂停是一次定时的锁机租约，而非手动恢复按钮【有效】
 
-==暂停前必须输入并确认 1—120 分钟。Pi 保存唯一暂停记录和截止时刻，先经既有 Windows agent 停止 Cold Turkey，再由后台 reconciler 在截止时自动重新下发同一 profile 与 targets；网页或 Obsidian 不在线也不影响恢复。暂停一次即永久标记该 session 按半额成长与番茄结算，不能通过提早点“继续”规避。==
+==暂停前必须输入并确认 1—120 分钟。Pi 保存唯一暂停记录和截止时刻，先经既有 Windows agent 停止 Cold Turkey，再由后台 reconciler 在截止时自动重新下发电脑锁定；网页或 Obsidian 不在线也不影响恢复。手机 Quick Pomodoro 尚无远程暂停接口。暂停一次即永久标记该 session 按半额成长与番茄结算，不能通过提早点“继续”规避。==
 
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
 
