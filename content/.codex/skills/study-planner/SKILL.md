@@ -1,6 +1,6 @@
 ---
 name: study-planner
-description: "Plan semester coursework and homework from the user's Obsidian task collection into executable Obsidian Tasks entries. Use when the user asks to schedule course assignments, inspect linked homework notes, estimate mathematics exercises with 20/40/60-minute tiers, or write an academic study plan during teaching weeks. Read the task-management files, avoid duplicates, preserve assignment wikilinks, write planned entries, and remove only successfully planned archived task blocks."
+description: "Plan semester coursework and homework from the user's Obsidian task collection into executable Obsidian Tasks entries. Use when the user asks to schedule course assignments, inspect linked homework notes, estimate mathematics exercises with 20/40/60-minute tiers, track postponed tasks with &推迟过x天 markers, or write an academic study plan during teaching weeks. Read the task-management files, avoid duplicates, preserve assignment wikilinks, write planned entries, and remove only successfully planned archived task blocks."
 ---
 
 # Study Planner
@@ -33,6 +33,7 @@ If a task collection block contains an Obsidian wikilink that points to a homewo
 8. Remove only task blocks that both (a) were successfully planned and (b) contain an Obsidian wikilink to an archived homework/task note. If a homework/task block in `ToDo-任务集合.md` has no wikilink, keep it in the collection even after creating a planned Tasks line, because it has not been archived yet.
 9. Keep unplanned blocks in `ToDo-任务集合.md` when links cannot be opened or task content is missing. If the task content is visible but no DDL can be inferred, still include it in the schedule, use the current date as `⏳`, omit a firm due date only when Tasks syntax would break, and add `(ddl未知)` to the task name; blocks without Obsidian wikilinks must still remain in the collection after planning.
 10. In the final response, show the Tasks lines that were written, summarize why each estimate was chosen, and list any blocks left unplanned.
+11. On every planning/整理 run, inspect existing incomplete tasks in `ToDo-已经规划好的任务.md` for postponements. If a task's `⏳` date is earlier than today, mark the task name with `&推迟过x天`, where `x` is the calendar-day difference between that scheduled date and today's date. If the user explicitly says a task was postponed, apply the same marker even when no `⏳` date is available (use the supplied postponement date when present; otherwise leave `x` unspecified and report the missing date). Do not add duplicate markers: if `&推迟过...天` already exists, update its number to the current elapsed days rather than appending another marker. Preserve an existing marker as history when the task is later rescheduled to a future date. Do not mark completed tasks.
 
 ## Link Following
 
@@ -122,6 +123,17 @@ If the task gives an explicit deadline, respect it. If not:
 
 `📅` is the due date.
 
+## Postponed-task markers
+
+Postponement tracking is part of every整理 pass, not an optional cleanup. For each unchecked task already in the planned-task file:
+
+1. Read its `⏳` scheduled date before changing it. A date strictly earlier than today's date means the task was postponed/overdue.
+2. Compute `x = (today - scheduled_date).days` using calendar days (no rounding by hours), and append `&推迟过x天` to the task name, before the `[🍅:: ...]` field. For example, a task scheduled for `2026-08-03`整理ed on `2026-08-05` becomes `任务名&推迟过2天 [🍅:: ...] ...`.
+3. If the task already has an `&推迟过...天` marker, replace only its numeric value with the newly computed value; never stack multiple markers. Keep the marker even if a later edit moves `⏳` to a future date, so the delay history is not lost.
+4. If postponement is explicitly reported but no date can be computed, use the literal `&推迟过x天` and call out the missing date in the advice note. Never infer a number from the task's priority or tomato estimate.
+
+When reporting changes, list postponed tasks whose markers were added or updated separately from newly planned tasks.
+
 ## Tasks Format
 
 Every planned task line must use this shape:
@@ -133,6 +145,7 @@ Every planned task line must use this shape:
 Rules:
 
 - Keep task names short.
+- A postponed incomplete task must include the marker `&推迟过x天` in its name (before the tomato field); this marker is updated in place on later整理 runs and is not duplicated.
 - Preserve the original homework wikilink from `ToDo-任务集合.md` in the task name when present, e.g. `完成实分析作业[[15.测度性质与分解习题]]`.
 - Do not list all exercise numbers in the task description.
 - Keep one line per independent homework note or major item.

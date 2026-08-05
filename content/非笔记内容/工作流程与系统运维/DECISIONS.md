@@ -381,3 +381,201 @@
 ### D50. 半小时提醒检测系统是正式名称【有效】
 
 对外通知、回执路径和交接标题统一使用“半小时提醒检测系统”。内部仍保留 `intervention_candidates` / `would_intervene` 作为影子候选计算机制，但 ntfy 只在 `would_intervene=true` 时发送，且不会执行干预或修改任务。
+## 2026-07-29：Next Action Web 与下一步行动助手
+
+**状态：有效。**
+
+- 新增“下一步行动助手”作为独立系统部件。它不是半小时行为解读系统的一部分，也不是自动干预系统。
+- 决策状态生成器只在用户主动点击网页按钮时运行，不后台自动生成建议，不自动推送。
+- 下一步建议使用 DeepSeek V4 Pro，即 `settings.json` 中的 `decision_model`；半小时主流程继续使用原模型配置。
+- AI 输出允许较丰富的说服性解释，不再限制为极短命令。建议应包含：行动、时长、第一步、简短理由、数据依据、说服说明、可能阻力、缩小版行动。
+- 工作/学习类行动必须匹配当天 Obsidian 任务；树莓派不得创造新任务，不得回写 Obsidian Tasks。
+- 番茄钟全局改为中等可靠性正向证据：有记录说明投入过时间；缺失记录不能反推没有学习。
+- 第一版执行观察只采用用户手动结果，不根据设备活动自动判定完成或失败。
+- 半小时报告继续推送到 PushPlus，同时允许在网页中查看和提交反馈；网页反馈与 Automate 反馈统一进入 `data/user_annotations/`。
+- Web 入口通过 Tailscale Serve tailnet-only 暴露在 `https://pi.taild4d3f7.ts.net:8450`，不复用公开 Funnel。
+- 睡眠日报改为 09:00/10:00/11:00 重试；11:00 仍无早晨边界时标记 possible_fault。
+## 2026-07-29：Next Action v1.1
+
+**状态：有效。**
+
+- 下一步行动助手版本命名为 `next-action-v1.1`。
+- v1.1 优先解决建议语言和规则边界，不解决任务标题粒度过大的结构问题。
+- 建议语气应温和、具体、有适度亲近感，像熟悉用户节奏的助手，而不是训诫者、心理咨询师或鸡汤文案。
+- 说服逻辑应降低启动阻力：承认真实阻力、给出低成本第一步、说明短期具体收益。
+- 每天 12:00-13:00 固定为吃饭和午休时间，默认不推荐数学/项目工作。
+- 番茄钟数量是预估任务预算或进度标记，不是完成保证；实际需要数量可能大于预估。
+- 2026-07-29 修正：本系统中 `1 🍅 = 40 分钟`，不是常见 25 分钟。Next Action prompt、状态 JSON 和输出验证器都必须防止把 15/25/30 分钟启动片段称为“一个番茄钟”。
+## 2026-07-30 新增决策
+
+### D34. Next Action Web 增加独立“问题反馈”入口【有效】
+
+**决策**：在 Next Action Web 中新增“问题反馈”页面，用于收集系统问题，而不是继续把所有问题混入下一步建议的“拒绝/换一个”反馈。
+
+**原因**：
+
+- 下一步建议反馈主要回答“这个建议我是否接受、为什么不适合”。
+- 问题反馈主要回答“系统哪里有 bug、数据哪里错、规则哪里不合理、网页哪里难用”。
+- 两类反馈分开后，后续 Codex 可以直接从 `data/issue_feedback/UNREVIEWED.md` 进入批处理，而不会污染执行效果统计。
+
+**边界**：
+
+- 问题反馈只记录文本、分类、严重程度、当前页面、相关建议 ID 或报告路径。
+- 不上传截图，不保存密钥，不暴露原始日志目录。
+- 后端只提供登录后的提交和最近列表 API。
+
+### D35. 问题反馈以 raw JSON 为事实源，Markdown 只作视图【有效】
+
+**决策**：每条问题反馈先写入 raw JSON，再由程序重建 daily Markdown 和 `UNREVIEWED.md`。
+
+**原因**：
+
+- raw JSON 便于程序稳定读取、去重和后续批处理。
+- Markdown 适合人和 Codex 快速审阅。
+- 由 raw 重建 Markdown 可以避免手工编辑视图导致事实源漂移。
+
+### D36. 为 Codex 增加 `pi-ops-system-context` skill【有效】
+
+**决策**：新增本地 Codex skill，专门路由树莓派行为顾问系统相关请求。
+
+**原因**：
+
+- 系统已经跨越手机、平板、电脑、树莓派、Obsidian、Tailscale、DeepSeek、ntfy/PushPlus 和网页，单靠对话记忆容易漏读关键约束。
+- skill 会要求 Codex 先读取 canonical docs、reading routes、service map 和 update protocol，再修改系统。
+- skill 明确记录 `1 🍅 = 40 分钟`、番茄钟是中等可靠正向证据、Obsidian Tasks 不由树莓派回写、问题反馈 backlog 从 `UNREVIEWED.md` 进入等硬约束。
+
+### D51. 新建议生成必须先完成上一条建议的人工闭环【有效】
+
+==当 `data/next_action/active.json` 指向的建议没有执行结果，且用户也没有明确选择“换一个”或“现在不做”时，后端不得直接生成并覆盖新建议。接口应返回 `409 pending_outcome_required`，网页强制展示上一条建议；用户提交“完成了/正在做/没开始”后，网页自动恢复本次生成请求。==
+
+“换一个”和“现在不做”本身已经明确关闭当前建议，因此不再额外要求执行结果；“开始”只表示接受，仍需后续填写结果。
+
+### D52. 主动点击“生成建议”是用户已醒的直接交互证据【有效】
+
+==Next Action 是用户主动触发的网页请求。能够点击按钮即足以证明用户已经醒来并能交互；睡眠日报中的早晨边界即使仍为 pending，也不得促使建议系统询问“是否起床/是否醒来”。==
+
+该规则同时进入决策状态、模型 prompt 和确定性输出验证器；若模型仍返回此类 `clarify`，后端拒绝模型输出并使用安全 fallback。
+
+<!-- ai_provenance: source=codex; date=2026-07-30; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+## 2026-07-31 电脑端 Cold Turkey 介入决策
+
+==半小时系统可以从影子候选生成电脑端介入请求，但 Pi 端只负责判断、归档和提供 API，不远程执行任意 Windows 命令。Windows agent 以拉取方式获取 pending request，执行前必须用本地 allowlist 校验 block 名；当前仅允许 `常刷网站` 与 `bilibili`。==
+
+==用户连续两次点击“不介入”后，第三次仍触发时强制执行 30 分钟 Cold Turkey 介入；点击介入、强制介入成功、agent 判断目标已处于封锁状态、观察到有意义活动恢复或确认休息，都会重置拒绝计数。弹窗超时未响应记为 `ignored`，不计入连续拒绝。==
+
+==B 站 block 在周六全天、周日全天、周一 00:00-12:00 Asia/Shanghai 作为备课例外，不执行封锁且不计入拒绝。电脑 ActivityWatch 无活动不阻止介入请求生成；手机/平板沉迷也可以触发电脑端 Cold Turkey 封锁。==
+
+<!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
+### D62. 任务网页采用 Pi 意图队列、Obsidian 单写者【有效；取代 D20/D21 的相关部分】
+
+==网页新建、编辑、推迟和完成操作先写入 Pi 的持久化 mutation queue，并立即覆盖 Next Action 的有效任务视图；只有 Obsidian Pi Context Sync 插件能修改三个任务 Markdown。插件写入后运行导出器，且仅当 Pi 收到具有匹配哈希的新快照时确认并删除 queue 项。这样关闭 Obsidian 时网页仍能立即影响建议，同时不存在 Pi 与本地 Markdown 双写冲突。==
+
+### D63. 任务 ID 统一采用 Obsidian block ID【有效】
+
+==新任务使用行末 `^xxxxxxxx` 的 8 位小写字母数字 block ID；New Pomodoro Timer 叉在创建任务时生成同一格式。保留既有短 block ID，避免破坏历史块链接。==
+
+### D64. 任务桥接保持本地与 tailnet 边界【有效】
+
+==advisor 的任务 API 仅监听 `127.0.0.1:8767`，只接受 Obsidian 插件或 Focus Garden 固定 bridge header；花园仍经现有 tailnet-only Serve 访问。不得为任务同步新增 Funnel、端口或让 Pi 直接访问 Vault。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+### D68. 正式专注只允许固定时长，连续休息不解除锁机【有效】
+
+==手动和预约专注只接受 5、10、20、30、40、45、60 分钟；连续专注只接受 30、40、45、60 分钟，且显式选择休息时间和轮数。电脑与手机的既有锁机均不提供提前解除：连续模式在每轮专注开始时发起新的锁定，休息时只记录阶段，不绕过或撤销已有锁定。==
+
+### D69. 手机桥接以无障碍服务心跳作为可用性证据【有效】
+
+==Android 无障碍服务每 5 分钟向 Focus Garden 的固定私有 API 写入 `android-main` 心跳；20 分钟未见心跳即视为暂停，并在下一次加载花园网页时显示一次简短提示。心跳仅反映桥接可用性，不证明手机锁机已成功执行；实际执行仍以事件回执和本地日志为准。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
+### D69. Next Action 免密码必须与 Tailnet-only 边界配套【有效】
+
+==Next Action 不再要求独立网页登录密码，但仅可经既有 Tailscale Serve `:8450` 或专注花园 `:8460` 访问。撤销密码时必须同步撤除公网 Funnel；不得把 8767/8838 绑定到非 loopback 地址，也不得以“方便访问”为由重开 `:10000`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
+### D68. 花园合并 Next Action 时只可调用同 Pi 的固定 loopback 接口【有效】
+
+==花园服务仅可向 `127.0.0.1:8767` 转发明确列出的 Next Action 路由，并只透传用户浏览器已有的登录 cookie；不得保存密码、读取 Next Action 私有配置/归档、接受任意上游 URL，或改变 Tailscale Serve/Funnel 边界。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/树莓派 Next Action Web架构.md" -->
+
+## 2026-08-03 我的专注花园 Pi 迁移决策
+
+### D65. Pi 是唯一正式写入端【有效】
+
+==权威数据库只由 Pi 的 `focus-garden.service` 写入。电脑通过网页使用同一实例，不让两个活跃进程直接同步或同时写 SQLite；Windows 原项目只保留为开发与恢复副本。==
+
+### D66. 存档以一致性快照单向同步【有效】
+
+==定时任务使用 SQLite backup API 把 WAL 状态合并为原子快照，再经 Syncthing 从 Pi send-only 同步到 Windows receive-only，并在接收端保留 staggered 历史版本。不得把活跃 SQLite 改为双向文件同步。==
+
+### D67. 私有访问只使用 Tailscale Serve【有效】
+
+==应用保持 loopback 监听，8460 仅为 tailnet-only Serve；不得为专注花园启用 Funnel、公开反向代理或 `0.0.0.0:8838`。受版权保护的素材只在 Tailnet 内提供，且不进入存档同步目录。==
+
+<!-- ai_provenance: source=codex; date=2026-08-03; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/02-游戏架构.md,非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-03 我的专注花园交接决策
+
+### D61. 运行真相与交接文档分离【有效】
+
+==交接文档与运行数据保持分离；`工作流程与系统运维/我的专注花园/` 只保存可审计交接，不复制数据库、密钥、token 或贴图。迁移后运行与存档事实源在 Pi，`D:\MyFocusGarden` 是开发和恢复副本。交接入口为 [[我的专注花园/00-交接总览]]。==
+
+### D62. 植物注册使用稳定 ID，视觉素材可替换【有效】
+
+==可种植对象由 `config/plants.json` 注册并按 `flower`、`tree`、`mushroom` 分类。历史种植记录只保存 `species_id`，因此替换贴图时保留 ID，不改历史数据库；蘑菇在种植弹窗中保持独立标签页。==
+
+### D63. 花园随机位置必须可复现且只能消费一次奖励【有效】
+
+==位置选择以 `reward_id + species_id` 的哈希作为固定随机种子；SQLite 事务、`reward_id` 唯一约束和坐标唯一约束共同保证一份奖励只能种一次。花园仅在所有格子填满后按奇数边长扩展。==
+
+### D64. 当前第三方贴图继续限个人私有环境使用【有效，待原创替换】
+
+==当前目录含 Minecraft Education Edition、本机 Steam 游戏 Mushroom Nook 和用户提供的草方块贴图。它们只可存在于个人 Windows 与私人 Pi，不得上传公网、分享或随代码分发；Git 排除规则必须覆盖 mushrooms、blocks 和其他非原创素材。==
+
+<!-- ai_provenance: source=codex; date=2026-08-03; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/01-数据来源与处理.md,非笔记内容/工作流程与系统运维/我的专注花园/02-游戏架构.md" -->
+
+## 2026-08-02 我的专注花园决策
+
+### D57. 游戏保持 Windows 本地优先，不新增树莓派公开服务【已被 D65—D67 取代】
+
+==这是迁移前决策。现已改为 Pi loopback + tailnet-only Serve，仍不启用 Funnel 或公网 API；正式读取改为 Pi 本地只读聚合。==
+
+### D58. 奖励必须由确定性事实和稳定 ID 产生【有效】
+
+==主动介入只奖励 `accepted + execution success`，排除 `forced/ignored/already_locked/skipped`；AI 完成必须在同一 `suggestion_id` 上同时存在 `accepted` response 与 `completed` outcome；早睡只作为手机停止使用估计，不宣称为真实入睡。所有奖励进入本地 SQLite 并以源事件 ID 去重。==
+
+### D59. 自愿专注复用 Cold Turkey allowlist【有效】
+
+==游戏不得执行任意 block 或任意 shell 命令，只允许调用现有 computer-intervention-agent 配置中的 allowlist。开发和自动测试必须设置 `FOCUS_GARDEN_DRY_RUN=1`，不得为了验收真实锁定网站。==
+
+### D60. 第一版原版贴图只限本地且禁止进入版本控制【有效，待替换】
+
+==第一版从本机已安装的 Minecraft Education Edition 复制 20 个植物 PNG；这些文件加入项目 `.gitignore`，不得上传、分享或分发。第二版保持植物 ID 和注册接口不变，逐步换成原创素材。==
+
+<!-- ai_provenance: source=codex; date=2026-08-02; verification=user-confirmed; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
+### D53. Cold Turkey 自动开启由 Windows 本地 agent 执行【有效】
+
+==Pi 端只生成结构化介入请求、保存回执、提供登录后 API；不下发任意 shell 命令，也不直接远程控制 Windows。Windows agent 拉取请求后，只能执行本地 `allowed_blocks` 中预先配置的 Cold Turkey block。当前 allowlist 仅包含 `常刷网站` 与 `bilibili`。==
+
+### D54. 忽略等同于“暂不介入”的完成请求，但不累计拒绝【有效】
+
+==弹窗超时或 UI 无法显示时返回 `ignored`。它会把当前 request 标记为完成，避免同一请求反复弹出；但 `decline_streak_after` 保持不变，不触发“两次不介入后第三次强制”的累计。==
+
+### D55. 弹窗必须适配高 DPI 并保持底部操作可见【有效】
+
+==Windows Tk 弹窗必须显式设置 DPI awareness；主体内容允许滚动，底部倒计时与“暂不介入 / 介入 30 分钟”按钮固定可见。若字体、系统缩放或触发原因文本导致内容变高，也不得遮挡操作按钮。目标名需使用 `display_name` 兜底，避免中文 block 名在测试或编码异常时显示成 `????`。==
+
+### D56. 当前 agent 运行方式是普通后台进程，不是持久化服务【有效，待改进】
+
+==当前运行命令为 `D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py`，由用户会话中的后台进程承担。重启 Windows、注销用户或进程退出后不会自动恢复。后续若要长期依赖该模块，应安装 Windows 计划任务或服务，并加入定期心跳/健康检查。==
+
+### D61. 锁机启动失败采用有限、显式的重试【有效】
+
+
+<!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->

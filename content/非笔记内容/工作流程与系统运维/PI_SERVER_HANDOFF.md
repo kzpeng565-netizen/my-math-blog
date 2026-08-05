@@ -332,7 +332,7 @@ message=可选说明
 **[仅讨论过]**：
 
 - 替代信息流平台（树莓派信息过滤）-- 仅讨论
-- 自动管控（Cold Turkey / 不做手机控联动）-- 仅讨论
+- 自动管控（Cold Turkey / 不做手机控联动）-- Cold Turkey 电脑端已于 2026-07-31 部分落地；不做手机控联动仍仅讨论
 - AI 维护提示词和 Skills -- 仅讨论
 
 **[当前无法确认]** 的事项：
@@ -607,3 +607,446 @@ data/ntfy_receipts/half_hour_reminder_check/YYYY-MM-DD/HH-MM.json
 ```
 
 真实 topic 不得写入 Git、README 或交接文档。
+## 2026-07-29：Next Action Web 交接补充
+
+私有网页入口：
+
+```text
+https://pi.taild4d3f7.ts.net:8450
+```
+
+该入口为 Tailscale Serve tailnet only，代理到：
+
+```text
+http://127.0.0.1:8767
+```
+
+相关服务和文件：
+
+```text
+activitywatch-advisor-web.service
+/home/conrad/workspace/activitywatch-advisor/src/web_app.py
+/home/conrad/workspace/activitywatch-advisor/src/next_action.py
+/home/conrad/workspace/activitywatch-advisor/systemd/activitywatch-advisor-web.service
+/home/conrad/workspace/activitywatch-advisor/docs/next-action-web-architecture.md
+```
+
+数据归档：
+
+```text
+data/next_action/state_snapshots/
+data/next_action/suggestions/
+data/next_action/responses/
+data/next_action/outcomes/
+data/next_action/active.json
+```
+
+半小时报告网页反馈复用：
+
+```text
+data/user_annotations/raw/
+data/user_annotations/daily/
+data/user_annotations/UNREVIEWED.md
+```
+
+常用检查：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+python3 -m unittest discover -s tests
+systemctl status activitywatch-advisor-web.service --no-pager
+journalctl -u activitywatch-advisor-web.service --no-pager -n 80
+curl -fsS http://127.0.0.1:8767/api/half-hour/reports
+tailscale serve status
+```
+
+注意：下一步行动助手只在用户主动点击时调用 V4 Pro。它不是自动执行观察系统，也不会自动修改 Obsidian 任务、prompt、配置或反馈 raw JSON。
+## 2026-07-29：Next Action v1.1 交接补充
+
+当前版本：
+
+```text
+next-action-v1.1
+```
+
+关键变化：
+
+- `src/next_action.py` 增加 `routine_context=lunch_rest`。
+- 12:00-13:00 默认禁止 `task` 类型建议，回退到吃饭/离屏休息。
+- `hard_rules.pomodoro_role` 明确番茄钟数量只是预估预算/进度标记，不是完成保证。
+- `hard_rules.pomodoro_minutes = 40`；本系统 `1 🍅 = 40 分钟`，不是 25 分钟。若模型把 15/25/30 分钟启动片段说成一个番茄钟，`_validate_suggestion()` 会拒绝该输出。
+- 模型 system message 增加 v1.1 addendum：温和、具体、适度亲近；说服启动最小动作，避免鸡汤和训诫。
+
+部署后需重启：
+
+```bash
+sudo systemctl restart activitywatch-advisor-web.service
+```
+## 2026-07-30 接管补充：Next Action 问题反馈入口
+
+Next Action Web 已新增问题反馈入口，用于记录用户发现的系统问题，便于后续 Codex 统一处理。
+
+### 入口与认证
+
+公网入口仍是 Next Action Web：
+
+```text
+https://pi.taild4d3f7.ts.net:10000
+```
+
+服务仍只监听本机：
+
+```text
+127.0.0.1:8767
+```
+
+登录凭据存放在树莓派私有环境文件中：
+
+```text
+/home/conrad/.config/activitywatch-advisor/web.env
+```
+
+不要把密码、cookie secret 或其它私有 token 写入文档、仓库或对话输出。
+
+### 新增代码与数据路径
+
+```text
+/home/conrad/workspace/activitywatch-advisor/src/issue_feedback.py
+/home/conrad/workspace/activitywatch-advisor/tests/test_issue_feedback.py
+/home/conrad/workspace/activitywatch-advisor/data/issue_feedback/
+```
+
+数据结构：
+
+```text
+data/issue_feedback/raw/YYYY-MM-DD/<issue_id>.json
+data/issue_feedback/daily/YYYY-MM-DD.md
+data/issue_feedback/UNREVIEWED.md
+```
+
+`raw` 是事实源；daily 和 `UNREVIEWED.md` 由程序从 raw 重建。
+
+### 新增 API
+
+```text
+POST /api/issue-feedback
+GET  /api/issue-feedback/recent
+```
+
+两者都要求登录。未登录访问最近问题列表应返回 401。
+
+提交字段：
+
+```text
+category
+severity
+message
+page
+suggestion_id
+report_path
+```
+
+分类包括：AI 建议质量、数据错误或缺失、网页界面、通知、规则不匹配、安全或访问、文档或交接、其它。
+
+### 验证命令
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+python3 -m unittest tests.test_issue_feedback
+python3 -m unittest discover -s tests
+systemctl status activitywatch-advisor-web.service --no-pager
+```
+
+2026-07-30 部署后验证结果：主测试 87 项 OK；网页服务重启后 active；未登录访问 `/api/issue-feedback/recent` 返回 401。
+
+## 2026-07-30 交接补充：Next Action v1.2
+
+当前版本：
+
+```text
+next-action-v1.2
+```
+
+==生成新建议时，`src/web_app.py` 先调用 `pending_active_suggestion()`。如果 `active.json` 对应建议没有 outcome，且最近 response 不是 `alternative_requested` 或 `declined`，接口返回：==
+
+```json
+{
+  "code": "pending_outcome_required",
+  "suggestion": {}
+}
+```
+
+状态码为 409。网页会显示旧建议并暂存本次生成意图；用户点击“完成了/正在做/没开始”后，前端自动重新请求新建议。“换一个”和“现在不做”已构成关闭响应，不受此拦截。
+
+==`build_decision_state()` 还会写入 `request_context.user_is_awake_for_decision_purposes=true`。用户主动点击生成按钮必须被视为已醒的直接证据；prompt 和 `_reject_awake_clarification()` 均禁止询问是否起床或醒来。==
+
+部署验证：
+
+```text
+Next Action tests: 9 OK
+All tests: 90 OK
+Web JavaScript blocks: 2 validated
+activitywatch-advisor-web.service: active
+127.0.0.1:8767: listening
+Unauthenticated API: 401
+Pending outcome API: 409 pending_outcome_required
+```
+
+原文件备份位于：
+
+```text
+/home/conrad/workspace/backups/activitywatch-advisor-20260730-next-action-v12/
+```
+
+<!-- ai_provenance: source=codex; date=2026-07-30; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-07-31 交接补充：电脑端 Cold Turkey 介入
+
+==半小时行为解释器在影子候选 `would_intervene=true` 且未使用 `--no-push` 时，会额外生成电脑端介入请求。请求、回执和 agent 状态分别归档在：==
+
+```text
+data/computer_interventions/requests/YYYY-MM-DD/<request_id>.json
+data/computer_interventions/responses/YYYY-MM-DD/*.json
+data/computer_interventions/state/windows-main.json
+```
+
+==Next Action Web 服务新增给 Windows agent 使用的登录后 API：==
+
+```text
+GET  /api/computer-interventions/pending?computer_id=windows-main
+POST /api/computer-interventions/ack
+POST /api/computer-interventions/response
+```
+
+==Windows 端 agent 位于 `D:\tools\computer-intervention-agent\`，只允许执行本地 allowlist 中的 Cold Turkey block：`常刷网站` 与 `bilibili`。默认命令路径为 `D:\Cold Turkey\Cold Turkey Blocker.exe`，执行 `-start <block> -lock 30`。拒绝两次后第三次强制介入；封锁成功、agent 判断目标已处于本地估计封锁状态、或系统观察到恢复，都会重置拒绝计数。B 站 block 在周六全天、周日全天、周一 00:00-12:00 Asia/Shanghai 例外。==
+
+<!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## Windows No-Console Agent Launch (2026-08-04)
+
+`ComputerInterventionAgent` is an interactive Scheduled Task because the agent must
+show Tk dialogs in the logged-in desktop session. Its action is now:
+
+```text
+D:\anaconda\pythonw.exe "D:\tools\computer-intervention-agent\launch_agent.pyw"
+```
+
+The `Cold Turkey *.lnk` desktop status shortcut similarly targets
+`D:\anaconda\pythonw.exe` with `launch_status_ui.pyw`; neither entry point uses
+PowerShell or `python.exe`. Both launchers redirect diagnostics to the local
+`data\agent.log` and `data\status_ui.log` files. Reinstall with
+`install-agent-scheduled-task.ps1` and `install-status-shortcut.ps1` after moving
+the tool directory. The status UI recognizes `pythonw.exe` / `launch_agent.pyw`.
+
+## 2026-08-03 交接补充：我的专注花园 Pi 服务
+
+==正式应用目录为 `/home/conrad/services/focus-garden`，服务为 `focus-garden.service`，只监听 `127.0.0.1:8838`。私人入口为 `https://pi.taild4d3f7.ts.net:8460/`，`tailscale serve status` 必须显示 `tailnet only`；不要为它启用 Funnel。==
+
+==本地完整接管清单见 [[我的专注花园/05-Pi迁移验收与恢复清单]]。==
+
+==权威数据库为 `/home/conrad/services/focus-garden/data/focus-garden.sqlite3`。`focus-garden-backup.timer` 每分钟运行一次一致性快照，目标为 `/home/conrad/workspace/focus-garden-archive/focus-garden.sqlite3`；该 Syncthing 文件夹在 Pi 为 send-only，在 Windows 为 receive-only。==
+
+常用检查：
+
+```bash
+systemctl status focus-garden.service focus-garden-backup.timer --no-pager
+journalctl -u focus-garden.service --no-pager -n 100
+curl -fsS http://127.0.0.1:8838/api/health
+tailscale serve status
+syncthing cli config folders focus-garden-archive dump-json
+```
+
+==Pi 服务设置 `FOCUS_GARDEN_PI_LOCAL=1` 和 `FOCUS_GARDEN_DRY_RUN=1`：奖励扫描直接读取本机 activitywatch-advisor JSON；网页专注只计时，不调用 Windows Cold Turkey。受版权保护的 PNG 留在私有应用目录，不在存档同步目录。==
+
+<!-- ai_provenance: source=codex; date=2026-08-03; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md,非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-03 常规交接补充：我的专注花园
+
+==本段是迁移前现场记录，已被同日“我的专注花园 Pi 服务”交接取代。当前 Pi 已有专属服务、数据库、备份定时器和 tailnet-only Serve。==
+
+==完整数据条件和调用过程见 [[我的专注花园/01-数据来源与处理]]；Pi 启停、备份、验证和排障见 [[我的专注花园/04-运维与扩展手册]]。专注花园只允许既有的 tailnet-only 8460 Serve，不得启用 Funnel 或公网端口。==
+
+==当前 Pi 服务健康，35 种可种植对象已加载，7 项测试通过。若访问失败，先验证 Tailscale 与服务状态；不要把 Linux 密码或 token 写进游戏配置。==
+
+<!-- ai_provenance: source=codex; date=2026-08-03; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md,非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-02 接管补充：我的专注花园
+
+==本地项目位于 `D:\MyFocusGarden`，正式启动文件为 `launch.pyw`，安全测试入口为 `run-safe-test.ps1`，桌面快捷方式为“我的专注花园”。本地 HTTP 仅监听 `127.0.0.1:8838`，SQLite 存档在 `data/focus-garden.sqlite3`。==
+
+树莓派侧没有新增文件、端口或服务。游戏使用 SSH 只读以下目录：
+
+```text
+data/computer_interventions/responses/
+data/next_action/responses/
+data/next_action/outcomes/
+data/statistics/daily_life/
+```
+
+==同步失败时先在 Windows 运行 `ssh -o BatchMode=yes pi.local` 检查密钥和 mDNS；不要在游戏配置中保存 Linux 密码、Next Action Web 密码或任何 token。Cold Turkey 仍复用 `D:\tools\computer-intervention-agent\config.json` 的 executable 和 allowlist。==
+
+本地验证：
+
+```powershell
+cd D:\MyFocusGarden
+python -m unittest discover -s tests -v
+node --check static\app.js
+python app.py --dry-run
+```
+
+<!-- ai_provenance: source=codex; date=2026-08-02; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-07-31 常规交接：本地 Cold Turkey 自动开启模块
+
+### 当前状态
+
+==模块已完成第一版部署。Pi 端生成请求并保存回执；Windows 本地 agent 负责弹窗和 Cold Turkey 执行。2026-07-31 13:38 CST 已实测真实请求处理成功，`常刷网站` 与 `bilibili` 均收到 Cold Turkey `-start <block> -lock 30` 命令并返回 success。==
+
+==当前 agent 以普通后台进程运行，不是 Windows 服务或计划任务。检查命令：==
+
+```powershell
+Get-CimInstance Win32_Process |
+  Where-Object { $_.Name -in @('python.exe','python3.exe') -and $_.CommandLine -like '*computer-intervention-agent*' } |
+  Select-Object ProcessId,CreationDate,CommandLine
+```
+
+正常应看到类似：
+
+```text
+D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
+```
+
+### Windows 本地文件
+
+```text
+D:\tools\computer-intervention-agent\agent.py
+D:\tools\computer-intervention-agent\status_ui.py
+D:\tools\computer-intervention-agent\config.json
+D:\tools\computer-intervention-agent\run-agent.ps1
+D:\tools\computer-intervention-agent\run-status-ui.ps1
+D:\tools\computer-intervention-agent\state.json
+```
+
+==`config.json` 包含本地登录配置，不要把其中密码复制到文档或对话中。文档只记录路径和字段语义。==
+
+启动命令：
+
+```powershell
+Start-Process -FilePath 'D:\anaconda\python.exe' `
+  -ArgumentList 'D:\tools\computer-intervention-agent\agent.py' `
+  -WorkingDirectory 'D:\tools\computer-intervention-agent' `
+  -WindowStyle Hidden
+```
+
+桌面状态入口：
+
+```text
+C:\Users\15345\Desktop\Cold Turkey 自动开启状态.lnk
+```
+
+==双击会打开 `status_ui.py`，用于查看后台 agent 是否运行、Pi API 是否正常、上一次 request/执行结果、当前 agent 估计封锁状态，并可点击“启动 agent”。这个状态 UI 不执行 Cold Turkey，只展示状态和启动后台 agent。==
+
+### Pi 端数据和 API
+
+请求、回执、状态：
+
+```text
+/home/conrad/workspace/activitywatch-advisor/data/computer_interventions/requests/YYYY-MM-DD/<request_id>.json
+/home/conrad/workspace/activitywatch-advisor/data/computer_interventions/responses/YYYY-MM-DD/*.json
+/home/conrad/workspace/activitywatch-advisor/data/computer_interventions/state/windows-main.json
+```
+
+登录后 API：
+
+```text
+GET  /api/computer-interventions/pending?computer_id=windows-main
+POST /api/computer-interventions/ack
+POST /api/computer-interventions/response
+```
+
+本地验证：
+
+```bash
+cd /home/conrad/workspace/activitywatch-advisor
+python3 -m unittest tests.test_computer_intervention -v
+python3 -m unittest discover -s tests -v
+systemctl status activitywatch-advisor-web.service --no-pager
+```
+
+2026-07-31 验证结果：新增测试 3 项 OK；全量测试 93 项 OK；`activitywatch-advisor-web.service` active；未登录访问新 API 返回 401。
+
+### 弹窗 UI
+
+==弹窗已改为高 DPI aware 的模块化简约设计：顶部判断卡、三张观察值卡、触发原因、将处理的模块、固定底部按钮和倒计时。主体可滚动，底部操作始终可见。`ignored` 文案为“未响应将按暂不介入处理，但不累计拒绝”。==
+
+测试 UI 时不要触发 Cold Turkey，可用临时 Python import 调用 `ask_user()`，但注意用 Unicode escape 构造中文测试数据，避免 PowerShell 管道编码污染。
+
+### 常见排障
+
+- ==没有弹窗：先查本机是否有 `agent.py` 进程；再查 `config.json` 是否有登录密码或是否设置 `NEXT_ACTION_WEB_PASSWORD`。==
+- ==Pi 有 request 但无 response：说明 agent 没拉到请求、登录失败、或进程已退出。看 `data/computer_interventions/requests/` 与 `responses/` 对比。==
+- ==Pi 上 `last_seen_at` 不新：当前没有独立心跳，只有 ack/final 才更新；不能单靠它判断离线。==
+- ==中文显示成问号：检查 `agent.py` 是否使用 UTF-8 保存；目标显示名优先走 `display_name` 与 allowlist。==
+- ==不应直接改 Cold Turkey 内部 SQLite。第一版只走官方命令行 `-start <block> -lock <minutes>`。==
+
+<!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-04 已部署：专注花园 Next Action 菜单
+
+==本地 `D:\MyFocusGarden` 的 UI 与固定 loopback 代理已部署到 Pi，并完成 8 项 Python 测试和服务重启。未新增端口、Serve/Funnel 路由或环境密钥：花园仍只监听 `127.0.0.1:8838`，内部仅访问既有 `127.0.0.1:8767`。待按 `我的专注花园/04-运维与扩展手册` 用真实登录完成手动验收。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-04：Next Action 免密码访问
+
+==`/home/conrad/.config/activitywatch-advisor/web.env` 中的 `NEXT_ACTION_WEB_PASSWORD` 已在私有备份后移除，并重启 `activitywatch-advisor-web.service`。不要在文档、仓库或对话中记录原值。==
+
+==安全边界同时收紧：已用 Tailscale 移除 `https://pi.taild4d3f7.ts.net:10000` 的公网 Funnel；Next Action 仅通过 tailnet-only `https://pi.taild4d3f7.ts.net:8450/` 和花园 tailnet-only `https://pi.taild4d3f7.ts.net:8460/` 访问。若以后需要公网入口，必须先恢复独立认证并重新评估。==
+
+==现场验证：8767 与 8838 均只监听 `127.0.0.1`；两层 `/api/next-action/active` 均为 HTTP 200；Funnel 仅剩原有的 443 手机接收服务。私有环境备份位于 `/home/conrad/workspace/backups/next-action-password-disable-20260804-121956/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-05：Windows 到 Pi 统一使用 MagicDNS
+
+==Pi Context Sync 的 SSH 校验、`D:\MyFocusGarden` 开发副本的只读 Pi 同步，以及 Windows 的 `ssh pi.local` 别名均已改为使用 `pi.taild4d3f7.ts.net`。不得在运行配置中固定 `100.109.89.52` 或局域网 DHCP 地址；Tailscale IP 仅可作为当时的诊断信息。MagicDNS SSH 与快照哈希校验已实际通过。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-05：任务网页同步 v1
+
+==已部署 `/api/task-sync/state`、`/api/task-sync/mutations`、`/api/task-sync/ack` 于 advisor（仅 127.0.0.1:8767）。状态文件为 `data/task_sync/state.json`；它是网页 mutation queue，不是 Markdown 的权威副本。Focus Garden 在同机以固定 `X-Focus-Garden-Bridge: 1` 代理 `/api/tasks` 与 `/api/tasks/mutations`；Obsidian 插件以独立固定 header 调用 state/ack。==
+
+==运行文件：`/home/conrad/workspace/activitywatch-advisor/src/task_sync.py`、`next_action.py`、`web_app.py`；花园为 `/home/conrad/services/focus-garden/focus_garden/server.py`、`static/index.html`、`static/app.js`。部署前的备份位于 `/home/conrad/workspace/activitywatch-advisor/backups/task-sync-20260805-132419/`，热修复前的 `next_action.py` 另有同目录备份。两项 systemd 服务在 2026-08-05 验证为 active。==
+
+==Next Action 的 `build_decision_state` 会先合并有效任务，再把 `current_timestamp`、`current_date`、`current_time`、`current_weekday`、`timezone` 和 `utc_offset` 传给 AI。循环任务的网页完成操作必须返回错误；不得绕过 Obsidian 插件直接改任务 Markdown。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/树莓派 Next Action Web架构.md" -->
+
+## 2026-08-05：Focus Garden 任务清单页面
+
+==已将“直接安排任务”从 Next Action 拆出，新增侧栏“任务清单”页。静态文件仍为 `/home/conrad/services/focus-garden/static/index.html` 与 `static/app.js`；页面不引入新 API、端口或公开路由，继续只使用既有的 `/api/tasks` 和 `/api/tasks/mutations` loopback bridge。部署前备份在 `/home/conrad/workspace/activitywatch-advisor/backups/focus-garden-task-list-20260805-171019/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md" -->
+
+## 2026-08-04：专注花园正式电脑＋手机桥接
+
+==`focus-garden.service` 保持 `127.0.0.1:8838` 与 `:8460` 的 tailnet-only Serve，但 `FOCUS_GARDEN_DRY_RUN=0`，`FOCUS_GARDEN_DISPATCH_INTERVENTIONS=1`。网页状态应显示“正式锁定”；切换或排障后用 `curl -fsS http://127.0.0.1:8838/api/health` 和 `GET /api/bootstrap` 检查。==
+
+==Android `com.conrad.focusbridge` v1.0.0 通过 `/api/focus-bridge/heartbeat` 每 5 分钟记录 `android-main`。记录保存在花园权威 SQLite 的 `bridge_health`；超过 20 分钟为 stale，网页只在加载时提示。手机本地日志位于 App 私有文件区，不上传。==
+
+==专注 API：`POST /api/focus/start` 只接受 5/10/20/30/40/45/60；`POST /api/focus/schedule` 创建一次预约；`POST /api/focus/continuous` 创建 30/40/45/60 分钟的多轮计划。连续计划状态保存在 SQLite `focus_plans`，每轮专注结束后进入休息；休息不执行解锁。==
+
+==Windows agent 的 `D:\tools\computer-intervention-agent\config.json` 必须使用 tailnet-only `https://pi.taild4d3f7.ts.net:8450` 且 `auth_required=false`；不要记录或输出该文件中的任何密码字段。其 `state.json` 的 `last_poll_status=no_pending` 表示链路待命。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-04：移动端布局、蘑菇迁移与锁机重试
+
+==已部署花园静态页修复：手机端时长按钮为 4 列换行，移除本次专注读数与停止计时入口；图鉴为两列；花园阶段不再固定最小高度，桌面植物说明不被花园框裁切、手机端不显示悬浮说明。当前 `plants.json` 只发布 Minecraft 红/棕蘑菇，Mushroom Nook 素材文件和分类扩展代码未删除。==
+
+==迁移前已以 SQLite backup API 生成 `/home/conrad/services/focus-garden/data/focus-garden-before-minecraft-mushrooms-20260804-225207.sqlite3`；权威库中一株 Mushroom Nook 与一株红蘑菇均已改为 `brown_mushroom`。==
+
+==Windows agent 已加入非阻塞的“专注锁机已开始”短提示；其 Cold Turkey 命令不成功时在 30 秒后重试一次。Focus Bridge v1.0.1 在手机锁屏导致可访问窗口不可用时，每 30 秒重新尝试启动已确认的快速番茄，最多 6 次；第一次尝试即显示手机通知。新 APK 已编译，但设备安装命令等待 Package Manager，需在解锁后重新单次安装确认。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->

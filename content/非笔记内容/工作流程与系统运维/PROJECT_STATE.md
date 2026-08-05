@@ -231,3 +231,170 @@ half_hour_reminder_check_ntfy
 ```text
 data/ntfy_receipts/half_hour_reminder_check/YYYY-MM-DD/HH-MM.json
 ```
+## 2026-07-29：Next Action Web 已上线
+
+树莓派端已新增私有网页入口：
+
+```text
+https://pi.taild4d3f7.ts.net:8450
+```
+
+该入口由 `activitywatch-advisor-web.service` 提供，内部监听 `127.0.0.1:8767`，通过 Tailscale Serve tailnet only 暴露。公开 Funnel 仍只用于手机数据上传和 Automate annotation。
+
+“下一步”功能已完成第一版闭环：点击网页按钮后临时生成决策状态，调用 DeepSeek V4 Pro，返回包含行动、依据和说服性解释的建议，并把状态快照、建议、响应和手动执行结果归档到 `data/next_action/`。
+
+“半小时报告”网页查看已可用，PushPlus 微信推送保留不变。网页中提交的报告反馈复用 `data/user_annotations/`，与 Automate HTTP 反馈进入同一个 raw/daily/UNREVIEWED 体系。
+
+日报睡眠边界已改为 09:00、10:00、11:00 三次检测。09:00/10:00 若早晨边界仍未出现，只写 pending 状态，不推送日报；11:00 仍未观察到则标记 possible_fault 并生成低置信日报。
+
+验证状态：`python3 -m unittest discover -s tests` 通过 82 项；实际 `POST /api/next-action` 已成功生成一条 V4 Pro 建议。自动执行观察和正式自动干预仍未启用。
+## 2026-07-29：Next Action v1.1 已部署
+
+下一步行动助手已更新为 `next-action-v1.1`。本版增强心理学和语言层面的说服力，保持适度亲近感，同时加入 12:00-13:00 吃饭/午休硬规则。
+
+番茄钟规则已修正：番茄钟是中等可靠性正向证据；本系统 `1 🍅 = 40 分钟`，不是 25 分钟；番茄数量表示预估预算或进度标记，不保证实际剩余工作能在剩余番茄内完成。Next Action 已补充 prompt、结构化 `hard_rules` 和后端验证器，避免把 15/25/30 分钟启动片段误称为一个番茄钟。
+
+任务粒度过大的问题本版暂不解决；AI 仍从当天任务标题中选择，但需要把第一步和缩小版动作切到 5-10 分钟可启动的小动作。
+## 2026-07-30 状态更新：Next Action 问题反馈入口与 Codex 运维 skill
+
+已完成 Next Action Web 的“问题反馈”入口。该入口用于记录用户在使用下一步行动助手、半小时报告、数据同步、通知、规则匹配或网页界面时发现的问题，方便之后统一交给 Codex 批处理。
+
+当前已部署并验证：
+
+- 网页服务仍由 `activitywatch-advisor-web.service` 提供，监听树莓派本机 `127.0.0.1:8767`。
+- 公网入口仍只暴露 Next Action 页面和必要 API，登录后才能提交和查看问题反馈。
+- 新增后端模块：`/home/conrad/workspace/activitywatch-advisor/src/issue_feedback.py`。
+- 新增测试：`/home/conrad/workspace/activitywatch-advisor/tests/test_issue_feedback.py`。
+- 新增数据目录：`/home/conrad/workspace/activitywatch-advisor/data/issue_feedback/`。
+- 反馈会保存为 raw JSON，并自动重建 daily Markdown 和 `UNREVIEWED.md`。
+- 树莓派端完整测试已通过：`python3 -m unittest discover -s tests`，共 87 项 OK。
+- 未登录访问 `/api/issue-feedback/recent` 返回 401，确认问题反馈 API 没有裸露。
+
+同时新增本地 Codex skill：
+
+```text
+C:\Users\15345\.codex\skills\pi-ops-system-context
+```
+
+这个 skill 的目标是让 Codex 在处理树莓派行为顾问、Next Action、半小时报告、Automate、Funnel、Obsidian context、番茄钟、睡眠统计和问题反馈 backlog 时，先读取固定运维文档和服务地图，再开始执行，减少每次重新解释系统架构的成本。
+
+## 2026-07-30 状态更新：Next Action v1.2 闭环与起床证据
+
+==Next Action 已更新为 `next-action-v1.2`：生成新建议前，后端会检查 `active.json` 对应建议是否已有手动结果。若上一条既未填写执行结果，也未明确“换一个/现在不做”，接口返回 `409 pending_outcome_required`；网页先展示上一条，用户填写“完成了/正在做/没开始”后，再自动继续本次生成请求。==
+
+==用户主动点击“生成建议”被定义为已经醒来且能够交互的直接证据。决策状态、prompt 和后端验证器均禁止再用 `clarify` 询问用户是否起床、醒来或仍在睡。==
+
+验证状态：
+
+- Next Action 针对性测试 9 项通过；
+- 项目完整测试 90 项通过；
+- 两段网页 JavaScript 均通过语法检查；
+- `activitywatch-advisor-web.service` 已重启并保持 active；
+- `127.0.0.1:8767` 正常监听，未登录访问返回 401；
+- 登录后在存在未闭环建议时，`POST /api/next-action` 实测返回 409、`pending_outcome_required`，并携带待处理建议。
+
+<!-- ai_provenance: source=codex; date=2026-07-30; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-07-31 状态更新：本地 Cold Turkey 自动开启模块已接入
+
+==半小时行为系统已从“影子候选提醒”扩展出电脑端 Cold Turkey 自动开启模块。Pi 端仍负责判断、归档和提供登录后 API；Windows 端本地 agent 拉取 pending request、弹窗询问、调用 Cold Turkey、并把 ack/final receipt 回传 Pi。==
+
+==Pi 端新增请求/回执链路：`data/computer_interventions/requests/`、`data/computer_interventions/responses/`、`data/computer_interventions/state/windows-main.json`。Next Action Web 新增登录后 API：`GET /api/computer-interventions/pending`、`POST /api/computer-interventions/ack`、`POST /api/computer-interventions/response`。==
+
+==Windows agent 位于 `D:\tools\computer-intervention-agent\`。当前以普通后台进程运行：`D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py`。它尚未安装成开机自启动任务或 Windows 服务；重启电脑后需要手动启动，或后续补计划任务。==
+
+==当前行为规则：`常刷网站` 和 `bilibili` 是本地 allowlist 中仅有的可执行 block；默认封锁 30 分钟；连续两次点击“不介入”后，第三次仍触发时强制介入；忽略按“暂不介入”完成请求但不累计拒绝；封锁成功、已处于 agent 估计封锁状态、或观察到恢复会重置拒绝计数。B 站周六全天、周日全天、周一 00:00-12:00 Asia/Shanghai 作为备课例外。==
+
+验证状态：
+
+- ==Pi 端新增测试 `tests/test_computer_intervention.py` 通过。==
+- ==Pi 端全量 `python3 -m unittest discover -s tests -v` 通过 93 项。==
+- ==`activitywatch-advisor-web.service` 已重启并保持 active；新 API 未登录返回 401。==
+- ==2026-07-31 13:38 CST 的请求已由 Windows agent 接收并回传 final；用户选择 `accepted`，`常刷网站` 和 `bilibili` 均返回 Cold Turkey 命令 success，agent 本地估计封锁至 14:08:45。==
+- ==弹窗 UI 已调整为高 DPI aware、模块化简约设计：固定底部按钮、中间可滚动内容、较大字体、目标 block 显示名兜底。==
+
+<!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-08-02 状态更新：我的专注花园第一版
+
+==Windows 本地新增个人使用的像素风游戏“我的专注花园”，项目位于 `D:\MyFocusGarden`，只监听 `127.0.0.1:8838`。它不新增树莓派端口或服务，不回写 Obsidian、Next Action、行为 facts 或 Cold Turkey 数据库。==
+
+==游戏通过现有 SSH 密钥只读聚合三类树莓派事实：电脑端 final 回执中的主动 `accepted + success`、同一 `suggestion_id` 的 Next Action `accepted + completed`、以及 `daily_life` 中 `resolved + high` 且最后手机活动不晚于可配置阈值的早睡估计。奖励使用稳定事件 ID 写入本地 SQLite，重复同步不会重复发放。==
+
+==本地专注由 Python 后台计时，复用 computer-intervention-agent 的 Cold Turkey executable 与 allowlist；每累计完成 40 分钟发放一份种植奖励，余数结转。花园从 `5×5` 开始，填满后按奇数边长自动扩展。==
+
+验证状态：
+
+- ==4 项本地单元测试通过；==
+- ==树莓派只读同步发现 5 份历史奖励：主动接受介入 3 份、早睡估计 2 份、严格 AI 完成闭环 0 份；==
+- ==20 种本机 Minecraft Education Edition 植物贴图均已加载，素材目录已加入 `.gitignore`，只限本地个人使用；==
+- ==浏览器已检查首页、奖励记录、植物选择弹窗和响应式像素风布局；==
+- ==桌面快捷方式为 `C:\Users\15345\Desktop\我的专注花园.lnk`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-02; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/本地Cold Turkey自动开启模块.md,非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md,非笔记内容/工作流程与系统运维/树莓派下一步行动助手架构.md" -->
+
+## 2026-08-03 常规交接：我的专注花园当前状态
+
+==完整接管资料已整理到 [[我的专注花园/00-交接总览]]，专题包括数据来源与处理、游戏架构、后续优化、运维和扩展手册。运行代码和数据仍以 `D:\MyFocusGarden` 为事实源。==
+
+==现场核验：本地服务 `127.0.0.1:8838` 健康；正式 `pythonw.exe` 进程正在运行；当前 SQLite 有 5 株已种植、0 份待种、无运行中的专注。目录现为 35 种可种植对象：12 种花、6 种树苗、17 种蘑菇。==
+
+==测试已更新为 6 项且全部通过，`node --check static\app.js` 通过。此前 2026-08-02 记录的“20 种、4 项测试”是第一版当时快照，不再代表当前版本。树莓派侧仍无新增端口、服务或写入操作。==
+
+<!-- ai_provenance: source=codex; date=2026-08-03; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md" -->
+
+## 2026-08-03 状态更新：我的专注花园迁移至 Pi
+
+==正式运行端已迁移到 `/home/conrad/services/focus-garden`。`focus-garden.service` 只监听 `127.0.0.1:8838`，Tailscale Serve 在 `https://pi.taild4d3f7.ts.net:8460/` 提供 tailnet-only HTTPS；专注花园没有启用 Funnel，也没有监听局域网地址。==
+
+==完整迁移验收、同步检查、恢复和回滚步骤见 [[我的专注花园/05-Pi迁移验收与恢复清单]]。==
+
+==权威 SQLite 位于 Pi；`focus-garden-backup.timer` 每分钟生成一致性快照到 `/home/conrad/workspace/focus-garden-archive/`。Syncthing 将该文件夹从 Pi send-only 同步到 Windows receive-only 的 `D:\MyFocusGardenArchive`，电脑端启用 staggered 版本保留。==
+
+==迁移验收：9 条奖励、8 株植物、1 份待种、无运行中计时；Pi 本地奖励扫描发现 9 条且新增 0；Python 7 项测试通过，HTTPS 健康检查和受版权保护的 PNG 均返回 200。Pi 专注模式固定为安全模拟，不会调用 Windows Cold Turkey。==
+
+<!-- ai_provenance: source=codex; date=2026-08-03; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md,非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-04 状态更新：专注花园内嵌 Next Action（已部署）
+
+==Windows 开发副本 `D:\MyFocusGarden` 已实现“下一步行动”原生菜单：固定 loopback API 代理将既有建议、反馈、结果、近三条报告与问题反馈带入花园 UI；密码和 Next Action 数据目录均不进入花园。==
+
+==本地与 Pi 的 8 项 Python 测试、配置 JSON 及桌面/390px 浏览器视图均已通过；Pi 的 `focus-garden.service` 已重启且 8838 健康检查正常，未登录代理请求返回既有 Next Action 401。Node 未安装在 Pi，因此前端语法检查沿用已通过的本地结果；真实登录、生成建议与反馈闭环仍待手动验收。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md,非笔记内容/工作流程与系统运维/树莓派 Next Action Web架构.md" -->
+
+## 2026-08-04 状态更新：Next Action 免密码、仅 Tailnet
+
+==已从 Pi 私有 `web.env` 移除 `NEXT_ACTION_WEB_PASSWORD`，并重启 `activitywatch-advisor-web.service`。Next Action 与花园内嵌代理的 active 接口均返回 200，不再要求登录。==
+
+==为维持私有边界，原公网 Funnel `:10000` 已移除；Next Action 只保留 tailnet-only 的 `:8450`，专注花园仍为 tailnet-only 的 `:8460`。公网 Funnel 仅保留不相关且已有 token 认证的手机接收 `:443`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-08-05 状态更新：任务网页写回桥
+
+==已部署任务同步 v1：`ToDo-任务集合.md`、`ToDo-已经规划好的任务.md`、`已完成任务.md` 进入同一同步范围；每个任务以 Obsidian block ID（新 ID 为 8 位小写字母数字）作为稳定键。Pi 只持久化网页操作意图和即时有效任务视图；Pi 不直接写 Markdown，Obsidian 的 Pi Context Sync 插件在打开 Vault 后写回并在新的快照抵达 Pi 后确认队列。==
+
+==我的专注花园已提供“直接安排”表单：可新建、改标题/日期/优先级/番茄数、推迟一天和标记完成，用户无需输入 Tasks emoji。循环任务在 v1 不允许从网页完成。Next Action 状态已合并 Pi 的即时视图，并明确提供上海时区的时间戳、日期、时分与星期。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/任务计划/ToDo-已经规划好的任务.md" -->
+
+## 2026-08-04：专注花园电脑＋手机正式启用
+
+==Focus Garden 已切换为 `FOCUS_GARDEN_DRY_RUN=0`，保持 8838 loopback 与 8460 tailnet-only；默认“电脑＋手机”专注会通过既有 allowlist 同时触发 Windows Cold Turkey 与手机快速番茄。==
+
+==手机桥接 v1.0.0 已部署：中文界面保留本地调试、确认坐标和网格 Y 偏移校准，写入私有运行日志，并每 5 分钟向花园发送无障碍服务心跳；网页下次打开时会对超 20 分钟的心跳暂停显示右下角提示。==
+
+==专注时长限定为 5、10、20、30、40、45、60 分钟；自定义分钟已移除。新增预约专注和连续专注：连续模式仅选 30/40/45/60 分钟、休息时间与轮数；休息段不尝试解除任何锁定，每轮开始时单独下发锁定。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-08-04 状态更新：移动端与锁机可靠性
+
+==花园移动端已改为可换行的专注时长按钮、无“本次专注”读数和停止计时入口；等距花园不再保留固定空白高度，图鉴固定为两列。Mushroom Nook 条目已从当前目录隐藏但扩展分类机制和素材仍保留；权威库中既有两株蘑菇已迁为 Minecraft 棕色蘑菇。==
+
+==每次真实锁机启动时，Windows agent 显示短提示，Focus Bridge 显示手机通知。手机因锁屏无法取得目标窗口时，会每 30 秒重新打开已确认的番茄页面，最多 6 次后才回传失败；Windows Cold Turkey 命令失败时也会在 30 秒后重试一次。==
+
+==为保证默认电脑＋手机始终同步，10 分钟已从网页和 API 删除；当前所有公开专注入口统一只接受 5、20、30、40、45、60 分钟。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->

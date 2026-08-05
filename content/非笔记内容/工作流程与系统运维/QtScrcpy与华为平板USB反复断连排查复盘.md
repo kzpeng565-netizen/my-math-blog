@@ -144,6 +144,70 @@ adb devices -l
 - `unauthorized`：需要在平板确认 RSA 授权；
 - 完全为空：先检查 PnP 和 USB 枚举，不要先责怪 QtScrcpy。
 
+### 3.5 QtScrcpy GUI 卡在 `start server...`
+
+<!-- ai_provenance: source=codex; date=2026-07-30; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/QtScrcpy与华为平板USB反复断连排查复盘.md" -->
+
+==2026-07-30 再次出现“QtScrcpy 设备列表能看到 `Phone-8UXNU20509100338`，`adb devices -l` 也是 `device`，但点击连接后不出投屏窗口”的情况。Windows PnP 中 `USB Composite Device`、`MatePad`、`ADB Interface`、`USB Mass Storage Device` 全部为 `OK`，因此这次不属于 USB 枚举或驱动层故障。==
+
+本次 GUI 日志的关键形态是：
+
+```text
+start server...
+```
+
+有时能进一步看到：
+
+```text
+D:/QtScrcpy-win-x86-v3.3.3/scrcpy-server: 1 file pushed
+```
+
+但没有出现：
+
+```text
+server start finish in ...
+[server] DEBUG: Using video encoder: ...
+```
+
+==这说明 QtScrcpy 已进入启动流程，但视频通道没有完整建立。不要继续重装驱动；应先检查 QtScrcpy 进程、ADB server 和 27183 端口转发残留。==
+
+本次实际发现过手动诊断残留：
+
+```powershell
+adb forward --list
+```
+
+返回：
+
+```text
+8UXNU20509100338 tcp:27183 localabstract:scrcpy_12345678
+```
+
+==`tcp:27183` 是 QtScrcpy 建立视频/control socket 会用到的本地端口。若手动测试留下旧的 `localabstract:scrcpy_*` 转发，QtScrcpy 可能卡在 `start server...`，设备仍显示 `device`，但不会打开 `Phone-...` 投屏窗口。==
+
+恢复顺序：
+
+```powershell
+$adb = 'D:\QtScrcpy-win-x86-v3.3.3\adb.exe'
+
+& $adb forward --remove-all
+& $adb reverse --remove-all
+& $adb kill-server
+Start-Sleep -Seconds 1
+& $adb start-server
+& $adb devices -l
+```
+
+然后重启 QtScrcpy，或在已重启的 QtScrcpy 中重新点击“一键USB连接”。为了看清真实错误，可临时取消“自动刷新”、清理日志，再连接；否则日志会被连续的 `update devices...` 淹没。
+
+成功状态应同时满足：
+
+- QtScrcpy 日志出现 `server start finish in ...`；
+- 日志出现 `[server] DEBUG: Using video encoder: 'OMX.hisi.video.encoder.avc'`；
+- Windows 有独立窗口 `Phone-8UXNU20509100338`，窗口类为 `VideoForm`；
+- `netstat` 中能看到 `127.0.0.1:27183` 与 QtScrcpy/ADB 建立连接；
+- `adb devices -l` 持续为 `device`。
+
 ## 4. 华为 USB 功能组合的特殊性
 
 平板报告的配置为：
@@ -220,7 +284,8 @@ QtScrcpy 依赖 ADB。只要 `adb devices -l` 中没有设备，QtScrcpy 就不�
 7. MTP Code 28/10 时，检查 `wpdmtp.inf` 的匹配和启动结果；
 8. 检查电源计划中的 USB 选择性暂停，而不只看设备管理器复选框；
 9. ==确保电脑上只运行一个 ADB 服务器；诊断时可用官方 ADB，正式使用时也可以回到 QtScrcpy 自带 ADB，关键是不要混用；==
-10. 进行至少 30 分钟的带视频负载测试，并记录每次状态变化。
+10. ==若 QtScrcpy GUI 只显示 `start server...`、ADB 仍为 `device` 但不出投屏窗口，先清理 `adb forward --remove-all` 和 `adb reverse --remove-all`，再重启 ADB server 与 QtScrcpy；特别检查 `tcp:27183` 是否残留旧的 `localabstract:scrcpy_*` 转发。==
+11. 进行至少 30 分钟的带视频负载测试，并记录每次状态变化。
 
 ## 8. 实时监控方法
 
@@ -282,6 +347,13 @@ while ($true) {
 <!-- ai_provenance: source=codex; date=2026-07-22; verification=user-confirmed; retrieved_notes="非笔记内容/工作流程组织经验/QtScrcpy与华为平板USB反复断连排查复盘.md" -->
 
 ==本次已经恢复可用，但 3 分钟测试仍不能替代 2～4 小时的真实授课压力测试。若 `HS02` 后续再次出现 `VID_0000` 或 Code 43，再用另一台电脑交叉测试，以区分平板 Type-C 控制器、电脑 USB 控制器和线材信号质量问题；在没有新证据前，不再重装 HiSuite 或批量更换驱动。==
+
+截至 2026-07-30：
+
+- ==本次故障表现为 QtScrcpy GUI 卡在 `start server...`，ADB 和 Windows PnP 均正常；问题定位在 QtScrcpy/ADB 运行态残留，而不是 USB 驱动。==
+- ==清理残留 `tcp:27183 -> localabstract:scrcpy_12345678` 转发、重启 ADB server，并重新连接后，QtScrcpy 打开 `Phone-8UXNU20509100338` 投屏窗口。==
+- ==3 分钟 ADB 状态监测只有初始 `device` 记录，变化次数为 1，未出现 `offline` 或 `ABSENT`；QtScrcpy 窗口保持存在。==
+- ==为了避免再次误判，排查 QtScrcpy GUI 时应先关闭“自动刷新”并清理日志；确认修复后再恢复“自动刷新”。==
 
 ## 参考资料
 

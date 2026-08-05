@@ -307,3 +307,192 @@ python3 -m unittest tests.test_sysadmin_time_guard -v
 python3 -m unittest tests.test_half_hour_reminder_check_ntfy -v
 journalctl -u sysadmin-time-guard.service --since "1 hour ago" --no-pager
 ```
+## 2026-07-29：Next Action Web 试用事项
+
+1. 将 `https://pi.taild4d3f7.ts.net:8450` 添加到手机桌面。
+2. 连续试用“下一步”建议，重点观察它是否真的能说服自己开始行动。
+3. “换一个”和“现在不做”时尽量填写原因和一句具体描述，方便之后分析失败原因。
+4. 暂时不要做自动执行观察；第一版只记录用户手动执行结果。
+5. 一到两周后再评估是否加入弱执行观察，例如对下一份半小时报告做低置信关联。
+6. 检查 09:00/10:00/11:00 睡眠边界重试是否符合真实起床情况。
+7. 若网页反馈入口足够顺手，再考虑为 `UNREVIEWED.md` 做 review/status 更新界面。
+8. 修改建议 prompt 时必须保留三条硬约束：只从当天任务中选工作行动、不回写 Obsidian、不自动干预。
+## 2026-07-29：Next Action v1.1 试用事项
+
+1. 午间 12:00-13:00 试一次“下一步”，确认系统推荐吃饭/午休而不是学习。
+2. 观察建议是否更能让自己开始行动，而不是只讲正确道理。
+3. 检查番茄钟措辞：应是“预估还剩”“记录显示接近收尾”，不能是“只剩一个番茄即可完成”；必须明确本系统 `1 🍅 = 40 分钟`，不能把 15/25/30 分钟启动片段说成一个番茄。
+4. 暂时不解决大任务标题粒度问题；如果仍明显复读标题，后续再考虑给任务增加 `next_step`。
+## 2026-07-30 后续事项：问题反馈与 skill 使用
+
+### 待观察：从手机提交一条真实问题反馈
+
+在手机打开 Next Action Web，登录后进入“问题反馈”，提交一条真实或半真实问题，确认：
+
+- 页面提示提交成功；
+- 最近问题列表能看到该条；
+- 树莓派生成 `data/issue_feedback/raw/YYYY-MM-DD/*.json`；
+- `data/issue_feedback/UNREVIEWED.md` 自动更新。
+
+### 待处理：之后统一处理问题反馈 backlog
+
+当积累了若干条问题后，可以直接对 Codex 说：
+
+```text
+使用 pi-ops-system-context，处理 Next Action 网页问题反馈 backlog
+```
+
+Codex 应从以下文件开始：
+
+```text
+/home/conrad/workspace/activitywatch-advisor/data/issue_feedback/UNREVIEWED.md
+```
+
+处理顺序建议：
+
+1. 先按分类和严重程度聚合问题。
+2. 区分数据错误、模型提示词问题、规则不匹配、网页交互问题和通知问题。
+3. 对每一类提出最小修复方案。
+4. 只修改必要代码/配置/文档。
+5. 测试通过后再更新 `PROJECT_STATE`、`DECISIONS`、`NEXT_STEPS`、`PI_SERVER_HANDOFF`。
+
+### 待观察：新 skill 是否足够“听得懂”
+
+后续每次涉及树莓派行为顾问系统、Next Action、半小时报告、Automate 上传、Funnel、问题反馈、Obsidian context 或番茄钟规则时，优先让 Codex 使用：
+
+```text
+pi-ops-system-context
+```
+
+如果 Codex 仍然需要反复问系统架构，说明 skill 的 reading routes 或 service map 还需要继续补。
+
+## 2026-07-31 后续事项：本地 Cold Turkey 自动开启模块
+
+### ☑ 已完成：第一版介入链路
+
+==Pi 端已经能在半小时影子候选 `would_intervene=true` 时生成 `data/computer_interventions/requests/YYYY-MM-DD/<request_id>.json`；Windows agent 能拉取 pending request、回传 ack、弹窗询问、调用 Cold Turkey，并写回 final receipt。==
+
+==当前已实测一条真实请求：`2026-07-31-13-00_13-30`。用户选择 `accepted` 后，agent 对 `常刷网站` 和 `bilibili` 执行 `-start <block> -lock 30`，返回 `status=success`，并把 `decline_streak` 重置为 0。==
+
+### ◐ 待完成：持久化启动
+
+==当前 agent 是普通后台进程，不是 Windows 计划任务或服务。后续应建立一个用户登录后启动的计划任务，命令建议为：==
+
+```powershell
+D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
+```
+
+==计划任务不要在文档中写入 Next Action Web 密码。密码应继续保存在本地 agent 的私有配置或用户环境变量中。==
+
+### ☐ 待完成：健康检查与心跳
+
+==Pi 端 `data/computer_interventions/state/windows-main.json` 目前只在 agent ack/final 时更新；没有 pending request 时不会刷新 `last_seen_at`。后续可以新增 `/api/computer-interventions/heartbeat`，让 agent 每 5 分钟回报在线、版本、当前 active lock 估计和最近错误。==
+
+### ☐ 待观察：误触发与 B 站例外
+
+==连续观察 3-7 天：确认“手机沉迷但电脑无活动”时仍能按预期封锁电脑；确认周六、周日、周一上午 B 站备课窗口不会执行 `bilibili` block；确认 `ignored` 不累计拒绝，但会完成当前请求。==
+
+### ☐ 待评估：Cold Turkey 当前状态可验证性
+
+==第一版只能根据命令返回值和 agent 本地 `active_locks` 估计封锁状态。若后续发现手动开启 block、重复启动 block 或 Cold Turkey 异常时状态不准，再研究是否存在安全可靠的官方状态读取方式；不要直接写 Cold Turkey 内部 SQLite。==
+
+<!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+## 2026-08-02 后续事项：我的专注花园
+
+### ☑ 已完成：第一版本地游戏
+
+==已完成本地 SQLite 奖励账本、树莓派只读同步、Cold Turkey 专注入口、40 分钟累计奖励、20 种植物注册、随机种植、`5×5` 自动扩园、日/周/月/年筛选、奖励原因记录和桌面快捷方式。==
+
+### ☐ 待用户验收：第一次真实专注
+
+==在确定可以接受网站被锁定时，从正式桌面快捷方式启动游戏，先选择 10 分钟，确认 `常刷网站` 与 `bilibili` block 按预期执行；开发期间不要使用正式入口测试。==
+
+### ☐ 第二版：替换原创素材
+
+==保持 `config/plants.json` 的植物 ID 稳定，逐步用原创透明 PNG 替换 `static/assets/plants/` 中的本地贴图，并在全部替换后移除本地素材限制说明。==
+
+### ☐ 后续观察：早睡规则与 AI 闭环
+
+==观察手机最后活动能否代表真实早睡；如误差明显，再加入电脑最后活动作为交叉条件。继续检查 Next Action response/outcome 是否能稳定通过同一 `suggestion_id` 形成闭环。==
+
+<!-- ai_provenance: source=codex; date=2026-08-02; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+## 2026-08-03 后续事项：我的专注花园交接后
+
+### ☑ 已完成：专题交接与当前版本核验
+
+==已新建 [[我的专注花园/00-交接总览]] 及数据、架构、优化、运维四份专题文档；已核验 35 种目录、5 株存档、0 份待种、服务健康、6 项测试通过和前端语法检查通过。==
+
+### ☐ P0：建立代码与存档备份
+
+==`D:\MyFocusGarden` 当前不是 Git 仓库。先建立本地可恢复备份；备份 SQLite 前停止游戏进程。若初始化 Git，先排除全部本机游戏贴图、草方块、数据库和日志。==
+
+### ☐ P0：统一“封锁成功”的奖励口径
+
+==Pi 主动介入规则当前是 `accepted` 且至少一个 execution 成功；本地专注则要求所有目标未失败。需决定主动介入是否也要求全部目标成功，并补回归测试。==
+
+### ☐ P1：增量同步与规则配置化
+
+==当前每次同步会经 SSH 扫描全部历史 JSON。后续增加同步游标或 Pi 侧摘要，并把奖励规则的启用状态、阈值和版本从代码提取到配置。==
+
+### ☐ P1：清理前端和数据库演进机制
+
+==删除 `static/app.js` 中已被覆盖的旧版渲染函数，为 SQLite 增加 schema version 与迁移；同时让缺失静态资源返回 404，而不是回退到首页 HTML。==
+
+==其余视觉、统计、可访问性和原创素材事项见 [[我的专注花园/03-后续优化空间]]。==
+
+<!-- ai_provenance: source=codex; date=2026-08-03; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/03-后续优化空间.md" -->
+
+## 2026-08-03 后续事项：我的专注花园 Pi 迁移后
+
+### ☑ 已完成：私有部署与单向存档同步
+
+==已完成 Pi systemd 部署、tailnet-only Tailscale Serve、SQLite 一致性快照、Pi send-only → Windows receive-only Syncthing，以及桌面入口切换。==
+
+### ☐ P0：做一次停服恢复演练
+
+==在不覆盖唯一副本的前提下，从 `D:\MyFocusGardenArchive` 或 `.stversions` 恢复到临时数据库，验证完整性、奖励数和花园显示；确认步骤后再考虑真实故障恢复。==
+
+### ☐ P1：决定是否需要 Windows Cold Turkey 远程桥接
+
+==Pi 网页目前明确使用安全模拟，不锁定 Windows 网站。若以后需要手机启动真实封锁，应设计最小权限的 Windows agent API，不允许 Pi 下发任意命令，也不能把现有页面直接改成公网接口。==
+
+<!-- ai_provenance: source=codex; date=2026-08-03; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/03-后续优化空间.md,非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md" -->
+
+### ☑ P1：验收花园内的 Next Action 菜单（免密码）
+
+==已完成源码比对、7 文件备份、部署、8 项 Python 测试、`focus-garden.service` 重启与 loopback 健康检查。2026-08-04 已取消 Next Action 密码，花园代理接口返回 200；后续可直接从 `:8460` 验收当前建议、生成、反馈、结果、三条报告与问题反馈。全过程保持 8838 loopback、8460 tailnet-only，禁止 Funnel。==
+
+### ☑ P1：Next Action 免密码访问验收（已完成）
+
+==2026-08-04 已撤除 `NEXT_ACTION_WEB_PASSWORD` 与公网 `:10000` Funnel。`activitywatch-advisor-web.service` 和 `focus-garden.service` 均 active；`127.0.0.1:8767/api/next-action/active` 与花园代理接口均返回 200。后续从 `:8460` 可直接验收生成、反馈和结果，不需要登录步骤，且不得重新启用公网 Funnel。==
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+### ☑ P2：任务网页写回桥与 Next Action 实时任务上下文
+
+==已部署并验收：Windows Syncthing 已恢复与 Pi 连通；新快照中的任务 ID 缺失数为 0；Pi Next Action 状态实测含上海时区当前时间和带 ID 的有效任务。花园的任务界面与 Pi loopback bridge 已启用。==
+
+### ☐ P2：首个真实网页改动的闭环观察
+
+==日常从花园新建或推迟一个非循环任务后，打开 Obsidian，确认插件在下一次同步中写回相应 Markdown、导出快照抵达 Pi、queue 归零。不要用循环任务或批量任务作为首测。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/任务计划/ToDo-已经规划好的任务.md" -->
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md,非笔记内容/工作流程与系统运维/树莓派 Next Action Web架构.md" -->
+
+### ☑ P0：启用电脑＋手机正式专注闭环
+
+==已完成：Focus Garden 正式锁定已启用；Windows agent 已从退役的 `:10000` 迁至 tailnet-only `:8450`，并以免密码私有访问轮询到 `no_pending`；手机桥接 v1.0.0 心跳为 online。后续只需在日常使用中观察实际回执，不要为验收额外发起真实锁机。==
+
+### ☐ P1：在真实使用后复核连续专注的轮间体验
+
+==连续专注已实现为每轮分别启动锁机、休息不解锁。待完成至少一次非测试的多轮使用后，根据实际锁机持续时间与休息体验决定是否需要调整默认休息选项或增加只计时模式。==
+
+### ☐ P1：解锁后验收 Focus Bridge 1.0.1 重试包
+
+==Android v1.0.1 新包已编译；本次 USB `adb install -r` 在设备端一直等待 Package Manager 返回，尚未确认安装完成。待手机解锁、没有安装确认或 USB 调试弹窗时，只安装该包一次，然后以日常真实专注观察“锁屏开始后 30 秒重试”和手机通知，不要额外制造锁机测试。==
+
+
+<!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->

@@ -16,16 +16,19 @@ Read these files before planning:
 - `非笔记内容/任务计划/假期任务管理readme.md`
 - `非笔记内容/任务计划/ToDo-任务集合.md`
 - `非笔记内容/任务计划/ToDo-已经规划好的任务.md`
+- `非笔记内容/任务计划/已完成任务.md`
 
 For `$task-planner`, the holiday README takes precedence. Treat `任务管理readme.md` and links that request it as legacy semester instructions belonging to `$study-planner`; do not apply their course, examination, four-quadrant, or fixed-course-deadline rules.
 
 Treat the collection as the source of tasks and the planned file as the source for duplicate detection. Read relevant holiday-plan, tutoring, reading, driving, appointment, or project wikilinks when needed. Use the current environment date.
 
+Before reorganizing or appending a new holiday plan, scan `ToDo-已经规划好的任务.md` for tasks already marked completed (`- [x]`). Move only the completed task code lines themselves into `已完成任务.md`, then remove them from `ToDo-已经规划好的任务.md`. The completed archive must contain only Obsidian Tasks lines; do not add source notes, dates, category headings, blockquotes, explanations, or other surrounding context. Do not move unchecked tasks merely because their scheduled date is in the past or their tomato counter is full; keep them in the active plan unless the user explicitly confirms completion.
+
 Read `references/holiday-planning-rules.md` before classifying, grouping, estimating, or scheduling.
 
 ## Required Workflow
 
-1. Read the canonical files and relevant wikilinks. Extract the holiday range, fixed commitments, stated capacity, priorities, and work-pattern preferences.
+1. Read the canonical files and relevant wikilinks. Archive already completed tasks from the planned file as described above, then extract the holiday range, fixed commitments, stated capacity, priorities, and work-pattern preferences.
 2. Split the collection into source units. Classify each unit as an executable action, project outcome, constraint/preference, or advice/reference. Only actions and project outcomes may produce Tasks lines.
 3. Compare names, projects, wikilinks, dates, locations, and aliases with the planned file. Exclude duplicates.
 4. Extract atomic actions for internal analysis. Record each action's project, completion condition, time evidence, date window, dependency, context/location, energy demand, and uncertainty. Do not emit Tasks yet.
@@ -71,3 +74,4 @@ Omit Normal priority and nonexistent due dates. Keep names compact; a parentheti
 ## Final Response
 
 Show the exact categorized Tasks written. Summarize why actions were merged or split, show each scheduled date's tomato total against capacity, list unresolved items, and state which source units were removed.
+
