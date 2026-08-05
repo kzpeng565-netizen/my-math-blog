@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T00:00:00+08:00",
+    "end": "2026-07-27T00:30:00+08:00"
+  },
+  "primary_work_task": "编程与系统运维",
+  "segments": [
+    {
+      "start": "2026-07-27T00:00:00+08:00",
+      "end": "2026-07-27T00:00:06+08:00",
+      "duration_seconds": 6.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "访问树莓派Web服务（pi.taild4d3f7.ts.net:8443）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器访问 pi.taild4d3f7.ts.net:8443",
+        "延续23:55的上下文，属于系统运维"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:00:06+08:00",
+      "end": "2026-07-27T00:03:28+08:00",
+      "duration_seconds": 202.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机易享（com.vivo.easyshare）文件传输",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮起，前台为com.vivo.easyshare持续约3.2分钟",
+        "easyshare是文件传输工具，可能用于传输工作文件"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T00:03:28+08:00",
+      "end": "2026-07-27T00:06:38+08:00",
+      "duration_seconds": 190.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "手机自动化方案思考与ChatGPT对话",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器在chatgpt.com上浏览'手机自动化方案'标题",
+        "电脑屏幕亮着，处于专注任务中",
+        "手机熄屏，注意力在电脑"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:06:38+08:00",
+      "end": "2026-07-27T00:06:46+08:00",
+      "duration_seconds": 8.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "快速检查手机（亮屏但前台未知）",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏8秒，前台应用未知",
+        "短暂打断，可能查看通知"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T00:06:46+08:00",
+      "end": "2026-07-27T00:17:12+08:00",
+      "duration_seconds": 626.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "手机自动化方案评估（ChatGPT对话）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "长时间在chatgpt.com浏览'手机自动化方案'标题",
+        "穿插浏览'Monaco编辑器方案评估'",
+        "使用ChatGPT桌面客户端",
+        "手机熄屏，注意力集中在电脑"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:17:12+08:00",
+      "end": "2026-07-27T00:17:13+08:00",
+      "duration_seconds": 1.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息通知",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑微信窗口前台1秒",
+        "极短暂中断，未形成独立通信会话"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:17:13+08:00",
+      "end": "2026-07-27T00:18:28+08:00",
+      "duration_seconds": 75.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "手机自动化方案继续（ChatGPT及评估）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT客户端与Edge浏览器间切换",
+        "标题'Monaco编辑器方案评估'和'手机自动化方案'",
+        "新建标签页短暂出现"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:18:28+08:00",
+      "end": "2026-07-27T00:18:33+08:00",
+      "duration_seconds": 5.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎（娱乐性浏览）",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页短时间内访问多个知乎页面",
+        "标题包括'无锡人才标准'、'开源Ai性能'、'段永平泡泡玛特'等，属娱乐内容",
+        "约5秒短暂偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:18:33+08:00",
+      "end": "2026-07-27T00:20:48+08:00",
+      "duration_seconds": 135.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "访问pi-tailnet.ts.net及后续ChatGPT恢复",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "访问pi-tailnet.ts.net（私有网络）",
+        "随后使用ChatGPT客户端和终端",
+        "结合上下文属于系统运维"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:20:48+08:00",
+      "end": "2026-07-27T00:22:12+08:00",
+      "duration_seconds": 84.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "手机自动化方案分支研究",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'分支 · 手机自动化方案'",
+        "穿插ChatGPT客户端和文件资源管理器",
+        "继续手机自动化主题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:22:12+08:00",
+      "end": "2026-07-27T00:22:41+08:00",
+      "duration_seconds": 29.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "浏览HutaoCards虚拟信用卡网站",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge访问hutaocards.com，标题'虚拟信用卡 · 海淘支付'",
+        "可能为支付准备或评估服务，相关工作支撑"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T00:22:41+08:00",
+      "end": "2026-07-27T00:23:34+08:00",
+      "duration_seconds": 53.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "文件资源管理器整理与ChatGPT切换",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "文件资源管理器标题'工作流程与系统运维'",
+        "快速切换至ChatGPT客户端",
+        "属于系统维护任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:23:34+08:00",
+      "end": "2026-07-27T00:25:14+08:00",
+      "duration_seconds": 100.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "ChatGPT客户端持续对话（手机自动化）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT客户端前台约1分钟，后终端切换",
+        "访问pi.taild4d3f7.ts.net",
+        "结合之前上下文仍为手机自动化主题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:25:14+08:00",
+      "end": "2026-07-27T00:25:19+08:00",
+      "duration_seconds": 5.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "空白新建标签页（可能思考或短暂离开）",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge新建标签页但无活动记录",
+        "前后有缺失窗口记录",
+        "语义不明但不足30秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T00:25:19+08:00",
+      "end": "2026-07-27T00:25:26+08:00",
+      "duration_seconds": 7.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机检查（亮屏但前台未知）",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏7秒，前台未知",
+        "可能查看时间或通知"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T00:25:26+08:00",
+      "end": "2026-07-27T00:25:27+08:00",
+      "duration_seconds": 1.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机熄屏瞬间",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕关闭1秒",
+        "几乎无活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:25:27+08:00",
+      "end": "2026-07-27T00:26:08+08:00",
+      "duration_seconds": 41.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机微信通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台为微信持续28秒",
+        "短暂通信，不属于娱乐或工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:26:08+08:00",
+      "end": "2026-07-27T00:26:43+08:00",
+      "duration_seconds": 35.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "探索DeepSeek平台及ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge访问platform.deepseek.com",
+        "ChatGPT客户端短暂使用",
+        "延续工作主题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:26:43+08:00",
+      "end": "2026-07-27T00:26:52+08:00",
+      "duration_seconds": 9.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "浏览器切换（Chrome新建标签页）",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Google Chrome新建标签页5秒",
+        "语义不明，可能尝试新浏览器"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T00:26:52+08:00",
+      "end": "2026-07-27T00:26:53+08:00",
+      "duration_seconds": 1.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "Clash Verge代理切换",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Clash Verge前台1秒",
+        "可能调整网络代理，支持工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T00:26:53+08:00",
+      "end": "2026-07-27T00:27:19+08:00",
+      "duration_seconds": 26.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "Monaco Lite（树莓派代码编辑器）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge访问pi.taild4d3f7.ts.net上的Monaco Lite",
+        "Clash Verge再次短暂出现",
+        "属于系统维护"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:27:19+08:00",
+      "end": "2026-07-27T00:28:30+08:00",
+      "duration_seconds": 71.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "ChatGPT客户端对话（手机自动化主题）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT客户端前台约1.2分钟",
+        "结合之后出现的'手机自动化方案'标题，主题一致"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T00:28:30+08:00",
+      "end": "2026-07-27T00:28:34+08:00",
+      "duration_seconds": 4.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "文件资源管理器与Monaco Lite切换",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "文件资源管理器前台1秒",
+        "Monaco Lite前台1秒",
+        "快速切换，仍属系统运维"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T00:28:34+08:00",
+      "end": "2026-07-27T00:30:00+08:00",
+      "duration_seconds": 86.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "手机自动化方案最后阶段",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'手机自动化方案'出现",
+        "ChatGPT客户端持续至结束",
+        "报告结束前出现新标题'深度极高与高差别'，属于同一主题的对话分支"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "手机易享文件传输的具体用途不明确，可能支持工作也可能为个人；归类为supporting_work",
+    "0:22:12-0:22:41的HutaoCards浏览可能纯粹个人事务，但鉴于上下文与支付相关，暂归类为supporting_work"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 33902,
+      "completion_tokens": 3575,
+      "total_tokens": 37477,
+      "prompt_tokens_details": {
+        "cached_tokens": 5632
+      },
+      "prompt_cache_hit_tokens": 5632,
+      "prompt_cache_miss_tokens": 28270
+    }
+  }
+}

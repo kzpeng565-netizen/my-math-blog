@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T22:30:00+08:00",
+    "end": "2026-07-27T23:00:00+08:00"
+  },
+  "primary_work_task": "课时分析与任务规划",
+  "segments": [
+    {
+      "start": "2026-07-27T22:30:00+08:00",
+      "end": "2026-07-27T22:34:13+08:00",
+      "duration_seconds": 253.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "电脑AFK无操作，手机微信前台使用",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK状态从22:30到22:34:13",
+        "手机微信前台持续，可能正在通信",
+        "无电脑窗口活动，AFK共4分钟"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:34:13+08:00",
+      "end": "2026-07-27T22:34:16+08:00",
+      "duration_seconds": 3.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "短暂检查电脑窗口（Edge ChatGPT）",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge窗口标题'课时量分析'短暂出现3秒",
+        "前段手机微信持续，后段AFK"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T22:34:16+08:00",
+      "end": "2026-07-27T22:37:37+08:00",
+      "duration_seconds": 201.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "电脑AFK，手机微信持续前台",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK状态",
+        "手机微信前台（22:30-22:36:30）",
+        "可能继续使用微信"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:37:37+08:00",
+      "end": "2026-07-27T22:40:51+08:00",
+      "duration_seconds": 194.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用ChatGPT分析课时量",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge窗口'课时量分析'在chatgpt.com持续2.26分钟",
+        "电脑not-afk",
+        "手机微信前台同时，但电脑前窗为工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:40:51+08:00",
+      "end": "2026-07-27T22:44:35+08:00",
+      "duration_seconds": 224.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "使用微信进行通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机微信前台持续",
+        "电脑微信窗口0.91分钟",
+        "电脑AFK后段无操作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:44:35+08:00",
+      "end": "2026-07-27T22:44:53+08:00",
+      "duration_seconds": 18.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "切换到ChatGPT页面及文件资源管理器",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'ChatGPT'在chatgpt.com",
+        "文件资源管理器'工作流程与系统运维'",
+        "短暂查看"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:44:53+08:00",
+      "end": "2026-07-27T22:46:06+08:00",
+      "duration_seconds": 73.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "继续使用ChatGPT（可能准备新任务）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge标题'ChatGPT'持续1.22分钟",
+        "手机微信前台同时存在",
+        "电脑活跃"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:46:06+08:00",
+      "end": "2026-07-27T22:46:52+08:00",
+      "duration_seconds": 46.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎首页及单篇文章",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge域名zhihu.com，标题'首页 - 知乎'",
+        "浏览约0.5分钟",
+        "之后很快返回工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:46:52+08:00",
+      "end": "2026-07-27T22:47:20+08:00",
+      "duration_seconds": 28.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "检查Outlook垃圾邮件并快速浏览知乎",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge域名outlook.live.com标题'垃圾邮件'0.29分钟",
+        "接着知乎首页0.09分钟",
+        "混杂短暂记录"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:47:20+08:00",
+      "end": "2026-07-27T22:47:29+08:00",
+      "duration_seconds": 9.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "短暂无窗口记录，可能切换应用",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活跃但无窗口记录约4秒",
+        "前后活动不连续"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T22:47:29+08:00",
+      "end": "2026-07-27T22:47:58+08:00",
+      "duration_seconds": 29.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用ChatGPT桌面应用",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "ChatGPT.exe前台0.45分钟",
+        "手机微信前台同时",
+        "后续继续规划任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:47:58+08:00",
+      "end": "2026-07-27T22:48:01+08:00",
+      "duration_seconds": 3.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "短暂查看知乎关于Kimi的帖子",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'一般没人讨论...Kimi K3'在zhihu.com",
+        "仅1秒，被后面的工作打断"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T22:48:01+08:00",
+      "end": "2026-07-27T22:52:59+08:00",
+      "duration_seconds": 298.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT和Obsidian之间交替规划行动与整理笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge标题'下一步行动与闭环'在chatgpt.com多次出现",
+        "Obsidian标题'Profile'、'高中数学2 集合与逻辑'",
+        "手机微信前台同时存在",
+        "任务切换密集但属相同工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:52:59+08:00",
+      "end": "2026-07-27T22:53:12+08:00",
+      "duration_seconds": 13.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "浏览Obsidian番茄钟和任务计划",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题'番茄钟统计与每日习惯'、'任务计划'",
+        "短暂查看"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:53:12+08:00",
+      "end": "2026-07-27T22:53:58+08:00",
+      "duration_seconds": 46.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在Obsidian中查看待办任务列表",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Obsidian标题'ToDo-已经规划好的任务'持续0.64分钟",
+        "手机微信前台同时"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:53:58+08:00",
+      "end": "2026-07-27T22:54:08+08:00",
+      "duration_seconds": 10.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "在ChatGPT中询问肖邦夜曲练习建议",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'肖邦夜曲练习建议'在chatgpt.com",
+        "明显偏离工作任务，属于个人兴趣"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:54:08+08:00",
+      "end": "2026-07-27T22:54:21+08:00",
+      "duration_seconds": 13.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "切换多个应用，可能查找文件或工具",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian'ToDo-已经规划好的任务'1秒",
+        "ChatGPT应用2秒",
+        "cc-switch.exe 3秒",
+        "文件资源管理器等"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:54:21+08:00",
+      "end": "2026-07-27T22:54:36+08:00",
+      "duration_seconds": 15.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "使用文件管理器搜索或整理文件",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "文件资源管理器出现0.12分钟",
+        "SearchHost出现搜索",
+        "可能为工作查找文件"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:54:36+08:00",
+      "end": "2026-07-27T22:56:04+08:00",
+      "duration_seconds": 88.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用ChatGPT应用和Obsidian继续进行任务规划",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "ChatGPT.exe前台共约0.87分钟",
+        "Obsidian'ToDo-已经规划好的任务'间歇出现",
+        "手机微信前台同时"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:56:04+08:00",
+      "end": "2026-07-27T22:57:42+08:00",
+      "duration_seconds": 98.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在Obsidian中详细规划待办任务",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Obsidian'ToDo-已经规划好的任务'持续1.63分钟",
+        "电脑活跃，手机微信前台同时"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:57:42+08:00",
+      "end": "2026-07-27T22:57:46+08:00",
+      "duration_seconds": 4.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "查看ChatGPT使用帮助文档",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'Using Codex with your ChatGPT plan'在help.openai.com",
+        "2秒很短，可能误点或快速查看"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T22:57:46+08:00",
+      "end": "2026-07-27T22:59:01+08:00",
+      "duration_seconds": 75.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎首页（可能分心）",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge域名zhihu.com标题'首页 - 知乎'持续1.22分钟",
+        "属于娱乐浏览"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:59:01+08:00",
+      "end": "2026-07-27T22:59:04+08:00",
+      "duration_seconds": 3.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "短暂无窗口记录",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活跃但无窗口记录约3秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T22:59:04+08:00",
+      "end": "2026-07-27T22:59:08+08:00",
+      "duration_seconds": 4.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "快速查看Obsidian待办和知乎帖子",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Obsidian'ToDo-已经规划好的任务'1秒",
+        "Edge知乎帖子1秒",
+        "手机微信前台同时"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T22:59:08+08:00",
+      "end": "2026-07-27T23:00:00+08:00",
+      "duration_seconds": 52.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "返回ChatGPT继续规划'下一步行动与闭环'",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge标题'下一步行动与闭环'在chatgpt.com持续0.7分钟",
+        "还有help.openai.com短暂查看",
+        "手机微信前台同时"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "22:54:08-22:54:21期间多个应用快速切换，具体意图不明，可能属于工作文件查找或娱乐试探",
+    "22:34:16-22:37:37和22:30-22:34:13电脑AFK期间手机微信前台，不能区分是工作通信还是个人聊天"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 25042,
+      "completion_tokens": 3632,
+      "total_tokens": 28674,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 24018
+    }
+  }
+}

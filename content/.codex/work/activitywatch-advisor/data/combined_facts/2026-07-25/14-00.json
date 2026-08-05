@@ -1,0 +1,512 @@
+{
+  "schema_version": 3,
+  "period": {
+    "start": "2026-07-25T14:00:00+08:00",
+    "end": "2026-07-25T14:30:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-25/14-00.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-25/14-00.json",
+  "semantic_timeline_file": "/home/conrad/workspace/activitywatch-advisor/data/semantic_timelines/2026-07-25/14-00.json",
+  "mixing_metrics_file": "/home/conrad/workspace/activitywatch-advisor/data/mixing_metrics/2026-07-25/14-00.json",
+  "cross_device_facts": {
+    "schema_version": 2,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-25T14:00:00+08:00",
+      "end": "2026-07-25T14:30:00+08:00"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 30.0,
+      "computer_afk_minutes": 0.0,
+      "phone_screen_on_minutes": 0.98,
+      "any_device_interaction_minutes": 30.0,
+      "no_detected_device_interaction_minutes": 0.0,
+      "confirmed_rest_minutes": 0.0,
+      "note": "confirmed_rest_minutes按用户确认的跨设备连续无操作规则计算。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "future_devices_not_connected": [
+        "tablet"
+      ],
+      "condition": "电脑连续AFK达到阈值，且所有已接入移动设备均无操作。",
+      "confirmed_intervals": []
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 56,
+      "context_switch_count": 55,
+      "switches_per_active_hour": 128.84,
+      "short_context_blocks_under_60_seconds": 49,
+      "sustained_context_blocks_at_least_5_minutes": 0,
+      "longest_context_minutes": 2.99,
+      "median_context_minutes": 0.24,
+      "context_blocks": [
+        {
+          "start": "2026-07-25T14:00:02+08:00",
+          "end": "2026-07-25T14:00:07+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:00:12+08:00",
+          "end": "2026-07-25T14:00:30+08:00",
+          "minutes": 0.29,
+          "app": "Microsoft Edge",
+          "title": "跟学在B站",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:00:36+08:00",
+          "end": "2026-07-25T14:00:57+08:00",
+          "minutes": 0.34,
+          "app": "Microsoft Edge",
+          "title": "跟学在B站",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:01:00+08:00",
+          "end": "2026-07-25T14:01:07+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:01:13+08:00",
+          "end": "2026-07-25T14:01:21+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:01:26+08:00",
+          "end": "2026-07-25T14:03:35+08:00",
+          "minutes": 2.15,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:03:41+08:00",
+          "end": "2026-07-25T14:03:58+08:00",
+          "minutes": 0.26,
+          "app": "Microsoft Edge",
+          "title": "初高中物理衔接-哔哩哔哩_bilibili",
+          "domain": "search.bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:03:59+08:00",
+          "end": "2026-07-25T14:04:05+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "跟学在B站",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:04:18+08:00",
+          "end": "2026-07-25T14:04:31+08:00",
+          "minutes": 0.21,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:04:32+08:00",
+          "end": "2026-07-25T14:05:05+08:00",
+          "minutes": 0.55,
+          "app": "Microsoft Edge",
+          "title": "跟学在B站",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:05:09+08:00",
+          "end": "2026-07-25T14:05:16+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "跟学在B站",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:05:17+08:00",
+          "end": "2026-07-25T14:05:28+08:00",
+          "minutes": 0.17,
+          "app": "Mathpix",
+          "title": "Mathpix Snipping Tool - Snip View",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:05:29+08:00",
+          "end": "2026-07-25T14:05:40+08:00",
+          "minutes": 0.16,
+          "app": "Microsoft Edge",
+          "title": "跟学在B站",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:05:58+08:00",
+          "end": "2026-07-25T14:06:10+08:00",
+          "minutes": 0.21,
+          "app": "Microsoft Edge",
+          "title": "2.【基础物理量】质点_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:06:11+08:00",
+          "end": "2026-07-25T14:06:25+08:00",
+          "minutes": 0.24,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:06:29+08:00",
+          "end": "2026-07-25T14:06:48+08:00",
+          "minutes": 0.33,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:06:50+08:00",
+          "end": "2026-07-25T14:07:04+08:00",
+          "minutes": 0.22,
+          "app": "Microsoft Edge",
+          "title": "2.【基础物理量】质点_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:07:05+08:00",
+          "end": "2026-07-25T14:07:31+08:00",
+          "minutes": 0.43,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:07:37+08:00",
+          "end": "2026-07-25T14:07:44+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:07:45+08:00",
+          "end": "2026-07-25T14:08:07+08:00",
+          "minutes": 0.36,
+          "app": "Microsoft Edge",
+          "title": "2.【基础物理量】质点_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:08:13+08:00",
+          "end": "2026-07-25T14:08:23+08:00",
+          "minutes": 0.17,
+          "app": "Microsoft Edge",
+          "title": "2.【基础物理量】质点_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:08:24+08:00",
+          "end": "2026-07-25T14:08:43+08:00",
+          "minutes": 0.31,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:08:51+08:00",
+          "end": "2026-07-25T14:09:01+08:00",
+          "minutes": 0.16,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:09:04+08:00",
+          "end": "2026-07-25T14:10:11+08:00",
+          "minutes": 1.12,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:10:22+08:00",
+          "end": "2026-07-25T14:13:21+08:00",
+          "minutes": 2.99,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:13:36+08:00",
+          "end": "2026-07-25T14:13:52+08:00",
+          "minutes": 0.24,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:13:53+08:00",
+          "end": "2026-07-25T14:14:03+08:00",
+          "minutes": 0.15,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:14:18+08:00",
+          "end": "2026-07-25T14:15:16+08:00",
+          "minutes": 0.97,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:15:17+08:00",
+          "end": "2026-07-25T14:15:24+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:15:26+08:00",
+          "end": "2026-07-25T14:15:39+08:00",
+          "minutes": 0.17,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:15:46+08:00",
+          "end": "2026-07-25T14:16:19+08:00",
+          "minutes": 0.55,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:16:20+08:00",
+          "end": "2026-07-25T14:16:29+08:00",
+          "minutes": 0.15,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:16:34+08:00",
+          "end": "2026-07-25T14:17:24+08:00",
+          "minutes": 0.71,
+          "app": "Microsoft Edge",
+          "title": "新建标签页",
+          "domain": "newtab"
+        },
+        {
+          "start": "2026-07-25T14:17:27+08:00",
+          "end": "2026-07-25T14:18:09+08:00",
+          "minutes": 0.65,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:18:18+08:00",
+          "end": "2026-07-25T14:18:26+08:00",
+          "minutes": 0.14,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:18:33+08:00",
+          "end": "2026-07-25T14:18:46+08:00",
+          "minutes": 0.22,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:18:50+08:00",
+          "end": "2026-07-25T14:18:57+08:00",
+          "minutes": 0.12,
+          "app": "Microsoft Edge",
+          "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:18:58+08:00",
+          "end": "2026-07-25T14:19:13+08:00",
+          "minutes": 0.21,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:19:18+08:00",
+          "end": "2026-07-25T14:19:45+08:00",
+          "minutes": 0.45,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:19:48+08:00",
+          "end": "2026-07-25T14:20:06+08:00",
+          "minutes": 0.29,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:20:07+08:00",
+          "end": "2026-07-25T14:21:45+08:00",
+          "minutes": 1.64,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:21:53+08:00",
+          "end": "2026-07-25T14:22:18+08:00",
+          "minutes": 0.41,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:22:21+08:00",
+          "end": "2026-07-25T14:22:41+08:00",
+          "minutes": 0.33,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:22:43+08:00",
+          "end": "2026-07-25T14:23:03+08:00",
+          "minutes": 0.33,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:23:04+08:00",
+          "end": "2026-07-25T14:23:12+08:00",
+          "minutes": 0.14,
+          "app": "Microsoft Edge",
+          "title": "3.【基础物理量】参考系_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:23:13+08:00",
+          "end": "2026-07-25T14:23:18+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:23:19+08:00",
+          "end": "2026-07-25T14:23:27+08:00",
+          "minutes": 0.14,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:23:29+08:00",
+          "end": "2026-07-25T14:24:55+08:00",
+          "minutes": 1.42,
+          "app": "Microsoft Edge",
+          "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:24:57+08:00",
+          "end": "2026-07-25T14:25:24+08:00",
+          "minutes": 0.47,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:25:27+08:00",
+          "end": "2026-07-25T14:26:44+08:00",
+          "minutes": 1.29,
+          "app": "Microsoft Edge",
+          "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:26:49+08:00",
+          "end": "2026-07-25T14:27:19+08:00",
+          "minutes": 0.5,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:27:22+08:00",
+          "end": "2026-07-25T14:28:49+08:00",
+          "minutes": 1.45,
+          "app": "Microsoft Edge",
+          "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:28:50+08:00",
+          "end": "2026-07-25T14:28:55+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:28:57+08:00",
+          "end": "2026-07-25T14:29:24+08:00",
+          "minutes": 0.47,
+          "app": "Microsoft Edge",
+          "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T14:29:32+08:00",
+          "end": "2026-07-25T14:29:46+08:00",
+          "minutes": 0.24,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T14:29:47+08:00",
+          "end": "2026-07-25T14:30:00+08:00",
+          "minutes": 0.21,
+          "app": "Microsoft Edge",
+          "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 0.98,
+      "computer_afk_and_phone_on": 0.0,
+      "computer_not_afk_and_phone_off": 29.02,
+      "computer_afk_and_phone_off": 0.0
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。"
+    ]
+  }
+}

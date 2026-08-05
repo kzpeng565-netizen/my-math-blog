@@ -1,0 +1,478 @@
+{
+  "period": "2026-07-24T22:30:00+08:00/2026-07-24T23:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：初高衔接数学学习（对称式、主元思想、乘法公式、因式分解）。工作28.2分钟，娱乐0.0分钟，通信1.53分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 1.53,
+    "longest_continuous_work_minutes": 7.78,
+    "same_task_tool_switches_not_scored": 6,
+    "raw_foreground_context_switches_not_scored": 24,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无娱乐偏离。工作中仅出现一次16秒的QQMusic听音乐，未超过30秒，不计入混杂；其余均为连续工作或短暂通信。"
+  },
+  "computer_summary": "电脑主要使用ChatGPT（11.2分钟）、B站（3.96分钟）和Obsidian（3.25分钟）进行初高衔接数学学习，期间穿插微信通信（3.69分钟）和Mathpix截图，工具切换服务于同一任务。",
+  "phone_summary": "手机活动包括微信通信（2.1分钟）和亮屏但前台未知（4.95分钟），通信短暂，未知部分可能与微信相关，不改变工作为主的性质。",
+  "material_uncertainties": [
+    "手机亮屏但前台未知的4.95分钟：可能为微信或其他，但对时段归类影响有限（已按重叠归入相应段）",
+    "22:45-22:52的AFK段：手机有微信等使用，但电脑无操作，属短暂离开，不改变工作为主的性质"
+  ],
+  "concise_report": "主要任务：初高衔接数学学习（对称式、主元思想、乘法公式、因式分解）。工作28.2分钟，娱乐0.0分钟，通信1.53分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "手机亮屏但前台未知的4.95分钟是否包含娱乐内容（如短视频、游戏）？",
+  "observed_metrics": {
+    "computer_active_minutes": 23.11,
+    "computer_afk_minutes": 6.89,
+    "phone_screen_on_minutes": 7.08,
+    "simultaneous_computer_active_phone_on_minutes": 2.6,
+    "no_detected_device_interaction_minutes": 2.4,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 28.2,
+      "range_minutes": [
+        28.2,
+        28.2
+      ],
+      "evidence": [
+        "连续7.8分钟前台ChatGPT",
+        "辅助上下文显示此前在B站看初高衔接视频",
+        "时段内Obsidian笔记标题涉及乘法公式、主元思想、因式分解",
+        "Edge浏览器前台标题为【初高衔接】1.1 对称式、主元思想"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 1.53,
+      "range_minutes": [
+        1.53,
+        1.53
+      ],
+      "evidence": [
+        "电脑微信前台约9秒",
+        "手机微信22:41前后也有使用",
+        "时间短，非娱乐",
+        "电脑微信前台约1.4分钟"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.27,
+      "range_minutes": [
+        0.27,
+        0.27
+      ],
+      "evidence": [
+        "QQMusic前台约16秒",
+        "播放歌曲平凡之路"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "22:30-22:37",
+      "likely_state": "工作",
+      "minutes": 7.78,
+      "task": "使用ChatGPT处理初高衔接数学内容（对称式、主元思想等）",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "连续7.8分钟前台ChatGPT",
+        "辅助上下文显示此前在B站看初高衔接视频",
+        "时段内Obsidian笔记标题涉及乘法公式、主元思想、因式分解"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:37-22:38",
+      "likely_state": "其他",
+      "minutes": 0.27,
+      "task": "短暂切到QQMusic听音乐",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "QQMusic前台约16秒",
+        "播放歌曲平凡之路"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:38-22:40",
+      "likely_state": "工作",
+      "minutes": 2.08,
+      "task": "在B站观看初高衔接1.1对称式、主元思想视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器前台标题为【初高衔接】1.1 对称式、主元思想",
+        "约2分钟连续浏览",
+        "期间手机短暂亮屏使用微信（22:38-22:39），重叠仅几秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:40-22:40",
+      "likely_state": "通信",
+      "minutes": 0.15,
+      "task": "微信短暂查看消息",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑微信前台约9秒",
+        "手机微信22:41前后也有使用",
+        "时间短，非娱乐"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:40-22:40",
+      "likely_state": "工作",
+      "minutes": 0.68,
+      "task": "在Obsidian查看手机使用记录系统维护指南",
+      "work_category": "系统维护",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题为手机使用记录系统——树莓派端操作与维护指南",
+        "约0.7分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:40-22:42",
+      "likely_state": "工作",
+      "minutes": 1.28,
+      "task": "使用ChatGPT处理初高衔接数学内容",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT前台约1.3分钟",
+        "紧接着之前的数学学习"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:42-22:42",
+      "likely_state": "工作",
+      "minutes": 0.17,
+      "task": "在B站观看初高衔接视频（短暂切回）",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题为初高衔接1.1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:42-22:42",
+      "likely_state": "工作",
+      "minutes": 0.2,
+      "task": "在Obsidian查看手机使用记录系统维护指南",
+      "work_category": "系统维护",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题为手机使用记录系统"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:42-22:42",
+      "likely_state": "工作",
+      "minutes": 0.23,
+      "task": "在Obsidian新建未命名笔记，可能开始整理数学笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题为未命名",
+        "紧接着切换回数学相关标题"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:42-22:42",
+      "likely_state": "工作",
+      "minutes": 0.13,
+      "task": "在Obsidian打开初高衔接2笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题为初高衔接2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:42-22:43",
+      "likely_state": "工作",
+      "minutes": 0.07,
+      "task": "快速切回B站视频确认内容",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题为初高衔接1.1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:43-22:43",
+      "likely_state": "工作",
+      "minutes": 0.4,
+      "task": "在Obsidian编辑初高衔接2整式笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题为初高衔接2 整式"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:43-22:43",
+      "likely_state": "工作",
+      "minutes": 0.12,
+      "task": "切回B站视频参考",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题为初高衔接1.1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:43-22:44",
+      "likely_state": "工作",
+      "minutes": 0.48,
+      "task": "在Obsidian编辑初高衔接2乘法公式&主元思想&因式分解笔记，并使用Mathpix截图",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题为初高衔接2 乘法公式&主元思想&因式分解",
+        "Mathpix短暂出现用于截图"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:44-22:45",
+      "likely_state": "工作",
+      "minutes": 1.38,
+      "task": "在B站继续观看初高衔接1.1视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题为初高衔接1.1",
+        "持续约1.4分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:45-22:52",
+      "likely_state": "工作",
+      "minutes": 7.17,
+      "task": "短暂使用ChatGPT后进入AFK（约6.9分钟）",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:45:26-22:45:43使用ChatGPT",
+        "22:45:43-22:52:36电脑AFK",
+        "手机22:47-22:52期间亮屏使用微信和未知应用"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:52-22:54",
+      "likely_state": "工作",
+      "minutes": 1.88,
+      "task": "回到电脑使用ChatGPT继续处理数学内容",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT前台约1.9分钟",
+        "AFK后立即回到ChatGPT"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:54-22:55",
+      "likely_state": "通信",
+      "minutes": 1.38,
+      "task": "使用微信进行通讯",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑微信前台约1.4分钟",
+        "不涉及娱乐标题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:55-22:55",
+      "likely_state": "工作",
+      "minutes": 0.07,
+      "task": "切回B站视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题为初高衔接1.1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:55-22:59",
+      "likely_state": "工作",
+      "minutes": 3.83,
+      "task": "在Obsidian编辑初高衔接2乘法公式&主元思想&因式分解笔记，中间穿插几次微信通讯",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题持续为初高衔接2 乘法公式&主元思想&因式分解",
+        "微信穿插但属于短暂通讯",
+        "最后回到Obsidian直到时段结束"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:59-23:00",
+      "likely_state": "工作",
+      "minutes": 0.23,
+      "task": "继续在Obsidian编辑数学笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题为初高衔接2 乘法公式&主元思想&因式分解"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "初高衔接数学学习（对称式、主元思想、乘法公式、因式分解）",
+  "data_quality": {
+    "level": "high",
+    "material_issues": [
+      "亮屏期间前台应用未知4.95分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 12314,
+      "completion_tokens": 1334,
+      "total_tokens": 13648,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 899
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 11418
+    }
+  }
+}

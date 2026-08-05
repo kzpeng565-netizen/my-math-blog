@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "source": "mobile_usage_jsonl",
+  "period": {
+    "start": "2026-07-27T12:00:00+08:00",
+    "end": "2026-07-27T12:30:00+08:00"
+  },
+  "input": {
+    "files_read": [
+      "/home/conrad/phone_usage/archive/2026-07-26/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-26/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-26/screen.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/screen.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_screen.jsonl",
+      "/home/conrad/phone_usage/incoming/foreground.jsonl",
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl",
+      "/home/conrad/phone_usage/incoming/screen.jsonl",
+      "/home/conrad/phone_usage/incoming/tablet_foreground.jsonl",
+      "/home/conrad/phone_usage/incoming/tablet_heartbeat.jsonl",
+      "/home/conrad/phone_usage/incoming/tablet_screen.jsonl"
+    ],
+    "deduplicated_events_in_period": 0,
+    "deduplicated_events_by_type": {},
+    "accepted_events_by_file": {
+      "/home/conrad/phone_usage/archive/2026-07-26/foreground.jsonl": 1626,
+      "/home/conrad/phone_usage/archive/2026-07-26/heartbeat.jsonl": 92,
+      "/home/conrad/phone_usage/archive/2026-07-26/screen.jsonl": 200,
+      "/home/conrad/phone_usage/archive/2026-07-27/foreground.jsonl": 91,
+      "/home/conrad/phone_usage/archive/2026-07-27/heartbeat.jsonl": 38,
+      "/home/conrad/phone_usage/archive/2026-07-27/screen.jsonl": 22,
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_foreground.jsonl": 0,
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_screen.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/foreground.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/screen.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/tablet_foreground.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/tablet_heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/tablet_screen.jsonl": 0
+    }
+  },
+  "screen": {
+    "on_minutes": 0.0,
+    "off_minutes": 30.0,
+    "unknown_minutes": 0.0,
+    "unlock_count": 0
+  },
+  "foreground": {
+    "switch_count": 0,
+    "top_apps": [],
+    "top_packages": []
+  },
+  "screen_timeline": [
+    {
+      "start": "2026-07-27T12:00:00+08:00",
+      "end": "2026-07-27T12:30:00+08:00",
+      "duration_seconds": 1800.0,
+      "state": "off"
+    }
+  ],
+  "timeline": [],
+  "quality": {
+    "level": "low",
+    "collector_heartbeat": {
+      "closest_seen": null,
+      "offset_seconds_from_period_end": null,
+      "level": "low"
+    },
+    "timeline_truncated": false,
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ],
+    "limitations": [
+      "亮屏表示屏幕开启，不保证用户持续注视或操作。",
+      "前台应用只说明当时显示的应用，不直接表示使用目的。",
+      "亮屏后尚未收到新的前台事件时，不沿用旧应用，保留为未知。"
+    ]
+  }
+}

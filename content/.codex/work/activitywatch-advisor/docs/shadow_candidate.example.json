@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "shadow_mode": true,
+  "would_intervene": true,
+  "push_sent": false,
+  "trigger_reasons": [
+    "high_stimulation"
+  ],
+  "observations": {
+    "high_stimulation_minutes": 12.0,
+    "active_device_minutes": 25.0,
+    "meaningful_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0,
+    "active_device_minutes_60m": 25.0,
+    "meaningful_minutes_60m": 0.0,
+    "mainline_present": false,
+    "pomodoro_used_as_trigger": false
+  },
+  "recommended_task": {
+    "title": "遍历论当前章节",
+    "category": "数学学习",
+    "priority": "highest",
+    "scheduled_date": "2026-07-27",
+    "due_date": null,
+    "tomatoes_completed": 0,
+    "tomatoes_total": 3,
+    "source_order": 1
+  },
+  "context_source": "live",
+  "context_age_minutes": 5.0,
+  "note": "影子模式只记录候选，不发送干预；番茄钟缺失永不单独触发。"
+}

@@ -1,0 +1,515 @@
+{
+  "period": "2026-07-27T16:30:00+08:00/2026-07-27T17:00:00+08:00",
+  "state_assessment": {
+    "label": "work_disrupted_by_entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：课时量分析。工作21.35分钟，娱乐6.57分钟，通信1.82分钟，确认休息0.0分钟。工作中出现2次超过30秒的娱乐偏离，共6.57分钟，最长4.0分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 2,
+    "entertainment_deviation_minutes": 6.57,
+    "all_entertainment_minutes": 6.57,
+    "longest_entertainment_deviation_minutes": 4.0,
+    "work_entertainment_transition_count": 4,
+    "brief_communication_minutes": 1.82,
+    "longest_continuous_work_minutes": 13.1,
+    "same_task_tool_switches_not_scored": 36,
+    "raw_foreground_context_switches_not_scored": 47,
+    "deviations": [
+      {
+        "start": "2026-07-27T16:35:59+08:00",
+        "end": "2026-07-27T16:38:33+08:00",
+        "minutes": 2.57,
+        "duration_seconds": 154.0,
+        "task": "浏览知乎",
+        "evidence": [
+          "Edge浏览zhihu.com，标题'一般没人讨论…'和'首页-知乎'",
+          "持续约2.5分钟，明显偏离工作"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.02,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-27T16:40:35+08:00",
+        "end": "2026-07-27T16:44:35+08:00",
+        "minutes": 4.0,
+        "duration_seconds": 240.0,
+        "task": "观看B站视频",
+        "evidence": [
+          "Edge浏览bilibili.com，标题'台灣學校的政治課都教什麼 ?'",
+          "持续约4分钟，与工作无关"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.08,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中出现2次超过30秒的娱乐偏离：第一次在16:35:59-16:38:33（2.57分钟）浏览知乎，第二次在16:40:35-16:44:35（4分钟）观看B站视频。两次偏离后均返回原工作'课时量分析'，返回延迟分别约1秒和5秒。微信通信（1.82分钟）属于短暂通信，不计入混杂。"
+  },
+  "computer_summary": "电脑上主要任务为使用Edge浏览器在chatgpt.com进行'课时量分析'（累计约20分钟）。期间频繁切换至微信进行通信（约1.8分钟），以及两次娱乐偏离（知乎和B站）。",
+  "phone_summary": "手机在30分钟内持续熄屏，无任何活动记录。",
+  "tablet_summary": "平板亮屏30分钟，但为辅助数据源，未提供明确活动证据，不影响主要判断。",
+  "material_uncertainties": [
+    "微信内容未知，部分短通信可能服务于工作",
+    "B站视频末尾约4秒无窗口记录，但可能快速切换"
+  ],
+  "concise_report": "主要任务：课时量分析。工作21.35分钟，娱乐6.57分钟，通信1.82分钟，确认休息0.0分钟。工作中出现2次超过30秒的娱乐偏离，共6.57分钟，最长4.0分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "您浏览知乎页面（关于Kimi K3）是否与'课时量分析'工作相关？",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 21.35,
+      "range_minutes": [
+        21.35,
+        21.35
+      ],
+      "evidence": [
+        "前台窗口为Edge浏览器，页面标题'课时量分析'，chatgpt.com",
+        "持续约2分钟，期间无手机使用",
+        "短暂切换回Edge'课时量分析'（7秒），然后回到微信约1.7分钟，但微信穿插在工作间，整体仍属工作模式",
+        "Edge'课时量分析'，持续10秒"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 6.57,
+      "range_minutes": [
+        6.57,
+        6.57
+      ],
+      "evidence": [
+        "Edge浏览zhihu.com，标题'一般没人讨论…'和'首页-知乎'",
+        "持续约2.5分钟，明显偏离工作",
+        "Edge浏览bilibili.com，标题'台灣學校的政治課都教什麼 ?'",
+        "持续约4分钟，与工作无关"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 1.82,
+      "range_minutes": [
+        1.82,
+        1.82
+      ],
+      "evidence": [
+        "前台窗口为微信，标题'微信'",
+        "持续约1.7分钟，期间无其他活动",
+        "微信窗口6秒"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.27,
+      "range_minutes": [
+        0.27,
+        0.27
+      ],
+      "evidence": [
+        "两个事件间隔2秒，无窗口覆盖",
+        "两个事件间隔1秒，无窗口覆盖",
+        "无窗口记录，持续5秒"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "16:30-16:32",
+      "likely_state": "工作",
+      "minutes": 2.17,
+      "task": "课时量分析",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口为Edge浏览器，页面标题'课时量分析'，chatgpt.com",
+        "持续约2分钟，期间无手机使用"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:32-16:32",
+      "likely_state": "其他",
+      "minutes": 0.02,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔2秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:32-16:33",
+      "likely_state": "通信",
+      "minutes": 1.72,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口为微信，标题'微信'",
+        "持续约1.7分钟，期间无其他活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:33-16:33",
+      "likely_state": "其他",
+      "minutes": 0.03,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔2秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:33-16:35",
+      "likely_state": "工作",
+      "minutes": 1.85,
+      "task": "课时量分析",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "短暂切换回Edge'课时量分析'（7秒），然后回到微信约1.7分钟，但微信穿插在工作间，整体仍属工作模式"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "16:35-16:35",
+      "likely_state": "其他",
+      "minutes": 0.02,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔1秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:35-16:35",
+      "likely_state": "工作",
+      "minutes": 0.17,
+      "task": "课时量分析",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge'课时量分析'，持续10秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:35-16:35",
+      "likely_state": "其他",
+      "minutes": 0.02,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔1秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:35-16:38",
+      "likely_state": "娱乐",
+      "minutes": 2.57,
+      "task": "浏览知乎",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览zhihu.com，标题'一般没人讨论…'和'首页-知乎'",
+        "持续约2.5分钟，明显偏离工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:38-16:38",
+      "likely_state": "其他",
+      "minutes": 0.02,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔1秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:38-16:39",
+      "likely_state": "工作",
+      "minutes": 0.72,
+      "task": "课时量分析与暑假预习计划",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'课时量分析'和'暑假预习计划与资料'（chatgpt.com）",
+        "随后使用ChatGPT桌面应用约26秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:39-16:39",
+      "likely_state": "其他",
+      "minutes": 0.02,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔1秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:39-16:39",
+      "likely_state": "工作",
+      "minutes": 0.02,
+      "task": "暑假预习计划",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge'暑假预习计划与资料'（chatgpt.com）"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:39-16:39",
+      "likely_state": "其他",
+      "minutes": 0.02,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔1秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:39-16:39",
+      "likely_state": "通信",
+      "minutes": 0.1,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口6秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:39-16:39",
+      "likely_state": "其他",
+      "minutes": 0.03,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔2秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:39-16:40",
+      "likely_state": "工作",
+      "minutes": 1.12,
+      "task": "课时量分析",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge'课时量分析'，持续11秒后短暂切到知乎问题页，但立即回到主页"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "16:40-16:44",
+      "likely_state": "娱乐",
+      "minutes": 4.0,
+      "task": "观看B站视频",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览bilibili.com，标题'台灣學校的政治課都教什麼 ?'",
+        "持续约4分钟，与工作无关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:44-16:44",
+      "likely_state": "其他",
+      "minutes": 0.08,
+      "task": "活跃但无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "无窗口记录，持续5秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:44-16:46",
+      "likely_state": "工作",
+      "minutes": 2.22,
+      "task": "课时量分析",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge'课时量分析'（chatgpt.com），持续约2分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:46-16:46",
+      "likely_state": "其他",
+      "minutes": 0.02,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两个事件间隔1秒，无窗口覆盖"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:46-17:00",
+      "likely_state": "工作",
+      "minutes": 13.1,
+      "task": "课时量分析与微信穿插",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "频繁在Edge'课时量分析'和微信窗口间切换，但总体以'课时量分析'为主（累计约7分钟）",
+        "微信窗口时间较短（每次<1分钟），属于工作间隙的短通信"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "课时量分析",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15244,
+      "completion_tokens": 2562,
+      "total_tokens": 17806,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2049
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 14348
+    }
+  }
+}

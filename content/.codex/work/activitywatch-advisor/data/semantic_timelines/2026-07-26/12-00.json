@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T12:00:00+08:00",
+    "end": "2026-07-26T12:30:00+08:00"
+  },
+  "primary_work_task": "数学学习（集合与逻辑）",
+  "segments": [
+    {
+      "start": "2026-07-26T12:00:00+08:00",
+      "end": "2026-07-26T12:04:20+08:00",
+      "duration_seconds": 260.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑连续AFK，手机屏幕熄灭",
+        "跨设备无操作超过180秒，符合休息规则",
+        "属于确认的休息区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T12:04:20+08:00",
+      "end": "2026-07-26T12:06:31+08:00",
+      "duration_seconds": 131.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "看哔哩哔哩视频，穿插微信和QQ",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台应用为微信、QQ、哔哩哔哩",
+        "哔哩哔哩使用1分33秒，为主要活动",
+        "电脑仍处于AFK状态"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T12:06:31+08:00",
+      "end": "2026-07-26T12:07:20+08:00",
+      "duration_seconds": 49.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机熄屏，可能短暂休息",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕熄灭49秒",
+        "电脑仍AFK",
+        "未达180秒休息阈值"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T12:07:20+08:00",
+      "end": "2026-07-26T12:07:38+08:00",
+      "duration_seconds": 18.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机查看微信消息",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台应用为微信",
+        "仅持续9秒，符合短暂通信",
+        "电脑仍AFK"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T12:07:38+08:00",
+      "end": "2026-07-26T12:22:43+08:00",
+      "duration_seconds": 905.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑连续AFK，手机屏幕熄灭",
+        "跨设备无操作超过180秒，符合休息规则",
+        "属于确认的休息区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T12:22:43+08:00",
+      "end": "2026-07-26T12:23:27+08:00",
+      "duration_seconds": 44.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "使用Obsidian、Mathpix、腾讯会议学习集合与逻辑",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题'高中数学1 集合与逻辑'",
+        "使用Mathpix截图工具",
+        "腾讯会议可能用于讨论",
+        "与PDF文档'高中数学1 集合与逻辑.pdf'一致"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T12:23:27+08:00",
+      "end": "2026-07-26T12:26:33+08:00",
+      "duration_seconds": 186.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑状态未知，无法判断",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活动状态unknown",
+        "无窗口记录",
+        "手机仍熄灭"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T12:26:33+08:00",
+      "end": "2026-07-26T12:30:00+08:00",
+      "duration_seconds": 207.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑连续AFK，手机屏幕熄灭",
+        "跨设备无操作超过180秒，符合休息规则",
+        "属于确认的休息区间"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "12:23:27-12:26:33电脑状态unknown，不确定用户是否在电脑前，可能影响归类"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 1
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 9151,
+      "completion_tokens": 1252,
+      "total_tokens": 10403,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "prompt_cache_hit_tokens": 7936,
+      "prompt_cache_miss_tokens": 1215
+    }
+  }
+}

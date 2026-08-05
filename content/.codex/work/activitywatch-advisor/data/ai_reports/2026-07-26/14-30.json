@@ -1,0 +1,174 @@
+{
+  "period": "2026-07-26T14:30:00+08:00/2026-07-26T15:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：学习高中物理加速度与x-t图像。工作27.88分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 27.88,
+    "same_task_tool_switches_not_scored": 49,
+    "raw_foreground_context_switches_not_scored": 49,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中未检测到任何超过30秒的娱乐偏离；所有B站观看内容均为物理教学视频，与Obsidian笔记、Mathpix截图等工具交替使用，属于同一学习任务下的工具切换，不计入混杂。"
+  },
+  "computer_summary": "电脑主要使用Edge浏览器观看B站物理教学视频（加速度和x-t图像）共15.52分钟，以及Obsidian做笔记9.81分钟，期间使用Mathpix和截图工具辅助，均为同一学习任务。",
+  "phone_summary": "手机全程屏幕关闭，无任何活动。",
+  "material_uncertainties": [
+    "AFK期间用户是否在休息或进行其他非电脑活动"
+  ],
+  "concise_report": "主要任务：学习高中物理加速度与x-t图像。工作27.88分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "B站视频是否全部为物理教学内容，无娱乐性质的观看？",
+  "observed_metrics": {
+    "computer_active_minutes": 27.89,
+    "computer_afk_minutes": 2.11,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 2.12,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 27.88,
+      "range_minutes": [
+        27.88,
+        27.88
+      ],
+      "evidence": [
+        "在B站观看【运动描述】1.7加速度和【直线运动】2.1x-t图像教学视频",
+        "在Obsidian编辑笔记'高中物理1 加速度'，记录学习内容",
+        "使用Mathpix截取公式，使用截图工具捕获图像，辅助笔记整理",
+        "前后辅助上下文显示同一模式，且完成后继续相同的工作"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 2.12,
+      "range_minutes": [
+        2.12,
+        2.12
+      ],
+      "evidence": [
+        "电脑状态从not-afk变为afk，持续约2分钟",
+        "期间手机屏幕为关闭状态，无任何设备操作",
+        "前后辅助上下文显示AFK结束后返回原工作（继续看视频和笔记）"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "14:30-14:57",
+      "likely_state": "工作",
+      "minutes": 27.88,
+      "task": "学习高中物理加速度和x-t图像，交替观看B站教学视频、在Obsidian做笔记，并使用Mathpix和截图工具辅助",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "在B站观看【运动描述】1.7加速度和【直线运动】2.1x-t图像教学视频",
+        "在Obsidian编辑笔记'高中物理1 加速度'，记录学习内容",
+        "使用Mathpix截取公式，使用截图工具捕获图像，辅助笔记整理",
+        "前后辅助上下文显示同一模式，且完成后继续相同的工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:57-15:00",
+      "likely_state": "其他",
+      "minutes": 2.12,
+      "task": "电脑进入AFK状态，用户可能短暂离开或休息",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态从not-afk变为afk，持续约2分钟",
+        "期间手机屏幕为关闭状态，无任何设备操作",
+        "前后辅助上下文显示AFK结束后返回原工作（继续看视频和笔记）"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "学习高中物理加速度与x-t图像",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 14602,
+      "completion_tokens": 592,
+      "total_tokens": 15194,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 273
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 13706
+    }
+  }
+}

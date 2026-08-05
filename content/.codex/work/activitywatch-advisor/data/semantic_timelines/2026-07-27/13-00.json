@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T13:00:00+08:00",
+    "end": "2026-07-27T13:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T13:00:00+08:00",
+      "end": "2026-07-27T13:30:00+08:00",
+      "duration_seconds": 1800.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无任何设备交互）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK且手机熄屏，跨设备休息规则确认休息",
+        "平板亮屏但辅助数据不否决休息",
+        "前后上下文显示电脑AFK和手机熄屏持续",
+        "无任何窗口或手机前台活动"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5106,
+      "completion_tokens": 231,
+      "total_tokens": 5337,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 4082
+    }
+  }
+}

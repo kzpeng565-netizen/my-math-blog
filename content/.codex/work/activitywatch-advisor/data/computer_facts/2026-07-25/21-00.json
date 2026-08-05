@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T21:00:00+08:00",
+    "end": "2026-07-25T21:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 26,
+      "aw-watcher-afk_xyh": 39,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 41
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 5.02,
+    "afk_minutes": 24.81,
+    "unknown_status_minutes": 0.17,
+    "window_observed_minutes": 4.65
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 4.62
+    },
+    {
+      "app": "微信",
+      "minutes": 0.03
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 2.83
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 1.79
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "minutes": 1.92
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "男生中考 699 分偷偷改志愿读中职，称「未来想当程序员，AI 时代也不怕」，如何看待这一升学选择？ - 知乎",
+      "minutes": 1.22
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "小丑竟是我自己!菲尔兹奖邓煜老师二次元对线!知乎激烈交流数学!有眼不识泰山具象化!_哔哩哔哩_bilibili",
+      "minutes": 0.91
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 0.56
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.03
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T21:00:26+08:00",
+      "last_seen": "2026-07-25T21:28:57+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-25T21:00:56+08:00",
+      "last_seen": "2026-07-25T21:30:56+08:00",
+      "raw_event_count": 17
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "男生中考 699 分偷偷改志愿读中职，称「未来想当程序员，AI 时代也不怕」，如何看待这一升学选择？ - 知乎",
+      "first_seen": "2026-07-25T21:22:56+08:00",
+      "last_seen": "2026-07-25T21:29:45+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "小丑竟是我自己!菲尔兹奖邓煜老师二次元对线!知乎激烈交流数学!有眼不识泰山具象化!_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T21:23:09+08:00",
+      "last_seen": "2026-07-25T21:24:09+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "first_seen": "2026-07-25T21:24:09+08:00",
+      "last_seen": "2026-07-25T21:29:40+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "对北京烤鸭反倾销调查，欧盟对中国逆差实在太多，已经急了_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T21:25:26+08:00",
+      "last_seen": "2026-07-25T21:29:41+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "当今网络将“逼”改为“福”的现象是否合理？有哪些争议点？_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T21:29:40+08:00",
+      "last_seen": "2026-07-25T21:29:41+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "菲尔兹奖得主王虹：北大转专业后实现数学梦想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T21:29:41+08:00",
+      "last_seen": "2026-07-25T21:29:41+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "space.bilibili.com",
+      "title": "不长双小核个人动态-不长双小核动态记录-哔哩哔哩视频",
+      "first_seen": "2026-07-25T21:29:41+08:00",
+      "last_seen": "2026-07-25T21:29:41+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "t.bilibili.com",
+      "title": "不长双小核的动态-哔哩哔哩",
+      "first_seen": "2026-07-25T21:29:41+08:00",
+      "last_seen": "2026-07-25T21:29:42+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T21:29:42+08:00",
+      "last_seen": "2026-07-25T21:29:42+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T21:29:42+08:00",
+      "last_seen": "2026-07-25T21:29:42+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.4位移路程、矢量标量（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T21:29:42+08:00",
+      "last_seen": "2026-07-25T21:29:42+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T21:29:42+08:00",
+      "last_seen": "2026-07-25T21:29:43+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "",
+      "title": "初高物理1 运动学基础概念.pdf",
+      "first_seen": "2026-07-25T21:29:43+08:00",
+      "last_seen": "2026-07-25T21:29:43+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "如何评价启境 GT7 搭载全球首个韬定律的数字底盘？ - 知乎",
+      "first_seen": "2026-07-25T21:29:43+08:00",
+      "last_seen": "2026-07-25T21:29:43+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "任正非为什么说「τ 定律是华为唯一出路」？ - 知乎",
+      "first_seen": "2026-07-25T21:29:43+08:00",
+      "last_seen": "2026-07-25T21:29:43+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "为什么两广地区在计算机和数学领域出现了人才井喷? - 知乎",
+      "first_seen": "2026-07-25T21:29:43+08:00",
+      "last_seen": "2026-07-25T21:29:44+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "日系车三巨头在华销量全线下跌，专家称短期难扭转，主要原因是什么？ - 知乎",
+      "first_seen": "2026-07-25T21:29:44+08:00",
+      "last_seen": "2026-07-25T21:29:44+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "马克龙为什么要祝贺王虹获菲尔兹奖？王虹是我国培养的人才，他一个法国总统祝贺一个中国籍数学家是何用意？ - 知乎",
+      "first_seen": "2026-07-25T21:29:44+08:00",
+      "last_seen": "2026-07-25T21:29:44+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "菲尔兹奖得主邓煜公开安利二次元作品，强力背书让父母再难以二次元耽误学习阻挠孩子爱好，如何看待此事？ - 知乎",
+      "first_seen": "2026-07-25T21:29:44+08:00",
+      "last_seen": "2026-07-25T21:29:44+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T21:00:00+08:00",
+      "end": "2026-07-25T21:00:08+08:00",
+      "duration_seconds": 8.338,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T21:00:08+08:00",
+      "end": "2026-07-25T21:06:30+08:00",
+      "duration_seconds": 382.155,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T21:06:30+08:00",
+      "end": "2026-07-25T21:06:40+08:00",
+      "duration_seconds": 10.037,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-25T21:06:40+08:00",
+      "end": "2026-07-25T21:21:37+08:00",
+      "duration_seconds": 896.762,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T21:21:37+08:00",
+      "end": "2026-07-25T21:24:33+08:00",
+      "duration_seconds": 176.136,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T21:24:33+08:00",
+      "end": "2026-07-25T21:28:03+08:00",
+      "duration_seconds": 209.678,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T21:28:03+08:00",
+      "end": "2026-07-25T21:30:00+08:00",
+      "duration_seconds": 116.892,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T21:00:00+08:00",
+      "end": "2026-07-25T21:00:05+08:00",
+      "duration_seconds": 5.54,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T21:00:06+08:00",
+      "end": "2026-07-25T21:00:08+08:00",
+      "duration_seconds": 1.759,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T21:21:37+08:00",
+      "end": "2026-07-25T21:21:51+08:00",
+      "duration_seconds": 14.429,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T21:21:53+08:00",
+      "end": "2026-07-25T21:23:09+08:00",
+      "duration_seconds": 73.455,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "男生中考 699 分偷偷改志愿读中职，称「未来想当程序员，AI 时代也不怕」，如何看待这一升学选择？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T21:23:10+08:00",
+      "end": "2026-07-25T21:24:09+08:00",
+      "duration_seconds": 54.896,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小丑竟是我自己!菲尔兹奖邓煜老师二次元对线!知乎激烈交流数学!有眼不识泰山具象化!_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T21:24:09+08:00",
+      "end": "2026-07-25T21:24:33+08:00",
+      "duration_seconds": 22.013,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T21:28:03+08:00",
+      "end": "2026-07-25T21:29:39+08:00",
+      "duration_seconds": 93.12,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T21:29:39+08:00",
+      "end": "2026-07-25T21:29:46+08:00",
+      "duration_seconds": 6.213,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T21:29:46+08:00",
+      "end": "2026-07-25T21:30:00+08:00",
+      "duration_seconds": 13.808,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.926,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.708,
+    "browser_share_of_active_time": 0.92,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

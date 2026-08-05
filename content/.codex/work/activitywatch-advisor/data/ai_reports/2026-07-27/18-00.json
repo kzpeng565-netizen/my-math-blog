@@ -1,0 +1,205 @@
+{
+  "period": "2026-07-27T18:00:00+08:00/2026-07-27T18:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：课时量分析。工作1.5分钟，娱乐0.0分钟，通信0.0分钟，确认休息27.08分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 1.5,
+    "same_task_tool_switches_not_scored": 3,
+    "raw_foreground_context_switches_not_scored": 3,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无娱乐偏离，工作内无超过30秒的娱乐打断，工作与娱乐无混杂。"
+  },
+  "computer_summary": "电脑活跃1.5分钟，主要使用微信（约0.99分钟）和Edge浏览器上chatgpt.com的「课时量分析」页面，属于同一工作任务。此后电脑持续AFK。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "tablet_summary": "平板全程亮屏（30分钟），但无前台应用数据，仅作为辅助参考，无法确认用户活动。",
+  "material_uncertainties": [
+    "18:05:14-18:06:39电脑状态未知，平板亮屏，无法判断用户是否短暂活动",
+    "18:05:14-18:06:39电脑状态未知（1.42分钟），平板亮屏，无法判断用户是否短暂活动。"
+  ],
+  "concise_report": "主要任务：课时量分析。工作1.5分钟，娱乐0.0分钟，通信0.0分钟，确认休息27.08分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "电脑状态未知的1.42分钟内，用户是否可能有短暂工作或娱乐活动？",
+  "observed_metrics": {
+    "computer_active_minutes": 1.5,
+    "computer_afk_minutes": 27.08,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 28.5,
+    "confirmed_rest_minutes": 27.08
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 1.5,
+      "range_minutes": [
+        1.5,
+        1.5
+      ],
+      "evidence": [
+        "电脑活跃，微信前台约0.99分钟，可能涉及工作沟通",
+        "Edge浏览器在chatgpt.com上标题为'课时量分析'",
+        "前后语境显示17:58-17:59已在预习计划，随后转为课时量分析"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 27.08,
+      "range_minutes": [
+        27.08,
+        27.08
+      ],
+      "evidence": [
+        "电脑AFK，手机熄屏，平板亮屏但仅辅助参考",
+        "跨设备休息规则确认此段为休息",
+        "电脑持续AFK，手机熄屏，平板亮屏但不确认为活动"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 1.42,
+      "range_minutes": [
+        1.42,
+        1.42
+      ],
+      "evidence": [
+        "电脑状态未知1.42分钟，无窗口记录",
+        "手机熄屏，平板亮屏但无前台应用数据"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "18:00-18:01",
+      "likely_state": "工作",
+      "minutes": 1.5,
+      "task": "在微信和ChatGPT上处理课时量分析",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活跃，微信前台约0.99分钟，可能涉及工作沟通",
+        "Edge浏览器在chatgpt.com上标题为'课时量分析'",
+        "前后语境显示17:58-17:59已在预习计划，随后转为课时量分析"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:01-18:05",
+      "likely_state": "休息",
+      "minutes": 3.73,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机熄屏，平板亮屏但仅辅助参考",
+        "跨设备休息规则确认此段为休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:05-18:06",
+      "likely_state": "无法判断",
+      "minutes": 1.42,
+      "task": "电脑状态未知，可能短暂查看平板或离开",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "tablet"
+      ],
+      "evidence": [
+        "电脑状态未知1.42分钟，无窗口记录",
+        "手机熄屏，平板亮屏但无前台应用数据"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "18:06-18:30",
+      "likely_state": "休息",
+      "minutes": 23.35,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑持续AFK，手机熄屏，平板亮屏但不确认为活动",
+        "跨设备休息规则确认此段为休息"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "课时量分析",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活动状态未知1.42分钟。",
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5178,
+      "completion_tokens": 745,
+      "total_tokens": 5923,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 387
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4282
+    }
+  }
+}

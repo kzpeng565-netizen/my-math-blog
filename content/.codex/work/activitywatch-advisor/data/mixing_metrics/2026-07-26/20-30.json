@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "medium",
+  "entertainment_deviation_count": 2,
+  "entertainment_deviation_minutes": 3.72,
+  "all_entertainment_minutes": 3.72,
+  "longest_entertainment_deviation_minutes": 2.08,
+  "work_entertainment_transition_count": 2,
+  "brief_communication_minutes": 0.0,
+  "longest_continuous_work_minutes": 0.82,
+  "same_task_tool_switches_not_scored": 0,
+  "raw_foreground_context_switches_not_scored": 2,
+  "deviations": [
+    {
+      "start": "2026-07-26T20:30:00+08:00",
+      "end": "2026-07-26T20:32:05+08:00",
+      "minutes": 2.08,
+      "duration_seconds": 125.0,
+      "task": "刷抖音短视频",
+      "evidence": [
+        "手机前台应用为抖音（com.ss.android.ugc.aweme），持续2分钟",
+        "电脑在此期间AFK，无操作",
+        "辅助上下文显示用户之前在工作（chatgpt.com“增强DeepSeek搜索能力”）",
+        "手机屏幕于20:32:05切换至桌面，之后转回工作"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.92,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T20:34:25+08:00",
+      "end": "2026-07-26T20:36:03+08:00",
+      "minutes": 1.63,
+      "duration_seconds": 98.0,
+      "task": "刷抖音短视频",
+      "evidence": [
+        "电脑从20:34:25起活跃但无窗口记录，随后AFK",
+        "手机亮屏，前台依次为“不做手机控”（9秒）、抖音（31秒）、桌面（10秒）、抖音（36秒）",
+        "抖音使用集中在20:34:46起，持续约1分钟",
+        "辅助上下文显示用户之前在电脑上工作，手机使用后电脑进入长时间AFK"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

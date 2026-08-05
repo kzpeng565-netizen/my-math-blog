@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T17:30:00+08:00",
+    "end": "2026-07-27T18:00:00+08:00"
+  },
+  "primary_work_task": "肖邦夜曲练习规划与资料查找",
+  "segments": [
+    {
+      "start": "2026-07-27T17:30:00+08:00",
+      "end": "2026-07-27T17:42:36+08:00",
+      "duration_seconds": 756.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "使用ChatGPT查询肖邦夜曲练习建议，并切换至暑假预习计划与资料",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口标题'肖邦夜曲练习建议'持续9分钟",
+        "切换至'暑假预习计划与资料'暗示备课",
+        "域名chatgpt.com，内容与音乐教学相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T17:42:36+08:00",
+      "end": "2026-07-27T17:44:04+08:00",
+      "duration_seconds": 88.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "在MidiShow网站注册验证、登录邮箱查看验证邮件，然后快速回复微信",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "访问midishow.com进行邮箱验证",
+        "短暂查看Outlook邮件",
+        "微信短暂出现（0.58分钟）",
+        "辅助上下文显示之前也在查找MIDI资料"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T17:44:04+08:00",
+      "end": "2026-07-27T17:47:51+08:00",
+      "duration_seconds": 227.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "在微信上独立通讯（3.72分钟）",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台连续3.72分钟",
+        "标题仅为'微信'，无工作关键词",
+        "穿插在MIDI下载和暑假预习之间，非工作通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T17:47:51+08:00",
+      "end": "2026-07-27T17:49:52+08:00",
+      "duration_seconds": 121.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "继续处理暑假预习计划与资料，以及肖邦夜曲练习建议",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "域名chatgpt.com，标题'暑假预习计划与资料'、'肖邦夜曲练习建议'",
+        "回到此前工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T17:49:52+08:00",
+      "end": "2026-07-27T17:54:38+08:00",
+      "duration_seconds": 286.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（电脑AFK且手机熄灯）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 4分46秒",
+        "手机全程熄屏",
+        "平板亮屏但属辅助数据源，不否决休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T17:54:38+08:00",
+      "end": "2026-07-27T17:57:36+08:00",
+      "duration_seconds": 178.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "继续肖邦夜曲练习规划，查看IMSLP乐谱PDF，切换回ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题'肖邦夜曲练习建议'与'[长标识符已隐藏].pdf'交替",
+        "域名s9.imslp.org为乐谱网站，与肖邦学习一致",
+        "辅助上下文显示之前也在查同样内容"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T17:57:36+08:00",
+      "end": "2026-07-27T17:58:05+08:00",
+      "duration_seconds": 29.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "系统整理：运行清理君清理系统",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Cleaner One.exe前台0.46分钟",
+        "标题'清理君'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T17:58:05+08:00",
+      "end": "2026-07-27T17:58:23+08:00",
+      "duration_seconds": 18.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "使用ChatGPT桌面版继续工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT.exe前台0.22分钟",
+        "辅助上下文随后回到Edge的ChatGPT页面"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T17:58:23+08:00",
+      "end": "2026-07-27T17:58:38+08:00",
+      "duration_seconds": 15.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "快速查看暑假预习计划与资料",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'暑假预习计划与资料'，域名chatgpt.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T17:58:38+08:00",
+      "end": "2026-07-27T18:00:00+08:00",
+      "duration_seconds": 82.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "在微信上独立通讯",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台连续1.36分钟",
+        "标题仅为'微信'",
+        "辅助上下文显示之后继续处理课时量分析（工作）"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15951,
+      "completion_tokens": 1580,
+      "total_tokens": 17531,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 14927
+    }
+  }
+}

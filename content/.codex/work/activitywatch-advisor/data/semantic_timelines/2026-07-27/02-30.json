@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T02:30:00+08:00",
+    "end": "2026-07-27T03:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T02:30:00+08:00",
+      "end": "2026-07-27T03:00:00+08:00",
+      "duration_seconds": 1800.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "无任何设备交互证据",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑状态未知30分钟，无活跃窗口",
+        "手机熄屏30分钟，无前台应用",
+        "平板亮屏30分钟但为辅助数据，无前台应用记录",
+        "前后上下文均无任何活动迹象"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "material_uncertainties": [
+    "平板亮屏能否作为用户活动的可靠指标？平板前台应用记录缺失，亮屏可能是待机或自动操作。",
+    "电脑状态未知可能掩盖了实际活动，但无任何窗口或网页记录。"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4738,
+      "completion_tokens": 283,
+      "total_tokens": 5021,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 3714
+    }
+  }
+}

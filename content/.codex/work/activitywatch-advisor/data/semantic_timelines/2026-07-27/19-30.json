@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T19:30:00+08:00",
+    "end": "2026-07-27T20:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T19:30:00+08:00",
+      "end": "2026-07-27T19:47:14+08:00",
+      "duration_seconds": 1034.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑连续AFK（无键鼠操作）且手机熄屏，符合rest_rule确认的休息区间",
+        "平板持续亮屏但作为辅助数据源不否决休息",
+        "前后上下文电脑AFK持续，手机仅在后续短时亮屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T19:47:14+08:00",
+      "end": "2026-07-27T19:48:07+08:00",
+      "duration_seconds": 53.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "查看美团和微信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，依次使用手机桌面、美团、微信",
+        "美团使用18秒，微信使用21秒，总时长53秒",
+        "无后续工作上下文，属于短暂通信和日常应用"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T19:48:07+08:00",
+      "end": "2026-07-27T20:00:00+08:00",
+      "duration_seconds": 713.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑连续AFK，手机熄屏，符合rest_rule确认的休息区间",
+        "平板持续亮屏但不否决休息",
+        "前后上下文无其他设备交互"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "平板持续亮屏30分钟但未捕获前台应用，无法确定是否在使用平板，但休息规则不依赖平板"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6232,
+      "completion_tokens": 561,
+      "total_tokens": 6793,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 5208
+    }
+  }
+}

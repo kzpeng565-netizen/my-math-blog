@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T18:00:00+08:00",
+    "end": "2026-07-27T18:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 6,
+      "aw-watcher-afk_xyh": 14,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 20
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 1.5,
+    "afk_minutes": 27.08,
+    "unknown_status_minutes": 1.42,
+    "window_observed_minutes": 1.43
+  },
+  "top_apps": [
+    {
+      "app": "微信",
+      "minutes": 0.99
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 0.45
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 0.39
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "Weixin",
+      "minutes": 0.58
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.4
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "minutes": 0.39
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 0.05
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T18:00:57+08:00",
+      "last_seen": "2026-07-27T18:29:27+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "first_seen": "2026-07-27T18:01:06+08:00",
+      "last_seen": "2026-07-27T18:29:36+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T18:00:00+08:00",
+      "end": "2026-07-27T18:01:30+08:00",
+      "duration_seconds": 90.005,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T18:01:30+08:00",
+      "end": "2026-07-27T18:05:14+08:00",
+      "duration_seconds": 224.71,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T18:05:14+08:00",
+      "end": "2026-07-27T18:06:39+08:00",
+      "duration_seconds": 85.192,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-27T18:06:39+08:00",
+      "end": "2026-07-27T18:30:00+08:00",
+      "duration_seconds": 1400.093,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T18:00:00+08:00",
+      "end": "2026-07-27T18:00:24+08:00",
+      "duration_seconds": 24.12,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T18:00:25+08:00",
+      "end": "2026-07-27T18:01:00+08:00",
+      "duration_seconds": 35.019,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T18:01:01+08:00",
+      "end": "2026-07-27T18:01:12+08:00",
+      "duration_seconds": 11.358,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T18:01:13+08:00",
+      "end": "2026-07-27T18:01:16+08:00",
+      "duration_seconds": 3.079,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T18:01:17+08:00",
+      "end": "2026-07-27T18:01:30+08:00",
+      "duration_seconds": 12.302,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.954,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 0.885,
+    "web_watcher_exact_time_overlap": 0.0,
+    "browser_share_of_active_time": 0.297,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活动状态未知1.42分钟。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

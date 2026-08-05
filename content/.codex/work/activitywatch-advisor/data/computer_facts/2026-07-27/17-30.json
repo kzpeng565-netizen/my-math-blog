@@ -1,0 +1,678 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T17:30:00+08:00",
+    "end": "2026-07-27T18:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 57,
+      "aw-watcher-afk_xyh": 3,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 29
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 25.23,
+    "afk_minutes": 4.77,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 24.26
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 17.68
+    },
+    {
+      "app": "微信",
+      "minutes": 5.74
+    },
+    {
+      "app": "Cleaner One.exe",
+      "minutes": 0.46
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 0.22
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.14
+    },
+    {
+      "app": "ShellHost.exe",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 13.53
+    },
+    {
+      "domain": "midishow.com",
+      "minutes": 1.91
+    },
+    {
+      "domain": "s9.imslp.org",
+      "minutes": 1.59
+    },
+    {
+      "domain": "outlook.live.com",
+      "minutes": 0.12
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "肖邦夜曲练习建议",
+      "minutes": 11.11
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 5.74
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "暑假预习计划与资料",
+      "minutes": 2.42
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "s9.imslp.org",
+      "title": "[长标识符已隐藏].pdf",
+      "minutes": 1.59
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "midishow.com",
+      "title": "邮箱验证 :: MidiShow",
+      "minutes": 1.56
+    },
+    {
+      "app": "Cleaner One.exe",
+      "domain": "",
+      "title": "清理君",
+      "minutes": 0.46
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "midishow.com",
+      "title": "肖邦-Op.48 No. 1. in Cmin.（夜曲） - MIDI 下载 :: MidiShow",
+      "minutes": 0.34
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "注册",
+      "minutes": 0.26
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 0.22
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "肖邦-Op.48 No. 1. in Cmin.（夜曲） MIDI 音乐下载试听 :: MidiShow",
+      "minutes": 0.19
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "outlook.live.com",
+      "title": "邮件 - 彭 康哲 - Outlook",
+      "minutes": 0.12
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "Program Manager",
+      "minutes": 0.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "登录",
+      "minutes": 0.05
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "edge浏览器下载 - 文件资源管理器",
+      "minutes": 0.03
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "无标题",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "s9.imslp.org/files/imglnks/usimg/4/45/[长标识符已隐藏].pdf?utm_source=chatgpt.com",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "肖邦夜曲练习建议",
+      "first_seen": "2026-07-27T17:30:05+08:00",
+      "last_seen": "2026-07-27T17:58:22+08:00",
+      "raw_event_count": 16
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T17:30:56+08:00",
+      "last_seen": "2026-07-27T17:59:27+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "暑假预习计划与资料",
+      "first_seen": "2026-07-27T17:38:57+08:00",
+      "last_seen": "2026-07-27T17:59:36+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "midishow.com",
+      "title": "邮箱验证 :: MidiShow",
+      "first_seen": "2026-07-27T17:42:36+08:00",
+      "last_seen": "2026-07-27T17:43:45+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "outlook.live.com",
+      "title": "邮件 - 彭 康哲 - Outlook",
+      "first_seen": "2026-07-27T17:43:31+08:00",
+      "last_seen": "2026-07-27T17:43:40+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "midishow.com",
+      "title": "肖邦-Op.48 No. 1. in Cmin.（夜曲） - MIDI 下载 :: MidiShow",
+      "first_seen": "2026-07-27T17:43:45+08:00",
+      "last_seen": "2026-07-27T17:47:50+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "s9.imslp.org",
+      "title": "[长标识符已隐藏].pdf",
+      "first_seen": "2026-07-27T17:55:52+08:00",
+      "last_seen": "2026-07-27T17:58:21+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "first_seen": "2026-07-27T17:59:36+08:00",
+      "last_seen": "2026-07-27T17:59:36+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T17:30:00+08:00",
+      "end": "2026-07-27T17:49:52+08:00",
+      "duration_seconds": 1192.271,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T17:49:52+08:00",
+      "end": "2026-07-27T17:54:38+08:00",
+      "duration_seconds": 286.445,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T17:54:38+08:00",
+      "end": "2026-07-27T18:00:00+08:00",
+      "duration_seconds": 321.283,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T17:30:00+08:00",
+      "end": "2026-07-27T17:38:56+08:00",
+      "duration_seconds": 536.531,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:38:58+08:00",
+      "end": "2026-07-27T17:39:38+08:00",
+      "duration_seconds": 38.263,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "暑假预习计划与资料",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:39:38+08:00",
+      "end": "2026-07-27T17:40:36+08:00",
+      "duration_seconds": 57.735,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:40:38+08:00",
+      "end": "2026-07-27T17:40:50+08:00",
+      "duration_seconds": 11.35,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦-Op.48 No. 1. in Cmin.（夜曲） MIDI 音乐下载试听 :: MidiShow",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:40:51+08:00",
+      "end": "2026-07-27T17:40:54+08:00",
+      "duration_seconds": 3.088,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦-Op.48 No. 1. in Cmin.（夜曲） - MIDI 下载 :: MidiShow",
+      "domain": "midishow.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:40:55+08:00",
+      "end": "2026-07-27T17:40:58+08:00",
+      "duration_seconds": 3.092,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "登录",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:40:59+08:00",
+      "end": "2026-07-27T17:41:14+08:00",
+      "duration_seconds": 15.478,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "注册",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:41:15+08:00",
+      "end": "2026-07-27T17:41:18+08:00",
+      "duration_seconds": 3.106,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦-Op.48 No. 1. in Cmin.（夜曲） - MIDI 下载 :: MidiShow",
+      "domain": "midishow.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:41:20+08:00",
+      "end": "2026-07-27T17:42:50+08:00",
+      "duration_seconds": 88.719,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "邮箱验证 :: MidiShow",
+      "domain": "midishow.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-27T17:42:51+08:00",
+      "end": "2026-07-27T17:42:52+08:00",
+      "duration_seconds": 1.036,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:42:53+08:00",
+      "end": "2026-07-27T17:43:28+08:00",
+      "duration_seconds": 35.058,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:43:29+08:00",
+      "end": "2026-07-27T17:43:30+08:00",
+      "duration_seconds": 1.035,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "邮箱验证 :: MidiShow",
+      "domain": "midishow.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:43:32+08:00",
+      "end": "2026-07-27T17:43:40+08:00",
+      "duration_seconds": 7.219,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "邮件 - 彭 康哲 - Outlook",
+      "domain": "outlook.live.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:43:41+08:00",
+      "end": "2026-07-27T17:43:45+08:00",
+      "duration_seconds": 4.109,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "邮箱验证 :: MidiShow",
+      "domain": "midishow.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:43:46+08:00",
+      "end": "2026-07-27T17:43:59+08:00",
+      "duration_seconds": 13.406,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦-Op.48 No. 1. in Cmin.（夜曲） - MIDI 下载 :: MidiShow",
+      "domain": "midishow.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:44:01+08:00",
+      "end": "2026-07-27T17:44:03+08:00",
+      "duration_seconds": 2.056,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "edge浏览器下载 - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:44:04+08:00",
+      "end": "2026-07-27T17:47:47+08:00",
+      "duration_seconds": 222.939,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:47:48+08:00",
+      "end": "2026-07-27T17:47:49+08:00",
+      "duration_seconds": 1.029,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦-Op.48 No. 1. in Cmin.（夜曲） - MIDI 下载 :: MidiShow",
+      "domain": "midishow.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:47:51+08:00",
+      "end": "2026-07-27T17:49:26+08:00",
+      "duration_seconds": 95.871,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "暑假预习计划与资料",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:49:27+08:00",
+      "end": "2026-07-27T17:49:52+08:00",
+      "duration_seconds": 24.355,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:54:38+08:00",
+      "end": "2026-07-27T17:54:55+08:00",
+      "duration_seconds": 17.011,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:54:56+08:00",
+      "end": "2026-07-27T17:54:57+08:00",
+      "duration_seconds": 1.039,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "无标题",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:54:58+08:00",
+      "end": "2026-07-27T17:54:59+08:00",
+      "duration_seconds": 1.033,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "s9.imslp.org/files/imglnks/usimg/4/45/[长标识符已隐藏].pdf?utm_source=chatgpt.com",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:55:00+08:00",
+      "end": "2026-07-27T17:55:45+08:00",
+      "duration_seconds": 44.446,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "[长标识符已隐藏].pdf",
+      "domain": "s9.imslp.org",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:55:46+08:00",
+      "end": "2026-07-27T17:55:51+08:00",
+      "duration_seconds": 5.146,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:55:52+08:00",
+      "end": "2026-07-27T17:56:25+08:00",
+      "duration_seconds": 32.065,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "[长标识符已隐藏].pdf",
+      "domain": "s9.imslp.org",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:56:25+08:00",
+      "end": "2026-07-27T17:56:30+08:00",
+      "duration_seconds": 5.142,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T17:56:30+08:00",
+      "end": "2026-07-27T17:56:34+08:00",
+      "duration_seconds": 4.121,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Manager",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:56:36+08:00",
+      "end": "2026-07-27T17:56:37+08:00",
+      "duration_seconds": 1.024,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:56:39+08:00",
+      "end": "2026-07-27T17:56:40+08:00",
+      "duration_seconds": 1.024,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "[长标识符已隐藏].pdf",
+      "domain": "s9.imslp.org",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:56:41+08:00",
+      "end": "2026-07-27T17:57:05+08:00",
+      "duration_seconds": 24.765,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:57:06+08:00",
+      "end": "2026-07-27T17:57:24+08:00",
+      "duration_seconds": 17.622,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "[长标识符已隐藏].pdf",
+      "domain": "s9.imslp.org",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:57:26+08:00",
+      "end": "2026-07-27T17:57:28+08:00",
+      "duration_seconds": 2.061,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:57:29+08:00",
+      "end": "2026-07-27T17:57:30+08:00",
+      "duration_seconds": 1.025,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Manager",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:57:31+08:00",
+      "end": "2026-07-27T17:57:32+08:00",
+      "duration_seconds": 1.026,
+      "app": "ShellHost.exe",
+      "app_display": "ShellHost.exe",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:57:33+08:00",
+      "end": "2026-07-27T17:57:35+08:00",
+      "duration_seconds": 2.033,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:57:36+08:00",
+      "end": "2026-07-27T17:58:04+08:00",
+      "duration_seconds": 27.835,
+      "app": "Cleaner One.exe",
+      "app_display": "Cleaner One.exe",
+      "title": "清理君",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:58:05+08:00",
+      "end": "2026-07-27T17:58:19+08:00",
+      "duration_seconds": 13.382,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:58:21+08:00",
+      "end": "2026-07-27T17:58:22+08:00",
+      "duration_seconds": 1.031,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:58:23+08:00",
+      "end": "2026-07-27T17:58:37+08:00",
+      "duration_seconds": 11.317,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "暑假预习计划与资料",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:58:38+08:00",
+      "end": "2026-07-27T18:00:00+08:00",
+      "duration_seconds": 81.382,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.962,
+    "browser_title_coverage": 0.999,
+    "browser_domain_context_coverage": 0.97,
+    "web_watcher_exact_time_overlap": 0.274,
+    "browser_share_of_active_time": 0.701,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

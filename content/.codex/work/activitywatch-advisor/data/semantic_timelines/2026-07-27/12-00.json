@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T12:00:00+08:00",
+    "end": "2026-07-27T12:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T12:00:00+08:00",
+      "end": "2026-07-27T12:29:45+08:00",
+      "duration_seconds": 1785.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK 29.75分钟且手机熄屏30分钟",
+        "rest_rule确认休息区间",
+        "平板亮屏30分钟但仅作为辅助数据，不否决休息",
+        "报告时段末电脑短暂活跃（0.21分钟）为事后活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T12:29:45+08:00",
+      "end": "2026-07-27T12:30:00+08:00",
+      "duration_seconds": 15.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian上学习高中数学集合与逻辑",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题：高中数学2 集合与逻辑",
+        "后台保持DeepSeek和ChatGPT标签页",
+        "报告时段最后14秒活跃，且上下文显示之前已有相关备课",
+        "休息结束后开始工作任务"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "休息期间平板亮屏但无前台应用，不确定用户是否使用平板进行任何活动",
+    "电脑AFK判定可能掩盖短时电脑使用"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6078,
+      "completion_tokens": 439,
+      "total_tokens": 6517,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 5054
+    }
+  }
+}

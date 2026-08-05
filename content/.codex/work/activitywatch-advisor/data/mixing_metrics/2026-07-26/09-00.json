@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 1,
+  "entertainment_deviation_minutes": 15.22,
+  "all_entertainment_minutes": 15.22,
+  "longest_entertainment_deviation_minutes": 15.22,
+  "work_entertainment_transition_count": 1,
+  "brief_communication_minutes": 0.0,
+  "longest_continuous_work_minutes": 1.23,
+  "same_task_tool_switches_not_scored": 0,
+  "raw_foreground_context_switches_not_scored": 21,
+  "deviations": [
+    {
+      "start": "2026-07-26T09:00:00+08:00",
+      "end": "2026-07-26T09:15:13+08:00",
+      "minutes": 15.22,
+      "duration_seconds": 913.0,
+      "task": "浏览小红书、知乎等关于王虹邓煜菲尔兹奖的娱乐内容",
+      "evidence": [
+        "09:00-09:02 浏览知乎首页和Kimi K3文章，之后切换到小红书浏览“王虹在nyu和ucla教书时期的学生评分”、“女神会被曾经的大佬同学嫉妒吗”等与个人生活相关话题，非学术内容",
+        "09:03-09:15 连续浏览小红书多个帖子（王虹学生评分、田刚合影、王虹INTP邓煜INTJ、每对情侣身边都会有个Steve等），主题娱乐八卦化，非工作",
+        "前后上下文显示用户8:55-9:00在配置AI工具（CC Switch、ChatGPT），工作意图明显；但报告时段内主要行为是娱乐刷小红书，后因AFK中断",
+        "手机全程息屏，无其他设备干扰"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 12.0,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

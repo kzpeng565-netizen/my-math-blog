@@ -1,0 +1,140 @@
+{
+  "period": "2026-07-24T21:30:00+08:00/2026-07-24T22:00:00+08:00",
+  "state_assessment": {
+    "label": "mixed_work_and_rest",
+    "confidence": "medium",
+    "one_sentence": "30分钟内工作约12分钟（ChatGPT/DeepSeek/Obsidian），其他活动约18分钟（微信、知乎、小红书等），无确认休息，最长连续工作仅2.96分钟，切换45次，高度碎片化。"
+  },
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 1.22,
+    "simultaneous_computer_active_phone_on_minutes": 1.22,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 12.0,
+      "range_minutes": [
+        10.0,
+        15.0
+      ],
+      "evidence": [
+        "ChatGPT前台共7.0分钟（21:30:40-21:34:08, 21:34:53-21:36:35, 21:37:58-21:38:08, 21:42:48-21:43:25, 21:55:06-21:56:12）",
+        "DeepSeek开放平台前台共4.25分钟（21:38:11-21:39:31, 21:39:50-21:42:47）",
+        "Obsidian前台0.14分钟（手机使用记录系统文档）"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": [
+        "无电脑AFK时段，无确认休息区间"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 18.0,
+      "range_minutes": [
+        15.0,
+        20.0
+      ],
+      "evidence": [
+        "微信+微信小程序合计11.03分钟，前台标题多为'微信''图片和视频'，可能为社交或浏览",
+        "知乎共4.2分钟，标题包括'丘成桐邀请王虹邓煜回国任教'和'首页'，属新闻阅读",
+        "小红书共0.58分钟，基因编辑新闻",
+        "手机亮屏1.22分钟，含微信、QQ、哔哩哔哩、全局搜索等"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "fragmentation_assessment": {
+    "level": "high",
+    "meaningful_context_blocks": 46,
+    "context_switch_count": 45,
+    "short_context_blocks": 34,
+    "sustained_context_blocks": 0,
+    "longest_context_minutes": 2.96,
+    "interpretation": "45次切换，34个块不足60秒，无任何块达到5分钟，最长仅2.96分钟（DeepSeek），工作连续性被频繁打断，碎片化严重。"
+  },
+  "timeline_summary": [
+    {
+      "time_range": "21:30-21:34",
+      "likely_state": "工作",
+      "minutes": 4.0,
+      "evidence": [
+        "ChatGPT（21:30:40-21:32:34, 21:32:39-21:34:08），短暂Edge切换至ActivityWatch"
+      ]
+    },
+    {
+      "time_range": "21:34-21:43",
+      "likely_state": "其他",
+      "minutes": 8.0,
+      "evidence": [
+        "频繁微信（图片和视频、微信）共约3min，小红书0.5min，Obsidian简短，ChatGPT小段（1.7min），DeepSeek（1.9min+2.96min）穿插，手机亮屏1min（微信、QQ、哔哩哔哩）"
+      ]
+    },
+    {
+      "time_range": "21:43-21:55",
+      "likely_state": "其他",
+      "minutes": 10.0,
+      "evidence": [
+        "大量微信+微信小程序（微信聊天、图片和视频），知乎浏览（首页+丘成桐话题），手机短暂亮屏5秒"
+      ]
+    },
+    {
+      "time_range": "21:55-22:00",
+      "likely_state": "工作",
+      "minutes": 8.0,
+      "evidence": [
+        "ChatGPT 1.1min，Google Gemini 0.8min，最后31秒Gemini，中间穿插微信和小程序"
+      ]
+    }
+  ],
+  "computer_summary": "电脑全程活跃，30分钟内切换45次。主要应用：Edge（10.2min，含DeepSeek、知乎、小红书、Gemini）、微信（8.59min，大量图片和视频）、ChatGPT（7.0min）、微信小程序（2.44min）、Obsidian（0.14min）。最长连续块为DeepSeek平台2.96分钟，无持续5分钟块。",
+  "phone_summary": "手机亮屏仅1.22分钟，集中在21:35-21:36（微信、QQ、哔哩哔哩等）和21:42:38-21:42:43（未知），未形成长时间中断，但与电脑使用重叠。",
+  "material_uncertainties": [
+    "微信和知乎的使用意图不明确：微信11分钟可能包含工作沟通，知乎4.2分钟（丘成桐话题）可能用于数学备课，若属工作则工作估计可增至15分钟以上。"
+  ],
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "concise_report": "30分钟高度碎片化：工作约12分钟（ChatGPT/DeepSeek/Obsidian），其他活动约18分钟（微信、知乎、小红书），无确认休息。切换45次，最长连续工作2.96分钟。需核验微信和知乎是否与工作相关。",
+  "gentle_suggestions": [],
+  "verification_question": "21:35之后频繁的微信使用（合计约11分钟）是否主要用于工作沟通，以及知乎浏览（丘成桐话题）是否与备课或研究相关？",
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 1
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15383,
+      "completion_tokens": 1980,
+      "total_tokens": 17363,
+      "prompt_tokens_details": {
+        "cached_tokens": 13952
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 533
+      },
+      "prompt_cache_hit_tokens": 13952,
+      "prompt_cache_miss_tokens": 1431
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T08:00:00+08:00",
+    "end": "2026-07-27T08:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T08:00:00+08:00",
+      "end": "2026-07-27T08:30:00+08:00",
+      "duration_seconds": 1800.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "设备闲置或未知活动",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "电脑状态未知且无活跃窗口",
+        "手机熄屏",
+        "平板亮屏但为非确认交互的辅助数据",
+        "无任何设备交互被检测到"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "material_uncertainties": [
+    "电脑无数据，手机熄屏，无法确定用户是否在使用平板或进行其他活动"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4738,
+      "completion_tokens": 245,
+      "total_tokens": 4983,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 3714
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T20:30:00+08:00",
+    "end": "2026-07-25T21:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-25T20:30:00+08:00",
+      "end": "2026-07-25T20:47:38+08:00",
+      "duration_seconds": 1058.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷抖音短视频和短时微信通信",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机一直在用，前台以抖音为主（com.ss.android.ugc.aweme累计约11分钟）",
+        "期间有短时使用微信（累计约4分钟）",
+        "电脑处于AFK状态，无操作",
+        "前后上下文无工作迹象，属于纯娱乐活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T20:47:38+08:00",
+      "end": "2026-07-25T21:00:00+08:00",
+      "duration_seconds": 742.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎各类话题",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从AFK恢复，连续使用Microsoft Edge浏览知乎",
+        "浏览了多个知乎问题：基因编辑、菲尔兹奖、日系车等，内容混杂",
+        "手机在此段大部分时间息屏，无活动",
+        "前后上下文无工作内容，纯信息/娱乐浏览"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15498,
+      "completion_tokens": 416,
+      "total_tokens": 15914,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 14602
+    }
+  }
+}

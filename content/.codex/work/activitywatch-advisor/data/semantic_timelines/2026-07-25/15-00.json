@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T15:00:00+08:00",
+    "end": "2026-07-25T15:30:00+08:00"
+  },
+  "primary_work_task": "学习初高中物理衔接（基础物理量）",
+  "segments": [
+    {
+      "start": "2026-07-25T15:00:00+08:00",
+      "end": "2026-07-25T15:08:55+08:00",
+      "duration_seconds": 535.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎娱乐内容（DeepSeek、菲尔兹奖、诗词等）",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:00-15:03 浏览知乎「为什么豆包没有被 DeepSeek『斩杀』？」",
+        "15:03-15:08 浏览「马克龙打电话祝贺王虹获奖」等非学习相关知乎话题",
+        "辅助上下文14:55-14:58 已浏览知乎诗词相关内容，未进入学习状态",
+        "之后15:09切换至bilibili物理学习视频，显示之前为娱乐偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:08:55+08:00",
+      "end": "2026-07-25T15:09:42+08:00",
+      "duration_seconds": 47.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "小红书搜索高铁一等座",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:08:55-15:09:41 浏览小红书「高铁一等座 - 小红书搜索」",
+        "内容与学习无关",
+        "紧接之前知乎偏离，之后立即转入学习视频"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:09:42+08:00",
+      "end": "2026-07-25T15:11:31+08:00",
+      "duration_seconds": 109.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "学习初高中物理衔接（基础物理量：位移）并记录笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:09:42-15:09:45 打开bilibili视频「【运动描述】1.3时间时刻」",
+        "15:09:48-15:11:31 交替使用bilibili视频「5.★【基础物理量】位移」和Obsidian记笔记",
+        "Obsidian标题为「未命名」，与bilibili物理内容配合"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:11:31+08:00",
+      "end": "2026-07-25T15:15:07+08:00",
+      "duration_seconds": 216.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "电脑AFK，手机亮屏使用（高德地图、全局搜索）",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "15:11:31 电脑开始AFK，持续约3分35秒",
+        "15:11:35 手机亮屏，使用Vivo全局搜索（25秒）和高德地图（约2分52秒）",
+        "手机使用可能与出行准备相关（高铁一等座搜索后使用地图）",
+        "电脑AFK结束于15:15:07，返回学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:15:07+08:00",
+      "end": "2026-07-25T15:30:00+08:00",
+      "duration_seconds": 893.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续学习初高中物理衔接（基础物理量：位移、矢量与标量、速度速率）并记录笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:15:07-15:20:05 交替使用bilibili「5.★位移」和Obsidian记笔记",
+        "15:20:06-15:27:30 切换到「6.★矢量与标量」，持续交替学习",
+        "15:27:30-15:30:00 切换到「7.★速度速率」，继续交替学习",
+        "整个过程Obsidian频繁使用，与bilibili视频内容高度对应"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 27839,
+      "completion_tokens": 1108,
+      "total_tokens": 28947,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 26943
+    }
+  }
+}

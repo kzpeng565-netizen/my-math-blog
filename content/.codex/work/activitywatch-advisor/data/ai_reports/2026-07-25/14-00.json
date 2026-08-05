@@ -1,0 +1,255 @@
+{
+  "period": "2026-07-25T14:00:00+08:00/2026-07-25T14:30:00+08:00",
+  "state_assessment": {
+    "label": "work_with_brief_checkins",
+    "confidence": "high",
+    "one_sentence": "主要任务：高中物理预习（质点、参考系、时间时刻）。工作30.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 8.08,
+    "same_task_tool_switches_not_scored": 51,
+    "raw_foreground_context_switches_not_scored": 55,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中未出现任何超过30秒的娱乐偏离；手机亮屏用于微信/QQ短暂回复，总计不足1分钟，属于brief_communication，不构成娱乐混杂。"
+  },
+  "computer_summary": "电脑持续进行高中物理预习：通过B站观看“参考系”“时间时刻”等教学视频，并在Obsidian中做笔记，使用Mathpix截图公式；微信短暂通信0.47分钟。",
+  "phone_summary": "手机亮屏约0.98分钟，共5次解锁，用于微信和QQ的短暂回复，总前台时间0.38分钟（微信）和0.13分钟（QQ），属于短暂通信。",
+  "material_uncertainties": [
+    "微信/QQ通信的具体内容未知，无法判断是否为工作相关通信",
+    "微信/QQ通信的具体内容未知，无法判断是否为工作相关通信；"
+  ],
+  "concise_report": "主要任务：高中物理预习（质点、参考系、时间时刻）。工作30.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "手机微信/QQ的通信内容是否与工作（物理预习）相关？",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.98,
+    "simultaneous_computer_active_phone_on_minutes": 0.98,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 30.0,
+      "range_minutes": [
+        30.0,
+        30.0
+      ],
+      "evidence": [
+        "Obsidian标题初高衔接2 乘法公式&主元思想&因式分解",
+        "Mathpix用于截图公式",
+        "前文13:59有初高衔接数学视频，属于同一学习任务",
+        "搜索初高中物理衔接，打开质点视频"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "14:00-14:03",
+      "likely_state": "工作",
+      "minutes": 3.58,
+      "task": "在Obsidian中做初高衔接数学笔记，使用Mathpix截图取公式",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题初高衔接2 乘法公式&主元思想&因式分解",
+        "Mathpix用于截图公式",
+        "前文13:59有初高衔接数学视频，属于同一学习任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:03-14:08",
+      "likely_state": "工作",
+      "minutes": 4.9,
+      "task": "在B站搜索和观看初高中物理衔接视频，研究物理预习内容",
+      "work_category": "其他工作",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "搜索初高中物理衔接，打开质点视频",
+        "标题2.【基础物理量】质点_哔哩哔哩_bilibili",
+        "从数学转向物理，属于同一预习任务的自然转换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:08-14:16",
+      "likely_state": "工作",
+      "minutes": 8.08,
+      "task": "观看B站物理视频“3.【基础物理量】参考系”，边看边在Obsidian做笔记",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题3.【基础物理量】参考系_哔哩哔哩_bilibili",
+        "在Obsidian写笔记，多次使用Mathpix截图",
+        "视频和笔记频繁切换，连贯学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:16-14:17",
+      "likely_state": "工作",
+      "minutes": 0.88,
+      "task": "打开新标签页和文件资源管理器，可能是查找或下载资料",
+      "work_category": "其他工作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "新建标签页（newtab）",
+        "打开edge浏览器下载文件夹",
+        "短暂中断后继续在Obsidian工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "14:17-14:24",
+      "likely_state": "工作",
+      "minutes": 6.55,
+      "task": "继续在Obsidian做笔记，并返回B站看参考系视频",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian未命名笔记持续",
+        "标题3.【基础物理量】参考系_哔哩哔哩_bilibili",
+        "微信0.47分钟为短暂通信，不改变工作性质"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:24-14:28",
+      "likely_state": "工作",
+      "minutes": 4.83,
+      "task": "观看B站物理视频“4.★【基础物理量】时间时刻”，中途有微信通信",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+        "14:24:57-14:25:24微信27秒，属于brief_communication",
+        "随后继续看视频"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:28-14:30",
+      "likely_state": "工作",
+      "minutes": 1.17,
+      "task": "回到Obsidian做笔记，并使用截图工具，然后继续看时间时刻视频",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian未命名笔记",
+        "SnippingTool截图",
+        "继续观看视频4.★【基础物理量】时间时刻"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "高中物理预习（质点、参考系、时间时刻）",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活跃窗口只覆盖90.0%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 20241,
+      "completion_tokens": 836,
+      "total_tokens": 21077,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 446
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 19345
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T18:00:00+08:00",
+    "end": "2026-07-27T18:30:00+08:00"
+  },
+  "primary_work_task": "课时量分析",
+  "segments": [
+    {
+      "start": "2026-07-27T18:00:00+08:00",
+      "end": "2026-07-27T18:01:30+08:00",
+      "duration_seconds": 90.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在微信和ChatGPT上处理课时量分析",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活跃，微信前台约0.99分钟，可能涉及工作沟通",
+        "Edge浏览器在chatgpt.com上标题为'课时量分析'",
+        "前后语境显示17:58-17:59已在预习计划，随后转为课时量分析"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T18:01:30+08:00",
+      "end": "2026-07-27T18:05:14+08:00",
+      "duration_seconds": 224.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机熄屏，平板亮屏但仅辅助参考",
+        "跨设备休息规则确认此段为休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T18:05:14+08:00",
+      "end": "2026-07-27T18:06:39+08:00",
+      "duration_seconds": 85.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑状态未知，可能短暂查看平板或离开",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "tablet"
+      ],
+      "evidence": [
+        "电脑状态未知1.42分钟，无窗口记录",
+        "手机熄屏，平板亮屏但无前台应用数据"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T18:06:39+08:00",
+      "end": "2026-07-27T18:30:00+08:00",
+      "duration_seconds": 1401.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑持续AFK，手机熄屏，平板亮屏但不确认为活动",
+        "跨设备休息规则确认此段为休息"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "18:05:14-18:06:39电脑状态未知，平板亮屏，无法判断用户是否短暂活动"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8375,
+      "completion_tokens": 687,
+      "total_tokens": 9062,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 7351
+    }
+  }
+}

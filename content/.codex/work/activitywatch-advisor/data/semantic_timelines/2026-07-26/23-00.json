@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T23:00:00+08:00",
+    "end": "2026-07-26T23:30:00+08:00"
+  },
+  "primary_work_task": "Monaco编辑器方案评估与树莓派备份迁移",
+  "segments": [
+    {
+      "start": "2026-07-26T23:00:00+08:00",
+      "end": "2026-07-26T23:12:16+08:00",
+      "duration_seconds": 736.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕持续亮屏，前台应用为微信共8.75分钟",
+        "电脑整段处于AFK状态，无键鼠操作",
+        "手机微信分段使用，期间夹杂手机桌面操作",
+        "辅助上下文显示电脑从22:56已AFK，直到23:12:15才恢复"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:12:16+08:00",
+      "end": "2026-07-26T23:19:29+08:00",
+      "duration_seconds": 433.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "Monaco编辑器方案评估",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑恢复操作后主要活动在Edge浏览器chatgpt.com上，标题为\"Monaco编辑器方案评估\"",
+        "该时间段内电脑活跃且持续专注此任务",
+        "手机屏幕此时处于关闭状态，无手机干扰"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:19:29+08:00",
+      "end": "2026-07-26T23:20:45+08:00",
+      "duration_seconds": 76.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用ChatGPT桌面应用继续工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "桌面ChatGPT应用前台活跃约1.2分钟",
+        "结合前后文属于同一工作任务",
+        "手机仍处于关闭状态"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:20:45+08:00",
+      "end": "2026-07-26T23:20:46+08:00",
+      "duration_seconds": 1.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "短暂查看微信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑上微信窗口出现仅1秒",
+        "属于极短暂通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:20:46+08:00",
+      "end": "2026-07-26T23:21:34+08:00",
+      "duration_seconds": 48.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器切换到zhihu.com，标题为\"甘肃渭源一景区山洪已致10人遇难\"等社会新闻",
+        "内容与工作无关，属于娱乐性浏览",
+        "随后又返回chatgpt.com工作标题，说明是短暂偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:21:34+08:00",
+      "end": "2026-07-26T23:22:56+08:00",
+      "duration_seconds": 82.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "Monaco编辑器方案评估与增强DeepSeek搜索能力",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge在chatgpt.com上\"Monaco编辑器方案评估\"和ChatGPT页面",
+        "短暂使用ChatGPT桌面应用",
+        "标题\"增强DeepSeek搜索能力\"与工作相关"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:22:56+08:00",
+      "end": "2026-07-26T23:23:39+08:00",
+      "duration_seconds": 43.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "浏览HutaoCards虚拟信用卡网站",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览hutaocards.com，标题为\"HutaoCards | 虚拟信用卡\"",
+        "内容与前后工作不直接相关",
+        "时间较短，可能是个人事务"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:23:39+08:00",
+      "end": "2026-07-26T23:24:42+08:00",
+      "duration_seconds": 63.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "树莓派备份与迁移",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge在chatgpt.com上标题\"树莓派备份与迁移\"",
+        "使用ChatGPT桌面应用辅助",
+        "属于技术工作内容"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:24:42+08:00",
+      "end": "2026-07-26T23:26:20+08:00",
+      "duration_seconds": 98.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览zhihu.com首页及\"如何测量动物头部重量\"问题",
+        "内容与工作无关",
+        "随后又返回工作标题\"树莓派备份与迁移\""
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:26:20+08:00",
+      "end": "2026-07-26T23:29:40+08:00",
+      "duration_seconds": 200.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "树莓派备份与迁移",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge在chatgpt.com上标题\"树莓派备份与迁移\"持续约3.3分钟",
+        "手机屏幕在23:26:43短暂亮起约69秒，但前台为桌面，无实际应用使用",
+        "手机亮屏期间用户可能在查看通知，注意力仍在电脑工作上"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:29:40+08:00",
+      "end": "2026-07-26T23:29:48+08:00",
+      "duration_seconds": 8.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "手机自动化方案",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge切换到chatgpt.com上标题\"手机自动化方案\"",
+        "与前后工作可能属于同一项目"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:29:48+08:00",
+      "end": "2026-07-26T23:29:50+08:00",
+      "duration_seconds": 2.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "打开文件资源管理器",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "explorer.exe出现约1秒",
+        "可能是打开文件，支持工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:29:50+08:00",
+      "end": "2026-07-26T23:30:00+08:00",
+      "duration_seconds": 10.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用ChatGPT桌面应用",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用前台约10秒",
+        "结合前后文属于工作任务"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "23:22:56-23:23:39浏览HutaoCards的目的不确定，可能是个人事务或工作相关",
+    "23:26:43-23:27:52手机屏幕短暂亮起，但前台应用为桌面，不确定用户是否分心"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 18758,
+      "completion_tokens": 2097,
+      "total_tokens": 20855,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 17862
+    }
+  }
+}

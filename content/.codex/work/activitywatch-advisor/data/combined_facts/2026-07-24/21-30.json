@@ -1,0 +1,430 @@
+{
+  "schema_version": 2,
+  "period": {
+    "start": "2026-07-24T21:30:00+08:00",
+    "end": "2026-07-24T22:00:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-24/21-30.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-24/21-30.json",
+  "cross_device_facts": {
+    "schema_version": 2,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-24T21:30:00+08:00",
+      "end": "2026-07-24T22:00:00+08:00"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 30.0,
+      "computer_afk_minutes": 0.0,
+      "phone_screen_on_minutes": 1.22,
+      "any_device_interaction_minutes": 30.0,
+      "no_detected_device_interaction_minutes": 0.0,
+      "confirmed_rest_minutes": 0.0,
+      "note": "confirmed_rest_minutes按用户确认的跨设备连续无操作规则计算。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "future_devices_not_connected": [
+        "tablet"
+      ],
+      "condition": "电脑连续AFK达到阈值，且所有已接入移动设备均无操作。",
+      "confirmed_intervals": []
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 46,
+      "context_switch_count": 45,
+      "switches_per_active_hour": 97.32,
+      "short_context_blocks_under_60_seconds": 34,
+      "sustained_context_blocks_at_least_5_minutes": 0,
+      "longest_context_minutes": 2.96,
+      "median_context_minutes": 0.29,
+      "context_blocks": [
+        {
+          "start": "2026-07-24T21:30:00+08:00",
+          "end": "2026-07-24T21:30:29+08:00",
+          "minutes": 0.5,
+          "app": "Microsoft Edge",
+          "title": "针对《科学》（Science）报道的6岁女童接受基因编辑试验后死亡事件，7月24日，经济观察报联系了涉事的上海交通大学医学院，其宣传部门一位工作人员回应：“目前还在调查中。”#6岁女童基因编辑试验后死亡 #上海交大医学院调查中 - 小红书",
+          "domain": "xiaohongshu.com"
+        },
+        {
+          "start": "2026-07-24T21:30:29+08:00",
+          "end": "2026-07-24T21:30:37+08:00",
+          "minutes": 0.13,
+          "app": "Microsoft Edge",
+          "title": "ActivityWatch",
+          "domain": "localhost"
+        },
+        {
+          "start": "2026-07-24T21:30:40+08:00",
+          "end": "2026-07-24T21:32:34+08:00",
+          "minutes": 1.88,
+          "app": "ChatGPT",
+          "title": "ChatGPT",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:32:39+08:00",
+          "end": "2026-07-24T21:34:08+08:00",
+          "minutes": 1.5,
+          "app": "ChatGPT",
+          "title": "ChatGPT",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:34:11+08:00",
+          "end": "2026-07-24T21:34:28+08:00",
+          "minutes": 0.24,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:34:29+08:00",
+          "end": "2026-07-24T21:34:47+08:00",
+          "minutes": 0.29,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:34:53+08:00",
+          "end": "2026-07-24T21:36:35+08:00",
+          "minutes": 1.71,
+          "app": "ChatGPT",
+          "title": "ChatGPT",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:36:41+08:00",
+          "end": "2026-07-24T21:36:53+08:00",
+          "minutes": 0.19,
+          "app": "Microsoft Edge",
+          "title": "删帖不是进步的阶梯 - 小红书",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:36:56+08:00",
+          "end": "2026-07-24T21:37:12+08:00",
+          "minutes": 0.27,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:37:13+08:00",
+          "end": "2026-07-24T21:37:23+08:00",
+          "minutes": 0.16,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:37:24+08:00",
+          "end": "2026-07-24T21:37:40+08:00",
+          "minutes": 0.27,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:37:50+08:00",
+          "end": "2026-07-24T21:37:57+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "手机使用记录系统——树莓派端操作与维护指南",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:37:58+08:00",
+          "end": "2026-07-24T21:38:08+08:00",
+          "minutes": 0.17,
+          "app": "ChatGPT",
+          "title": "ChatGPT",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:38:11+08:00",
+          "end": "2026-07-24T21:39:31+08:00",
+          "minutes": 1.29,
+          "app": "Microsoft Edge",
+          "title": "DeepSeek 开放平台",
+          "domain": "platform.deepseek.com"
+        },
+        {
+          "start": "2026-07-24T21:39:33+08:00",
+          "end": "2026-07-24T21:39:41+08:00",
+          "minutes": 0.14,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:39:42+08:00",
+          "end": "2026-07-24T21:39:48+08:00",
+          "minutes": 0.1,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:39:50+08:00",
+          "end": "2026-07-24T21:42:47+08:00",
+          "minutes": 2.96,
+          "app": "Microsoft Edge",
+          "title": "DeepSeek 开放平台",
+          "domain": "platform.deepseek.com"
+        },
+        {
+          "start": "2026-07-24T21:42:48+08:00",
+          "end": "2026-07-24T21:43:25+08:00",
+          "minutes": 0.62,
+          "app": "ChatGPT",
+          "title": "ChatGPT",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:43:26+08:00",
+          "end": "2026-07-24T21:43:51+08:00",
+          "minutes": 0.41,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:43:52+08:00",
+          "end": "2026-07-24T21:44:20+08:00",
+          "minutes": 0.46,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:44:21+08:00",
+          "end": "2026-07-24T21:44:33+08:00",
+          "minutes": 0.19,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:44:34+08:00",
+          "end": "2026-07-24T21:44:48+08:00",
+          "minutes": 0.24,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:44:49+08:00",
+          "end": "2026-07-24T21:45:06+08:00",
+          "minutes": 0.27,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:45:07+08:00",
+          "end": "2026-07-24T21:45:19+08:00",
+          "minutes": 0.21,
+          "app": "微信小程序",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:45:23+08:00",
+          "end": "2026-07-24T21:46:30+08:00",
+          "minutes": 1.04,
+          "app": "Microsoft Edge",
+          "title": "首页 - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-24T21:46:30+08:00",
+          "end": "2026-07-24T21:46:40+08:00",
+          "minutes": 0.17,
+          "app": "Microsoft Edge",
+          "title": "丘成桐邀请王虹邓煜回国任教，你怎么看？ - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-24T21:46:46+08:00",
+          "end": "2026-07-24T21:47:14+08:00",
+          "minutes": 0.46,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:47:15+08:00",
+          "end": "2026-07-24T21:47:22+08:00",
+          "minutes": 0.09,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:47:23+08:00",
+          "end": "2026-07-24T21:48:46+08:00",
+          "minutes": 1.38,
+          "app": "Microsoft Edge",
+          "title": "丘成桐邀请王虹邓煜回国任教，你怎么看？ - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-24T21:48:51+08:00",
+          "end": "2026-07-24T21:50:25+08:00",
+          "minutes": 1.57,
+          "app": "Microsoft Edge",
+          "title": "丘成桐邀请王虹邓煜回国任教，你怎么看？ - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-24T21:50:28+08:00",
+          "end": "2026-07-24T21:50:53+08:00",
+          "minutes": 0.41,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:50:56+08:00",
+          "end": "2026-07-24T21:51:23+08:00",
+          "minutes": 0.45,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:51:27+08:00",
+          "end": "2026-07-24T21:52:37+08:00",
+          "minutes": 1.17,
+          "app": "微信小程序",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:52:38+08:00",
+          "end": "2026-07-24T21:52:47+08:00",
+          "minutes": 0.15,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:52:48+08:00",
+          "end": "2026-07-24T21:52:53+08:00",
+          "minutes": 0.09,
+          "app": "微信小程序",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:52:54+08:00",
+          "end": "2026-07-24T21:53:08+08:00",
+          "minutes": 0.22,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:53:12+08:00",
+          "end": "2026-07-24T21:53:19+08:00",
+          "minutes": 0.12,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:53:20+08:00",
+          "end": "2026-07-24T21:53:31+08:00",
+          "minutes": 0.17,
+          "app": "微信小程序",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:53:32+08:00",
+          "end": "2026-07-24T21:55:04+08:00",
+          "minutes": 1.53,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:55:06+08:00",
+          "end": "2026-07-24T21:56:12+08:00",
+          "minutes": 1.1,
+          "app": "ChatGPT",
+          "title": "ChatGPT",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:56:13+08:00",
+          "end": "2026-07-24T21:56:44+08:00",
+          "minutes": 0.48,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:56:45+08:00",
+          "end": "2026-07-24T21:57:00+08:00",
+          "minutes": 0.26,
+          "app": "微信小程序",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:57:02+08:00",
+          "end": "2026-07-24T21:58:19+08:00",
+          "minutes": 1.28,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:58:20+08:00",
+          "end": "2026-07-24T21:58:48+08:00",
+          "minutes": 0.46,
+          "app": "微信小程序",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-24T21:59:01+08:00",
+          "end": "2026-07-24T21:59:19+08:00",
+          "minutes": 0.29,
+          "app": "Microsoft Edge",
+          "title": "Google Gemini",
+          "domain": "gemini.google.com"
+        },
+        {
+          "start": "2026-07-24T21:59:27+08:00",
+          "end": "2026-07-24T22:00:00+08:00",
+          "minutes": 0.52,
+          "app": "Microsoft Edge",
+          "title": "Google Gemini",
+          "domain": "gemini.google.com"
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 1.22,
+      "computer_afk_and_phone_on": 0.0,
+      "computer_not_afk_and_phone_off": 28.78,
+      "computer_afk_and_phone_off": 0.0
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。"
+    ]
+  }
+}

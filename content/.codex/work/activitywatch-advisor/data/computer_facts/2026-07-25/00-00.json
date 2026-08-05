@@ -1,0 +1,856 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T00:00:00+08:00",
+    "end": "2026-07-25T00:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 81,
+      "aw-watcher-afk_xyh": 6,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 19,
+      "aw-watcher-web-edge_xyh": 25
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 18.83,
+    "afk_minutes": 11.17,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 17.5
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 7.35
+    },
+    {
+      "app": "微信",
+      "minutes": 6.96
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 1.91
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 0.88
+    },
+    {
+      "app": "Windows Terminal",
+      "minutes": 0.33
+    },
+    {
+      "app": "ShellExperienceHost.exe",
+      "minutes": 0.05
+    },
+    {
+      "app": "SearchHost.exe",
+      "minutes": 0.03
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "zhihu.com",
+      "minutes": 2.82
+    },
+    {
+      "domain": "chatgpt.com",
+      "minutes": 2.69
+    },
+    {
+      "domain": "baike.baidu.com",
+      "minutes": 0.46
+    },
+    {
+      "domain": "help.openai.com",
+      "minutes": 0.29
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.03
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 6.59
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "minutes": 2.82
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "minutes": 2.69
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 1.91
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "minutes": 0.88
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "Obsidian claudian 接入Deepseek",
+      "minutes": 0.6
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "baike.baidu.com",
+      "title": "仇子龙_百度百科",
+      "minutes": 0.46
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 0.41
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.37
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "help.openai.com",
+      "title": "Codex 价目表 |OpenAI帮助中心",
+      "minutes": 0.29
+    },
+    {
+      "app": "Windows Terminal",
+      "domain": "",
+      "title": "Windows PowerShell",
+      "minutes": 0.27
+    },
+    {
+      "app": "Windows Terminal",
+      "domain": "",
+      "title": "claude",
+      "minutes": 0.05
+    },
+    {
+      "app": "ShellExperienceHost.exe",
+      "domain": "",
+      "title": "通知中心",
+      "minutes": 0.05
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "Codex rate card | OpenAI Help Center",
+      "minutes": 0.03
+    },
+    {
+      "app": "SearchHost.exe",
+      "domain": "",
+      "title": "搜索",
+      "minutes": 0.03
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.03
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "zhihu.com",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "first_seen": "2026-07-25T00:00:27+08:00",
+      "last_seen": "2026-07-25T00:18:28+08:00",
+      "raw_event_count": 12
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T00:01:27+08:00",
+      "last_seen": "2026-07-25T00:29:28+08:00",
+      "raw_event_count": 19
+    },
+    {
+      "domain": "help.openai.com",
+      "title": "Codex 价目表 |OpenAI帮助中心",
+      "first_seen": "2026-07-25T00:18:28+08:00",
+      "last_seen": "2026-07-25T00:22:13+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-25T00:18:36+08:00",
+      "last_seen": "2026-07-25T00:19:58+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "first_seen": "2026-07-25T00:19:58+08:00",
+      "last_seen": "2026-07-25T00:29:28+08:00",
+      "raw_event_count": 6
+    },
+    {
+      "domain": "msn.com",
+      "title": "新华社 - MSN",
+      "first_seen": "2026-07-25T00:20:42+08:00",
+      "last_seen": "2026-07-25T00:20:42+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "baike.baidu.com",
+      "title": "仇子龙_百度百科",
+      "first_seen": "2026-07-25T00:20:42+08:00",
+      "last_seen": "2026-07-25T00:21:58+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-25T00:21:58+08:00",
+      "last_seen": "2026-07-25T00:22:12+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T00:00:00+08:00",
+      "end": "2026-07-25T00:01:01+08:00",
+      "duration_seconds": 61.222,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T00:01:01+08:00",
+      "end": "2026-07-25T00:12:11+08:00",
+      "duration_seconds": 670.247,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T00:12:11+08:00",
+      "end": "2026-07-25T00:30:00+08:00",
+      "duration_seconds": 1068.53,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T00:00:00+08:00",
+      "end": "2026-07-25T00:00:17+08:00",
+      "duration_seconds": 17.945,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:00:18+08:00",
+      "end": "2026-07-25T00:00:41+08:00",
+      "duration_seconds": 22.686,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:00:43+08:00",
+      "end": "2026-07-25T00:00:53+08:00",
+      "duration_seconds": 9.293,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:00:54+08:00",
+      "end": "2026-07-25T00:01:00+08:00",
+      "duration_seconds": 6.19,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:12:11+08:00",
+      "end": "2026-07-25T00:12:22+08:00",
+      "duration_seconds": 10.753,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:12:23+08:00",
+      "end": "2026-07-25T00:12:24+08:00",
+      "duration_seconds": 1.046,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:12:25+08:00",
+      "end": "2026-07-25T00:14:45+08:00",
+      "duration_seconds": 140.406,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:14:46+08:00",
+      "end": "2026-07-25T00:14:51+08:00",
+      "duration_seconds": 5.163,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:14:52+08:00",
+      "end": "2026-07-25T00:15:03+08:00",
+      "duration_seconds": 10.277,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:15:04+08:00",
+      "end": "2026-07-25T00:15:18+08:00",
+      "duration_seconds": 14.436,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:15:20+08:00",
+      "end": "2026-07-25T00:15:43+08:00",
+      "duration_seconds": 22.685,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:15:43+08:00",
+      "end": "2026-07-25T00:15:47+08:00",
+      "duration_seconds": 4.127,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T00:15:47+08:00",
+      "end": "2026-07-25T00:15:57+08:00",
+      "duration_seconds": 10.305,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:15:58+08:00",
+      "end": "2026-07-25T00:16:02+08:00",
+      "duration_seconds": 3.076,
+      "app": "ShellExperienceHost.exe",
+      "app_display": "ShellExperienceHost.exe",
+      "title": "通知中心",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:16:03+08:00",
+      "end": "2026-07-25T00:16:05+08:00",
+      "duration_seconds": 2.062,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:16:06+08:00",
+      "end": "2026-07-25T00:16:16+08:00",
+      "duration_seconds": 10.355,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:16:17+08:00",
+      "end": "2026-07-25T00:16:58+08:00",
+      "duration_seconds": 41.233,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:17:00+08:00",
+      "end": "2026-07-25T00:17:02+08:00",
+      "duration_seconds": 2.065,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Codex rate card | OpenAI Help Center",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:17:03+08:00",
+      "end": "2026-07-25T00:17:19+08:00",
+      "duration_seconds": 15.492,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Codex 价目表 |OpenAI帮助中心",
+      "domain": "help.openai.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:17:20+08:00",
+      "end": "2026-07-25T00:17:41+08:00",
+      "duration_seconds": 20.639,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:17:41+08:00",
+      "end": "2026-07-25T00:17:44+08:00",
+      "duration_seconds": 3.093,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T00:17:44+08:00",
+      "end": "2026-07-25T00:18:01+08:00",
+      "duration_seconds": 17.523,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:18:02+08:00",
+      "end": "2026-07-25T00:18:26+08:00",
+      "duration_seconds": 23.733,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:18:27+08:00",
+      "end": "2026-07-25T00:18:32+08:00",
+      "duration_seconds": 5.173,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:18:33+08:00",
+      "end": "2026-07-25T00:18:35+08:00",
+      "duration_seconds": 2.073,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Codex 价目表 |OpenAI帮助中心",
+      "domain": "help.openai.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T00:18:36+08:00",
+      "end": "2026-07-25T00:18:38+08:00",
+      "duration_seconds": 2.059,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:18:40+08:00",
+      "end": "2026-07-25T00:19:05+08:00",
+      "duration_seconds": 24.766,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:19:06+08:00",
+      "end": "2026-07-25T00:19:07+08:00",
+      "duration_seconds": 1.034,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:19:07+08:00",
+      "end": "2026-07-25T00:19:10+08:00",
+      "duration_seconds": 3.118,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T00:19:10+08:00",
+      "end": "2026-07-25T00:19:47+08:00",
+      "duration_seconds": 36.132,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Obsidian claudian 接入Deepseek",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:19:48+08:00",
+      "end": "2026-07-25T00:20:26+08:00",
+      "duration_seconds": 38.198,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "domain": "chatgpt.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T00:20:28+08:00",
+      "end": "2026-07-25T00:20:39+08:00",
+      "duration_seconds": 11.344,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:20:39+08:00",
+      "end": "2026-07-25T00:20:42+08:00",
+      "duration_seconds": 3.086,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T00:20:42+08:00",
+      "end": "2026-07-25T00:20:47+08:00",
+      "duration_seconds": 4.12,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "仇子龙_百度百科",
+      "domain": "baike.baidu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T00:20:50+08:00",
+      "end": "2026-07-25T00:21:23+08:00",
+      "duration_seconds": 31.012,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:21:24+08:00",
+      "end": "2026-07-25T00:21:25+08:00",
+      "duration_seconds": 1.036,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:21:26+08:00",
+      "end": "2026-07-25T00:21:27+08:00",
+      "duration_seconds": 1.034,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:21:28+08:00",
+      "end": "2026-07-25T00:21:51+08:00",
+      "duration_seconds": 23.713,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "仇子龙_百度百科",
+      "domain": "baike.baidu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T00:21:53+08:00",
+      "end": "2026-07-25T00:22:10+08:00",
+      "duration_seconds": 17.555,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:22:10+08:00",
+      "end": "2026-07-25T00:22:13+08:00",
+      "duration_seconds": 3.106,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T00:22:13+08:00",
+      "end": "2026-07-25T00:22:31+08:00",
+      "duration_seconds": 17.496,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T00:22:32+08:00",
+      "end": "2026-07-25T00:24:01+08:00",
+      "duration_seconds": 88.971,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:24:02+08:00",
+      "end": "2026-07-25T00:24:09+08:00",
+      "duration_seconds": 7.201,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:24:10+08:00",
+      "end": "2026-07-25T00:24:11+08:00",
+      "duration_seconds": 1.028,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:24:12+08:00",
+      "end": "2026-07-25T00:24:18+08:00",
+      "duration_seconds": 6.193,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:24:19+08:00",
+      "end": "2026-07-25T00:24:21+08:00",
+      "duration_seconds": 2.065,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:24:23+08:00",
+      "end": "2026-07-25T00:24:38+08:00",
+      "duration_seconds": 14.413,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:24:39+08:00",
+      "end": "2026-07-25T00:24:58+08:00",
+      "duration_seconds": 19.659,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:25:00+08:00",
+      "end": "2026-07-25T00:25:04+08:00",
+      "duration_seconds": 3.081,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "claude",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:25:05+08:00",
+      "end": "2026-07-25T00:25:25+08:00",
+      "duration_seconds": 18.676,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:25:25+08:00",
+      "end": "2026-07-25T00:25:28+08:00",
+      "duration_seconds": 3.094,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T00:25:28+08:00",
+      "end": "2026-07-25T00:25:31+08:00",
+      "duration_seconds": 2.066,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:25:32+08:00",
+      "end": "2026-07-25T00:25:57+08:00",
+      "duration_seconds": 25.799,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:25:58+08:00",
+      "end": "2026-07-25T00:27:21+08:00",
+      "duration_seconds": 82.781,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:27:22+08:00",
+      "end": "2026-07-25T00:28:09+08:00",
+      "duration_seconds": 46.516,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:28:10+08:00",
+      "end": "2026-07-25T00:29:50+08:00",
+      "duration_seconds": 100.39,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T00:29:51+08:00",
+      "end": "2026-07-25T00:29:52+08:00",
+      "duration_seconds": 1.042,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Claudian接入DeepSeek V4 Pro",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T00:29:53+08:00",
+      "end": "2026-07-25T00:30:00+08:00",
+      "duration_seconds": 6.266,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.93,
+    "browser_title_coverage": 0.993,
+    "browser_domain_context_coverage": 0.857,
+    "web_watcher_exact_time_overlap": 0.171,
+    "browser_share_of_active_time": 0.39,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

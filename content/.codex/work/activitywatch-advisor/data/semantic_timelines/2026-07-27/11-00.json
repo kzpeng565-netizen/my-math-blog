@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T11:00:00+08:00",
+    "end": "2026-07-27T11:30:00+08:00"
+  },
+  "primary_work_task": "腾讯会议家教-集合与逻辑",
+  "segments": [
+    {
+      "start": "2026-07-27T11:00:00+08:00",
+      "end": "2026-07-27T11:02:28+08:00",
+      "duration_seconds": 148.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "使用腾讯会议进行集合与逻辑内容的远程教学",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口标题“彭康哲的快速会议”持续2分10秒",
+        "前后文有Obsidian笔记“高中数学2 集合与逻辑”及B站相关视频",
+        "ChatGPT和DeepSeek标签页可能辅助教学"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:02:28+08:00",
+      "end": "2026-07-27T11:05:40+08:00",
+      "duration_seconds": 192.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 192.6秒，手机熄屏",
+        "规则确认休息区间3.2分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:05:40+08:00",
+      "end": "2026-07-27T11:11:19+08:00",
+      "duration_seconds": 339.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "继续使用腾讯会议进行集合与逻辑教学",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议“彭康哲的快速会议”持续5分38秒",
+        "ChatGPT和DeepSeek标签页持续存在，可能用于辅助"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:11:19+08:00",
+      "end": "2026-07-27T11:15:42+08:00",
+      "duration_seconds": 263.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 262.9秒，手机熄屏",
+        "规则确认休息区间4.38分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:15:42+08:00",
+      "end": "2026-07-27T11:15:50+08:00",
+      "duration_seconds": 8.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "短暂返回腾讯会议，快速操作设置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口短暂出现2秒，然后ShellHost快速设置4秒",
+        "可能调整音频或设置后继续休息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T11:15:50+08:00",
+      "end": "2026-07-27T11:20:52+08:00",
+      "duration_seconds": 302.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 302.1秒，手机熄屏",
+        "规则确认休息区间5.03分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:20:52+08:00",
+      "end": "2026-07-27T11:20:54+08:00",
+      "duration_seconds": 2.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "短暂操作ShellHost快速设置",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ShellHost快速设置窗口出现1.36秒",
+        "可能调整系统设置后继续休息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T11:20:54+08:00",
+      "end": "2026-07-27T11:25:13+08:00",
+      "duration_seconds": 259.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 258.7秒，手机熄屏",
+        "规则确认休息区间4.32分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:25:13+08:00",
+      "end": "2026-07-27T11:26:33+08:00",
+      "duration_seconds": 80.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑状态未知（可能短暂被遮挡或采集中断）",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态从11:25:13变为unknown持续1.34分钟",
+        "前后均为AFK，手机熄屏，无操作证据"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T11:26:33+08:00",
+      "end": "2026-07-27T11:30:00+08:00",
+      "duration_seconds": 207.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 206.8秒至时段结束，手机熄屏",
+        "规则确认休息区间3.45分钟"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "11:25:13-11:26:33电脑状态未知，可能短暂检测不到活动，不影响主要休息判断",
+    "平板屏幕持续亮屏，但手表无前台应用记录，无法确认是否使用平板"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 9457,
+      "completion_tokens": 1532,
+      "total_tokens": 10989,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 8433
+    }
+  }
+}

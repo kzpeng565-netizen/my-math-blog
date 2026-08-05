@@ -1,0 +1,313 @@
+{
+  "period": "2026-07-27T17:30:00+08:00/2026-07-27T18:00:00+08:00",
+  "state_assessment": {
+    "label": "work_with_brief_checkins",
+    "confidence": "high",
+    "one_sentence": "主要任务：肖邦夜曲练习规划与资料查找。工作18.13分钟，娱乐0.0分钟，通信6.62分钟，确认休息4.77分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 6.62,
+    "longest_continuous_work_minutes": 12.6,
+    "same_task_tool_switches_not_scored": 12,
+    "raw_foreground_context_switches_not_scored": 22,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无工作过程中的娱乐偏离（娱乐偏离次数为0，分钟数为0）。"
+  },
+  "computer_summary": "主要使用Edge浏览器访问ChatGPT查询肖邦夜曲练习建议和暑假预习计划，并查看IMSLP乐谱PDF，同时有微信临时通信（约6.6分钟）和系统整理（清理君0.46分钟）。",
+  "phone_summary": "手机全程熄屏，无活动。",
+  "tablet_summary": "平板亮屏30分钟，但作为辅助数据源，未提供额外活动证据。",
+  "material_uncertainties": [
+    "17:44-17:48的微信通信（3.72分钟）被归类为brief_communication，但持续较长，可能包含非工作内容；若用户认为这属于娱乐，则需重新评估，但当前规则下不计入娱乐偏离。",
+    "17:58:38后微信通信1.36分钟，同样可能为工作相关或非工作，但当前语义判定为brief_communication。"
+  ],
+  "concise_report": "主要任务：肖邦夜曲练习规划与资料查找。工作18.13分钟，娱乐0.0分钟，通信6.62分钟，确认休息4.77分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "17:44-17:48的微信通信是否属于非工作娱乐？这将影响娱乐偏离的判断。",
+  "observed_metrics": {
+    "computer_active_minutes": 25.23,
+    "computer_afk_minutes": 4.77,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 4.77,
+    "confirmed_rest_minutes": 4.77
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 18.13,
+      "range_minutes": [
+        18.13,
+        18.13
+      ],
+      "evidence": [
+        "前台窗口标题'肖邦夜曲练习建议'持续9分钟",
+        "切换至'暑假预习计划与资料'暗示备课",
+        "域名chatgpt.com，内容与音乐教学相关",
+        "域名chatgpt.com，标题'暑假预习计划与资料'、'肖邦夜曲练习建议'"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 6.62,
+      "range_minutes": [
+        6.62,
+        6.62
+      ],
+      "evidence": [
+        "访问midishow.com进行邮箱验证",
+        "短暂查看Outlook邮件",
+        "微信短暂出现（0.58分钟）",
+        "辅助上下文显示之前也在查找MIDI资料"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 4.77,
+      "range_minutes": [
+        4.77,
+        4.77
+      ],
+      "evidence": [
+        "电脑连续AFK 4分46秒",
+        "手机全程熄屏",
+        "平板亮屏但属辅助数据源，不否决休息"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.48,
+      "range_minutes": [
+        0.48,
+        0.48
+      ],
+      "evidence": [
+        "Cleaner One.exe前台0.46分钟",
+        "标题'清理君'"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "17:30-17:42",
+      "likely_state": "工作",
+      "minutes": 12.6,
+      "task": "使用ChatGPT查询肖邦夜曲练习建议，并切换至暑假预习计划与资料",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口标题'肖邦夜曲练习建议'持续9分钟",
+        "切换至'暑假预习计划与资料'暗示备课",
+        "域名chatgpt.com，内容与音乐教学相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:42-17:44",
+      "likely_state": "通信",
+      "minutes": 1.47,
+      "task": "在MidiShow网站注册验证、登录邮箱查看验证邮件，然后快速回复微信",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "访问midishow.com进行邮箱验证",
+        "短暂查看Outlook邮件",
+        "微信短暂出现（0.58分钟）",
+        "辅助上下文显示之前也在查找MIDI资料"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:44-17:47",
+      "likely_state": "通信",
+      "minutes": 3.78,
+      "task": "在微信上独立通讯（3.72分钟）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台连续3.72分钟",
+        "标题仅为'微信'，无工作关键词",
+        "穿插在MIDI下载和暑假预习之间，非工作通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:47-17:49",
+      "likely_state": "工作",
+      "minutes": 2.02,
+      "task": "继续处理暑假预习计划与资料，以及肖邦夜曲练习建议",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "域名chatgpt.com，标题'暑假预习计划与资料'、'肖邦夜曲练习建议'",
+        "回到此前工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:49-17:54",
+      "likely_state": "休息",
+      "minutes": 4.77,
+      "task": "休息（电脑AFK且手机熄灯）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 4分46秒",
+        "手机全程熄屏",
+        "平板亮屏但属辅助数据源，不否决休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:54-17:57",
+      "likely_state": "工作",
+      "minutes": 2.97,
+      "task": "继续肖邦夜曲练习规划，查看IMSLP乐谱PDF，切换回ChatGPT",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题'肖邦夜曲练习建议'与'[长标识符已隐藏].pdf'交替",
+        "域名s9.imslp.org为乐谱网站，与肖邦学习一致",
+        "辅助上下文显示之前也在查同样内容"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:57-17:58",
+      "likely_state": "其他",
+      "minutes": 0.48,
+      "task": "系统整理：运行清理君清理系统",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Cleaner One.exe前台0.46分钟",
+        "标题'清理君'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:58-17:58",
+      "likely_state": "工作",
+      "minutes": 0.3,
+      "task": "使用ChatGPT桌面版继续工作",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT.exe前台0.22分钟",
+        "辅助上下文随后回到Edge的ChatGPT页面"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:58-17:58",
+      "likely_state": "工作",
+      "minutes": 0.25,
+      "task": "快速查看暑假预习计划与资料",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'暑假预习计划与资料'，域名chatgpt.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:58-18:00",
+      "likely_state": "通信",
+      "minutes": 1.37,
+      "task": "在微信上独立通讯",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台连续1.36分钟",
+        "标题仅为'微信'",
+        "辅助上下文显示之后继续处理课时量分析（工作）"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "肖邦夜曲练习规划与资料查找",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 10865,
+      "completion_tokens": 973,
+      "total_tokens": 11838,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 545
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 9969
+    }
+  }
+}

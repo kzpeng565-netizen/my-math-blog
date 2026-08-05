@@ -1,0 +1,245 @@
+{
+  "period": "2026-07-25T10:30:00+08:00/2026-07-25T11:00:00+08:00",
+  "state_assessment": {
+    "label": "work_disrupted_by_entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：初高衔接数学学习（因式分解、主元思想等）。工作20.47分钟，娱乐6.18分钟，通信0.0分钟，确认休息3.25分钟。工作中出现1次超过30秒的娱乐偏离，共6.18分钟，最长6.18分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 1,
+    "entertainment_deviation_minutes": 6.18,
+    "all_entertainment_minutes": 6.18,
+    "longest_entertainment_deviation_minutes": 6.18,
+    "work_entertainment_transition_count": 1,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 15.32,
+    "same_task_tool_switches_not_scored": 22,
+    "raw_foreground_context_switches_not_scored": 26,
+    "deviations": [
+      {
+        "start": "2026-07-25T10:30:00+08:00",
+        "end": "2026-07-25T10:36:11+08:00",
+        "minutes": 6.18,
+        "duration_seconds": 371.0,
+        "task": "刷知乎浏览各种话题（王虹获奖、DeepSeek、社会新闻等）",
+        "evidence": [
+          "在知乎浏览多个不相关话题：如何评价王虹获奖、DeepSeek跳票、马斯克新模型、Claude等",
+          "标题从'如何评价...'快速切换到'首页'再到'科学难题'等多个页面，是典型的随意浏览",
+          "辅助上下文显示10:25已开始刷知乎（DeepSeek、Science基因编辑），与工作无关",
+          "10:36切换到B站初高衔接视频，之后开始工作，因此是工作前的娱乐偏离"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.1,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作中出现一次超过30秒的娱乐偏离：10:30-10:36.11共6.18分钟在知乎浏览多个不相关话题，随后于10:36.17切换到B站初高衔接视频并开始工作，返回原任务延迟约0.1分钟。"
+  },
+  "computer_summary": "主要使用Obsidian编辑初高衔接笔记（约10分钟）和Microsoft Edge观看B站数学教学视频（约4分钟），期间穿插Mathpix截图、短暂微信和文件操作，均服务于同一学习任务。此外有6.18分钟知乎娱乐偏离，以及3.25分钟休息后进入腾讯会议（约1.5分钟）和Obsidian编辑。",
+  "phone_summary": "手机屏幕仅开启约0.35分钟，包含一次电话（10秒）和一次短暂微信（6秒），属于通信和会议相关操作，无娱乐。",
+  "material_uncertainties": [
+    "腾讯会议的具体内容未知，可能是家教/答疑，也可能是其他学习交流，无法确定具体任务",
+    "10:51前短暂微信（2秒）和文件操作的具体目的不明，但时长极短不影响分类"
+  ],
+  "concise_report": "主要任务：初高衔接数学学习（因式分解、主元思想等）。工作20.47分钟，娱乐6.18分钟，通信0.0分钟，确认休息3.25分钟。工作中出现1次超过30秒的娱乐偏离，共6.18分钟，最长6.18分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "腾讯会议（10:55-10:56）的具体内容是否为工作相关（如家教或学习交流）？这可能影响任务类型的判断。",
+  "observed_metrics": {
+    "computer_active_minutes": 26.75,
+    "computer_afk_minutes": 3.25,
+    "phone_screen_on_minutes": 0.35,
+    "simultaneous_computer_active_phone_on_minutes": 0.35,
+    "no_detected_device_interaction_minutes": 3.25,
+    "confirmed_rest_minutes": 3.25
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 20.47,
+      "range_minutes": [
+        20.47,
+        20.47
+      ],
+      "evidence": [
+        "主要使用Obsidian编辑'初高衔接2 乘法公式&主元思想&因式分解'笔记（共约10分钟）",
+        "B站视频标题为'初高衔接'1.1对称式主元思想'和'1等式变形方法回顾'",
+        "使用Mathpix截图公式（2次），属于学习辅助",
+        "中间有短暂微信（2秒）和文件资源管理器操作，不影响整体工作任务"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 6.18,
+      "range_minutes": [
+        6.18,
+        6.18
+      ],
+      "evidence": [
+        "在知乎浏览多个不相关话题：如何评价王虹获奖、DeepSeek跳票、马斯克新模型、Claude等",
+        "标题从'如何评价...'快速切换到'首页'再到'科学难题'等多个页面，是典型的随意浏览",
+        "辅助上下文显示10:25已开始刷知乎（DeepSeek、Science基因编辑），与工作无关",
+        "10:36切换到B站初高衔接视频，之后开始工作，因此是工作前的娱乐偏离"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 3.25,
+      "range_minutes": [
+        3.25,
+        3.25
+      ],
+      "evidence": [
+        "电脑AFK连续194秒，手机无操作",
+        "rest_rule.confirmed_intervals明确包含此区间"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.1,
+      "range_minutes": [
+        0.1,
+        0.1
+      ],
+      "evidence": [
+        "6秒无窗口记录，发生在从知乎切换到B站的间隙"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "10:30-10:36",
+      "likely_state": "娱乐",
+      "minutes": 6.18,
+      "task": "刷知乎浏览各种话题（王虹获奖、DeepSeek、社会新闻等）",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "在知乎浏览多个不相关话题：如何评价王虹获奖、DeepSeek跳票、马斯克新模型、Claude等",
+        "标题从'如何评价...'快速切换到'首页'再到'科学难题'等多个页面，是典型的随意浏览",
+        "辅助上下文显示10:25已开始刷知乎（DeepSeek、Science基因编辑），与工作无关",
+        "10:36切换到B站初高衔接视频，之后开始工作，因此是工作前的娱乐偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:36-10:36",
+      "likely_state": "其他",
+      "minutes": 0.1,
+      "task": "短时无窗口记录（可能切换标签页或短暂离开）",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "6秒无窗口记录，发生在从知乎切换到B站的间隙"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "10:36-10:51",
+      "likely_state": "工作",
+      "minutes": 15.32,
+      "task": "初高衔接数学学习：观看B站视频并在Obsidian做笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "主要使用Obsidian编辑'初高衔接2 乘法公式&主元思想&因式分解'笔记（共约10分钟）",
+        "B站视频标题为'初高衔接'1.1对称式主元思想'和'1等式变形方法回顾'",
+        "使用Mathpix截图公式（2次），属于学习辅助",
+        "中间有短暂微信（2秒）和文件资源管理器操作，不影响整体工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:51-10:54",
+      "likely_state": "休息",
+      "minutes": 3.25,
+      "task": "休息（跨设备无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK连续194秒，手机无操作",
+        "rest_rule.confirmed_intervals明确包含此区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:54-11:00",
+      "likely_state": "工作",
+      "minutes": 5.15,
+      "task": "工作：腾讯会议（可能的家教或学习交流）",
+      "work_category": "其他工作",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "AFK结束后立即查看微信，随后进入腾讯会议'彭康哲的快速会议'（1.5分钟）",
+        "会议前后有微信通信（约1分钟），可能关于数学辅导或学习安排",
+        "之后又回到Obsidian编辑'初高衔接1 从因式分解与不等式'和'初高衔接2'",
+        "手机在10:41有过短暂亮屏（微信6秒），可能与会议相关"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "初高衔接数学学习（因式分解、主元思想等）",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 14479,
+      "completion_tokens": 1292,
+      "total_tokens": 15771,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 805
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 13583
+    }
+  }
+}

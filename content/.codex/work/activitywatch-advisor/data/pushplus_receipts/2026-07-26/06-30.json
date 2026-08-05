@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "channel": "wechat",
+  "error": "RuntimeError: PushPlus rejected request: code=999"
+}

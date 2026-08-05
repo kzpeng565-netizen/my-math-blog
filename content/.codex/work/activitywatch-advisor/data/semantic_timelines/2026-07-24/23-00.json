@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-24T23:00:00+08:00",
+    "end": "2026-07-24T23:30:00+08:00"
+  },
+  "primary_work_task": "初高衔接数学学习（乘法公式、主元思想、因式分解）",
+  "segments": [
+    {
+      "start": "2026-07-24T23:00:00+08:00",
+      "end": "2026-07-24T23:01:37+08:00",
+      "duration_seconds": 97.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口持续81秒",
+        "标题为'微信'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-24T23:01:37+08:00",
+      "end": "2026-07-24T23:05:58+08:00",
+      "duration_seconds": 261.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（电脑AFK且手机熄屏）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 4分21秒",
+        "手机全程熄屏",
+        "跨设备休息规则确认"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-24T23:05:58+08:00",
+      "end": "2026-07-24T23:30:00+08:00",
+      "duration_seconds": 1442.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "初高衔接数学学习：乘法公式、主元思想、因式分解",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'贯穿时段",
+        "ChatGPT用于辅助学习",
+        "浏览B站视频'【初高衔接】1.1 对称式、主元思想'",
+        "Mathpix用于公式截图"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "微信通信的具体内容未知，可能部分涉及工作相关沟通，但缺乏证据支持，故归为brief_communication"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 21031,
+      "completion_tokens": 569,
+      "total_tokens": 21600,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 20135
+    }
+  }
+}

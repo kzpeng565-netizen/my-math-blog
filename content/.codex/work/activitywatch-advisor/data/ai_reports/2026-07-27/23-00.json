@@ -1,0 +1,237 @@
+{
+  "period": "2026-07-27T23:00:00+08:00/2026-07-27T23:30:00+08:00",
+  "state_assessment": {
+    "label": "work_with_entertainment_detour",
+    "confidence": "high",
+    "one_sentence": "主要任务：任务规划与闭环推进。工作24.8分钟，娱乐0.63分钟，通信0.0分钟，确认休息0.0分钟。工作中出现1次超过30秒的娱乐偏离，共0.63分钟，最长0.63分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "low",
+    "entertainment_deviation_count": 1,
+    "entertainment_deviation_minutes": 0.63,
+    "all_entertainment_minutes": 0.63,
+    "longest_entertainment_deviation_minutes": 0.63,
+    "work_entertainment_transition_count": 2,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 16.27,
+    "same_task_tool_switches_not_scored": 26,
+    "raw_foreground_context_switches_not_scored": 28,
+    "deviations": [
+      {
+        "start": "2026-07-27T23:16:16+08:00",
+        "end": "2026-07-27T23:16:54+08:00",
+        "minutes": 0.63,
+        "duration_seconds": 38.0,
+        "task": "浏览知乎文章（Kimi K3相关）",
+        "evidence": [
+          "23:16:16-23:16:51浏览zhihu.com文章'一般没人讨论这个...Kimi K3...'",
+          "23:16:51-23:16:54浏览知乎首页",
+          "此浏览时长约38秒，且发生在工作过程中",
+          "随后马上返回ChatGPT工作（23:16:55）"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "娱乐偏离发生在23:16:16-23:16:54，浏览知乎Kimi K3文章，持续38秒，之后立即返回ChatGPT继续工作，属于低度混杂。"
+  },
+  "computer_summary": "电脑主要使用Microsoft Edge（chatgpt.com）和Obsidian进行任务规划，期间一次短时知乎浏览（0.63分钟）。",
+  "phone_summary": "手机全程微信前台（30分钟），但无具体内容，无法确认是工作沟通还是娱乐聊天。",
+  "tablet_summary": "平板全程亮屏（30分钟），作为辅助数据源，不改变主要判断。",
+  "material_uncertainties": [
+    "手机微信持续前台30分钟，但缺乏具体聊天内容，无法确认是工作沟通还是娱乐聊天",
+    "23:25:26后电脑AFK，手机微信亮屏，但无法判断用户是否在使用手机或离开"
+  ],
+  "concise_report": "主要任务：任务规划与闭环推进。工作24.8分钟，娱乐0.63分钟，通信0.0分钟，确认休息0.0分钟。工作中出现1次超过30秒的娱乐偏离，共0.63分钟，最长0.63分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "手机微信的使用性质：是工作沟通还是娱乐聊天？这可能改变娱乐分钟数和混杂结论。",
+  "observed_metrics": {
+    "computer_active_minutes": 25.45,
+    "computer_afk_minutes": 4.55,
+    "phone_screen_on_minutes": 30.0,
+    "simultaneous_computer_active_phone_on_minutes": 25.43,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 24.8,
+      "range_minutes": [
+        24.8,
+        24.8
+      ],
+      "evidence": [
+        "电脑主要活动：ChatGPT标题'下一步行动与闭环'和Obsidian'ToDo-已经规划好的任务'来回切换",
+        "文件资源管理器打开'任务计划'文件夹（23:01-23:02）",
+        "手机全程微信前台，持续30分钟，但电脑持续工作，判断主要注意力在电脑",
+        "23:00起连续not-afk直到23:25:26"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.63,
+      "range_minutes": [
+        0.63,
+        0.63
+      ],
+      "evidence": [
+        "23:16:16-23:16:51浏览zhihu.com文章'一般没人讨论这个...Kimi K3...'",
+        "23:16:51-23:16:54浏览知乎首页",
+        "此浏览时长约38秒，且发生在工作过程中",
+        "随后马上返回ChatGPT工作（23:16:55）"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 4.57,
+      "range_minutes": [
+        4.57,
+        4.57
+      ],
+      "evidence": [
+        "电脑从23:25:26开始AFK（无键鼠操作）",
+        "手机微信前台持续亮屏，但无新解锁事件，可能正在聊天",
+        "平板亮屏但仅为辅助数据",
+        "不满足休息规则（手机未熄屏），归为other"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "23:00-23:16",
+      "likely_state": "工作",
+      "minutes": 16.27,
+      "task": "查看任务计划，整理ToDo，并在ChatGPT上讨论下一步行动与闭环",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑主要活动：ChatGPT标题'下一步行动与闭环'和Obsidian'ToDo-已经规划好的任务'来回切换",
+        "文件资源管理器打开'任务计划'文件夹（23:01-23:02）",
+        "手机全程微信前台，持续30分钟，但电脑持续工作，判断主要注意力在电脑",
+        "23:00起连续not-afk直到23:25:26"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:16-23:16",
+      "likely_state": "娱乐",
+      "minutes": 0.63,
+      "task": "浏览知乎文章（Kimi K3相关）",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "23:16:16-23:16:51浏览zhihu.com文章'一般没人讨论这个...Kimi K3...'",
+        "23:16:51-23:16:54浏览知乎首页",
+        "此浏览时长约38秒，且发生在工作过程中",
+        "随后马上返回ChatGPT工作（23:16:55）"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:16-23:25",
+      "likely_state": "工作",
+      "minutes": 8.53,
+      "task": "返回ChatGPT继续讨论下一步行动与闭环",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "23:16:55起回到ChatGPT标题'下一步行动与闭环'",
+        "持续工作直至23:25:26电脑AFK",
+        "期间夹杂Obsidian和文件资源管理器操作，仍属同一任务",
+        "手机微信仍持续前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:25-23:30",
+      "likely_state": "其他",
+      "minutes": 4.57,
+      "task": "电脑AFK，手机微信前台亮屏，不确定是否休息或使用手机",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从23:25:26开始AFK（无键鼠操作）",
+        "手机微信前台持续亮屏，但无新解锁事件，可能正在聊天",
+        "平板亮屏但仅为辅助数据",
+        "不满足休息规则（手机未熄屏），归为other"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "任务规划与闭环推进",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11933,
+      "completion_tokens": 1154,
+      "total_tokens": 13087,
+      "prompt_tokens_details": {
+        "cached_tokens": 11904
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 722
+      },
+      "prompt_cache_hit_tokens": 11904,
+      "prompt_cache_miss_tokens": 29
+    }
+  }
+}

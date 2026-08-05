@@ -1,0 +1,107 @@
+{
+  "period": "2026-07-24T20:00:00+08:00/2026-07-24T20:30:00+08:00",
+  "concise_report": "本时段电脑活跃约8.8分钟，其余时间无操作；手机亮屏2.7分钟，集中在电脑无操作期间。用户可能在电脑上研究AI模型对比，短暂使用手机回复消息或查看通知。",
+  "computer_interpretation": {
+    "facts": [
+      "电脑非AFK共8.79分钟，集中在20:08-20:16和20:29-20:30两个片段。",
+      "主要使用Edge（3.88分钟）、ChatGPT（3.07分钟）、微信（0.64分钟）、Obsidian（0.43分钟）。",
+      "Edge活跃期间打开的页面标题涉及“任务管理模型选择”、“Kimi K2.7 vs Deepseek”、“kimi和deepseek-哔哩哔哩”等。",
+      "20:08-20:16活跃期间：先ChatGPT，然后Edge浏览哔哩哔哩（kimi/deepseek相关），接着微信（约0.6分钟），随后Edge访问ChatGPT，并查看“Kimi K2.7 vs Deepseek”，再切换ChatGPT，短暂查看Obsidian文档，最后Edge查看“任务管理模型选择”。",
+      "20:29-20:30活跃期间：Edge打开bilibili，然后切换到ChatGPT。"
+    ],
+    "likely_explanation": "用户可能在比较或研究AI模型（Kimi与Deepseek），查阅相关视频或页面，同时使用ChatGPT辅助思考，短暂回复微信消息。",
+    "confidence": "medium",
+    "uncertainties": [
+      "页面标题反映标签页标题，不一定代表实际阅读内容。",
+      "AFK期间无法判断用户是否离开电脑、阅读纸质内容或注视屏幕。"
+    ]
+  },
+  "phone_interpretation": {
+    "facts": [
+      "手机共亮屏2.7分钟，解锁5次。",
+      "亮屏时段：20:05-20:07（145秒）、20:17（6秒）、20:22（7秒）、20:23（3秒）、20:27（1秒）。",
+      "主要前台应用：微信（1.42分钟）、手机桌面（0.72分钟）、Automate（0.23分钟）、哔哩哔哩（0.03分钟）、Vivo全局搜索（0.02分钟）。",
+      "第一个亮屏时段（20:05-20:07）内，使用微信约45秒，手机桌面12秒，哔哩哔哩2秒，Automate14秒，再微信40秒，桌面26秒。"
+    ],
+    "likely_explanation": "用户可能用手机回复微信消息、检查自动化任务（Automate），并短暂浏览哔哩哔哩。后续几次短亮屏可能是查看通知或锁屏误触。",
+    "confidence": "high",
+    "uncertainties": [
+      "亮屏不保证用户持续操作，可能只是短暂查看。",
+      "Automate是自动化工具，可能触发后台任务，不一定是主动使用。"
+    ]
+  },
+  "cross_device_observations": [
+    {
+      "observation": "电脑活跃期间没有检测到手机亮屏（0分钟重叠）。",
+      "confidence": "high",
+      "evidence": [
+        "电脑非AFK和手机亮屏重叠分钟数为0.0",
+        "手机亮屏时段（20:05-20:07）完全包含在电脑AFK时段（20:00-20:08）内",
+        "其他手机亮屏均在电脑AFK期间"
+      ]
+    },
+    {
+      "observation": "手机亮屏2.7分钟全部发生在电脑AFK期间。",
+      "confidence": "high",
+      "evidence": [
+        "电脑AFK且手机亮屏重叠2.7分钟",
+        "电脑非AFK且手机亮屏重叠0分钟"
+      ]
+    }
+  ],
+  "likely_activities": [
+    {
+      "hypothesis": "用户正在研究和比较AI模型（Kimi与Deepseek），可能为工作或学习。",
+      "confidence": "medium",
+      "evidence": [
+        "Edge页面标题多次出现“Kimi K2.7 vs Deepseek”、“kimi和deepseek-哔哩哔哩”",
+        "ChatGPT使用时长3.07分钟，可能用于提问或辅助",
+        "Edge还访问了“任务管理模型选择”"
+      ],
+      "alternatives": [
+        "用户可能在休闲浏览哔哩哔哩相关视频，并非系统性的模型比较。",
+        "“任务管理模型选择”可能与其他工作相关。"
+      ]
+    },
+    {
+      "hypothesis": "用户在电脑短暂活跃后离开，期间用手机处理消息或快速任务。",
+      "confidence": "high",
+      "evidence": [
+        "电脑20:16后AFK长达约12.5分钟，手机在此期间有多次短亮屏（总计约17秒）",
+        "手机主要使用微信和桌面",
+        "电脑AFK和手机亮屏重叠2.7分钟"
+      ],
+      "alternatives": [
+        "用户可能同时使用电脑和手机但电脑无操作（如阅读纸质材料），但手机亮屏时间短。"
+      ]
+    }
+  ],
+  "data_quality_assessment": {
+    "level": "medium",
+    "issues": [
+      "电脑活跃窗口覆盖率为0.92，浏览器web上下文覆盖率仅0.18，部分网页活动可能未捕获。",
+      "AFK仅反映无键鼠操作，不能判断用户是否在休息。",
+      "手机数据质量高，但亮屏不代表持续操作。"
+    ]
+  },
+  "gentle_suggestions": [],
+  "verification_question": "电脑20:08-20:16活跃期间，是否主要在比较Kimi和Deepseek模型？",
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6910,
+      "completion_tokens": 1839,
+      "total_tokens": 8749,
+      "prompt_tokens_details": {
+        "cached_tokens": 6784
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 543
+      },
+      "prompt_cache_hit_tokens": 6784,
+      "prompt_cache_miss_tokens": 126
+    }
+  }
+}

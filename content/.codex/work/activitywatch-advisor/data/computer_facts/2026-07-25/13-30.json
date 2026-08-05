@@ -1,0 +1,675 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T13:30:00+08:00",
+    "end": "2026-07-25T14:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 61,
+      "aw-watcher-afk_xyh": 16,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 19,
+      "aw-watcher-web-edge_xyh": 40
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 13.95,
+    "afk_minutes": 16.05,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 12.93
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 10.32
+    },
+    {
+      "app": "微信",
+      "minutes": 2.6
+    },
+    {
+      "app": "Mathpix",
+      "minutes": 0.01
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "zhihu.com",
+      "minutes": 7.42
+    },
+    {
+      "domain": "bilibili.com",
+      "minutes": 1.33
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.92
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 6.05
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 1.26
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "跟学在B站",
+      "minutes": 1.23
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 1.19
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "「四位菲尔兹奖主有三位会说中文」，如何看待菲奖得主约翰·帕登（白杰文）的汉语水平？你对他还有哪些了解？ - 知乎",
+      "minutes": 0.96
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.92
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "2026 年菲尔兹奖公布，中国籍数学家邓煜、王虹获奖，如何理解他们获奖的意义？ - 知乎",
+      "minutes": 0.65
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "携程滥用市场支配地位实施垄断行为，被罚没 51.79 亿元，起到哪些警示作用？对相关行业有何影响？ - 知乎",
+      "minutes": 0.41
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "Weixin",
+      "minutes": 0.16
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.1质点（基础）_哔哩哔哩_bilibili",
+      "minutes": 0.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "minutes": 0.02
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "minutes": 0.01
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "minutes": 0.0
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "跟学在B站",
+      "first_seen": "2026-07-25T13:30:29+08:00",
+      "last_seen": "2026-07-25T14:00:29+08:00",
+      "raw_event_count": 9
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T13:31:11+08:00",
+      "last_seen": "2026-07-25T13:59:12+08:00",
+      "raw_event_count": 19
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-25T13:39:26+08:00",
+      "last_seen": "2026-07-25T13:40:29+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "携程滥用市场支配地位实施垄断行为，被罚没 51.79 亿元，起到哪些警示作用？对相关行业有何影响？ - 知乎",
+      "first_seen": "2026-07-25T13:40:29+08:00",
+      "last_seen": "2026-07-25T13:59:27+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-25T13:40:54+08:00",
+      "last_seen": "2026-07-25T13:59:28+08:00",
+      "raw_event_count": 16
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "「四位菲尔兹奖主有三位会说中文」，如何看待菲奖得主约翰·帕登（白杰文）的汉语水平？你对他还有哪些了解？ - 知乎",
+      "first_seen": "2026-07-25T13:41:59+08:00",
+      "last_seen": "2026-07-25T13:59:27+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "为什么rmvb格式消失了,它在技术上比不上H264吗？ - 知乎",
+      "first_seen": "2026-07-25T13:59:26+08:00",
+      "last_seen": "2026-07-25T13:59:26+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "韦神和2026 年菲尔兹奖最有力竞争者王虹有可比性吗？ - 知乎",
+      "first_seen": "2026-07-25T13:59:26+08:00",
+      "last_seen": "2026-07-25T13:59:26+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解.pdf",
+      "first_seen": "2026-07-25T13:59:28+08:00",
+      "last_seen": "2026-07-25T13:59:31+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T13:59:28+08:00",
+      "last_seen": "2026-07-25T13:59:31+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T13:59:29+08:00",
+      "last_seen": "2026-07-25T13:59:30+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.1质点（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T13:59:31+08:00",
+      "last_seen": "2026-07-25T13:59:37+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T13:59:38+08:00",
+      "last_seen": "2026-07-25T13:59:39+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T13:30:00+08:00",
+      "end": "2026-07-25T13:38:28+08:00",
+      "duration_seconds": 508.957,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T13:38:28+08:00",
+      "end": "2026-07-25T13:49:04+08:00",
+      "duration_seconds": 635.139,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T13:49:04+08:00",
+      "end": "2026-07-25T13:56:38+08:00",
+      "duration_seconds": 454.295,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T13:56:38+08:00",
+      "end": "2026-07-25T14:00:00+08:00",
+      "duration_seconds": 201.607,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T13:38:28+08:00",
+      "end": "2026-07-25T13:39:26+08:00",
+      "duration_seconds": 57.053,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "跟学在B站",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T13:39:27+08:00",
+      "end": "2026-07-25T13:39:28+08:00",
+      "duration_seconds": 1.038,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:39:28+08:00",
+      "end": "2026-07-25T13:39:31+08:00",
+      "duration_seconds": 3.1,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T13:39:31+08:00",
+      "end": "2026-07-25T13:40:29+08:00",
+      "duration_seconds": 54.052,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:40:29+08:00",
+      "end": "2026-07-25T13:40:53+08:00",
+      "duration_seconds": 24.436,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "携程滥用市场支配地位实施垄断行为，被罚没 51.79 亿元，起到哪些警示作用？对相关行业有何影响？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:40:54+08:00",
+      "end": "2026-07-25T13:41:09+08:00",
+      "duration_seconds": 14.48,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:41:09+08:00",
+      "end": "2026-07-25T13:41:12+08:00",
+      "duration_seconds": 3.083,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T13:41:12+08:00",
+      "end": "2026-07-25T13:41:17+08:00",
+      "duration_seconds": 5.157,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:41:18+08:00",
+      "end": "2026-07-25T13:41:23+08:00",
+      "duration_seconds": 5.149,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:41:24+08:00",
+      "end": "2026-07-25T13:41:46+08:00",
+      "duration_seconds": 21.691,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:41:47+08:00",
+      "end": "2026-07-25T13:42:21+08:00",
+      "duration_seconds": 34.141,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:42:22+08:00",
+      "end": "2026-07-25T13:43:20+08:00",
+      "duration_seconds": 57.783,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "「四位菲尔兹奖主有三位会说中文」，如何看待菲奖得主约翰·帕登（白杰文）的汉语水平？你对他还有哪些了解？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T13:43:21+08:00",
+      "end": "2026-07-25T13:43:24+08:00",
+      "duration_seconds": 3.123,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:43:24+08:00",
+      "end": "2026-07-25T13:43:27+08:00",
+      "duration_seconds": 3.108,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T13:43:27+08:00",
+      "end": "2026-07-25T13:43:37+08:00",
+      "duration_seconds": 8.279,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:43:38+08:00",
+      "end": "2026-07-25T13:43:40+08:00",
+      "duration_seconds": 2.078,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:43:41+08:00",
+      "end": "2026-07-25T13:43:53+08:00",
+      "duration_seconds": 12.423,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:43:54+08:00",
+      "end": "2026-07-25T13:44:02+08:00",
+      "duration_seconds": 8.3,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:44:03+08:00",
+      "end": "2026-07-25T13:44:17+08:00",
+      "duration_seconds": 13.444,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:44:18+08:00",
+      "end": "2026-07-25T13:44:27+08:00",
+      "duration_seconds": 7.216,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:44:28+08:00",
+      "end": "2026-07-25T13:44:36+08:00",
+      "duration_seconds": 8.272,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:44:38+08:00",
+      "end": "2026-07-25T13:44:54+08:00",
+      "duration_seconds": 16.532,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:44:55+08:00",
+      "end": "2026-07-25T13:44:57+08:00",
+      "duration_seconds": 2.065,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:44:59+08:00",
+      "end": "2026-07-25T13:49:04+08:00",
+      "duration_seconds": 244.391,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T13:56:38+08:00",
+      "end": "2026-07-25T13:58:06+08:00",
+      "duration_seconds": 83.501,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:58:08+08:00",
+      "end": "2026-07-25T13:58:16+08:00",
+      "duration_seconds": 8.271,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:58:17+08:00",
+      "end": "2026-07-25T13:58:19+08:00",
+      "duration_seconds": 2.071,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:58:20+08:00",
+      "end": "2026-07-25T13:58:21+08:00",
+      "duration_seconds": 1.026,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:58:22+08:00",
+      "end": "2026-07-25T13:58:23+08:00",
+      "duration_seconds": 1.041,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:58:24+08:00",
+      "end": "2026-07-25T13:58:38+08:00",
+      "duration_seconds": 11.328,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:58:39+08:00",
+      "end": "2026-07-25T13:58:40+08:00",
+      "duration_seconds": 1.029,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:58:41+08:00",
+      "end": "2026-07-25T13:58:45+08:00",
+      "duration_seconds": 4.138,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T13:58:46+08:00",
+      "end": "2026-07-25T13:59:25+08:00",
+      "duration_seconds": 39.197,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "2026 年菲尔兹奖公布，中国籍数学家邓煜、王虹获奖，如何理解他们获奖的意义？ - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:59:25+08:00",
+      "end": "2026-07-25T13:59:29+08:00",
+      "duration_seconds": 4.132,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T13:59:29+08:00",
+      "end": "2026-07-25T13:59:29+08:00",
+      "duration_seconds": 0.027,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:59:29+08:00",
+      "end": "2026-07-25T13:59:30+08:00",
+      "duration_seconds": 0.997,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:59:31+08:00",
+      "end": "2026-07-25T13:59:36+08:00",
+      "duration_seconds": 5.153,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.1质点（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:59:36+08:00",
+      "end": "2026-07-25T13:59:39+08:00",
+      "duration_seconds": 3.104,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T13:59:39+08:00",
+      "end": "2026-07-25T13:59:58+08:00",
+      "duration_seconds": 16.544,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "跟学在B站",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:59:59+08:00",
+      "end": "2026-07-25T14:00:00+08:00",
+      "duration_seconds": 0.454,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.927,
+    "browser_title_coverage": 0.998,
+    "browser_domain_context_coverage": 0.937,
+    "web_watcher_exact_time_overlap": 0.35,
+    "browser_share_of_active_time": 0.74,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

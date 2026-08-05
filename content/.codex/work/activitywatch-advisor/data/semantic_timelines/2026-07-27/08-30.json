@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T08:30:00+08:00",
+    "end": "2026-07-27T09:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T08:30:00+08:00",
+      "end": "2026-07-27T08:34:19+08:00",
+      "duration_seconds": 259.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机熄屏，电脑无活动，可能离开设备",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "电脑活动未知且无交互",
+        "手机熄屏从08:30:29至08:34:19"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T08:34:19+08:00",
+      "end": "2026-07-27T08:36:05+08:00",
+      "duration_seconds": 106.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "使用微信进行短暂通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台主要为微信（约105秒）",
+        "夹杂桌面和'不做手机控'，但主体是微信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T08:36:05+08:00",
+      "end": "2026-07-27T08:41:26+08:00",
+      "duration_seconds": 321.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机熄屏，电脑无活动，可能离开设备",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "手机熄屏321秒",
+        "电脑无任何活动记录"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T08:41:26+08:00",
+      "end": "2026-07-27T08:43:33+08:00",
+      "duration_seconds": 127.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "使用微信进行短暂通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台微信占主导（约73秒）",
+        "短暂查看桌面和其他应用，但主体为微信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T08:43:33+08:00",
+      "end": "2026-07-27T08:52:16+08:00",
+      "duration_seconds": 523.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机熄屏，电脑无活动，可能离开设备",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "手机熄屏523秒",
+        "电脑无任何活动记录"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T08:52:16+08:00",
+      "end": "2026-07-27T09:00:00+08:00",
+      "duration_seconds": 464.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览手机，主要使用WebAPK（可能为网页应用）和短暂使用哔哩哔哩、微信、Chrome等",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机长时间亮屏（464秒），前台WebAPK占据大部分（约297秒）",
+        "短暂出现哔哩哔哩（1秒），表明娱乐倾向",
+        "电脑无活动，无工作上下文"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "WebAPK具体内容未知，无法确定是娱乐还是其他用途",
+    "长时间熄屏段无法确认用户是否在休息或进行其他无设备活动"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11628,
+      "completion_tokens": 967,
+      "total_tokens": 12595,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 10604
+    }
+  }
+}

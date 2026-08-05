@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T11:00:00+08:00",
+    "end": "2026-07-25T11:30:00+08:00"
+  },
+  "primary_work_task": "初高衔接数学备课（对称式、主元思想、因式分解）",
+  "segments": [
+    {
+      "start": "2026-07-25T11:00:00+08:00",
+      "end": "2026-07-25T11:13:52+08:00",
+      "duration_seconds": 832.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "初高衔接数学备课：腾讯会议讨论、看B站教学视频、阅读PDF、做笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "腾讯会议彭康哲的快速会议贯穿此段，讨论初高衔接内容",
+        "Microsoft Edge浏览B站视频【初高衔接】1.1 对称式、主元思想",
+        "打开PDF《初高衔接2 乘法公式&主元思想&因式分解.pdf》",
+        "Obsidian中编辑同主题笔记"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T11:13:52+08:00",
+      "end": "2026-07-25T11:30:00+08:00",
+      "duration_seconds": 968.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（电脑AFK，手机无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "11:13:52起电脑连续AFK且无手机操作，符合休息规则",
+        "跨设备确认休息区间：11:13:52-11:30:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11794,
+      "completion_tokens": 451,
+      "total_tokens": 12245,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 10898
+    }
+  }
+}

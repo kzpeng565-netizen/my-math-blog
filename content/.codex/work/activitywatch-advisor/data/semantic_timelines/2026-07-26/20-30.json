@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T20:30:00+08:00",
+    "end": "2026-07-26T21:00:00+08:00"
+  },
+  "primary_work_task": "增强DeepSeek搜索能力",
+  "segments": [
+    {
+      "start": "2026-07-26T20:30:00+08:00",
+      "end": "2026-07-26T20:32:05+08:00",
+      "duration_seconds": 125.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷抖音短视频",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用为抖音（com.ss.android.ugc.aweme），持续2分钟",
+        "电脑在此期间AFK，无操作",
+        "辅助上下文显示用户之前在工作（chatgpt.com“增强DeepSeek搜索能力”）",
+        "手机屏幕于20:32:05切换至桌面，之后转回工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T20:32:05+08:00",
+      "end": "2026-07-26T20:33:00+08:00",
+      "duration_seconds": 55.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "手机桌面操作，可能切换应用或短暂查看通知",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台为桌面，持续55秒",
+        "电脑仍然AFK",
+        "接下来使用“不做手机控”，意图可能是限制手机使用"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T20:33:00+08:00",
+      "end": "2026-07-26T20:33:12+08:00",
+      "duration_seconds": 12.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "准备恢复工作，操作“不做手机控”以管理注意力",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台为“不做手机控”，持续12秒",
+        "电脑仍然AFK",
+        "使用时间管理应用，可能为了结束娱乐、专注工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T20:33:12+08:00",
+      "end": "2026-07-26T20:33:16+08:00",
+      "duration_seconds": 4.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "短暂查看电脑、打开浏览器或CC Switch",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从AFK恢复，浏览器标签页切换到ccswitch.io",
+        "电脑活跃但无窗口记录持续4秒",
+        "稍后继续使用chatgpt.com"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T20:33:16+08:00",
+      "end": "2026-07-26T20:33:28+08:00",
+      "duration_seconds": 12.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用ChatGPT增强DeepSeek搜索能力",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器标签页标题为“增强DeepSeek搜索能力” on chatgpt.com",
+        "持续约12秒",
+        "属于之前任务延续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T20:33:28+08:00",
+      "end": "2026-07-26T20:33:34+08:00",
+      "duration_seconds": 6.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "可能切换工具，使用ChatGPT桌面应用",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用出现在前台1秒",
+        "短暂活跃但无窗口记录4秒",
+        "随后使用CC Switch"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T20:33:34+08:00",
+      "end": "2026-07-26T20:34:23+08:00",
+      "duration_seconds": 49.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用CC Switch管理AI编程工具",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "CC Switch窗口持续49秒",
+        "CC Switch是AI编程工具管理平台",
+        "任务上下文为增强DeepSeek搜索能力，CC Switch可能用于调用API或管理工具"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T20:34:23+08:00",
+      "end": "2026-07-26T20:34:25+08:00",
+      "duration_seconds": 2.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "继续使用ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器标签页标题为“增强DeepSeek搜索能力” on chatgpt.com",
+        "持续1秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T20:34:25+08:00",
+      "end": "2026-07-26T20:36:03+08:00",
+      "duration_seconds": 98.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷抖音短视频",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "电脑从20:34:25起活跃但无窗口记录，随后AFK",
+        "手机亮屏，前台依次为“不做手机控”（9秒）、抖音（31秒）、桌面（10秒）、抖音（36秒）",
+        "抖音使用集中在20:34:46起，持续约1分钟",
+        "辅助上下文显示用户之前在电脑上工作，手机使用后电脑进入长时间AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T20:36:03+08:00",
+      "end": "2026-07-26T20:40:23+08:00",
+      "duration_seconds": 260.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无任何设备操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "规则确认的休息区间",
+        "电脑连续AFK，手机屏幕关闭",
+        "持续4分20秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T20:40:23+08:00",
+      "end": "2026-07-26T20:41:38+08:00",
+      "duration_seconds": 75.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑状态未知，可能短暂操作或无记录",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活动状态为unknown，持续1分15秒",
+        "手机屏幕依然关闭",
+        "无法判断用户行为"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T20:41:38+08:00",
+      "end": "2026-07-26T21:00:00+08:00",
+      "duration_seconds": 1102.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无任何设备操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "规则确认的休息区间",
+        "电脑连续AFK，手机屏幕关闭",
+        "持续18分22秒"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "20:32:05-20:33:00 手机桌面操作目的不明确",
+    "20:40:23-20:41:38 电脑状态未知，无法判断是否有操作"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 10970,
+      "completion_tokens": 1958,
+      "total_tokens": 12928,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 10074
+    }
+  }
+}

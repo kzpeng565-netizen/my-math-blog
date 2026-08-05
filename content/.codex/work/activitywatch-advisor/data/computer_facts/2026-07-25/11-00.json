@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T11:00:00+08:00",
+    "end": "2026-07-25T11:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 31,
+      "aw-watcher-afk_xyh": 37,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 21
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 13.87,
+    "afk_minutes": 16.13,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 13.35
+  },
+  "top_apps": [
+    {
+      "app": "腾讯会议",
+      "minutes": 6.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 4.21
+    },
+    {
+      "app": "微信",
+      "minutes": 2.74
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 0.22
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.05
+    },
+    {
+      "app": "ShellExperienceHost.exe",
+      "minutes": 0.02
+    },
+    {
+      "app": "微信小程序",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 2.75
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 5.39
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "minutes": 2.75
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 2.26
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解.pdf",
+      "minutes": 1.46
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "腾讯会议",
+      "minutes": 0.7
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.48
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "minutes": 0.19
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接1 从因式分解与不等式",
+      "minutes": 0.03
+    },
+    {
+      "app": "ShellExperienceHost.exe",
+      "domain": "",
+      "title": "通知中心",
+      "minutes": 0.02
+    },
+    {
+      "app": "微信小程序",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解.pdf",
+      "first_seen": "2026-07-25T11:00:56+08:00",
+      "last_seen": "2026-07-25T11:05:31+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T11:01:09+08:00",
+      "last_seen": "2026-07-25T11:29:39+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T11:05:31+08:00",
+      "last_seen": "2026-07-25T11:29:27+08:00",
+      "raw_event_count": 17
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T11:00:00+08:00",
+      "end": "2026-07-25T11:13:52+08:00",
+      "duration_seconds": 832.144,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T11:13:52+08:00",
+      "end": "2026-07-25T11:30:00+08:00",
+      "duration_seconds": 967.856,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T11:00:00+08:00",
+      "end": "2026-07-25T11:00:32+08:00",
+      "duration_seconds": 30.357,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:00:33+08:00",
+      "end": "2026-07-25T11:01:15+08:00",
+      "duration_seconds": 42.225,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "腾讯会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:01:16+08:00",
+      "end": "2026-07-25T11:01:37+08:00",
+      "duration_seconds": 20.672,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:01:38+08:00",
+      "end": "2026-07-25T11:02:07+08:00",
+      "duration_seconds": 28.845,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:02:08+08:00",
+      "end": "2026-07-25T11:02:09+08:00",
+      "duration_seconds": 1.029,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:02:10+08:00",
+      "end": "2026-07-25T11:02:18+08:00",
+      "duration_seconds": 8.232,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:02:19+08:00",
+      "end": "2026-07-25T11:02:20+08:00",
+      "duration_seconds": 1.037,
+      "app": "ShellExperienceHost.exe",
+      "app_display": "ShellExperienceHost.exe",
+      "title": "通知中心",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:02:21+08:00",
+      "end": "2026-07-25T11:02:30+08:00",
+      "duration_seconds": 9.261,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:02:31+08:00",
+      "end": "2026-07-25T11:02:32+08:00",
+      "duration_seconds": 1.029,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:02:34+08:00",
+      "end": "2026-07-25T11:03:04+08:00",
+      "duration_seconds": 30.962,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:03:04+08:00",
+      "end": "2026-07-25T11:03:08+08:00",
+      "duration_seconds": 3.094,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T11:03:08+08:00",
+      "end": "2026-07-25T11:03:09+08:00",
+      "duration_seconds": 1.041,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:03:10+08:00",
+      "end": "2026-07-25T11:03:12+08:00",
+      "duration_seconds": 2.05,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:03:13+08:00",
+      "end": "2026-07-25T11:03:32+08:00",
+      "duration_seconds": 19.651,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:03:33+08:00",
+      "end": "2026-07-25T11:03:45+08:00",
+      "duration_seconds": 11.355,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:03:46+08:00",
+      "end": "2026-07-25T11:03:59+08:00",
+      "duration_seconds": 13.483,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:04:00+08:00",
+      "end": "2026-07-25T11:05:30+08:00",
+      "duration_seconds": 87.588,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解.pdf",
+      "domain": "",
+      "context_source": "web+window"
+    },
+    {
+      "start": "2026-07-25T11:05:31+08:00",
+      "end": "2026-07-25T11:05:42+08:00",
+      "duration_seconds": 11.358,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T11:05:43+08:00",
+      "end": "2026-07-25T11:05:44+08:00",
+      "duration_seconds": 1.034,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:05:45+08:00",
+      "end": "2026-07-25T11:05:55+08:00",
+      "duration_seconds": 9.276,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:05:56+08:00",
+      "end": "2026-07-25T11:08:29+08:00",
+      "duration_seconds": 153.639,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T11:08:30+08:00",
+      "end": "2026-07-25T11:08:34+08:00",
+      "duration_seconds": 3.088,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:08:35+08:00",
+      "end": "2026-07-25T11:08:37+08:00",
+      "duration_seconds": 2.066,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接1 从因式分解与不等式",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:08:38+08:00",
+      "end": "2026-07-25T11:08:49+08:00",
+      "duration_seconds": 11.376,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:08:50+08:00",
+      "end": "2026-07-25T11:08:51+08:00",
+      "duration_seconds": 1.025,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T11:08:52+08:00",
+      "end": "2026-07-25T11:13:52+08:00",
+      "duration_seconds": 299.493,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.963,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 0.653,
+    "web_watcher_exact_time_overlap": 0.013,
+    "browser_share_of_active_time": 0.304,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

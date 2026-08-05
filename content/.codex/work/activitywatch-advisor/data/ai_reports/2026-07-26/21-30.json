@@ -1,0 +1,411 @@
+{
+  "period": "2026-07-26T21:30:00+08:00/2026-07-26T22:00:00+08:00",
+  "state_assessment": {
+    "label": "work_with_entertainment_detour",
+    "confidence": "high",
+    "one_sentence": "主要任务：增强DeepSeek搜索能力/配置调试。工作24.17分钟，娱乐4.5分钟，通信1.33分钟，确认休息0.0分钟。工作中出现2次超过30秒的娱乐偏离，共4.03分钟，最长3.0分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "medium",
+    "entertainment_deviation_count": 2,
+    "entertainment_deviation_minutes": 4.03,
+    "all_entertainment_minutes": 4.5,
+    "longest_entertainment_deviation_minutes": 3.0,
+    "work_entertainment_transition_count": 6,
+    "brief_communication_minutes": 1.33,
+    "longest_continuous_work_minutes": 8.85,
+    "same_task_tool_switches_not_scored": 48,
+    "raw_foreground_context_switches_not_scored": 63,
+    "deviations": [
+      {
+        "start": "2026-07-26T21:38:51+08:00",
+        "end": "2026-07-26T21:39:53+08:00",
+        "minutes": 1.03,
+        "duration_seconds": 62.0,
+        "task": "刷小红书首页",
+        "evidence": [
+          "浏览器标签页切换至小红书首页",
+          "标题：'小红书 - 你的生活兴趣社区'",
+          "约1分钟，之后回到工作"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-26T21:43:18+08:00",
+        "end": "2026-07-26T21:46:18+08:00",
+        "minutes": 3.0,
+        "duration_seconds": 180.0,
+        "task": "浏览小红书多篇帖子",
+        "evidence": [
+          "连续浏览多个小红书标题：'王虹教授的博论致谢'、'pku期末季存活致谢'、'昆明同德广场'等",
+          "总时长约3分钟",
+          "期间穿插微信，但主要为浏览内容"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "两次娱乐偏离：21:38:51-21:39:53浏览小红书首页（1分钟），21:43:18-21:46:18浏览多篇小红书帖子（3分钟），均回到原工作任务；第三次小红书搜索仅28秒，不足30秒不计入偏离。"
+  },
+  "computer_summary": "主要工作为增强DeepSeek搜索能力/配置调试，使用ChatGPT、Edge（chatgpt.com）、Windows Terminal、Notepad，其间穿插微信通信和小红书浏览。",
+  "phone_summary": "手机仅21:30-21:33使用微信（3.8分钟），属于工作穿插的短暂通信；21:34短暂亮屏查看微信后关闭。",
+  "material_uncertainties": [
+    "微信通信内容未知，无法判断是否服务于工作",
+    "微信通信内容未知，无法判断是否服务于工作。"
+  ],
+  "concise_report": "主要任务：增强DeepSeek搜索能力/配置调试。工作24.17分钟，娱乐4.5分钟，通信1.33分钟，确认休息0.0分钟。工作中出现2次超过30秒的娱乐偏离，共4.03分钟，最长3.0分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "第二次小红书浏览（21:43-21:46，3分钟）是否实为查找学术资料（如博论致谢）而非娱乐？这可能改变娱乐偏离判定。",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 3.87,
+    "simultaneous_computer_active_phone_on_minutes": 3.87,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 24.17,
+      "range_minutes": [
+        24.17,
+        24.17
+      ],
+      "evidence": [
+        "ChatGPT前台持续约3分钟（21:30-21:32, 21:32-21:35）",
+        "手机在微信前台（21:30-21:33），但主要注意在电脑",
+        "随后打开文件夹和搜索，准备配置",
+        "手机屏幕关闭，电脑继续使用ChatGPT"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 4.5,
+      "range_minutes": [
+        4.5,
+        4.5
+      ],
+      "evidence": [
+        "浏览器标签页切换至小红书首页",
+        "标题：'小红书 - 你的生活兴趣社区'",
+        "约1分钟，之后回到工作",
+        "连续浏览多个小红书标题：'王虹教授的博论致谢'、'pku期末季存活致谢'、'昆明同德广场'等"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 1.33,
+      "range_minutes": [
+        1.33,
+        1.33
+      ],
+      "evidence": [
+        "手机亮屏出现微信前台（21:34:38-21:34:42）",
+        "短暂查看后关闭屏幕",
+        "微信小程序'微信'出现约23秒",
+        "随后微信主窗口短暂出现"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "21:30-21:34",
+      "likely_state": "工作",
+      "minutes": 4.57,
+      "task": "在ChatGPT中工作，涉及搜索增强和配置",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "ChatGPT前台持续约3分钟（21:30-21:32, 21:32-21:35）",
+        "手机在微信前台（21:30-21:33），但主要注意在电脑",
+        "随后打开文件夹和搜索，准备配置",
+        "手机屏幕关闭，电脑继续使用ChatGPT"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:34-21:34",
+      "likely_state": "通信",
+      "minutes": 0.13,
+      "task": "快速查看手机微信消息",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏出现微信前台（21:34:38-21:34:42）",
+        "短暂查看后关闭屏幕"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "21:34-21:38",
+      "likely_state": "工作",
+      "minutes": 4.15,
+      "task": "在ChatGPT中工作，涉及搜索增强和配置",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT前台持续（21:34-21:35, 21:35-21:36）",
+        "打开cc-switch，使用截图工具，再回ChatGPT",
+        "微信短暂出现但很快回到ChatGPT"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:38-21:39",
+      "likely_state": "娱乐",
+      "minutes": 1.03,
+      "task": "刷小红书首页",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览器标签页切换至小红书首页",
+        "标题：'小红书 - 你的生活兴趣社区'",
+        "约1分钟，之后回到工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:39-21:43",
+      "likely_state": "工作",
+      "minutes": 3.42,
+      "task": "在ChatGPT和终端中配置增强DeepSeek搜索",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'增强DeepSeek搜索能力'持续",
+        "Windows Terminal运行PowerShell命令",
+        "小红书浏览结束，回归工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:43-21:46",
+      "likely_state": "娱乐",
+      "minutes": 3.0,
+      "task": "浏览小红书多篇帖子",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "连续浏览多个小红书标题：'王虹教授的博论致谢'、'pku期末季存活致谢'、'昆明同德广场'等",
+        "总时长约3分钟",
+        "期间穿插微信，但主要为浏览内容"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:46-21:46",
+      "likely_state": "工作",
+      "minutes": 0.35,
+      "task": "返回ChatGPT工作，涉及搜索增强",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页回到'增强DeepSeek搜索能力'",
+        "文件资源管理器短暂出现",
+        "准备打开Notepad"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:46-21:48",
+      "likely_state": "工作",
+      "minutes": 1.42,
+      "task": "编辑config.toml配置文件",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Notepad打开config.toml，编辑约1分钟",
+        "多次切换回Edge和终端，但主要在编辑配置",
+        "标题出现'config.toml - Notepad'和'*config.toml - Notepad'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:48-21:48",
+      "likely_state": "通信",
+      "minutes": 0.55,
+      "task": "使用微信小程序和微信进行沟通",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信小程序'微信'出现约23秒",
+        "随后微信主窗口短暂出现"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "21:48-21:53",
+      "likely_state": "工作",
+      "minutes": 4.8,
+      "task": "在ChatGPT和终端中继续工作，涉及搜索增强和配置",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "多次在Edge'增强DeepSeek搜索能力'和Windows Terminal之间切换",
+        "ChatGPT前台持续出现",
+        "微信短暂出现但很快回到工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:53-21:54",
+      "likely_state": "工作",
+      "minutes": 1.37,
+      "task": "在Edge中专注工作，增强DeepSeek搜索",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'增强DeepSeek搜索能力'持续约1分20秒",
+        "期间无其他应用切换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:54-21:55",
+      "likely_state": "娱乐",
+      "minutes": 0.47,
+      "task": "在小红书搜索并浏览内容",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页切换到'昆明同德广场 - 小红书搜索'",
+        "浏览约28秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "21:55-21:55",
+      "likely_state": "通信",
+      "minutes": 0.65,
+      "task": "使用微信沟通",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台持续约34秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:55-22:00",
+      "likely_state": "工作",
+      "minutes": 4.1,
+      "task": "在Edge和终端中继续工作，涉及搜索增强和配置",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'增强DeepSeek搜索能力'持续，多次往返终端",
+        "Windows Terminal运行PowerShell和npm命令",
+        "最后ChatGPT前台持续到22:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "增强DeepSeek搜索能力/配置调试",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活跃窗口只覆盖87.3%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 22692,
+      "completion_tokens": 1329,
+      "total_tokens": 24021,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 914
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 21796
+    }
+  }
+}

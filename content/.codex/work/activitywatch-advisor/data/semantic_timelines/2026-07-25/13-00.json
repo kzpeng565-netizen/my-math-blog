@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T13:00:00+08:00",
+    "end": "2026-07-25T13:30:00+08:00"
+  },
+  "primary_work_task": "初高中衔接课程学习",
+  "segments": [
+    {
+      "start": "2026-07-25T13:00:00+08:00",
+      "end": "2026-07-25T13:02:28+08:00",
+      "duration_seconds": 148.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "浏览阿不高中数学个人空间，搜索初高中物理衔接视频，为学习做准备",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑Edge访问阿不高中数学个人空间和初高中物理衔接搜索页",
+        "电脑同时出现腾讯会议（此前有会议）",
+        "手机微信前台至13:01:25",
+        "13:00:25电脑AFK结束开始活跃"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T13:02:28+08:00",
+      "end": "2026-07-25T13:05:41+08:00",
+      "duration_seconds": 193.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机使用哔哩哔哩，浏览娱乐内容",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK，无操作",
+        "13:02:29手机亮屏，哔哩哔哩频繁切换",
+        "手机哔哩哔哩时长占比高，标题为'跟学在B站'但频繁切换至微信和桌面",
+        "13:03:42后手机哔哩哔哩连续193秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T13:05:41+08:00",
+      "end": "2026-07-25T13:06:36+08:00",
+      "duration_seconds": 55.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑状态未知，手机屏幕持续亮但前台未知",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑状态变为unknown",
+        "手机屏幕on但前台应用未知",
+        "时长不足1分钟，无法判断"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-25T13:06:36+08:00",
+      "end": "2026-07-25T13:25:27+08:00",
+      "duration_seconds": 1131.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机使用哔哩哔哩、微信、淘宝等，持续娱乐与通信混合",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑持续AFK",
+        "手机哔哩哔哩为主要前台（累计8.63分钟）",
+        "微信频繁使用（累计4.83分钟），但主要为通信，未服务于工作",
+        "13:20后出现淘宝购物和全局搜索"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T13:25:27+08:00",
+      "end": "2026-07-25T13:30:00+08:00",
+      "duration_seconds": 273.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "确认休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK",
+        "手机屏幕off",
+        "跨设备事实中确认休息区间"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "13:05:41-13:06:36电脑状态未知，手机前台未知，无法判断用户是否在操作",
+    "13:00:00-13:01:25手机微信前台与电脑学习活动重叠，微信内容未知，可能部分为工作通信"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 16920,
+      "completion_tokens": 974,
+      "total_tokens": 17894,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 16024
+    }
+  }
+}

@@ -1,0 +1,547 @@
+{
+  "schema_version": 3,
+  "period": {
+    "start": "2026-07-27T10:00:00+08:00",
+    "end": "2026-07-27T10:30:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-27/10-00.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-27/10-00.json",
+  "tablet_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/tablet_facts/2026-07-27/10-00.json",
+  "semantic_timeline_file": "/home/conrad/workspace/activitywatch-advisor/data/semantic_timelines/2026-07-27/10-00.json",
+  "mixing_metrics_file": "/home/conrad/workspace/activitywatch-advisor/data/mixing_metrics/2026-07-27/10-00.json",
+  "cross_device_facts": {
+    "schema_version": 3,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-27T10:00:00+08:00",
+      "end": "2026-07-27T10:30:00+08:00"
+    },
+    "tablet": {
+      "connected": true,
+      "screen_on_seconds": 1800.0,
+      "screen_off_seconds": 0,
+      "confidence": "low",
+      "note": "平板为辅助数据源。亮屏不等于确认使用。"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 30.0,
+      "computer_afk_minutes": 0.0,
+      "phone_screen_on_minutes": 0.0,
+      "tablet_screen_on_minutes": 30.0,
+      "any_device_interaction_minutes": 30.0,
+      "no_detected_device_interaction_minutes": 0.0,
+      "likely_rest_minutes": 0.0,
+      "confirmed_rest_minutes": 0.0,
+      "note": "any_device_interaction_minutes基于电脑活跃和手机亮屏的并集。平板亮屏不加入主要交互时间。likely_rest_minutes基于电脑AFK且手机熄屏（平板亮屏不否决休息，仅降低置信度）。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "primary_devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "tablet_role": "auxiliary_context_only",
+      "condition": "电脑连续AFK达到阈值，且手机熄屏。平板亮屏不否决休息，仅降低置信度。",
+      "likely_rest_intervals": [],
+      "confirmed_rest_intervals": []
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 59,
+      "context_switch_count": 58,
+      "switches_per_active_hour": 138.87,
+      "short_context_blocks_under_60_seconds": 52,
+      "sustained_context_blocks_at_least_5_minutes": 0,
+      "longest_context_minutes": 3.32,
+      "median_context_minutes": 0.19,
+      "context_blocks": [
+        {
+          "start": "2026-07-27T10:00:00+08:00",
+          "end": "2026-07-27T10:00:08+08:00",
+          "minutes": 0.15,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:00:18+08:00",
+          "end": "2026-07-27T10:01:28+08:00",
+          "minutes": 1.17,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:01:48+08:00",
+          "end": "2026-07-27T10:03:14+08:00",
+          "minutes": 1.44,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:03:29+08:00",
+          "end": "2026-07-27T10:04:12+08:00",
+          "minutes": 0.72,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:04:13+08:00",
+          "end": "2026-07-27T10:07:32+08:00",
+          "minutes": 3.32,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:07:36+08:00",
+          "end": "2026-07-27T10:07:44+08:00",
+          "minutes": 0.14,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:07:48+08:00",
+          "end": "2026-07-27T10:07:54+08:00",
+          "minutes": 0.09,
+          "app": "文件资源管理器",
+          "title": "Windows (C:) - 文件资源管理器",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:08:04+08:00",
+          "end": "2026-07-27T10:08:19+08:00",
+          "minutes": 0.26,
+          "app": "文件资源管理器",
+          "title": "Program Files (x86) - 文件资源管理器",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:08:20+08:00",
+          "end": "2026-07-27T10:08:26+08:00",
+          "minutes": 0.09,
+          "app": "文件资源管理器",
+          "title": "Windows (C:) - 文件资源管理器",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:08:32+08:00",
+          "end": "2026-07-27T10:08:41+08:00",
+          "minutes": 0.13,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:08:47+08:00",
+          "end": "2026-07-27T10:08:56+08:00",
+          "minutes": 0.15,
+          "app": "微信",
+          "title": "聊天记录迁移与备份",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:08:57+08:00",
+          "end": "2026-07-27T10:09:02+08:00",
+          "minutes": 0.09,
+          "app": "文件资源管理器",
+          "title": "Windows (C:) - 文件资源管理器",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:09:03+08:00",
+          "end": "2026-07-27T10:09:12+08:00",
+          "minutes": 0.15,
+          "app": "SearchHost.exe",
+          "title": "搜索",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:09:17+08:00",
+          "end": "2026-07-27T10:09:30+08:00",
+          "minutes": 0.22,
+          "app": "Cleaner One.exe",
+          "title": "清理君",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:09:33+08:00",
+          "end": "2026-07-27T10:10:36+08:00",
+          "minutes": 1.05,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:10:38+08:00",
+          "end": "2026-07-27T10:11:25+08:00",
+          "minutes": 0.79,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:11:26+08:00",
+          "end": "2026-07-27T10:12:08+08:00",
+          "minutes": 0.65,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:12:11+08:00",
+          "end": "2026-07-27T10:12:23+08:00",
+          "minutes": 0.21,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:12:24+08:00",
+          "end": "2026-07-27T10:12:34+08:00",
+          "minutes": 0.17,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:12:35+08:00",
+          "end": "2026-07-27T10:13:02+08:00",
+          "minutes": 0.41,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:13:07+08:00",
+          "end": "2026-07-27T10:13:17+08:00",
+          "minutes": 0.15,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:13:18+08:00",
+          "end": "2026-07-27T10:13:33+08:00",
+          "minutes": 0.26,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:13:35+08:00",
+          "end": "2026-07-27T10:13:49+08:00",
+          "minutes": 0.19,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:13:55+08:00",
+          "end": "2026-07-27T10:14:05+08:00",
+          "minutes": 0.17,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:14:08+08:00",
+          "end": "2026-07-27T10:14:20+08:00",
+          "minutes": 0.15,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:14:34+08:00",
+          "end": "2026-07-27T10:15:11+08:00",
+          "minutes": 0.62,
+          "app": "Cleaner One.exe",
+          "title": "清理君",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:15:14+08:00",
+          "end": "2026-07-27T10:15:49+08:00",
+          "minutes": 0.57,
+          "app": "Cleaner One.exe",
+          "title": "清理君",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:16:03+08:00",
+          "end": "2026-07-27T10:16:48+08:00",
+          "minutes": 0.76,
+          "app": "Cleaner One.exe",
+          "title": "清理君",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:16:57+08:00",
+          "end": "2026-07-27T10:17:36+08:00",
+          "minutes": 0.65,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:17:40+08:00",
+          "end": "2026-07-27T10:17:51+08:00",
+          "minutes": 0.19,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:17:52+08:00",
+          "end": "2026-07-27T10:18:00+08:00",
+          "minutes": 0.14,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:18:07+08:00",
+          "end": "2026-07-27T10:18:19+08:00",
+          "minutes": 0.17,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:18:22+08:00",
+          "end": "2026-07-27T10:18:28+08:00",
+          "minutes": 0.1,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:18:35+08:00",
+          "end": "2026-07-27T10:19:21+08:00",
+          "minutes": 0.76,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:19:22+08:00",
+          "end": "2026-07-27T10:19:32+08:00",
+          "minutes": 0.14,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:19:35+08:00",
+          "end": "2026-07-27T10:19:56+08:00",
+          "minutes": 0.31,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:19:59+08:00",
+          "end": "2026-07-27T10:20:06+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:20:10+08:00",
+          "end": "2026-07-27T10:20:20+08:00",
+          "minutes": 0.17,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:20:21+08:00",
+          "end": "2026-07-27T10:20:28+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:20:29+08:00",
+          "end": "2026-07-27T10:21:12+08:00",
+          "minutes": 0.72,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:21:16+08:00",
+          "end": "2026-07-27T10:21:54+08:00",
+          "minutes": 0.63,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:21:55+08:00",
+          "end": "2026-07-27T10:22:08+08:00",
+          "minutes": 0.21,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:22:10+08:00",
+          "end": "2026-07-27T10:23:16+08:00",
+          "minutes": 1.07,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:23:20+08:00",
+          "end": "2026-07-27T10:23:38+08:00",
+          "minutes": 0.31,
+          "app": "Microsoft Edge",
+          "title": "集合运算转换",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T10:23:51+08:00",
+          "end": "2026-07-27T10:23:56+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:24:00+08:00",
+          "end": "2026-07-27T10:24:05+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:24:13+08:00",
+          "end": "2026-07-27T10:24:19+08:00",
+          "minutes": 0.1,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:24:20+08:00",
+          "end": "2026-07-27T10:24:29+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:24:31+08:00",
+          "end": "2026-07-27T10:24:36+08:00",
+          "minutes": 0.09,
+          "app": "文件资源管理器",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:24:37+08:00",
+          "end": "2026-07-27T10:25:00+08:00",
+          "minutes": 0.33,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:25:01+08:00",
+          "end": "2026-07-27T10:25:11+08:00",
+          "minutes": 0.15,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:25:12+08:00",
+          "end": "2026-07-27T10:25:38+08:00",
+          "minutes": 0.45,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:26:07+08:00",
+          "end": "2026-07-27T10:26:37+08:00",
+          "minutes": 0.5,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:26:38+08:00",
+          "end": "2026-07-27T10:26:43+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "充分必要条件练习",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T10:26:44+08:00",
+          "end": "2026-07-27T10:27:53+08:00",
+          "minutes": 1.15,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:27:53+08:00",
+          "end": "2026-07-27T10:27:59+08:00",
+          "minutes": 0.09,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:28:04+08:00",
+          "end": "2026-07-27T10:28:11+08:00",
+          "minutes": 0.12,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-27T10:28:12+08:00",
+          "end": "2026-07-27T10:29:44+08:00",
+          "minutes": 1.49,
+          "app": "Obsidian",
+          "title": "高中数学2 集合与逻辑",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T10:29:45+08:00",
+          "end": "2026-07-27T10:29:56+08:00",
+          "minutes": 0.19,
+          "app": "Microsoft Edge",
+          "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 0.0,
+      "computer_afk_and_phone_on": 0.0,
+      "computer_not_afk_and_phone_off": 30.0,
+      "computer_afk_and_phone_off": 0.0
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。",
+      "平板为辅助数据源：亮屏不等于确认活动，不加入主要交互时间。",
+      "likely_rest基于电脑AFK且手机熄屏；平板亮屏降低置信度但不否决休息。"
+    ]
+  }
+}

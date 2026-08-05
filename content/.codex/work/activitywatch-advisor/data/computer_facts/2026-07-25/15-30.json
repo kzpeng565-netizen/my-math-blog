@@ -1,0 +1,1367 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T15:30:00+08:00",
+    "end": "2026-07-25T16:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 133,
+      "aw-watcher-afk_xyh": 1,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 31
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 30.0,
+    "afk_minutes": 0.0,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 27.72
+  },
+  "top_apps": [
+    {
+      "app": "Obsidian",
+      "minutes": 12.72
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 8.05
+    },
+    {
+      "app": "微信",
+      "minutes": 3.4
+    },
+    {
+      "app": "腾讯会议",
+      "minutes": 3.27
+    },
+    {
+      "app": "SnippingTool.exe",
+      "minutes": 0.12
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.1
+    },
+    {
+      "app": "EaseOfAccessDialog.exe",
+      "minutes": 0.02
+    },
+    {
+      "app": "ShellHost.exe",
+      "minutes": 0.02
+    },
+    {
+      "app": "HwTransferStation.exe",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 5.51
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 1.93
+    },
+    {
+      "domain": "search.bilibili.com",
+      "minutes": 0.48
+    },
+    {
+      "domain": "bing.com",
+      "minutes": 0.0
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "未命名",
+      "minutes": 12.49
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "minutes": 4.53
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 3.04
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 2.7
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "网友爆料称赛里木湖 G219 国道设了两个卡点，不想进景区也得交钱，这是真的吗？收费合理吗？ - 知乎",
+      "minutes": 1.5
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.4位移路程、矢量标量（基础）_哔哩哔哩_bilibili",
+      "minutes": 0.79
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "search.bilibili.com",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "minutes": 0.48
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "请选择会议音频的接入方式",
+      "minutes": 0.47
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 0.43
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.23
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "minutes": 0.19
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高物理1 运动学基础概念",
+      "minutes": 0.17
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "Weixin",
+      "minutes": 0.14
+    },
+    {
+      "app": "SnippingTool.exe",
+      "domain": "",
+      "title": "截图工具覆盖",
+      "minutes": 0.12
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "Program Manager",
+      "minutes": 0.1
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "腾讯会议",
+      "minutes": 0.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "初高物理1 运动学基础概念.pdf",
+      "minutes": 0.09
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接1 从因式分解与不等式",
+      "minutes": 0.03
+    },
+    {
+      "app": "EaseOfAccessDialog.exe",
+      "domain": "",
+      "title": "粘滞键",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "发现 - 知乎",
+      "minutes": 0.02
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "另存为",
+      "minutes": 0.02
+    },
+    {
+      "app": "HwTransferStation.exe",
+      "domain": "",
+      "title": "中转站",
+      "minutes": 0.02
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "会议号：472 739 501",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bing.com",
+      "title": "高铁图 - 搜索",
+      "minutes": 0.0
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T15:30:31+08:00",
+      "last_seen": "2026-07-25T15:44:26+08:00",
+      "raw_event_count": 11
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T15:30:43+08:00",
+      "last_seen": "2026-07-25T15:59:14+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "bing.com",
+      "title": "高铁图 - 搜索",
+      "first_seen": "2026-07-25T15:42:08+08:00",
+      "last_seen": "2026-07-25T15:43:31+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "网友爆料称赛里木湖 G219 国道设了两个卡点，不想进景区也得交钱，这是真的吗？收费合理吗？ - 知乎",
+      "first_seen": "2026-07-25T15:43:31+08:00",
+      "last_seen": "2026-07-25T15:44:16+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-25T15:43:51+08:00",
+      "last_seen": "2026-07-25T15:44:16+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "高铁一等座 - 小红书搜索",
+      "first_seen": "2026-07-25T15:44:16+08:00",
+      "last_seen": "2026-07-25T15:44:17+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解.pdf",
+      "first_seen": "2026-07-25T15:44:17+08:00",
+      "last_seen": "2026-07-25T15:44:17+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.4位移路程、矢量标量（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T15:44:26+08:00",
+      "last_seen": "2026-07-25T15:46:01+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T15:44:27+08:00",
+      "last_seen": "2026-07-25T15:45:01+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T15:46:01+08:00",
+      "last_seen": "2026-07-25T15:54:24+08:00",
+      "raw_event_count": 7
+    },
+    {
+      "domain": "",
+      "title": "初高物理1 运动学基础概念.pdf",
+      "first_seen": "2026-07-25T15:54:24+08:00",
+      "last_seen": "2026-07-25T15:58:31+08:00",
+      "raw_event_count": 3
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T15:30:00+08:00",
+      "end": "2026-07-25T16:00:00+08:00",
+      "duration_seconds": 1800.0,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T15:30:00+08:00",
+      "end": "2026-07-25T15:30:25+08:00",
+      "duration_seconds": 25.109,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:30:26+08:00",
+      "end": "2026-07-25T15:30:37+08:00",
+      "duration_seconds": 11.364,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:30:38+08:00",
+      "end": "2026-07-25T15:30:58+08:00",
+      "duration_seconds": 19.591,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:30:59+08:00",
+      "end": "2026-07-25T15:31:11+08:00",
+      "duration_seconds": 12.419,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:31:12+08:00",
+      "end": "2026-07-25T15:31:24+08:00",
+      "duration_seconds": 11.394,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:31:25+08:00",
+      "end": "2026-07-25T15:31:37+08:00",
+      "duration_seconds": 12.392,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:31:38+08:00",
+      "end": "2026-07-25T15:31:43+08:00",
+      "duration_seconds": 5.166,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:31:44+08:00",
+      "end": "2026-07-25T15:32:12+08:00",
+      "duration_seconds": 27.931,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:32:13+08:00",
+      "end": "2026-07-25T15:32:47+08:00",
+      "duration_seconds": 34.039,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:32:49+08:00",
+      "end": "2026-07-25T15:33:36+08:00",
+      "duration_seconds": 46.557,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:33:37+08:00",
+      "end": "2026-07-25T15:33:38+08:00",
+      "duration_seconds": 1.026,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:33:39+08:00",
+      "end": "2026-07-25T15:33:55+08:00",
+      "duration_seconds": 16.551,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:33:57+08:00",
+      "end": "2026-07-25T15:34:02+08:00",
+      "duration_seconds": 4.128,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:34:03+08:00",
+      "end": "2026-07-25T15:34:06+08:00",
+      "duration_seconds": 3.095,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:34:06+08:00",
+      "end": "2026-07-25T15:34:09+08:00",
+      "duration_seconds": 3.098,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T15:34:09+08:00",
+      "end": "2026-07-25T15:34:21+08:00",
+      "duration_seconds": 10.437,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:34:22+08:00",
+      "end": "2026-07-25T15:34:23+08:00",
+      "duration_seconds": 1.038,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:34:25+08:00",
+      "end": "2026-07-25T15:34:40+08:00",
+      "duration_seconds": 13.46,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:34:41+08:00",
+      "end": "2026-07-25T15:34:56+08:00",
+      "duration_seconds": 14.431,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:34:57+08:00",
+      "end": "2026-07-25T15:35:06+08:00",
+      "duration_seconds": 9.338,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:35:07+08:00",
+      "end": "2026-07-25T15:35:08+08:00",
+      "duration_seconds": 1.036,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:35:09+08:00",
+      "end": "2026-07-25T15:35:12+08:00",
+      "duration_seconds": 3.093,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:35:13+08:00",
+      "end": "2026-07-25T15:35:18+08:00",
+      "duration_seconds": 5.185,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:35:18+08:00",
+      "end": "2026-07-25T15:35:21+08:00",
+      "duration_seconds": 3.1,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T15:35:21+08:00",
+      "end": "2026-07-25T15:35:27+08:00",
+      "duration_seconds": 5.175,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:35:28+08:00",
+      "end": "2026-07-25T15:35:35+08:00",
+      "duration_seconds": 7.246,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:35:36+08:00",
+      "end": "2026-07-25T15:35:38+08:00",
+      "duration_seconds": 2.059,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:35:40+08:00",
+      "end": "2026-07-25T15:36:05+08:00",
+      "duration_seconds": 24.853,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:36:06+08:00",
+      "end": "2026-07-25T15:36:07+08:00",
+      "duration_seconds": 1.039,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:36:08+08:00",
+      "end": "2026-07-25T15:36:29+08:00",
+      "duration_seconds": 20.63,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:36:30+08:00",
+      "end": "2026-07-25T15:36:36+08:00",
+      "duration_seconds": 6.206,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:36:37+08:00",
+      "end": "2026-07-25T15:36:47+08:00",
+      "duration_seconds": 10.301,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:36:48+08:00",
+      "end": "2026-07-25T15:37:00+08:00",
+      "duration_seconds": 11.398,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:37:01+08:00",
+      "end": "2026-07-25T15:37:20+08:00",
+      "duration_seconds": 19.632,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:37:22+08:00",
+      "end": "2026-07-25T15:37:33+08:00",
+      "duration_seconds": 10.332,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:37:34+08:00",
+      "end": "2026-07-25T15:37:40+08:00",
+      "duration_seconds": 6.192,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:37:41+08:00",
+      "end": "2026-07-25T15:38:04+08:00",
+      "duration_seconds": 22.763,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:38:05+08:00",
+      "end": "2026-07-25T15:38:39+08:00",
+      "duration_seconds": 34.128,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:38:40+08:00",
+      "end": "2026-07-25T15:38:51+08:00",
+      "duration_seconds": 11.349,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:38:52+08:00",
+      "end": "2026-07-25T15:39:00+08:00",
+      "duration_seconds": 5.167,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:39:00+08:00",
+      "end": "2026-07-25T15:39:03+08:00",
+      "duration_seconds": 3.106,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T15:39:03+08:00",
+      "end": "2026-07-25T15:39:10+08:00",
+      "duration_seconds": 7.226,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:39:10+08:00",
+      "end": "2026-07-25T15:39:14+08:00",
+      "duration_seconds": 4.139,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T15:39:14+08:00",
+      "end": "2026-07-25T15:39:23+08:00",
+      "duration_seconds": 9.294,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:39:24+08:00",
+      "end": "2026-07-25T15:39:49+08:00",
+      "duration_seconds": 24.799,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:39:50+08:00",
+      "end": "2026-07-25T15:40:07+08:00",
+      "duration_seconds": 16.57,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:40:08+08:00",
+      "end": "2026-07-25T15:40:09+08:00",
+      "duration_seconds": 1.024,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:40:10+08:00",
+      "end": "2026-07-25T15:40:15+08:00",
+      "duration_seconds": 5.142,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:40:16+08:00",
+      "end": "2026-07-25T15:40:22+08:00",
+      "duration_seconds": 6.223,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:40:23+08:00",
+      "end": "2026-07-25T15:40:27+08:00",
+      "duration_seconds": 4.163,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:40:28+08:00",
+      "end": "2026-07-25T15:40:30+08:00",
+      "duration_seconds": 2.066,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:40:32+08:00",
+      "end": "2026-07-25T15:40:36+08:00",
+      "duration_seconds": 4.153,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:40:37+08:00",
+      "end": "2026-07-25T15:40:56+08:00",
+      "duration_seconds": 19.671,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:40:57+08:00",
+      "end": "2026-07-25T15:41:17+08:00",
+      "duration_seconds": 19.621,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T15:41:19+08:00",
+      "end": "2026-07-25T15:42:06+08:00",
+      "duration_seconds": 46.554,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:42:07+08:00",
+      "end": "2026-07-25T15:42:08+08:00",
+      "duration_seconds": 1.042,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T15:42:10+08:00",
+      "end": "2026-07-25T15:42:11+08:00",
+      "duration_seconds": 1.033,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:42:13+08:00",
+      "end": "2026-07-25T15:42:14+08:00",
+      "duration_seconds": 1.03,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "发现 - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:42:15+08:00",
+      "end": "2026-07-25T15:42:17+08:00",
+      "duration_seconds": 2.07,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:42:17+08:00",
+      "end": "2026-07-25T15:42:20+08:00",
+      "duration_seconds": 3.086,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T15:42:20+08:00",
+      "end": "2026-07-25T15:43:50+08:00",
+      "duration_seconds": 90.094,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "网友爆料称赛里木湖 G219 国道设了两个卡点，不想进景区也得交钱，这是真的吗？收费合理吗？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T15:43:51+08:00",
+      "end": "2026-07-25T15:44:15+08:00",
+      "duration_seconds": 23.807,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T15:44:17+08:00",
+      "end": "2026-07-25T15:44:25+08:00",
+      "duration_seconds": 8.276,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "7.★【基础物理量】速度速率_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T15:44:27+08:00",
+      "end": "2026-07-25T15:45:01+08:00",
+      "duration_seconds": 28.948,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T15:45:01+08:00",
+      "end": "2026-07-25T15:45:37+08:00",
+      "duration_seconds": 35.056,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.4位移路程、矢量标量（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T15:45:38+08:00",
+      "end": "2026-07-25T15:45:42+08:00",
+      "duration_seconds": 4.114,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:45:43+08:00",
+      "end": "2026-07-25T15:45:49+08:00",
+      "duration_seconds": 6.218,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.4位移路程、矢量标量（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T15:45:50+08:00",
+      "end": "2026-07-25T15:45:52+08:00",
+      "duration_seconds": 2.068,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:45:53+08:00",
+      "end": "2026-07-25T15:45:59+08:00",
+      "duration_seconds": 6.221,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.4位移路程、矢量标量（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T15:46:01+08:00",
+      "end": "2026-07-25T15:46:09+08:00",
+      "duration_seconds": 7.196,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:46:11+08:00",
+      "end": "2026-07-25T15:46:22+08:00",
+      "duration_seconds": 11.382,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T15:46:23+08:00",
+      "end": "2026-07-25T15:46:26+08:00",
+      "duration_seconds": 3.075,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:46:28+08:00",
+      "end": "2026-07-25T15:46:34+08:00",
+      "duration_seconds": 6.185,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:46:35+08:00",
+      "end": "2026-07-25T15:46:38+08:00",
+      "duration_seconds": 2.068,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接1 从因式分解与不等式",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:46:39+08:00",
+      "end": "2026-07-25T15:51:38+08:00",
+      "duration_seconds": 299.862,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:51:39+08:00",
+      "end": "2026-07-25T15:52:05+08:00",
+      "duration_seconds": 25.91,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:52:06+08:00",
+      "end": "2026-07-25T15:52:12+08:00",
+      "duration_seconds": 5.158,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:52:13+08:00",
+      "end": "2026-07-25T15:52:18+08:00",
+      "duration_seconds": 5.188,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:52:19+08:00",
+      "end": "2026-07-25T15:52:31+08:00",
+      "duration_seconds": 12.36,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:52:33+08:00",
+      "end": "2026-07-25T15:52:34+08:00",
+      "duration_seconds": 1.315,
+      "app": "EaseOfAccessDialog.exe",
+      "app_display": "EaseOfAccessDialog.exe",
+      "title": "粘滞键",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:52:35+08:00",
+      "end": "2026-07-25T15:54:06+08:00",
+      "duration_seconds": 90.905,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:07+08:00",
+      "end": "2026-07-25T15:54:09+08:00",
+      "duration_seconds": 2.067,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:10+08:00",
+      "end": "2026-07-25T15:54:19+08:00",
+      "duration_seconds": 9.297,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:20+08:00",
+      "end": "2026-07-25T15:54:21+08:00",
+      "duration_seconds": 1.028,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "另存为",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:22+08:00",
+      "end": "2026-07-25T15:54:23+08:00",
+      "duration_seconds": 1.038,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:24+08:00",
+      "end": "2026-07-25T15:54:30+08:00",
+      "duration_seconds": 5.169,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高物理1 运动学基础概念.pdf",
+      "domain": "",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T15:54:31+08:00",
+      "end": "2026-07-25T15:54:33+08:00",
+      "duration_seconds": 2.063,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Manager",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:34+08:00",
+      "end": "2026-07-25T15:54:37+08:00",
+      "duration_seconds": 3.095,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:38+08:00",
+      "end": "2026-07-25T15:54:39+08:00",
+      "duration_seconds": 1.021,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Manager",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:40+08:00",
+      "end": "2026-07-25T15:54:41+08:00",
+      "duration_seconds": 1.032,
+      "app": "ShellHost.exe",
+      "app_display": "ShellHost.exe",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:43+08:00",
+      "end": "2026-07-25T15:54:44+08:00",
+      "duration_seconds": 1.026,
+      "app": "HwTransferStation.exe",
+      "app_display": "HwTransferStation.exe",
+      "title": "中转站",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:45+08:00",
+      "end": "2026-07-25T15:54:47+08:00",
+      "duration_seconds": 2.083,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:48+08:00",
+      "end": "2026-07-25T15:54:51+08:00",
+      "duration_seconds": 3.092,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Manager",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:54:52+08:00",
+      "end": "2026-07-25T15:56:22+08:00",
+      "duration_seconds": 90.183,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:56:23+08:00",
+      "end": "2026-07-25T15:56:26+08:00",
+      "duration_seconds": 2.073,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "腾讯会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:56:28+08:00",
+      "end": "2026-07-25T15:56:55+08:00",
+      "duration_seconds": 27.908,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "请选择会议音频的接入方式",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:56:57+08:00",
+      "end": "2026-07-25T15:58:08+08:00",
+      "duration_seconds": 71.424,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:58:09+08:00",
+      "end": "2026-07-25T15:58:10+08:00",
+      "duration_seconds": 1.041,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "腾讯会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:58:11+08:00",
+      "end": "2026-07-25T15:58:12+08:00",
+      "duration_seconds": 1.026,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:58:13+08:00",
+      "end": "2026-07-25T15:58:15+08:00",
+      "duration_seconds": 2.073,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "腾讯会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:58:16+08:00",
+      "end": "2026-07-25T15:58:17+08:00",
+      "duration_seconds": 1.025,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "会议号：472 739 501",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:58:18+08:00",
+      "end": "2026-07-25T15:58:28+08:00",
+      "duration_seconds": 9.312,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T15:58:29+08:00",
+      "end": "2026-07-25T16:00:00+08:00",
+      "duration_seconds": 90.857,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.924,
+    "browser_title_coverage": 0.998,
+    "browser_domain_context_coverage": 0.985,
+    "web_watcher_exact_time_overlap": 0.312,
+    "browser_share_of_active_time": 0.268,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

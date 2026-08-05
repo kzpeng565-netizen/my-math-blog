@@ -1,0 +1,388 @@
+{
+  "period": "2026-07-26T20:30:00+08:00/2026-07-26T21:00:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：增强DeepSeek搜索能力。工作1.42分钟，娱乐3.72分钟，通信0.0分钟，确认休息22.7分钟。工作中出现2次超过30秒的娱乐偏离，共3.72分钟，最长2.08分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "medium",
+    "entertainment_deviation_count": 2,
+    "entertainment_deviation_minutes": 3.72,
+    "all_entertainment_minutes": 3.72,
+    "longest_entertainment_deviation_minutes": 2.08,
+    "work_entertainment_transition_count": 2,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.82,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 2,
+    "deviations": [
+      {
+        "start": "2026-07-26T20:30:00+08:00",
+        "end": "2026-07-26T20:32:05+08:00",
+        "minutes": 2.08,
+        "duration_seconds": 125.0,
+        "task": "刷抖音短视频",
+        "evidence": [
+          "手机前台应用为抖音（com.ss.android.ugc.aweme），持续2分钟",
+          "电脑在此期间AFK，无操作",
+          "辅助上下文显示用户之前在工作（chatgpt.com“增强DeepSeek搜索能力”）",
+          "手机屏幕于20:32:05切换至桌面，之后转回工作"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.92,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-26T20:34:25+08:00",
+        "end": "2026-07-26T20:36:03+08:00",
+        "minutes": 1.63,
+        "duration_seconds": 98.0,
+        "task": "刷抖音短视频",
+        "evidence": [
+          "电脑从20:34:25起活跃但无窗口记录，随后AFK",
+          "手机亮屏，前台依次为“不做手机控”（9秒）、抖音（31秒）、桌面（10秒）、抖音（36秒）",
+          "抖音使用集中在20:34:46起，持续约1分钟",
+          "辅助上下文显示用户之前在电脑上工作，手机使用后电脑进入长时间AFK"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "第一次娱乐偏离发生在20:30-20:32（刷抖音2.08分钟），随后返回工作（20:33-20:34，使用ChatGPT和CC Switch共0.82分钟）；第二次娱乐偏离发生在20:34:25-20:36:03（刷抖音1.63分钟），之后电脑进入AFK，手机熄屏，未返回工作，直接进入休息。"
+  },
+  "computer_summary": "电脑仅短暂活跃（1.34分钟），主要使用CC Switch（0.81分钟）和ChatGPT（0.26分钟）增强DeepSeek搜索能力，其余时间AFK。",
+  "phone_summary": "手机亮屏5.8分钟，活动包括刷抖音（3.2分钟，娱乐）、使用“不做手机控”（1.48分钟，注意力管理）和桌面操作（1.08分钟），总体以娱乐为主。",
+  "material_uncertainties": [
+    "20:32:05-20:33:00 手机桌面操作目的不明确",
+    "20:40:23-20:41:38 电脑状态未知，无法判断是否有操作"
+  ],
+  "concise_report": "主要任务：增强DeepSeek搜索能力。工作1.42分钟，娱乐3.72分钟，通信0.0分钟，确认休息22.7分钟。工作中出现2次超过30秒的娱乐偏离，共3.72分钟，最长2.08分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "第二次娱乐偏离（20:34:25-20:36:03刷抖音）后，您是否真的未再返回电脑工作，还是有过短暂操作未被记录？",
+  "observed_metrics": {
+    "computer_active_minutes": 1.34,
+    "computer_afk_minutes": 27.41,
+    "phone_screen_on_minutes": 5.8,
+    "simultaneous_computer_active_phone_on_minutes": 1.13,
+    "no_detected_device_interaction_minutes": 24.0,
+    "confirmed_rest_minutes": 22.7
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 1.42,
+      "range_minutes": [
+        1.42,
+        1.42
+      ],
+      "evidence": [
+        "手机前台为“不做手机控”，持续12秒",
+        "电脑仍然AFK",
+        "使用时间管理应用，可能为了结束娱乐、专注工作",
+        "电脑从AFK恢复，浏览器标签页切换到ccswitch.io"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 3.72,
+      "range_minutes": [
+        3.72,
+        3.72
+      ],
+      "evidence": [
+        "手机前台应用为抖音（com.ss.android.ugc.aweme），持续2分钟",
+        "电脑在此期间AFK，无操作",
+        "辅助上下文显示用户之前在工作（chatgpt.com“增强DeepSeek搜索能力”）",
+        "手机屏幕于20:32:05切换至桌面，之后转回工作"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 22.7,
+      "range_minutes": [
+        22.7,
+        22.7
+      ],
+      "evidence": [
+        "规则确认的休息区间",
+        "电脑连续AFK，手机屏幕关闭",
+        "持续4分20秒",
+        "持续18分22秒"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 2.17,
+      "range_minutes": [
+        2.17,
+        2.17
+      ],
+      "evidence": [
+        "手机前台为桌面，持续55秒",
+        "电脑仍然AFK",
+        "接下来使用“不做手机控”，意图可能是限制手机使用",
+        "电脑活动状态为unknown，持续1分15秒"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "20:30-20:32",
+      "likely_state": "娱乐",
+      "minutes": 2.08,
+      "task": "刷抖音短视频",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用为抖音（com.ss.android.ugc.aweme），持续2分钟",
+        "电脑在此期间AFK，无操作",
+        "辅助上下文显示用户之前在工作（chatgpt.com“增强DeepSeek搜索能力”）",
+        "手机屏幕于20:32:05切换至桌面，之后转回工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:32-20:33",
+      "likely_state": "无法判断",
+      "minutes": 0.92,
+      "task": "手机桌面操作，可能切换应用或短暂查看通知",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台为桌面，持续55秒",
+        "电脑仍然AFK",
+        "接下来使用“不做手机控”，意图可能是限制手机使用"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:33-20:33",
+      "likely_state": "工作",
+      "minutes": 0.2,
+      "task": "准备恢复工作，操作“不做手机控”以管理注意力",
+      "work_category": "其他工作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台为“不做手机控”，持续12秒",
+        "电脑仍然AFK",
+        "使用时间管理应用，可能为了结束娱乐、专注工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:33-20:33",
+      "likely_state": "工作",
+      "minutes": 0.07,
+      "task": "短暂查看电脑、打开浏览器或CC Switch",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从AFK恢复，浏览器标签页切换到ccswitch.io",
+        "电脑活跃但无窗口记录持续4秒",
+        "稍后继续使用chatgpt.com"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:33-20:33",
+      "likely_state": "工作",
+      "minutes": 0.2,
+      "task": "使用ChatGPT增强DeepSeek搜索能力",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器标签页标题为“增强DeepSeek搜索能力” on chatgpt.com",
+        "持续约12秒",
+        "属于之前任务延续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:33-20:33",
+      "likely_state": "工作",
+      "minutes": 0.1,
+      "task": "可能切换工具，使用ChatGPT桌面应用",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用出现在前台1秒",
+        "短暂活跃但无窗口记录4秒",
+        "随后使用CC Switch"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "20:33-20:34",
+      "likely_state": "工作",
+      "minutes": 0.82,
+      "task": "使用CC Switch管理AI编程工具",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "CC Switch窗口持续49秒",
+        "CC Switch是AI编程工具管理平台",
+        "任务上下文为增强DeepSeek搜索能力，CC Switch可能用于调用API或管理工具"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:34-20:34",
+      "likely_state": "工作",
+      "minutes": 0.03,
+      "task": "继续使用ChatGPT",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器标签页标题为“增强DeepSeek搜索能力” on chatgpt.com",
+        "持续1秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:34-20:36",
+      "likely_state": "娱乐",
+      "minutes": 1.63,
+      "task": "刷抖音短视频",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "电脑从20:34:25起活跃但无窗口记录，随后AFK",
+        "手机亮屏，前台依次为“不做手机控”（9秒）、抖音（31秒）、桌面（10秒）、抖音（36秒）",
+        "抖音使用集中在20:34:46起，持续约1分钟",
+        "辅助上下文显示用户之前在电脑上工作，手机使用后电脑进入长时间AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:36-20:40",
+      "likely_state": "休息",
+      "minutes": 4.33,
+      "task": "休息（无任何设备操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "规则确认的休息区间",
+        "电脑连续AFK，手机屏幕关闭",
+        "持续4分20秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:40-20:41",
+      "likely_state": "无法判断",
+      "minutes": 1.25,
+      "task": "电脑状态未知，可能短暂操作或无记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活动状态为unknown，持续1分15秒",
+        "手机屏幕依然关闭",
+        "无法判断用户行为"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:41-21:00",
+      "likely_state": "休息",
+      "minutes": 18.37,
+      "task": "休息（无任何设备操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "规则确认的休息区间",
+        "电脑连续AFK，手机屏幕关闭",
+        "持续18分22秒"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "增强DeepSeek搜索能力",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活跃窗口只覆盖82.4%。",
+      "电脑活动状态未知1.25分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7462,
+      "completion_tokens": 1255,
+      "total_tokens": 8717,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 730
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6566
+    }
+  }
+}

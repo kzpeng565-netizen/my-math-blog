@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T12:30:00+08:00",
+    "end": "2026-07-25T13:00:00+08:00"
+  },
+  "primary_work_task": "初高衔接数学备课与会议",
+  "segments": [
+    {
+      "start": "2026-07-25T12:30:00+08:00",
+      "end": "2026-07-25T12:35:47+08:00",
+      "duration_seconds": 347.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无任何设备操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑持续AFK，手机屏幕关闭",
+        "跨设备确认休息区间12:30:00-12:35:47"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:35:47+08:00",
+      "end": "2026-07-25T12:36:35+08:00",
+      "duration_seconds": 48.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian编辑初高衔接数学笔记，并快速会议沟通",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'",
+        "腾讯会议窗口标题'彭康哲的快速会议'",
+        "前后上下文显示数学备课主题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:36:35+08:00",
+      "end": "2026-07-25T12:41:38+08:00",
+      "duration_seconds": 303.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无任何设备操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑持续AFK，手机屏幕关闭",
+        "跨设备确认休息区间12:36:35-12:41:38"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:41:38+08:00",
+      "end": "2026-07-25T12:48:07+08:00",
+      "duration_seconds": 389.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian和腾讯会议间切换，讨论初高衔接数学内容",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian笔记标题'初高衔接2 乘法公式&主元思想&因式分解'",
+        "腾讯会议'彭康哲的快速会议'持续使用",
+        "Obsidian与会议交替使用，符合协作讨论模式"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:48:07+08:00",
+      "end": "2026-07-25T12:51:34+08:00",
+      "duration_seconds": 207.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "电脑状态未知，无设备操作证据",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑状态unknown，手机屏幕关闭",
+        "无任何交互记录，无法判断活动"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-25T12:51:34+08:00",
+      "end": "2026-07-25T12:55:19+08:00",
+      "duration_seconds": 225.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无任何设备操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑持续AFK，手机屏幕关闭",
+        "跨设备确认休息区间12:51:34-12:55:19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:55:19+08:00",
+      "end": "2026-07-25T13:00:00+08:00",
+      "duration_seconds": 281.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "前台应用未知，亮屏但无法判断用途",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑短时使用腾讯会议后进入AFK",
+        "手机亮屏但前台应用未知",
+        "无足够证据判断是继续工作、娱乐还是休息"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "material_uncertainties": [
+    "12:48:07-12:51:34期间电脑状态unknown，手机屏幕关闭，无法确定是否为休息或其他活动。",
+    "12:55:19-13:00:00手机亮屏但前台应用未知，电脑短暂活动后AFK，用途不明。"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 1
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11354,
+      "completion_tokens": 1175,
+      "total_tokens": 12529,
+      "prompt_tokens_details": {
+        "cached_tokens": 10240
+      },
+      "prompt_cache_hit_tokens": 10240,
+      "prompt_cache_miss_tokens": 1114
+    }
+  }
+}

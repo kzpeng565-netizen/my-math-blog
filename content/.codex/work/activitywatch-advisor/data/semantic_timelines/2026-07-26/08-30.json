@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T08:30:00+08:00",
+    "end": "2026-07-26T09:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-26T08:30:00+08:00",
+      "end": "2026-07-26T08:32:27+08:00",
+      "duration_seconds": 147.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮屏",
+        "前台为微信",
+        "持续约2.5分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:32:27+08:00",
+      "end": "2026-07-26T08:33:50+08:00",
+      "duration_seconds": 83.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机熄屏，电脑AFK，无明确活动",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "手机熄屏",
+        "电脑AFK",
+        "持续约1.4分钟，不足3分钟",
+        "不属于确认休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:33:50+08:00",
+      "end": "2026-07-26T08:37:29+08:00",
+      "duration_seconds": 219.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮屏",
+        "前台连续为微信",
+        "中间短暂桌面后立即回微信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:37:29+08:00",
+      "end": "2026-07-26T08:37:46+08:00",
+      "duration_seconds": 17.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "操作手机桌面",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机桌面约17秒",
+        "切换应用前的短暂桌面操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:37:46+08:00",
+      "end": "2026-07-26T08:41:31+08:00",
+      "duration_seconds": 225.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机哔哩哔哩看视频",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台为哔哩哔哩",
+        "持续约3.7分钟",
+        "查看前后文无工作信号"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:41:31+08:00",
+      "end": "2026-07-26T08:44:12+08:00",
+      "duration_seconds": 161.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机熄屏，电脑AFK，无明确活动",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "手机熄屏",
+        "电脑AFK",
+        "持续约2.7分钟，不足3分钟",
+        "不属于确认休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:44:12+08:00",
+      "end": "2026-07-26T08:44:55+08:00",
+      "duration_seconds": 43.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机查看微信消息",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏",
+        "前台为微信",
+        "持续约43秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:44:55+08:00",
+      "end": "2026-07-26T08:45:15+08:00",
+      "duration_seconds": 20.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机熄屏，简短无操作",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "手机熄屏",
+        "电脑AFK",
+        "持续约20秒，不足3分钟",
+        "不属于确认休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:45:15+08:00",
+      "end": "2026-07-26T08:50:07+08:00",
+      "duration_seconds": 292.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏",
+        "前台为微信",
+        "持续约4.9分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:50:07+08:00",
+      "end": "2026-07-26T08:53:53+08:00",
+      "duration_seconds": 226.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备无操作规则确认休息",
+        "手机熄屏",
+        "电脑AFK",
+        "持续3.75分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:53:53+08:00",
+      "end": "2026-07-26T08:55:37+08:00",
+      "duration_seconds": 104.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "短暂亮屏后熄屏，无明确活动",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏仅2秒且前台未知",
+        "电脑仍处于AFK到08:55:37",
+        "无法确认活动"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T08:55:37+08:00",
+      "end": "2026-07-26T08:55:40+08:00",
+      "duration_seconds": 3.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "从AFK到活跃的过渡",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑AFK结束",
+        "活动开始于08:55:40"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:55:40+08:00",
+      "end": "2026-07-26T08:55:49+08:00",
+      "duration_seconds": 9.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用ChatGPT（可能与AI工具配置有关）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT窗口",
+        "标题为ChatGPT",
+        "前后文有CC Switch和ChatGPT页面，推测为配置或对话"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T08:55:49+08:00",
+      "end": "2026-07-26T08:56:41+08:00",
+      "duration_seconds": 52.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "使用CC Switch进行AI服务配置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "CC Switch窗口",
+        "标题为CC Switch",
+        "前后文涉及ChatGPT和DeepSeek配置"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:56:41+08:00",
+      "end": "2026-07-26T08:56:42+08:00",
+      "duration_seconds": 1.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "快速查看微信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口仅1秒",
+        "可能查看消息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T08:56:42+08:00",
+      "end": "2026-07-26T08:56:46+08:00",
+      "duration_seconds": 4.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "继续CC Switch配置（短暂活跃但无窗口记录）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "无窗口记录但电脑活跃",
+        "前后均为配置工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T08:56:46+08:00",
+      "end": "2026-07-26T08:57:23+08:00",
+      "duration_seconds": 37.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在Edge浏览器中访问ChatGPT页面（CC Switch接入DeepSeek）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器",
+        "域名chatgpt.com",
+        "标题CC Switch 接入 DeepSeek",
+        "与CC Switch配置相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:57:23+08:00",
+      "end": "2026-07-26T08:58:12+08:00",
+      "duration_seconds": 49.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎首页",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器",
+        "域名zhihu.com",
+        "标题首页 - 知乎",
+        "从工作页切换过来"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:58:12+08:00",
+      "end": "2026-07-26T09:00:00+08:00",
+      "duration_seconds": 108.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎问题：如何看待月之暗面发布kimi K3-256K大模型",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器",
+        "域名zhihu.com",
+        "标题具体问题标题",
+        "持续至时段结束"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "08:53:53-08:55:37期间手机短暂亮屏但前台未知，可能涉及快速操作但无法确认，导致约1.5分钟的uncertain段"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 1
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15007,
+      "completion_tokens": 2321,
+      "total_tokens": 17328,
+      "prompt_tokens_details": {
+        "cached_tokens": 12544
+      },
+      "prompt_cache_hit_tokens": 12544,
+      "prompt_cache_miss_tokens": 2463
+    }
+  }
+}

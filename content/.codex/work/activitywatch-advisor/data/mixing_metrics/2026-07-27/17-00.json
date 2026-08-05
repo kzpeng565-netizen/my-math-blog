@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "medium",
+  "entertainment_deviation_count": 3,
+  "entertainment_deviation_minutes": 3.65,
+  "all_entertainment_minutes": 4.45,
+  "longest_entertainment_deviation_minutes": 2.13,
+  "work_entertainment_transition_count": 8,
+  "brief_communication_minutes": 4.62,
+  "longest_continuous_work_minutes": 4.42,
+  "same_task_tool_switches_not_scored": 3,
+  "raw_foreground_context_switches_not_scored": 34,
+  "deviations": [
+    {
+      "start": "2026-07-27T17:01:01+08:00",
+      "end": "2026-07-27T17:01:42+08:00",
+      "minutes": 0.68,
+      "duration_seconds": 41.0,
+      "task": "浏览知乎首页及AI相关话题",
+      "evidence": [
+        "浏览'Kimi K3'等知乎话题，与工作无关",
+        "随后返回课时量分析，属于工作过程中的娱乐偏离"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.78,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T17:04:45+08:00",
+      "end": "2026-07-27T17:05:35+08:00",
+      "minutes": 0.83,
+      "duration_seconds": 50.0,
+      "task": "阅读知乎文章'中国粮食进口'",
+      "evidence": [
+        "Edge标签页标题明确为知乎文章",
+        "工作间隙的娱乐偏离"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T17:20:44+08:00",
+      "end": "2026-07-27T17:22:52+08:00",
+      "minutes": 2.13,
+      "duration_seconds": 128.0,
+      "task": "浏览知乎文章（美军相关）及首页",
+      "evidence": [
+        "Edge标签页'如何看待美军参联会主席...'持续近2分钟",
+        "随后切换至'肖邦夜曲'主题，表明工作已结束"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "medium"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

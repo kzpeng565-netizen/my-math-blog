@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "low",
+  "entertainment_deviation_count": 1,
+  "entertainment_deviation_minutes": 2.0,
+  "all_entertainment_minutes": 2.0,
+  "longest_entertainment_deviation_minutes": 2.0,
+  "work_entertainment_transition_count": 2,
+  "brief_communication_minutes": 3.93,
+  "longest_continuous_work_minutes": 10.1,
+  "same_task_tool_switches_not_scored": 44,
+  "raw_foreground_context_switches_not_scored": 61,
+  "deviations": [
+    {
+      "start": "2026-07-25T15:42:17+08:00",
+      "end": "2026-07-25T15:44:17+08:00",
+      "minutes": 2.0,
+      "duration_seconds": 120.0,
+      "task": "浏览知乎关于赛里木湖设卡的娱乐性内容",
+      "evidence": [
+        "Edge标签页「网友爆料称赛里木湖 G219 国道设了两个卡点…」持续约1分50秒",
+        "之后又浏览知乎首页，内容与物理学习无关",
+        "位于工作过程中，之后返回物理学习"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

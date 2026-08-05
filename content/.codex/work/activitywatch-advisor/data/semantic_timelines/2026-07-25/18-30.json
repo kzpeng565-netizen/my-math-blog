@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T18:30:00+08:00",
+    "end": "2026-07-25T19:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-25T18:30:00+08:00",
+      "end": "2026-07-25T18:31:00+08:00",
+      "duration_seconds": 60.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷B站视频",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台B站持续18:25-18:31",
+        "辅助上下文显示之前已开始B站",
+        "电脑AFK状态"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:31:00+08:00",
+      "end": "2026-07-25T18:32:11+08:00",
+      "duration_seconds": 71.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "短暂使用微信和相机/图库",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台切换：桌面、微信、相机、图库",
+        "微信持续49秒",
+        "相机/图库短暂操作约10秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:32:11+08:00",
+      "end": "2026-07-25T18:32:13+08:00",
+      "duration_seconds": 2.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "临时切换桌面后回到B站",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台桌面2秒",
+        "之后回到B站"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:32:13+08:00",
+      "end": "2026-07-25T18:32:33+08:00",
+      "duration_seconds": 20.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷B站视频",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台B站19秒",
+        "短暂微信后继续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:32:33+08:00",
+      "end": "2026-07-25T18:32:48+08:00",
+      "duration_seconds": 15.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "短暂使用微信",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台微信15秒",
+        "之后回到B站"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:32:48+08:00",
+      "end": "2026-07-25T19:00:00+08:00",
+      "duration_seconds": 1632.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "长时间刷B站视频",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台B站持续27分钟至时段结束",
+        "电脑AFK无操作",
+        "电脑浏览器标签页打开但无交互"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "电脑在18:33-18:46状态unknown，但手机B站连续，不影响整体归类",
+    "微信内容未知，但时长短且B站主导，归为brief communication"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6559,
+      "completion_tokens": 927,
+      "total_tokens": 7486,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 5663
+    }
+  }
+}

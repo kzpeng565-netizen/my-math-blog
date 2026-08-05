@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T01:00:00+08:00",
+    "end": "2026-07-25T01:30:00+08:00"
+  },
+  "primary_work_task": "ChatGPT Plus 额度评估",
+  "segments": [
+    {
+      "start": "2026-07-25T01:00:00+08:00",
+      "end": "2026-07-25T01:05:26+08:00",
+      "duration_seconds": 326.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机刷知乎、微信、B站等娱乐",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮至01:05:26，前台应用包括Chrome、微信、手机桌面、不做手机控、B站",
+        "01:00:00前有B站使用记录（辅助上下文）",
+        "电脑期间一直AFK（无键鼠操作）",
+        "之后用户开始电脑工作，说明是工作前的娱乐偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T01:05:26+08:00",
+      "end": "2026-07-25T01:14:33+08:00",
+      "duration_seconds": 547.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无设备操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认该区间为休息（confirmed_intervals）",
+        "电脑AFK持续，手机屏幕关闭",
+        "无任何设备交互",
+        "休息时长9.12分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T01:14:33+08:00",
+      "end": "2026-07-25T01:26:26+08:00",
+      "duration_seconds": 713.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "研究ChatGPT Plus额度及尝试集成Kimi",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑AFK结束，开始活跃",
+        "主要使用ChatGPT（chatgpt.com）标题'ChatGPT Plus 足够'，从01:14:42持续至01:26:26",
+        "同时使用Windows Terminal（PowerShell）和ChatGPT客户端",
+        "中途搜索'kimi - 搜索'（bing.com），并查看OpenAI帮助中心（help.openai.com）：'使用 Codex 配合您的 ChatGPT 计划'，说明在评估集成方案"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T01:26:26+08:00",
+      "end": "2026-07-25T01:28:45+08:00",
+      "duration_seconds": 139.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷知乎娱乐",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览器切换到知乎（zhihu.com），浏览'首页 - 知乎'以及具体问题如'如果一男子撬锁进入别人房子内...'",
+        "标题明显是娱乐内容，与工作任务无关",
+        "持续约2.3分钟，之后返回ChatGPT工作",
+        "属于工作过程中的短暂娱乐偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T01:28:45+08:00",
+      "end": "2026-07-25T01:30:00+08:00",
+      "duration_seconds": 75.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "继续研究ChatGPT Plus额度",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览器回到chatgpt.com，标题'ChatGPT Plus 足够'",
+        "与之前的工作任务完全一致",
+        "辅助上下文显示01:30后继续此任务",
+        "表明娱乐后自然返回原工作"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 18835,
+      "completion_tokens": 987,
+      "total_tokens": 19822,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 17939
+    }
+  }
+}

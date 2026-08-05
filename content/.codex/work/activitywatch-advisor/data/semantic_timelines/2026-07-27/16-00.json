@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T16:00:00+08:00",
+    "end": "2026-07-27T16:30:00+08:00"
+  },
+  "primary_work_task": "课时量分析与准备",
+  "segments": [
+    {
+      "start": "2026-07-27T16:00:00+08:00",
+      "end": "2026-07-27T16:01:07+08:00",
+      "duration_seconds": 67.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:00:00-16:00:37微信前台，标题'微信'",
+        "16:00:41-16:01:07切换到ChatGPT，标题'ChatGPT'和'Get started | ChatGPT'",
+        "16:01:08-16:01:11再次微信前台",
+        "前后有微信通信活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:01:07+08:00",
+      "end": "2026-07-27T16:01:49+08:00",
+      "duration_seconds": 42.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天及图片查看",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:01:14-16:01:28微信前台，标题'微信'",
+        "16:01:29-16:01:31微信，标题'图片和视频'",
+        "16:01:32-16:01:41继续微信聊天",
+        "16:01:41-16:01:49活跃但无窗口记录"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:01:49+08:00",
+      "end": "2026-07-27T16:03:50+08:00",
+      "duration_seconds": 121.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎各类话题（社会、数学、医疗等）",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:01:49-16:02:35首页-知乎",
+        "16:02:39-16:03:04首页-知乎",
+        "16:03:04-16:03:49浏览'24岁女孩正颌手术被做反...'等新闻话题",
+        "后续16:03:50打开研究数学等页面但很快切换，属于娱乐偏离"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T16:03:50+08:00",
+      "end": "2026-07-27T16:04:18+08:00",
+      "duration_seconds": 28.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "查询昆明职高升学途径（ChatGPT）",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:03:51-16:10:34在ChatGPT中查询'昆明职高升学途径'",
+        "标题明确显示该任务",
+        "属于工作相关的前期调研"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:04:18+08:00",
+      "end": "2026-07-27T16:09:11+08:00",
+      "duration_seconds": 293.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎长文和首页",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:04:18-16:05:04首页-知乎",
+        "16:05:04-16:08:32阅读'王虹、邓煜的成长经历...'长篇知乎文章",
+        "16:08:33-16:09:11首页-知乎",
+        "该文章主题与工作无关，属于娱乐偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:09:11+08:00",
+      "end": "2026-07-27T16:09:55+08:00",
+      "duration_seconds": 44.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天及图片视频查看",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:09:13-16:09:26微信前台",
+        "16:09:33-16:09:40微信前台",
+        "16:09:48-16:09:51微信前台",
+        "16:09:52-16:09:54微信图片和视频"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:09:55+08:00",
+      "end": "2026-07-27T16:11:13+08:00",
+      "duration_seconds": 78.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "继续查询昆明职高升学途径（ChatGPT）",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:09:55-16:10:34在ChatGPT中继续'昆明职高升学途径'",
+        "16:10:34-16:10:41ChatGPT首页或切换",
+        "16:10:46-16:11:13ChatGPT使用",
+        "标题一致，属于同一工作主题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:11:13+08:00",
+      "end": "2026-07-27T16:13:14+08:00",
+      "duration_seconds": 121.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "进行课时量分析（ChatGPT）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:11:14-16:13:13使用ChatGPT，标题'课时量分析'",
+        "持续时间约2分钟，作为主要工作任务的开始",
+        "后续反复出现该标题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:13:14+08:00",
+      "end": "2026-07-27T16:14:25+08:00",
+      "duration_seconds": 71.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "继续浏览知乎文章及首页",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:13:14-16:14:11阅读'王虹、邓煜的成长经历...'（再次返回）",
+        "16:14:20-16:14:25首页-知乎",
+        "短暂切换回ChatGPT但主要时间在知乎"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T16:14:25+08:00",
+      "end": "2026-07-27T16:15:34+08:00",
+      "duration_seconds": 69.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎首页",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:14:28-16:15:34首页-知乎",
+        "无窗口记录间隙短"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:15:34+08:00",
+      "end": "2026-07-27T16:16:34+08:00",
+      "duration_seconds": 60.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎AI话题文章",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:15:34-16:15:40浏览'一般没人讨论这个，但我想问，Kimi K3出了...'",
+        "16:15:41-16:16:33切换到课时量分析但不足1分钟",
+        "属于娱乐偏离"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T16:16:34+08:00",
+      "end": "2026-07-27T16:18:13+08:00",
+      "duration_seconds": 99.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "继续浏览知乎AI话题文章",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:16:34-16:18:12阅读'一般没人讨论这个...'全文",
+        "持续时间约1.6分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:18:13+08:00",
+      "end": "2026-07-27T16:20:57+08:00",
+      "duration_seconds": 164.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "进行课时量分析（ChatGPT）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:18:13-16:20:56使用ChatGPT，标题'课时量分析'",
+        "持续约2.7分钟，返回主要工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:20:57+08:00",
+      "end": "2026-07-27T16:21:26+08:00",
+      "duration_seconds": 29.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:20:57-16:21:25微信前台，标题'微信'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:21:26+08:00",
+      "end": "2026-07-27T16:24:05+08:00",
+      "duration_seconds": 159.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "继续课时量分析（ChatGPT）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:21:26-16:24:03使用ChatGPT，标题'课时量分析'",
+        "持续约2.6分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:24:05+08:00",
+      "end": "2026-07-27T16:24:52+08:00",
+      "duration_seconds": 47.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:24:05-16:24:38微信前台",
+        "16:24:47-16:24:51微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:24:52+08:00",
+      "end": "2026-07-27T16:25:19+08:00",
+      "duration_seconds": 27.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "课时量分析（ChatGPT）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:24:52-16:25:13使用ChatGPT，标题'课时量分析'",
+        "16:25:17-16:25:18继续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:25:19+08:00",
+      "end": "2026-07-27T16:25:26+08:00",
+      "duration_seconds": 7.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:19-16:25:25微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:25:26+08:00",
+      "end": "2026-07-27T16:25:33+08:00",
+      "duration_seconds": 7.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "课时量分析（ChatGPT）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:26-16:25:32使用ChatGPT，标题'课时量分析'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:25:33+08:00",
+      "end": "2026-07-27T16:25:41+08:00",
+      "duration_seconds": 8.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:33-16:25:40微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:25:41+08:00",
+      "end": "2026-07-27T16:25:48+08:00",
+      "duration_seconds": 7.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "课时量分析（ChatGPT）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:41-16:25:47使用ChatGPT，标题'课时量分析'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:25:48+08:00",
+      "end": "2026-07-27T16:26:43+08:00",
+      "duration_seconds": 55.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:48-16:26:04微信前台",
+        "16:26:14-16:26:42微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:26:43+08:00",
+      "end": "2026-07-27T16:26:47+08:00",
+      "duration_seconds": 4.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "课时量分析（ChatGPT）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:26:43-16:26:46使用ChatGPT，标题'课时量分析'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:26:47+08:00",
+      "end": "2026-07-27T16:28:08+08:00",
+      "duration_seconds": 81.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:26:47-16:27:08微信前台",
+        "16:27:27-16:28:06微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:28:08+08:00",
+      "end": "2026-07-27T16:28:19+08:00",
+      "duration_seconds": 11.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "课时量分析（ChatGPT）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:28:08-16:28:18使用ChatGPT，标题'课时量分析'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:28:19+08:00",
+      "end": "2026-07-27T16:30:00+08:00",
+      "duration_seconds": 101.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:28:19-16:30:00微信前台",
+        "持续约1.7分钟"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "浏览知乎时部分页面（如研究数学话题）可能服务于工作，但标题无明确工作指向，归类为娱乐偏离",
+    "微信聊天中部分对话可能涉及工作内容，但无法确认，归类为brief_communication"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 21939,
+      "completion_tokens": 4305,
+      "total_tokens": 26244,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 20915
+    }
+  }
+}

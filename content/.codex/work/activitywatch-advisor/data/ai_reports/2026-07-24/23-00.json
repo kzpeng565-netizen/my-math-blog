@@ -1,0 +1,190 @@
+{
+  "period": "2026-07-24T23:00:00+08:00/2026-07-24T23:30:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：初高衔接数学学习（乘法公式、主元思想、因式分解）。工作24.03分钟，娱乐0.0分钟，通信1.62分钟，确认休息4.35分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 1.62,
+    "longest_continuous_work_minutes": 24.03,
+    "same_task_tool_switches_not_scored": 35,
+    "raw_foreground_context_switches_not_scored": 37,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中未出现超过30秒的娱乐偏离。B站视频标题为“【初高衔接】1.1 对称式、主元思想”，属于工作辅助，不视为娱乐。"
+  },
+  "computer_summary": "电脑上主要使用Obsidian（8.47分钟，标题“初高衔接2 乘法公式&主元思想&因式分解”）、ChatGPT（5.7分钟，辅助学习）、微信（8.52分钟，含工作前通信和期间短暂回复）、Microsoft Edge（0.89分钟，观看B站教学视频），以及Mathpix和文件资源管理器（短暂切换）。",
+  "phone_summary": "手机全程熄屏，无活动。",
+  "material_uncertainties": [
+    "微信通信的具体内容未知，可能部分涉及工作相关沟通，但缺乏证据支持，故归为brief_communication",
+    "微信通信的具体内容未知，可能部分涉及工作相关沟通，但缺乏证据支持，故归为brief_communication。"
+  ],
+  "concise_report": "主要任务：初高衔接数学学习（乘法公式、主元思想、因式分解）。工作24.03分钟，娱乐0.0分钟，通信1.62分钟，确认休息4.35分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "23:05:58之后观看的B站视频是否完全与初高衔接数学学习相关？",
+  "observed_metrics": {
+    "computer_active_minutes": 25.64,
+    "computer_afk_minutes": 4.36,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 4.35,
+    "confirmed_rest_minutes": 4.35
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 24.03,
+      "range_minutes": [
+        24.03,
+        24.03
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'贯穿时段",
+        "ChatGPT用于辅助学习",
+        "浏览B站视频'【初高衔接】1.1 对称式、主元思想'",
+        "Mathpix用于公式截图"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 1.62,
+      "range_minutes": [
+        1.62,
+        1.62
+      ],
+      "evidence": [
+        "微信窗口持续81秒",
+        "标题为'微信'"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 4.35,
+      "range_minutes": [
+        4.35,
+        4.35
+      ],
+      "evidence": [
+        "电脑连续AFK 4分21秒",
+        "手机全程熄屏",
+        "跨设备休息规则确认"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "23:00-23:01",
+      "likely_state": "通信",
+      "minutes": 1.62,
+      "task": "微信通信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口持续81秒",
+        "标题为'微信'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:01-23:05",
+      "likely_state": "休息",
+      "minutes": 4.35,
+      "task": "休息（电脑AFK且手机熄屏）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 4分21秒",
+        "手机全程熄屏",
+        "跨设备休息规则确认"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:05-23:30",
+      "likely_state": "工作",
+      "minutes": 24.03,
+      "task": "初高衔接数学学习：乘法公式、主元思想、因式分解",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'贯穿时段",
+        "ChatGPT用于辅助学习",
+        "浏览B站视频'【初高衔接】1.1 对称式、主元思想'",
+        "Mathpix用于公式截图"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "初高衔接数学学习（乘法公式、主元思想、因式分解）",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 12143,
+      "completion_tokens": 905,
+      "total_tokens": 13048,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 472
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 11247
+    }
+  }
+}

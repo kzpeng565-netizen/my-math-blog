@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "source": "phone_usage_jsonl",
+  "period": {
+    "start": "2026-07-25T15:00:00+08:00",
+    "end": "2026-07-25T15:30:00+08:00"
+  },
+  "input": {
+    "files_read": [
+      "/home/conrad/phone_usage/archive/2026-07-24/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-24/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-24/screen.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-25/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-25/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-25/screen.jsonl",
+      "/home/conrad/phone_usage/incoming/foreground.jsonl",
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl",
+      "/home/conrad/phone_usage/incoming/screen.jsonl"
+    ],
+    "deduplicated_events_in_period": 9,
+    "deduplicated_events_by_type": {
+      "heartbeat": 2,
+      "screen": 2,
+      "foreground": 5
+    },
+    "accepted_events_by_file": {
+      "/home/conrad/phone_usage/archive/2026-07-24/foreground.jsonl": 243,
+      "/home/conrad/phone_usage/archive/2026-07-24/heartbeat.jsonl": 36,
+      "/home/conrad/phone_usage/archive/2026-07-24/screen.jsonl": 57,
+      "/home/conrad/phone_usage/archive/2026-07-25/foreground.jsonl": 572,
+      "/home/conrad/phone_usage/archive/2026-07-25/heartbeat.jsonl": 61,
+      "/home/conrad/phone_usage/archive/2026-07-25/screen.jsonl": 95,
+      "/home/conrad/phone_usage/incoming/foreground.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/screen.jsonl": 0
+    }
+  },
+  "screen": {
+    "on_minutes": 3.48,
+    "off_minutes": 26.52,
+    "unknown_minutes": 0.0,
+    "unlock_count": 1
+  },
+  "foreground": {
+    "switch_count": 5,
+    "top_apps": [
+      {
+        "app": "com.autonavi.minimap",
+        "minutes": 2.87
+      },
+      {
+        "app": "Vivo 全局搜索",
+        "minutes": 0.5
+      },
+      {
+        "app": "手机桌面",
+        "minutes": 0.07
+      },
+      {
+        "app": "亮屏但前台应用未知",
+        "minutes": 0.05
+      }
+    ],
+    "top_packages": [
+      {
+        "package": "com.autonavi.minimap",
+        "minutes": 2.87
+      },
+      {
+        "package": "com.vivo.globalsearch",
+        "minutes": 0.5
+      },
+      {
+        "package": "com.bbk.launcher2",
+        "minutes": 0.07
+      }
+    ]
+  },
+  "screen_timeline": [
+    {
+      "start": "2026-07-25T15:00:00+08:00",
+      "end": "2026-07-25T15:11:35+08:00",
+      "duration_seconds": 695.0,
+      "state": "off"
+    },
+    {
+      "start": "2026-07-25T15:11:35+08:00",
+      "end": "2026-07-25T15:15:04+08:00",
+      "duration_seconds": 209.0,
+      "state": "on"
+    },
+    {
+      "start": "2026-07-25T15:15:04+08:00",
+      "end": "2026-07-25T15:30:00+08:00",
+      "duration_seconds": 896.0,
+      "state": "off"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T15:11:35+08:00",
+      "end": "2026-07-25T15:11:38+08:00",
+      "duration_seconds": 3.0,
+      "package": "",
+      "app_display": "亮屏但前台应用未知"
+    },
+    {
+      "start": "2026-07-25T15:11:38+08:00",
+      "end": "2026-07-25T15:12:03+08:00",
+      "duration_seconds": 25.0,
+      "package": "com.vivo.globalsearch",
+      "app_display": "Vivo 全局搜索"
+    },
+    {
+      "start": "2026-07-25T15:12:03+08:00",
+      "end": "2026-07-25T15:12:04+08:00",
+      "duration_seconds": 1.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    },
+    {
+      "start": "2026-07-25T15:12:04+08:00",
+      "end": "2026-07-25T15:12:09+08:00",
+      "duration_seconds": 5.0,
+      "package": "com.vivo.globalsearch",
+      "app_display": "Vivo 全局搜索"
+    },
+    {
+      "start": "2026-07-25T15:12:09+08:00",
+      "end": "2026-07-25T15:15:01+08:00",
+      "duration_seconds": 172.0,
+      "package": "com.autonavi.minimap",
+      "app_display": "com.autonavi.minimap"
+    },
+    {
+      "start": "2026-07-25T15:15:01+08:00",
+      "end": "2026-07-25T15:15:04+08:00",
+      "duration_seconds": 3.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "collector_heartbeat": {
+      "closest_seen": "2026-07-25T15:33:52+08:00",
+      "offset_seconds_from_period_end": 232.0,
+      "level": "high"
+    },
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "亮屏表示屏幕开启，不保证用户持续注视或操作。",
+      "前台应用只说明当时显示的应用，不直接表示使用目的。",
+      "亮屏后尚未收到新的前台事件时，不沿用旧应用，保留为未知。"
+    ]
+  }
+}

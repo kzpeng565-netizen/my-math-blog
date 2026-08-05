@@ -1,0 +1,935 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T16:00:00+08:00",
+    "end": "2026-07-27T16:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 108,
+      "aw-watcher-afk_xyh": 1,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 11,
+      "aw-watcher-web-edge_xyh": 45
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 30.0,
+    "afk_minutes": 0.0,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 28.16
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 21.66
+    },
+    {
+      "app": "微信",
+      "minutes": 6.48
+    },
+    {
+      "app": "SnippingTool.exe",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 10.98
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 10.68
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "minutes": 9.36
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 6.41
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "王虹、邓煜的成长经历是否动摇了「是金子在哪都能发光」的说法？顶尖科研人才的成长需要怎样的土壤？ - 知乎",
+      "minutes": 4.41
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 3.79
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "minutes": 1.73
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "minutes": 0.89
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "24岁女孩正颌手术被做反，变成「鞋拔子脸」，武汉卫健部门介入，医院和医生各得担哪些责？女孩还能恢复吗？ - 知乎",
+      "minutes": 0.74
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "昆明职高升学途径",
+      "minutes": 0.69
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "暑假预习计划与资料",
+      "minutes": 0.04
+    },
+    {
+      "app": "SnippingTool.exe",
+      "domain": "",
+      "title": "截图工具覆盖",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "zhihu.com",
+      "title": "高考 699 分女孩韩雅平建议「少玩手机」，为何引发网友「不适」？ - 知乎",
+      "first_seen": "2026-07-27T16:00:34+08:00",
+      "last_seen": "2026-07-27T16:03:50+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "yunnan.eol.cn",
+      "title": "云南省2025年中职职教高考实施办法（试行） —云南站—教育在线",
+      "first_seen": "2026-07-27T16:00:40+08:00",
+      "last_seen": "2026-07-27T16:00:40+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "first_seen": "2026-07-27T16:00:40+08:00",
+      "last_seen": "2026-07-27T16:12:04+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T16:00:49+08:00",
+      "last_seen": "2026-07-27T16:35:51+08:00",
+      "raw_event_count": 11
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "麦田怪圈的真相是什么？ - 知乎",
+      "first_seen": "2026-07-27T16:01:48+08:00",
+      "last_seen": "2026-07-27T16:03:51+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-27T16:01:48+08:00",
+      "last_seen": "2026-07-27T16:15:34+08:00",
+      "raw_event_count": 7
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "24岁女孩正颌手术被做反，变成「鞋拔子脸」，武汉卫健部门介入，医院和医生各得担哪些责？女孩还能恢复吗？ - 知乎",
+      "first_seen": "2026-07-27T16:03:04+08:00",
+      "last_seen": "2026-07-27T16:03:50+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "研究数学是否建议购买chatGPT pro ？ - 知乎",
+      "first_seen": "2026-07-27T16:03:50+08:00",
+      "last_seen": "2026-07-27T16:03:50+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "菲尔兹奖得主邓煜公开安利二次元作品，强力背书让父母再难以二次元耽误学习阻挠孩子爱好，如何看待此事？ - 知乎",
+      "first_seen": "2026-07-27T16:03:50+08:00",
+      "last_seen": "2026-07-27T16:03:50+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "数学天才柳智宇称若坚持研究也可能得菲尔兹奖，如何看待？ - 知乎",
+      "first_seen": "2026-07-27T16:03:50+08:00",
+      "last_seen": "2026-07-27T16:03:51+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "昆明职高升学途径",
+      "first_seen": "2026-07-27T16:03:51+08:00",
+      "last_seen": "2026-07-27T16:10:34+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "王虹、邓煜的成长经历是否动摇了「是金子在哪都能发光」的说法？顶尖科研人才的成长需要怎样的土壤？ - 知乎",
+      "first_seen": "2026-07-27T16:05:04+08:00",
+      "last_seen": "2026-07-27T16:14:12+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "暑假预习计划与资料",
+      "first_seen": "2026-07-27T16:09:28+08:00",
+      "last_seen": "2026-07-27T16:14:17+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "first_seen": "2026-07-27T16:12:04+08:00",
+      "last_seen": "2026-07-27T16:28:35+08:00",
+      "raw_event_count": 13
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "first_seen": "2026-07-27T16:15:34+08:00",
+      "last_seen": "2026-07-27T16:18:12+08:00",
+      "raw_event_count": 2
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T16:00:00+08:00",
+      "end": "2026-07-27T16:30:00+08:00",
+      "duration_seconds": 1800.0,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T16:00:00+08:00",
+      "end": "2026-07-27T16:00:37+08:00",
+      "duration_seconds": 37.9,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:00:37+08:00",
+      "end": "2026-07-27T16:00:41+08:00",
+      "duration_seconds": 3.378,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T16:00:41+08:00",
+      "end": "2026-07-27T16:01:07+08:00",
+      "duration_seconds": 21.703,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:01:08+08:00",
+      "end": "2026-07-27T16:01:11+08:00",
+      "duration_seconds": 3.103,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:01:12+08:00",
+      "end": "2026-07-27T16:01:13+08:00",
+      "duration_seconds": 1.026,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:01:14+08:00",
+      "end": "2026-07-27T16:01:28+08:00",
+      "duration_seconds": 14.458,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:01:29+08:00",
+      "end": "2026-07-27T16:01:31+08:00",
+      "duration_seconds": 2.088,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:01:32+08:00",
+      "end": "2026-07-27T16:01:41+08:00",
+      "duration_seconds": 8.287,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:01:41+08:00",
+      "end": "2026-07-27T16:01:49+08:00",
+      "duration_seconds": 8.248,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T16:01:49+08:00",
+      "end": "2026-07-27T16:01:52+08:00",
+      "duration_seconds": 3.105,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:01:53+08:00",
+      "end": "2026-07-27T16:02:07+08:00",
+      "duration_seconds": 13.42,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:02:08+08:00",
+      "end": "2026-07-27T16:02:09+08:00",
+      "duration_seconds": 1.047,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:02:09+08:00",
+      "end": "2026-07-27T16:02:12+08:00",
+      "duration_seconds": 3.09,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T16:02:12+08:00",
+      "end": "2026-07-27T16:02:35+08:00",
+      "duration_seconds": 22.724,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:02:35+08:00",
+      "end": "2026-07-27T16:02:39+08:00",
+      "duration_seconds": 3.099,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T16:02:39+08:00",
+      "end": "2026-07-27T16:03:04+08:00",
+      "duration_seconds": 25.551,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:03:04+08:00",
+      "end": "2026-07-27T16:03:49+08:00",
+      "duration_seconds": 44.594,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "24岁女孩正颌手术被做反，变成「鞋拔子脸」，武汉卫健部门介入，医院和医生各得担哪些责？女孩还能恢复吗？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:03:49+08:00",
+      "end": "2026-07-27T16:03:52+08:00",
+      "duration_seconds": 3.094,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T16:03:52+08:00",
+      "end": "2026-07-27T16:04:14+08:00",
+      "duration_seconds": 22.705,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:04:14+08:00",
+      "end": "2026-07-27T16:04:18+08:00",
+      "duration_seconds": 3.097,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T16:04:18+08:00",
+      "end": "2026-07-27T16:05:04+08:00",
+      "duration_seconds": 46.752,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:05:04+08:00",
+      "end": "2026-07-27T16:08:32+08:00",
+      "duration_seconds": 207.997,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "王虹、邓煜的成长经历是否动摇了「是金子在哪都能发光」的说法？顶尖科研人才的成长需要怎样的土壤？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-27T16:08:33+08:00",
+      "end": "2026-07-27T16:09:11+08:00",
+      "duration_seconds": 31.934,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:09:13+08:00",
+      "end": "2026-07-27T16:09:26+08:00",
+      "duration_seconds": 11.349,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:09:28+08:00",
+      "end": "2026-07-27T16:09:30+08:00",
+      "duration_seconds": 2.047,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "暑假预习计划与资料",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:09:31+08:00",
+      "end": "2026-07-27T16:09:32+08:00",
+      "duration_seconds": 1.027,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:09:33+08:00",
+      "end": "2026-07-27T16:09:40+08:00",
+      "duration_seconds": 7.211,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:09:41+08:00",
+      "end": "2026-07-27T16:09:42+08:00",
+      "duration_seconds": 1.027,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:09:44+08:00",
+      "end": "2026-07-27T16:09:47+08:00",
+      "duration_seconds": 2.062,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "昆明职高升学途径",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:09:48+08:00",
+      "end": "2026-07-27T16:09:51+08:00",
+      "duration_seconds": 3.102,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:09:52+08:00",
+      "end": "2026-07-27T16:09:54+08:00",
+      "duration_seconds": 2.07,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:09:55+08:00",
+      "end": "2026-07-27T16:10:34+08:00",
+      "duration_seconds": 39.624,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "昆明职高升学途径",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:10:34+08:00",
+      "end": "2026-07-27T16:10:41+08:00",
+      "duration_seconds": 4.682,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:10:42+08:00",
+      "end": "2026-07-27T16:10:44+08:00",
+      "duration_seconds": 2.054,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:10:46+08:00",
+      "end": "2026-07-27T16:11:13+08:00",
+      "duration_seconds": 26.755,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:11:14+08:00",
+      "end": "2026-07-27T16:13:13+08:00",
+      "duration_seconds": 112.421,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-27T16:13:14+08:00",
+      "end": "2026-07-27T16:14:11+08:00",
+      "duration_seconds": 56.701,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "王虹、邓煜的成长经历是否动摇了「是金子在哪都能发光」的说法？顶尖科研人才的成长需要怎样的土壤？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:14:12+08:00",
+      "end": "2026-07-27T16:14:14+08:00",
+      "duration_seconds": 1.125,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:14:14+08:00",
+      "end": "2026-07-27T16:14:14+08:00",
+      "duration_seconds": 0.627,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "暑假预习计划与资料",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:14:14+08:00",
+      "end": "2026-07-27T16:14:19+08:00",
+      "duration_seconds": 2.356,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:14:20+08:00",
+      "end": "2026-07-27T16:14:25+08:00",
+      "duration_seconds": 5.17,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:14:25+08:00",
+      "end": "2026-07-27T16:14:28+08:00",
+      "duration_seconds": 3.089,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T16:14:28+08:00",
+      "end": "2026-07-27T16:15:34+08:00",
+      "duration_seconds": 66.562,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:15:34+08:00",
+      "end": "2026-07-27T16:15:40+08:00",
+      "duration_seconds": 5.826,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:15:41+08:00",
+      "end": "2026-07-27T16:16:33+08:00",
+      "duration_seconds": 51.63,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:16:34+08:00",
+      "end": "2026-07-27T16:18:12+08:00",
+      "duration_seconds": 98.055,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T16:18:13+08:00",
+      "end": "2026-07-27T16:20:56+08:00",
+      "duration_seconds": 162.974,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:20:57+08:00",
+      "end": "2026-07-27T16:21:25+08:00",
+      "duration_seconds": 27.913,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:21:26+08:00",
+      "end": "2026-07-27T16:24:03+08:00",
+      "duration_seconds": 156.542,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:24:05+08:00",
+      "end": "2026-07-27T16:24:38+08:00",
+      "duration_seconds": 33.019,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:24:39+08:00",
+      "end": "2026-07-27T16:24:46+08:00",
+      "duration_seconds": 7.203,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:24:47+08:00",
+      "end": "2026-07-27T16:24:51+08:00",
+      "duration_seconds": 4.121,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:24:52+08:00",
+      "end": "2026-07-27T16:25:13+08:00",
+      "duration_seconds": 20.629,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:25:13+08:00",
+      "end": "2026-07-27T16:25:17+08:00",
+      "duration_seconds": 4.148,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T16:25:17+08:00",
+      "end": "2026-07-27T16:25:18+08:00",
+      "duration_seconds": 1.034,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:25:19+08:00",
+      "end": "2026-07-27T16:25:25+08:00",
+      "duration_seconds": 6.194,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:25:26+08:00",
+      "end": "2026-07-27T16:25:32+08:00",
+      "duration_seconds": 6.187,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:25:33+08:00",
+      "end": "2026-07-27T16:25:40+08:00",
+      "duration_seconds": 6.184,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:25:41+08:00",
+      "end": "2026-07-27T16:25:47+08:00",
+      "duration_seconds": 6.189,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:25:48+08:00",
+      "end": "2026-07-27T16:26:04+08:00",
+      "duration_seconds": 16.475,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:26:06+08:00",
+      "end": "2026-07-27T16:26:13+08:00",
+      "duration_seconds": 6.194,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:26:14+08:00",
+      "end": "2026-07-27T16:26:42+08:00",
+      "duration_seconds": 28.841,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:26:43+08:00",
+      "end": "2026-07-27T16:26:46+08:00",
+      "duration_seconds": 2.068,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:26:47+08:00",
+      "end": "2026-07-27T16:27:08+08:00",
+      "duration_seconds": 21.627,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:27:09+08:00",
+      "end": "2026-07-27T16:27:26+08:00",
+      "duration_seconds": 14.442,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:27:27+08:00",
+      "end": "2026-07-27T16:28:06+08:00",
+      "duration_seconds": 39.209,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T16:28:08+08:00",
+      "end": "2026-07-27T16:28:18+08:00",
+      "duration_seconds": 10.322,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T16:28:19+08:00",
+      "end": "2026-07-27T16:30:00+08:00",
+      "duration_seconds": 100.108,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.939,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.497,
+    "browser_share_of_active_time": 0.722,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

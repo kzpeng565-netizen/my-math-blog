@@ -1,0 +1,204 @@
+{
+  "period": "2026-07-25T08:30:00+08:00/2026-07-25T09:00:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信13.83分钟，确认休息16.05分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 13.83,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "本时段无娱乐偏离，因为所有活动均为休息和短暂通信，没有工作过程中的娱乐夹杂。"
+  },
+  "computer_summary": "电脑全程AFK（无键鼠操作），无活动窗口记录，因此无工作任务。",
+  "phone_summary": "手机亮屏13.83分钟，主要用于微信和QQ的通信，属于短暂通信，没有娱乐应用。",
+  "material_uncertainties": [],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信13.83分钟，确认休息16.05分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "手机上的微信和QQ通信是否主要涉及工作内容？若为工作，则可能将部分通信归类为工作任务，改变当前纯休息的状态评估。",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 30.0,
+    "phone_screen_on_minutes": 13.83,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 16.17,
+    "confirmed_rest_minutes": 16.05
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 13.83,
+      "range_minutes": [
+        13.83,
+        13.83
+      ],
+      "evidence": [
+        "手机前台微信6.7分钟",
+        "期间手机亮屏且持续使用微信",
+        "手机前台微信1.2分钟，QQ6.7分钟",
+        "屏幕一直亮着"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 16.05,
+      "range_minutes": [
+        16.05,
+        16.05
+      ],
+      "evidence": [
+        "电脑一直AFK",
+        "手机屏幕关闭",
+        "跨设备规则确认的休息区间"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.12,
+      "range_minutes": [
+        0.12,
+        0.12
+      ],
+      "evidence": [
+        "手机息屏7秒",
+        "前后均为通信"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "08:30-08:46",
+      "likely_state": "休息",
+      "minutes": 16.05,
+      "task": "休息，无任何设备操作",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑一直AFK",
+        "手机屏幕关闭",
+        "跨设备规则确认的休息区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "08:46-08:52",
+      "likely_state": "通信",
+      "minutes": 6.3,
+      "task": "手机微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台微信6.7分钟",
+        "期间手机亮屏且持续使用微信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "08:52-08:52",
+      "likely_state": "其他",
+      "minutes": 0.12,
+      "task": "短暂息屏",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机息屏7秒",
+        "前后均为通信"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "08:52-09:00",
+      "likely_state": "通信",
+      "minutes": 7.53,
+      "task": "手机微信和QQ通信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台微信1.2分钟，QQ6.7分钟",
+        "屏幕一直亮着",
+        "电脑仍AFK无任何操作"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4689,
+      "completion_tokens": 995,
+      "total_tokens": 5684,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 719
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 3793
+    }
+  }
+}

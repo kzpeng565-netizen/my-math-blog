@@ -1,0 +1,411 @@
+{
+  "schema_version": 3,
+  "period": {
+    "start": "2026-07-27T16:00:00+08:00",
+    "end": "2026-07-27T16:30:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-27/16-00.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-27/16-00.json",
+  "tablet_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/tablet_facts/2026-07-27/16-00.json",
+  "semantic_timeline_file": "/home/conrad/workspace/activitywatch-advisor/data/semantic_timelines/2026-07-27/16-00.json",
+  "mixing_metrics_file": "/home/conrad/workspace/activitywatch-advisor/data/mixing_metrics/2026-07-27/16-00.json",
+  "cross_device_facts": {
+    "schema_version": 3,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-27T16:00:00+08:00",
+      "end": "2026-07-27T16:30:00+08:00"
+    },
+    "tablet": {
+      "connected": true,
+      "screen_on_seconds": 1800.0,
+      "screen_off_seconds": 0,
+      "confidence": "low",
+      "note": "平板为辅助数据源。亮屏不等于确认使用。"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 30.0,
+      "computer_afk_minutes": 0.0,
+      "phone_screen_on_minutes": 0.0,
+      "tablet_screen_on_minutes": 30.0,
+      "any_device_interaction_minutes": 30.0,
+      "no_detected_device_interaction_minutes": 0.0,
+      "likely_rest_minutes": 0.0,
+      "confirmed_rest_minutes": 0.0,
+      "note": "any_device_interaction_minutes基于电脑活跃和手机亮屏的并集。平板亮屏不加入主要交互时间。likely_rest_minutes基于电脑AFK且手机熄屏（平板亮屏不否决休息，仅降低置信度）。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "primary_devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "tablet_role": "auxiliary_context_only",
+      "condition": "电脑连续AFK达到阈值，且手机熄屏。平板亮屏不否决休息，仅降低置信度。",
+      "likely_rest_intervals": [],
+      "confirmed_rest_intervals": []
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 42,
+      "context_switch_count": 41,
+      "switches_per_active_hour": 89.03,
+      "short_context_blocks_under_60_seconds": 35,
+      "sustained_context_blocks_at_least_5_minutes": 0,
+      "longest_context_minutes": 3.47,
+      "median_context_minutes": 0.38,
+      "context_blocks": [
+        {
+          "start": "2026-07-27T16:00:00+08:00",
+          "end": "2026-07-27T16:00:37+08:00",
+          "minutes": 0.63,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:00:41+08:00",
+          "end": "2026-07-27T16:01:07+08:00",
+          "minutes": 0.36,
+          "app": "Microsoft Edge",
+          "title": "ChatGPT",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:01:14+08:00",
+          "end": "2026-07-27T16:01:28+08:00",
+          "minutes": 0.24,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:01:32+08:00",
+          "end": "2026-07-27T16:01:41+08:00",
+          "minutes": 0.14,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:01:41+08:00",
+          "end": "2026-07-27T16:01:49+08:00",
+          "minutes": 0.14,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:01:53+08:00",
+          "end": "2026-07-27T16:02:07+08:00",
+          "minutes": 0.22,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:02:12+08:00",
+          "end": "2026-07-27T16:02:35+08:00",
+          "minutes": 0.38,
+          "app": "Microsoft Edge",
+          "title": "首页 - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:02:39+08:00",
+          "end": "2026-07-27T16:03:04+08:00",
+          "minutes": 0.43,
+          "app": "Microsoft Edge",
+          "title": "首页 - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:03:04+08:00",
+          "end": "2026-07-27T16:03:49+08:00",
+          "minutes": 0.74,
+          "app": "Microsoft Edge",
+          "title": "24岁女孩正颌手术被做反，变成「鞋拔子脸」，武汉卫健部门介入，医院和医生各得担哪些责？女孩还能恢复吗？ - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:03:52+08:00",
+          "end": "2026-07-27T16:04:14+08:00",
+          "minutes": 0.38,
+          "app": "Microsoft Edge",
+          "title": "首页 - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:04:18+08:00",
+          "end": "2026-07-27T16:05:04+08:00",
+          "minutes": 0.78,
+          "app": "Microsoft Edge",
+          "title": "首页 - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:05:04+08:00",
+          "end": "2026-07-27T16:08:32+08:00",
+          "minutes": 3.47,
+          "app": "Microsoft Edge",
+          "title": "王虹、邓煜的成长经历是否动摇了「是金子在哪都能发光」的说法？顶尖科研人才的成长需要怎样的土壤？ - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:08:33+08:00",
+          "end": "2026-07-27T16:09:11+08:00",
+          "minutes": 0.53,
+          "app": "Microsoft Edge",
+          "title": "首页 - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:09:13+08:00",
+          "end": "2026-07-27T16:09:26+08:00",
+          "minutes": 0.19,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:09:33+08:00",
+          "end": "2026-07-27T16:09:40+08:00",
+          "minutes": 0.12,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:09:55+08:00",
+          "end": "2026-07-27T16:10:34+08:00",
+          "minutes": 0.66,
+          "app": "Microsoft Edge",
+          "title": "昆明职高升学途径",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:10:46+08:00",
+          "end": "2026-07-27T16:11:13+08:00",
+          "minutes": 0.45,
+          "app": "Microsoft Edge",
+          "title": "ChatGPT",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:11:14+08:00",
+          "end": "2026-07-27T16:13:13+08:00",
+          "minutes": 1.87,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:13:14+08:00",
+          "end": "2026-07-27T16:14:11+08:00",
+          "minutes": 0.95,
+          "app": "Microsoft Edge",
+          "title": "王虹、邓煜的成长经历是否动摇了「是金子在哪都能发光」的说法？顶尖科研人才的成长需要怎样的土壤？ - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:14:20+08:00",
+          "end": "2026-07-27T16:14:25+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "首页 - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:14:28+08:00",
+          "end": "2026-07-27T16:15:34+08:00",
+          "minutes": 1.11,
+          "app": "Microsoft Edge",
+          "title": "首页 - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:15:34+08:00",
+          "end": "2026-07-27T16:15:40+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:15:41+08:00",
+          "end": "2026-07-27T16:16:33+08:00",
+          "minutes": 0.86,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:16:34+08:00",
+          "end": "2026-07-27T16:18:12+08:00",
+          "minutes": 1.63,
+          "app": "Microsoft Edge",
+          "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+          "domain": "zhihu.com"
+        },
+        {
+          "start": "2026-07-27T16:18:13+08:00",
+          "end": "2026-07-27T16:20:56+08:00",
+          "minutes": 2.72,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:20:57+08:00",
+          "end": "2026-07-27T16:21:25+08:00",
+          "minutes": 0.47,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:21:26+08:00",
+          "end": "2026-07-27T16:24:03+08:00",
+          "minutes": 2.61,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:24:05+08:00",
+          "end": "2026-07-27T16:24:38+08:00",
+          "minutes": 0.55,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:24:39+08:00",
+          "end": "2026-07-27T16:24:46+08:00",
+          "minutes": 0.12,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:24:52+08:00",
+          "end": "2026-07-27T16:25:13+08:00",
+          "minutes": 0.34,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:25:19+08:00",
+          "end": "2026-07-27T16:25:25+08:00",
+          "minutes": 0.1,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:25:26+08:00",
+          "end": "2026-07-27T16:25:32+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:25:33+08:00",
+          "end": "2026-07-27T16:25:40+08:00",
+          "minutes": 0.1,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:25:41+08:00",
+          "end": "2026-07-27T16:25:47+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:25:48+08:00",
+          "end": "2026-07-27T16:26:04+08:00",
+          "minutes": 0.27,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:26:06+08:00",
+          "end": "2026-07-27T16:26:13+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:26:14+08:00",
+          "end": "2026-07-27T16:26:42+08:00",
+          "minutes": 0.48,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:26:47+08:00",
+          "end": "2026-07-27T16:27:08+08:00",
+          "minutes": 0.36,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:27:09+08:00",
+          "end": "2026-07-27T16:27:26+08:00",
+          "minutes": 0.24,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:27:27+08:00",
+          "end": "2026-07-27T16:28:06+08:00",
+          "minutes": 0.65,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-27T16:28:08+08:00",
+          "end": "2026-07-27T16:28:18+08:00",
+          "minutes": 0.17,
+          "app": "Microsoft Edge",
+          "title": "课时量分析",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-27T16:28:19+08:00",
+          "end": "2026-07-27T16:30:00+08:00",
+          "minutes": 1.67,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 0.0,
+      "computer_afk_and_phone_on": 0.0,
+      "computer_not_afk_and_phone_off": 30.0,
+      "computer_afk_and_phone_off": 0.0
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。",
+      "平板为辅助数据源：亮屏不等于确认活动，不加入主要交互时间。",
+      "likely_rest基于电脑AFK且手机熄屏；平板亮屏降低置信度但不否决休息。"
+    ]
+  }
+}

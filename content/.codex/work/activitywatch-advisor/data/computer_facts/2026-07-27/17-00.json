@@ -1,0 +1,944 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T17:00:00+08:00",
+    "end": "2026-07-27T17:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 100,
+      "aw-watcher-afk_xyh": 10,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 8,
+      "aw-watcher-web-edge_xyh": 45
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 22.81,
+    "afk_minutes": 7.19,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 21.1
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 15.86
+    },
+    {
+      "app": "微信",
+      "minutes": 4.06
+    },
+    {
+      "app": "Microsoft Word",
+      "minutes": 0.93
+    },
+    {
+      "app": "SnippingTool.exe",
+      "minutes": 0.14
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.1
+    },
+    {
+      "app": "Cleaner One.exe",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 11.8
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 4.06
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "minutes": 5.74
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "肖邦夜曲练习建议",
+      "minutes": 4.4
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 3.68
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "如何看待美军参联会主席说：“每个有枪的伊朗人都在向美军开枪射击”？ - 知乎",
+      "minutes": 1.91
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "肖邦夜曲练习难度",
+      "minutes": 1.66
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 0.84
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "中国为什么成为粮食最大进口国了？ - 知乎",
+      "minutes": 0.84
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "minutes": 0.46
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.38
+    },
+    {
+      "app": "Microsoft Word",
+      "domain": "",
+      "title": "时间统计结果.docx - Word",
+      "minutes": 0.36
+    },
+    {
+      "app": "Microsoft Word",
+      "domain": "",
+      "title": "文档1 - Word",
+      "minutes": 0.34
+    },
+    {
+      "app": "SnippingTool.exe",
+      "domain": "",
+      "title": "截图工具覆盖",
+      "minutes": 0.14
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "Program Manager",
+      "minutes": 0.1
+    },
+    {
+      "app": "Microsoft Word",
+      "domain": "",
+      "title": "Word",
+      "minutes": 0.03
+    },
+    {
+      "app": "Microsoft Word",
+      "domain": "",
+      "title": "另存为",
+      "minutes": 0.02
+    },
+    {
+      "app": "Cleaner One.exe",
+      "domain": "",
+      "title": "清理君",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T16:15:49+08:00",
+      "last_seen": "2026-07-27T17:29:26+08:00",
+      "raw_event_count": 8
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "first_seen": "2026-07-27T16:58:53+08:00",
+      "last_seen": "2026-07-27T17:23:33+08:00",
+      "raw_event_count": 18
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "first_seen": "2026-07-27T17:01:01+08:00",
+      "last_seen": "2026-07-27T17:24:28+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-27T17:01:21+08:00",
+      "last_seen": "2026-07-27T17:24:03+08:00",
+      "raw_event_count": 7
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "暑假预习计划与资料",
+      "first_seen": "2026-07-27T17:04:37+08:00",
+      "last_seen": "2026-07-27T17:05:37+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "中国为什么成为粮食最大进口国了？ - 知乎",
+      "first_seen": "2026-07-27T17:04:39+08:00",
+      "last_seen": "2026-07-27T17:20:44+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "first_seen": "2026-07-27T17:07:37+08:00",
+      "last_seen": "2026-07-27T17:07:38+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "如何看待美军参联会主席说：“每个有枪的伊朗人都在向美军开枪射击”？ - 知乎",
+      "first_seen": "2026-07-27T17:22:05+08:00",
+      "last_seen": "2026-07-27T17:22:50+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "肖邦夜曲练习难度",
+      "first_seen": "2026-07-27T17:23:34+08:00",
+      "last_seen": "2026-07-27T17:25:35+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "肖邦夜曲练习建议",
+      "first_seen": "2026-07-27T17:25:35+08:00",
+      "last_seen": "2026-07-27T17:28:35+08:00",
+      "raw_event_count": 3
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T17:00:00+08:00",
+      "end": "2026-07-27T17:13:13+08:00",
+      "duration_seconds": 793.829,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T17:13:13+08:00",
+      "end": "2026-07-27T17:20:25+08:00",
+      "duration_seconds": 431.321,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T17:20:25+08:00",
+      "end": "2026-07-27T17:30:00+08:00",
+      "duration_seconds": 574.849,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T17:00:00+08:00",
+      "end": "2026-07-27T17:01:01+08:00",
+      "duration_seconds": 59.042,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:01:03+08:00",
+      "end": "2026-07-27T17:01:20+08:00",
+      "duration_seconds": 13.419,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:01:21+08:00",
+      "end": "2026-07-27T17:01:42+08:00",
+      "duration_seconds": 18.559,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:01:43+08:00",
+      "end": "2026-07-27T17:01:54+08:00",
+      "duration_seconds": 11.367,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:01:55+08:00",
+      "end": "2026-07-27T17:01:58+08:00",
+      "duration_seconds": 2.056,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:01:59+08:00",
+      "end": "2026-07-27T17:02:11+08:00",
+      "duration_seconds": 12.377,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:02:12+08:00",
+      "end": "2026-07-27T17:02:14+08:00",
+      "duration_seconds": 2.065,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:02:15+08:00",
+      "end": "2026-07-27T17:02:29+08:00",
+      "duration_seconds": 13.454,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:02:31+08:00",
+      "end": "2026-07-27T17:04:16+08:00",
+      "duration_seconds": 103.063,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:04:17+08:00",
+      "end": "2026-07-27T17:04:35+08:00",
+      "duration_seconds": 18.541,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:04:35+08:00",
+      "end": "2026-07-27T17:04:40+08:00",
+      "duration_seconds": 5.162,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T17:04:40+08:00",
+      "end": "2026-07-27T17:04:41+08:00",
+      "duration_seconds": 1.038,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:04:43+08:00",
+      "end": "2026-07-27T17:04:44+08:00",
+      "duration_seconds": 1.042,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:04:45+08:00",
+      "end": "2026-07-27T17:05:35+08:00",
+      "duration_seconds": 50.489,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "中国为什么成为粮食最大进口国了？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:05:37+08:00",
+      "end": "2026-07-27T17:06:43+08:00",
+      "duration_seconds": 65.999,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:06:44+08:00",
+      "end": "2026-07-27T17:06:47+08:00",
+      "duration_seconds": 3.069,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:06:48+08:00",
+      "end": "2026-07-27T17:06:49+08:00",
+      "duration_seconds": 1.025,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:06:51+08:00",
+      "end": "2026-07-27T17:07:05+08:00",
+      "duration_seconds": 13.404,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:07:06+08:00",
+      "end": "2026-07-27T17:07:32+08:00",
+      "duration_seconds": 23.692,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:07:33+08:00",
+      "end": "2026-07-27T17:07:36+08:00",
+      "duration_seconds": 3.062,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:07:36+08:00",
+      "end": "2026-07-27T17:07:39+08:00",
+      "duration_seconds": 3.436,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T17:07:39+08:00",
+      "end": "2026-07-27T17:08:03+08:00",
+      "duration_seconds": 23.783,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:08:04+08:00",
+      "end": "2026-07-27T17:08:23+08:00",
+      "duration_seconds": 19.633,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:08:25+08:00",
+      "end": "2026-07-27T17:08:26+08:00",
+      "duration_seconds": 1.03,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:08:27+08:00",
+      "end": "2026-07-27T17:08:41+08:00",
+      "duration_seconds": 14.438,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:08:43+08:00",
+      "end": "2026-07-27T17:08:45+08:00",
+      "duration_seconds": 2.05,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:08:46+08:00",
+      "end": "2026-07-27T17:08:48+08:00",
+      "duration_seconds": 2.069,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:08:49+08:00",
+      "end": "2026-07-27T17:08:50+08:00",
+      "duration_seconds": 1.036,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:08:50+08:00",
+      "end": "2026-07-27T17:08:55+08:00",
+      "duration_seconds": 5.162,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T17:08:55+08:00",
+      "end": "2026-07-27T17:08:58+08:00",
+      "duration_seconds": 2.065,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "Word",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:08:59+08:00",
+      "end": "2026-07-27T17:09:18+08:00",
+      "duration_seconds": 19.546,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "文档1 - Word",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:09:19+08:00",
+      "end": "2026-07-27T17:09:28+08:00",
+      "duration_seconds": 9.287,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:09:29+08:00",
+      "end": "2026-07-27T17:09:31+08:00",
+      "duration_seconds": 1.031,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "文档1 - Word",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:09:32+08:00",
+      "end": "2026-07-27T17:09:36+08:00",
+      "duration_seconds": 4.117,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Manager",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:09:36+08:00",
+      "end": "2026-07-27T17:09:39+08:00",
+      "duration_seconds": 3.095,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T17:09:39+08:00",
+      "end": "2026-07-27T17:09:40+08:00",
+      "duration_seconds": 1.033,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Manager",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:09:42+08:00",
+      "end": "2026-07-27T17:09:46+08:00",
+      "duration_seconds": 4.117,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "时间统计结果.docx - Word",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:09:47+08:00",
+      "end": "2026-07-27T17:09:48+08:00",
+      "duration_seconds": 1.03,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:09:49+08:00",
+      "end": "2026-07-27T17:09:58+08:00",
+      "duration_seconds": 9.281,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "时间统计结果.docx - Word",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:09:59+08:00",
+      "end": "2026-07-27T17:10:00+08:00",
+      "duration_seconds": 1.029,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "另存为",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:01+08:00",
+      "end": "2026-07-27T17:10:02+08:00",
+      "duration_seconds": 1.037,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "时间统计结果.docx - Word",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:03+08:00",
+      "end": "2026-07-27T17:10:04+08:00",
+      "duration_seconds": 1.028,
+      "app": "Cleaner One.exe",
+      "app_display": "Cleaner One.exe",
+      "title": "清理君",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:06+08:00",
+      "end": "2026-07-27T17:10:07+08:00",
+      "duration_seconds": 1.022,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Manager",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:08+08:00",
+      "end": "2026-07-27T17:10:15+08:00",
+      "duration_seconds": 7.259,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:16+08:00",
+      "end": "2026-07-27T17:10:21+08:00",
+      "duration_seconds": 5.176,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "时间统计结果.docx - Word",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:22+08:00",
+      "end": "2026-07-27T17:10:40+08:00",
+      "duration_seconds": 17.586,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:41+08:00",
+      "end": "2026-07-27T17:10:43+08:00",
+      "duration_seconds": 2.07,
+      "app": "WINWORD.EXE",
+      "app_display": "Microsoft Word",
+      "title": "时间统计结果.docx - Word",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:43+08:00",
+      "end": "2026-07-27T17:10:46+08:00",
+      "duration_seconds": 3.081,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T17:10:46+08:00",
+      "end": "2026-07-27T17:10:47+08:00",
+      "duration_seconds": 1.027,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:10:48+08:00",
+      "end": "2026-07-27T17:11:01+08:00",
+      "duration_seconds": 11.323,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:11:02+08:00",
+      "end": "2026-07-27T17:11:04+08:00",
+      "duration_seconds": 2.053,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:11:06+08:00",
+      "end": "2026-07-27T17:11:29+08:00",
+      "duration_seconds": 22.741,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:11:30+08:00",
+      "end": "2026-07-27T17:11:47+08:00",
+      "duration_seconds": 16.533,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:11:48+08:00",
+      "end": "2026-07-27T17:13:13+08:00",
+      "duration_seconds": 85.563,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:20:25+08:00",
+      "end": "2026-07-27T17:20:30+08:00",
+      "duration_seconds": 4.981,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:20:31+08:00",
+      "end": "2026-07-27T17:20:32+08:00",
+      "duration_seconds": 1.029,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:20:33+08:00",
+      "end": "2026-07-27T17:20:37+08:00",
+      "duration_seconds": 4.134,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T17:20:38+08:00",
+      "end": "2026-07-27T17:20:42+08:00",
+      "duration_seconds": 4.11,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:20:44+08:00",
+      "end": "2026-07-27T17:20:52+08:00",
+      "duration_seconds": 8.235,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T17:20:54+08:00",
+      "end": "2026-07-27T17:22:49+08:00",
+      "duration_seconds": 114.565,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "如何看待美军参联会主席说：“每个有枪的伊朗人都在向美军开枪射击”？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-27T17:22:50+08:00",
+      "end": "2026-07-27T17:23:32+08:00",
+      "duration_seconds": 41.222,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:23:34+08:00",
+      "end": "2026-07-27T17:23:58+08:00",
+      "duration_seconds": 23.737,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习难度",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:23:59+08:00",
+      "end": "2026-07-27T17:24:02+08:00",
+      "duration_seconds": 3.096,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:24:03+08:00",
+      "end": "2026-07-27T17:24:12+08:00",
+      "duration_seconds": 9.306,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习难度",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:24:13+08:00",
+      "end": "2026-07-27T17:24:27+08:00",
+      "duration_seconds": 13.419,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:24:28+08:00",
+      "end": "2026-07-27T17:25:35+08:00",
+      "duration_seconds": 66.475,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习难度",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T17:25:35+08:00",
+      "end": "2026-07-27T17:30:00+08:00",
+      "duration_seconds": 264.083,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.925,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.521,
+    "browser_share_of_active_time": 0.695,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

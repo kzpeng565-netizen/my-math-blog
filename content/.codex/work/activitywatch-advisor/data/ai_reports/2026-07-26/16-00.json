@@ -1,0 +1,238 @@
+{
+  "period": "2026-07-26T16:00:00+08:00/2026-07-26T16:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：备课（高中物理加速度）。工作4.4分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.18分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 3.22,
+    "same_task_tool_switches_not_scored": 2,
+    "raw_foreground_context_switches_not_scored": 3,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "本时段无任何娱乐偏离。工作过程中未检测到超过30秒的娱乐活动，娱乐偏离次数为0，最长偏离0分钟。"
+  },
+  "computer_summary": "电脑上活动主要集中在16:00-16:01和16:05-16:08，共计4.4分钟非AFK，期间使用腾讯会议（标题'彭康哲的快速会议'）和微信进行工作沟通，后台有PDF和ChatGPT持续存在，表明处于备课工作状态。其余时间电脑AFK。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "material_uncertainties": [
+    "16:15:10-16:16:35电脑状态unknown，可能短暂工作或继续休息，但缺乏证据",
+    "微信和腾讯会议的具体通信内容未知，只能推断为工作沟通"
+  ],
+  "concise_report": "主要任务：备课（高中物理加速度）。工作4.4分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.18分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "16:15-16:16的电脑未知状态是否可能包含娱乐活动？",
+  "observed_metrics": {
+    "computer_active_minutes": 4.4,
+    "computer_afk_minutes": 24.18,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 25.6,
+    "confirmed_rest_minutes": 24.18
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 4.4,
+      "range_minutes": [
+        4.4,
+        4.4
+      ],
+      "evidence": [
+        "腾讯会议窗口标题'彭康哲的快速会议'，微信在前台，浏览器标签页'高中物理1 加速度.pdf'和ChatGPT持续存在",
+        "16:00:00-16:00:39腾讯会议活跃，16:00:40-16:01:09微信活跃",
+        "前后文有浏览PDF和使用ChatGPT的记录，表明该时段是工作的一部分",
+        "16:01:11后电脑AFK，手机全程熄屏"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 24.18,
+      "range_minutes": [
+        24.18,
+        24.18
+      ],
+      "evidence": [
+        "电脑AFK，手机全程熄屏，符合休息规则",
+        "跨设备休息确认区间16:01:11-16:05:29",
+        "电脑AFK，手机熄屏，符合休息规则",
+        "跨设备休息确认区间16:08:42-16:15:10"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 1.42,
+      "range_minutes": [
+        1.42,
+        1.42
+      ],
+      "evidence": [
+        "电脑状态为'unknown'，无窗口记录，手机熄屏",
+        "期间无任何可观测活动"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "16:00-16:01",
+      "likely_state": "工作",
+      "minutes": 1.18,
+      "task": "使用腾讯会议和微信进行工作沟通，查看物理PDF",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口标题'彭康哲的快速会议'，微信在前台，浏览器标签页'高中物理1 加速度.pdf'和ChatGPT持续存在",
+        "16:00:00-16:00:39腾讯会议活跃，16:00:40-16:01:09微信活跃",
+        "前后文有浏览PDF和使用ChatGPT的记录，表明该时段是工作的一部分",
+        "16:01:11后电脑AFK，手机全程熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:01-16:05",
+      "likely_state": "休息",
+      "minutes": 4.3,
+      "task": "休息（跨设备无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机全程熄屏，符合休息规则",
+        "跨设备休息确认区间16:01:11-16:05:29"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:05-16:08",
+      "likely_state": "工作",
+      "minutes": 3.22,
+      "task": "工作沟通：腾讯会议和微信交替使用，涉及备课讨论",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:05:29短暂回到腾讯会议，16:05:31-16:07:19微信活跃，16:07:20-16:08:42腾讯会议活跃",
+        "标题'彭康哲的快速会议'表明会议仍在进行",
+        "前后文持续有PDF和ChatGPT，表明工作连续性"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:08-16:15",
+      "likely_state": "休息",
+      "minutes": 6.47,
+      "task": "休息（跨设备无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机熄屏，符合休息规则",
+        "跨设备休息确认区间16:08:42-16:15:10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:15-16:16",
+      "likely_state": "无法判断",
+      "minutes": 1.42,
+      "task": "电脑状态未知，手机熄屏，无法判断活动",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为'unknown'，无窗口记录，手机熄屏",
+        "期间无任何可观测活动"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:16-16:30",
+      "likely_state": "休息",
+      "minutes": 13.42,
+      "task": "休息（跨设备无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机熄屏，符合休息规则",
+        "跨设备休息确认区间16:16:35-16:30:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "备课（高中物理加速度）",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活动状态未知1.42分钟。",
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5037,
+      "completion_tokens": 1729,
+      "total_tokens": 6766,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1358
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4141
+    }
+  }
+}

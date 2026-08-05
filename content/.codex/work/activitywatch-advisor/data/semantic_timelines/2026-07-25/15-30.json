@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T15:30:00+08:00",
+    "end": "2026-07-25T16:00:00+08:00"
+  },
+  "primary_work_task": "学习初高中物理运动学基础概念",
+  "segments": [
+    {
+      "start": "2026-07-25T15:30:00+08:00",
+      "end": "2026-07-25T15:34:02+08:00",
+      "duration_seconds": 242.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "观看B站物理视频《速度速率》并做笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "交替使用Edge看B站物理视频「7.★【基础物理量】速度速率」与Obsidian笔记（未命名）",
+        "后续继续学习同一系列物理视频",
+        "无娱乐或通信干扰，专注学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:34:02+08:00",
+      "end": "2026-07-25T15:35:18+08:00",
+      "duration_seconds": 76.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "在微信中查看和发送图片/视频消息",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口出现「图片和视频」标题，持续约1.5分钟",
+        "时间线显示微信多个短片段（微信、图片和视频、Weixin）",
+        "通信内容不涉及当前工作，为独立社交"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:35:18+08:00",
+      "end": "2026-07-25T15:40:22+08:00",
+      "duration_seconds": 304.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续观看B站物理视频《速度速率》并做Obsidian笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页标题仍为同一B站物理视频",
+        "与Obsidian频繁切换，保持学习笔记状态",
+        "延续之前的工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:40:22+08:00",
+      "end": "2026-07-25T15:40:56+08:00",
+      "duration_seconds": 34.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "在微信中聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口连续约33秒",
+        "标题为「微信」和「图片和视频」",
+        "社交性质，与当前物理学习无关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:40:56+08:00",
+      "end": "2026-07-25T15:42:08+08:00",
+      "duration_seconds": 72.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续学习物理视频并在Obsidian记录",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge短暂回到B站物理视频页面",
+        "随后在Obsidian持续记录约46秒",
+        "仍在同一工作任务中"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:42:08+08:00",
+      "end": "2026-07-25T15:42:17+08:00",
+      "duration_seconds": 9.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "在手机上使用微信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机屏幕于15:41:46亮起，前台为微信（17秒）",
+        "电脑Edge快速切换到知乎首页（2秒）",
+        "手机微信使用与电脑工作短暂并行但为主"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T15:42:17+08:00",
+      "end": "2026-07-25T15:44:17+08:00",
+      "duration_seconds": 120.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎关于赛里木湖设卡的娱乐性内容",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页「网友爆料称赛里木湖 G219 国道设了两个卡点…」持续约1分50秒",
+        "之后又浏览知乎首页，内容与物理学习无关",
+        "位于工作过程中，之后返回物理学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:44:17+08:00",
+      "end": "2026-07-25T15:54:23+08:00",
+      "duration_seconds": 606.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "多次切换B站物理视频（速度速率、位移路程、速度速率基础）并做Obsidian笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "B站标签页依次出现「7.★【基础物理量】速度速率」、搜索页、「【运动描述】1.4位移路程、矢量标量（基础）」、「【运动描述】1.5速度速率（基础）」，均属物理运动学系列内容",
+        "Obsidian频繁作为前台窗口，标题为「未命名」「初高物理1 运动学基础概念」，持续记录笔记",
+        "长时间Focus（如15:46:39-15:51:38 Obsidian连续5分钟）",
+        "此段包含短暂微信（15:45:50-15:45:52）、截图（15:45:38-15:45:42），为工作内短暂切换，不改变整体任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:54:23+08:00",
+      "end": "2026-07-25T15:54:51+08:00",
+      "duration_seconds": 28.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "在Edge中打开PDF文件、文件资源管理器、微信等零散操作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge打开「初高物理1 运动学基础概念.pdf」",
+        "文件资源管理器出现，可能寻找文件",
+        "微信短暂出现（15:54:34-15:54:37），可能与工作沟通有关"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T15:54:51+08:00",
+      "end": "2026-07-25T15:56:22+08:00",
+      "duration_seconds": 91.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "在微信中长时间聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口连续约1.5分钟",
+        "标题为「微信」",
+        "社交性质，与当前物理学习无关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:56:22+08:00",
+      "end": "2026-07-25T15:56:28+08:00",
+      "duration_seconds": 6.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "切换到腾讯会议",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口出现（标题「腾讯会议」）",
+        "随后进入会议选择音频接入方式"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T15:56:28+08:00",
+      "end": "2026-07-25T15:56:57+08:00",
+      "duration_seconds": 29.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "准备进入腾讯会议（彭康哲的快速会议）",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题「请选择会议音频的接入方式」",
+        "会议名称为「彭康哲的快速会议」，结合后续可能是家教会议"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T15:56:57+08:00",
+      "end": "2026-07-25T15:58:08+08:00",
+      "duration_seconds": 71.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "参加腾讯会议（彭康哲的快速会议）",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题「彭康哲的快速会议」，持续约1分11秒",
+        "新任务开始，与之前物理学习不同"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T15:58:08+08:00",
+      "end": "2026-07-25T15:58:18+08:00",
+      "duration_seconds": 10.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "腾讯会议与微信短暂切换",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题短暂变为「腾讯会议」「会议号：472 739 501」",
+        "微信出现约9秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T15:58:18+08:00",
+      "end": "2026-07-25T15:58:28+08:00",
+      "duration_seconds": 10.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "在微信中聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口连续约10秒",
+        "标题为「微信」"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T15:58:28+08:00",
+      "end": "2026-07-25T16:00:00+08:00",
+      "duration_seconds": 92.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "继续参加腾讯会议（彭康哲的快速会议）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题「彭康哲的快速会议」持续至报告期末",
+        "会议进行中"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "腾讯会议「彭康哲的快速会议」的内容：可能是家教或辅导，但无法完全确认具体主题，使用work_category「家教」有一定推测",
+    "15:42:09-15:42:17 手机微信与电脑知乎的短暂重叠：主要注意力归属不明确，归为brief_communication但置信度中等"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 30321,
+      "completion_tokens": 2687,
+      "total_tokens": 33008,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 29425
+    }
+  }
+}

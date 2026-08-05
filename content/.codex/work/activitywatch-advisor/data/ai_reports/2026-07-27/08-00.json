@@ -1,0 +1,154 @@
+{
+  "period": "2026-07-27T08:00:00+08:00/2026-07-27T08:30:00+08:00",
+  "state_assessment": {
+    "label": "unclear",
+    "confidence": "low",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无娱乐偏离：未检测到任何工作或娱乐活动，确定性混杂指标为none。"
+  },
+  "computer_summary": "电脑无活跃窗口，AFK未知30分钟，无任何应用或网页记录，无法推断任何活动。",
+  "phone_summary": "手机全程熄屏，无前台应用或操作记录，无任何活动。",
+  "tablet_summary": "平板亮屏30分钟，但作为辅助数据源，无前台事件或交互证据，不能确认用户是否在使用平板。",
+  "material_uncertainties": [
+    "电脑无数据，手机熄屏，无法确定用户是否在使用平板或进行其他活动",
+    "电脑无数据，手机熄屏，但平板亮屏30分钟：无法确定用户是否在使用平板进行工作或娱乐，或者是否处于休息状态。"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "平板亮屏30分钟是否表示用户在使用平板（如阅读或观看视频）？如果是，请说明具体活动，以便重新归类工作或娱乐。",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 30.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 30.0,
+      "range_minutes": [
+        30.0,
+        30.0
+      ],
+      "evidence": [
+        "电脑状态未知且无活跃窗口",
+        "手机熄屏",
+        "平板亮屏但为非确认交互的辅助数据",
+        "无任何设备交互被检测到"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "08:00-08:30",
+      "likely_state": "其他",
+      "minutes": 30.0,
+      "task": "设备闲置或未知活动",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "电脑状态未知且无活跃窗口",
+        "手机熄屏",
+        "平板亮屏但为非确认交互的辅助数据",
+        "无任何设备交互被检测到"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。",
+      "电脑活动状态未知30.0分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3631,
+      "completion_tokens": 561,
+      "total_tokens": 4192,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 165
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 2735
+    }
+  }
+}

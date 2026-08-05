@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T08:30:00+08:00",
+    "end": "2026-07-25T09:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-25T08:30:00+08:00",
+      "end": "2026-07-25T08:46:03+08:00",
+      "duration_seconds": 963.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息，无任何设备操作",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑一直AFK",
+        "手机屏幕关闭",
+        "跨设备规则确认的休息区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T08:46:03+08:00",
+      "end": "2026-07-25T08:52:21+08:00",
+      "duration_seconds": 378.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台微信6.7分钟",
+        "期间手机亮屏且持续使用微信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T08:52:21+08:00",
+      "end": "2026-07-25T08:52:28+08:00",
+      "duration_seconds": 7.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "短暂息屏",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机息屏7秒",
+        "前后均为通信"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T08:52:28+08:00",
+      "end": "2026-07-25T09:00:00+08:00",
+      "duration_seconds": 452.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机微信和QQ通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台微信1.2分钟，QQ6.7分钟",
+        "屏幕一直亮着",
+        "电脑仍AFK无任何操作"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7189,
+      "completion_tokens": 593,
+      "total_tokens": 7782,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6293
+    }
+  }
+}

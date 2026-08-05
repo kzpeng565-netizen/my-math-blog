@@ -1,0 +1,897 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-24T23:00:00+08:00",
+    "end": "2026-07-24T23:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 109,
+      "aw-watcher-afk_xyh": 4,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 25
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 25.64,
+    "afk_minutes": 4.36,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 23.79
+  },
+  "top_apps": [
+    {
+      "app": "微信",
+      "minutes": 8.52
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 8.47
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 5.7
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 0.89
+    },
+    {
+      "app": "Mathpix",
+      "minutes": 0.17
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.03
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 0.89
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "minutes": 8.47
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 7.32
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 5.7
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 1.2
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "minutes": 0.89
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "minutes": 0.17
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "任务切换",
+      "minutes": 0.03
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-24T23:01:26+08:00",
+      "last_seen": "2026-07-24T23:29:27+08:00",
+      "raw_event_count": 23
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-24T23:01:26+08:00",
+      "last_seen": "2026-07-24T23:29:57+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-24T23:18:58+08:00",
+      "last_seen": "2026-07-24T23:19:01+08:00",
+      "raw_event_count": 2
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-24T23:00:00+08:00",
+      "end": "2026-07-24T23:01:37+08:00",
+      "duration_seconds": 97.16,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-24T23:01:37+08:00",
+      "end": "2026-07-24T23:05:58+08:00",
+      "duration_seconds": 261.407,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-24T23:05:58+08:00",
+      "end": "2026-07-24T23:30:00+08:00",
+      "duration_seconds": 1441.432,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-24T23:00:00+08:00",
+      "end": "2026-07-24T23:00:14+08:00",
+      "duration_seconds": 14.587,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:00:15+08:00",
+      "end": "2026-07-24T23:01:37+08:00",
+      "duration_seconds": 81.542,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:05:58+08:00",
+      "end": "2026-07-24T23:06:00+08:00",
+      "duration_seconds": 1.866,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:06:01+08:00",
+      "end": "2026-07-24T23:06:05+08:00",
+      "duration_seconds": 4.113,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:06:06+08:00",
+      "end": "2026-07-24T23:06:30+08:00",
+      "duration_seconds": 23.773,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:06:31+08:00",
+      "end": "2026-07-24T23:06:33+08:00",
+      "duration_seconds": 2.072,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:06:34+08:00",
+      "end": "2026-07-24T23:08:11+08:00",
+      "duration_seconds": 96.801,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:08:12+08:00",
+      "end": "2026-07-24T23:08:14+08:00",
+      "duration_seconds": 2.073,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:08:16+08:00",
+      "end": "2026-07-24T23:08:18+08:00",
+      "duration_seconds": 2.063,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:08:19+08:00",
+      "end": "2026-07-24T23:08:20+08:00",
+      "duration_seconds": 1.024,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:08:22+08:00",
+      "end": "2026-07-24T23:08:23+08:00",
+      "duration_seconds": 1.026,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "任务切换",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:08:24+08:00",
+      "end": "2026-07-24T23:08:26+08:00",
+      "duration_seconds": 2.064,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:08:27+08:00",
+      "end": "2026-07-24T23:08:33+08:00",
+      "duration_seconds": 4.101,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:08:35+08:00",
+      "end": "2026-07-24T23:08:37+08:00",
+      "duration_seconds": 1.024,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:08:38+08:00",
+      "end": "2026-07-24T23:08:43+08:00",
+      "duration_seconds": 5.152,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:08:44+08:00",
+      "end": "2026-07-24T23:08:46+08:00",
+      "duration_seconds": 2.064,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:08:47+08:00",
+      "end": "2026-07-24T23:09:39+08:00",
+      "duration_seconds": 52.538,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:09:40+08:00",
+      "end": "2026-07-24T23:10:08+08:00",
+      "duration_seconds": 27.872,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:10:10+08:00",
+      "end": "2026-07-24T23:10:17+08:00",
+      "duration_seconds": 4.118,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:10:18+08:00",
+      "end": "2026-07-24T23:10:19+08:00",
+      "duration_seconds": 1.026,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:10:21+08:00",
+      "end": "2026-07-24T23:10:23+08:00",
+      "duration_seconds": 2.066,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:10:24+08:00",
+      "end": "2026-07-24T23:10:51+08:00",
+      "duration_seconds": 26.871,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:10:52+08:00",
+      "end": "2026-07-24T23:11:06+08:00",
+      "duration_seconds": 14.52,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:11:07+08:00",
+      "end": "2026-07-24T23:11:08+08:00",
+      "duration_seconds": 1.031,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:11:09+08:00",
+      "end": "2026-07-24T23:11:23+08:00",
+      "duration_seconds": 11.319,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:11:24+08:00",
+      "end": "2026-07-24T23:11:25+08:00",
+      "duration_seconds": 1.029,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "任务切换",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:11:26+08:00",
+      "end": "2026-07-24T23:12:02+08:00",
+      "duration_seconds": 35.966,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:12:03+08:00",
+      "end": "2026-07-24T23:12:30+08:00",
+      "duration_seconds": 26.823,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:12:30+08:00",
+      "end": "2026-07-24T23:12:33+08:00",
+      "duration_seconds": 3.082,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T23:12:33+08:00",
+      "end": "2026-07-24T23:12:55+08:00",
+      "duration_seconds": 22.638,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:12:56+08:00",
+      "end": "2026-07-24T23:13:42+08:00",
+      "duration_seconds": 43.283,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:13:43+08:00",
+      "end": "2026-07-24T23:14:09+08:00",
+      "duration_seconds": 26.796,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:14:10+08:00",
+      "end": "2026-07-24T23:16:46+08:00",
+      "duration_seconds": 155.63,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:16:48+08:00",
+      "end": "2026-07-24T23:17:10+08:00",
+      "duration_seconds": 21.684,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:17:11+08:00",
+      "end": "2026-07-24T23:17:19+08:00",
+      "duration_seconds": 8.263,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:17:20+08:00",
+      "end": "2026-07-24T23:17:38+08:00",
+      "duration_seconds": 17.576,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:17:39+08:00",
+      "end": "2026-07-24T23:17:42+08:00",
+      "duration_seconds": 3.105,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:17:43+08:00",
+      "end": "2026-07-24T23:18:52+08:00",
+      "duration_seconds": 67.314,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:18:52+08:00",
+      "end": "2026-07-24T23:18:55+08:00",
+      "duration_seconds": 3.095,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T23:18:55+08:00",
+      "end": "2026-07-24T23:18:57+08:00",
+      "duration_seconds": 2.051,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T23:18:57+08:00",
+      "end": "2026-07-24T23:19:02+08:00",
+      "duration_seconds": 4.114,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T23:19:02+08:00",
+      "end": "2026-07-24T23:19:03+08:00",
+      "duration_seconds": 1.026,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:19:04+08:00",
+      "end": "2026-07-24T23:19:27+08:00",
+      "duration_seconds": 23.775,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:19:28+08:00",
+      "end": "2026-07-24T23:20:18+08:00",
+      "duration_seconds": 49.494,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:20:20+08:00",
+      "end": "2026-07-24T23:20:21+08:00",
+      "duration_seconds": 1.024,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:20:22+08:00",
+      "end": "2026-07-24T23:20:25+08:00",
+      "duration_seconds": 3.082,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:20:26+08:00",
+      "end": "2026-07-24T23:21:41+08:00",
+      "duration_seconds": 70.299,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:21:41+08:00",
+      "end": "2026-07-24T23:21:44+08:00",
+      "duration_seconds": 3.094,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T23:21:44+08:00",
+      "end": "2026-07-24T23:21:45+08:00",
+      "duration_seconds": 1.025,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:21:47+08:00",
+      "end": "2026-07-24T23:22:18+08:00",
+      "duration_seconds": 28.826,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:22:19+08:00",
+      "end": "2026-07-24T23:22:46+08:00",
+      "duration_seconds": 27.842,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:22:48+08:00",
+      "end": "2026-07-24T23:22:51+08:00",
+      "duration_seconds": 3.09,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:22:53+08:00",
+      "end": "2026-07-24T23:23:09+08:00",
+      "duration_seconds": 16.459,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:23:10+08:00",
+      "end": "2026-07-24T23:23:28+08:00",
+      "duration_seconds": 17.613,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:23:30+08:00",
+      "end": "2026-07-24T23:24:38+08:00",
+      "duration_seconds": 68.192,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:24:39+08:00",
+      "end": "2026-07-24T23:25:35+08:00",
+      "duration_seconds": 55.727,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:25:36+08:00",
+      "end": "2026-07-24T23:25:38+08:00",
+      "duration_seconds": 2.076,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:25:39+08:00",
+      "end": "2026-07-24T23:25:42+08:00",
+      "duration_seconds": 3.102,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:25:43+08:00",
+      "end": "2026-07-24T23:25:54+08:00",
+      "duration_seconds": 11.367,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:25:55+08:00",
+      "end": "2026-07-24T23:26:00+08:00",
+      "duration_seconds": 4.126,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:26:01+08:00",
+      "end": "2026-07-24T23:26:28+08:00",
+      "duration_seconds": 27.875,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:26:30+08:00",
+      "end": "2026-07-24T23:26:48+08:00",
+      "duration_seconds": 18.546,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:26:49+08:00",
+      "end": "2026-07-24T23:27:05+08:00",
+      "duration_seconds": 15.492,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:27:06+08:00",
+      "end": "2026-07-24T23:28:48+08:00",
+      "duration_seconds": 102.037,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:28:49+08:00",
+      "end": "2026-07-24T23:28:50+08:00",
+      "duration_seconds": 1.039,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:28:51+08:00",
+      "end": "2026-07-24T23:28:57+08:00",
+      "duration_seconds": 6.195,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:28:59+08:00",
+      "end": "2026-07-24T23:29:14+08:00",
+      "duration_seconds": 15.457,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:29:17+08:00",
+      "end": "2026-07-24T23:29:23+08:00",
+      "duration_seconds": 6.199,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T23:29:24+08:00",
+      "end": "2026-07-24T23:29:41+08:00",
+      "duration_seconds": 15.443,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:29:42+08:00",
+      "end": "2026-07-24T23:29:44+08:00",
+      "duration_seconds": 2.082,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:29:45+08:00",
+      "end": "2026-07-24T23:29:52+08:00",
+      "duration_seconds": 4.12,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:29:53+08:00",
+      "end": "2026-07-24T23:29:54+08:00",
+      "duration_seconds": 1.034,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T23:29:55+08:00",
+      "end": "2026-07-24T23:30:00+08:00",
+      "duration_seconds": 4.814,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.928,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.038,
+    "browser_share_of_active_time": 0.035,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

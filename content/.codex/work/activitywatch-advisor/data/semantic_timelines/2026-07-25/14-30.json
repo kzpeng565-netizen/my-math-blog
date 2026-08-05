@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T14:30:00+08:00",
+    "end": "2026-07-25T15:00:00+08:00"
+  },
+  "primary_work_task": "物理学习：时间与位移",
+  "segments": [
+    {
+      "start": "2026-07-25T14:30:00+08:00",
+      "end": "2026-07-25T14:30:51+08:00",
+      "duration_seconds": 51.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "观看B站视频学习物理基础概念（时间、时刻）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge前台播放B站视频'4.★【基础物理量】时间时刻'",
+        "配合Mathpix截图和Obsidian笔记，属于学习行为",
+        "手机同时亮屏，QQ使用3秒后迅速返回学习（<30秒）",
+        "辅助上下文显示14:25-14:30同样在学习，持续连贯"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T14:30:51+08:00",
+      "end": "2026-07-25T14:35:17+08:00",
+      "duration_seconds": 266.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信、QQ通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK，手机屏幕全程亮屏（14:30:52-14:35:16）",
+        "手机前台主要为QQ（约5.6分钟）和少量微信",
+        "无证据表明通信服务于学习任务",
+        "属于独立通信时段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T14:35:17+08:00",
+      "end": "2026-07-25T14:51:39+08:00",
+      "duration_seconds": 982.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "学习物理基础视频（时间、位移）并整理笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "反复切换Edge B站视频（4.时间时刻、5.位移）和Obsidian笔记",
+        "使用Mathpix截图，结合SnippingTool辅助",
+        "搜索'初高中物理衔接'进一步学习",
+        "手机大部分时间屏幕关闭，无干扰"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T14:51:39+08:00",
+      "end": "2026-07-25T15:00:00+08:00",
+      "duration_seconds": 501.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎娱乐内容：菲尔兹奖相关诗词及其他",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "学习视频结束后新建标签页、进入知乎",
+        "浏览'从文学角度来看，菲尔兹奖得主邓煜的诗词选'",
+        "搜索并阅读诗词内容，与学习无直接关联",
+        "后续辅助上下文显示继续浏览其他知乎娱乐话题（'马克龙打电话祝贺王虹获奖'），为娱乐延续"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "14:30:51-14:35:17的QQ使用是否包含学习相关的交流？无明确证据，归为通信。",
+    "14:51:39之后的知乎浏览是否包含非娱乐目的？标题和内容均为诗词娱乐，无工作相关，判断为娱乐。"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 27906,
+      "completion_tokens": 878,
+      "total_tokens": 28784,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 27010
+    }
+  }
+}

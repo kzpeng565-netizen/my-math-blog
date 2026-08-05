@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T01:00:00+08:00",
+    "end": "2026-07-27T01:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T01:00:00+08:00",
+      "end": "2026-07-27T01:22:44+08:00",
+      "duration_seconds": 1364.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "没有检测到任何设备交互，可能是睡眠或休息",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑状态未知且AFK未知，无浏览器或窗口记录",
+        "手机屏幕持续关闭",
+        "平板亮屏仅作为辅助背景信息，不确认用户活动",
+        "没有其他设备交互数据"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T01:22:44+08:00",
+      "end": "2026-07-27T01:22:53+08:00",
+      "duration_seconds": 9.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "手机短暂亮屏9秒，前台应用未知",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮起9秒",
+        "前台应用未识别",
+        "无法确定目的"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T01:22:53+08:00",
+      "end": "2026-07-27T01:30:00+08:00",
+      "duration_seconds": 427.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "手机熄屏，无其他设备活动",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "手机屏幕熄灭",
+        "电脑无活动数据",
+        "无其他设备交互"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "material_uncertainties": [
+    "整个时段电脑无任何活动记录，无法判断用户是否在使用电脑或在休息",
+    "手机仅亮屏9秒且应用未知，无法确定用户意图"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5100,
+      "completion_tokens": 514,
+      "total_tokens": 5614,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 5100
+    }
+  }
+}

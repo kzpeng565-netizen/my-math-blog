@@ -1,0 +1,173 @@
+{
+  "period": "2026-07-25T19:00:00+08:00/2026-07-25T19:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐1.98分钟，通信0.0分钟，确认休息28.02分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 1.98,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "未检测到工作—娱乐混杂，因为全程无工作活动（电脑AFK，手机操作均为纯娱乐或短暂通信）。"
+  },
+  "computer_summary": "电脑全程无活跃窗口，处于AFK状态，无工作或娱乐活动。",
+  "phone_summary": "手机屏幕总开启0.93分钟，主要用于浏览哔哩哔哩、微信通信、桌面和全局搜索，属于短暂娱乐和通信，不涉及工作。",
+  "material_uncertainties": [
+    "手机前1.98分钟具体观看哔哩哔哩内容是否与工作无关已明确（娱乐）",
+    "微信使用是否包含工作相关消息：根据上下文，电脑AFK且无工作迹象，微信使用视为短暂通信"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐1.98分钟，通信0.0分钟，确认休息28.02分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "手机前1.98分钟的使用（哔哩哔哩、微信、全局搜索等）是否属于工作前调整或学习？若不，则确认为娱乐/休息",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 30.0,
+    "phone_screen_on_minutes": 0.93,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 29.07,
+    "confirmed_rest_minutes": 28.02
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 1.98,
+      "range_minutes": [
+        1.98,
+        1.98
+      ],
+      "evidence": [
+        "19:00:00-19:00:01前台为哔哩哔哩",
+        "随后切换到桌面、微信等",
+        "19:01:31-19:01:59亮屏使用全局搜索和Automate",
+        "电脑全程AFK无操作"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 28.02,
+      "range_minutes": [
+        28.02,
+        28.02
+      ],
+      "evidence": [
+        "跨设备休息规则确认19:01:59-19:30:00为rest",
+        "电脑AFK，手机屏幕关闭",
+        "无任何设备交互"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "19:00-19:01",
+      "likely_state": "娱乐",
+      "minutes": 1.98,
+      "task": "看哔哩哔哩视频、切换到桌面、短暂用微信和全局搜索等",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "19:00:00-19:00:01前台为哔哩哔哩",
+        "随后切换到桌面、微信等",
+        "19:01:31-19:01:59亮屏使用全局搜索和Automate",
+        "电脑全程AFK无操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "19:01-19:30",
+      "likely_state": "休息",
+      "minutes": 28.02,
+      "task": "休息，无设备交互",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认19:01:59-19:30:00为rest",
+        "电脑AFK，手机屏幕关闭",
+        "无任何设备交互"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4783,
+      "completion_tokens": 613,
+      "total_tokens": 5396,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 245
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 3887
+    }
+  }
+}

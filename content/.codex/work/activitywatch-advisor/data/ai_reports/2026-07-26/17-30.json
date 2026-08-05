@@ -1,0 +1,239 @@
+{
+  "period": "2026-07-26T17:30:00+08:00/2026-07-26T18:00:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信0.73分钟，确认休息28.87分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.73,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中未出现任何超过30秒的娱乐偏离，娱乐偏离次数为0，最长偏离0分钟。"
+  },
+  "computer_summary": "电脑在17:42:20-17:43:04有微信通信，其余时间处于AFK状态（28.85分钟），无其他主动操作。",
+  "phone_summary": "手机全程息屏，无任何活动。",
+  "material_uncertainties": [
+    "17:42:16-17:42:20的4秒无窗口记录，可能是微信操作开始前的瞬态",
+    "17:46:16-17:46:36的20秒状态为unknown，无法判断用户意图"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信0.73分钟，确认休息28.87分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "17:42:16-17:42:20的4秒无窗口记录是否可能涉及娱乐活动？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.81,
+    "computer_afk_minutes": 28.85,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 29.2,
+    "confirmed_rest_minutes": 28.87
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.73,
+      "range_minutes": [
+        0.73,
+        0.73
+      ],
+      "evidence": [
+        "前台窗口为微信",
+        "标题为微信",
+        "时长不足1分钟"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 28.87,
+      "range_minutes": [
+        28.87,
+        28.87
+      ],
+      "evidence": [
+        "电脑AFK，手机屏幕关闭",
+        "跨设备规则确认休息区间",
+        "无任何主动交互"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.4,
+      "range_minutes": [
+        0.4,
+        0.4
+      ],
+      "evidence": [
+        "电脑状态从AFK变为not-afk但窗口记录缺失",
+        "活跃时间仅4秒",
+        "电脑状态变为unknown",
+        "手机屏幕关闭"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "17:30-17:42",
+      "likely_state": "休息",
+      "minutes": 12.27,
+      "task": "休息（电脑无操作，手机息屏）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机屏幕关闭",
+        "跨设备规则确认休息区间",
+        "无任何主动交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:42-17:42",
+      "likely_state": "无法判断",
+      "minutes": 0.07,
+      "task": "短暂活跃但无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态从AFK变为not-afk但窗口记录缺失",
+        "活跃时间仅4秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "17:42-17:43",
+      "likely_state": "通信",
+      "minutes": 0.73,
+      "task": "微信通信（沟通）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口为微信",
+        "标题为微信",
+        "时长不足1分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:43-17:46",
+      "likely_state": "休息",
+      "minutes": 3.2,
+      "task": "休息（电脑无操作，手机息屏）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机屏幕关闭",
+        "跨设备规则确认休息区间",
+        "无任何主动交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:46-17:46",
+      "likely_state": "无法判断",
+      "minutes": 0.33,
+      "task": "电脑状态切换，短暂未知",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态变为unknown",
+        "手机屏幕关闭",
+        "时长仅20秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "17:46-18:00",
+      "likely_state": "休息",
+      "minutes": 13.4,
+      "task": "休息（电脑无操作，手机息屏）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机屏幕关闭",
+        "跨设备规则确认休息区间",
+        "无任何主动交互"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4348,
+      "completion_tokens": 572,
+      "total_tokens": 4920,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 225
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 3452
+    }
+  }
+}

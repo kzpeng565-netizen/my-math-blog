@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T14:30:00+08:00",
+    "end": "2026-07-27T15:00:00+08:00"
+  },
+  "primary_work_task": "中职生升学相关资料搜索与AI辅助学习",
+  "segments": [
+    {
+      "start": "2026-07-27T14:30:00+08:00",
+      "end": "2026-07-27T14:47:03+08:00",
+      "duration_seconds": 1023.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "无电脑或手机活动，根据规则判定为休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 17.05分钟（14:30:00-14:47:03）",
+        "手机全程熄屏",
+        "平板亮屏，但作为辅助数据源不否决休息",
+        "休息规则确认该区间为休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T14:47:03+08:00",
+      "end": "2026-07-27T14:47:43+08:00",
+      "duration_seconds": 40.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "访问DeepSeek开放平台，准备或查阅学习相关资源",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名platform.deepseek.com，标题'DeepSeek 开放平台'",
+        "短暂切换至微信0.02分钟（仅1秒），不形成独立通信段",
+        "相邻上下文显示此前AFK，醒来后先访问DeepSeek"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T14:47:43+08:00",
+      "end": "2026-07-27T14:48:08+08:00",
+      "duration_seconds": 25.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "通过B站学习高中数学，视频标题为'高职高考-中职数学-成人自考-入门篇 从零开始学高中数学 职高数学'",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名bilibili.com，标题包含'高职高考-中职数学'",
+        "紧接DeepSeek后，数学学习与后续工作连贯"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T14:48:08+08:00",
+      "end": "2026-07-27T14:48:43+08:00",
+      "duration_seconds": 35.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在B站搜索'职高升学'相关视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名search.bilibili.com，标题'职高升学-哔哩哔哩_bilibili'",
+        "搜索行为属于探索学习资源"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T14:48:43+08:00",
+      "end": "2026-07-27T14:50:26+08:00",
+      "duration_seconds": 103.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "观看B站视频'盘点中职生升学四种方式！听说中职升本科更容易？'，了解中职生升学途径",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名bilibili.com，标题明确关于中职升学",
+        "与搜索'职高升学'连贯，属于同一信息收集任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T14:50:26+08:00",
+      "end": "2026-07-27T14:50:29+08:00",
+      "duration_seconds": 3.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "短暂无窗口记录，可能切换标签页",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "活跃但无窗口记录3秒，时长极短"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T14:50:29+08:00",
+      "end": "2026-07-27T14:50:56+08:00",
+      "duration_seconds": 27.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "打开新建标签页，准备访问新网站",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，标题'新建标签页'",
+        "随后迅速访问ChatGPT，属于任务切换间隙"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T14:50:56+08:00",
+      "end": "2026-07-27T14:51:03+08:00",
+      "duration_seconds": 7.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "访问ChatGPT主页，准备进行AI对话",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，标题'ChatGPT: Chat, Work, Create & Code with AI'和'ChatGPT'",
+        "属于工作流程中的工具切换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T14:51:03+08:00",
+      "end": "2026-07-27T14:52:44+08:00",
+      "duration_seconds": 101.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT中询问'药学课程学习建议'，可能是为教学或个人学习做准备",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名chatgpt.com，标题'药学课程学习建议'",
+        "与之前学习主题一致，属于主动学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T14:52:44+08:00",
+      "end": "2026-07-27T14:53:35+08:00",
+      "duration_seconds": 51.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "ChatGPT中新建对话，可能准备新问题或整理信息",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，标题'New chat'",
+        "继续在ChatGPT中操作，属于同一任务"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T14:53:35+08:00",
+      "end": "2026-07-27T14:53:52+08:00",
+      "duration_seconds": 17.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "回到B站继续浏览数学视频，但很快又切换",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名bilibili.com，标题'高职高考-中职数学-成人自考-入门篇 从零开始学高中数学 职高数学'",
+        "短暂返回，后切换至'盘点中职生升学'，均为学习相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T14:53:52+08:00",
+      "end": "2026-07-27T15:00:00+08:00",
+      "duration_seconds": 368.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "观看B站视频'盘点中职生升学四种方式！听说中职升本科更容易？'，深入了解中职升学路径",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名bilibili.com，标题关于中职升学",
+        "持续观看至报告时段结束，共约6分钟",
+        "与前半段观看内容相同，属于持续学习"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11421,
+      "completion_tokens": 1997,
+      "total_tokens": 13418,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 10397
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T10:00:00+08:00",
+    "end": "2026-07-27T10:30:00+08:00"
+  },
+  "primary_work_task": "高中数学2 集合与逻辑学习",
+  "segments": [
+    {
+      "start": "2026-07-27T10:00:00+08:00",
+      "end": "2026-07-27T10:07:32+08:00",
+      "duration_seconds": 452.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian学习集合与逻辑，使用Mathpix截图，并参考B站视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题'高中数学2 集合与逻辑'持续显示",
+        "多次使用Mathpix截图记录",
+        "前置上下文显示此前已在Obsidian学习同一主题",
+        "B站视频标题为'高中数学中的充分必要条件......'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:07:32+08:00",
+      "end": "2026-07-27T10:09:33+08:00",
+      "duration_seconds": 121.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "处理微信聊天和聊天记录迁移",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口显示'聊天记录迁移与备份'约9秒",
+        "微信前台总时长约0.35分钟",
+        "穿插文件资源管理器浏览系统盘",
+        "之后切回Obsidian继续工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:09:33+08:00",
+      "end": "2026-07-27T10:10:36+08:00",
+      "duration_seconds": 63.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian继续学习集合与逻辑",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题'高中数学2 集合与逻辑'持续显示1.05分钟",
+        "前一段微信后直接返回Obsidian",
+        "前后文档一致"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:10:36+08:00",
+      "end": "2026-07-27T10:14:33+08:00",
+      "duration_seconds": 237.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "观看B站集合与逻辑教学视频，并在Obsidian做笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "反复切换Edge浏览'【集合与逻辑】2.1 逻辑'和Obsidian",
+        "视频与笔记主题一致，互为补充",
+        "包含少量Mathpix截图"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:14:33+08:00",
+      "end": "2026-07-27T10:16:48+08:00",
+      "duration_seconds": 135.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "使用Cleaner One清理系统临时文件，并浏览文件资源管理器",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Cleaner One.exe窗口标题'清理君'持续约2.17分钟",
+        "涉及系统盘和Program Files等系统目录",
+        "穿插Microsoft Store启动",
+        "属于系统维护，短时间支持任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:16:48+08:00",
+      "end": "2026-07-27T10:23:16+08:00",
+      "duration_seconds": 388.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian学习集合与逻辑，间歇切换B站视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian主窗口标题持续显示'高中数学2 集合与逻辑'",
+        "频繁切换Edge视频，时长较短支持性观看",
+        "Mathpix截图穿插使用"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:23:16+08:00",
+      "end": "2026-07-27T10:23:44+08:00",
+      "duration_seconds": 28.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "使用ChatGPT查询集合运算转换问题",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge访问chatgpt.com，标题'集合运算转换'",
+        "时长约18秒",
+        "与学习主题直接相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:23:44+08:00",
+      "end": "2026-07-27T10:27:53+08:00",
+      "duration_seconds": 249.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian继续集合与逻辑学习，穿插B站视频和ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian持续显示学习主题",
+        "B站视频和ChatGPT '充分必要条件练习'标签页可见",
+        "Mathpix截图辅助记录"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:27:53+08:00",
+      "end": "2026-07-27T10:28:12+08:00",
+      "duration_seconds": 19.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "使用ChatGPT进行充分必要条件练习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge访问chatgpt.com，标题'充分必要条件练习'",
+        "时长约14秒",
+        "与学习主题直接相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:28:12+08:00",
+      "end": "2026-07-27T10:30:00+08:00",
+      "duration_seconds": 108.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian完成集合与逻辑笔记，浏览B站视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题持续显示",
+        "末尾切换Edge观看视频11秒",
+        "整体学习任务延续"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "微信聊天具体内容未知，但短时间且标题为迁移备份，故归为brief_communication",
+    "Cleaner One清理操作与主任务关联性中等，但短时间不影响分段"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 33387,
+      "completion_tokens": 1691,
+      "total_tokens": 35078,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 32363
+    }
+  }
+}

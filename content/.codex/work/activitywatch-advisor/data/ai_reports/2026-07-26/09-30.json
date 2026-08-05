@@ -1,0 +1,245 @@
+{
+  "period": "2026-07-26T09:30:00+08:00/2026-07-26T10:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：高中数学集合与逻辑学习。工作28.33分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 13.15,
+    "same_task_tool_switches_not_scored": 63,
+    "raw_foreground_context_switches_not_scored": 66,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作中未出现任何超过30秒的娱乐偏离；娱乐分钟数为0，娱乐偏离次数为0。"
+  },
+  "computer_summary": "主要使用Obsidian（15.65分钟）编写高中数学集合与逻辑笔记，同时使用Edge浏览器（8.61分钟）观看哔哩哔哩集合教学视频（如【集合与逻辑】1.1、1.2）和搜索相关衔接资料；Mathpix短暂用于公式截图，属于工作辅助。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "material_uncertainties": [
+    "09:44:44前后短暂Mathpix使用是否属于独立切换，已合并为supporting_work",
+    "09:44:44前后Mathpix使用（约5秒）是否完全属于工作辅助，已合并为supporting_work，不影响结论。"
+  ],
+  "concise_report": "主要任务：高中数学集合与逻辑学习。工作28.33分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "09:44:44前后Mathpix使用是否属于工作辅助而非娱乐偏离？",
+  "observed_metrics": {
+    "computer_active_minutes": 28.41,
+    "computer_afk_minutes": 1.59,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 1.58,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 28.33,
+      "range_minutes": [
+        28.33,
+        28.33
+      ],
+      "evidence": [
+        "Edge浏览器播放【集合与逻辑】1.1、1.2视频",
+        "Obsidian编辑高中数学1 集合与逻辑笔记",
+        "期间搜索初高中数学衔接",
+        "AFK后持续工作"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 1.67,
+      "range_minutes": [
+        1.67,
+        1.67
+      ],
+      "evidence": [
+        "09:30:00-09:31:35状态AFK",
+        "手机处于熄屏状态",
+        "无操作",
+        "Mathpix Snipping Tool前台约2秒"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "09:30-09:31",
+      "likely_state": "其他",
+      "minutes": 1.58,
+      "task": "AFK离开电脑",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "09:30:00-09:31:35状态AFK",
+        "手机处于熄屏状态",
+        "无操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "09:31-09:44",
+      "likely_state": "工作",
+      "minutes": 13.15,
+      "task": "观看哔哩哔哩集合与逻辑教学视频并在Obsidian记笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器播放【集合与逻辑】1.1、1.2视频",
+        "Obsidian编辑高中数学1 集合与逻辑笔记",
+        "期间搜索初高中数学衔接",
+        "AFK后持续工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "09:44-09:44",
+      "likely_state": "其他",
+      "minutes": 0.08,
+      "task": "短暂使用Mathpix截图工具",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Mathpix Snipping Tool前台约2秒",
+        "随后返回Edge视频页面",
+        "Mathpix用于数学公式识别"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "09:44-09:46",
+      "likely_state": "工作",
+      "minutes": 1.4,
+      "task": "搜索并浏览初高中数学衔接资料",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge哔哩哔哩搜索'初高中数学衔接'",
+        "浏览搜索结果页约34秒",
+        "与当前集合学习主题相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "09:46-09:50",
+      "likely_state": "工作",
+      "minutes": 4.73,
+      "task": "观看哔哩哔哩'集合的概念'视频并做笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge播放'集合】1集合的概念（易）'视频",
+        "Obsidian笔记持续编辑",
+        "Mathpix偶尔用于公式抓取"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "09:50-10:00",
+      "likely_state": "工作",
+      "minutes": 9.05,
+      "task": "继续观看1.1集合视频并切换到1.2集合间的运算，配合Obsidian笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "09:50:57回到1.1视频",
+        "09:58:49切换到1.2集合间的运算视频",
+        "Obsidian笔记持续编辑",
+        "手机全程熄屏"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "高中数学集合与逻辑学习",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活跃窗口只覆盖86.8%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19926,
+      "completion_tokens": 489,
+      "total_tokens": 20415,
+      "prompt_tokens_details": {
+        "cached_tokens": 19840
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 134
+      },
+      "prompt_cache_hit_tokens": 19840,
+      "prompt_cache_miss_tokens": 86
+    }
+  }
+}

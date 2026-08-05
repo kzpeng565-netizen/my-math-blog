@@ -1,0 +1,508 @@
+{
+  "period": "2026-07-27T00:30:00+08:00/2026-07-27T01:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "medium",
+    "one_sentence": "主要任务：Monaco编辑器方案评估。工作14.52分钟，娱乐0.47分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.47,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 4,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 4.23,
+    "same_task_tool_switches_not_scored": 9,
+    "raw_foreground_context_switches_not_scored": 25,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中没有超过30秒的娱乐偏离。两次短暂娱乐（00:32:37-00:32:56浏览B站19秒，00:41:30-00:41:39浏览知乎和B站9秒）均低于30秒阈值，不计入混杂等级。"
+  },
+  "computer_summary": "电脑主要任务为Monaco编辑器方案评估：通过ChatGPT（约10.8分钟）和Edge（约3.5分钟）交替工作，涉及标题“高与极高差异”、“Monaco编辑器方案评估”、“Monaco Lite”等；期间两次短暂浏览B站和知乎（均<30秒）后立即返回工作；最后13.4分钟电脑状态未知。",
+  "phone_summary": "手机仅在00:35:50-00:35:54亮屏4秒，前台显示“不做手机控”（锁屏应用），无实质活动。",
+  "tablet_summary": "平板亮屏18.27分钟，但作为辅助数据源，不覆盖电脑或手机判断；00:46:36后电脑未知时段平板持续亮屏，可能用户在使用平板但无法确认。",
+  "material_uncertainties": [
+    "电脑从00:46:36起状态未知13.4分钟，无法确认用户活动（可能休息、平板使用或离开）",
+    "多个极短切换（系统托盘、Clash Verge、新标签页）目的不明确，可能为系统误操作"
+  ],
+  "concise_report": "主要任务：Monaco编辑器方案评估。工作14.52分钟，娱乐0.47分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "电脑在00:46:36后进入未知状态，平板在这段时间亮屏，这是否意味着你已切换到平板进行娱乐或休息？",
+  "observed_metrics": {
+    "computer_active_minutes": 16.61,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.07,
+    "simultaneous_computer_active_phone_on_minutes": 0.07,
+    "no_detected_device_interaction_minutes": 13.4,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 14.52,
+      "range_minutes": [
+        14.52,
+        14.52
+      ],
+      "evidence": [
+        "Edge标题'深度极高与高差别'、'高与极高差异'在chatgpt.com",
+        "ChatGPT程序活跃",
+        "ChatGPT连续活跃约1.5分钟",
+        "Edge搜索Tavily、打开B站但仅几秒"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.47,
+      "range_minutes": [
+        0.47,
+        0.47
+      ],
+      "evidence": [
+        "Edge窗口标题'哔哩哔哩'和'AI排名-哔哩哔哩'",
+        "持续时间不到30秒，后返回ChatGPT",
+        "Edge标题'首页 - 知乎'和'哔哩哔哩'",
+        "短暂偏离后返回Monaco编辑器评估"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 15.02,
+      "range_minutes": [
+        15.02,
+        15.02
+      ],
+      "evidence": [
+        "资源管理器和Clash verge各出现约1秒",
+        "目的不明，可能系统操作或误切",
+        "Edge标题在pi.taild4d3f7.ts.net和高与极高差异之间切换",
+        "有几秒无窗口记录"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "00:30-00:31",
+      "likely_state": "工作",
+      "minutes": 1.08,
+      "task": "使用ChatGPT窗口和Edge查看AI模型差异（高与极高）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'深度极高与高差别'、'高与极高差异'在chatgpt.com",
+        "ChatGPT程序活跃"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:31-00:32",
+      "likely_state": "工作",
+      "minutes": 1.53,
+      "task": "使用ChatGPT分析模型差异并短暂搜索",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT连续活跃约1.5分钟",
+        "Edge搜索Tavily、打开B站但仅几秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:32-00:32",
+      "likely_state": "娱乐",
+      "minutes": 0.32,
+      "task": "短暂浏览B站",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge窗口标题'哔哩哔哩'和'AI排名-哔哩哔哩'",
+        "持续时间不到30秒，后返回ChatGPT"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:32-00:34",
+      "likely_state": "工作",
+      "minutes": 1.67,
+      "task": "使用ChatGPT继续工作",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT窗口连续活跃约1.5分钟",
+        "上下文显示之前在工作，浏览B站后返回"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:34-00:34",
+      "likely_state": "无法判断",
+      "minutes": 0.27,
+      "task": "短暂切换窗口（资源管理器、Clash Verge）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "资源管理器和Clash verge各出现约1秒",
+        "目的不明，可能系统操作或误切"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "00:34-00:35",
+      "likely_state": "工作",
+      "minutes": 0.2,
+      "task": "打开新标签页",
+      "work_category": "其他工作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge新标签页",
+        "随后回到ChatGPT"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "00:35-00:37",
+      "likely_state": "工作",
+      "minutes": 1.97,
+      "task": "使用ChatGPT持续工作约2分钟",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT窗口连续活跃",
+        "上下文表明继续之前任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:37-00:37",
+      "likely_state": "无法判断",
+      "minutes": 0.27,
+      "task": "快速切换Edge标签（pi.taild4d3f7.ts.net、chatgpt.com）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题在pi.taild4d3f7.ts.net和高与极高差异之间切换",
+        "有几秒无窗口记录"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "00:37-00:37",
+      "likely_state": "工作",
+      "minutes": 0.1,
+      "task": "使用ChatGPT",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT窗口活跃5秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "00:37-00:38",
+      "likely_state": "无法判断",
+      "minutes": 0.8,
+      "task": "系统管理操作（资源管理器、Clash Verge、Edge）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "资源管理器、Clash Verge、Edge标题'pi.taild4d3f7.ts.net'频繁切换",
+        "包含系统托盘溢出窗口"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "00:38-00:38",
+      "likely_state": "工作",
+      "minutes": 0.33,
+      "task": "查看Monaco Lite编辑器",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'Monaco Lite'在pi.taild4d3f7.ts.net持续约18秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:38-00:38",
+      "likely_state": "工作",
+      "minutes": 0.02,
+      "task": "切换到Obsidian笔记'高中物理1 加速度'",
+      "work_category": "数学学习",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题'高中物理1 加速度'"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "00:38-00:38",
+      "likely_state": "无法判断",
+      "minutes": 0.07,
+      "task": "活跃但无窗口记录（3秒）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "无窗口记录，可能短暂离开"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "00:38-00:38",
+      "likely_state": "工作",
+      "minutes": 0.37,
+      "task": "使用ChatGPT",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT窗口活跃约21秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:38-00:39",
+      "likely_state": "工作",
+      "minutes": 0.8,
+      "task": "查看Monaco Lite并截屏(Mathpix)",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'Monaco Lite'持续46秒",
+        "Mathpix出现一次截屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:39-00:39",
+      "likely_state": "工作",
+      "minutes": 0.17,
+      "task": "使用ChatGPT",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT窗口活跃约6秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "00:39-00:40",
+      "likely_state": "无法判断",
+      "minutes": 0.08,
+      "task": "活跃但无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "4秒无窗口记录"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "00:40-00:41",
+      "likely_state": "工作",
+      "minutes": 1.33,
+      "task": "使用ChatGPT约1分19秒",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT窗口连续活跃"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:41-00:41",
+      "likely_state": "无法判断",
+      "minutes": 0.13,
+      "task": "切换窗口（资源管理器、空档）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "资源管理器1秒，4秒无窗口"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "00:41-00:41",
+      "likely_state": "娱乐",
+      "minutes": 0.15,
+      "task": "浏览知乎和B站",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'首页 - 知乎'和'哔哩哔哩'",
+        "短暂偏离后返回Monaco编辑器评估"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:41-00:45",
+      "likely_state": "工作",
+      "minutes": 4.23,
+      "task": "Monaco编辑器方案评估（ChatGPT与Edge交替）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'Monaco编辑器方案评估'持续约4分钟",
+        "ChatGPT多次活跃，资源管理器打开工作流程目录"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:45-00:46",
+      "likely_state": "工作",
+      "minutes": 0.72,
+      "task": "查看Monaco编辑器方案评估和分支·手机自动化方案",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题'Monaco编辑器方案评估'和'分支·手机自动化方案'",
+        "最后出现'ChatGPT'标签"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:46-01:00",
+      "likely_state": "无法判断",
+      "minutes": 13.4,
+      "task": "电脑状态未知，无键鼠操作且手机熄屏",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从00:46:36进入unknown状态持续至结束",
+        "手机全程熄屏",
+        "平板亮屏（辅助）但不确认活动"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "primary_work_task": "Monaco编辑器方案评估",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活动状态未知13.39分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 14836,
+      "completion_tokens": 2478,
+      "total_tokens": 17314,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1931
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 14836
+    }
+  }
+}

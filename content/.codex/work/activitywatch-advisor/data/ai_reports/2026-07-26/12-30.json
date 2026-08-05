@@ -1,0 +1,234 @@
+{
+  "period": "2026-07-26T12:30:00+08:00/2026-07-26T13:00:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：高中数学集合备课。工作2.67分钟，娱乐0.0分钟，通信0.0分钟，确认休息26.9分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 2.67,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "本时段未出现任何工作过程中的娱乐偏离，工作与娱乐无混杂。"
+  },
+  "computer_summary": "电脑仅在12:34:20-12:37:00活跃约2.67分钟，使用腾讯会议查看PDF（高中数学1 集合与逻辑）并打开ChatGPT，服务于高中数学集合备课任务。其余时间电脑AFK。",
+  "phone_summary": "手机全程屏幕关闭，无任何操作。",
+  "material_uncertainties": [
+    "12:41:20-12:41:40的20秒unknown状态无法确定是短暂操作还是系统空闲"
+  ],
+  "concise_report": "主要任务：高中数学集合备课。工作2.67分钟，娱乐0.0分钟，通信0.0分钟，确认休息26.9分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "12:34:20-12:37:00的工作内容（腾讯会议看PDF+ChatGPT，与高中数学备课相关）是否正确？",
+  "observed_metrics": {
+    "computer_active_minutes": 2.76,
+    "computer_afk_minutes": 26.9,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 27.23,
+    "confirmed_rest_minutes": 26.9
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 2.67,
+      "range_minutes": [
+        2.67,
+        2.67
+      ],
+      "evidence": [
+        "腾讯会议标题'彭康哲的快速会议'，窗口事件显示活跃",
+        "背景标签页有'高中数学1 集合与逻辑.pdf'和'Get started | ChatGPT'",
+        "结合前后上下文，用户在此前和此后均围绕数学备课"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 26.9,
+      "range_minutes": [
+        26.9,
+        26.9
+      ],
+      "evidence": [
+        "跨设备连续无操作规则确认休息：12:30-12:34:20",
+        "电脑AFK，手机屏幕关闭",
+        "跨设备连续无操作规则确认休息：12:37:06-12:41:20",
+        "跨设备连续无操作规则确认休息：12:41:40-13:00:00"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.1,
+      "range_minutes": [
+        0.1,
+        0.1
+      ],
+      "evidence": [
+        "腾讯会议标题从'彭康哲的快速会议'变为'腾讯会议'",
+        "持续时间仅2秒，属于操作间隙"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.33,
+      "range_minutes": [
+        0.33,
+        0.33
+      ],
+      "evidence": [
+        "电脑状态为unknown，持续20秒",
+        "无窗口或浏览器事件记录"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "12:30-12:34",
+      "likely_state": "休息",
+      "minutes": 4.33,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备连续无操作规则确认休息：12:30-12:34:20",
+        "电脑AFK，手机屏幕关闭"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:34-12:37",
+      "likely_state": "工作",
+      "minutes": 2.67,
+      "task": "高中数学集合备课：使用腾讯会议查看PDF、打开ChatGPT",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题'彭康哲的快速会议'，窗口事件显示活跃",
+        "背景标签页有'高中数学1 集合与逻辑.pdf'和'Get started | ChatGPT'",
+        "结合前后上下文，用户在此前和此后均围绕数学备课"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:37-12:37",
+      "likely_state": "其他",
+      "minutes": 0.1,
+      "task": "短暂切换腾讯会议窗口（可能结束会议或调整）",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题从'彭康哲的快速会议'变为'腾讯会议'",
+        "持续时间仅2秒，属于操作间隙"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "12:37-12:41",
+      "likely_state": "休息",
+      "minutes": 4.23,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备连续无操作规则确认休息：12:37:06-12:41:20",
+        "电脑AFK，手机屏幕关闭"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:41-12:41",
+      "likely_state": "无法判断",
+      "minutes": 0.33,
+      "task": "电脑状态未知，可能短暂操作或系统空闲",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为unknown，持续20秒",
+        "无窗口或浏览器事件记录"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "12:41-13:00",
+      "likely_state": "休息",
+      "minutes": 18.33,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备连续无操作规则确认休息：12:41:40-13:00:00",
+        "电脑AFK，手机屏幕关闭"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "高中数学集合备课",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4447,
+      "completion_tokens": 1049,
+      "total_tokens": 5496,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 742
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 3551
+    }
+  }
+}

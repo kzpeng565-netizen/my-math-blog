@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T19:30:00+08:00",
+    "end": "2026-07-26T20:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [],
+  "material_uncertainties": [
+    "AI未能生成通过一致性检查的时间线。"
+  ],
+  "_validation": {
+    "passed": false,
+    "errors": [
+      "segments[14].relationship_to_work不在允许列表中",
+      "segments[19].relationship_to_work不在允许列表中",
+      "segments[26].relationship_to_work不在允许列表中"
+    ],
+    "correction_attempts": 2
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 20911,
+      "completion_tokens": 3568,
+      "total_tokens": 24479,
+      "prompt_tokens_details": {
+        "cached_tokens": 17536
+      },
+      "prompt_cache_hit_tokens": 17536,
+      "prompt_cache_miss_tokens": 3375
+    }
+  }
+}

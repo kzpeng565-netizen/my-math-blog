@@ -1,0 +1,196 @@
+{
+  "period": "2026-07-26T10:30:00+08:00/2026-07-26T11:00:00+08:00",
+  "state_assessment": {
+    "label": "unclear",
+    "confidence": "medium",
+    "one_sentence": "主要任务：高中数学集合与逻辑学习。工作13.33分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 11.18,
+    "same_task_tool_switches_not_scored": 10,
+    "raw_foreground_context_switches_not_scored": 11,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "整个30分钟内没有出现超过30秒的娱乐偏离，娱乐分钟数为0，等级为none。"
+  },
+  "computer_summary": "电脑主要任务为高中数学集合与逻辑学习，使用Obsidian整理笔记、ChatGPT查询习题解析、Edge浏览B站容斥原理教学视频和本地PDF；最后3分钟进入腾讯会议准备家教辅导。",
+  "phone_summary": "手机活动集中在10:41-10:57电脑AFK/未知时段，以微信和QQ通信为主（共约4.2分钟），另有少量桌面操作和极短暂的哔哩哔哩（0.02分钟），属于通信或不确定用途。",
+  "material_uncertainties": [
+    "10:41-10:57手机通信（微信/QQ）是独立通信还是与工作相关？但无法确认，故归为uncertain",
+    "10:57-11:00腾讯会议是否属于家教或数学辅导，依据会议标题推测，但缺乏直接证据"
+  ],
+  "concise_report": "主要任务：高中数学集合与逻辑学习。工作13.33分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "10:41-10:57的手机微信/QQ通信是否与工作（数学学习或家教安排）相关？",
+  "observed_metrics": {
+    "computer_active_minutes": 13.32,
+    "computer_afk_minutes": 11.33,
+    "phone_screen_on_minutes": 5.33,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 11.33,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 13.33,
+      "range_minutes": [
+        13.33,
+        13.33
+      ],
+      "evidence": [
+        "Obsidian窗口标题“高中数学1 集合与逻辑”持续10:30-10:40",
+        "ChatGPT标签页“包含关系习题解析”于10:32-10:33前台",
+        "B站视频“【集合与逻辑】1.4 容斥原理”于10:32短暂前台",
+        "10:40打开本地PDF“高中数学1 集合与逻辑.pdf”"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 16.67,
+      "range_minutes": [
+        16.67,
+        16.67
+      ],
+      "evidence": [
+        "电脑AFK两段共约11分钟",
+        "电脑状态未知约5分钟",
+        "手机屏幕多次亮起，使用微信和QQ通信",
+        "跨设备重叠显示手机亮屏与电脑AFK/未知重叠"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "10:30-10:41",
+      "likely_state": "工作",
+      "minutes": 11.18,
+      "task": "用Obsidian整理集合与逻辑笔记，中间切换ChatGPT查询包含关系习题解析，并短暂浏览B站容斥原理视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题“高中数学1 集合与逻辑”持续10:30-10:40",
+        "ChatGPT标签页“包含关系习题解析”于10:32-10:33前台",
+        "B站视频“【集合与逻辑】1.4 容斥原理”于10:32短暂前台",
+        "10:40打开本地PDF“高中数学1 集合与逻辑.pdf”"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:41-10:57",
+      "likely_state": "无法判断",
+      "minutes": 16.67,
+      "task": "电脑AFK（10:41-10:46, 10:51-10:57），中间电脑状态未知（10:46-10:51），但手机有频繁解锁和使用微信QQ",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK两段共约11分钟",
+        "电脑状态未知约5分钟",
+        "手机屏幕多次亮起，使用微信和QQ通信",
+        "跨设备重叠显示手机亮屏与电脑AFK/未知重叠"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "10:57-11:00",
+      "likely_state": "工作",
+      "minutes": 2.15,
+      "task": "通过腾讯会议进入彭康哲的快速会议，准备进行家教辅导",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "10:58腾讯会议前台显示“彭康哲的快速会议”",
+        "微信短暂前台后切换到腾讯会议",
+        "会议标题表明是个人会议，结合此前数学学习，可能为家教",
+        "辅助上下文显示腾讯会议持续到11:01"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "高中数学集合与逻辑学习",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活动状态未知5.34分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 10330,
+      "completion_tokens": 1626,
+      "total_tokens": 11956,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1216
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 9434
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 1,
+  "entertainment_deviation_minutes": 6.18,
+  "all_entertainment_minutes": 6.18,
+  "longest_entertainment_deviation_minutes": 6.18,
+  "work_entertainment_transition_count": 1,
+  "brief_communication_minutes": 0.0,
+  "longest_continuous_work_minutes": 15.32,
+  "same_task_tool_switches_not_scored": 22,
+  "raw_foreground_context_switches_not_scored": 26,
+  "deviations": [
+    {
+      "start": "2026-07-25T10:30:00+08:00",
+      "end": "2026-07-25T10:36:11+08:00",
+      "minutes": 6.18,
+      "duration_seconds": 371.0,
+      "task": "刷知乎浏览各种话题（王虹获奖、DeepSeek、社会新闻等）",
+      "evidence": [
+        "在知乎浏览多个不相关话题：如何评价王虹获奖、DeepSeek跳票、马斯克新模型、Claude等",
+        "标题从'如何评价...'快速切换到'首页'再到'科学难题'等多个页面，是典型的随意浏览",
+        "辅助上下文显示10:25已开始刷知乎（DeepSeek、Science基因编辑），与工作无关",
+        "10:36切换到B站初高衔接视频，之后开始工作，因此是工作前的娱乐偏离"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.1,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

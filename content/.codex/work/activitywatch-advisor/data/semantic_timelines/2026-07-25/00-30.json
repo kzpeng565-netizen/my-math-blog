@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T00:30:00+08:00",
+    "end": "2026-07-25T01:00:00+08:00"
+  },
+  "primary_work_task": "Claudian接入DeepSeek V4 Pro",
+  "segments": [
+    {
+      "start": "2026-07-25T00:30:00+08:00",
+      "end": "2026-07-25T00:34:13+08:00",
+      "duration_seconds": 253.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "Claudian接入DeepSeek V4 Pro项目：切换微信和ChatGPT交流与查询",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑微信和微信小程序窗口，与工作伙伴交流",
+        "Microsoft Edge访问chatgpt.com，标题'Claudian接入DeepSeek V4 Pro'",
+        "前后上下文显示，用户持续在微信和ChatGPT之间切换，围绕同一项目"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:34:13+08:00",
+      "end": "2026-07-25T00:38:44+08:00",
+      "duration_seconds": 271.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "终端操作与Clash Verge配置，涉及网络或系统设置",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Windows Terminal (Windows PowerShell) 持续使用",
+        "Clash Verge窗口短暂出现",
+        "前后为ChatGPT使用，可能是配置环境或调试"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T00:38:44+08:00",
+      "end": "2026-07-25T00:49:52+08:00",
+      "duration_seconds": 668.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "在哔哩哔哩观看视频",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮屏",
+        "手机前台哔哩哔哩应用8分钟",
+        "电脑处于AFK状态，无操作",
+        "之后返回电脑工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:49:52+08:00",
+      "end": "2026-07-25T00:54:31+08:00",
+      "duration_seconds": 279.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "继续在哔哩哔哩看视频，并使用Chrome浏览",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮屏",
+        "哔哩哔哩前台3分钟",
+        "com.android.chrome前台1.5分钟",
+        "电脑仍AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:54:31+08:00",
+      "end": "2026-07-25T00:56:36+08:00",
+      "duration_seconds": 125.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机短暂息屏，无操作",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "手机屏幕关闭",
+        "电脑AFK",
+        "无任何设备交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:56:36+08:00",
+      "end": "2026-07-25T00:57:38+08:00",
+      "duration_seconds": 62.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机亮屏但前台未知，可能短暂查看或操作后息屏",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏但前台应用未知"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-25T00:57:38+08:00",
+      "end": "2026-07-25T00:58:06+08:00",
+      "duration_seconds": 28.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机息屏，无操作",
+      "relationship_to_work": "standalone_activity",
+      "devices": [],
+      "evidence": [
+        "手机屏幕关闭",
+        "电脑AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:58:06+08:00",
+      "end": "2026-07-25T01:00:00+08:00",
+      "duration_seconds": 114.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机亮屏但前台未知，可能使用手机但具体不明确",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏但前台应用未知",
+        "电脑AFK"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "material_uncertainties": [
+    "电脑00:44-00:51状态未知期间，无法判断是否在使用电脑（可能短暂操作但未被采集）",
+    "手机亮屏但前台应用未知的3.02分钟具体用途不明"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15107,
+      "completion_tokens": 1245,
+      "total_tokens": 16352,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 14211
+    }
+  }
+}

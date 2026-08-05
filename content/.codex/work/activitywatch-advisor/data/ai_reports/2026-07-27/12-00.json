@@ -1,0 +1,177 @@
+{
+  "period": "2026-07-27T12:00:00+08:00/2026-07-27T12:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "medium",
+    "one_sentence": "主要任务：未明确主要任务。工作0.25分钟，娱乐0.0分钟，通信0.0分钟，确认休息29.75分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.25,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "本时段无娱乐偏离，休息与工作不构成混杂。"
+  },
+  "computer_summary": "电脑在时段内几乎全程AFK（29.76分钟），仅最后约14秒显示Obsidian窗口，标题为'高中数学2 集合与逻辑'，表明短暂工作。后台保持DeepSeek和ChatGPT标签页，但无活动。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "tablet_summary": "平板亮屏30分钟但无前台应用，作为辅助数据源，不推翻休息判定。",
+  "material_uncertainties": [
+    "休息期间平板亮屏但无前台应用，不确定用户是否使用平板进行任何活动",
+    "电脑AFK判定可能掩盖短时电脑使用"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.25分钟，娱乐0.0分钟，通信0.0分钟，确认休息29.75分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "休息期间平板亮屏是否意味着进行了需要从休息中排除的活动？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.24,
+    "computer_afk_minutes": 29.76,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 29.75,
+    "confirmed_rest_minutes": 29.75
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.25,
+      "range_minutes": [
+        0.25,
+        0.25
+      ],
+      "evidence": [
+        "Obsidian窗口标题：高中数学2 集合与逻辑",
+        "后台保持DeepSeek和ChatGPT标签页",
+        "报告时段最后14秒活跃，且上下文显示之前已有相关备课",
+        "休息结束后开始工作任务"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 29.75,
+      "range_minutes": [
+        29.75,
+        29.75
+      ],
+      "evidence": [
+        "电脑AFK 29.75分钟且手机熄屏30分钟",
+        "rest_rule确认休息区间",
+        "平板亮屏30分钟但仅作为辅助数据，不否决休息",
+        "报告时段末电脑短暂活跃（0.21分钟）为事后活动"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "12:00-12:29",
+      "likely_state": "休息",
+      "minutes": 29.75,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK 29.75分钟且手机熄屏30分钟",
+        "rest_rule确认休息区间",
+        "平板亮屏30分钟但仅作为辅助数据，不否决休息",
+        "报告时段末电脑短暂活跃（0.21分钟）为事后活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:29-12:30",
+      "likely_state": "工作",
+      "minutes": 0.25,
+      "task": "在Obsidian上学习高中数学集合与逻辑",
+      "work_category": "数学学习",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题：高中数学2 集合与逻辑",
+        "后台保持DeepSeek和ChatGPT标签页",
+        "报告时段最后14秒活跃，且上下文显示之前已有相关备课",
+        "休息结束后开始工作任务"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖87.4%。",
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4223,
+      "completion_tokens": 963,
+      "total_tokens": 5186,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 630
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 3327
+    }
+  }
+}

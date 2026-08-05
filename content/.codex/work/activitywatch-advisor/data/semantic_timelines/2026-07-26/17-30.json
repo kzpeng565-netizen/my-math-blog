@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T17:30:00+08:00",
+    "end": "2026-07-26T18:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-26T17:30:00+08:00",
+      "end": "2026-07-26T17:42:16+08:00",
+      "duration_seconds": 736.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（电脑无操作，手机息屏）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机屏幕关闭",
+        "跨设备规则确认休息区间",
+        "无任何主动交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T17:42:16+08:00",
+      "end": "2026-07-26T17:42:20+08:00",
+      "duration_seconds": 4.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "短暂活跃但无窗口记录",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态从AFK变为not-afk但窗口记录缺失",
+        "活跃时间仅4秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T17:42:20+08:00",
+      "end": "2026-07-26T17:43:04+08:00",
+      "duration_seconds": 44.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信通信（沟通）",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口为微信",
+        "标题为微信",
+        "时长不足1分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T17:43:04+08:00",
+      "end": "2026-07-26T17:46:16+08:00",
+      "duration_seconds": 192.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（电脑无操作，手机息屏）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机屏幕关闭",
+        "跨设备规则确认休息区间",
+        "无任何主动交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T17:46:16+08:00",
+      "end": "2026-07-26T17:46:36+08:00",
+      "duration_seconds": 20.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑状态切换，短暂未知",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态变为unknown",
+        "手机屏幕关闭",
+        "时长仅20秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T17:46:36+08:00",
+      "end": "2026-07-26T18:00:00+08:00",
+      "duration_seconds": 804.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（电脑无操作，手机息屏）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机屏幕关闭",
+        "跨设备规则确认休息区间",
+        "无任何主动交互"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "17:42:16-17:42:20的4秒无窗口记录，可能是微信操作开始前的瞬态",
+    "17:46:16-17:46:36的20秒状态为unknown，无法判断用户意图"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5083,
+      "completion_tokens": 925,
+      "total_tokens": 6008,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4187
+    }
+  }
+}

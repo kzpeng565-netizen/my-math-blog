@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 3,
+  "entertainment_deviation_minutes": 6.37,
+  "all_entertainment_minutes": 6.37,
+  "longest_entertainment_deviation_minutes": 3.75,
+  "work_entertainment_transition_count": 2,
+  "brief_communication_minutes": 11.7,
+  "longest_continuous_work_minutes": 0.87,
+  "same_task_tool_switches_not_scored": 0,
+  "raw_foreground_context_switches_not_scored": 5,
+  "deviations": [
+    {
+      "start": "2026-07-26T08:37:46+08:00",
+      "end": "2026-07-26T08:41:31+08:00",
+      "minutes": 3.75,
+      "duration_seconds": 225.0,
+      "task": "手机哔哩哔哩看视频",
+      "evidence": [
+        "手机前台为哔哩哔哩",
+        "持续约3.7分钟",
+        "查看前后文无工作信号"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 14.15,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:57:23+08:00",
+      "end": "2026-07-26T08:58:12+08:00",
+      "minutes": 0.82,
+      "duration_seconds": 49.0,
+      "task": "浏览知乎首页",
+      "evidence": [
+        "Edge浏览器",
+        "域名zhihu.com",
+        "标题首页 - 知乎",
+        "从工作页切换过来"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:58:12+08:00",
+      "end": "2026-07-26T09:00:00+08:00",
+      "minutes": 1.8,
+      "duration_seconds": 108.0,
+      "task": "浏览知乎问题：如何看待月之暗面发布kimi K3-256K大模型",
+      "evidence": [
+        "Edge浏览器",
+        "域名zhihu.com",
+        "标题具体问题标题",
+        "持续至时段结束"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

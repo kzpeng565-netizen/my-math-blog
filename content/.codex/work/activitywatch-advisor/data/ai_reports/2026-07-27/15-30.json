@@ -1,0 +1,478 @@
+{
+  "period": "2026-07-27T15:30:00+08:00/2026-07-27T16:00:00+08:00",
+  "state_assessment": {
+    "label": "work_disrupted_by_entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：研究职高升学政策与途径。工作10.4分钟，娱乐9.53分钟，通信10.07分钟，确认休息0.0分钟。工作中出现4次超过30秒的娱乐偏离，共9.53分钟，最长4.68分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 4,
+    "entertainment_deviation_minutes": 9.53,
+    "all_entertainment_minutes": 9.53,
+    "longest_entertainment_deviation_minutes": 4.68,
+    "work_entertainment_transition_count": 5,
+    "brief_communication_minutes": 10.07,
+    "longest_continuous_work_minutes": 3.3,
+    "same_task_tool_switches_not_scored": 11,
+    "raw_foreground_context_switches_not_scored": 47,
+    "deviations": [
+      {
+        "start": "2026-07-27T15:36:59+08:00",
+        "end": "2026-07-27T15:41:40+08:00",
+        "minutes": 4.68,
+        "duration_seconds": 281.0,
+        "task": "浏览知乎娱乐性内容",
+        "evidence": [
+          "从B站转向知乎浏览‘离岸信托个税新规’等话题",
+          "接着浏览‘麦田怪圈真相’（1.2分钟）",
+          "随后返回知乎首页浏览",
+          "之后微信聊天（39秒）后又回到工作"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-27T15:50:35+08:00",
+        "end": "2026-07-27T15:51:45+08:00",
+        "minutes": 1.17,
+        "duration_seconds": 70.0,
+        "task": "浏览知乎首页及娱乐话题",
+        "evidence": [
+          "15:50:35进入知乎首页（0.5分钟）",
+          "15:51:12点击‘菲尔兹奖得主邓煜公开安利二次元作品…’",
+          "该话题为娱乐性质，非工作相关",
+          "之后返回ChatGPT工作页面前有短暂切换"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-27T15:55:41+08:00",
+        "end": "2026-07-27T15:57:34+08:00",
+        "minutes": 1.88,
+        "duration_seconds": 113.0,
+        "task": "浏览知乎数学相关但非直接工作的话题",
+        "evidence": [
+          "15:55:41-15:56:31阅读‘研究数学是否建议购买chatGPT pro？’（0.8分钟）",
+          "该话题虽与数学相关，但属于知乎社区讨论，非直接工作查询",
+          "接着浏览知乎首页",
+          "随后转向娱乐性‘高考699分女孩’话题"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-27T15:57:34+08:00",
+        "end": "2026-07-27T15:59:22+08:00",
+        "minutes": 1.8,
+        "duration_seconds": 108.0,
+        "task": "浏览知乎娱乐性话题",
+        "evidence": [
+          "15:57:34-15:59:21阅读‘高考699分女孩韩雅平建议少玩手机’（1.8分钟）",
+          "该话题为知乎热门娱乐/社会话题",
+          "不直接服务于工作任务",
+          "之后切换到微信，接近时段结束"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中出现4次超过30秒的娱乐偏离：①15:36:59-15:41:40（4.68分钟）浏览知乎娱乐话题，之后返回工作；②15:50:35-15:51:45（1.17分钟）浏览知乎首页及娱乐话题，之后返回工作；③15:55:41-15:57:34（1.88分钟）浏览知乎“研究数学是否建议购买chatGPT pro？”话题，未直接返回工作；④15:57:34-15:59:22（1.80分钟）浏览知乎“高考699分女孩”话题，之后切换到微信通信，未返回工作。偏离均为知乎娱乐内容，混杂等级高。"
+  },
+  "computer_summary": "主要任务是在Edge浏览器上查阅yunnan.eol.cn职教高考实施办法，使用ChatGPT/DeepSeek查询昆明职高升学途径，以及B站搜索职高数学资源。期间穿插微信通信（约10分钟）和多次知乎娱乐浏览，微信通信内容不明确服务于工作任务。",
+  "phone_summary": "手机屏幕全程关闭，无活动。",
+  "tablet_summary": "平板亮屏30分钟，但无具体应用数据，作为辅助数据源不改变电脑主导的判断。",
+  "material_uncertainties": [
+    "15:35:42-15:35:43 Obsidian打开1秒，不确定是否真正切换至笔记",
+    "15:36:59-15:41:40 知乎浏览内容虽包含‘研究数学是否建议购买chatGPT pro’，可能部分与工作相关，但标题主要为娱乐性质，归类为娱乐偏离"
+  ],
+  "concise_report": "主要任务：研究职高升学政策与途径。工作10.4分钟，娱乐9.53分钟，通信10.07分钟，确认休息0.0分钟。工作中出现4次超过30秒的娱乐偏离，共9.53分钟，最长4.68分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "15:55:41-15:57:34浏览的知乎话题“研究数学是否建议购买chatGPT pro”是否与您的研究工作（如准备中职数学内容）直接相关？若相关，该段应重新归类为工作，从而降低混杂等级。",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 10.4,
+      "range_minutes": [
+        10.4,
+        10.4
+      ],
+      "evidence": [
+        "前5分钟正在阅读yunnan.eol.cn实施办法，报告期开始时继续",
+        "15:30:00-15:30:12仍在该页面",
+        "短暂切到微信（15:30:14-15:30:54）后立即返回",
+        "15:31:20回到实施办法页面并持续2.4分钟"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 9.53,
+      "range_minutes": [
+        9.53,
+        9.53
+      ],
+      "evidence": [
+        "从B站转向知乎浏览‘离岸信托个税新规’等话题",
+        "接着浏览‘麦田怪圈真相’（1.2分钟）",
+        "随后返回知乎首页浏览",
+        "之后微信聊天（39秒）后又回到工作"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 10.07,
+      "range_minutes": [
+        10.07,
+        10.07
+      ],
+      "evidence": [
+        "先后切换到微信聊天和图片视频窗口",
+        "15:34:17-15:35:29为微信图片和视频（1.2分钟）",
+        "无证据表明通信内容服务于工作任务",
+        "之后短暂打开Obsidian再立即切回浏览器"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "15:30-15:31",
+      "likely_state": "工作",
+      "minutes": 1.33,
+      "task": "继续查阅职教高考实施办法",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前5分钟正在阅读yunnan.eol.cn实施办法，报告期开始时继续",
+        "15:30:00-15:30:12仍在该页面",
+        "短暂切到微信（15:30:14-15:30:54）后立即返回",
+        "15:31:20回到实施办法页面并持续2.4分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:31-15:33",
+      "likely_state": "工作",
+      "minutes": 2.4,
+      "task": "阅读职教高考实施办法（云南站）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "长时间停留在yunnan.eol.cn实施办法页面",
+        "持续2.4分钟，是报告期内最长的单一段",
+        "与后续ChatGPT查询昆明职高升学途径形成任务链"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:33-15:35",
+      "likely_state": "通信",
+      "minutes": 1.95,
+      "task": "微信聊天（含查看图片视频）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "先后切换到微信聊天和图片视频窗口",
+        "15:34:17-15:35:29为微信图片和视频（1.2分钟）",
+        "无证据表明通信内容服务于工作任务",
+        "之后短暂打开Obsidian再立即切回浏览器"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:35-15:36",
+      "likely_state": "工作",
+      "minutes": 1.3,
+      "task": "通过B站搜索职高升学和中职数学资源",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:35:42打开Obsidian（高中数学2集合与逻辑）仅1秒",
+        "15:35:46转B站首页，随即搜索职高升学相关视频",
+        "观看高职高考-中职数学-成人自考-入门篇视频",
+        "B站前5分钟已在看职教视频，任务连贯"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:36-15:41",
+      "likely_state": "娱乐",
+      "minutes": 4.68,
+      "task": "浏览知乎娱乐性内容",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "从B站转向知乎浏览‘离岸信托个税新规’等话题",
+        "接着浏览‘麦田怪圈真相’（1.2分钟）",
+        "随后返回知乎首页浏览",
+        "之后微信聊天（39秒）后又回到工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:41-15:44",
+      "likely_state": "工作",
+      "minutes": 3.3,
+      "task": "继续查阅职教高考实施办法和使用ChatGPT查询昆明职高升学途径",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:41:40返回yunnan.eol.cn实施办法页面（1.5分钟）",
+        "15:43:10切换到ChatGPT，标题为‘昆明职高升学途径’",
+        "在ChatGPT中持续查询升学途径约1.7分钟",
+        "与之前的工作任务直接相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:44-15:48",
+      "likely_state": "通信",
+      "minutes": 3.03,
+      "task": "微信聊天（含查看图片视频和私聊）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:44:58再次切换到微信聊天",
+        "15:45:06进入‘%与🧫的聊天记录’（8秒）",
+        "15:46:44后查看图片视频（0.7分钟）和微信聊天",
+        "无明确工作任务关联"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:48-15:48",
+      "likely_state": "工作",
+      "minutes": 0.08,
+      "task": "短暂回到ChatGPT查询",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:48:03-15:48:05在ChatGPT‘昆明职高升学途径’",
+        "非常短暂，仅2秒，可能是查看或切换"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "15:48-15:50",
+      "likely_state": "通信",
+      "minutes": 2.5,
+      "task": "微信聊天（含图片视频和截图操作）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:48:06-15:48:32微信聊天（26秒）",
+        "15:48:43-15:48:45使用截图工具",
+        "15:48:49-15:49:18微信聊天（29秒）",
+        "期间穿插ChatGPT/网页切换但以微信为主"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:50-15:51",
+      "likely_state": "娱乐",
+      "minutes": 1.17,
+      "task": "浏览知乎首页及娱乐话题",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:50:35进入知乎首页（0.5分钟）",
+        "15:51:12点击‘菲尔兹奖得主邓煜公开安利二次元作品…’",
+        "该话题为娱乐性质，非工作相关",
+        "之后返回ChatGPT工作页面前有短暂切换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:51-15:53",
+      "likely_state": "工作",
+      "minutes": 1.98,
+      "task": "使用AI工具（ChatGPT和DeepSeek）研究职高升学途径",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:51:45在ChatGPT停留（10秒）",
+        "15:52:00-15:52:20在DeepSeek开放平台（20秒）",
+        "15:52:24-15:53:11在ChatGPT‘昆明职高升学途径’（约1分钟）",
+        "期间使用截图工具（15:53:12-15:53:14）"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:53-15:55",
+      "likely_state": "通信",
+      "minutes": 1.95,
+      "task": "微信聊天（含查看图片视频）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:53:17之前的小段合并至此",
+        "15:54:08-15:55:24长时间微信聊天（1.3分钟）",
+        "15:55:25-15:55:37查看图片视频",
+        "注意：此段开始时间已调整为15:53:44以消除重叠"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:55-15:57",
+      "likely_state": "娱乐",
+      "minutes": 1.88,
+      "task": "浏览知乎数学相关但非直接工作的话题",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:55:41-15:56:31阅读‘研究数学是否建议购买chatGPT pro？’（0.8分钟）",
+        "该话题虽与数学相关，但属于知乎社区讨论，非直接工作查询",
+        "接着浏览知乎首页",
+        "随后转向娱乐性‘高考699分女孩’话题"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "15:57-15:59",
+      "likely_state": "娱乐",
+      "minutes": 1.8,
+      "task": "浏览知乎娱乐性话题",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:57:34-15:59:21阅读‘高考699分女孩韩雅平建议少玩手机’（1.8分钟）",
+        "该话题为知乎热门娱乐/社会话题",
+        "不直接服务于工作任务",
+        "之后切换到微信，接近时段结束"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:59-16:00",
+      "likely_state": "通信",
+      "minutes": 0.63,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "15:59:22切换到微信聊天",
+        "持续至报告期结束",
+        "辅助上下文中16:00后继续微信聊天"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "研究职高升学政策与途径",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 18526,
+      "completion_tokens": 1814,
+      "total_tokens": 20340,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1145
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 17630
+    }
+  }
+}

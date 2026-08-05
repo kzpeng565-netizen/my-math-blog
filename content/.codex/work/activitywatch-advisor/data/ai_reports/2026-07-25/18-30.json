@@ -1,0 +1,241 @@
+{
+  "period": "2026-07-25T18:30:00+08:00/2026-07-25T19:00:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐28.57分钟，通信1.43分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 28.57,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 1.43,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "由于无工作活动，不存在工作过程中的娱乐偏离。确定性指标显示娱乐偏离次数为0，分钟数为0。"
+  },
+  "computer_summary": "电脑处于AFK或未知状态，浏览器标签页（nature.com学术论文、知乎问答）打开但无交互，未产生有效工作。",
+  "phone_summary": "手机屏幕常亮，主要应用为哔哩哔哩（28.52分钟），穿插微信通信（1.18分钟）及短暂相机/图库操作（0.2分钟），属于纯娱乐与短暂通信。",
+  "material_uncertainties": [
+    "电脑在18:33-18:46状态unknown，但手机B站连续，不影响整体归类",
+    "微信内容未知，但时长短且B站主导，归为brief communication"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐28.57分钟，通信1.43分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "电脑浏览器在AFK期间打开学术论文和知乎，是否可能隐含短暂工作意图？若否，则当前纯娱乐判断不变。",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 16.72,
+    "phone_screen_on_minutes": 30.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 28.57,
+      "range_minutes": [
+        28.57,
+        28.57
+      ],
+      "evidence": [
+        "手机前台B站持续18:25-18:31",
+        "辅助上下文显示之前已开始B站",
+        "电脑AFK状态",
+        "手机前台桌面2秒"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 1.43,
+      "range_minutes": [
+        1.43,
+        1.43
+      ],
+      "evidence": [
+        "手机前台切换：桌面、微信、相机、图库",
+        "微信持续49秒",
+        "相机/图库短暂操作约10秒",
+        "手机前台微信15秒"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "18:30-18:31",
+      "likely_state": "娱乐",
+      "minutes": 1.0,
+      "task": "刷B站视频",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台B站持续18:25-18:31",
+        "辅助上下文显示之前已开始B站",
+        "电脑AFK状态"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:31-18:32",
+      "likely_state": "通信",
+      "minutes": 1.18,
+      "task": "短暂使用微信和相机/图库",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台切换：桌面、微信、相机、图库",
+        "微信持续49秒",
+        "相机/图库短暂操作约10秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:32-18:32",
+      "likely_state": "娱乐",
+      "minutes": 0.03,
+      "task": "临时切换桌面后回到B站",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台桌面2秒",
+        "之后回到B站"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:32-18:32",
+      "likely_state": "娱乐",
+      "minutes": 0.33,
+      "task": "刷B站视频",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台B站19秒",
+        "短暂微信后继续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:32-18:32",
+      "likely_state": "通信",
+      "minutes": 0.25,
+      "task": "短暂使用微信",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台微信15秒",
+        "之后回到B站"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:32-19:00",
+      "likely_state": "娱乐",
+      "minutes": 27.2,
+      "task": "长时间刷B站视频",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台B站持续27分钟至时段结束",
+        "电脑AFK无操作",
+        "电脑浏览器标签页打开但无交互"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。",
+      "电脑活动状态未知13.28分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4936,
+      "completion_tokens": 619,
+      "total_tokens": 5555,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 230
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4040
+    }
+  }
+}

@@ -1,0 +1,687 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-26T09:00:00+08:00",
+    "end": "2026-07-26T09:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 49,
+      "aw-watcher-afk_xyh": 6,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 43
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 16.47,
+    "afk_minutes": 13.53,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 15.64
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 15.01
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 0.64
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "xiaohongshu.com",
+      "minutes": 7.83
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 2.68
+    },
+    {
+      "domain": "bilibili.com",
+      "minutes": 1.72
+    },
+    {
+      "domain": "chatgpt.com",
+      "minutes": 0.14
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "如何看待月之暗面发布kimi K3-256K大模型，能力和K3一样，不能看视频，上下文只有256K？ - 知乎",
+      "minutes": 1.83
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "王虹知网论文数量是 0，她的论文数量，还比 - 小红书",
+      "minutes": 1.53
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "王虹在nyu和ucla教书时期的学生评分 - 小红书",
+      "minutes": 1.43
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【集合与逻辑】1.1 集合_哔哩哔哩_bilibili",
+      "minutes": 1.25
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "北京读研 | 把逛公园当作生活的“充电站 - 小红书",
+      "minutes": 1.19
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "女神会被曾经的大佬同学嫉妒吗 - 小红书",
+      "minutes": 1.19
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "一图看懂：华人数学家层级图 - 小红书",
+      "minutes": 1.1
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "王虹INTP邓煜INTJ🧮自带N人特有的松弛感 - 小红书",
+      "minutes": 0.93
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 0.84
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "每对情侣身边都会有个Steve - 小红书",
+      "minutes": 0.72
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 0.64
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "小红书 - 你的生活兴趣社区",
+      "minutes": 0.6
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "田刚、王虹、邓煜，北大费城合影 - 小红书",
+      "minutes": 0.57
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "被邓煜老师回邮件了 - 小红书",
+      "minutes": 0.55
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "minutes": 0.48
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "《中国科学报》独家专访王虹 - 小红书",
+      "minutes": 0.38
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "王虹# 数学# 韦神# - 小红书",
+      "minutes": 0.22
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "CC Switch 接入 DeepSeek",
+      "minutes": 0.14
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "没想到MIT也是靠王虹邓煜第一次拿到菲尔兹 - 小红书",
+      "minutes": 0.05
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-26T09:00:08+08:00",
+      "last_seen": "2026-07-26T09:28:38+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "如何看待月之暗面发布kimi K3-256K大模型，能力和K3一样，不能看视频，上下文只有256K？ - 知乎",
+      "first_seen": "2026-07-26T09:00:57+08:00",
+      "last_seen": "2026-07-26T09:02:46+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-26T09:01:50+08:00",
+      "last_seen": "2026-07-26T09:02:48+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "如何评价北大著名校友柳智宇评价同学王虹邓煜获得菲尔兹奖，祝贺两位校友，并不后悔自己上山出家离开数学？ - 知乎",
+      "first_seen": "2026-07-26T09:02:46+08:00",
+      "last_seen": "2026-07-26T09:02:46+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "台风「红霞」在广东惠州登陆，超越美莎克、巴威，成今年以来登陆我国的最强台风，影响多大？你那里情况如何？ - 知乎",
+      "first_seen": "2026-07-26T09:02:46+08:00",
+      "last_seen": "2026-07-26T09:02:47+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "2026 年菲尔兹奖公布，中国籍数学家邓煜、王虹获奖，如何理解他们获奖的意义？ - 知乎",
+      "first_seen": "2026-07-26T09:02:47+08:00",
+      "last_seen": "2026-07-26T09:02:47+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "北京通用人工智能研究院院长朱松纯称做 AI 少不了文科生，他为什么这么说？文科生能发挥什么独特价值？ - 知乎",
+      "first_seen": "2026-07-26T09:02:48+08:00",
+      "last_seen": "2026-07-26T09:02:48+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "hutaocards.com",
+      "title": "HutaoCards | 虚拟信用卡 · 海淘支付 · 数字支付管家",
+      "first_seen": "2026-07-26T09:02:48+08:00",
+      "last_seen": "2026-07-26T09:14:39+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "CC Switch 接入 DeepSeek",
+      "first_seen": "2026-07-26T09:02:49+08:00",
+      "last_seen": "2026-07-26T09:14:38+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "北京读研 | 把逛公园当作生活的“充电站 - 小红书",
+      "first_seen": "2026-07-26T09:03:38+08:00",
+      "last_seen": "2026-07-26T09:04:57+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "王虹# 数学# 韦神# - 小红书",
+      "first_seen": "2026-07-26T09:04:57+08:00",
+      "last_seen": "2026-07-26T09:06:27+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "王虹在nyu和ucla教书时期的学生评分 - 小红书",
+      "first_seen": "2026-07-26T09:06:27+08:00",
+      "last_seen": "2026-07-26T09:07:57+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "田刚、王虹、邓煜，北大费城合影 - 小红书",
+      "first_seen": "2026-07-26T09:07:57+08:00",
+      "last_seen": "2026-07-26T09:09:27+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "小红书 - 你的生活兴趣社区",
+      "first_seen": "2026-07-26T09:09:27+08:00",
+      "last_seen": "2026-07-26T09:10:57+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "王虹知网论文数量是 0，她的论文数量，还比 - 小红书",
+      "first_seen": "2026-07-26T09:10:57+08:00",
+      "last_seen": "2026-07-26T09:12:27+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "女神会被曾经的大佬同学嫉妒吗 - 小红书",
+      "first_seen": "2026-07-26T09:12:27+08:00",
+      "last_seen": "2026-07-26T09:13:57+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "一图看懂：华人数学家层级图 - 小红书",
+      "first_seen": "2026-07-26T09:13:57+08:00",
+      "last_seen": "2026-07-26T09:14:36+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-26T09:14:36+08:00",
+      "last_seen": "2026-07-26T09:14:38+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "github.com",
+      "title": "Release CC Switch v3.18.0 · farion1231/cc-switch · GitHub",
+      "first_seen": "2026-07-26T09:14:37+08:00",
+      "last_seen": "2026-07-26T09:14:37+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "first_seen": "2026-07-26T09:14:39+08:00",
+      "last_seen": "2026-07-26T09:15:57+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【集合与逻辑】1.1 集合_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-26T09:15:57+08:00",
+      "last_seen": "2026-07-26T09:29:27+08:00",
+      "raw_event_count": 10
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-26T09:00:00+08:00",
+      "end": "2026-07-26T09:15:13+08:00",
+      "duration_seconds": 913.312,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-26T09:15:13+08:00",
+      "end": "2026-07-26T09:27:13+08:00",
+      "duration_seconds": 719.727,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-26T09:27:13+08:00",
+      "end": "2026-07-26T09:28:27+08:00",
+      "duration_seconds": 74.932,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-26T09:28:27+08:00",
+      "end": "2026-07-26T09:30:00+08:00",
+      "duration_seconds": 92.028,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-26T09:00:00+08:00",
+      "end": "2026-07-26T09:01:50+08:00",
+      "duration_seconds": 110.086,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "如何看待月之暗面发布kimi K3-256K大模型，能力和K3一样，不能看视频，上下文只有256K？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-26T09:01:51+08:00",
+      "end": "2026-07-26T09:01:58+08:00",
+      "duration_seconds": 7.251,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T09:01:58+08:00",
+      "end": "2026-07-26T09:02:01+08:00",
+      "duration_seconds": 3.101,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T09:02:01+08:00",
+      "end": "2026-07-26T09:02:45+08:00",
+      "duration_seconds": 43.427,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T09:02:45+08:00",
+      "end": "2026-07-26T09:02:50+08:00",
+      "duration_seconds": 4.137,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T09:02:50+08:00",
+      "end": "2026-07-26T09:02:58+08:00",
+      "duration_seconds": 8.28,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T09:02:59+08:00",
+      "end": "2026-07-26T09:03:37+08:00",
+      "duration_seconds": 38.252,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T09:03:37+08:00",
+      "end": "2026-07-26T09:03:40+08:00",
+      "duration_seconds": 3.096,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T09:03:40+08:00",
+      "end": "2026-07-26T09:04:57+08:00",
+      "duration_seconds": 71.458,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京读研 | 把逛公园当作生活的“充电站 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T09:04:57+08:00",
+      "end": "2026-07-26T09:05:10+08:00",
+      "duration_seconds": 13.207,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "王虹# 数学# 韦神# - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:05:11+08:00",
+      "end": "2026-07-26T09:05:19+08:00",
+      "duration_seconds": 8.256,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:05:20+08:00",
+      "end": "2026-07-26T09:05:43+08:00",
+      "duration_seconds": 22.782,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "《中国科学报》独家专访王虹 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T09:05:44+08:00",
+      "end": "2026-07-26T09:05:47+08:00",
+      "duration_seconds": 3.1,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:05:48+08:00",
+      "end": "2026-07-26T09:06:21+08:00",
+      "duration_seconds": 33.047,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "被邓煜老师回邮件了 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T09:06:22+08:00",
+      "end": "2026-07-26T09:06:26+08:00",
+      "duration_seconds": 3.095,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:06:27+08:00",
+      "end": "2026-07-26T09:07:52+08:00",
+      "duration_seconds": 85.71,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "王虹在nyu和ucla教书时期的学生评分 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:07:53+08:00",
+      "end": "2026-07-26T09:07:55+08:00",
+      "duration_seconds": 2.067,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:07:56+08:00",
+      "end": "2026-07-26T09:08:30+08:00",
+      "duration_seconds": 34.012,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "田刚、王虹、邓煜，北大费城合影 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:08:31+08:00",
+      "end": "2026-07-26T09:08:32+08:00",
+      "duration_seconds": 1.036,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:08:33+08:00",
+      "end": "2026-07-26T09:08:37+08:00",
+      "duration_seconds": 3.093,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "没想到MIT也是靠王虹邓煜第一次拿到菲尔兹 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T09:08:39+08:00",
+      "end": "2026-07-26T09:09:22+08:00",
+      "duration_seconds": 43.446,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "每对情侣身边都会有个Steve - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T09:09:23+08:00",
+      "end": "2026-07-26T09:09:30+08:00",
+      "duration_seconds": 7.231,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:09:31+08:00",
+      "end": "2026-07-26T09:11:03+08:00",
+      "duration_seconds": 91.926,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "王虹知网论文数量是 0，她的论文数量，还比 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:11:04+08:00",
+      "end": "2026-07-26T09:11:11+08:00",
+      "duration_seconds": 6.207,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:11:12+08:00",
+      "end": "2026-07-26T09:12:07+08:00",
+      "duration_seconds": 55.748,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "王虹INTP邓煜INTJ🧮自带N人特有的松弛感 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T09:12:08+08:00",
+      "end": "2026-07-26T09:12:09+08:00",
+      "duration_seconds": 1.037,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:12:10+08:00",
+      "end": "2026-07-26T09:13:22+08:00",
+      "duration_seconds": 71.241,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "女神会被曾经的大佬同学嫉妒吗 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:13:23+08:00",
+      "end": "2026-07-26T09:13:27+08:00",
+      "duration_seconds": 4.12,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T09:13:28+08:00",
+      "end": "2026-07-26T09:14:34+08:00",
+      "duration_seconds": 66.047,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "一图看懂：华人数学家层级图 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-26T09:14:34+08:00",
+      "end": "2026-07-26T09:14:39+08:00",
+      "duration_seconds": 5.149,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T09:14:39+08:00",
+      "end": "2026-07-26T09:15:13+08:00",
+      "duration_seconds": 28.519,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T09:27:13+08:00",
+      "end": "2026-07-26T09:28:27+08:00",
+      "duration_seconds": 74.93,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】1.1 集合_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.95,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 0.824,
+    "web_watcher_exact_time_overlap": 0.276,
+    "browser_share_of_active_time": 0.911,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

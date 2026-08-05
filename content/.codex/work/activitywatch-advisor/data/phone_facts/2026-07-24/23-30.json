@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "source": "phone_usage_jsonl",
+  "period": {
+    "start": "2026-07-24T23:30:00+08:00",
+    "end": "2026-07-25T00:00:00+08:00"
+  },
+  "input": {
+    "files_read": [
+      "/home/conrad/phone_usage/archive/2026-07-24/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-24/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-24/screen.jsonl",
+      "/home/conrad/phone_usage/incoming/foreground.jsonl",
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl",
+      "/home/conrad/phone_usage/incoming/screen.jsonl"
+    ],
+    "deduplicated_events_in_period": 8,
+    "deduplicated_events_by_type": {
+      "screen": 3,
+      "foreground": 3,
+      "heartbeat": 2
+    },
+    "accepted_events_by_file": {
+      "/home/conrad/phone_usage/archive/2026-07-24/foreground.jsonl": 243,
+      "/home/conrad/phone_usage/archive/2026-07-24/heartbeat.jsonl": 36,
+      "/home/conrad/phone_usage/archive/2026-07-24/screen.jsonl": 57,
+      "/home/conrad/phone_usage/incoming/foreground.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/screen.jsonl": 0
+    }
+  },
+  "screen": {
+    "on_minutes": 3.22,
+    "off_minutes": 26.78,
+    "unknown_minutes": 0.0,
+    "unlock_count": 2
+  },
+  "foreground": {
+    "switch_count": 3,
+    "top_apps": [
+      {
+        "app": "亮屏但前台应用未知",
+        "minutes": 2.35
+      },
+      {
+        "app": "微信",
+        "minutes": 0.87
+      }
+    ],
+    "top_packages": [
+      {
+        "package": "com.tencent.mm",
+        "minutes": 0.87
+      }
+    ]
+  },
+  "screen_timeline": [
+    {
+      "start": "2026-07-24T23:30:00+08:00",
+      "end": "2026-07-24T23:38:28+08:00",
+      "duration_seconds": 508.0,
+      "state": "off"
+    },
+    {
+      "start": "2026-07-24T23:38:28+08:00",
+      "end": "2026-07-24T23:39:23+08:00",
+      "duration_seconds": 55.0,
+      "state": "on"
+    },
+    {
+      "start": "2026-07-24T23:39:23+08:00",
+      "end": "2026-07-24T23:57:42+08:00",
+      "duration_seconds": 1099.0,
+      "state": "off"
+    },
+    {
+      "start": "2026-07-24T23:57:42+08:00",
+      "end": "2026-07-25T00:00:00+08:00",
+      "duration_seconds": 138.0,
+      "state": "on"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-24T23:38:28+08:00",
+      "end": "2026-07-24T23:38:31+08:00",
+      "duration_seconds": 3.0,
+      "package": "",
+      "app_display": "亮屏但前台应用未知"
+    },
+    {
+      "start": "2026-07-24T23:38:31+08:00",
+      "end": "2026-07-24T23:39:23+08:00",
+      "duration_seconds": 52.0,
+      "package": "com.tencent.mm",
+      "app_display": "微信"
+    },
+    {
+      "start": "2026-07-24T23:57:42+08:00",
+      "end": "2026-07-25T00:00:00+08:00",
+      "duration_seconds": 138.0,
+      "package": "",
+      "app_display": "亮屏但前台应用未知"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "collector_heartbeat": {
+      "closest_seen": "2026-07-24T23:57:41+08:00",
+      "offset_seconds_from_period_end": -139.0,
+      "level": "high"
+    },
+    "timeline_truncated": false,
+    "material_issues": [
+      "亮屏期间前台应用未知2.35分钟。"
+    ],
+    "limitations": [
+      "亮屏表示屏幕开启，不保证用户持续注视或操作。",
+      "前台应用只说明当时显示的应用，不直接表示使用目的。",
+      "亮屏后尚未收到新的前台事件时，不沿用旧应用，保留为未知。"
+    ]
+  }
+}

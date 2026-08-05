@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T17:00:00+08:00",
+    "end": "2026-07-25T17:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 25,
+      "aw-watcher-afk_xyh": 12,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 20
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 10.49,
+    "afk_minutes": 16.92,
+    "unknown_status_minutes": 2.59,
+    "window_observed_minutes": 10.15
+  },
+  "top_apps": [
+    {
+      "app": "腾讯会议",
+      "minutes": 5.16
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 4.99
+    }
+  ],
+  "top_websites": [],
+  "top_titles": [
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 5.16
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高物理1 运动学基础概念",
+      "minutes": 4.99
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T17:00:32+08:00",
+      "last_seen": "2026-07-25T17:29:02+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T17:00:45+08:00",
+      "last_seen": "2026-07-25T17:29:15+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T17:00:00+08:00",
+      "end": "2026-07-25T17:02:44+08:00",
+      "duration_seconds": 164.039,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T17:02:44+08:00",
+      "end": "2026-07-25T17:05:14+08:00",
+      "duration_seconds": 150.321,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T17:05:14+08:00",
+      "end": "2026-07-25T17:09:05+08:00",
+      "duration_seconds": 230.979,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T17:09:05+08:00",
+      "end": "2026-07-25T17:11:40+08:00",
+      "duration_seconds": 155.364,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-25T17:11:40+08:00",
+      "end": "2026-07-25T17:19:36+08:00",
+      "duration_seconds": 475.938,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T17:19:36+08:00",
+      "end": "2026-07-25T17:27:35+08:00",
+      "duration_seconds": 479.141,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T17:27:35+08:00",
+      "end": "2026-07-25T17:30:00+08:00",
+      "duration_seconds": 144.216,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T17:02:44+08:00",
+      "end": "2026-07-25T17:02:51+08:00",
+      "duration_seconds": 7.454,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:02:52+08:00",
+      "end": "2026-07-25T17:02:57+08:00",
+      "duration_seconds": 5.146,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:02:59+08:00",
+      "end": "2026-07-25T17:03:02+08:00",
+      "duration_seconds": 3.101,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:03:03+08:00",
+      "end": "2026-07-25T17:03:36+08:00",
+      "duration_seconds": 32.995,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:03:37+08:00",
+      "end": "2026-07-25T17:05:14+08:00",
+      "duration_seconds": 96.447,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:19:36+08:00",
+      "end": "2026-07-25T17:19:36+08:00",
+      "duration_seconds": 0.28,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:19:37+08:00",
+      "end": "2026-07-25T17:20:51+08:00",
+      "duration_seconds": 73.337,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:20:52+08:00",
+      "end": "2026-07-25T17:22:10+08:00",
+      "duration_seconds": 78.46,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:22:12+08:00",
+      "end": "2026-07-25T17:22:33+08:00",
+      "duration_seconds": 20.652,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:22:34+08:00",
+      "end": "2026-07-25T17:24:25+08:00",
+      "duration_seconds": 108.483,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:24:25+08:00",
+      "end": "2026-07-25T17:24:28+08:00",
+      "duration_seconds": 3.112,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T17:24:28+08:00",
+      "end": "2026-07-25T17:25:40+08:00",
+      "duration_seconds": 70.166,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:25:41+08:00",
+      "end": "2026-07-25T17:27:29+08:00",
+      "duration_seconds": 108.488,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T17:27:30+08:00",
+      "end": "2026-07-25T17:27:35+08:00",
+      "duration_seconds": 4.143,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.968,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 1.0,
+    "browser_share_of_active_time": 0.0,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活动状态未知2.59分钟。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

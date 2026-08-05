@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T12:30:00+08:00",
+    "end": "2026-07-27T13:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 18,
+      "aw-watcher-afk_xyh": 20,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 20
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 3.29,
+    "afk_minutes": 18.36,
+    "unknown_status_minutes": 8.35,
+    "window_observed_minutes": 3.03
+  },
+  "top_apps": [
+    {
+      "app": "腾讯会议",
+      "minutes": 2.41
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 0.62
+    }
+  ],
+  "top_websites": [],
+  "top_titles": [
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 2.37
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "高中数学2 集合与逻辑",
+      "minutes": 0.62
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "腾讯会议",
+      "minutes": 0.03
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-27T12:30:06+08:00",
+      "last_seen": "2026-07-27T12:58:36+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T12:30:45+08:00",
+      "last_seen": "2026-07-27T12:59:16+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T12:30:00+08:00",
+      "end": "2026-07-27T12:33:09+08:00",
+      "duration_seconds": 189.6,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T12:33:09+08:00",
+      "end": "2026-07-27T12:36:26+08:00",
+      "duration_seconds": 196.95,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T12:36:26+08:00",
+      "end": "2026-07-27T12:36:26+08:00",
+      "duration_seconds": 0.001,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T12:36:26+08:00",
+      "end": "2026-07-27T12:42:56+08:00",
+      "duration_seconds": 389.949,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T12:42:56+08:00",
+      "end": "2026-07-27T12:43:04+08:00",
+      "duration_seconds": 7.832,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T12:43:04+08:00",
+      "end": "2026-07-27T12:46:32+08:00",
+      "duration_seconds": 208.47,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T12:46:32+08:00",
+      "end": "2026-07-27T12:46:37+08:00",
+      "duration_seconds": 5.008,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-27T12:46:37+08:00",
+      "end": "2026-07-27T12:48:23+08:00",
+      "duration_seconds": 105.199,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T12:48:23+08:00",
+      "end": "2026-07-27T12:56:39+08:00",
+      "duration_seconds": 496.178,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-27T12:56:39+08:00",
+      "end": "2026-07-27T13:00:00+08:00",
+      "duration_seconds": 200.812,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T12:30:00+08:00",
+      "end": "2026-07-27T12:30:12+08:00",
+      "duration_seconds": 11.349,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T12:30:13+08:00",
+      "end": "2026-07-27T12:30:42+08:00",
+      "duration_seconds": 27.845,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T12:30:42+08:00",
+      "end": "2026-07-27T12:30:46+08:00",
+      "duration_seconds": 3.115,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T12:30:46+08:00",
+      "end": "2026-07-27T12:32:38+08:00",
+      "duration_seconds": 112.502,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T12:32:39+08:00",
+      "end": "2026-07-27T12:32:50+08:00",
+      "duration_seconds": 11.351,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T12:32:50+08:00",
+      "end": "2026-07-27T12:32:54+08:00",
+      "duration_seconds": 3.096,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T12:32:54+08:00",
+      "end": "2026-07-27T12:33:08+08:00",
+      "duration_seconds": 14.456,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T12:42:56+08:00",
+      "end": "2026-07-27T12:42:58+08:00",
+      "duration_seconds": 2.019,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T12:42:59+08:00",
+      "end": "2026-07-27T12:43:01+08:00",
+      "duration_seconds": 2.064,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "腾讯会议",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "low",
+    "active_window_coverage": 0.92,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 1.0,
+    "browser_share_of_active_time": 0.0,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活动状态未知8.35分钟。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

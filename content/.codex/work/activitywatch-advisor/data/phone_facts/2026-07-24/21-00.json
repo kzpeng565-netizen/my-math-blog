@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "source": "phone_usage_jsonl",
+  "period": {
+    "start": "2026-07-24T21:00:00+08:00",
+    "end": "2026-07-24T21:30:00+08:00"
+  },
+  "input": {
+    "files_read": [
+      "/home/conrad/phone_usage/archive/2026-07-24/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-24/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-24/screen.jsonl",
+      "/home/conrad/phone_usage/incoming/foreground.jsonl",
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl",
+      "/home/conrad/phone_usage/incoming/screen.jsonl"
+    ],
+    "deduplicated_events_in_period": 35,
+    "deduplicated_events_by_type": {
+      "foreground": 32,
+      "heartbeat": 2,
+      "screen": 1
+    },
+    "accepted_events_by_file": {
+      "/home/conrad/phone_usage/archive/2026-07-24/foreground.jsonl": 203,
+      "/home/conrad/phone_usage/archive/2026-07-24/heartbeat.jsonl": 26,
+      "/home/conrad/phone_usage/archive/2026-07-24/screen.jsonl": 36,
+      "/home/conrad/phone_usage/incoming/foreground.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/screen.jsonl": 0
+    }
+  },
+  "screen": {
+    "on_minutes": 11.35,
+    "off_minutes": 18.65,
+    "unknown_minutes": 0.0,
+    "unlock_count": 0
+  },
+  "foreground": {
+    "switch_count": 32,
+    "top_apps": [
+      {
+        "app": "微信",
+        "minutes": 11.3
+      },
+      {
+        "app": "手机桌面",
+        "minutes": 0.05
+      }
+    ],
+    "top_packages": [
+      {
+        "package": "com.tencent.mm",
+        "minutes": 11.3
+      },
+      {
+        "package": "com.bbk.launcher2",
+        "minutes": 0.05
+      }
+    ]
+  },
+  "screen_timeline": [
+    {
+      "start": "2026-07-24T21:00:00+08:00",
+      "end": "2026-07-24T21:11:21+08:00",
+      "duration_seconds": 681.0,
+      "state": "on"
+    },
+    {
+      "start": "2026-07-24T21:11:21+08:00",
+      "end": "2026-07-24T21:30:00+08:00",
+      "duration_seconds": 1119.0,
+      "state": "off"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-24T21:00:00+08:00",
+      "end": "2026-07-24T21:11:18+08:00",
+      "duration_seconds": 678.0,
+      "package": "com.tencent.mm",
+      "app_display": "微信"
+    },
+    {
+      "start": "2026-07-24T21:11:18+08:00",
+      "end": "2026-07-24T21:11:21+08:00",
+      "duration_seconds": 3.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "collector_heartbeat": {
+      "closest_seen": "2026-07-24T21:19:14+08:00",
+      "offset_seconds_from_period_end": -646.0,
+      "level": "medium"
+    },
+    "timeline_truncated": false,
+    "limitations": [
+      "亮屏表示屏幕开启，不保证用户持续注视或操作。",
+      "前台应用只说明当时显示的应用，不直接表示使用目的。",
+      "亮屏后尚未收到新的前台事件时，不沿用旧应用，保留为未知。"
+    ]
+  }
+}

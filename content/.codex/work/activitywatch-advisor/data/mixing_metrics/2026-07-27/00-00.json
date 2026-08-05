@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "none",
+  "entertainment_deviation_count": 0,
+  "entertainment_deviation_minutes": 0.0,
+  "all_entertainment_minutes": 0.08,
+  "longest_entertainment_deviation_minutes": 0.0,
+  "work_entertainment_transition_count": 2,
+  "brief_communication_minutes": 0.7,
+  "longest_continuous_work_minutes": 10.43,
+  "same_task_tool_switches_not_scored": 30,
+  "raw_foreground_context_switches_not_scored": 43,
+  "deviations": [],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

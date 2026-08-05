@@ -1,0 +1,672 @@
+{
+  "schema_version": 3,
+  "period": {
+    "start": "2026-07-25T22:30:00+08:00",
+    "end": "2026-07-25T23:00:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-25/22-30.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-25/22-30.json",
+  "semantic_timeline_file": "/home/conrad/workspace/activitywatch-advisor/data/semantic_timelines/2026-07-25/22-30.json",
+  "mixing_metrics_file": "/home/conrad/workspace/activitywatch-advisor/data/mixing_metrics/2026-07-25/22-30.json",
+  "cross_device_facts": {
+    "schema_version": 2,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-25T22:30:00+08:00",
+      "end": "2026-07-25T23:00:00+08:00"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 30.0,
+      "computer_afk_minutes": 0.0,
+      "phone_screen_on_minutes": 2.17,
+      "any_device_interaction_minutes": 30.0,
+      "no_detected_device_interaction_minutes": 0.0,
+      "confirmed_rest_minutes": 0.0,
+      "note": "confirmed_rest_minutes按用户确认的跨设备连续无操作规则计算。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "future_devices_not_connected": [
+        "tablet"
+      ],
+      "condition": "电脑连续AFK达到阈值，且所有已接入移动设备均无操作。",
+      "confirmed_intervals": []
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 76,
+      "context_switch_count": 75,
+      "switches_per_active_hour": 194.19,
+      "short_context_blocks_under_60_seconds": 74,
+      "sustained_context_blocks_at_least_5_minutes": 0,
+      "longest_context_minutes": 2.44,
+      "median_context_minutes": 0.18,
+      "context_blocks": [
+        {
+          "start": "2026-07-25T22:30:00+08:00",
+          "end": "2026-07-25T22:32:26+08:00",
+          "minutes": 2.44,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:32:27+08:00",
+          "end": "2026-07-25T22:32:54+08:00",
+          "minutes": 0.45,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:32:55+08:00",
+          "end": "2026-07-25T22:33:01+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:33:15+08:00",
+          "end": "2026-07-25T22:33:21+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:33:21+08:00",
+          "end": "2026-07-25T22:33:26+08:00",
+          "minutes": 0.09,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:33:37+08:00",
+          "end": "2026-07-25T22:33:48+08:00",
+          "minutes": 0.17,
+          "app": "Windows Terminal",
+          "title": "Windows PowerShell",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:33:49+08:00",
+          "end": "2026-07-25T22:33:56+08:00",
+          "minutes": 0.12,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:34:00+08:00",
+          "end": "2026-07-25T22:34:08+08:00",
+          "minutes": 0.14,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:34:09+08:00",
+          "end": "2026-07-25T22:34:19+08:00",
+          "minutes": 0.12,
+          "app": "Windows Terminal",
+          "title": "Windows PowerShell",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:34:20+08:00",
+          "end": "2026-07-25T22:34:29+08:00",
+          "minutes": 0.12,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:34:33+08:00",
+          "end": "2026-07-25T22:34:48+08:00",
+          "minutes": 0.22,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:34:49+08:00",
+          "end": "2026-07-25T22:34:59+08:00",
+          "minutes": 0.12,
+          "app": "Microsoft Edge",
+          "title": "BNB Chain 购买 - 搜索",
+          "domain": "bing.com"
+        },
+        {
+          "start": "2026-07-25T22:35:00+08:00",
+          "end": "2026-07-25T22:35:18+08:00",
+          "minutes": 0.31,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:35:20+08:00",
+          "end": "2026-07-25T22:35:57+08:00",
+          "minutes": 0.6,
+          "app": "Microsoft Edge",
+          "title": "BNB Chain 购买 - 搜索",
+          "domain": "bing.com"
+        },
+        {
+          "start": "2026-07-25T22:35:57+08:00",
+          "end": "2026-07-25T22:36:28+08:00",
+          "minutes": 0.5,
+          "app": "Microsoft Edge",
+          "title": "Release CC Switch v3.18.0 · farion1231/cc-switch · GitHub",
+          "domain": "github.com"
+        },
+        {
+          "start": "2026-07-25T22:36:29+08:00",
+          "end": "2026-07-25T22:36:41+08:00",
+          "minutes": 0.19,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:36:48+08:00",
+          "end": "2026-07-25T22:37:03+08:00",
+          "minutes": 0.26,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:37:05+08:00",
+          "end": "2026-07-25T22:38:01+08:00",
+          "minutes": 0.91,
+          "app": "Microsoft Edge",
+          "title": "Release CC Switch v3.18.0 · farion1231/cc-switch · GitHub",
+          "domain": "github.com"
+        },
+        {
+          "start": "2026-07-25T22:38:10+08:00",
+          "end": "2026-07-25T22:38:22+08:00",
+          "minutes": 0.19,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:38:23+08:00",
+          "end": "2026-07-25T22:38:36+08:00",
+          "minutes": 0.22,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:38:37+08:00",
+          "end": "2026-07-25T22:38:44+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:38:45+08:00",
+          "end": "2026-07-25T22:39:01+08:00",
+          "minutes": 0.28,
+          "app": "Microsoft Edge",
+          "title": "Release CC Switch v3.18.0 · farion1231/cc-switch · GitHub",
+          "domain": "github.com"
+        },
+        {
+          "start": "2026-07-25T22:39:03+08:00",
+          "end": "2026-07-25T22:39:37+08:00",
+          "minutes": 0.57,
+          "app": "msiexec.exe",
+          "title": "CC Switch Setup",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:39:41+08:00",
+          "end": "2026-07-25T22:40:15+08:00",
+          "minutes": 0.57,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:40:16+08:00",
+          "end": "2026-07-25T22:40:29+08:00",
+          "minutes": 0.21,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:40:30+08:00",
+          "end": "2026-07-25T22:40:35+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:40:40+08:00",
+          "end": "2026-07-25T22:40:50+08:00",
+          "minutes": 0.15,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:40:51+08:00",
+          "end": "2026-07-25T22:41:01+08:00",
+          "minutes": 0.14,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:41:11+08:00",
+          "end": "2026-07-25T22:41:19+08:00",
+          "minutes": 0.14,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:41:21+08:00",
+          "end": "2026-07-25T22:41:32+08:00",
+          "minutes": 0.17,
+          "app": "Windows Terminal",
+          "title": "Windows PowerShell",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:41:32+08:00",
+          "end": "2026-07-25T22:41:38+08:00",
+          "minutes": 0.1,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:41:42+08:00",
+          "end": "2026-07-25T22:41:49+08:00",
+          "minutes": 0.12,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:42:02+08:00",
+          "end": "2026-07-25T22:42:13+08:00",
+          "minutes": 0.19,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:42:16+08:00",
+          "end": "2026-07-25T22:42:30+08:00",
+          "minutes": 0.22,
+          "app": "Windows Terminal",
+          "title": "15345",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:42:31+08:00",
+          "end": "2026-07-25T22:42:39+08:00",
+          "minutes": 0.14,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:42:50+08:00",
+          "end": "2026-07-25T22:43:24+08:00",
+          "minutes": 0.55,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:43:25+08:00",
+          "end": "2026-07-25T22:43:38+08:00",
+          "minutes": 0.19,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:43:42+08:00",
+          "end": "2026-07-25T22:43:54+08:00",
+          "minutes": 0.19,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:44:08+08:00",
+          "end": "2026-07-25T22:44:43+08:00",
+          "minutes": 0.55,
+          "app": "Microsoft Edge",
+          "title": "新建标签页",
+          "domain": "newtab"
+        },
+        {
+          "start": "2026-07-25T22:44:46+08:00",
+          "end": "2026-07-25T22:45:01+08:00",
+          "minutes": 0.24,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:45:07+08:00",
+          "end": "2026-07-25T22:45:36+08:00",
+          "minutes": 0.48,
+          "app": "Microsoft Edge",
+          "title": "DeepSeek 开放平台",
+          "domain": "platform.deepseek.com"
+        },
+        {
+          "start": "2026-07-25T22:45:44+08:00",
+          "end": "2026-07-25T22:45:50+08:00",
+          "minutes": 0.1,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:45:53+08:00",
+          "end": "2026-07-25T22:46:34+08:00",
+          "minutes": 0.64,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:46:35+08:00",
+          "end": "2026-07-25T22:46:47+08:00",
+          "minutes": 0.21,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:46:50+08:00",
+          "end": "2026-07-25T22:46:56+08:00",
+          "minutes": 0.1,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:46:57+08:00",
+          "end": "2026-07-25T22:47:03+08:00",
+          "minutes": 0.09,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:47:08+08:00",
+          "end": "2026-07-25T22:47:21+08:00",
+          "minutes": 0.22,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:47:22+08:00",
+          "end": "2026-07-25T22:47:27+08:00",
+          "minutes": 0.09,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:47:43+08:00",
+          "end": "2026-07-25T22:48:12+08:00",
+          "minutes": 0.48,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:48:23+08:00",
+          "end": "2026-07-25T22:48:35+08:00",
+          "minutes": 0.19,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:48:40+08:00",
+          "end": "2026-07-25T22:48:45+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:48:51+08:00",
+          "end": "2026-07-25T22:49:36+08:00",
+          "minutes": 0.74,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:49:39+08:00",
+          "end": "2026-07-25T22:49:45+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:49:47+08:00",
+          "end": "2026-07-25T22:49:54+08:00",
+          "minutes": 0.12,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:50:02+08:00",
+          "end": "2026-07-25T22:50:07+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "HutaoCards | 虚拟信用卡 · 海淘支付 · 数字支付管家",
+          "domain": "hutaocards.com"
+        },
+        {
+          "start": "2026-07-25T22:50:08+08:00",
+          "end": "2026-07-25T22:50:14+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:50:17+08:00",
+          "end": "2026-07-25T22:50:24+08:00",
+          "minutes": 0.12,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:50:33+08:00",
+          "end": "2026-07-25T22:50:43+08:00",
+          "minutes": 0.17,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:50:44+08:00",
+          "end": "2026-07-25T22:50:51+08:00",
+          "minutes": 0.12,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:50:52+08:00",
+          "end": "2026-07-25T22:50:58+08:00",
+          "minutes": 0.1,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:51:04+08:00",
+          "end": "2026-07-25T22:51:11+08:00",
+          "minutes": 0.12,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:51:17+08:00",
+          "end": "2026-07-25T22:51:26+08:00",
+          "minutes": 0.16,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:51:41+08:00",
+          "end": "2026-07-25T22:52:38+08:00",
+          "minutes": 0.91,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:52:45+08:00",
+          "end": "2026-07-25T22:52:51+08:00",
+          "minutes": 0.1,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:52:51+08:00",
+          "end": "2026-07-25T22:53:13+08:00",
+          "minutes": 0.36,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:53:14+08:00",
+          "end": "2026-07-25T22:53:19+08:00",
+          "minutes": 0.09,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:53:20+08:00",
+          "end": "2026-07-25T22:53:40+08:00",
+          "minutes": 0.29,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:54:11+08:00",
+          "end": "2026-07-25T22:54:35+08:00",
+          "minutes": 0.4,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:54:41+08:00",
+          "end": "2026-07-25T22:54:50+08:00",
+          "minutes": 0.16,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:55:39+08:00",
+          "end": "2026-07-25T22:55:44+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:55:49+08:00",
+          "end": "2026-07-25T22:56:03+08:00",
+          "minutes": 0.22,
+          "app": "cc-switch.exe",
+          "title": "CC Switch",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:56:04+08:00",
+          "end": "2026-07-25T22:57:43+08:00",
+          "minutes": 1.61,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:57:46+08:00",
+          "end": "2026-07-25T22:58:37+08:00",
+          "minutes": 0.85,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T22:58:38+08:00",
+          "end": "2026-07-25T22:58:54+08:00",
+          "minutes": 0.21,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:58:58+08:00",
+          "end": "2026-07-25T22:59:06+08:00",
+          "minutes": 0.12,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T22:59:07+08:00",
+          "end": "2026-07-25T23:00:00+08:00",
+          "minutes": 0.85,
+          "app": "Microsoft Edge",
+          "title": "CC Switch 接入 DeepSeek",
+          "domain": "chatgpt.com"
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 2.17,
+      "computer_afk_and_phone_on": 0.0,
+      "computer_not_afk_and_phone_off": 27.83,
+      "computer_afk_and_phone_off": 0.0
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。"
+    ]
+  }
+}

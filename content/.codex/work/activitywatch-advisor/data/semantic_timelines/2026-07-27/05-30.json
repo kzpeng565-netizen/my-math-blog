@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T05:30:00+08:00",
+    "end": "2026-07-27T06:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T05:30:00+08:00",
+      "end": "2026-07-27T06:00:00+08:00",
+      "duration_seconds": 1800.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "用户不在主要设备前（电脑无活动、手机熄屏），但平板亮屏，可能是使用平板但无具体应用数据，或设备闲置中",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "tablet"
+      ],
+      "evidence": [
+        "电脑整个时段状态unknown，无AFK数据，无窗口记录",
+        "手机全程熄屏，无解锁事件",
+        "平板整时段亮屏30分钟，但无前台应用数据（辅助数据源）",
+        "前后辅助上下文电脑和手机均无活动，平板亮屏但置信度低"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "material_uncertainties": [
+    "平板亮屏30分钟但无具体应用数据，无法确认用户是否在使用平板",
+    "电脑状态unknown（非AFK非not_afk），可能处于休眠或监控失效"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4738,
+      "completion_tokens": 324,
+      "total_tokens": 5062,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 3714
+    }
+  }
+}

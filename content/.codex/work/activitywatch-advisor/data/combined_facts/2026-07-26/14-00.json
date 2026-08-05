@@ -1,0 +1,384 @@
+{
+  "schema_version": 3,
+  "period": {
+    "start": "2026-07-26T14:00:00+08:00",
+    "end": "2026-07-26T14:30:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-26/14-00.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-26/14-00.json",
+  "semantic_timeline_file": "/home/conrad/workspace/activitywatch-advisor/data/semantic_timelines/2026-07-26/14-00.json",
+  "mixing_metrics_file": "/home/conrad/workspace/activitywatch-advisor/data/mixing_metrics/2026-07-26/14-00.json",
+  "cross_device_facts": {
+    "schema_version": 2,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-26T14:00:00+08:00",
+      "end": "2026-07-26T14:30:00+08:00"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 29.65,
+      "computer_afk_minutes": 0.35,
+      "phone_screen_on_minutes": 0.0,
+      "any_device_interaction_minutes": 29.65,
+      "no_detected_device_interaction_minutes": 0.35,
+      "confirmed_rest_minutes": 0.0,
+      "note": "confirmed_rest_minutes按用户确认的跨设备连续无操作规则计算。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "future_devices_not_connected": [
+        "tablet"
+      ],
+      "condition": "电脑连续AFK达到阈值，且所有已接入移动设备均无操作。",
+      "confirmed_intervals": []
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 40,
+      "context_switch_count": 39,
+      "switches_per_active_hour": 88.98,
+      "short_context_blocks_under_60_seconds": 34,
+      "sustained_context_blocks_at_least_5_minutes": 1,
+      "longest_context_minutes": 7.16,
+      "median_context_minutes": 0.33,
+      "context_blocks": [
+        {
+          "start": "2026-07-26T14:00:30+08:00",
+          "end": "2026-07-26T14:01:31+08:00",
+          "minutes": 0.99,
+          "app": "Microsoft Edge",
+          "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:01:31+08:00",
+          "end": "2026-07-26T14:02:57+08:00",
+          "minutes": 1.42,
+          "app": "Microsoft Edge",
+          "title": "高中物理-哔哩哔哩_bilibili",
+          "domain": "search.bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:02:59+08:00",
+          "end": "2026-07-26T14:03:04+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "【新高一适用】高中物理基础与解法全集|持续更新ing|从零开始拯救所有学渣！_哔哩哔哩_bilibili",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:03:06+08:00",
+          "end": "2026-07-26T14:03:29+08:00",
+          "minutes": 0.38,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:03:33+08:00",
+          "end": "2026-07-26T14:10:42+08:00",
+          "minutes": 7.16,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:10:48+08:00",
+          "end": "2026-07-26T14:11:03+08:00",
+          "minutes": 0.24,
+          "app": "Obsidian",
+          "title": "未命名",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:11:07+08:00",
+          "end": "2026-07-26T14:12:44+08:00",
+          "minutes": 1.62,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:12:45+08:00",
+          "end": "2026-07-26T14:12:50+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:12:54+08:00",
+          "end": "2026-07-26T14:13:05+08:00",
+          "minutes": 0.15,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:13:08+08:00",
+          "end": "2026-07-26T14:13:25+08:00",
+          "minutes": 0.29,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:13:45+08:00",
+          "end": "2026-07-26T14:14:31+08:00",
+          "minutes": 0.67,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:14:36+08:00",
+          "end": "2026-07-26T14:14:46+08:00",
+          "minutes": 0.14,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:14:49+08:00",
+          "end": "2026-07-26T14:15:07+08:00",
+          "minutes": 0.21,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:15:13+08:00",
+          "end": "2026-07-26T14:15:20+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:15:25+08:00",
+          "end": "2026-07-26T14:17:42+08:00",
+          "minutes": 2.29,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:17:43+08:00",
+          "end": "2026-07-26T14:17:55+08:00",
+          "minutes": 0.19,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:17:58+08:00",
+          "end": "2026-07-26T14:18:03+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:18:05+08:00",
+          "end": "2026-07-26T14:18:11+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:18:17+08:00",
+          "end": "2026-07-26T14:18:58+08:00",
+          "minutes": 0.67,
+          "app": "Clash Verge",
+          "title": "Clash Verge",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:19:17+08:00",
+          "end": "2026-07-26T14:19:23+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:19:27+08:00",
+          "end": "2026-07-26T14:19:58+08:00",
+          "minutes": 0.52,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:20:02+08:00",
+          "end": "2026-07-26T14:20:10+08:00",
+          "minutes": 0.14,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:20:13+08:00",
+          "end": "2026-07-26T14:20:20+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:20:31+08:00",
+          "end": "2026-07-26T14:21:00+08:00",
+          "minutes": 0.48,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:21:01+08:00",
+          "end": "2026-07-26T14:21:43+08:00",
+          "minutes": 0.71,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:21:46+08:00",
+          "end": "2026-07-26T14:22:03+08:00",
+          "minutes": 0.21,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:22:03+08:00",
+          "end": "2026-07-26T14:22:09+08:00",
+          "minutes": 0.1,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:22:09+08:00",
+          "end": "2026-07-26T14:22:39+08:00",
+          "minutes": 0.5,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:22:48+08:00",
+          "end": "2026-07-26T14:23:51+08:00",
+          "minutes": 1.05,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:23:53+08:00",
+          "end": "2026-07-26T14:25:30+08:00",
+          "minutes": 1.58,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:25:33+08:00",
+          "end": "2026-07-26T14:25:38+08:00",
+          "minutes": 0.09,
+          "app": "Mathpix",
+          "title": "Mathpix Snipping Tool - Snip View",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:25:39+08:00",
+          "end": "2026-07-26T14:26:01+08:00",
+          "minutes": 0.33,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:26:02+08:00",
+          "end": "2026-07-26T14:26:07+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:26:13+08:00",
+          "end": "2026-07-26T14:26:38+08:00",
+          "minutes": 0.41,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:26:39+08:00",
+          "end": "2026-07-26T14:27:33+08:00",
+          "minutes": 0.89,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:27:34+08:00",
+          "end": "2026-07-26T14:27:58+08:00",
+          "minutes": 0.4,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:28:07+08:00",
+          "end": "2026-07-26T14:28:28+08:00",
+          "minutes": 0.33,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:28:31+08:00",
+          "end": "2026-07-26T14:28:40+08:00",
+          "minutes": 0.15,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T14:28:41+08:00",
+          "end": "2026-07-26T14:29:00+08:00",
+          "minutes": 0.33,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T14:29:01+08:00",
+          "end": "2026-07-26T14:30:00+08:00",
+          "minutes": 0.97,
+          "app": "Microsoft Edge",
+          "title": "【运动描述】1.7加速度（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 0.0,
+      "computer_afk_and_phone_on": 0.0,
+      "computer_not_afk_and_phone_off": 29.65,
+      "computer_afk_and_phone_off": 0.35
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。"
+    ]
+  }
+}

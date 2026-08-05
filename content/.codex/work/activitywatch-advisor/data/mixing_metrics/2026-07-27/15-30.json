@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 4,
+  "entertainment_deviation_minutes": 9.53,
+  "all_entertainment_minutes": 9.53,
+  "longest_entertainment_deviation_minutes": 4.68,
+  "work_entertainment_transition_count": 5,
+  "brief_communication_minutes": 10.07,
+  "longest_continuous_work_minutes": 3.3,
+  "same_task_tool_switches_not_scored": 11,
+  "raw_foreground_context_switches_not_scored": 47,
+  "deviations": [
+    {
+      "start": "2026-07-27T15:36:59+08:00",
+      "end": "2026-07-27T15:41:40+08:00",
+      "minutes": 4.68,
+      "duration_seconds": 281.0,
+      "task": "浏览知乎娱乐性内容",
+      "evidence": [
+        "从B站转向知乎浏览‘离岸信托个税新规’等话题",
+        "接着浏览‘麦田怪圈真相’（1.2分钟）",
+        "随后返回知乎首页浏览",
+        "之后微信聊天（39秒）后又回到工作"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T15:50:35+08:00",
+      "end": "2026-07-27T15:51:45+08:00",
+      "minutes": 1.17,
+      "duration_seconds": 70.0,
+      "task": "浏览知乎首页及娱乐话题",
+      "evidence": [
+        "15:50:35进入知乎首页（0.5分钟）",
+        "15:51:12点击‘菲尔兹奖得主邓煜公开安利二次元作品…’",
+        "该话题为娱乐性质，非工作相关",
+        "之后返回ChatGPT工作页面前有短暂切换"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T15:55:41+08:00",
+      "end": "2026-07-27T15:57:34+08:00",
+      "minutes": 1.88,
+      "duration_seconds": 113.0,
+      "task": "浏览知乎数学相关但非直接工作的话题",
+      "evidence": [
+        "15:55:41-15:56:31阅读‘研究数学是否建议购买chatGPT pro？’（0.8分钟）",
+        "该话题虽与数学相关，但属于知乎社区讨论，非直接工作查询",
+        "接着浏览知乎首页",
+        "随后转向娱乐性‘高考699分女孩’话题"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T15:57:34+08:00",
+      "end": "2026-07-27T15:59:22+08:00",
+      "minutes": 1.8,
+      "duration_seconds": 108.0,
+      "task": "浏览知乎娱乐性话题",
+      "evidence": [
+        "15:57:34-15:59:21阅读‘高考699分女孩韩雅平建议少玩手机’（1.8分钟）",
+        "该话题为知乎热门娱乐/社会话题",
+        "不直接服务于工作任务",
+        "之后切换到微信，接近时段结束"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

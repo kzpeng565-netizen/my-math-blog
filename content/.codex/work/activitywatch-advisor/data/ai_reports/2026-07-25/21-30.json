@@ -1,0 +1,658 @@
+{
+  "period": "2026-07-25T21:30:00+08:00/2026-07-25T22:00:00+08:00",
+  "state_assessment": {
+    "label": "work_with_entertainment_detour",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作21.47分钟，娱乐7.48分钟，通信0.47分钟，确认休息0.0分钟。工作中出现3次超过30秒的娱乐偏离，共2.83分钟，最长1.38分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "medium",
+    "entertainment_deviation_count": 3,
+    "entertainment_deviation_minutes": 2.83,
+    "all_entertainment_minutes": 7.48,
+    "longest_entertainment_deviation_minutes": 1.38,
+    "work_entertainment_transition_count": 7,
+    "brief_communication_minutes": 0.47,
+    "longest_continuous_work_minutes": 3.55,
+    "same_task_tool_switches_not_scored": 14,
+    "raw_foreground_context_switches_not_scored": 41,
+    "deviations": [
+      {
+        "start": "2026-07-25T21:36:16+08:00",
+        "end": "2026-07-25T21:36:56+08:00",
+        "minutes": 0.67,
+        "duration_seconds": 40.0,
+        "task": "浏览知乎话题（人民币兑日元）后新建标签页",
+        "evidence": [
+          "短暂回到知乎话题页面",
+          "随后新建标签页",
+          "提示从工作短暂分心"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-25T21:42:34+08:00",
+        "end": "2026-07-25T21:43:57+08:00",
+        "minutes": 1.38,
+        "duration_seconds": 83.0,
+        "task": "浏览知乎话题（人民币兑日元、服务区啤酒档口）",
+        "evidence": [
+          "两次切换到知乎话题",
+          "话题为非工作相关社会新闻",
+          "之后返回工作"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.12,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-25T21:51:22+08:00",
+        "end": "2026-07-25T21:52:09+08:00",
+        "minutes": 0.78,
+        "duration_seconds": 47.0,
+        "task": "阅读知乎专栏：BNB Chain介绍和买卖币教程",
+        "evidence": [
+          "知乎专栏：怎么买币安币、十大公链介绍",
+          "内容与工作相关（加密货币研究），但为信息阅读",
+          "手机同时段使用计算器和Clash Meta，不影响"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中出现3次超过30秒的娱乐偏离：21:36:16-21:36:56（40秒）浏览知乎后新建标签页；21:42:34-21:43:57（1分23秒）浏览知乎社会新闻；21:51:22-21:52:09（47秒）阅读知乎BNB专栏。每次偏离后均返回加密货币研究工作，无累积中断。"
+  },
+  "computer_summary": "电脑端主要进行加密货币充值、虚拟信用卡操作研究，使用Edge、ChatGPT、HutaoCards、Binance等，耗时约22分钟；期间3次短暂切换至知乎娱乐（共约2.8分钟）。",
+  "phone_summary": "手机活动以微信通信为主（6.45分钟），另有支付宝扫码（1.5分钟）配合电脑支付，其余为短暂工具切换（计算器、Clash Meta、浏览器等）。微信通信部分可能含工作相关内容，但无标题证据。",
+  "material_uncertainties": [
+    "微信通信在21:39-21:41期间是否服务于工作（加密货币研究）还是纯粹社交，缺乏标题证据，归为brief_communication。",
+    "21:30-21:34的4分钟知乎浏览为纯娱乐，但若用户认为属于工作预热，则工作总分钟数可能增加。"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作21.47分钟，娱乐7.48分钟，通信0.47分钟，确认休息0.0分钟。工作中出现3次超过30秒的娱乐偏离，共2.83分钟，最长1.38分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "21:39-21:41的微信通信是否与加密货币研究工作相关？若是，则对应时段可重新归类为工作辅助，减少娱乐偏离次数。",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 13.25,
+    "simultaneous_computer_active_phone_on_minutes": 13.25,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 21.47,
+      "range_minutes": [
+        21.47,
+        21.47
+      ],
+      "evidence": [
+        "ChatGPT前台出现，但标题仅显示ChatGPT",
+        "短暂使用后切换至虚拟信用卡网站",
+        "无法确定是否为工作，但与后续HutaoCards等理财相关，暂归工作",
+        "ChatGPT与Edge新建标签页交替"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 7.48,
+      "range_minutes": [
+        7.48,
+        7.48
+      ],
+      "evidence": [
+        "Microsoft Edge Zhihu 首页及多个话题浏览持续约4分钟",
+        "前后文显示之前为 B站娱乐，本段延续娱乐性质",
+        "无工作相关标题或上下文",
+        "短暂切换至知乎话题，仍属信息浏览"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.47,
+      "range_minutes": [
+        0.47,
+        0.47
+      ],
+      "evidence": [
+        "手机微信连续使用约2分钟（21:39-21:41）",
+        "电脑端新建标签页，可能短暂等待或分心"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.58,
+      "range_minutes": [
+        0.58,
+        0.58
+      ],
+      "evidence": [
+        "explorer.exe系统托盘溢出窗口，持续1秒",
+        "极短时间，不改变主要活动",
+        "4秒无窗口记录，1秒ChatGPT窗口",
+        "过渡时间极短"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "21:30-21:34",
+      "likely_state": "娱乐",
+      "minutes": 4.17,
+      "task": "浏览知乎首页及多个话题（汇率、科技、人工智能等非工作相关）",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge Zhihu 首页及多个话题浏览持续约4分钟",
+        "前后文显示之前为 B站娱乐，本段延续娱乐性质",
+        "无工作相关标题或上下文"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:34-21:34",
+      "likely_state": "娱乐",
+      "minutes": 0.48,
+      "task": "浏览知乎「用AI写Agent」话题",
+      "work_category": "",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "短暂切换至知乎话题，仍属信息浏览",
+        "与前后娱乐段相同性质，但后续转向ChatGPT工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:34-21:35",
+      "likely_state": "工作",
+      "minutes": 0.75,
+      "task": "使用ChatGPT（可能尝试AI工作，但内容不明）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT前台出现，但标题仅显示ChatGPT",
+        "短暂使用后切换至虚拟信用卡网站",
+        "无法确定是否为工作，但与后续HutaoCards等理财相关，暂归工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "21:35-21:35",
+      "likely_state": "其他",
+      "minutes": 0.07,
+      "task": "短暂操作文件资源管理器（系统托盘）",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "explorer.exe系统托盘溢出窗口，持续1秒",
+        "极短时间，不改变主要活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:35-21:35",
+      "likely_state": "工作",
+      "minutes": 0.25,
+      "task": "在ChatGPT和Edge新建标签页之间切换",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT与Edge新建标签页交替",
+        "随后打开HutaoCards虚拟信用卡网站"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "21:35-21:36",
+      "likely_state": "工作",
+      "minutes": 0.55,
+      "task": "查看HutaoCards虚拟信用卡网站并返回ChatGPT",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "HutaoCards页面 (虚拟信用卡管家) 查看约7秒",
+        "随后回到ChatGPT页面"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:36-21:36",
+      "likely_state": "娱乐",
+      "minutes": 0.67,
+      "task": "浏览知乎话题（人民币兑日元）后新建标签页",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "短暂回到知乎话题页面",
+        "随后新建标签页",
+        "提示从工作短暂分心"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "21:36-21:39",
+      "likely_state": "工作",
+      "minutes": 3.0,
+      "task": "研究HutaoCards虚拟信用卡并使用ChatGPT咨询加密货币充值",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "HutaoCards页面停留约45秒",
+        "使用截图工具（可能记录信息）",
+        "ChatGPT页面标题：加密货币充值虚拟卡、加密货币充值手续费",
+        "连续工作行为：研究虚拟卡充值流程"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:39-21:41",
+      "likely_state": "工作",
+      "minutes": 1.57,
+      "task": "使用ChatGPT咨询加密货币充值手续费相关",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "ChatGPT页面持续1.5分钟",
+        "手机在此期间亮屏使用微信（21:39-21:41），可能边工作边通信",
+        "手机微信为独立通信，但电脑工作为主，手机通信单独归类"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:41-21:41",
+      "likely_state": "通信",
+      "minutes": 0.47,
+      "task": "手机微信通信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机微信连续使用约2分钟（21:39-21:41）",
+        "电脑端新建标签页，可能短暂等待或分心"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:41-21:42",
+      "likely_state": "工作",
+      "minutes": 0.6,
+      "task": "继续ChatGPT加密货币充值手续费研究",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "回到ChatGPT充值手续费页面",
+        "持续约35秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:42-21:43",
+      "likely_state": "娱乐",
+      "minutes": 1.38,
+      "task": "浏览知乎话题（人民币兑日元、服务区啤酒档口）",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "两次切换到知乎话题",
+        "话题为非工作相关社会新闻",
+        "之后返回工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:43-21:44",
+      "likely_state": "其他",
+      "minutes": 0.12,
+      "task": "短暂无窗口记录或切换到ChatGPT窗口",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "4秒无窗口记录，1秒ChatGPT窗口",
+        "过渡时间极短"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:44-21:45",
+      "likely_state": "工作",
+      "minutes": 1.45,
+      "task": "继续ChatGPT加密货币充值手续费研究",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "加密货币充值手续费页面持续1分25秒",
+        "明确的工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:45-21:45",
+      "likely_state": "工作",
+      "minutes": 0.37,
+      "task": "搜索OKX SG等加密货币交易平台信息",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Bing搜索OKX SG",
+        "延续加密货币相关研究"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:45-21:47",
+      "likely_state": "工作",
+      "minutes": 1.25,
+      "task": "HutaoCards与ChatGPT交替，研究充值方案",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "HutaoCards页面8秒，加密货币充值手续费页面65秒",
+        "研究虚拟信用卡与加密货币充值"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:47-21:47",
+      "likely_state": "工作",
+      "minutes": 0.83,
+      "task": "搜索OKX SG中国、BNB Chain及购买方式",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Bing搜索OKX SG中国、BNB Chain、BNB Chain购买",
+        "ChatGPT加密货币充值手续费页面短暂出现",
+        "搜索BNB购买渠道"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:47-21:48",
+      "likely_state": "工作",
+      "minutes": 0.43,
+      "task": "查看Binance官方购买BNB指南",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Binance.com页面：如何购买BNB",
+        "Bing搜索BNB Chain购买"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:48-21:49",
+      "likely_state": "工作",
+      "minutes": 0.6,
+      "task": "ChatGPT查询BNB Chain购买渠道",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT页面标题：BNB Chain购买渠道",
+        "Bing搜索BNB Chain购买交替"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:49-21:49",
+      "likely_state": "工作",
+      "minutes": 0.67,
+      "task": "ChatGPT对话（可能关于BNB购买）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT应用前台40秒",
+        "之前之后均为BNB相关研究"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:49-21:49",
+      "likely_state": "其他",
+      "minutes": 0.07,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "4秒无窗口",
+        "极短过渡"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:49-21:51",
+      "likely_state": "工作",
+      "minutes": 1.63,
+      "task": "ChatGPT上继续研究BNB Chain购买渠道",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT页面标题：BNB Chain购买渠道",
+        "ChatGPT应用前台多次交替",
+        "微信短暂弹出（2秒），属通知"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:51-21:52",
+      "likely_state": "娱乐",
+      "minutes": 0.78,
+      "task": "阅读知乎专栏：BNB Chain介绍和买卖币教程",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "知乎专栏：怎么买币安币、十大公链介绍",
+        "内容与工作相关（加密货币研究），但为信息阅读",
+        "手机同时段使用计算器和Clash Meta，不影响"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:52-21:55",
+      "likely_state": "工作",
+      "minutes": 3.55,
+      "task": "在HutaoCards虚拟信用卡网站进行操作或浏览",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "HutaoCards页面持续3.5分钟，为最长单一页面",
+        "手机同时段使用微信、浏览器、相机等，但电脑活动为主",
+        "推测正在处理虚拟卡相关操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:55-21:56",
+      "likely_state": "其他",
+      "minutes": 0.33,
+      "task": "Edge about:blank页，短暂空闲",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "about:blank页面16秒",
+        "前后均为工作相关页面"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:56-21:56",
+      "likely_state": "工作",
+      "minutes": 0.92,
+      "task": "使用支付宝扫码支付相关（futoon.org）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "支付宝扫码支付页面50秒",
+        "手机同时开启支付宝（1.5分钟），与电脑活动匹配",
+        "推测为虚拟卡充值进行扫码支付"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:56-21:59",
+      "likely_state": "工作",
+      "minutes": 2.23,
+      "task": "继续HutaoCards虚拟信用卡操作",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "HutaoCards页面持续2.2分钟",
+        "手机微信活跃（21:57-22:00），通信可能相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:59-22:00",
+      "likely_state": "工作",
+      "minutes": 0.82,
+      "task": "使用ChatGPT和Edge ChatGPT页面收尾工作",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT应用和Web交替使用",
+        "延续加密货币相关研究"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 21061,
+      "completion_tokens": 1519,
+      "total_tokens": 22580,
+      "prompt_tokens_details": {
+        "cached_tokens": 20992
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1003
+      },
+      "prompt_cache_hit_tokens": 20992,
+      "prompt_cache_miss_tokens": 69
+    }
+  }
+}

@@ -1,0 +1,787 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T09:30:00+08:00",
+    "end": "2026-07-25T10:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 63,
+      "aw-watcher-afk_xyh": 2,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 54
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 15.02,
+    "afk_minutes": 14.98,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 13.99
+  },
+  "top_apps": [
+    {
+      "app": "Obsidian",
+      "minutes": 7.86
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 5.87
+    },
+    {
+      "app": "Mathpix",
+      "minutes": 0.09
+    },
+    {
+      "app": "微信",
+      "minutes": 0.09
+    },
+    {
+      "app": "微信小程序",
+      "minutes": 0.05
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.03
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "zhihu.com",
+      "minutes": 1.81
+    },
+    {
+      "domain": "bilibili.com",
+      "minutes": 1.72
+    },
+    {
+      "domain": "msn.cn",
+      "minutes": 1.58
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.58
+    },
+    {
+      "domain": "chatgpt.com",
+      "minutes": 0.08
+    },
+    {
+      "domain": "space.bilibili.com",
+      "minutes": 0.03
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "minutes": 7.65
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "商务部宣布为维护国家安全和利益，将 14 家欧盟实体列入出口管制管控名单，有哪些信息值得关注？ - 知乎",
+      "minutes": 1.77
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "minutes": 1.72
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "msn.cn",
+      "title": "A380时隔多年现身杭州，373名乘客被困机舱超10小时，为何不能下机? 多方回应",
+      "minutes": 1.58
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.58
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接1 从因式分解与不等式",
+      "minutes": 0.21
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "ChatGPT Plus 足够",
+      "minutes": 0.08
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "发现 - 知乎",
+      "minutes": 0.05
+    },
+    {
+      "app": "微信小程序",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.05
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "space.bilibili.com",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "minutes": 0.03
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 0.03
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "ChatGPT Plus 足够",
+      "first_seen": "2026-07-25T09:30:55+08:00",
+      "last_seen": "2026-07-25T09:50:26+08:00",
+      "raw_event_count": 15
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T09:31:07+08:00",
+      "last_seen": "2026-07-25T09:59:38+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "kimi.com",
+      "title": "Kimi AI 官网 - K3 上线，专为智能体编程与知识工作打造",
+      "first_seen": "2026-07-25T09:50:14+08:00",
+      "last_seen": "2026-07-25T09:50:27+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "help.openai.com",
+      "title": "使用 Codex 配合您的 ChatGPT 计划 |OpenAI帮助中心",
+      "first_seen": "2026-07-25T09:50:15+08:00",
+      "last_seen": "2026-07-25T09:50:16+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-25T09:50:17+08:00",
+      "last_seen": "2026-07-25T09:50:20+08:00",
+      "raw_event_count": 5
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "仇子龙 - 搜索结果 - 知乎",
+      "first_seen": "2026-07-25T09:50:18+08:00",
+      "last_seen": "2026-07-25T09:50:19+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "first_seen": "2026-07-25T09:50:19+08:00",
+      "last_seen": "2026-07-25T09:50:19+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "中国美术学院的录取通知书里附带 30 张速写作业，你怎么看高校给新生布置暑假作业？ - 知乎",
+      "first_seen": "2026-07-25T09:50:19+08:00",
+      "last_seen": "2026-07-25T09:50:20+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "如果一男子撬锁进入别人房子内，结果刚进屋就被泼热油导致全身重度烧伤，请问屋主该行为是否属于正当防卫？ - 知乎",
+      "first_seen": "2026-07-25T09:50:20+08:00",
+      "last_seen": "2026-07-25T09:50:20+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "近日马斯克称其2万亿新模型「可能超越Kimi」，可能超越Kimi的具体依据是什么？对此你们是怎么看？ - 知乎",
+      "first_seen": "2026-07-25T09:50:20+08:00",
+      "last_seen": "2026-07-25T09:50:20+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "上海 6 岁女孩基因编辑试验后死亡 - 搜索结果 - 知乎",
+      "first_seen": "2026-07-25T09:50:20+08:00",
+      "last_seen": "2026-07-25T09:50:21+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "阿布高中数学-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T09:50:21+08:00",
+      "last_seen": "2026-07-25T09:50:21+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "space.bilibili.com",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "first_seen": "2026-07-25T09:50:21+08:00",
+      "last_seen": "2026-07-25T09:55:48+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "bing.com",
+      "title": "仇子龙 - 搜索",
+      "first_seen": "2026-07-25T09:50:24+08:00",
+      "last_seen": "2026-07-25T09:50:24+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "msn.com",
+      "title": "新华社 - MSN",
+      "first_seen": "2026-07-25T09:50:24+08:00",
+      "last_seen": "2026-07-25T09:50:24+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-25T09:50:24+08:00",
+      "last_seen": "2026-07-25T09:50:25+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "baike.baidu.com",
+      "title": "百科参考资料",
+      "first_seen": "2026-07-25T09:50:25+08:00",
+      "last_seen": "2026-07-25T09:50:25+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "help.openai.com",
+      "title": "Codex rate card | OpenAI Help Center",
+      "first_seen": "2026-07-25T09:50:25+08:00",
+      "last_seen": "2026-07-25T09:50:26+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "help.openai.com",
+      "title": "Using Codex with your ChatGPT plan | OpenAI Help Center",
+      "first_seen": "2026-07-25T09:50:26+08:00",
+      "last_seen": "2026-07-25T09:50:26+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bing.com",
+      "title": "kimi - 搜索",
+      "first_seen": "2026-07-25T09:50:26+08:00",
+      "last_seen": "2026-07-25T09:50:26+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "kimi.com",
+      "title": "Kimi Code - 搭载 Kimi K3 的 AI 编程 Agent 与 CLI 工具",
+      "first_seen": "2026-07-25T09:50:27+08:00",
+      "last_seen": "2026-07-25T09:50:27+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T09:50:27+08:00",
+      "last_seen": "2026-07-25T09:55:45+08:00",
+      "raw_event_count": 5
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-25T09:55:48+08:00",
+      "last_seen": "2026-07-25T09:59:26+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "msn.cn",
+      "title": "A380时隔多年现身杭州，373名乘客被困机舱超10小时，为何不能下机? 多方回应",
+      "first_seen": "2026-07-25T09:57:26+08:00",
+      "last_seen": "2026-07-25T09:57:58+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "商务部宣布为维护国家安全和利益，将 14 家欧盟实体列入出口管制管控名单，有哪些信息值得关注？ - 知乎",
+      "first_seen": "2026-07-25T09:59:26+08:00",
+      "last_seen": "2026-07-25T09:59:26+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T09:30:00+08:00",
+      "end": "2026-07-25T09:44:58+08:00",
+      "duration_seconds": 898.945,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T09:44:58+08:00",
+      "end": "2026-07-25T10:00:00+08:00",
+      "duration_seconds": 901.054,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T09:44:58+08:00",
+      "end": "2026-07-25T09:45:02+08:00",
+      "duration_seconds": 4.03,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT Plus 足够",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T09:45:04+08:00",
+      "end": "2026-07-25T09:45:07+08:00",
+      "duration_seconds": 3.074,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:45:08+08:00",
+      "end": "2026-07-25T09:45:10+08:00",
+      "duration_seconds": 2.054,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:45:11+08:00",
+      "end": "2026-07-25T09:49:26+08:00",
+      "duration_seconds": 255.394,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:49:27+08:00",
+      "end": "2026-07-25T09:49:28+08:00",
+      "duration_seconds": 1.026,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:49:29+08:00",
+      "end": "2026-07-25T09:49:47+08:00",
+      "duration_seconds": 17.508,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:49:48+08:00",
+      "end": "2026-07-25T09:49:49+08:00",
+      "duration_seconds": 1.042,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:49:50+08:00",
+      "end": "2026-07-25T09:50:01+08:00",
+      "duration_seconds": 9.259,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:50:02+08:00",
+      "end": "2026-07-25T09:50:05+08:00",
+      "duration_seconds": 3.076,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:50:06+08:00",
+      "end": "2026-07-25T09:50:08+08:00",
+      "duration_seconds": 2.066,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:50:09+08:00",
+      "end": "2026-07-25T09:50:10+08:00",
+      "duration_seconds": 1.031,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:50:12+08:00",
+      "end": "2026-07-25T09:50:13+08:00",
+      "duration_seconds": 1.03,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT Plus 足够",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T09:50:13+08:00",
+      "end": "2026-07-25T09:50:22+08:00",
+      "duration_seconds": 8.256,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T09:50:22+08:00",
+      "end": "2026-07-25T09:50:23+08:00",
+      "duration_seconds": 1.033,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "domain": "space.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T09:50:23+08:00",
+      "end": "2026-07-25T09:50:28+08:00",
+      "duration_seconds": 5.154,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T09:50:28+08:00",
+      "end": "2026-07-25T09:52:01+08:00",
+      "duration_seconds": 92.696,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T09:52:02+08:00",
+      "end": "2026-07-25T09:53:42+08:00",
+      "duration_seconds": 99.902,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:53:43+08:00",
+      "end": "2026-07-25T09:53:54+08:00",
+      "duration_seconds": 11.356,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接1 从因式分解与不等式",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:53:54+08:00",
+      "end": "2026-07-25T09:53:57+08:00",
+      "duration_seconds": 3.098,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T09:53:57+08:00",
+      "end": "2026-07-25T09:54:30+08:00",
+      "duration_seconds": 32.93,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:54:31+08:00",
+      "end": "2026-07-25T09:54:35+08:00",
+      "duration_seconds": 4.104,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:54:36+08:00",
+      "end": "2026-07-25T09:55:02+08:00",
+      "duration_seconds": 25.767,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:55:04+08:00",
+      "end": "2026-07-25T09:55:05+08:00",
+      "duration_seconds": 1.029,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T09:55:06+08:00",
+      "end": "2026-07-25T09:55:13+08:00",
+      "duration_seconds": 7.195,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:55:13+08:00",
+      "end": "2026-07-25T09:55:16+08:00",
+      "duration_seconds": 3.074,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T09:55:16+08:00",
+      "end": "2026-07-25T09:55:18+08:00",
+      "duration_seconds": 2.064,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:55:19+08:00",
+      "end": "2026-07-25T09:55:20+08:00",
+      "duration_seconds": 1.037,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接1 从因式分解与不等式",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:55:21+08:00",
+      "end": "2026-07-25T09:55:28+08:00",
+      "duration_seconds": 6.171,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:55:29+08:00",
+      "end": "2026-07-25T09:55:30+08:00",
+      "duration_seconds": 1.034,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T09:55:30+08:00",
+      "end": "2026-07-25T09:55:34+08:00",
+      "duration_seconds": 4.119,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T09:55:34+08:00",
+      "end": "2026-07-25T09:55:35+08:00",
+      "duration_seconds": 1.027,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:55:37+08:00",
+      "end": "2026-07-25T09:55:45+08:00",
+      "duration_seconds": 8.21,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T09:55:46+08:00",
+      "end": "2026-07-25T09:55:47+08:00",
+      "duration_seconds": 1.037,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "domain": "space.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T09:55:48+08:00",
+      "end": "2026-07-25T09:56:22+08:00",
+      "duration_seconds": 33.951,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T09:56:23+08:00",
+      "end": "2026-07-25T09:57:58+08:00",
+      "duration_seconds": 94.695,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "A380时隔多年现身杭州，373名乘客被困机舱超10小时，为何不能下机? 多方回应",
+      "domain": "msn.cn",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T09:57:59+08:00",
+      "end": "2026-07-25T09:58:00+08:00",
+      "duration_seconds": 1.023,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T09:58:01+08:00",
+      "end": "2026-07-25T09:58:02+08:00",
+      "duration_seconds": 1.024,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:58:04+08:00",
+      "end": "2026-07-25T09:58:07+08:00",
+      "duration_seconds": 3.085,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "发现 - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T09:58:08+08:00",
+      "end": "2026-07-25T09:58:10+08:00",
+      "duration_seconds": 2.049,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T09:58:10+08:00",
+      "end": "2026-07-25T09:58:13+08:00",
+      "duration_seconds": 3.067,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T09:58:13+08:00",
+      "end": "2026-07-25T10:00:00+08:00",
+      "duration_seconds": 106.348,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "商务部宣布为维护国家安全和利益，将 14 家欧盟实体列入出口管制管控名单，有哪些信息值得关注？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.932,
+    "browser_title_coverage": 0.997,
+    "browser_domain_context_coverage": 0.988,
+    "web_watcher_exact_time_overlap": 0.293,
+    "browser_share_of_active_time": 0.391,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

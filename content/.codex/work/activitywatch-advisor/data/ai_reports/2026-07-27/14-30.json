@@ -1,0 +1,336 @@
+{
+  "period": "2026-07-27T14:30:00+08:00/2026-07-27T15:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：中职生升学相关资料搜索与AI辅助学习。工作12.45分钟，娱乐0.0分钟，通信0.0分钟，确认休息17.05分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 6.13,
+    "same_task_tool_switches_not_scored": 2,
+    "raw_foreground_context_switches_not_scored": 10,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "本时段未出现超过30秒的娱乐偏离；所有活动（B站学习视频、DeepSeek、ChatGPT咨询）均服务于同一学习任务，工具切换不计入混杂。"
+  },
+  "computer_summary": "电脑活跃时段（14:47-15:00）主要使用Microsoft Edge，交替访问DeepSeek开放平台、B站（数学学习视频及中职升学视频）和ChatGPT（药学课程学习建议），全部属于同一学习任务，无娱乐内容。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "tablet_summary": "平板亮屏30分钟，但作为辅助数据源，未采集到具体应用；电脑活跃期间平板亮屏不改变休息判断。",
+  "material_uncertainties": [],
+  "concise_report": "主要任务：中职生升学相关资料搜索与AI辅助学习。工作12.45分钟，娱乐0.0分钟，通信0.0分钟，确认休息17.05分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "B站视频'盘点中职生升学四种方式'是否属于工作任务（如备课时收集升学信息）？这决定了该段6分钟是否应归为工作而非娱乐。",
+  "observed_metrics": {
+    "computer_active_minutes": 12.94,
+    "computer_afk_minutes": 17.06,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 17.05,
+    "confirmed_rest_minutes": 17.05
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 12.45,
+      "range_minutes": [
+        12.45,
+        12.45
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名platform.deepseek.com，标题'DeepSeek 开放平台'",
+        "短暂切换至微信0.02分钟（仅1秒），不形成独立通信段",
+        "相邻上下文显示此前AFK，醒来后先访问DeepSeek",
+        "Microsoft Edge浏览器，域名bilibili.com，标题包含'高职高考-中职数学'"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 17.05,
+      "range_minutes": [
+        17.05,
+        17.05
+      ],
+      "evidence": [
+        "电脑连续AFK 17.05分钟（14:30:00-14:47:03）",
+        "手机全程熄屏",
+        "平板亮屏，但作为辅助数据源不否决休息",
+        "休息规则确认该区间为休息"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.5,
+      "range_minutes": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        "活跃但无窗口记录3秒，时长极短",
+        "Microsoft Edge浏览器，标题'新建标签页'",
+        "随后迅速访问ChatGPT，属于任务切换间隙"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "14:30-14:47",
+      "likely_state": "休息",
+      "minutes": 17.05,
+      "task": "无电脑或手机活动，根据规则判定为休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 17.05分钟（14:30:00-14:47:03）",
+        "手机全程熄屏",
+        "平板亮屏，但作为辅助数据源不否决休息",
+        "休息规则确认该区间为休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:47-14:47",
+      "likely_state": "工作",
+      "minutes": 0.67,
+      "task": "访问DeepSeek开放平台，准备或查阅学习相关资源",
+      "work_category": "其他工作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名platform.deepseek.com，标题'DeepSeek 开放平台'",
+        "短暂切换至微信0.02分钟（仅1秒），不形成独立通信段",
+        "相邻上下文显示此前AFK，醒来后先访问DeepSeek"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:47-14:48",
+      "likely_state": "工作",
+      "minutes": 0.42,
+      "task": "通过B站学习高中数学，视频标题为'高职高考-中职数学-成人自考-入门篇 从零开始学高中数学 职高数学'",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名bilibili.com，标题包含'高职高考-中职数学'",
+        "紧接DeepSeek后，数学学习与后续工作连贯"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:48-14:48",
+      "likely_state": "工作",
+      "minutes": 0.58,
+      "task": "在B站搜索'职高升学'相关视频",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名search.bilibili.com，标题'职高升学-哔哩哔哩_bilibili'",
+        "搜索行为属于探索学习资源"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:48-14:50",
+      "likely_state": "工作",
+      "minutes": 1.72,
+      "task": "观看B站视频'盘点中职生升学四种方式！听说中职升本科更容易？'，了解中职生升学途径",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名bilibili.com，标题明确关于中职升学",
+        "与搜索'职高升学'连贯，属于同一信息收集任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:50-14:50",
+      "likely_state": "其他",
+      "minutes": 0.05,
+      "task": "短暂无窗口记录，可能切换标签页",
+      "work_category": "",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "活跃但无窗口记录3秒，时长极短"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "14:50-14:50",
+      "likely_state": "其他",
+      "minutes": 0.45,
+      "task": "打开新建标签页，准备访问新网站",
+      "work_category": "",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，标题'新建标签页'",
+        "随后迅速访问ChatGPT，属于任务切换间隙"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "14:50-14:51",
+      "likely_state": "工作",
+      "minutes": 0.12,
+      "task": "访问ChatGPT主页，准备进行AI对话",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，标题'ChatGPT: Chat, Work, Create & Code with AI'和'ChatGPT'",
+        "属于工作流程中的工具切换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:51-14:52",
+      "likely_state": "工作",
+      "minutes": 1.68,
+      "task": "在ChatGPT中询问'药学课程学习建议'，可能是为教学或个人学习做准备",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名chatgpt.com，标题'药学课程学习建议'",
+        "与之前学习主题一致，属于主动学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:52-14:53",
+      "likely_state": "工作",
+      "minutes": 0.85,
+      "task": "ChatGPT中新建对话，可能准备新问题或整理信息",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，标题'New chat'",
+        "继续在ChatGPT中操作，属于同一任务"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "14:53-14:53",
+      "likely_state": "工作",
+      "minutes": 0.28,
+      "task": "回到B站继续浏览数学视频，但很快又切换",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名bilibili.com，标题'高职高考-中职数学-成人自考-入门篇 从零开始学高中数学 职高数学'",
+        "短暂返回，后切换至'盘点中职生升学'，均为学习相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:53-15:00",
+      "likely_state": "工作",
+      "minutes": 6.13,
+      "task": "观看B站视频'盘点中职生升学四种方式！听说中职升本科更容易？'，深入了解中职升学路径",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器，域名bilibili.com，标题关于中职升学",
+        "持续观看至报告时段结束，共约6分钟",
+        "与前半段观看内容相同，属于持续学习"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "中职生升学相关资料搜索与AI辅助学习",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8292,
+      "completion_tokens": 1557,
+      "total_tokens": 9849,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1166
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 7396
+    }
+  }
+}

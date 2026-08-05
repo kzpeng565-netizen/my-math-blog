@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T23:00:00+08:00",
+    "end": "2026-07-27T23:30:00+08:00"
+  },
+  "primary_work_task": "任务规划与闭环推进",
+  "segments": [
+    {
+      "start": "2026-07-27T23:00:00+08:00",
+      "end": "2026-07-27T23:16:16+08:00",
+      "duration_seconds": 976.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "查看任务计划，整理ToDo，并在ChatGPT上讨论下一步行动与闭环",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑主要活动：ChatGPT标题'下一步行动与闭环'和Obsidian'ToDo-已经规划好的任务'来回切换",
+        "文件资源管理器打开'任务计划'文件夹（23:01-23:02）",
+        "手机全程微信前台，持续30分钟，但电脑持续工作，判断主要注意力在电脑",
+        "23:00起连续not-afk直到23:25:26"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T23:16:16+08:00",
+      "end": "2026-07-27T23:16:54+08:00",
+      "duration_seconds": 38.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎文章（Kimi K3相关）",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "23:16:16-23:16:51浏览zhihu.com文章'一般没人讨论这个...Kimi K3...'",
+        "23:16:51-23:16:54浏览知乎首页",
+        "此浏览时长约38秒，且发生在工作过程中",
+        "随后马上返回ChatGPT工作（23:16:55）"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T23:16:54+08:00",
+      "end": "2026-07-27T23:25:26+08:00",
+      "duration_seconds": 512.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "返回ChatGPT继续讨论下一步行动与闭环",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "23:16:55起回到ChatGPT标题'下一步行动与闭环'",
+        "持续工作直至23:25:26电脑AFK",
+        "期间夹杂Obsidian和文件资源管理器操作，仍属同一任务",
+        "手机微信仍持续前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T23:25:26+08:00",
+      "end": "2026-07-27T23:30:00+08:00",
+      "duration_seconds": 274.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "电脑AFK，手机微信前台亮屏，不确定是否休息或使用手机",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从23:25:26开始AFK（无键鼠操作）",
+        "手机微信前台持续亮屏，但无新解锁事件，可能正在聊天",
+        "平板亮屏但仅为辅助数据",
+        "不满足休息规则（手机未熄屏），归为other"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "手机微信持续前台30分钟，但缺乏具体聊天内容，无法确认是工作沟通还是娱乐聊天",
+    "23:25:26后电脑AFK，手机微信亮屏，但无法判断用户是否在使用手机或离开"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 1
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 21331,
+      "completion_tokens": 905,
+      "total_tokens": 22236,
+      "prompt_tokens_details": {
+        "cached_tokens": 20608
+      },
+      "prompt_cache_hit_tokens": 20608,
+      "prompt_cache_miss_tokens": 723
+    }
+  }
+}

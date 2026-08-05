@@ -1,0 +1,1920 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T23:00:00+08:00",
+    "end": "2026-07-25T23:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 217,
+      "aw-watcher-afk_xyh": 1,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 28
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 30.0,
+    "afk_minutes": 0.0,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 26.28
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 13.83
+    },
+    {
+      "app": "微信",
+      "minutes": 4.65
+    },
+    {
+      "app": "Windows Terminal",
+      "minutes": 4.08
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 1.62
+    },
+    {
+      "app": "微信小程序",
+      "minutes": 0.98
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.57
+    },
+    {
+      "app": "cc-switch.exe",
+      "minutes": 0.4
+    },
+    {
+      "app": "SearchHost.exe",
+      "minutes": 0.16
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 11.18
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "minutes": 0.98
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 0.98
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.24
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "CC Switch 接入 DeepSeek",
+      "minutes": 11.18
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 3.84
+    },
+    {
+      "app": "Windows Terminal",
+      "domain": "",
+      "title": "Windows PowerShell",
+      "minutes": 3.57
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 1.62
+    },
+    {
+      "app": "微信小程序",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.98
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "山东一高速服务区设啤酒档口，工作人员称「已经过审批，卖两个月了」，如何看待这一档口设置？卖啤酒合理吗？ - 知乎",
+      "minutes": 0.98
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "昌平景点 - 小红书搜索",
+      "minutes": 0.64
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "Weixin",
+      "minutes": 0.57
+    },
+    {
+      "app": "Windows Terminal",
+      "domain": "",
+      "title": "chatgpt-conversation-...",
+      "minutes": 0.45
+    },
+    {
+      "app": "cc-switch.exe",
+      "domain": "",
+      "title": "CC Switch",
+      "minutes": 0.36
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "我真的很少用“震撼”形容一座山！！ - 小红书",
+      "minutes": 0.35
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.24
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "昌平的夏天，藏着一整个治愈系世界 - 小红书",
+      "minutes": 0.24
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.24
+    },
+    {
+      "app": "SearchHost.exe",
+      "domain": "",
+      "title": "搜索",
+      "minutes": 0.16
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "昌平景点红黑榜 - 小红书搜索",
+      "minutes": 0.09
+    },
+    {
+      "app": "Windows Terminal",
+      "domain": "",
+      "title": "15345",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "北京读研 | 把逛公园当作生活的“充电站 - 小红书",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "北京本地闲逛 - 小红书搜索",
+      "minutes": 0.05
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "content - 文件资源管理器",
+      "minutes": 0.03
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "系统托盘溢出窗口。",
+      "minutes": 0.03
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-25T23:00:28+08:00",
+      "last_seen": "2026-07-25T23:28:59+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "CC Switch 接入 DeepSeek",
+      "first_seen": "2026-07-25T23:01:28+08:00",
+      "last_seen": "2026-07-25T23:29:58+08:00",
+      "raw_event_count": 19
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "山东一高速服务区设啤酒档口，工作人员称「已经过审批，卖两个月了」，如何看待这一档口设置？卖啤酒合理吗？ - 知乎",
+      "first_seen": "2026-07-25T23:12:19+08:00",
+      "last_seen": "2026-07-25T23:13:28+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "北京通用人工智能研究院院长朱松纯称做 AI 少不了文科生，他为什么这么说？文科生能发挥什么独特价值？ - 知乎",
+      "first_seen": "2026-07-25T23:13:28+08:00",
+      "last_seen": "2026-07-25T23:13:34+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-25T23:13:34+08:00",
+      "last_seen": "2026-07-25T23:13:35+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "github.com",
+      "title": "Release CC Switch v3.18.0 · farion1231/cc-switch · GitHub",
+      "first_seen": "2026-07-25T23:13:35+08:00",
+      "last_seen": "2026-07-25T23:13:36+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bing.com",
+      "title": "cc switch - 搜索",
+      "first_seen": "2026-07-25T23:13:36+08:00",
+      "last_seen": "2026-07-25T23:13:36+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-25T23:18:54+08:00",
+      "last_seen": "2026-07-25T23:19:11+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "昌平景点 - 小红书搜索",
+      "first_seen": "2026-07-25T23:19:13+08:00",
+      "last_seen": "2026-07-25T23:19:58+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "我真的很少用“震撼”形容一座山！！ - 小红书",
+      "first_seen": "2026-07-25T23:19:58+08:00",
+      "last_seen": "2026-07-25T23:21:26+08:00",
+      "raw_event_count": 2
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T23:00:00+08:00",
+      "end": "2026-07-25T23:30:00+08:00",
+      "duration_seconds": 1800.0,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T23:00:00+08:00",
+      "end": "2026-07-25T23:00:08+08:00",
+      "duration_seconds": 8.476,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:00:08+08:00",
+      "end": "2026-07-25T23:00:12+08:00",
+      "duration_seconds": 4.134,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:00:12+08:00",
+      "end": "2026-07-25T23:00:15+08:00",
+      "duration_seconds": 3.126,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:00:16+08:00",
+      "end": "2026-07-25T23:00:20+08:00",
+      "duration_seconds": 4.145,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:00:23+08:00",
+      "end": "2026-07-25T23:00:55+08:00",
+      "duration_seconds": 32.175,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:00:56+08:00",
+      "end": "2026-07-25T23:00:58+08:00",
+      "duration_seconds": 2.067,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:00:59+08:00",
+      "end": "2026-07-25T23:01:02+08:00",
+      "duration_seconds": 3.106,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:01:02+08:00",
+      "end": "2026-07-25T23:01:05+08:00",
+      "duration_seconds": 3.095,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:01:05+08:00",
+      "end": "2026-07-25T23:01:20+08:00",
+      "duration_seconds": 14.515,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:01:21+08:00",
+      "end": "2026-07-25T23:01:22+08:00",
+      "duration_seconds": 1.029,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:01:24+08:00",
+      "end": "2026-07-25T23:02:30+08:00",
+      "duration_seconds": 66.393,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:02:32+08:00",
+      "end": "2026-07-25T23:02:36+08:00",
+      "duration_seconds": 4.153,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "15345",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:02:37+08:00",
+      "end": "2026-07-25T23:02:59+08:00",
+      "duration_seconds": 21.675,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:03:00+08:00",
+      "end": "2026-07-25T23:04:34+08:00",
+      "duration_seconds": 93.542,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:04:35+08:00",
+      "end": "2026-07-25T23:04:38+08:00",
+      "duration_seconds": 3.117,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:04:39+08:00",
+      "end": "2026-07-25T23:04:40+08:00",
+      "duration_seconds": 1.034,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:04:41+08:00",
+      "end": "2026-07-25T23:04:45+08:00",
+      "duration_seconds": 4.156,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:04:46+08:00",
+      "end": "2026-07-25T23:04:48+08:00",
+      "duration_seconds": 2.087,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:04:50+08:00",
+      "end": "2026-07-25T23:04:52+08:00",
+      "duration_seconds": 2.079,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "content - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:04:54+08:00",
+      "end": "2026-07-25T23:04:57+08:00",
+      "duration_seconds": 3.121,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:04:58+08:00",
+      "end": "2026-07-25T23:05:01+08:00",
+      "duration_seconds": 2.079,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:05:02+08:00",
+      "end": "2026-07-25T23:05:12+08:00",
+      "duration_seconds": 8.29,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:05:13+08:00",
+      "end": "2026-07-25T23:05:23+08:00",
+      "duration_seconds": 10.376,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:05:24+08:00",
+      "end": "2026-07-25T23:05:30+08:00",
+      "duration_seconds": 5.201,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:05:32+08:00",
+      "end": "2026-07-25T23:05:45+08:00",
+      "duration_seconds": 11.362,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:05:46+08:00",
+      "end": "2026-07-25T23:05:56+08:00",
+      "duration_seconds": 9.373,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:05:57+08:00",
+      "end": "2026-07-25T23:06:00+08:00",
+      "duration_seconds": 3.122,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:06:01+08:00",
+      "end": "2026-07-25T23:06:03+08:00",
+      "duration_seconds": 2.077,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:06:04+08:00",
+      "end": "2026-07-25T23:06:16+08:00",
+      "duration_seconds": 12.462,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:06:17+08:00",
+      "end": "2026-07-25T23:06:20+08:00",
+      "duration_seconds": 3.145,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:06:22+08:00",
+      "end": "2026-07-25T23:06:23+08:00",
+      "duration_seconds": 1.024,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:06:24+08:00",
+      "end": "2026-07-25T23:06:25+08:00",
+      "duration_seconds": 1.031,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:06:26+08:00",
+      "end": "2026-07-25T23:06:41+08:00",
+      "duration_seconds": 13.45,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:06:41+08:00",
+      "end": "2026-07-25T23:06:48+08:00",
+      "duration_seconds": 7.211,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:06:48+08:00",
+      "end": "2026-07-25T23:06:51+08:00",
+      "duration_seconds": 3.095,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:06:52+08:00",
+      "end": "2026-07-25T23:06:54+08:00",
+      "duration_seconds": 1.032,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "系统托盘溢出窗口。",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:06:55+08:00",
+      "end": "2026-07-25T23:07:03+08:00",
+      "duration_seconds": 8.259,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:07:04+08:00",
+      "end": "2026-07-25T23:07:25+08:00",
+      "duration_seconds": 21.642,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:07:28+08:00",
+      "end": "2026-07-25T23:07:30+08:00",
+      "duration_seconds": 2.062,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:07:32+08:00",
+      "end": "2026-07-25T23:08:09+08:00",
+      "duration_seconds": 37.225,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:08:10+08:00",
+      "end": "2026-07-25T23:08:26+08:00",
+      "duration_seconds": 16.537,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:08:27+08:00",
+      "end": "2026-07-25T23:08:37+08:00",
+      "duration_seconds": 9.312,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:08:38+08:00",
+      "end": "2026-07-25T23:08:41+08:00",
+      "duration_seconds": 3.101,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:08:42+08:00",
+      "end": "2026-07-25T23:09:36+08:00",
+      "duration_seconds": 53.792,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:09:37+08:00",
+      "end": "2026-07-25T23:09:38+08:00",
+      "duration_seconds": 1.039,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:09:39+08:00",
+      "end": "2026-07-25T23:09:40+08:00",
+      "duration_seconds": 1.034,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:09:41+08:00",
+      "end": "2026-07-25T23:09:45+08:00",
+      "duration_seconds": 4.144,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:09:46+08:00",
+      "end": "2026-07-25T23:09:47+08:00",
+      "duration_seconds": 1.05,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:09:48+08:00",
+      "end": "2026-07-25T23:09:51+08:00",
+      "duration_seconds": 3.087,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:09:52+08:00",
+      "end": "2026-07-25T23:09:54+08:00",
+      "duration_seconds": 2.077,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:09:55+08:00",
+      "end": "2026-07-25T23:10:06+08:00",
+      "duration_seconds": 10.288,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:10:07+08:00",
+      "end": "2026-07-25T23:10:18+08:00",
+      "duration_seconds": 11.33,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:10:19+08:00",
+      "end": "2026-07-25T23:11:08+08:00",
+      "duration_seconds": 49.396,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:11:09+08:00",
+      "end": "2026-07-25T23:11:11+08:00",
+      "duration_seconds": 1.043,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:11:12+08:00",
+      "end": "2026-07-25T23:11:18+08:00",
+      "duration_seconds": 6.168,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:11:19+08:00",
+      "end": "2026-07-25T23:12:19+08:00",
+      "duration_seconds": 59.838,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T23:12:19+08:00",
+      "end": "2026-07-25T23:12:22+08:00",
+      "duration_seconds": 3.088,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:12:22+08:00",
+      "end": "2026-07-25T23:12:27+08:00",
+      "duration_seconds": 5.131,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "山东一高速服务区设啤酒档口，工作人员称「已经过审批，卖两个月了」，如何看待这一档口设置？卖啤酒合理吗？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T23:12:27+08:00",
+      "end": "2026-07-25T23:12:30+08:00",
+      "duration_seconds": 3.086,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:12:30+08:00",
+      "end": "2026-07-25T23:13:24+08:00",
+      "duration_seconds": 53.749,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "山东一高速服务区设啤酒档口，工作人员称「已经过审批，卖两个月了」，如何看待这一档口设置？卖啤酒合理吗？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T23:13:25+08:00",
+      "end": "2026-07-25T23:13:26+08:00",
+      "duration_seconds": 1.031,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:13:27+08:00",
+      "end": "2026-07-25T23:13:28+08:00",
+      "duration_seconds": 1.03,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:13:29+08:00",
+      "end": "2026-07-25T23:13:30+08:00",
+      "duration_seconds": 1.023,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:13:31+08:00",
+      "end": "2026-07-25T23:13:32+08:00",
+      "duration_seconds": 1.029,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:13:32+08:00",
+      "end": "2026-07-25T23:13:37+08:00",
+      "duration_seconds": 5.159,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:13:37+08:00",
+      "end": "2026-07-25T23:13:58+08:00",
+      "duration_seconds": 20.629,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:13:58+08:00",
+      "end": "2026-07-25T23:14:01+08:00",
+      "duration_seconds": 3.093,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:14:01+08:00",
+      "end": "2026-07-25T23:14:02+08:00",
+      "duration_seconds": 1.026,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:14:03+08:00",
+      "end": "2026-07-25T23:14:10+08:00",
+      "duration_seconds": 7.247,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:14:12+08:00",
+      "end": "2026-07-25T23:14:13+08:00",
+      "duration_seconds": 1.035,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:14:13+08:00",
+      "end": "2026-07-25T23:14:16+08:00",
+      "duration_seconds": 3.109,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:14:16+08:00",
+      "end": "2026-07-25T23:14:20+08:00",
+      "duration_seconds": 4.148,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:14:21+08:00",
+      "end": "2026-07-25T23:14:27+08:00",
+      "duration_seconds": 5.173,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:14:28+08:00",
+      "end": "2026-07-25T23:14:32+08:00",
+      "duration_seconds": 4.135,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:14:33+08:00",
+      "end": "2026-07-25T23:14:39+08:00",
+      "duration_seconds": 6.164,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:14:40+08:00",
+      "end": "2026-07-25T23:14:44+08:00",
+      "duration_seconds": 4.135,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:14:45+08:00",
+      "end": "2026-07-25T23:14:49+08:00",
+      "duration_seconds": 4.191,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:14:50+08:00",
+      "end": "2026-07-25T23:14:54+08:00",
+      "duration_seconds": 3.098,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:14:55+08:00",
+      "end": "2026-07-25T23:14:59+08:00",
+      "duration_seconds": 4.109,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:15:01+08:00",
+      "end": "2026-07-25T23:15:02+08:00",
+      "duration_seconds": 1.045,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:15:03+08:00",
+      "end": "2026-07-25T23:15:06+08:00",
+      "duration_seconds": 3.081,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:15:06+08:00",
+      "end": "2026-07-25T23:15:10+08:00",
+      "duration_seconds": 4.138,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:15:10+08:00",
+      "end": "2026-07-25T23:15:12+08:00",
+      "duration_seconds": 2.066,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:15:13+08:00",
+      "end": "2026-07-25T23:15:14+08:00",
+      "duration_seconds": 1.037,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:15:15+08:00",
+      "end": "2026-07-25T23:15:18+08:00",
+      "duration_seconds": 3.117,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:15:19+08:00",
+      "end": "2026-07-25T23:15:27+08:00",
+      "duration_seconds": 7.189,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:15:28+08:00",
+      "end": "2026-07-25T23:15:29+08:00",
+      "duration_seconds": 1.038,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "系统托盘溢出窗口。",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:15:29+08:00",
+      "end": "2026-07-25T23:15:32+08:00",
+      "duration_seconds": 3.117,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:15:32+08:00",
+      "end": "2026-07-25T23:15:35+08:00",
+      "duration_seconds": 3.091,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:15:36+08:00",
+      "end": "2026-07-25T23:15:45+08:00",
+      "duration_seconds": 9.276,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:15:46+08:00",
+      "end": "2026-07-25T23:15:50+08:00",
+      "duration_seconds": 4.124,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:15:51+08:00",
+      "end": "2026-07-25T23:16:03+08:00",
+      "duration_seconds": 11.394,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:16:04+08:00",
+      "end": "2026-07-25T23:16:05+08:00",
+      "duration_seconds": 1.024,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:16:07+08:00",
+      "end": "2026-07-25T23:16:16+08:00",
+      "duration_seconds": 9.296,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:16:17+08:00",
+      "end": "2026-07-25T23:16:32+08:00",
+      "duration_seconds": 14.443,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:16:33+08:00",
+      "end": "2026-07-25T23:17:09+08:00",
+      "duration_seconds": 36.123,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:17:10+08:00",
+      "end": "2026-07-25T23:17:44+08:00",
+      "duration_seconds": 34.031,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:17:45+08:00",
+      "end": "2026-07-25T23:17:54+08:00",
+      "duration_seconds": 9.256,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:17:55+08:00",
+      "end": "2026-07-25T23:18:40+08:00",
+      "duration_seconds": 44.457,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T23:18:41+08:00",
+      "end": "2026-07-25T23:18:52+08:00",
+      "duration_seconds": 11.343,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:18:54+08:00",
+      "end": "2026-07-25T23:19:10+08:00",
+      "duration_seconds": 14.419,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T23:19:12+08:00",
+      "end": "2026-07-25T23:19:13+08:00",
+      "duration_seconds": 1.031,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T23:19:14+08:00",
+      "end": "2026-07-25T23:19:58+08:00",
+      "duration_seconds": 38.132,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "昌平景点 - 小红书搜索",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T23:19:58+08:00",
+      "end": "2026-07-25T23:20:18+08:00",
+      "duration_seconds": 19.728,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "我真的很少用“震撼”形容一座山！！ - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:20:19+08:00",
+      "end": "2026-07-25T23:20:22+08:00",
+      "duration_seconds": 3.087,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:20:23+08:00",
+      "end": "2026-07-25T23:20:24+08:00",
+      "duration_seconds": 1.041,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "我真的很少用“震撼”形容一座山！！ - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:20:26+08:00",
+      "end": "2026-07-25T23:20:39+08:00",
+      "duration_seconds": 13.395,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "昌平的夏天，藏着一整个治愈系世界 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:20:40+08:00",
+      "end": "2026-07-25T23:20:50+08:00",
+      "duration_seconds": 9.318,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:20:51+08:00",
+      "end": "2026-07-25T23:20:52+08:00",
+      "duration_seconds": 1.041,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "昌平的夏天，藏着一整个治愈系世界 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:20:53+08:00",
+      "end": "2026-07-25T23:20:58+08:00",
+      "duration_seconds": 5.173,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "昌平景点红黑榜 - 小红书搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:20:59+08:00",
+      "end": "2026-07-25T23:21:02+08:00",
+      "duration_seconds": 3.111,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京本地闲逛 - 小红书搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:21:03+08:00",
+      "end": "2026-07-25T23:21:06+08:00",
+      "duration_seconds": 3.11,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京读研 | 把逛公园当作生活的“充电站 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:21:07+08:00",
+      "end": "2026-07-25T23:21:24+08:00",
+      "duration_seconds": 16.53,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:21:25+08:00",
+      "end": "2026-07-25T23:21:26+08:00",
+      "duration_seconds": 1.04,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京读研 | 把逛公园当作生活的“充电站 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:21:27+08:00",
+      "end": "2026-07-25T23:22:06+08:00",
+      "duration_seconds": 39.271,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T23:22:08+08:00",
+      "end": "2026-07-25T23:22:43+08:00",
+      "duration_seconds": 35.173,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:22:44+08:00",
+      "end": "2026-07-25T23:22:58+08:00",
+      "duration_seconds": 13.441,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:22:59+08:00",
+      "end": "2026-07-25T23:23:03+08:00",
+      "duration_seconds": 4.138,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:23:04+08:00",
+      "end": "2026-07-25T23:23:09+08:00",
+      "duration_seconds": 5.155,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:23:09+08:00",
+      "end": "2026-07-25T23:23:13+08:00",
+      "duration_seconds": 4.108,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:23:13+08:00",
+      "end": "2026-07-25T23:23:14+08:00",
+      "duration_seconds": 1.029,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:23:14+08:00",
+      "end": "2026-07-25T23:23:17+08:00",
+      "duration_seconds": 3.099,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:23:17+08:00",
+      "end": "2026-07-25T23:23:24+08:00",
+      "duration_seconds": 6.191,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:23:25+08:00",
+      "end": "2026-07-25T23:23:32+08:00",
+      "duration_seconds": 7.285,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:23:34+08:00",
+      "end": "2026-07-25T23:24:21+08:00",
+      "duration_seconds": 47.489,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:24:22+08:00",
+      "end": "2026-07-25T23:24:25+08:00",
+      "duration_seconds": 2.072,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:24:26+08:00",
+      "end": "2026-07-25T23:24:33+08:00",
+      "duration_seconds": 7.224,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:24:34+08:00",
+      "end": "2026-07-25T23:24:42+08:00",
+      "duration_seconds": 8.266,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:24:43+08:00",
+      "end": "2026-07-25T23:25:06+08:00",
+      "duration_seconds": 22.718,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:25:07+08:00",
+      "end": "2026-07-25T23:25:09+08:00",
+      "duration_seconds": 2.064,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:25:10+08:00",
+      "end": "2026-07-25T23:25:52+08:00",
+      "duration_seconds": 42.334,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:25:53+08:00",
+      "end": "2026-07-25T23:25:55+08:00",
+      "duration_seconds": 2.08,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:25:56+08:00",
+      "end": "2026-07-25T23:25:59+08:00",
+      "duration_seconds": 2.094,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:26:00+08:00",
+      "end": "2026-07-25T23:26:15+08:00",
+      "duration_seconds": 15.485,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:26:16+08:00",
+      "end": "2026-07-25T23:26:33+08:00",
+      "duration_seconds": 16.572,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:26:33+08:00",
+      "end": "2026-07-25T23:26:38+08:00",
+      "duration_seconds": 5.147,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:26:38+08:00",
+      "end": "2026-07-25T23:27:05+08:00",
+      "duration_seconds": 26.897,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "chatgpt-conversation-...",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:06+08:00",
+      "end": "2026-07-25T23:27:07+08:00",
+      "duration_seconds": 1.031,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:08+08:00",
+      "end": "2026-07-25T23:27:16+08:00",
+      "duration_seconds": 8.246,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:27:17+08:00",
+      "end": "2026-07-25T23:27:18+08:00",
+      "duration_seconds": 1.039,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:19+08:00",
+      "end": "2026-07-25T23:27:20+08:00",
+      "duration_seconds": 1.045,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:27:21+08:00",
+      "end": "2026-07-25T23:27:26+08:00",
+      "duration_seconds": 5.19,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:27+08:00",
+      "end": "2026-07-25T23:27:31+08:00",
+      "duration_seconds": 3.184,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:27:32+08:00",
+      "end": "2026-07-25T23:27:33+08:00",
+      "duration_seconds": 1.038,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:34+08:00",
+      "end": "2026-07-25T23:27:36+08:00",
+      "duration_seconds": 2.058,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:37+08:00",
+      "end": "2026-07-25T23:27:40+08:00",
+      "duration_seconds": 3.084,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:41+08:00",
+      "end": "2026-07-25T23:27:43+08:00",
+      "duration_seconds": 2.059,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:44+08:00",
+      "end": "2026-07-25T23:27:51+08:00",
+      "duration_seconds": 7.267,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:27:52+08:00",
+      "end": "2026-07-25T23:27:54+08:00",
+      "duration_seconds": 2.051,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:27:54+08:00",
+      "end": "2026-07-25T23:27:58+08:00",
+      "duration_seconds": 3.163,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:27:58+08:00",
+      "end": "2026-07-25T23:28:04+08:00",
+      "duration_seconds": 6.168,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:28:04+08:00",
+      "end": "2026-07-25T23:28:07+08:00",
+      "duration_seconds": 3.083,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:28:07+08:00",
+      "end": "2026-07-25T23:28:33+08:00",
+      "duration_seconds": 25.807,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:28:34+08:00",
+      "end": "2026-07-25T23:28:36+08:00",
+      "duration_seconds": 2.065,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:28:37+08:00",
+      "end": "2026-07-25T23:28:43+08:00",
+      "duration_seconds": 6.196,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:28:43+08:00",
+      "end": "2026-07-25T23:28:46+08:00",
+      "duration_seconds": 3.084,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T23:28:46+08:00",
+      "end": "2026-07-25T23:29:14+08:00",
+      "duration_seconds": 27.886,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "CC Switch 接入 DeepSeek",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T23:29:16+08:00",
+      "end": "2026-07-25T23:29:48+08:00",
+      "duration_seconds": 32.159,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:29:49+08:00",
+      "end": "2026-07-25T23:29:55+08:00",
+      "duration_seconds": 6.205,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:29:56+08:00",
+      "end": "2026-07-25T23:29:57+08:00",
+      "duration_seconds": 1.035,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T23:29:58+08:00",
+      "end": "2026-07-25T23:30:00+08:00",
+      "duration_seconds": 1.003,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.876,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 0.968,
+    "web_watcher_exact_time_overlap": 0.258,
+    "browser_share_of_active_time": 0.461,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活跃窗口只覆盖87.6%。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

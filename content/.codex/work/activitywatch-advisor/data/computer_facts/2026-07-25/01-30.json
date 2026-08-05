@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T01:30:00+08:00",
+    "end": "2026-07-25T02:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 15,
+      "aw-watcher-afk_xyh": 3,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 22
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 5.5,
+    "afk_minutes": 24.5,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 5.28
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 5.28
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 3.96
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 1.32
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "ChatGPT Plus 足够",
+      "minutes": 3.96
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 1.06
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "曝演员片酬再降，片酬从2亿降到最高2500万，透露出影视业哪些问题？对行业生态来说，是好事还是坏事？ - 知乎",
+      "minutes": 0.26
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "ChatGPT Plus 足够",
+      "first_seen": "2026-07-25T01:28:45+08:00",
+      "last_seen": "2026-07-25T01:59:29+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "曝演员片酬再降，片酬从2亿降到最高2500万，透露出影视业哪些问题？对行业生态来说，是好事还是坏事？ - 知乎",
+      "first_seen": "2026-07-25T01:30:13+08:00",
+      "last_seen": "2026-07-25T01:30:34+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-25T01:30:34+08:00",
+      "last_seen": "2026-07-25T01:31:45+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T01:30:59+08:00",
+      "last_seen": "2026-07-25T01:59:29+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T01:30:00+08:00",
+      "end": "2026-07-25T01:35:30+08:00",
+      "duration_seconds": 330.253,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T01:35:30+08:00",
+      "end": "2026-07-25T02:00:00+08:00",
+      "duration_seconds": 1469.747,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T01:30:00+08:00",
+      "end": "2026-07-25T01:30:12+08:00",
+      "duration_seconds": 12.873,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT Plus 足够",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T01:30:13+08:00",
+      "end": "2026-07-25T01:30:22+08:00",
+      "duration_seconds": 7.227,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "曝演员片酬再降，片酬从2亿降到最高2500万，透露出影视业哪些问题？对行业生态来说，是好事还是坏事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T01:30:22+08:00",
+      "end": "2026-07-25T01:30:25+08:00",
+      "duration_seconds": 3.103,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T01:30:25+08:00",
+      "end": "2026-07-25T01:30:33+08:00",
+      "duration_seconds": 8.591,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "曝演员片酬再降，片酬从2亿降到最高2500万，透露出影视业哪些问题？对行业生态来说，是好事还是坏事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T01:30:34+08:00",
+      "end": "2026-07-25T01:30:37+08:00",
+      "duration_seconds": 2.057,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T01:30:37+08:00",
+      "end": "2026-07-25T01:30:40+08:00",
+      "duration_seconds": 3.105,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T01:30:40+08:00",
+      "end": "2026-07-25T01:31:44+08:00",
+      "duration_seconds": 61.395,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T01:31:45+08:00",
+      "end": "2026-07-25T01:35:30+08:00",
+      "duration_seconds": 224.594,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT Plus 足够",
+      "domain": "chatgpt.com",
+      "context_source": "title_match+web"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.959,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.429,
+    "browser_share_of_active_time": 0.959,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

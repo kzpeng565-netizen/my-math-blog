@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T23:30:00+08:00",
+    "end": "2026-07-27T00:00:00+08:00"
+  },
+  "primary_work_task": "手机自动化方案",
+  "segments": [
+    {
+      "start": "2026-07-26T23:30:00+08:00",
+      "end": "2026-07-26T23:33:18+08:00",
+      "duration_seconds": 198.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT网页上研究手机自动化方案",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge浏览器标题为'手机自动化方案'，domain chatgpt.com",
+        "持续3分14秒，是主要工作内容",
+        "前后辅助上下文显示之前也在此主题上"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:33:18+08:00",
+      "end": "2026-07-26T23:33:34+08:00",
+      "duration_seconds": 16.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT桌面应用上继续思考",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用前台约16秒",
+        "与前后工作主题一致，属于同一任务内的工具切换"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:33:34+08:00",
+      "end": "2026-07-26T23:34:43+08:00",
+      "duration_seconds": 69.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎首页",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge打开知乎首页约12秒",
+        "知乎首页内容通常为娱乐或无关浏览",
+        "之后返回工作主题",
+        "持续约57秒，知乎首页"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:34:43+08:00",
+      "end": "2026-07-26T23:35:41+08:00",
+      "duration_seconds": 58.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "搜索无锡人才标准",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "知乎搜索结果页面，标题'无锡人才标准 - 搜索结果 - 知乎'",
+        "与工作主题无关，属于个人兴趣浏览"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:35:41+08:00",
+      "end": "2026-07-26T23:36:25+08:00",
+      "duration_seconds": 44.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎文章：关于无锡人才政策",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "知乎文章标题涉及人才政策",
+        "属于个人兴趣浏览"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:36:25+08:00",
+      "end": "2026-07-26T23:37:11+08:00",
+      "duration_seconds": 46.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "返回ChatGPT继续手机自动化方案",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "回到'手机自动化方案'页面，时长约46秒",
+        "从娱乐偏离回到主要工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:37:11+08:00",
+      "end": "2026-07-26T23:37:44+08:00",
+      "duration_seconds": 33.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "再次浏览知乎首页",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "知乎首页约33秒",
+        "工作过程中的二次娱乐偏离"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:37:44+08:00",
+      "end": "2026-07-26T23:42:03+08:00",
+      "duration_seconds": 259.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT上继续手机自动化方案",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "先'手机自动化方案'页面1分26秒",
+        "后ChatGPT桌面应用约2分49秒，合计约4分19秒",
+        "主要工作持续进行"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:42:03+08:00",
+      "end": "2026-07-26T23:42:48+08:00",
+      "duration_seconds": 45.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "使用CC Switch切换显示器",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "cc-switch.exe前台45秒，辅助工具",
+        "与工作环境配置相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:42:48+08:00",
+      "end": "2026-07-26T23:43:31+08:00",
+      "duration_seconds": 43.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT桌面应用上继续手机自动化方案",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用约43秒",
+        "继续工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:43:31+08:00",
+      "end": "2026-07-26T23:43:38+08:00",
+      "duration_seconds": 7.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "文件资源管理器切换",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "短暂的文件资源管理器操作，约1秒",
+        "属于系统操作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:43:38+08:00",
+      "end": "2026-07-26T23:44:15+08:00",
+      "duration_seconds": 37.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "通过Bing搜索Tavily，打开新标签页",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Bing搜索'Tavily'，新建标签页",
+        "可能为工作搜索新的API工具，但与主任务不一致，列为支持"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:44:15+08:00",
+      "end": "2026-07-26T23:45:35+08:00",
+      "duration_seconds": 80.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "在ChatGPT网页上可能浏览无关内容",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT网页标签页标题为'ChatGPT'，持续1分20秒",
+        "但之后出现HutaoCards虚拟信用卡页面和ChatGPT桌面应用混用，可能偏离工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:45:35+08:00",
+      "end": "2026-07-26T23:45:50+08:00",
+      "duration_seconds": 15.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "ChatGPT桌面应用短暂使用",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用约15秒",
+        "可能继续工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:45:50+08:00",
+      "end": "2026-07-26T23:47:41+08:00",
+      "duration_seconds": 111.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "系统操作：新建标签页、文件资源管理器、ChatGPT交替",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "约1分51秒内反复切换新标签页、文件资源管理器和ChatGPT",
+        "难以确定具体任务"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:47:41+08:00",
+      "end": "2026-07-26T23:47:50+08:00",
+      "duration_seconds": 9.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "访问pi.taild4d3f7.ts.net",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "访问树莓派管理页面，约9秒",
+        "可能与树莓派相关，支持工作环境"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:47:50+08:00",
+      "end": "2026-07-26T23:49:52+08:00",
+      "duration_seconds": 122.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT上继续工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用连续使用约2分2秒",
+        "是主要工作工具"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:49:52+08:00",
+      "end": "2026-07-26T23:49:54+08:00",
+      "duration_seconds": 2.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "文件资源管理器短暂操作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "约1秒，系统操作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:49:54+08:00",
+      "end": "2026-07-26T23:55:48+08:00",
+      "duration_seconds": 354.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT网页上专注手机自动化方案",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题'手机自动化方案'持续约5分54秒",
+        "这是报告期内最长的连续工作块"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:55:48+08:00",
+      "end": "2026-07-26T23:56:30+08:00",
+      "duration_seconds": 42.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "ChatGPT桌面应用继续工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用约42秒",
+        "工作继续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:56:30+08:00",
+      "end": "2026-07-26T23:57:24+08:00",
+      "duration_seconds": 54.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在ChatGPT网页上继续手机自动化方案",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题'手机自动化方案'约54秒",
+        "保持工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:57:24+08:00",
+      "end": "2026-07-26T23:58:14+08:00",
+      "duration_seconds": 50.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "ChatGPT桌面应用继续",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用约50秒",
+        "工作连续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T23:58:14+08:00",
+      "end": "2026-07-26T23:58:34+08:00",
+      "duration_seconds": 20.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "系统操作：新标签页、pi.local、搜索等",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "约20秒内切换新标签页、pi.local、ChatGPT、搜索等",
+        "可能是查找资源或配置"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T23:58:34+08:00",
+      "end": "2026-07-26T23:58:56+08:00",
+      "duration_seconds": 22.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "ChatGPT桌面应用",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT桌面应用约22秒",
+        "工作继续"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:58:56+08:00",
+      "end": "2026-07-27T00:00:00+08:00",
+      "duration_seconds": 64.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "系统操作：nslookup、搜索、文件资源管理器、Clash Verge等",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "末尾1分4秒内涉及nslookup、搜索、文件资源管理器、Clash Verge、pi.taild4d3f7.ts.net等",
+        "可能是工作收尾或维护任务"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "material_uncertainties": [
+    "23:44:15-23:45:35期间，ChatGPT网页标题为'ChatGPT'且出现HutaoCards虚拟信用卡页面，无法确定是工作相关搜索还是娱乐",
+    "23:45:50-23:47:41期间频繁系统切换，难以判断真实任务"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 21671,
+      "completion_tokens": 3701,
+      "total_tokens": 25372,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 20775
+    }
+  }
+}

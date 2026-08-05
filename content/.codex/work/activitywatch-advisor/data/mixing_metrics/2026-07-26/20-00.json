@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 3,
+  "entertainment_deviation_minutes": 11.55,
+  "all_entertainment_minutes": 11.78,
+  "longest_entertainment_deviation_minutes": 5.0,
+  "work_entertainment_transition_count": 4,
+  "brief_communication_minutes": 5.63,
+  "longest_continuous_work_minutes": 3.48,
+  "same_task_tool_switches_not_scored": 9,
+  "raw_foreground_context_switches_not_scored": 39,
+  "deviations": [
+    {
+      "start": "2026-07-26T20:07:34+08:00",
+      "end": "2026-07-26T20:11:54+08:00",
+      "minutes": 4.33,
+      "duration_seconds": 260.0,
+      "task": "浏览小红书美食内容：北师大日常、大栅栏美食攻略等",
+      "evidence": [
+        "浏览多个小红书北京美食帖子，内容与工作无关",
+        "前一段为系统维护工作，后一段回到工作话题",
+        "手机熄屏，浏览器为Edge",
+        "标题如'北师大日常我就吃这些'、'大栅栏美食攻略 - 小红书搜索'等"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 6.77,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T20:12:08+08:00",
+      "end": "2026-07-26T20:17:08+08:00",
+      "minutes": 5.0,
+      "duration_seconds": 300.0,
+      "task": "浏览小红书美食帖子：北京7大美食街、护国寺街、夜市、牛街等",
+      "evidence": [
+        "连续浏览多个小红书美食相关帖子，包括'北京7大美食街'、'护国寺街的小吃'、'北京夜市大赏'等",
+        "手机熄屏",
+        "明显娱乐性质，与工作无关"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 1.53,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T20:20:37+08:00",
+      "end": "2026-07-26T20:22:50+08:00",
+      "minutes": 2.22,
+      "duration_seconds": 133.0,
+      "task": "浏览小红书：北京夜晚的牛街、菲尔兹奖传承、插尿管等",
+      "evidence": [
+        "浏览小红书多个帖子，包括'北京夜晚的牛街不需要排队呀！'、'菲尔兹奖在中国的三代传承'、'插尿管'等",
+        "内容杂糅，明显娱乐性质",
+        "手机熄屏"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 1.03,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

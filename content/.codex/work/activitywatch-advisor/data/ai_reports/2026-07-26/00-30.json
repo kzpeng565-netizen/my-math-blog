@@ -1,0 +1,261 @@
+{
+  "period": "2026-07-26T00:30:00+08:00/2026-07-26T01:00:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐18.77分钟，通信0.0分钟，确认休息11.23分钟。工作中出现2次超过30秒的娱乐偏离，共12.53分钟，最长6.6分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 2,
+    "entertainment_deviation_minutes": 12.53,
+    "all_entertainment_minutes": 18.77,
+    "longest_entertainment_deviation_minutes": 6.6,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [
+      {
+        "start": "2026-07-26T00:39:55+08:00",
+        "end": "2026-07-26T00:46:31+08:00",
+        "minutes": 6.6,
+        "duration_seconds": 396.0,
+        "task": "刷哔哩哔哩视频",
+        "evidence": [
+          "手机屏幕在00:40:13亮起并主要使用哔哩哔哩至00:46:31",
+          "电脑AFK持续，中间有未知状态但回归娱乐"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-26T00:46:49+08:00",
+        "end": "2026-07-26T00:52:45+08:00",
+        "minutes": 5.93,
+        "duration_seconds": 356.0,
+        "task": "刷哔哩哔哩视频",
+        "evidence": [
+          "手机前台哔哩哔哩连续使用至00:52:43",
+          "电脑AFK"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "程序根据AI语义时间线标记了2次娱乐偏离（共12.53分钟），但本时段无工作任务，这些偏离实为娱乐时段内的连续观看，不构成工作-娱乐混杂。第一次偏离从00:39:55至00:46:31（6.6分钟），第二次从00:46:49至00:52:45（5.93分钟），均未返回工作，因为从未进入工作状态。"
+  },
+  "computer_summary": "电脑几乎全程AFK（28.3分钟），仅00:33:45-00:33:46有0.03分钟未知窗口活动，无实质工作行为。浏览器标题显示ChatGPT相关（“CC Switch 接入 DeepSeek”和“Get started | ChatGPT”），但均为后台存在，无活跃使用证据。",
+  "phone_summary": "手机屏幕开启18.17分钟，主要使用哔哩哔哩（17.92分钟），期间短暂切换至“不做手机控”（7秒）和手机桌面（2次共4秒），均为操作间隙，不影响娱乐主导性。",
+  "material_uncertainties": [
+    "电脑在00:39:55-00:40:13期间状态未知，但手机亮屏后立即进入哔哩哔哩，行为判断不受影响。",
+    "电脑在00:39:55-00:40:13期间状态未知（1.67分钟），但手机在该时段亮屏并立即进入哔哩哔哩，行为判断不受影响。"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐18.77分钟，通信0.0分钟，确认休息11.23分钟。工作中出现2次超过30秒的娱乐偏离，共12.53分钟，最长6.6分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "本时段是否有任何未被电脑或手机捕捉的工作意图（如使用其他设备或离线工作）？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.03,
+    "computer_afk_minutes": 28.3,
+    "phone_screen_on_minutes": 18.17,
+    "simultaneous_computer_active_phone_on_minutes": 0.02,
+    "no_detected_device_interaction_minutes": 11.83,
+    "confirmed_rest_minutes": 11.23
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 18.77,
+      "range_minutes": [
+        18.77,
+        18.77
+      ],
+      "evidence": [
+        "手机屏幕亮屏，前台应用为哔哩哔哩，持续至00:35:49",
+        "电脑处于AFK状态",
+        "手机屏幕在00:40:13亮起并主要使用哔哩哔哩至00:46:31",
+        "电脑AFK持续，中间有未知状态但回归娱乐"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 11.23,
+      "range_minutes": [
+        11.23,
+        11.23
+      ],
+      "evidence": [
+        "跨设备休息确认区间：00:35:56-00:39:55",
+        "手机屏幕关闭，电脑AFK",
+        "跨设备休息确认区间：00:52:45-01:00:00"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "00:30-00:35",
+      "likely_state": "娱乐",
+      "minutes": 5.93,
+      "task": "刷哔哩哔哩视频",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮屏，前台应用为哔哩哔哩，持续至00:35:49",
+        "电脑处于AFK状态"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:35-00:39",
+      "likely_state": "休息",
+      "minutes": 3.98,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息确认区间：00:35:56-00:39:55",
+        "手机屏幕关闭，电脑AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:39-00:46",
+      "likely_state": "娱乐",
+      "minutes": 6.6,
+      "task": "刷哔哩哔哩视频",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕在00:40:13亮起并主要使用哔哩哔哩至00:46:31",
+        "电脑AFK持续，中间有未知状态但回归娱乐"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:46-00:46",
+      "likely_state": "娱乐",
+      "minutes": 0.3,
+      "task": "刷哔哩哔哩视频（短暂关闭屏幕）",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕关闭仅18秒后立即亮屏继续哔哩哔哩，视为同一娱乐段内的短暂停顿",
+        "此间隔不符合休息确认条件（不足3分钟）"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "00:46-00:52",
+      "likely_state": "娱乐",
+      "minutes": 5.93,
+      "task": "刷哔哩哔哩视频",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台哔哩哔哩连续使用至00:52:43",
+        "电脑AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:52-01:00",
+      "likely_state": "休息",
+      "minutes": 7.25,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息确认区间：00:52:45-01:00:00",
+        "手机屏幕关闭，电脑AFK"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活动状态未知1.67分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5442,
+      "completion_tokens": 1509,
+      "total_tokens": 6951,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 964
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4546
+    }
+  }
+}

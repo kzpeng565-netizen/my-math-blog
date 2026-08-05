@@ -1,0 +1,22 @@
+[Unit]
+Description=Check 15:00 Obsidian task progress and send ntfy reminder if behind
+After=network-online.target syncthing@conrad.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=conrad
+Group=conrad
+WorkingDirectory=/home/conrad/workspace/activitywatch-advisor
+EnvironmentFile=/home/conrad/.config/activitywatch-advisor/env
+EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/ntfy.env
+ExecStart=/usr/bin/python3 /home/conrad/workspace/activitywatch-advisor/src/afternoon_task_check.py
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/conrad/workspace/activitywatch-advisor/data
+
+[Install]
+WantedBy=multi-user.target

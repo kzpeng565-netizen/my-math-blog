@@ -1,0 +1,186 @@
+{
+  "period": "2026-07-27T01:00:00+08:00/2026-07-27T01:30:00+08:00",
+  "state_assessment": {
+    "label": "unclear",
+    "confidence": "medium",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无任何娱乐偏离，无工作—娱乐混杂。"
+  },
+  "computer_summary": "电脑无任何主动窗口或网页记录，AFK未知，活跃窗口覆盖0.0%，无法判断任务。",
+  "phone_summary": "手机屏幕关闭29.85分钟，仅01:22:44-01:22:53亮屏9秒且前台应用未知，无法判断目的。",
+  "tablet_summary": "平板持续亮屏30分钟，但作为辅助数据源，未提供前台应用信息，不能确认用户实际使用。",
+  "material_uncertainties": [
+    "整个时段电脑无任何活动记录，无法判断用户是否在使用电脑或在休息",
+    "手机仅亮屏9秒且应用未知，无法确定用户意图"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "01:22:44-01:22:53手机亮屏9秒是否为查看时间或通知，而非开始工作或娱乐？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.15,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 29.85,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 30.0,
+      "range_minutes": [
+        30.0,
+        30.0
+      ],
+      "evidence": [
+        "电脑状态未知且AFK未知，无浏览器或窗口记录",
+        "手机屏幕持续关闭",
+        "平板亮屏仅作为辅助背景信息，不确认用户活动",
+        "没有其他设备交互数据"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "01:00-01:22",
+      "likely_state": "无法判断",
+      "minutes": 22.73,
+      "task": "没有检测到任何设备交互，可能是睡眠或休息",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑状态未知且AFK未知，无浏览器或窗口记录",
+        "手机屏幕持续关闭",
+        "平板亮屏仅作为辅助背景信息，不确认用户活动",
+        "没有其他设备交互数据"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "01:22-01:22",
+      "likely_state": "无法判断",
+      "minutes": 0.15,
+      "task": "手机短暂亮屏9秒，前台应用未知",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮起9秒",
+        "前台应用未识别",
+        "无法确定目的"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "01:22-01:30",
+      "likely_state": "无法判断",
+      "minutes": 7.12,
+      "task": "手机熄屏，无其他设备活动",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "手机屏幕熄灭",
+        "电脑无活动数据",
+        "无其他设备交互"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。",
+      "电脑活动状态未知30.0分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4046,
+      "completion_tokens": 533,
+      "total_tokens": 4579,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 151
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 4046
+    }
+  }
+}

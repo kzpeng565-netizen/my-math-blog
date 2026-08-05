@@ -1,0 +1,178 @@
+{
+  "period": "2026-07-26T00:00:00+08:00/2026-07-26T00:30:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "medium",
+    "one_sentence": "主要任务：CC Switch 接入 DeepSeek。工作14.33分钟，娱乐15.67分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 15.67,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 1,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 14.33,
+    "same_task_tool_switches_not_scored": 39,
+    "raw_foreground_context_switches_not_scored": 39,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作（00:00-00:14:20）和娱乐（00:14:20-00:30）构成明确的先后过渡，工作期间未检测到超过30秒的娱乐偏离。"
+  },
+  "computer_summary": "电脑上主要活动是工作：使用Edge访问chatgpt.com（标题'CC Switch 接入 DeepSeek'）和Windows Terminal执行命令，共14.34分钟非AFK。",
+  "phone_summary": "手机在工作段有短暂通信（微信、家庭看护）和疑似娱乐（哔哩哔哩约3.57分钟），在娱乐段全程使用哔哩哔哩（15.23分钟）。",
+  "material_uncertainties": [
+    "00:14:20-00:14:39间有少量无记录时间但不足30秒",
+    "工作时段内手机哔哩哔哩使用（00:07:46-00:11:20, 214秒）未被语义时间线标记为娱乐偏离，若核验为娱乐则混杂等级将升高。"
+  ],
+  "concise_report": "主要任务：CC Switch 接入 DeepSeek。工作14.33分钟，娱乐15.67分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "工作时段内手机上的哔哩哔哩使用（约3.6分钟）是否应被视为工作过程中的娱乐偏离？",
+  "observed_metrics": {
+    "computer_active_minutes": 14.34,
+    "computer_afk_minutes": 15.5,
+    "phone_screen_on_minutes": 23.55,
+    "simultaneous_computer_active_phone_on_minutes": 8.07,
+    "no_detected_device_interaction_minutes": 0.18,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 14.33,
+      "range_minutes": [
+        14.33,
+        14.33
+      ],
+      "evidence": [
+        "Edge浏览器标签页标题'CC Switch 接入 DeepSeek'持续打开",
+        "大量在Windows Terminal中运行命令，涉及内容处理和脚本执行",
+        "多次使用cc-switch.exe配置工具",
+        "前后辅助上下文有DeepSeek开放平台页面，证实工作内容"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 15.67,
+      "range_minutes": [
+        15.67,
+        15.67
+      ],
+      "evidence": [
+        "手机从00:14:39起持续使用哔哩哔哩",
+        "电脑在00:14:20进入AFK状态并持续到时段结束",
+        "手机屏幕在00:14:39-00:30:00持续开启",
+        "哔哩哔哩前台占用18.8分钟，为主要活动"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "00:00-00:14",
+      "likely_state": "工作",
+      "minutes": 14.33,
+      "task": "配置CC Switch接入DeepSeek的API",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge浏览器标签页标题'CC Switch 接入 DeepSeek'持续打开",
+        "大量在Windows Terminal中运行命令，涉及内容处理和脚本执行",
+        "多次使用cc-switch.exe配置工具",
+        "前后辅助上下文有DeepSeek开放平台页面，证实工作内容"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "00:14-00:30",
+      "likely_state": "娱乐",
+      "minutes": 15.67,
+      "task": "在哔哩哔哩观看视频",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机从00:14:39起持续使用哔哩哔哩",
+        "电脑在00:14:20进入AFK状态并持续到时段结束",
+        "手机屏幕在00:14:39-00:30:00持续开启",
+        "哔哩哔哩前台占用18.8分钟，为主要活动"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "CC Switch 接入 DeepSeek",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖55.7%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19238,
+      "completion_tokens": 2938,
+      "total_tokens": 22176,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2499
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 18342
+    }
+  }
+}

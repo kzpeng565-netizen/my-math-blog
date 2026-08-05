@@ -1,0 +1,179 @@
+{
+  "period": "2026-07-27T21:30:00+08:00/2026-07-27T22:00:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.95分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作—娱乐混杂等级为none，工作过程中未出现任何超过30秒的娱乐偏离。整个时段以休息为主，手机操作属于非工作、非娱乐的零星活动。"
+  },
+  "computer_summary": "电脑从21:35:03至22:00:00持续AFK，无活跃窗口；之前虽有chatgpt.com标签页存在，但无键盘鼠标操作，不构成工作任务。",
+  "phone_summary": "手机在21:30:53至21:35:03期间亮屏约4分钟，活动包括Google搜索、手机桌面、Clash Meta（代理工具）、微信（短暂通信0.02分钟）和vivo浏览器。无明确娱乐应用。",
+  "tablet_summary": "平板整段时间亮屏（30分钟），但缺乏前台应用数据，无法确认使用情况，仅作为辅助信息来源，不改变休息判断。",
+  "material_uncertainties": [
+    "手机操作期间的具体目的不明，可能包括快速查看或设置，但无明确工作证据",
+    "平板整段时间亮屏，但缺乏前台应用数据，无法判断用户是否在使用平板"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.95分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "手机操作期间（21:30:53-21:35:03）是否包含任何娱乐活动（如刷短视频、浏览非工作网页等）？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 30.0,
+    "phone_screen_on_minutes": 4.03,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 25.97,
+    "confirmed_rest_minutes": 24.95
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 24.95,
+      "range_minutes": [
+        24.95,
+        24.95
+      ],
+      "evidence": [
+        "电脑从21:35:03至22:00:00持续AFK",
+        "手机屏幕从21:35:03至22:00:00关闭",
+        "确认休息规则将此区间标记为confirmed_rest",
+        "平板亮屏作为辅助数据不否决休息"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 5.05,
+      "range_minutes": [
+        5.05,
+        5.05
+      ],
+      "evidence": [
+        "手机从21:30:53至21:35:03亮屏，共4分钟",
+        "切换Google搜索、Clash Meta、微信、vivo浏览器等应用",
+        "电脑持续AFK，无键盘鼠标操作",
+        "GPT标签页虽存在但电脑无交互，不构成工作任务"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "21:30-21:35",
+      "likely_state": "其他",
+      "minutes": 5.05,
+      "task": "手机零星操作：桌面、搜索、代理、微信、浏览器",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机从21:30:53至21:35:03亮屏，共4分钟",
+        "切换Google搜索、Clash Meta、微信、vivo浏览器等应用",
+        "电脑持续AFK，无键盘鼠标操作",
+        "GPT标签页虽存在但电脑无交互，不构成工作任务"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "21:35-22:00",
+      "likely_state": "休息",
+      "minutes": 24.95,
+      "task": "跨设备休息（电脑AFK、手机熄屏）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从21:35:03至22:00:00持续AFK",
+        "手机屏幕从21:35:03至22:00:00关闭",
+        "确认休息规则将此区间标记为confirmed_rest",
+        "平板亮屏作为辅助数据不否决休息"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5999,
+      "completion_tokens": 1039,
+      "total_tokens": 7038,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 566
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 5103
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "period": "2026-07-27T15:00:00+08:00/2026-07-27T15:30:00+08:00",
+  "state_assessment": {
+    "label": "work_with_brief_checkins",
+    "confidence": "high",
+    "one_sentence": "主要任务：职高升学与数学学习。工作20.35分钟，娱乐0.0分钟，通信3.58分钟，确认休息6.07分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 3.58,
+    "longest_continuous_work_minutes": 7.42,
+    "same_task_tool_switches_not_scored": 15,
+    "raw_foreground_context_switches_not_scored": 26,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "本时段内无娱乐偏离。所有B站内容（如'盘点中职生升学四种方式'、'高职高考-中职数学'等）均服务于职高升学调研这一工作任务；微信通信片段（约3.6分钟）属于短暂通信，不视为娱乐偏离。确定性混杂指标显示娱乐偏离次数为0。"
+  },
+  "computer_summary": "电脑上主要使用Microsoft Edge浏览器，活动包括：在B站搜索和观看职高升学相关视频（约10分钟）、使用ChatGPT获取暑假预习计划和昆明职高升学途径（约5.75分钟）、访问云南省职教高考实施办法（约1分钟），以及短暂的微信通信（约1.45分钟）。整体为连续工作任务，无娱乐偏离。",
+  "phone_summary": "手机在此期间处于熄屏状态，无任何活动记录。",
+  "tablet_summary": "平板亮屏30分钟，作为辅助数据源，未改变主要判断；仅降低休息置信度，但休息已被确定性规则确认。",
+  "material_uncertainties": [
+    "B站视频'我们可以向土耳其学习什么'内容不明确，可能为教育经验分享，也可能为一般文化内容，但结合上下文更偏向教育学习。",
+    "微信通信的具体内容未知，是否包含工作相关沟通无法确定，但独立前台片段较长，故归为brief_communication。"
+  ],
+  "concise_report": "主要任务：职高升学与数学学习。工作20.35分钟，娱乐0.0分钟，通信3.58分钟，确认休息6.07分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "请确认B站视频'我们可以向土耳其学习什么'是否与教育学习相关？如果该视频被确认为纯娱乐，则可能导致一次约4分钟的娱乐偏离，从而改变混杂等级。",
+  "observed_metrics": {
+    "computer_active_minutes": 23.94,
+    "computer_afk_minutes": 6.06,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 6.07,
+    "confirmed_rest_minutes": 6.07
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 20.35,
+      "range_minutes": [
+        20.35,
+        20.35
+      ],
+      "evidence": [
+        "Edge浏览器标题'盘点中职生升学四种方式'、'职高升学-哔哩哔哩'等",
+        "ChatGPT标题'暑假预习计划与资料'、'药学课程学习建议'",
+        "持续的非AFK状态，电脑活跃",
+        "前后辅助时间线的任务一致性"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 3.58,
+      "range_minutes": [
+        3.58,
+        3.58
+      ],
+      "evidence": [
+        "微信窗口前台活动，标题'微信'、'图片和视频'",
+        "持续时间约3.5分钟，为独立通信片段",
+        "通信内容未显示与当前工作直接相关",
+        "之后返回ChatGPT继续工作"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 6.07,
+      "range_minutes": [
+        6.07,
+        6.07
+      ],
+      "evidence": [
+        "电脑AFK持续363秒（超3分钟阈值）",
+        "手机屏幕全程关闭",
+        "平板亮屏但不否决休息辅助判定",
+        "确定性跨设备休息规则确认"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "15:00-15:06",
+      "likely_state": "工作",
+      "minutes": 6.78,
+      "task": "研究职高升学路径，搜索和观看B站视频了解中职升学方式，访问ChatGPT获取暑假预习计划",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器标题'盘点中职生升学四种方式'、'职高升学-哔哩哔哩'等",
+        "ChatGPT标题'暑假预习计划与资料'、'药学课程学习建议'",
+        "持续的非AFK状态，电脑活跃",
+        "前后辅助时间线的任务一致性"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:06-15:12",
+      "likely_state": "休息",
+      "minutes": 6.07,
+      "task": "休息，电脑AFK且手机熄屏",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK持续363秒（超3分钟阈值）",
+        "手机屏幕全程关闭",
+        "平板亮屏但不否决休息辅助判定",
+        "确定性跨设备休息规则确认"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:12-15:19",
+      "likely_state": "工作",
+      "minutes": 6.15,
+      "task": "继续研究职高升学，观看B站视频并用ChatGPT整理资料",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "回归后立即观看'没考上高中？'、'盘点中职生升学四种方式'",
+        "ChatGPT标题'暑假预习计划与资料'和'ChatGPT'",
+        "时间线紧接休息之后，任务自然延续",
+        "无设备切换或明显分心"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:19-15:22",
+      "likely_state": "通信",
+      "minutes": 3.58,
+      "task": "使用微信聊天和查看图片视频",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口前台活动，标题'微信'、'图片和视频'",
+        "持续时间约3.5分钟，为独立通信片段",
+        "通信内容未显示与当前工作直接相关",
+        "之后返回ChatGPT继续工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:22-15:30",
+      "likely_state": "工作",
+      "minutes": 7.42,
+      "task": "继续学习职高升学，使用ChatGPT查询昆明职高升学途径，观看B站视频'我们可以向土耳其学习什么'（可能为教育相关内容），访问云南省职教高考实施办法",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT标题'昆明职高升学途径'",
+        "B站视频'我们可以向土耳其学习什么'（教育相关）",
+        "云南省职教高考实施办法页面",
+        "任务与前期升学调研完全一致"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "职高升学与数学学习",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11882,
+      "completion_tokens": 1512,
+      "total_tokens": 13394,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 984
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 10986
+    }
+  }
+}

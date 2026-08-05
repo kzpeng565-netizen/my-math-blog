@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 1,
+  "entertainment_deviation_minutes": 23.38,
+  "all_entertainment_minutes": 23.72,
+  "longest_entertainment_deviation_minutes": 23.38,
+  "work_entertainment_transition_count": 0,
+  "brief_communication_minutes": 0.0,
+  "longest_continuous_work_minutes": 0.0,
+  "same_task_tool_switches_not_scored": 0,
+  "raw_foreground_context_switches_not_scored": 0,
+  "deviations": [
+    {
+      "start": "2026-07-25T09:00:00+08:00",
+      "end": "2026-07-25T09:23:23+08:00",
+      "minutes": 23.38,
+      "duration_seconds": 1403.0,
+      "task": "手机上使用QQ、Telegram、微信聊天，随后B站看视频",
+      "evidence": [
+        "电脑整段时间AFK，手机屏幕大部分时间亮着",
+        "最初约3分钟使用QQ，然后微信，再反复切换Telegram和微信",
+        "约09:16:37后主要使用哔哩哔哩观看视频，持续到09:23:23",
+        "前后辅助时段显示更早也有QQ聊天和之后的B站视频，娱乐倾向明显"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

@@ -1,0 +1,225 @@
+{
+  "period": "2026-07-26T15:30:00+08:00/2026-07-26T16:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "medium",
+    "one_sentence": "主要任务：数学学习（直线运动v-t图像）。工作9.8分钟，娱乐0.0分钟，通信0.0分钟，确认休息14.93分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 5.52,
+    "same_task_tool_switches_not_scored": 18,
+    "raw_foreground_context_switches_not_scored": 19,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "整个30分钟内未检测到任何超过30秒的娱乐偏离。确定性混杂等级为none，工作过程未被娱乐打断。"
+  },
+  "computer_summary": "电脑非AFK共9.81分钟，主要任务为数学学习（直线运动v-t图像）：15:30-15:35在B站观看教学视频、Obsidian记笔记、短暂使用ChatGPT；15:55-16:00通过微信沟通后进入腾讯会议（彭康哲的快速会议），可能继续讨论学习。期间微信通信（图片和视频、消息）时间短，属于brief_communication。另有14.93分钟跨设备确认休息，5.26分钟状态未知。",
+  "phone_summary": "手机全程息屏（30分钟），无任何活动，未干扰工作。",
+  "material_uncertainties": [
+    "未知活动段（15:41-15:46）无法确定是否休息或其他活动",
+    "最后腾讯会议是否完全用于数学学习存疑（会议标题未明确主题）"
+  ],
+  "concise_report": "主要任务：数学学习（直线运动v-t图像）。工作9.8分钟，娱乐0.0分钟，通信0.0分钟，确认休息14.93分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "最后腾讯会议（彭康哲的快速会议）是否用于继续讨论数学学习？",
+  "observed_metrics": {
+    "computer_active_minutes": 9.81,
+    "computer_afk_minutes": 14.93,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 20.2,
+    "confirmed_rest_minutes": 14.93
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 9.8,
+      "range_minutes": [
+        9.8,
+        9.8
+      ],
+      "evidence": [
+        "看B站【直线运动】2.2v-t图像（基础）和ChatGPT帮助学习",
+        "在Obsidian编写高中物理1 加速度笔记",
+        "微信通信（图片和视频、消息）时长约1分钟，属于brief_communication",
+        "前后时段都是同一物理学习任务"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 14.93,
+      "range_minutes": [
+        14.93,
+        14.93
+      ],
+      "evidence": [
+        "电脑连续AFK超过3分钟，手机全程息屏",
+        "跨设备休息规则确认该区间为休息"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 5.27,
+      "range_minutes": [
+        5.27,
+        5.27
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口记录",
+        "手机全程息屏",
+        "无法判断用户是否在电脑前或进行什么活动"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "15:30-15:35",
+      "likely_state": "工作",
+      "minutes": 5.52,
+      "task": "看B站v-t图像教学视频，在Obsidian记笔记，用ChatGPT辅助，短暂微信通信",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "看B站【直线运动】2.2v-t图像（基础）和ChatGPT帮助学习",
+        "在Obsidian编写高中物理1 加速度笔记",
+        "微信通信（图片和视频、消息）时长约1分钟，属于brief_communication",
+        "前后时段都是同一物理学习任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:35-15:41",
+      "likely_state": "休息",
+      "minutes": 5.83,
+      "task": "休息（电脑AFK，手机无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK超过3分钟，手机全程息屏",
+        "跨设备休息规则确认该区间为休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:41-15:46",
+      "likely_state": "无法判断",
+      "minutes": 5.27,
+      "task": "电脑活动状态未知（可能短暂离开或低强度操作）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口记录",
+        "手机全程息屏",
+        "无法判断用户是否在电脑前或进行什么活动"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "15:46-15:55",
+      "likely_state": "休息",
+      "minutes": 9.1,
+      "task": "休息（电脑AFK，手机无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK超过3分钟，手机全程息屏",
+        "跨设备休息规则确认该区间为休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:55-16:00",
+      "likely_state": "工作",
+      "minutes": 4.28,
+      "task": "通过微信沟通后进入腾讯会议（彭康哲的快速会议），可能继续讨论物理学习",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "结束后立即开始腾讯会议（彭康哲的快速会议），可能与学习相关",
+        "之前打开文件资源管理器、搜索，准备会议",
+        "微信通信后进入会议，学习任务仍在进行",
+        "ChatGPT页面一直打开，PDF也保持"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "数学学习（直线运动v-t图像）",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活动状态未知5.26分钟。",
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8944,
+      "completion_tokens": 1591,
+      "total_tokens": 10535,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1090
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 8048
+    }
+  }
+}

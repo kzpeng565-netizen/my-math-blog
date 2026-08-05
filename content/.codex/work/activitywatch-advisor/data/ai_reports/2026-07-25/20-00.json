@@ -1,0 +1,169 @@
+{
+  "period": "2026-07-25T20:00:00+08:00/2026-07-25T20:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐5.07分钟，通信0.0分钟，确认休息24.93分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 5.07,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "第一段（20:00-20:24:56）确认为休息，第二段（20:24:56-20:30）为纯娱乐，无工作过程，无娱乐偏离。"
+  },
+  "computer_summary": "电脑全程AFK，无活跃窗口或浏览活动。",
+  "phone_summary": "20:24:56后手机亮屏，主要使用微信（3分钟）、抖音（44秒）、手机桌面等，整体为娱乐活动。",
+  "material_uncertainties": [
+    "20:24:56-20:25:00亮屏但前台未知4秒，不影响整体归类",
+    "微信中是否包含工作相关通信？但无任何工作上下文且紧邻娱乐，按brief_communication会割裂短段，故整体视为娱乐"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐5.07分钟，通信0.0分钟，确认休息24.93分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "20:25:00-20:30:00期间的微信使用是否包含工作相关内容？若包含，可能改变状态分类。",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 30.0,
+    "phone_screen_on_minutes": 4.58,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 25.42,
+    "confirmed_rest_minutes": 24.93
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 5.07,
+      "range_minutes": [
+        5.07,
+        5.07
+      ],
+      "evidence": [
+        "20:24:56手机亮屏，先后使用微信、抖音、Vivo全局搜索、手机桌面",
+        "电脑始终AFK，用户注意力完全在手机",
+        "微信共3分钟，抖音约44秒，期间无工作活动"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 24.93,
+      "range_minutes": [
+        24.93,
+        24.93
+      ],
+      "evidence": [
+        "电脑全程AFK且手机屏幕关闭",
+        "跨设备休息规则确认连续24.93分钟无操作"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "20:00-20:24",
+      "likely_state": "休息",
+      "minutes": 24.93,
+      "task": "休息（无设备操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑全程AFK且手机屏幕关闭",
+        "跨设备休息规则确认连续24.93分钟无操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:24-20:30",
+      "likely_state": "娱乐",
+      "minutes": 5.07,
+      "task": "刷手机（微信、抖音、浏览知乎）",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "20:24:56手机亮屏，先后使用微信、抖音、Vivo全局搜索、手机桌面",
+        "电脑始终AFK，用户注意力完全在手机",
+        "微信共3分钟，抖音约44秒，期间无工作活动"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4903,
+      "completion_tokens": 1171,
+      "total_tokens": 6074,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 799
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4007
+    }
+  }
+}

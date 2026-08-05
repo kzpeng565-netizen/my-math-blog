@@ -1,0 +1,1569 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T10:00:00+08:00",
+    "end": "2026-07-27T10:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 188,
+      "aw-watcher-afk_xyh": 1,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 25
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 30.0,
+    "afk_minutes": 0.0,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 26.79
+  },
+  "top_apps": [
+    {
+      "app": "Obsidian",
+      "minutes": 17.98
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 4.91
+    },
+    {
+      "app": "Cleaner One.exe",
+      "minutes": 2.17
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.88
+    },
+    {
+      "app": "微信",
+      "minutes": 0.35
+    },
+    {
+      "app": "Mathpix",
+      "minutes": 0.28
+    },
+    {
+      "app": "SearchHost.exe",
+      "minutes": 0.21
+    },
+    {
+      "app": "ApplicationFrameHost.exe",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 4.48
+    },
+    {
+      "domain": "chatgpt.com",
+      "minutes": 0.41
+    },
+    {
+      "domain": "search.bilibili.com",
+      "minutes": 0.02
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "高中数学2 集合与逻辑",
+      "minutes": 17.98
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "minutes": 4.43
+    },
+    {
+      "app": "Cleaner One.exe",
+      "domain": "",
+      "title": "清理君",
+      "minutes": 2.17
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "Windows (C:) - 文件资源管理器",
+      "minutes": 0.33
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "集合运算转换",
+      "minutes": 0.31
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "Program Files (x86) - 文件资源管理器",
+      "minutes": 0.29
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "minutes": 0.21
+    },
+    {
+      "app": "SearchHost.exe",
+      "domain": "",
+      "title": "搜索",
+      "minutes": 0.21
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "聊天记录迁移与备份",
+      "minutes": 0.15
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.13
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "充分必要条件练习",
+      "minutes": 0.1
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "Weixin",
+      "minutes": 0.07
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "高中数学中的充分必要条件为什么这样定义？逻辑其实很有意思_哔哩哔哩_bilibili",
+      "minutes": 0.05
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "Recovery - 文件资源管理器",
+      "minutes": 0.03
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "此电脑 - 文件资源管理器",
+      "minutes": 0.03
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "Customizations - 文件资源管理器",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "search.bilibili.com",
+      "title": "AI 排名-哔哩哔哩_bilibili",
+      "minutes": 0.02
+    },
+    {
+      "app": "ApplicationFrameHost.exe",
+      "domain": "",
+      "title": "Microsoft Store",
+      "minutes": 0.02
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "db - 文件资源管理器",
+      "minutes": 0.02
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "Recovery",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "高中数学中的充分必要条件为什么这样定义？逻辑其实很有意思_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-27T09:46:43+08:00",
+      "last_seen": "2026-07-27T10:03:22+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T10:00:43+08:00",
+      "last_seen": "2026-07-27T10:29:13+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "高中数学 充分性与必要性-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-27T10:03:22+08:00",
+      "last_seen": "2026-07-27T10:03:23+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "逻辑】1充分必要条件（易）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-27T10:03:23+08:00",
+      "last_seen": "2026-07-27T10:03:24+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "历史记录",
+      "first_seen": "2026-07-27T10:03:24+08:00",
+      "last_seen": "2026-07-27T10:28:03+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-27T10:03:24+08:00",
+      "last_seen": "2026-07-27T10:30:51+08:00",
+      "raw_event_count": 13
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "AI 排名-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-27T10:03:25+08:00",
+      "last_seen": "2026-07-27T10:28:02+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "集合运算转换",
+      "first_seen": "2026-07-27T10:23:18+08:00",
+      "last_seen": "2026-07-27T10:23:39+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "充分必要条件练习",
+      "first_seen": "2026-07-27T10:26:38+08:00",
+      "last_seen": "2026-07-27T10:28:02+08:00",
+      "raw_event_count": 2
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T10:00:00+08:00",
+      "end": "2026-07-27T10:30:00+08:00",
+      "duration_seconds": 1800.0,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T10:00:00+08:00",
+      "end": "2026-07-27T10:00:08+08:00",
+      "duration_seconds": 8.977,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:00:10+08:00",
+      "end": "2026-07-27T10:00:11+08:00",
+      "duration_seconds": 1.022,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:00:12+08:00",
+      "end": "2026-07-27T10:00:15+08:00",
+      "duration_seconds": 3.082,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:00:16+08:00",
+      "end": "2026-07-27T10:00:17+08:00",
+      "duration_seconds": 1.04,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:00:18+08:00",
+      "end": "2026-07-27T10:01:28+08:00",
+      "duration_seconds": 70.178,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:01:29+08:00",
+      "end": "2026-07-27T10:01:31+08:00",
+      "duration_seconds": 2.072,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:01:32+08:00",
+      "end": "2026-07-27T10:01:34+08:00",
+      "duration_seconds": 2.069,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:01:35+08:00",
+      "end": "2026-07-27T10:01:36+08:00",
+      "duration_seconds": 1.04,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:01:37+08:00",
+      "end": "2026-07-27T10:01:40+08:00",
+      "duration_seconds": 3.12,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:01:41+08:00",
+      "end": "2026-07-27T10:01:47+08:00",
+      "duration_seconds": 3.096,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:01:48+08:00",
+      "end": "2026-07-27T10:03:14+08:00",
+      "duration_seconds": 86.524,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:03:14+08:00",
+      "end": "2026-07-27T10:03:18+08:00",
+      "duration_seconds": 4.133,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:03:18+08:00",
+      "end": "2026-07-27T10:03:21+08:00",
+      "duration_seconds": 3.102,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "高中数学中的充分必要条件为什么这样定义？逻辑其实很有意思_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:03:21+08:00",
+      "end": "2026-07-27T10:03:25+08:00",
+      "duration_seconds": 4.132,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:03:25+08:00",
+      "end": "2026-07-27T10:03:26+08:00",
+      "duration_seconds": 1.037,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "AI 排名-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:03:29+08:00",
+      "end": "2026-07-27T10:04:12+08:00",
+      "duration_seconds": 43.35,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:04:13+08:00",
+      "end": "2026-07-27T10:07:32+08:00",
+      "duration_seconds": 198.998,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:07:33+08:00",
+      "end": "2026-07-27T10:07:34+08:00",
+      "duration_seconds": 1.037,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:07:36+08:00",
+      "end": "2026-07-27T10:07:44+08:00",
+      "duration_seconds": 8.235,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:07:46+08:00",
+      "end": "2026-07-27T10:07:47+08:00",
+      "duration_seconds": 1.021,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "此电脑 - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:07:48+08:00",
+      "end": "2026-07-27T10:07:54+08:00",
+      "duration_seconds": 5.152,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Windows (C:) - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:07:55+08:00",
+      "end": "2026-07-27T10:07:56+08:00",
+      "duration_seconds": 1.025,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Recovery",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:07:57+08:00",
+      "end": "2026-07-27T10:07:59+08:00",
+      "duration_seconds": 2.052,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Recovery - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:00+08:00",
+      "end": "2026-07-27T10:08:01+08:00",
+      "duration_seconds": 1.049,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Customizations - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:02+08:00",
+      "end": "2026-07-27T10:08:03+08:00",
+      "duration_seconds": 1.109,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Windows (C:) - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:04+08:00",
+      "end": "2026-07-27T10:08:19+08:00",
+      "duration_seconds": 15.453,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Files (x86) - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:20+08:00",
+      "end": "2026-07-27T10:08:26+08:00",
+      "duration_seconds": 5.135,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Windows (C:) - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:27+08:00",
+      "end": "2026-07-27T10:08:30+08:00",
+      "duration_seconds": 3.068,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:32+08:00",
+      "end": "2026-07-27T10:08:41+08:00",
+      "duration_seconds": 7.551,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:43+08:00",
+      "end": "2026-07-27T10:08:46+08:00",
+      "duration_seconds": 3.157,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "Weixin",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:47+08:00",
+      "end": "2026-07-27T10:08:56+08:00",
+      "duration_seconds": 9.259,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "聊天记录迁移与备份",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:08:57+08:00",
+      "end": "2026-07-27T10:09:02+08:00",
+      "duration_seconds": 5.135,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Windows (C:) - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:09:03+08:00",
+      "end": "2026-07-27T10:09:12+08:00",
+      "duration_seconds": 9.281,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:09:13+08:00",
+      "end": "2026-07-27T10:09:16+08:00",
+      "duration_seconds": 2.111,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:09:17+08:00",
+      "end": "2026-07-27T10:09:30+08:00",
+      "duration_seconds": 13.44,
+      "app": "Cleaner One.exe",
+      "app_display": "Cleaner One.exe",
+      "title": "清理君",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:09:30+08:00",
+      "end": "2026-07-27T10:09:33+08:00",
+      "duration_seconds": 3.275,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:09:33+08:00",
+      "end": "2026-07-27T10:10:36+08:00",
+      "duration_seconds": 62.732,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:10:38+08:00",
+      "end": "2026-07-27T10:11:25+08:00",
+      "duration_seconds": 47.283,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:11:26+08:00",
+      "end": "2026-07-27T10:12:08+08:00",
+      "duration_seconds": 39.067,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:12:09+08:00",
+      "end": "2026-07-27T10:12:10+08:00",
+      "duration_seconds": 1.027,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:12:11+08:00",
+      "end": "2026-07-27T10:12:23+08:00",
+      "duration_seconds": 12.34,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:12:24+08:00",
+      "end": "2026-07-27T10:12:34+08:00",
+      "duration_seconds": 10.319,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:12:35+08:00",
+      "end": "2026-07-27T10:13:02+08:00",
+      "duration_seconds": 24.802,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:13:03+08:00",
+      "end": "2026-07-27T10:13:06+08:00",
+      "duration_seconds": 3.104,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:13:07+08:00",
+      "end": "2026-07-27T10:13:17+08:00",
+      "duration_seconds": 9.264,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:13:18+08:00",
+      "end": "2026-07-27T10:13:33+08:00",
+      "duration_seconds": 15.477,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:13:35+08:00",
+      "end": "2026-07-27T10:13:49+08:00",
+      "duration_seconds": 11.36,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:13:50+08:00",
+      "end": "2026-07-27T10:13:54+08:00",
+      "duration_seconds": 4.105,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:13:55+08:00",
+      "end": "2026-07-27T10:14:05+08:00",
+      "duration_seconds": 10.313,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:14:05+08:00",
+      "end": "2026-07-27T10:14:08+08:00",
+      "duration_seconds": 3.095,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:14:08+08:00",
+      "end": "2026-07-27T10:14:20+08:00",
+      "duration_seconds": 9.263,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:14:21+08:00",
+      "end": "2026-07-27T10:14:24+08:00",
+      "duration_seconds": 3.08,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:14:26+08:00",
+      "end": "2026-07-27T10:14:30+08:00",
+      "duration_seconds": 4.113,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:14:31+08:00",
+      "end": "2026-07-27T10:14:33+08:00",
+      "duration_seconds": 2.077,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:14:34+08:00",
+      "end": "2026-07-27T10:15:11+08:00",
+      "duration_seconds": 37.187,
+      "app": "Cleaner One.exe",
+      "app_display": "Cleaner One.exe",
+      "title": "清理君",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:15:12+08:00",
+      "end": "2026-07-27T10:15:13+08:00",
+      "duration_seconds": 1.029,
+      "app": "ApplicationFrameHost.exe",
+      "app_display": "ApplicationFrameHost.exe",
+      "title": "Microsoft Store",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:15:14+08:00",
+      "end": "2026-07-27T10:15:49+08:00",
+      "duration_seconds": 34.377,
+      "app": "Cleaner One.exe",
+      "app_display": "Cleaner One.exe",
+      "title": "清理君",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:15:51+08:00",
+      "end": "2026-07-27T10:15:52+08:00",
+      "duration_seconds": 1.028,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "此电脑 - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:15:53+08:00",
+      "end": "2026-07-27T10:15:55+08:00",
+      "duration_seconds": 2.064,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Windows (C:) - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:15:56+08:00",
+      "end": "2026-07-27T10:15:57+08:00",
+      "duration_seconds": 1.027,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "db - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:15:58+08:00",
+      "end": "2026-07-27T10:15:59+08:00",
+      "duration_seconds": 1.03,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Windows (C:) - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:16:00+08:00",
+      "end": "2026-07-27T10:16:02+08:00",
+      "duration_seconds": 2.043,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "Program Files (x86) - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:16:03+08:00",
+      "end": "2026-07-27T10:16:48+08:00",
+      "duration_seconds": 45.383,
+      "app": "Cleaner One.exe",
+      "app_display": "Cleaner One.exe",
+      "title": "清理君",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:16:49+08:00",
+      "end": "2026-07-27T10:16:53+08:00",
+      "duration_seconds": 3.086,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:16:55+08:00",
+      "end": "2026-07-27T10:16:56+08:00",
+      "duration_seconds": 1.027,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:16:57+08:00",
+      "end": "2026-07-27T10:17:36+08:00",
+      "duration_seconds": 39.101,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:17:38+08:00",
+      "end": "2026-07-27T10:17:39+08:00",
+      "duration_seconds": 1.03,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:17:40+08:00",
+      "end": "2026-07-27T10:17:51+08:00",
+      "duration_seconds": 11.345,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:17:52+08:00",
+      "end": "2026-07-27T10:18:00+08:00",
+      "duration_seconds": 8.246,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:18:01+08:00",
+      "end": "2026-07-27T10:18:04+08:00",
+      "duration_seconds": 2.049,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:18:04+08:00",
+      "end": "2026-07-27T10:18:07+08:00",
+      "duration_seconds": 3.084,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:18:07+08:00",
+      "end": "2026-07-27T10:18:19+08:00",
+      "duration_seconds": 10.296,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:18:20+08:00",
+      "end": "2026-07-27T10:18:21+08:00",
+      "duration_seconds": 1.03,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:18:22+08:00",
+      "end": "2026-07-27T10:18:28+08:00",
+      "duration_seconds": 6.19,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:18:29+08:00",
+      "end": "2026-07-27T10:18:32+08:00",
+      "duration_seconds": 3.104,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:18:33+08:00",
+      "end": "2026-07-27T10:18:34+08:00",
+      "duration_seconds": 1.026,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:18:35+08:00",
+      "end": "2026-07-27T10:19:21+08:00",
+      "duration_seconds": 45.3,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:19:22+08:00",
+      "end": "2026-07-27T10:19:32+08:00",
+      "duration_seconds": 8.212,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:19:33+08:00",
+      "end": "2026-07-27T10:19:34+08:00",
+      "duration_seconds": 1.026,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:19:35+08:00",
+      "end": "2026-07-27T10:19:56+08:00",
+      "duration_seconds": 18.55,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:19:57+08:00",
+      "end": "2026-07-27T10:19:58+08:00",
+      "duration_seconds": 1.035,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:19:59+08:00",
+      "end": "2026-07-27T10:20:06+08:00",
+      "duration_seconds": 7.206,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:20:07+08:00",
+      "end": "2026-07-27T10:20:09+08:00",
+      "duration_seconds": 2.062,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:20:10+08:00",
+      "end": "2026-07-27T10:20:20+08:00",
+      "duration_seconds": 10.294,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:20:21+08:00",
+      "end": "2026-07-27T10:20:28+08:00",
+      "duration_seconds": 6.193,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:20:29+08:00",
+      "end": "2026-07-27T10:21:12+08:00",
+      "duration_seconds": 43.288,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:21:13+08:00",
+      "end": "2026-07-27T10:21:15+08:00",
+      "duration_seconds": 2.065,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:21:16+08:00",
+      "end": "2026-07-27T10:21:54+08:00",
+      "duration_seconds": 38.066,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:21:55+08:00",
+      "end": "2026-07-27T10:22:08+08:00",
+      "duration_seconds": 12.375,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:22:10+08:00",
+      "end": "2026-07-27T10:23:16+08:00",
+      "duration_seconds": 63.905,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:23:16+08:00",
+      "end": "2026-07-27T10:23:20+08:00",
+      "duration_seconds": 4.11,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:23:20+08:00",
+      "end": "2026-07-27T10:23:38+08:00",
+      "duration_seconds": 18.533,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "集合运算转换",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:23:39+08:00",
+      "end": "2026-07-27T10:23:43+08:00",
+      "duration_seconds": 4.111,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:23:44+08:00",
+      "end": "2026-07-27T10:23:45+08:00",
+      "duration_seconds": 1.04,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:23:46+08:00",
+      "end": "2026-07-27T10:23:50+08:00",
+      "duration_seconds": 3.095,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:23:51+08:00",
+      "end": "2026-07-27T10:23:56+08:00",
+      "duration_seconds": 5.128,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:23:57+08:00",
+      "end": "2026-07-27T10:23:58+08:00",
+      "duration_seconds": 1.032,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:24:00+08:00",
+      "end": "2026-07-27T10:24:05+08:00",
+      "duration_seconds": 5.151,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:24:05+08:00",
+      "end": "2026-07-27T10:24:09+08:00",
+      "duration_seconds": 4.105,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:24:09+08:00",
+      "end": "2026-07-27T10:24:10+08:00",
+      "duration_seconds": 1.023,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:24:10+08:00",
+      "end": "2026-07-27T10:24:13+08:00",
+      "duration_seconds": 3.068,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:24:13+08:00",
+      "end": "2026-07-27T10:24:19+08:00",
+      "duration_seconds": 6.158,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:24:20+08:00",
+      "end": "2026-07-27T10:24:29+08:00",
+      "duration_seconds": 6.197,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:24:31+08:00",
+      "end": "2026-07-27T10:24:36+08:00",
+      "duration_seconds": 5.128,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:24:37+08:00",
+      "end": "2026-07-27T10:25:00+08:00",
+      "duration_seconds": 19.536,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:25:01+08:00",
+      "end": "2026-07-27T10:25:11+08:00",
+      "duration_seconds": 9.23,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:25:12+08:00",
+      "end": "2026-07-27T10:25:38+08:00",
+      "duration_seconds": 26.743,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:25:39+08:00",
+      "end": "2026-07-27T10:25:43+08:00",
+      "duration_seconds": 3.094,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:25:43+08:00",
+      "end": "2026-07-27T10:25:46+08:00",
+      "duration_seconds": 3.093,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:25:46+08:00",
+      "end": "2026-07-27T10:25:47+08:00",
+      "duration_seconds": 1.034,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:25:48+08:00",
+      "end": "2026-07-27T10:25:49+08:00",
+      "duration_seconds": 1.023,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:25:50+08:00",
+      "end": "2026-07-27T10:25:52+08:00",
+      "duration_seconds": 2.058,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:25:52+08:00",
+      "end": "2026-07-27T10:25:56+08:00",
+      "duration_seconds": 4.139,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:25:56+08:00",
+      "end": "2026-07-27T10:26:00+08:00",
+      "duration_seconds": 4.103,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:26:00+08:00",
+      "end": "2026-07-27T10:26:03+08:00",
+      "duration_seconds": 3.08,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:26:03+08:00",
+      "end": "2026-07-27T10:26:04+08:00",
+      "duration_seconds": 1.024,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:26:05+08:00",
+      "end": "2026-07-27T10:26:06+08:00",
+      "duration_seconds": 1.032,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:26:07+08:00",
+      "end": "2026-07-27T10:26:37+08:00",
+      "duration_seconds": 29.858,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:26:38+08:00",
+      "end": "2026-07-27T10:26:43+08:00",
+      "duration_seconds": 5.143,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "充分必要条件练习",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:26:44+08:00",
+      "end": "2026-07-27T10:27:53+08:00",
+      "duration_seconds": 69.025,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:27:53+08:00",
+      "end": "2026-07-27T10:27:59+08:00",
+      "duration_seconds": 5.153,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T10:27:59+08:00",
+      "end": "2026-07-27T10:28:00+08:00",
+      "duration_seconds": 1.026,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:28:01+08:00",
+      "end": "2026-07-27T10:28:02+08:00",
+      "duration_seconds": 1.03,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "充分必要条件练习",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:28:04+08:00",
+      "end": "2026-07-27T10:28:11+08:00",
+      "duration_seconds": 7.196,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:28:12+08:00",
+      "end": "2026-07-27T10:29:44+08:00",
+      "duration_seconds": 89.632,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T10:29:45+08:00",
+      "end": "2026-07-27T10:29:56+08:00",
+      "duration_seconds": 11.353,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T10:29:57+08:00",
+      "end": "2026-07-27T10:30:00+08:00",
+      "duration_seconds": 2.521,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.893,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 1.0,
+    "browser_share_of_active_time": 0.164,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活跃窗口只覆盖89.3%。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

@@ -1,0 +1,631 @@
+{
+  "period": "2026-07-26T20:00:00+08:00/2026-07-26T20:30:00+08:00",
+  "state_assessment": {
+    "label": "work_disrupted_by_entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作12.0分钟，娱乐11.78分钟，通信5.63分钟，确认休息0.0分钟。工作中出现3次超过30秒的娱乐偏离，共11.55分钟，最长5.0分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 3,
+    "entertainment_deviation_minutes": 11.55,
+    "all_entertainment_minutes": 11.78,
+    "longest_entertainment_deviation_minutes": 5.0,
+    "work_entertainment_transition_count": 4,
+    "brief_communication_minutes": 5.63,
+    "longest_continuous_work_minutes": 3.48,
+    "same_task_tool_switches_not_scored": 9,
+    "raw_foreground_context_switches_not_scored": 39,
+    "deviations": [
+      {
+        "start": "2026-07-26T20:07:34+08:00",
+        "end": "2026-07-26T20:11:54+08:00",
+        "minutes": 4.33,
+        "duration_seconds": 260.0,
+        "task": "浏览小红书美食内容：北师大日常、大栅栏美食攻略等",
+        "evidence": [
+          "浏览多个小红书北京美食帖子，内容与工作无关",
+          "前一段为系统维护工作，后一段回到工作话题",
+          "手机熄屏，浏览器为Edge",
+          "标题如'北师大日常我就吃这些'、'大栅栏美食攻略 - 小红书搜索'等"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 6.77,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-26T20:12:08+08:00",
+        "end": "2026-07-26T20:17:08+08:00",
+        "minutes": 5.0,
+        "duration_seconds": 300.0,
+        "task": "浏览小红书美食帖子：北京7大美食街、护国寺街、夜市、牛街等",
+        "evidence": [
+          "连续浏览多个小红书美食相关帖子，包括'北京7大美食街'、'护国寺街的小吃'、'北京夜市大赏'等",
+          "手机熄屏",
+          "明显娱乐性质，与工作无关"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 1.53,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-26T20:20:37+08:00",
+        "end": "2026-07-26T20:22:50+08:00",
+        "minutes": 2.22,
+        "duration_seconds": 133.0,
+        "task": "浏览小红书：北京夜晚的牛街、菲尔兹奖传承、插尿管等",
+        "evidence": [
+          "浏览小红书多个帖子，包括'北京夜晚的牛街不需要排队呀！'、'菲尔兹奖在中国的三代传承'、'插尿管'等",
+          "内容杂糅，明显娱乐性质",
+          "手机熄屏"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 1.03,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作中出现3次超过30秒的娱乐偏离：1)20:07:34-20:11:54（4.33分钟，小红书美食浏览）；2)20:12:08-20:17:08（5分钟，继续小红书美食）；3)20:20:37-20:22:50（2.22分钟，小红书杂项）。每次偏离后均返回原工作任务（增强DeepSeek搜索能力），混杂等级为高。"
+  },
+  "computer_summary": "电脑以Edge浏览器为主（17.59分钟），主要工作活动在ChatGPT（2.73分钟）、Bing/Tavily（约1.67分钟）、Windows Terminal（1.07分钟）、CC Switch（0.52分钟），娱乐活动在小红书（约9.21分钟）。微信用于通信（5.43分钟）。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "material_uncertainties": [
+    "ChatGPT对话内容未知，无法确认'增强DeepSeek搜索能力'是否完全用于工作（如教学）还是包含其他目的",
+    "微信通信内容未知，无法判断部分通信是否服务于工作任务"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作12.0分钟，娱乐11.78分钟，通信5.63分钟，确认休息0.0分钟。工作中出现3次超过30秒的娱乐偏离，共11.55分钟，最长5.0分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "ChatGPT对话内容是否主要服务于工作任务（如教学或系统维护）？如果是娱乐或无关内容，可能会改变娱乐偏离结论。",
+  "observed_metrics": {
+    "computer_active_minutes": 29.57,
+    "computer_afk_minutes": 0.43,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.45,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 12.0,
+      "range_minutes": [
+        12.0,
+        12.0
+      ],
+      "evidence": [
+        "ChatGPT标题从'CC Switch 接入 DeepSeek'变为'增强DeepSeek搜索能力'",
+        "结合辅助上下文，之前有'讲义题目调整建议'，推测正在配置AI工具用于教学",
+        "短时间切入Obsidian查看'高中物理1 加速度'，与教学相关",
+        "手机全程熄屏无干扰"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 11.78,
+      "range_minutes": [
+        11.78,
+        11.78
+      ],
+      "evidence": [
+        "浏览多个小红书北京美食帖子，内容与工作无关",
+        "前一段为系统维护工作，后一段回到工作话题",
+        "手机熄屏，浏览器为Edge",
+        "标题如'北师大日常我就吃这些'、'大栅栏美食攻略 - 小红书搜索'等"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 5.63,
+      "range_minutes": [
+        5.63,
+        5.63
+      ],
+      "evidence": [
+        "微信窗口活跃约1.4分钟",
+        "出现'图片和视频'子窗口,表明发送或查看媒体",
+        "手机全程熄屏，仅电脑端微信",
+        "对话内容未知，无证据表明服务于当前工作任务"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.45,
+      "range_minutes": [
+        0.45,
+        0.45
+      ],
+      "evidence": [
+        "状态变为afk约26秒",
+        "QQMusic.exe播放音乐（'Actually Romantic - Taylor Swift'）",
+        "手机熄屏，无任何设备交互",
+        "不满足休息规则（<180秒）"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.13,
+      "range_minutes": [
+        0.13,
+        0.13
+      ],
+      "evidence": [
+        "缺失窗口记录约5秒",
+        "可能为切换任务",
+        "不影响整体分类",
+        "缺失窗口记录约3秒"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "20:00-20:03",
+      "likely_state": "工作",
+      "minutes": 3.48,
+      "task": "配置ChatGPT接入DeepSeek搜索能力",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT标题从'CC Switch 接入 DeepSeek'变为'增强DeepSeek搜索能力'",
+        "结合辅助上下文，之前有'讲义题目调整建议'，推测正在配置AI工具用于教学",
+        "短时间切入Obsidian查看'高中物理1 加速度'，与教学相关",
+        "手机全程熄屏无干扰"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:03-20:04",
+      "likely_state": "通信",
+      "minutes": 1.43,
+      "task": "微信聊天，包含图片和视频",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口活跃约1.4分钟",
+        "出现'图片和视频'子窗口,表明发送或查看媒体",
+        "手机全程熄屏，仅电脑端微信",
+        "对话内容未知，无证据表明服务于当前工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:04-20:05",
+      "likely_state": "工作",
+      "minutes": 0.72,
+      "task": "继续在ChatGPT中增强DeepSeek搜索能力",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页标题'增强DeepSeek搜索能力'",
+        "紧随通信后立即回到同一主题",
+        "辅助上下文表明该对话标签持续存在",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:05-20:06",
+      "likely_state": "工作",
+      "minutes": 0.67,
+      "task": "在Bing搜索'Tavily'相关信息",
+      "work_category": "系统维护",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'Tavily - 搜索'在Bing域名下",
+        "Tavily是API平台，与增强DeepSeek搜索能力任务相符",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:06-20:07",
+      "likely_state": "工作",
+      "minutes": 1.27,
+      "task": "新建标签页，可能准备下一步操作",
+      "work_category": "系统维护",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge新建标签页持续约1.2分钟",
+        "在Tavily搜索之后，可能是短暂中断或思考",
+        "手机熄屏"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "20:07-20:11",
+      "likely_state": "娱乐",
+      "minutes": 4.33,
+      "task": "浏览小红书美食内容：北师大日常、大栅栏美食攻略等",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览多个小红书北京美食帖子，内容与工作无关",
+        "前一段为系统维护工作，后一段回到工作话题",
+        "手机熄屏，浏览器为Edge",
+        "标题如'北师大日常我就吃这些'、'大栅栏美食攻略 - 小红书搜索'等"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:11-20:12",
+      "likely_state": "娱乐",
+      "minutes": 0.23,
+      "task": "浏览小红书美食帖子：北京小吃街",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "短时间切换标题'北京美食街 - 小红书搜索'和'北京小吃街首选，太好吃了！！！！'",
+        "手机熄屏",
+        "延续美食浏览模式"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:12-20:17",
+      "likely_state": "娱乐",
+      "minutes": 5.0,
+      "task": "浏览小红书美食帖子：北京7大美食街、护国寺街、夜市、牛街等",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "连续浏览多个小红书美食相关帖子，包括'北京7大美食街'、'护国寺街的小吃'、'北京夜市大赏'等",
+        "手机熄屏",
+        "明显娱乐性质，与工作无关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:17-20:18",
+      "likely_state": "通信",
+      "minutes": 1.45,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口活跃约1.4分钟",
+        "处于娱乐浏览期间，通信内容未知",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:18-20:18",
+      "likely_state": "无法判断",
+      "minutes": 0.08,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "缺失窗口记录约5秒",
+        "可能为切换任务",
+        "不影响整体分类"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "20:18-20:18",
+      "likely_state": "工作",
+      "minutes": 0.07,
+      "task": "访问Tavily网站",
+      "work_category": "系统维护",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'Tavily'域名tavily.com",
+        "与之前Tavily搜索相关",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:18-20:18",
+      "likely_state": "通信",
+      "minutes": 0.2,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口活跃约12秒",
+        "短促通信",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:18-20:18",
+      "likely_state": "无法判断",
+      "minutes": 0.05,
+      "task": "短暂无窗口记录",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "缺失窗口记录约3秒",
+        "可能为切换任务"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "20:18-20:20",
+      "likely_state": "工作",
+      "minutes": 1.08,
+      "task": "登录Tavily账号",
+      "work_category": "系统维护",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'Log in | Tavily'在auth.tavily.com",
+        "明确登录操作，与增强DeepSeek搜索任务相关",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:20-20:20",
+      "likely_state": "工作",
+      "minutes": 0.1,
+      "task": "访问Tavily API Platform",
+      "work_category": "系统维护",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'Tavily API Platform'在app.tavily.com",
+        "登录后进入API平台，与工作相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:20-20:20",
+      "likely_state": "工作",
+      "minutes": 0.45,
+      "task": "回到ChatGPT继续增强DeepSeek搜索能力",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'增强DeepSeek搜索能力'在chatgpt.com",
+        "与工作主题一致",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:20-20:22",
+      "likely_state": "娱乐",
+      "minutes": 2.22,
+      "task": "浏览小红书：北京夜晚的牛街、菲尔兹奖传承、插尿管等",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览小红书多个帖子，包括'北京夜晚的牛街不需要排队呀！'、'菲尔兹奖在中国的三代传承'、'插尿管'等",
+        "内容杂糅，明显娱乐性质",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:22-20:23",
+      "likely_state": "通信",
+      "minutes": 1.03,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口活跃约1分钟",
+        "处于娱乐期间，通信内容未知",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:23-20:25",
+      "likely_state": "工作",
+      "minutes": 1.63,
+      "task": "回到ChatGPT继续增强DeepSeek搜索能力，并查看Tavily API Platform",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'增强DeepSeek搜索能力'和'Tavily API Platform'交替出现",
+        "与之前工作任务一致",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:25-20:26",
+      "likely_state": "通信",
+      "minutes": 0.55,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口活跃约33秒",
+        "处于工作段落中，通信内容未知但可能相关",
+        "手机熄屏"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:26-20:27",
+      "likely_state": "工作",
+      "minutes": 1.68,
+      "task": "使用PowerShell、文件资源管理器、Edge等工作：查看Tavily API、增强DeepSeek搜索能力",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "交替使用Windows Terminal (PowerShell)、文件资源管理器、Edge (Tavily API Platform, 增强DeepSeek搜索能力)",
+        "涉及多个工具，主题一致",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:27-20:28",
+      "likely_state": "工作",
+      "minutes": 0.27,
+      "task": "在Edge中继续增强DeepSeek搜索能力，并启动CC Switch",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签'增强DeepSeek搜索能力'，然后打开cc-switch.exe",
+        "CC Switch是AI工具管理平台，与工作相关",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:28-20:28",
+      "likely_state": "工作",
+      "minutes": 0.58,
+      "task": "使用CC Switch配置或管理AI工具",
+      "work_category": "系统维护",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "cc-switch.exe窗口活跃约30秒，标题'CC Switch'",
+        "与之前CC Switch接入DeepSeek的任务相符",
+        "手机熄屏"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:28-20:29",
+      "likely_state": "通信",
+      "minutes": 0.97,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口活跃约1分钟",
+        "工作段落末尾，可能沟通工作相关",
+        "手机熄屏"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:29-20:30",
+      "likely_state": "其他",
+      "minutes": 0.45,
+      "task": "电脑AFK（无操作），可能短暂离开",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "状态变为afk约26秒",
+        "QQMusic.exe播放音乐（'Actually Romantic - Taylor Swift'）",
+        "手机熄屏，无任何设备交互",
+        "不满足休息规则（<180秒）"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 17791,
+      "completion_tokens": 2050,
+      "total_tokens": 19841,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1569
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 16895
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T12:00:00+08:00",
+    "end": "2026-07-25T12:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 4,
+      "aw-watcher-afk_xyh": 44,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 20
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 2.28,
+    "afk_minutes": 26.88,
+    "unknown_status_minutes": 0.84,
+    "window_observed_minutes": 2.26
+  },
+  "top_apps": [
+    {
+      "app": "腾讯会议",
+      "minutes": 1.31
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 0.94
+    }
+  ],
+  "top_websites": [],
+  "top_titles": [
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 1.31
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "minutes": 0.94
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T12:00:57+08:00",
+      "last_seen": "2026-07-25T12:29:28+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T12:01:10+08:00",
+      "last_seen": "2026-07-25T12:29:40+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T12:00:00+08:00",
+      "end": "2026-07-25T12:12:30+08:00",
+      "duration_seconds": 750.45,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T12:12:30+08:00",
+      "end": "2026-07-25T12:13:11+08:00",
+      "duration_seconds": 41.405,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T12:13:11+08:00",
+      "end": "2026-07-25T12:16:50+08:00",
+      "duration_seconds": 218.949,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T12:16:50+08:00",
+      "end": "2026-07-25T12:17:28+08:00",
+      "duration_seconds": 37.433,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T12:17:28+08:00",
+      "end": "2026-07-25T12:20:36+08:00",
+      "duration_seconds": 187.936,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T12:20:36+08:00",
+      "end": "2026-07-25T12:21:34+08:00",
+      "duration_seconds": 58.101,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T12:21:34+08:00",
+      "end": "2026-07-25T12:25:51+08:00",
+      "duration_seconds": 257.538,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T12:25:51+08:00",
+      "end": "2026-07-25T12:26:41+08:00",
+      "duration_seconds": 50.106,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-25T12:26:41+08:00",
+      "end": "2026-07-25T12:30:00+08:00",
+      "duration_seconds": 198.079,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T12:12:30+08:00",
+      "end": "2026-07-25T12:13:11+08:00",
+      "duration_seconds": 41.405,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T12:16:50+08:00",
+      "end": "2026-07-25T12:17:28+08:00",
+      "duration_seconds": 37.433,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T12:20:36+08:00",
+      "end": "2026-07-25T12:21:33+08:00",
+      "duration_seconds": 56.612,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接2 乘法公式&主元思想&因式分解",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.989,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 1.0,
+    "browser_share_of_active_time": 0.0,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "period": "2026-07-25T12:00:00+08:00/2026-07-25T12:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：家教。工作2.28分钟，娱乐0.0分钟，通信0.0分钟，确认休息26.88分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.97,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 2,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "没有检测到娱乐偏离，因为整个时段内没有任何娱乐活动。工作时段（腾讯会议和Obsidian）均与家教任务相关，且每次工作段均被休息间隔隔开，不存在工作与娱乐的混杂。"
+  },
+  "computer_summary": "电脑上仅有极短的活动：12:12-12:13和12:16-12:17使用腾讯会议'彭康哲的快速会议'（约1.31分钟），12:20-12:21使用Obsidian整理'初高衔接2'笔记（约0.94分钟）。其余时间电脑处于AFK状态。",
+  "phone_summary": "手机在此期间全程息屏，无任何使用记录。",
+  "material_uncertainties": [
+    "12:25:51-12:26:41的unknown状态是否涉及短暂活动无法确定，但少于1分钟",
+    "腾讯会议和Obsidian的确切任务内容依赖标题推断，缺乏音频/文字证据"
+  ],
+  "concise_report": "主要任务：家教。工作2.28分钟，娱乐0.0分钟，通信0.0分钟，确认休息26.88分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "请确认12:25:51-12:26:41这50秒是否涉及任何工作或娱乐活动？",
+  "observed_metrics": {
+    "computer_active_minutes": 2.28,
+    "computer_afk_minutes": 26.88,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 27.72,
+    "confirmed_rest_minutes": 26.88
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 2.28,
+      "range_minutes": [
+        2.28,
+        2.28
+      ],
+      "evidence": [
+        "12:12:30-12:13:11使用腾讯会议\"彭康哲的快速会议\"",
+        "标题与家教备课吻合",
+        "12:16:50-12:17:28使用腾讯会议\"彭康哲的快速会议\"",
+        "与上一工作段任务相同，因AFK中断后恢复"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 26.88,
+      "range_minutes": [
+        26.88,
+        26.88
+      ],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:00-12:12:30",
+        "符合rest_rule.confirmed_intervals 12:13:11-12:16:50",
+        "符合rest_rule.confirmed_intervals 12:17:28-12:20:36"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.83,
+      "range_minutes": [
+        0.83,
+        0.83
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口标题记录",
+        "持续时间约50秒"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "12:00-12:12",
+      "likely_state": "休息",
+      "minutes": 12.5,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:00-12:12:30"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:12-12:13",
+      "likely_state": "工作",
+      "minutes": 0.68,
+      "task": "参加腾讯会议讨论家教内容",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "12:12:30-12:13:11使用腾讯会议\"彭康哲的快速会议\"",
+        "标题与家教备课吻合"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "12:13-12:16",
+      "likely_state": "休息",
+      "minutes": 3.65,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:13:11-12:16:50"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:16-12:17",
+      "likely_state": "工作",
+      "minutes": 0.63,
+      "task": "参加腾讯会议讨论家教内容",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "12:16:50-12:17:28使用腾讯会议\"彭康哲的快速会议\"",
+        "与上一工作段任务相同，因AFK中断后恢复"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "12:17-12:20",
+      "likely_state": "休息",
+      "minutes": 3.13,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:17:28-12:20:36"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:20-12:21",
+      "likely_state": "工作",
+      "minutes": 0.97,
+      "task": "在Obsidian中整理家教笔记",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "12:20:36-12:21:33使用Obsidian，标题\"初高衔接2 乘法公式&主元思想&因式分解\"",
+        "内容与家教相关，属于同一工作领域"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "12:21-12:25",
+      "likely_state": "休息",
+      "minutes": 4.28,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:21:34-12:25:51"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:25-12:26",
+      "likely_state": "无法判断",
+      "minutes": 0.83,
+      "task": "短暂未知活动",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口标题记录",
+        "持续时间约50秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "12:26-12:30",
+      "likely_state": "休息",
+      "minutes": 3.32,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:26:41-12:30:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "家教",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5403,
+      "completion_tokens": 958,
+      "total_tokens": 6361,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 547
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4507
+    }
+  }
+}

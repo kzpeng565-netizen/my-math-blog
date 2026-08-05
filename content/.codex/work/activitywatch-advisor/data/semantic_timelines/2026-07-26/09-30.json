@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T09:30:00+08:00",
+    "end": "2026-07-26T10:00:00+08:00"
+  },
+  "primary_work_task": "高中数学集合与逻辑学习",
+  "segments": [
+    {
+      "start": "2026-07-26T09:30:00+08:00",
+      "end": "2026-07-26T09:31:35+08:00",
+      "duration_seconds": 95.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "AFK离开电脑",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "09:30:00-09:31:35状态AFK",
+        "手机处于熄屏状态",
+        "无操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T09:31:35+08:00",
+      "end": "2026-07-26T09:44:44+08:00",
+      "duration_seconds": 789.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "观看哔哩哔哩集合与逻辑教学视频并在Obsidian记笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器播放【集合与逻辑】1.1、1.2视频",
+        "Obsidian编辑高中数学1 集合与逻辑笔记",
+        "期间搜索初高中数学衔接",
+        "AFK后持续工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T09:44:44+08:00",
+      "end": "2026-07-26T09:44:49+08:00",
+      "duration_seconds": 5.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "短暂使用Mathpix截图工具",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Mathpix Snipping Tool前台约2秒",
+        "随后返回Edge视频页面",
+        "Mathpix用于数学公式识别"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T09:44:49+08:00",
+      "end": "2026-07-26T09:46:13+08:00",
+      "duration_seconds": 84.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "搜索并浏览初高中数学衔接资料",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge哔哩哔哩搜索'初高中数学衔接'",
+        "浏览搜索结果页约34秒",
+        "与当前集合学习主题相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T09:46:13+08:00",
+      "end": "2026-07-26T09:50:57+08:00",
+      "duration_seconds": 284.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "观看哔哩哔哩'集合的概念'视频并做笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge播放'集合】1集合的概念（易）'视频",
+        "Obsidian笔记持续编辑",
+        "Mathpix偶尔用于公式抓取"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T09:50:57+08:00",
+      "end": "2026-07-26T10:00:00+08:00",
+      "duration_seconds": 543.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续观看1.1集合视频并切换到1.2集合间的运算，配合Obsidian笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "09:50:57回到1.1视频",
+        "09:58:49切换到1.2集合间的运算视频",
+        "Obsidian笔记持续编辑",
+        "手机全程熄屏"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "09:44:44前后短暂Mathpix使用是否属于独立切换，已合并为supporting_work"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 33118,
+      "completion_tokens": 986,
+      "total_tokens": 34104,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 32222
+    }
+  }
+}

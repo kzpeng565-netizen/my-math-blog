@@ -1,0 +1,1109 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T22:30:00+08:00",
+    "end": "2026-07-27T23:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 122,
+      "aw-watcher-afk_xyh": 10,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 45
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 18.88,
+    "afk_minutes": 11.12,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 16.81
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 8.45
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 5.48
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 1.47
+    },
+    {
+      "app": "微信",
+      "minutes": 0.91
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.33
+    },
+    {
+      "app": "cc-switch.exe",
+      "minutes": 0.09
+    },
+    {
+      "app": "SearchHost.exe",
+      "minutes": 0.09
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 6.14
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 1.91
+    },
+    {
+      "domain": "outlook.live.com",
+      "minutes": 0.29
+    },
+    {
+      "domain": "help.openai.com",
+      "minutes": 0.1
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "Profile",
+      "minutes": 2.71
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "ToDo-已经规划好的任务",
+      "minutes": 2.37
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "下一步行动与闭环",
+      "minutes": 2.35
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "minutes": 2.33
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 1.88
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 1.41
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "minutes": 1.35
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.91
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "outlook.live.com",
+      "title": "垃圾邮件 - 彭 康哲 - Outlook",
+      "minutes": 0.29
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "高中数学2 集合与逻辑",
+      "minutes": 0.29
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "肖邦夜曲练习建议",
+      "minutes": 0.12
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "help.openai.com",
+      "title": "Using Codex with your ChatGPT plan | OpenAI Help Center",
+      "minutes": 0.1
+    },
+    {
+      "app": "cc-switch.exe",
+      "domain": "",
+      "title": "CC Switch",
+      "minutes": 0.09
+    },
+    {
+      "app": "SearchHost.exe",
+      "domain": "",
+      "title": "搜索",
+      "minutes": 0.09
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "工作流程与系统运维 - 文件资源管理器",
+      "minutes": 0.09
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "未命名",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "minutes": 0.03
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "任务计划",
+      "minutes": 0.02
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "番茄钟统计与每日习惯",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "课时量分析",
+      "first_seen": "2026-07-27T22:30:34+08:00",
+      "last_seen": "2026-07-27T22:41:05+08:00",
+      "raw_event_count": 8
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T22:30:37+08:00",
+      "last_seen": "2026-07-27T22:59:08+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "first_seen": "2026-07-27T22:41:05+08:00",
+      "last_seen": "2026-07-27T22:46:06+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-27T22:46:06+08:00",
+      "last_seen": "2026-07-27T22:59:03+08:00",
+      "raw_event_count": 7
+    },
+    {
+      "domain": "yunnan.eol.cn",
+      "title": "云南省2025年中职职教高考实施办法（试行） —云南站—教育在线",
+      "first_seen": "2026-07-27T22:46:38+08:00",
+      "last_seen": "2026-07-27T22:46:50+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "下一步行动与闭环",
+      "first_seen": "2026-07-27T22:46:50+08:00",
+      "last_seen": "2026-07-27T23:00:05+08:00",
+      "raw_event_count": 10
+    },
+    {
+      "domain": "outlook.live.com",
+      "title": "垃圾邮件 - 彭 康哲 - Outlook",
+      "first_seen": "2026-07-27T22:46:50+08:00",
+      "last_seen": "2026-07-27T22:47:15+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "和王虹一同完成挂谷猜想的，南开大学的老师为什么没获得菲尔兹奖? - 知乎",
+      "first_seen": "2026-07-27T22:47:26+08:00",
+      "last_seen": "2026-07-27T22:47:26+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "如何看待美军参联会主席说：“每个有枪的伊朗人都在向美军开枪射击”？ - 知乎",
+      "first_seen": "2026-07-27T22:47:26+08:00",
+      "last_seen": "2026-07-27T22:47:27+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "中国为什么成为粮食最大进口国了？ - 知乎",
+      "first_seen": "2026-07-27T22:47:27+08:00",
+      "last_seen": "2026-07-27T22:47:27+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "first_seen": "2026-07-27T22:47:27+08:00",
+      "last_seen": "2026-07-27T22:59:08+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "肖邦夜曲练习建议",
+      "first_seen": "2026-07-27T22:54:00+08:00",
+      "last_seen": "2026-07-27T22:54:09+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "s9.imslp.org",
+      "title": "[长标识符已隐藏].pdf",
+      "first_seen": "2026-07-27T22:54:09+08:00",
+      "last_seen": "2026-07-27T22:57:05+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "help.openai.com",
+      "title": "Using Codex with your ChatGPT plan | OpenAI Help Center",
+      "first_seen": "2026-07-27T22:57:05+08:00",
+      "last_seen": "2026-07-27T22:59:17+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "Claude Opus 5 系统提示词泄漏，膨胀到 20 万字符的系统提示词，你怎么看？ - 知乎",
+      "first_seen": "2026-07-27T22:59:03+08:00",
+      "last_seen": "2026-07-27T22:59:03+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T22:30:00+08:00",
+      "end": "2026-07-27T22:34:13+08:00",
+      "duration_seconds": 253.202,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T22:34:13+08:00",
+      "end": "2026-07-27T22:34:16+08:00",
+      "duration_seconds": 2.92,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T22:34:16+08:00",
+      "end": "2026-07-27T22:37:37+08:00",
+      "duration_seconds": 200.923,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T22:37:37+08:00",
+      "end": "2026-07-27T22:41:02+08:00",
+      "duration_seconds": 205.715,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T22:41:02+08:00",
+      "end": "2026-07-27T22:44:35+08:00",
+      "duration_seconds": 212.965,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T22:44:35+08:00",
+      "end": "2026-07-27T23:00:00+08:00",
+      "duration_seconds": 924.272,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T22:34:13+08:00",
+      "end": "2026-07-27T22:34:16+08:00",
+      "duration_seconds": 2.92,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:37:37+08:00",
+      "end": "2026-07-27T22:39:52+08:00",
+      "duration_seconds": 135.889,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:39:54+08:00",
+      "end": "2026-07-27T22:40:51+08:00",
+      "duration_seconds": 54.856,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:40:52+08:00",
+      "end": "2026-07-27T22:40:56+08:00",
+      "duration_seconds": 3.091,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:40:57+08:00",
+      "end": "2026-07-27T22:40:58+08:00",
+      "duration_seconds": 1.032,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课时量分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:40:59+08:00",
+      "end": "2026-07-27T22:41:02+08:00",
+      "duration_seconds": 3.659,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:44:35+08:00",
+      "end": "2026-07-27T22:44:36+08:00",
+      "duration_seconds": 0.893,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:44:37+08:00",
+      "end": "2026-07-27T22:44:38+08:00",
+      "duration_seconds": 1.028,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:44:39+08:00",
+      "end": "2026-07-27T22:44:44+08:00",
+      "duration_seconds": 5.153,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "工作流程与系统运维 - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:44:45+08:00",
+      "end": "2026-07-27T22:44:48+08:00",
+      "duration_seconds": 3.096,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:44:48+08:00",
+      "end": "2026-07-27T22:44:53+08:00",
+      "duration_seconds": 4.119,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:44:53+08:00",
+      "end": "2026-07-27T22:46:06+08:00",
+      "duration_seconds": 73.185,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-27T22:46:07+08:00",
+      "end": "2026-07-27T22:46:09+08:00",
+      "duration_seconds": 2.066,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:46:09+08:00",
+      "end": "2026-07-27T22:46:12+08:00",
+      "duration_seconds": 3.074,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:46:12+08:00",
+      "end": "2026-07-27T22:46:46+08:00",
+      "duration_seconds": 29.981,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:46:46+08:00",
+      "end": "2026-07-27T22:46:52+08:00",
+      "duration_seconds": 6.185,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:46:52+08:00",
+      "end": "2026-07-27T22:47:14+08:00",
+      "duration_seconds": 17.58,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "垃圾邮件 - 彭 康哲 - Outlook",
+      "domain": "outlook.live.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:47:15+08:00",
+      "end": "2026-07-27T22:47:20+08:00",
+      "duration_seconds": 5.161,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:47:20+08:00",
+      "end": "2026-07-27T22:47:23+08:00",
+      "duration_seconds": 3.096,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:47:23+08:00",
+      "end": "2026-07-27T22:47:25+08:00",
+      "duration_seconds": 2.061,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:47:25+08:00",
+      "end": "2026-07-27T22:47:29+08:00",
+      "duration_seconds": 4.141,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:47:29+08:00",
+      "end": "2026-07-27T22:47:58+08:00",
+      "duration_seconds": 26.895,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:47:59+08:00",
+      "end": "2026-07-27T22:48:00+08:00",
+      "duration_seconds": 1.036,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:48:01+08:00",
+      "end": "2026-07-27T22:48:49+08:00",
+      "duration_seconds": 47.454,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-27T22:48:50+08:00",
+      "end": "2026-07-27T22:49:07+08:00",
+      "duration_seconds": 17.492,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:49:08+08:00",
+      "end": "2026-07-27T22:49:13+08:00",
+      "duration_seconds": 4.116,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:49:14+08:00",
+      "end": "2026-07-27T22:49:33+08:00",
+      "duration_seconds": 19.581,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "Profile",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:49:34+08:00",
+      "end": "2026-07-27T22:49:55+08:00",
+      "duration_seconds": 20.621,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:49:56+08:00",
+      "end": "2026-07-27T22:50:25+08:00",
+      "duration_seconds": 28.872,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "Profile",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:50:26+08:00",
+      "end": "2026-07-27T22:50:30+08:00",
+      "duration_seconds": 4.123,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:50:32+08:00",
+      "end": "2026-07-27T22:50:46+08:00",
+      "duration_seconds": 14.41,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "Profile",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:50:47+08:00",
+      "end": "2026-07-27T22:50:51+08:00",
+      "duration_seconds": 3.097,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:50:52+08:00",
+      "end": "2026-07-27T22:51:41+08:00",
+      "duration_seconds": 49.436,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "Profile",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:51:42+08:00",
+      "end": "2026-07-27T22:51:45+08:00",
+      "duration_seconds": 3.105,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:51:46+08:00",
+      "end": "2026-07-27T22:51:51+08:00",
+      "duration_seconds": 5.152,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "Profile",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:51:52+08:00",
+      "end": "2026-07-27T22:51:59+08:00",
+      "duration_seconds": 6.184,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:52:00+08:00",
+      "end": "2026-07-27T22:52:30+08:00",
+      "duration_seconds": 30.946,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "Profile",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:52:32+08:00",
+      "end": "2026-07-27T22:52:44+08:00",
+      "duration_seconds": 12.351,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T22:52:45+08:00",
+      "end": "2026-07-27T22:52:59+08:00",
+      "duration_seconds": 14.412,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "Profile",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:53:01+08:00",
+      "end": "2026-07-27T22:53:02+08:00",
+      "duration_seconds": 1.034,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "番茄钟统计与每日习惯",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:53:02+08:00",
+      "end": "2026-07-27T22:53:08+08:00",
+      "duration_seconds": 5.175,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:53:08+08:00",
+      "end": "2026-07-27T22:53:09+08:00",
+      "duration_seconds": 1.042,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "任务计划",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:53:09+08:00",
+      "end": "2026-07-27T22:53:12+08:00",
+      "duration_seconds": 3.084,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:53:12+08:00",
+      "end": "2026-07-27T22:53:50+08:00",
+      "duration_seconds": 38.116,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "ToDo-已经规划好的任务",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:53:50+08:00",
+      "end": "2026-07-27T22:53:55+08:00",
+      "duration_seconds": 5.142,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:53:55+08:00",
+      "end": "2026-07-27T22:53:57+08:00",
+      "duration_seconds": 2.05,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "ToDo-已经规划好的任务",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:53:58+08:00",
+      "end": "2026-07-27T22:54:00+08:00",
+      "duration_seconds": 1.145,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:54:00+08:00",
+      "end": "2026-07-27T22:54:08+08:00",
+      "duration_seconds": 7.114,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "肖邦夜曲练习建议",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:54:09+08:00",
+      "end": "2026-07-27T22:54:10+08:00",
+      "duration_seconds": 1.034,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "ToDo-已经规划好的任务",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:11+08:00",
+      "end": "2026-07-27T22:54:14+08:00",
+      "duration_seconds": 2.057,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:16+08:00",
+      "end": "2026-07-27T22:54:19+08:00",
+      "duration_seconds": 3.106,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:20+08:00",
+      "end": "2026-07-27T22:54:21+08:00",
+      "duration_seconds": 1.034,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "ToDo-已经规划好的任务",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:21+08:00",
+      "end": "2026-07-27T22:54:26+08:00",
+      "duration_seconds": 5.136,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:54:26+08:00",
+      "end": "2026-07-27T22:54:28+08:00",
+      "duration_seconds": 2.067,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:29+08:00",
+      "end": "2026-07-27T22:54:36+08:00",
+      "duration_seconds": 7.239,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:37+08:00",
+      "end": "2026-07-27T22:54:51+08:00",
+      "duration_seconds": 13.445,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:52+08:00",
+      "end": "2026-07-27T22:54:53+08:00",
+      "duration_seconds": 1.027,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "ToDo-已经规划好的任务",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:54+08:00",
+      "end": "2026-07-27T22:54:55+08:00",
+      "duration_seconds": 1.022,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:57+08:00",
+      "end": "2026-07-27T22:54:59+08:00",
+      "duration_seconds": 2.073,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:54:59+08:00",
+      "end": "2026-07-27T22:55:02+08:00",
+      "duration_seconds": 3.139,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:55:02+08:00",
+      "end": "2026-07-27T22:55:05+08:00",
+      "duration_seconds": 3.104,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:55:07+08:00",
+      "end": "2026-07-27T22:55:10+08:00",
+      "duration_seconds": 3.099,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:55:11+08:00",
+      "end": "2026-07-27T22:55:17+08:00",
+      "duration_seconds": 5.174,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:55:18+08:00",
+      "end": "2026-07-27T22:55:48+08:00",
+      "duration_seconds": 30.102,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:55:48+08:00",
+      "end": "2026-07-27T22:55:52+08:00",
+      "duration_seconds": 4.534,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:55:52+08:00",
+      "end": "2026-07-27T22:56:02+08:00",
+      "duration_seconds": 9.297,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:56:04+08:00",
+      "end": "2026-07-27T22:57:42+08:00",
+      "duration_seconds": 97.96,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "ToDo-已经规划好的任务",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:57:43+08:00",
+      "end": "2026-07-27T22:57:45+08:00",
+      "duration_seconds": 2.072,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Using Codex with your ChatGPT plan | OpenAI Help Center",
+      "domain": "help.openai.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:57:46+08:00",
+      "end": "2026-07-27T22:59:01+08:00",
+      "duration_seconds": 73.492,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:59:01+08:00",
+      "end": "2026-07-27T22:59:04+08:00",
+      "duration_seconds": 3.099,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T22:59:04+08:00",
+      "end": "2026-07-27T22:59:05+08:00",
+      "duration_seconds": 1.029,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "ToDo-已经规划好的任务",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T22:59:06+08:00",
+      "end": "2026-07-27T22:59:07+08:00",
+      "duration_seconds": 1.032,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "一般没人讨论这个，但我想问，Kimi K3出了，是深度求索赢了还是输了，还是对它一点影响也没有？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:59:08+08:00",
+      "end": "2026-07-27T22:59:10+08:00",
+      "duration_seconds": 1.049,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:59:11+08:00",
+      "end": "2026-07-27T22:59:17+08:00",
+      "duration_seconds": 4.119,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Using Codex with your ChatGPT plan | OpenAI Help Center",
+      "domain": "help.openai.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-27T22:59:18+08:00",
+      "end": "2026-07-27T23:00:00+08:00",
+      "duration_seconds": 41.713,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "下一步行动与闭环",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.89,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.5,
+    "browser_share_of_active_time": 0.448,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活跃窗口只覆盖89.0%。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "period": "2026-07-25T01:00:00+08:00/2026-07-25T01:30:00+08:00",
+  "state_assessment": {
+    "label": "work_disrupted_by_entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：ChatGPT Plus 额度评估。工作13.13分钟，娱乐7.75分钟，通信0.0分钟，确认休息9.12分钟。工作中出现2次超过30秒的娱乐偏离，共7.75分钟，最长5.43分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 2,
+    "entertainment_deviation_minutes": 7.75,
+    "all_entertainment_minutes": 7.75,
+    "longest_entertainment_deviation_minutes": 5.43,
+    "work_entertainment_transition_count": 3,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 11.88,
+    "same_task_tool_switches_not_scored": 14,
+    "raw_foreground_context_switches_not_scored": 20,
+    "deviations": [
+      {
+        "start": "2026-07-25T01:00:00+08:00",
+        "end": "2026-07-25T01:05:26+08:00",
+        "minutes": 5.43,
+        "duration_seconds": 326.0,
+        "task": "手机刷知乎、微信、B站等娱乐",
+        "evidence": [
+          "手机屏幕亮至01:05:26，前台应用包括Chrome、微信、手机桌面、不做手机控、B站",
+          "01:00:00前有B站使用记录（辅助上下文）",
+          "电脑期间一直AFK（无键鼠操作）",
+          "之后用户开始电脑工作，说明是工作前的娱乐偏离"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 9.12,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-25T01:26:26+08:00",
+        "end": "2026-07-25T01:28:45+08:00",
+        "minutes": 2.32,
+        "duration_seconds": 139.0,
+        "task": "刷知乎娱乐",
+        "evidence": [
+          "浏览器切换到知乎（zhihu.com），浏览'首页 - 知乎'以及具体问题如'如果一男子撬锁进入别人房子内...'",
+          "标题明显是娱乐内容，与工作任务无关",
+          "持续约2.3分钟，之后返回ChatGPT工作",
+          "属于工作过程中的短暂娱乐偏离"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作中出现两次超过30秒的娱乐偏离：第一次在01:00-01:05:26手机娱乐（5.43分钟），随后休息9.12分钟，返回工作；第二次在01:26:26-01:28:45刷知乎（2.32分钟），后立即返回原任务。两次偏离均返回工作，但混杂等级高。"
+  },
+  "computer_summary": "电脑主要用于ChatGPT Plus额度评估，使用ChatGPT（8.2分钟）、搜索Kimi（1分钟）、查看OpenAI帮助中心；中途偏离至知乎娱乐（2.3分钟）。",
+  "phone_summary": "手机主要在01:00-01:05:26使用Chrome、微信等，应属娱乐；其余时间屏幕关闭。",
+  "material_uncertainties": [
+    "手机娱乐阶段（01:00-01:05:26）的具体内容（Chrome、微信）是否全部为娱乐？少量通信可能不计分。"
+  ],
+  "concise_report": "主要任务：ChatGPT Plus 额度评估。工作13.13分钟，娱乐7.75分钟，通信0.0分钟，确认休息9.12分钟。工作中出现2次超过30秒的娱乐偏离，共7.75分钟，最长5.43分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "手机娱乐阶段（01:00-01:05:26）使用微信、Chrome等，是否包含任何工作相关通信或查询？",
+  "observed_metrics": {
+    "computer_active_minutes": 15.44,
+    "computer_afk_minutes": 14.56,
+    "phone_screen_on_minutes": 4.62,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 9.93,
+    "confirmed_rest_minutes": 9.12
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 13.13,
+      "range_minutes": [
+        13.13,
+        13.13
+      ],
+      "evidence": [
+        "电脑AFK结束，开始活跃",
+        "主要使用ChatGPT（chatgpt.com）标题'ChatGPT Plus 足够'，从01:14:42持续至01:26:26",
+        "同时使用Windows Terminal（PowerShell）和ChatGPT客户端",
+        "中途搜索'kimi - 搜索'（bing.com），并查看OpenAI帮助中心（help.openai.com）：'使用 Codex 配合您的 ChatGPT 计划'，说明在评估集成方案"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 7.75,
+      "range_minutes": [
+        7.75,
+        7.75
+      ],
+      "evidence": [
+        "手机屏幕亮至01:05:26，前台应用包括Chrome、微信、手机桌面、不做手机控、B站",
+        "01:00:00前有B站使用记录（辅助上下文）",
+        "电脑期间一直AFK（无键鼠操作）",
+        "之后用户开始电脑工作，说明是工作前的娱乐偏离"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 9.12,
+      "range_minutes": [
+        9.12,
+        9.12
+      ],
+      "evidence": [
+        "跨设备休息规则确认该区间为休息（confirmed_intervals）",
+        "电脑AFK持续，手机屏幕关闭",
+        "无任何设备交互",
+        "休息时长9.12分钟"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "01:00-01:05",
+      "likely_state": "娱乐",
+      "minutes": 5.43,
+      "task": "手机刷知乎、微信、B站等娱乐",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮至01:05:26，前台应用包括Chrome、微信、手机桌面、不做手机控、B站",
+        "01:00:00前有B站使用记录（辅助上下文）",
+        "电脑期间一直AFK（无键鼠操作）",
+        "之后用户开始电脑工作，说明是工作前的娱乐偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "01:05-01:14",
+      "likely_state": "休息",
+      "minutes": 9.12,
+      "task": "休息（无设备操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认该区间为休息（confirmed_intervals）",
+        "电脑AFK持续，手机屏幕关闭",
+        "无任何设备交互",
+        "休息时长9.12分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "01:14-01:26",
+      "likely_state": "工作",
+      "minutes": 11.88,
+      "task": "研究ChatGPT Plus额度及尝试集成Kimi",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑AFK结束，开始活跃",
+        "主要使用ChatGPT（chatgpt.com）标题'ChatGPT Plus 足够'，从01:14:42持续至01:26:26",
+        "同时使用Windows Terminal（PowerShell）和ChatGPT客户端",
+        "中途搜索'kimi - 搜索'（bing.com），并查看OpenAI帮助中心（help.openai.com）：'使用 Codex 配合您的 ChatGPT 计划'，说明在评估集成方案"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "01:26-01:28",
+      "likely_state": "娱乐",
+      "minutes": 2.32,
+      "task": "刷知乎娱乐",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览器切换到知乎（zhihu.com），浏览'首页 - 知乎'以及具体问题如'如果一男子撬锁进入别人房子内...'",
+        "标题明显是娱乐内容，与工作任务无关",
+        "持续约2.3分钟，之后返回ChatGPT工作",
+        "属于工作过程中的短暂娱乐偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "01:28-01:30",
+      "likely_state": "工作",
+      "minutes": 1.25,
+      "task": "继续研究ChatGPT Plus额度",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览器回到chatgpt.com，标题'ChatGPT Plus 足够'",
+        "与之前的工作任务完全一致",
+        "辅助上下文显示01:30后继续此任务",
+        "表明娱乐后自然返回原工作"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "ChatGPT Plus 额度评估",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11558,
+      "completion_tokens": 955,
+      "total_tokens": 12513,
+      "prompt_tokens_details": {
+        "cached_tokens": 11520
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 524
+      },
+      "prompt_cache_hit_tokens": 11520,
+      "prompt_cache_miss_tokens": 38
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "source": "phone_usage_jsonl",
+  "period": {
+    "start": "2026-07-26T21:00:00+08:00",
+    "end": "2026-07-26T21:30:00+08:00"
+  },
+  "input": {
+    "files_read": [
+      "/home/conrad/phone_usage/archive/2026-07-25/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-25/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-25/screen.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-26/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-26/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-26/screen.jsonl",
+      "/home/conrad/phone_usage/incoming/foreground.jsonl",
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl",
+      "/home/conrad/phone_usage/incoming/screen.jsonl"
+    ],
+    "deduplicated_events_in_period": 104,
+    "deduplicated_events_by_type": {
+      "foreground": 99,
+      "screen": 3,
+      "heartbeat": 2
+    },
+    "accepted_events_by_file": {
+      "/home/conrad/phone_usage/archive/2026-07-25/foreground.jsonl": 1167,
+      "/home/conrad/phone_usage/archive/2026-07-25/heartbeat.jsonl": 93,
+      "/home/conrad/phone_usage/archive/2026-07-25/screen.jsonl": 170,
+      "/home/conrad/phone_usage/archive/2026-07-26/foreground.jsonl": 1511,
+      "/home/conrad/phone_usage/archive/2026-07-26/heartbeat.jsonl": 84,
+      "/home/conrad/phone_usage/archive/2026-07-26/screen.jsonl": 189,
+      "/home/conrad/phone_usage/incoming/foreground.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/screen.jsonl": 0
+    }
+  },
+  "screen": {
+    "on_minutes": 3.33,
+    "off_minutes": 26.67,
+    "unknown_minutes": 0.0,
+    "unlock_count": 1
+  },
+  "foreground": {
+    "switch_count": 99,
+    "top_apps": [
+      {
+        "app": "com.android.camera",
+        "minutes": 3.3
+      },
+      {
+        "app": "亮屏但前台应用未知",
+        "minutes": 0.03
+      }
+    ],
+    "top_packages": [
+      {
+        "package": "com.android.camera",
+        "minutes": 3.3
+      }
+    ]
+  },
+  "screen_timeline": [
+    {
+      "start": "2026-07-26T21:00:00+08:00",
+      "end": "2026-07-26T21:26:40+08:00",
+      "duration_seconds": 1600.0,
+      "state": "off"
+    },
+    {
+      "start": "2026-07-26T21:26:40+08:00",
+      "end": "2026-07-26T21:30:00+08:00",
+      "duration_seconds": 200.0,
+      "state": "on"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-26T21:26:40+08:00",
+      "end": "2026-07-26T21:26:42+08:00",
+      "duration_seconds": 2.0,
+      "package": "",
+      "app_display": "亮屏但前台应用未知"
+    },
+    {
+      "start": "2026-07-26T21:26:42+08:00",
+      "end": "2026-07-26T21:30:00+08:00",
+      "duration_seconds": 198.0,
+      "package": "com.android.camera",
+      "app_display": "com.android.camera"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "collector_heartbeat": {
+      "closest_seen": "2026-07-26T21:26:39+08:00",
+      "offset_seconds_from_period_end": -201.0,
+      "level": "high"
+    },
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "亮屏表示屏幕开启，不保证用户持续注视或操作。",
+      "前台应用只说明当时显示的应用，不直接表示使用目的。",
+      "亮屏后尚未收到新的前台事件时，不沿用旧应用，保留为未知。"
+    ]
+  }
+}

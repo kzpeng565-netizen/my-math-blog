@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T00:00:00+08:00",
+    "end": "2026-07-26T00:30:00+08:00"
+  },
+  "primary_work_task": "CC Switch 接入 DeepSeek",
+  "segments": [
+    {
+      "start": "2026-07-26T00:00:00+08:00",
+      "end": "2026-07-26T00:14:20+08:00",
+      "duration_seconds": 860.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "配置CC Switch接入DeepSeek的API",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge浏览器标签页标题'CC Switch 接入 DeepSeek'持续打开",
+        "大量在Windows Terminal中运行命令，涉及内容处理和脚本执行",
+        "多次使用cc-switch.exe配置工具",
+        "前后辅助上下文有DeepSeek开放平台页面，证实工作内容"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T00:14:20+08:00",
+      "end": "2026-07-26T00:30:00+08:00",
+      "duration_seconds": 940.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "在哔哩哔哩观看视频",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机从00:14:39起持续使用哔哩哔哩",
+        "电脑在00:14:20进入AFK状态并持续到时段结束",
+        "手机屏幕在00:14:39-00:30:00持续开启",
+        "哔哩哔哩前台占用18.8分钟，为主要活动"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "00:14:20-00:14:39间有少量无记录时间但不足30秒"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 34423,
+      "completion_tokens": 475,
+      "total_tokens": 34898,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 33527
+    }
+  }
+}

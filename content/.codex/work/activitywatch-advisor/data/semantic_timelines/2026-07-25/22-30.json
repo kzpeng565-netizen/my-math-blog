@@ -1,0 +1,711 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T22:30:00+08:00",
+    "end": "2026-07-25T23:00:00+08:00"
+  },
+  "primary_work_task": "配置CC Switch接入DeepSeek",
+  "segments": [
+    {
+      "start": "2026-07-25T22:30:00+08:00",
+      "end": "2026-07-25T22:32:28+08:00",
+      "duration_seconds": 148.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT上研究CC Switch接入DeepSeek",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge active with ChatGPT title 'CC Switch 接入 DeepSeek' from 22:30:00 to 22:32:26",
+        "Pre-period shows similar ChatGPT activity continuing from before 22:30",
+        "Phone was off until 22:31:05, then on briefly but no overlap with computer work"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:32:28+08:00",
+      "end": "2026-07-25T22:32:56+08:00",
+      "duration_seconds": 28.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "微信 active on computer from 22:32:27 to 22:32:54 (27s)",
+        "Phone foreground was 微信 at 22:32:01-22:32:03, likely checking same message",
+        "Short interruption, then returns to work"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:32:56+08:00",
+      "end": "2026-07-25T22:34:50+08:00",
+      "duration_seconds": 114.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT和PowerShell间调试CC Switch接入DeepSeek",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge (ChatGPT) active多数时间，title 'CC Switch 接入 DeepSeek'",
+        "Windows Terminal (PowerShell)穿插出现，可能执行命令",
+        "搜索短暂出现，但很快回到ChatGPT"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:34:50+08:00",
+      "end": "2026-07-25T22:35:00+08:00",
+      "duration_seconds": 10.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "搜索BNB Chain购买信息",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'BNB Chain 购买 - 搜索' on bing.com",
+        "与CC Switch工作无关的加密货币搜索",
+        "短时偏离后很快回到工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:35:00+08:00",
+      "end": "2026-07-25T22:35:19+08:00",
+      "duration_seconds": 19.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信 active on computer from 22:35:00 to 22:35:18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:35:19+08:00",
+      "end": "2026-07-25T22:35:58+08:00",
+      "duration_seconds": 39.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "继续搜索BNB Chain",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'BNB Chain 购买 - 搜索' on bing.com"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:35:58+08:00",
+      "end": "2026-07-25T22:36:29+08:00",
+      "duration_seconds": 31.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "查看CC Switch v3.18.0 GitHub发布页",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'Release CC Switch v3.18.0 · farion1231/cc-switch · GitHub' on github.com",
+        "与CC Switch工作直接相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:36:29+08:00",
+      "end": "2026-07-25T22:37:04+08:00",
+      "duration_seconds": 35.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信 active on computer from 22:36:29 to 22:36:41 and 22:36:48 to 22:37:03"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:37:04+08:00",
+      "end": "2026-07-25T22:38:02+08:00",
+      "duration_seconds": 58.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "继续查看GitHub发布页",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'Release CC Switch v3.18.0 · farion1231/cc-switch · GitHub' on github.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:38:02+08:00",
+      "end": "2026-07-25T22:38:11+08:00",
+      "duration_seconds": 9.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "截图并继续查看GitHub",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "SnippingTool.exe active briefly, then returns to GitHub",
+        "后续Microsoft Edge仍显示GitHub"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:38:11+08:00",
+      "end": "2026-07-25T22:38:23+08:00",
+      "duration_seconds": 12.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "回到ChatGPT继续CC Switch接入",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'CC Switch 接入 DeepSeek' on chatgpt.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:38:23+08:00",
+      "end": "2026-07-25T22:38:37+08:00",
+      "duration_seconds": 14.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信 active on computer from 22:38:23 to 22:38:36"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:38:37+08:00",
+      "end": "2026-07-25T22:39:02+08:00",
+      "duration_seconds": 25.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT和GitHub间切换工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge交替显示ChatGPT和GitHub标题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:39:02+08:00",
+      "end": "2026-07-25T22:39:38+08:00",
+      "duration_seconds": 36.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "安装CC Switch新版本（Setup）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "msiexec.exe with title 'CC Switch Setup' (34s)",
+        "Setup process directly related to CC Switch"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:39:38+08:00",
+      "end": "2026-07-25T22:39:41+08:00",
+      "duration_seconds": 3.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "启动CC Switch",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "cc-switch.exe active briefly after setup"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:39:41+08:00",
+      "end": "2026-07-25T22:40:17+08:00",
+      "duration_seconds": 36.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT上继续配置DeepSeek接入",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'CC Switch 接入 DeepSeek' on chatgpt.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:40:17+08:00",
+      "end": "2026-07-25T22:41:41+08:00",
+      "duration_seconds": 84.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在CC Switch和ChatGPT间切换，可能测试配置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "cc-switch.exe and Microsoft Edge (ChatGPT)交替出现",
+        "穿插PowerShell和截图等辅助操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:41:41+08:00",
+      "end": "2026-07-25T22:41:51+08:00",
+      "duration_seconds": 10.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT上继续配置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'CC Switch 接入 DeepSeek' on chatgpt.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:41:51+08:00",
+      "end": "2026-07-25T22:42:14+08:00",
+      "duration_seconds": 23.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "终端操作和ChatGPT切换",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Windows Terminal (title '15345') and ChatGPT交替"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:42:14+08:00",
+      "end": "2026-07-25T22:42:16+08:00",
+      "duration_seconds": 2.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "任务切换",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "explorer.exe '任务切换'"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-25T22:42:16+08:00",
+      "end": "2026-07-25T22:42:40+08:00",
+      "duration_seconds": 24.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "终端和ChatGPT操作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Windows Terminal (15345) and ChatGPT交替"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:42:40+08:00",
+      "end": "2026-07-25T22:43:41+08:00",
+      "duration_seconds": 61.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT和CC Switch间工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge (ChatGPT) 和 cc-switch.exe 交替出现"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:43:41+08:00",
+      "end": "2026-07-25T22:44:07+08:00",
+      "duration_seconds": 26.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在CC Switch和ChatGPT间工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "cc-switch.exe and ChatGPT交替"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:44:07+08:00",
+      "end": "2026-07-25T22:44:45+08:00",
+      "duration_seconds": 38.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "打开新标签页（可能搜索或导航）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge '新建标签页' on newtab"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-25T22:44:45+08:00",
+      "end": "2026-07-25T22:45:02+08:00",
+      "duration_seconds": 17.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信 active on computer from 22:44:46 to 22:45:01"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:45:02+08:00",
+      "end": "2026-07-25T22:45:06+08:00",
+      "duration_seconds": 4.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "回到ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'CC Switch 接入 DeepSeek'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:45:06+08:00",
+      "end": "2026-07-25T22:45:37+08:00",
+      "duration_seconds": 31.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "查看DeepSeek开放平台",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'DeepSeek 开放平台' on platform.deepseek.com",
+        "与DeepSeek接入直接相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:45:37+08:00",
+      "end": "2026-07-25T22:46:35+08:00",
+      "duration_seconds": 58.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在CC Switch和ChatGPT间操作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "cc-switch.exe 和 Microsoft Edge (ChatGPT) 交替"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:46:35+08:00",
+      "end": "2026-07-25T22:46:57+08:00",
+      "duration_seconds": 22.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信 active on computer from 22:46:35 to 22:46:47 and 22:46:50 to 22:46:56"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:46:57+08:00",
+      "end": "2026-07-25T22:47:08+08:00",
+      "duration_seconds": 11.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "CC Switch操作和文件资源管理器",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "cc-switch.exe 和 explorer.exe 出现"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:47:08+08:00",
+      "end": "2026-07-25T22:48:51+08:00",
+      "duration_seconds": 103.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT和CC Switch间密集工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge (ChatGPT) 和 cc-switch.exe 频繁交替",
+        "标题始终围绕CC Switch接入DeepSeek"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:48:51+08:00",
+      "end": "2026-07-25T22:49:37+08:00",
+      "duration_seconds": 46.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT上持续工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'CC Switch 接入 DeepSeek' on chatgpt.com"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:49:37+08:00",
+      "end": "2026-07-25T22:49:39+08:00",
+      "duration_seconds": 2.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信 active briefly at 22:49:37"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:49:39+08:00",
+      "end": "2026-07-25T22:49:47+08:00",
+      "duration_seconds": 8.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "回到ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'CC Switch 接入 DeepSeek'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:49:47+08:00",
+      "end": "2026-07-25T22:49:56+08:00",
+      "duration_seconds": 9.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "查看HutaoCards虚拟信用卡网站",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'HutaoCards | 虚拟信用卡 · 海淘支付 · 数字支付管家' on hutaocards.com",
+        "与CC Switch工作无关的网站"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:49:56+08:00",
+      "end": "2026-07-25T22:50:08+08:00",
+      "duration_seconds": 12.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "回到ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'CC Switch 接入 DeepSeek'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:50:08+08:00",
+      "end": "2026-07-25T22:50:15+08:00",
+      "duration_seconds": 7.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "再次查看HutaoCards",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge title 'HutaoCards' on hutaocards.com"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:50:15+08:00",
+      "end": "2026-07-25T22:52:41+08:00",
+      "duration_seconds": 146.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理（含图片和视频查看）",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "微信 active on computer with titles '微信' and '图片和视频' 多次",
+        "长时间微信使用（约2.5分钟）"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T22:52:41+08:00",
+      "end": "2026-07-25T22:52:44+08:00",
+      "duration_seconds": 3.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "终端操作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Windows Terminal (PowerShell) and cc-switch.exe"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-25T22:52:44+08:00",
+      "end": "2026-07-25T22:52:52+08:00",
+      "duration_seconds": 8.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信消息处理",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信 active and then missing"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T22:52:52+08:00",
+      "end": "2026-07-25T23:00:00+08:00",
+      "duration_seconds": 428.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT和CC Switch间密集工作至时段结束",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge (ChatGPT) 和 cc-switch.exe 频繁交替",
+        "标题始终'CC Switch 接入 DeepSeek'",
+        "连续工作至22:58:38和22:58:58期间有短暂微信，之后继续ChatGPT至23:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "22:34:50-22:35:00和22:35:19-22:35:58的BNB Chain搜索意图不明确：可能是工作相关调研，也可能是娱乐偏离；当前按娱乐偏离处理。",
+    "22:49:47-22:49:56和22:50:08-22:50:15的HutaoCards访问：属于工作支付调研还是娱乐偏离存在歧义。"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 2
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 51506,
+      "completion_tokens": 5589,
+      "total_tokens": 57095,
+      "prompt_tokens_details": {
+        "cached_tokens": 46208
+      },
+      "prompt_cache_hit_tokens": 46208,
+      "prompt_cache_miss_tokens": 5298
+    }
+  }
+}

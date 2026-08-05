@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T13:00:00+08:00",
+    "end": "2026-07-25T13:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 15,
+      "aw-watcher-afk_xyh": 29,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 23
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 2.05,
+    "afk_minutes": 27.03,
+    "unknown_status_minutes": 0.92,
+    "window_observed_minutes": 1.83
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 1.83
+    },
+    {
+      "app": "腾讯会议",
+      "minutes": 0.0
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "search.bilibili.com",
+      "minutes": 0.84
+    },
+    {
+      "domain": "bilibili.com",
+      "minutes": 0.5
+    },
+    {
+      "domain": "space.bilibili.com",
+      "minutes": 0.48
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "search.bilibili.com",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "minutes": 0.84
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "跟学在B站",
+      "minutes": 0.5
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "space.bilibili.com",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "minutes": 0.48
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "腾讯会议",
+      "minutes": 0.0
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T12:59:28+08:00",
+      "last_seen": "2026-07-25T13:00:29+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "space.bilibili.com",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "first_seen": "2026-07-25T13:00:29+08:00",
+      "last_seen": "2026-07-25T13:01:04+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T13:01:04+08:00",
+      "last_seen": "2026-07-25T13:01:58+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T13:01:11+08:00",
+      "last_seen": "2026-07-25T13:29:41+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "跟学在B站",
+      "first_seen": "2026-07-25T13:01:58+08:00",
+      "last_seen": "2026-07-25T13:28:59+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T13:00:00+08:00",
+      "end": "2026-07-25T13:00:25+08:00",
+      "duration_seconds": 25.729,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T13:00:25+08:00",
+      "end": "2026-07-25T13:02:28+08:00",
+      "duration_seconds": 123.267,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T13:02:28+08:00",
+      "end": "2026-07-25T13:05:41+08:00",
+      "duration_seconds": 192.291,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T13:05:41+08:00",
+      "end": "2026-07-25T13:06:36+08:00",
+      "duration_seconds": 55.136,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-25T13:06:36+08:00",
+      "end": "2026-07-25T13:30:00+08:00",
+      "duration_seconds": 1403.576,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T13:00:25+08:00",
+      "end": "2026-07-25T13:00:25+08:00",
+      "duration_seconds": 0.22,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "腾讯会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T13:00:25+08:00",
+      "end": "2026-07-25T13:00:29+08:00",
+      "duration_seconds": 3.08,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T13:00:29+08:00",
+      "end": "2026-07-25T13:00:36+08:00",
+      "duration_seconds": 6.276,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "domain": "space.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:00:36+08:00",
+      "end": "2026-07-25T13:00:40+08:00",
+      "duration_seconds": 4.132,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T13:00:40+08:00",
+      "end": "2026-07-25T13:01:04+08:00",
+      "duration_seconds": 22.747,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "domain": "space.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:01:05+08:00",
+      "end": "2026-07-25T13:01:10+08:00",
+      "duration_seconds": 5.176,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:01:10+08:00",
+      "end": "2026-07-25T13:01:13+08:00",
+      "duration_seconds": 3.098,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T13:01:13+08:00",
+      "end": "2026-07-25T13:01:58+08:00",
+      "duration_seconds": 45.146,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T13:01:58+08:00",
+      "end": "2026-07-25T13:02:28+08:00",
+      "duration_seconds": 30.289,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "跟学在B站",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.891,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.724,
+    "browser_share_of_active_time": 0.889,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活跃窗口只覆盖89.1%。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

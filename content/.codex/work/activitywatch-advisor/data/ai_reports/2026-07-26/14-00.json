@@ -1,0 +1,368 @@
+{
+  "period": "2026-07-26T14:00:00+08:00/2026-07-26T14:30:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：高中物理加速度学习。工作28.92分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 7.6,
+    "same_task_tool_switches_not_scored": 28,
+    "raw_foreground_context_switches_not_scored": 39,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "整个时段工作过程连续，无超过30秒的娱乐偏离。B站视频用于物理学习，Obsidian做笔记，期间Clash Verge调整（40秒）属于支持性操作，不计为娱乐偏离。"
+  },
+  "computer_summary": "主要使用Microsoft Edge观看B站加速度教学视频（约17分钟）和Obsidian做笔记（约9分钟），辅助使用Mathpix截图、Clash Verge等，均服务于物理学习任务。",
+  "phone_summary": "手机全程无亮屏，无活动。",
+  "material_uncertainties": [
+    "14:18:17-14:18:59 Clash Verge前台40秒可能为网络配置支持性操作，但无法完全排除短暂其他事务。"
+  ],
+  "concise_report": "主要任务：高中物理加速度学习。工作28.92分钟，娱乐0.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "14:18:17-14:18:59 Clash Verge的40秒操作是否与学习无关的娱乐或偏离？",
+  "observed_metrics": {
+    "computer_active_minutes": 29.65,
+    "computer_afk_minutes": 0.35,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.35,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 28.92,
+      "range_minutes": [
+        28.92,
+        28.92
+      ],
+      "evidence": [
+        "打开高中数学1集合与逻辑PDF",
+        "ChatGPT标签页出现",
+        "随后进入B站搜索物理内容",
+        "B站搜索'高中物理'"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 1.08,
+      "range_minutes": [
+        1.08,
+        1.08
+      ],
+      "evidence": [
+        "AFK从14:00:00到14:00:21",
+        "电脑无操作",
+        "Clash Verge前台持续40秒",
+        "可能临时配置网络，不影响主要工作"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "14:00-14:00",
+      "likely_state": "其他",
+      "minutes": 0.35,
+      "task": "AFK短暂离开",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "AFK从14:00:00到14:00:21",
+        "电脑无操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:00-14:01",
+      "likely_state": "工作",
+      "minutes": 1.17,
+      "task": "准备数学学习，打开PDF并浏览ChatGPT和B站首页",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "打开高中数学1集合与逻辑PDF",
+        "ChatGPT标签页出现",
+        "随后进入B站搜索物理内容"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "14:01-14:02",
+      "likely_state": "工作",
+      "minutes": 1.47,
+      "task": "在B站搜索高中物理课程并浏览搜索结果",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "B站搜索'高中物理'",
+        "浏览搜索结果列表",
+        "属于学习准备阶段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:02-14:03",
+      "likely_state": "工作",
+      "minutes": 0.12,
+      "task": "预览高中物理全集视频标题",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "短暂浏览'新高一适用高中物理基础与解法全集'视频"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "14:03-14:10",
+      "likely_state": "工作",
+      "minutes": 7.6,
+      "task": "观看B站视频'运动描述1.7加速度'",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "长时间观看加速度教学视频",
+        "之后切换Obsidian做笔记",
+        "属于物理学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:10-14:11",
+      "likely_state": "工作",
+      "minutes": 0.42,
+      "task": "在Obsidian中整理笔记，从高中数学切换到高中物理加速度笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian记录高中数学集合与逻辑",
+        "创建未命名笔记",
+        "切换到'高中物理1 加速度'文件"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:11-14:12",
+      "likely_state": "工作",
+      "minutes": 1.63,
+      "task": "继续观看加速度视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "回到B站视频约1.6分钟",
+        "视频内容与笔记相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:12-14:17",
+      "likely_state": "工作",
+      "minutes": 5.18,
+      "task": "在Obsidian中做加速度笔记，期间频繁切换视频确认",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "多个Obsidian片段持续记录高中物理1加速度",
+        "频繁切换回B站视频",
+        "使用Mathpix截图工具"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:17-14:18",
+      "likely_state": "工作",
+      "minutes": 0.35,
+      "task": "使用Mathpix截图物理内容",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Mathpix截图工具出现",
+        "之后粘贴到Obsidian"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:18-14:18",
+      "likely_state": "其他",
+      "minutes": 0.7,
+      "task": "短暂调整Clash Verge代理设置",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Clash Verge前台持续40秒",
+        "可能临时配置网络，不影响主要工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "14:18-14:19",
+      "likely_state": "其他",
+      "minutes": 0.03,
+      "task": "打开文件资源管理器",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "文件资源管理器短暂出现1秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "14:19-14:23",
+      "likely_state": "工作",
+      "minutes": 4.87,
+      "task": "在Obsidian和B站视频之间交替，做加速度笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "多次交替在视频和Obsidian之间",
+        "使用Mathpix截图",
+        "笔记文件为'高中物理1 加速度'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:23-14:25",
+      "likely_state": "工作",
+      "minutes": 1.63,
+      "task": "集中观看加速度视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "持续观看B站视频约1.6分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:25-14:30",
+      "likely_state": "工作",
+      "minutes": 4.48,
+      "task": "继续在Obsidian做笔记，穿插观看视频和使用截图",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian记录高中物理1加速度",
+        "交替查看B站视频",
+        "使用Mathpix和截图工具"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "高中物理加速度学习",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15474,
+      "completion_tokens": 459,
+      "total_tokens": 15933,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 91
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 14578
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "period": "2026-07-25T09:00:00+08:00/2026-07-25T09:30:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐23.72分钟，通信0.0分钟，确认休息6.28分钟。工作中出现1次超过30秒的娱乐偏离，共23.38分钟，最长23.38分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 1,
+    "entertainment_deviation_minutes": 23.38,
+    "all_entertainment_minutes": 23.72,
+    "longest_entertainment_deviation_minutes": 23.38,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [
+      {
+        "start": "2026-07-25T09:00:00+08:00",
+        "end": "2026-07-25T09:23:23+08:00",
+        "minutes": 23.38,
+        "duration_seconds": 1403.0,
+        "task": "手机上使用QQ、Telegram、微信聊天，随后B站看视频",
+        "evidence": [
+          "电脑整段时间AFK，手机屏幕大部分时间亮着",
+          "最初约3分钟使用QQ，然后微信，再反复切换Telegram和微信",
+          "约09:16:37后主要使用哔哩哔哩观看视频，持续到09:23:23",
+          "前后辅助时段显示更早也有QQ聊天和之后的B站视频，娱乐倾向明显"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "本时段无工作，所有活动均为纯娱乐和休息。AI语义将09:00-09:23:23标记为entertainment_detour，但无工作基础，故不计为偏离。程序记录的23.38分钟娱乐偏离因缺失工作过程而不适用。"
+  },
+  "computer_summary": "电脑整段AFK，但后台保留ChatGPT和Nature标签页，可能暗示此前存在工作上下文，但本时段无任何电脑交互。",
+  "phone_summary": "手机主要使用Telegram（9.3分钟）、哔哩哔哩（6.17分钟）、QQ（3.1分钟）、微信（1.67分钟）等，为娱乐和通信活动。",
+  "material_uncertainties": [
+    "09:23:23-09:29:40的休息段后娱乐段较短，但B站使用明确确认娱乐意图",
+    "电脑后台保留Nature和ChatGPT标签页可能暗示之前有工作，但本时段未使用电脑"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐23.72分钟，通信0.0分钟，确认休息6.28分钟。工作中出现1次超过30秒的娱乐偏离，共23.38分钟，最长23.38分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "本时段是否包含任何与Nature或ChatGPT标签页相关的工作活动（例如阅读论文）？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 30.0,
+    "phone_screen_on_minutes": 21.8,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 8.2,
+    "confirmed_rest_minutes": 6.28
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 23.72,
+      "range_minutes": [
+        23.72,
+        23.72
+      ],
+      "evidence": [
+        "电脑整段时间AFK，手机屏幕大部分时间亮着",
+        "最初约3分钟使用QQ，然后微信，再反复切换Telegram和微信",
+        "约09:16:37后主要使用哔哩哔哩观看视频，持续到09:23:23",
+        "前后辅助时段显示更早也有QQ聊天和之后的B站视频，娱乐倾向明显"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 6.28,
+      "range_minutes": [
+        6.28,
+        6.28
+      ],
+      "evidence": [
+        "跨设备休息规则确认09:23:23-09:29:40为休息",
+        "电脑AFK，手机屏幕熄灭且无操作",
+        "休息时长6.28分钟"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "09:00-09:23",
+      "likely_state": "娱乐",
+      "minutes": 23.38,
+      "task": "手机上使用QQ、Telegram、微信聊天，随后B站看视频",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑整段时间AFK，手机屏幕大部分时间亮着",
+        "最初约3分钟使用QQ，然后微信，再反复切换Telegram和微信",
+        "约09:16:37后主要使用哔哩哔哩观看视频，持续到09:23:23",
+        "前后辅助时段显示更早也有QQ聊天和之后的B站视频，娱乐倾向明显"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "09:23-09:29",
+      "likely_state": "休息",
+      "minutes": 6.28,
+      "task": "休息（跨设备无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认09:23:23-09:29:40为休息",
+        "电脑AFK，手机屏幕熄灭且无操作",
+        "休息时长6.28分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "09:29-09:30",
+      "likely_state": "娱乐",
+      "minutes": 0.33,
+      "task": "手机亮屏后短暂使用微信和哔哩哔哩",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "屏幕于09:29:40亮起，先有5秒未知前台，然后微信9秒，桌面2秒，最后B站4秒",
+        "延续休息前的娱乐模式"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7586,
+      "completion_tokens": 1825,
+      "total_tokens": 9411,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1418
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6690
+    }
+  }
+}

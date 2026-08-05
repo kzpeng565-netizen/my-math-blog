@@ -1,0 +1,911 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T14:30:00+08:00",
+    "end": "2026-07-25T15:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 86,
+      "aw-watcher-afk_xyh": 5,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 39
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 25.56,
+    "afk_minutes": 4.44,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 24.1
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 17.82
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 5.74
+    },
+    {
+      "app": "Mathpix",
+      "minutes": 0.52
+    },
+    {
+      "app": "SnippingTool.exe",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 9.46
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 6.36
+    },
+    {
+      "domain": "search.bilibili.com",
+      "minutes": 0.34
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.02
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "未命名",
+      "minutes": 5.74
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "minutes": 5.62
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "5.★【基础物理量】位移_哔哩哔哩_bilibili",
+      "minutes": 3.63
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "从文学角度来看，菲尔兹奖得主邓煜的诗词选，读完有什么感受？ - 知乎",
+      "minutes": 3.24
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "俯仰天涯岁易过。三千世界一长歌。 - 搜索结果 - 知乎",
+      "minutes": 2.76
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "为什么豆包没有被 DeepSeek「斩杀」？ - 知乎",
+      "minutes": 1.27
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "minutes": 0.47
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "俯仰天涯岁易过。三千世界一长歌。 繁花历历缀芳树，蜃景茫茫浮海波。 欲出真珠寻混沌，曾于微粟见星河。 华灯落尽尘声远，只有清江月色多。 - 搜索结果 - 知乎",
+      "minutes": 0.36
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "search.bilibili.com",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "minutes": 0.34
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.3时间时刻（基础）_哔哩哔哩_bilibili",
+      "minutes": 0.21
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "首页 - 知乎",
+      "minutes": 0.17
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "发现 - 知乎",
+      "minutes": 0.1
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "欲出真珠寻混沌，曾于微粟见星河。 - 搜索结果 - 知乎",
+      "minutes": 0.09
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool",
+      "minutes": 0.05
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.02
+    },
+    {
+      "app": "SnippingTool.exe",
+      "domain": "",
+      "title": "截图工具覆盖",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T14:30:00+08:00",
+      "last_seen": "2026-07-25T14:47:30+08:00",
+      "raw_event_count": 18
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T14:30:42+08:00",
+      "last_seen": "2026-07-25T14:59:13+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.1质点（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T14:39:05+08:00",
+      "last_seen": "2026-07-25T14:39:05+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "跟学在B站",
+      "first_seen": "2026-07-25T14:43:21+08:00",
+      "last_seen": "2026-07-25T14:43:21+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T14:43:21+08:00",
+      "last_seen": "2026-07-25T14:46:22+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.3时间时刻（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T14:44:30+08:00",
+      "last_seen": "2026-07-25T14:48:46+08:00",
+      "raw_event_count": 5
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "5.★【基础物理量】位移_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T14:47:30+08:00",
+      "last_seen": "2026-07-25T14:51:39+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-25T14:51:39+08:00",
+      "last_seen": "2026-07-25T14:53:00+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "从文学角度来看，菲尔兹奖得主邓煜的诗词选，读完有什么感受？ - 知乎",
+      "first_seen": "2026-07-25T14:53:00+08:00",
+      "last_seen": "2026-07-25T14:58:30+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "俯仰天涯岁易过。三千世界一长歌。 繁花历历缀芳树，蜃景茫茫浮海波。 欲出真珠寻混沌，曾于微粟见星河。 华灯落尽尘声远，只有清江月色多。 - 搜索结果 - 知乎",
+      "first_seen": "2026-07-25T14:54:30+08:00",
+      "last_seen": "2026-07-25T14:56:00+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "俯仰天涯岁易过。三千世界一长歌。 - 搜索结果 - 知乎",
+      "first_seen": "2026-07-25T14:56:00+08:00",
+      "last_seen": "2026-07-25T14:58:30+08:00",
+      "raw_event_count": 2
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T14:30:00+08:00",
+      "end": "2026-07-25T14:30:51+08:00",
+      "duration_seconds": 51.562,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T14:30:51+08:00",
+      "end": "2026-07-25T14:35:17+08:00",
+      "duration_seconds": 266.383,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T14:35:17+08:00",
+      "end": "2026-07-25T15:00:00+08:00",
+      "duration_seconds": 1482.054,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T14:30:00+08:00",
+      "end": "2026-07-25T14:30:11+08:00",
+      "duration_seconds": 11.285,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:30:12+08:00",
+      "end": "2026-07-25T14:30:14+08:00",
+      "duration_seconds": 2.064,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:30:15+08:00",
+      "end": "2026-07-25T14:30:18+08:00",
+      "duration_seconds": 3.091,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:30:19+08:00",
+      "end": "2026-07-25T14:30:20+08:00",
+      "duration_seconds": 1.042,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:30:21+08:00",
+      "end": "2026-07-25T14:30:23+08:00",
+      "duration_seconds": 2.068,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:30:24+08:00",
+      "end": "2026-07-25T14:30:25+08:00",
+      "duration_seconds": 1.045,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:30:26+08:00",
+      "end": "2026-07-25T14:30:51+08:00",
+      "duration_seconds": 24.773,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:35:17+08:00",
+      "end": "2026-07-25T14:35:27+08:00",
+      "duration_seconds": 9.082,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:35:28+08:00",
+      "end": "2026-07-25T14:35:41+08:00",
+      "duration_seconds": 13.436,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:35:42+08:00",
+      "end": "2026-07-25T14:36:22+08:00",
+      "duration_seconds": 40.335,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:36:23+08:00",
+      "end": "2026-07-25T14:38:36+08:00",
+      "duration_seconds": 132.339,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:38:37+08:00",
+      "end": "2026-07-25T14:39:04+08:00",
+      "duration_seconds": 26.838,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T14:39:04+08:00",
+      "end": "2026-07-25T14:39:08+08:00",
+      "duration_seconds": 4.152,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T14:39:08+08:00",
+      "end": "2026-07-25T14:39:11+08:00",
+      "duration_seconds": 2.055,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:39:12+08:00",
+      "end": "2026-07-25T14:39:47+08:00",
+      "duration_seconds": 35.151,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:39:49+08:00",
+      "end": "2026-07-25T14:39:52+08:00",
+      "duration_seconds": 3.113,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:39:53+08:00",
+      "end": "2026-07-25T14:40:06+08:00",
+      "duration_seconds": 12.443,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:40:07+08:00",
+      "end": "2026-07-25T14:40:13+08:00",
+      "duration_seconds": 6.234,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:40:14+08:00",
+      "end": "2026-07-25T14:40:21+08:00",
+      "duration_seconds": 7.233,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:40:22+08:00",
+      "end": "2026-07-25T14:41:19+08:00",
+      "duration_seconds": 56.858,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:41:21+08:00",
+      "end": "2026-07-25T14:41:36+08:00",
+      "duration_seconds": 14.493,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:41:37+08:00",
+      "end": "2026-07-25T14:41:41+08:00",
+      "duration_seconds": 4.14,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:41:41+08:00",
+      "end": "2026-07-25T14:41:45+08:00",
+      "duration_seconds": 4.143,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T14:41:45+08:00",
+      "end": "2026-07-25T14:41:48+08:00",
+      "duration_seconds": 3.103,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:41:49+08:00",
+      "end": "2026-07-25T14:43:01+08:00",
+      "duration_seconds": 72.385,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:43:03+08:00",
+      "end": "2026-07-25T14:43:14+08:00",
+      "duration_seconds": 11.352,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:43:15+08:00",
+      "end": "2026-07-25T14:43:20+08:00",
+      "duration_seconds": 3.09,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:43:20+08:00",
+      "end": "2026-07-25T14:43:25+08:00",
+      "duration_seconds": 5.213,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T14:43:25+08:00",
+      "end": "2026-07-25T14:43:41+08:00",
+      "duration_seconds": 14.473,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:43:42+08:00",
+      "end": "2026-07-25T14:43:43+08:00",
+      "duration_seconds": 1.039,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:43:44+08:00",
+      "end": "2026-07-25T14:43:48+08:00",
+      "duration_seconds": 4.138,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:43:49+08:00",
+      "end": "2026-07-25T14:43:56+08:00",
+      "duration_seconds": 7.234,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:43:57+08:00",
+      "end": "2026-07-25T14:43:59+08:00",
+      "duration_seconds": 2.075,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高中物理衔接-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:44:00+08:00",
+      "end": "2026-07-25T14:44:09+08:00",
+      "duration_seconds": 8.295,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:44:09+08:00",
+      "end": "2026-07-25T14:44:12+08:00",
+      "duration_seconds": 3.109,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T14:44:12+08:00",
+      "end": "2026-07-25T14:44:53+08:00",
+      "duration_seconds": 41.261,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:44:54+08:00",
+      "end": "2026-07-25T14:45:13+08:00",
+      "duration_seconds": 18.592,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:45:14+08:00",
+      "end": "2026-07-25T14:45:37+08:00",
+      "duration_seconds": 22.739,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:45:38+08:00",
+      "end": "2026-07-25T14:45:41+08:00",
+      "duration_seconds": 3.08,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.3时间时刻（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:45:42+08:00",
+      "end": "2026-07-25T14:45:43+08:00",
+      "duration_seconds": 1.019,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:45:45+08:00",
+      "end": "2026-07-25T14:46:01+08:00",
+      "duration_seconds": 16.533,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:46:02+08:00",
+      "end": "2026-07-25T14:46:13+08:00",
+      "duration_seconds": 8.267,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.3时间时刻（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:46:14+08:00",
+      "end": "2026-07-25T14:46:20+08:00",
+      "duration_seconds": 6.222,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:46:20+08:00",
+      "end": "2026-07-25T14:46:23+08:00",
+      "duration_seconds": 3.108,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T14:46:23+08:00",
+      "end": "2026-07-25T14:47:30+08:00",
+      "duration_seconds": 65.9,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:47:30+08:00",
+      "end": "2026-07-25T14:48:44+08:00",
+      "duration_seconds": 73.842,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "5.★【基础物理量】位移_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:48:45+08:00",
+      "end": "2026-07-25T14:48:46+08:00",
+      "duration_seconds": 1.036,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.3时间时刻（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:48:47+08:00",
+      "end": "2026-07-25T14:48:48+08:00",
+      "duration_seconds": 1.027,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "5.★【基础物理量】位移_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T14:48:49+08:00",
+      "end": "2026-07-25T14:49:15+08:00",
+      "duration_seconds": 25.821,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "未命名",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:49:16+08:00",
+      "end": "2026-07-25T14:51:39+08:00",
+      "duration_seconds": 142.767,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "5.★【基础物理量】位移_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T14:51:40+08:00",
+      "end": "2026-07-25T14:51:41+08:00",
+      "duration_seconds": 1.041,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:51:42+08:00",
+      "end": "2026-07-25T14:51:43+08:00",
+      "duration_seconds": 1.034,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:51:45+08:00",
+      "end": "2026-07-25T14:51:51+08:00",
+      "duration_seconds": 6.191,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "发现 - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:51:51+08:00",
+      "end": "2026-07-25T14:51:55+08:00",
+      "duration_seconds": 4.14,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T14:51:55+08:00",
+      "end": "2026-07-25T14:52:01+08:00",
+      "duration_seconds": 6.212,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:52:03+08:00",
+      "end": "2026-07-25T14:54:09+08:00",
+      "duration_seconds": 126.032,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "从文学角度来看，菲尔兹奖得主邓煜的诗词选，读完有什么感受？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:54:10+08:00",
+      "end": "2026-07-25T14:54:32+08:00",
+      "duration_seconds": 21.771,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "俯仰天涯岁易过。三千世界一长歌。 繁花历历缀芳树，蜃景茫茫浮海波。 欲出真珠寻混沌，曾于微粟见星河。 华灯落尽尘声远，只有清江月色多。 - 搜索结果 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:54:33+08:00",
+      "end": "2026-07-25T14:57:19+08:00",
+      "duration_seconds": 165.532,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "俯仰天涯岁易过。三千世界一长歌。 - 搜索结果 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:57:20+08:00",
+      "end": "2026-07-25T14:57:25+08:00",
+      "duration_seconds": 5.16,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "欲出真珠寻混沌，曾于微粟见星河。 - 搜索结果 - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:57:27+08:00",
+      "end": "2026-07-25T14:58:35+08:00",
+      "duration_seconds": 68.199,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "从文学角度来看，菲尔兹奖得主邓煜的诗词选，读完有什么感受？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T14:58:36+08:00",
+      "end": "2026-07-25T14:58:40+08:00",
+      "duration_seconds": 4.146,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T14:58:40+08:00",
+      "end": "2026-07-25T14:58:44+08:00",
+      "duration_seconds": 3.101,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T14:58:44+08:00",
+      "end": "2026-07-25T15:00:00+08:00",
+      "duration_seconds": 75.977,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "为什么豆包没有被 DeepSeek「斩杀」？ - 知乎",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.943,
+    "browser_title_coverage": 0.999,
+    "browser_domain_context_coverage": 0.908,
+    "web_watcher_exact_time_overlap": 0.218,
+    "browser_share_of_active_time": 0.697,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T11:00:00+08:00",
+    "end": "2026-07-27T11:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 8,
+      "aw-watcher-afk_xyh": 25,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 20
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 8.28,
+    "afk_minutes": 20.39,
+    "unknown_status_minutes": 1.34,
+    "window_observed_minutes": 8.2
+  },
+  "top_apps": [
+    {
+      "app": "腾讯会议",
+      "minutes": 8.01
+    },
+    {
+      "app": "ShellHost.exe",
+      "minutes": 0.19
+    }
+  ],
+  "top_websites": [],
+  "top_titles": [
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 7.85
+    },
+    {
+      "app": "ShellHost.exe",
+      "domain": "",
+      "title": "快速设置",
+      "minutes": 0.19
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "腾讯会议",
+      "minutes": 0.16
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-27T11:00:05+08:00",
+      "last_seen": "2026-07-27T11:28:35+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T11:00:44+08:00",
+      "last_seen": "2026-07-27T11:29:14+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T11:00:00+08:00",
+      "end": "2026-07-27T11:02:28+08:00",
+      "duration_seconds": 148.326,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T11:02:28+08:00",
+      "end": "2026-07-27T11:05:40+08:00",
+      "duration_seconds": 192.639,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T11:05:40+08:00",
+      "end": "2026-07-27T11:11:19+08:00",
+      "duration_seconds": 338.208,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T11:11:19+08:00",
+      "end": "2026-07-27T11:15:42+08:00",
+      "duration_seconds": 262.855,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T11:15:42+08:00",
+      "end": "2026-07-27T11:15:50+08:00",
+      "duration_seconds": 8.345,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T11:15:50+08:00",
+      "end": "2026-07-27T11:20:52+08:00",
+      "duration_seconds": 302.103,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T11:20:52+08:00",
+      "end": "2026-07-27T11:20:54+08:00",
+      "duration_seconds": 1.802,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T11:20:54+08:00",
+      "end": "2026-07-27T11:25:13+08:00",
+      "duration_seconds": 258.733,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T11:25:13+08:00",
+      "end": "2026-07-27T11:26:33+08:00",
+      "duration_seconds": 80.151,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-27T11:26:33+08:00",
+      "end": "2026-07-27T11:30:00+08:00",
+      "duration_seconds": 206.835,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T11:00:00+08:00",
+      "end": "2026-07-27T11:02:10+08:00",
+      "duration_seconds": 130.612,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T11:02:11+08:00",
+      "end": "2026-07-27T11:02:20+08:00",
+      "duration_seconds": 9.334,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "腾讯会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T11:02:21+08:00",
+      "end": "2026-07-27T11:02:28+08:00",
+      "duration_seconds": 6.167,
+      "app": "ShellHost.exe",
+      "app_display": "ShellHost.exe",
+      "title": "快速设置",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T11:05:40+08:00",
+      "end": "2026-07-27T11:11:19+08:00",
+      "duration_seconds": 338.208,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T11:15:42+08:00",
+      "end": "2026-07-27T11:15:44+08:00",
+      "duration_seconds": 2.259,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T11:15:45+08:00",
+      "end": "2026-07-27T11:15:49+08:00",
+      "duration_seconds": 4.111,
+      "app": "ShellHost.exe",
+      "app_display": "ShellHost.exe",
+      "title": "快速设置",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T11:20:52+08:00",
+      "end": "2026-07-27T11:20:53+08:00",
+      "duration_seconds": 1.36,
+      "app": "ShellHost.exe",
+      "app_display": "ShellHost.exe",
+      "title": "快速设置",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.991,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 1.0,
+    "browser_share_of_active_time": 0.0,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活动状态未知1.34分钟。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

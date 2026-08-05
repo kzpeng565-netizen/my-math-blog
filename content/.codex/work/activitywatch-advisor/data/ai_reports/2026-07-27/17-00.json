@@ -1,0 +1,691 @@
+{
+  "period": "2026-07-27T17:00:00+08:00/2026-07-27T17:30:00+08:00",
+  "state_assessment": {
+    "label": "work_with_entertainment_detour",
+    "confidence": "medium",
+    "one_sentence": "主要任务：课时量分析（家教）。工作13.5分钟，娱乐4.45分钟，通信4.62分钟，确认休息7.2分钟。工作中出现3次超过30秒的娱乐偏离，共3.65分钟，最长2.13分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "medium",
+    "entertainment_deviation_count": 3,
+    "entertainment_deviation_minutes": 3.65,
+    "all_entertainment_minutes": 4.45,
+    "longest_entertainment_deviation_minutes": 2.13,
+    "work_entertainment_transition_count": 8,
+    "brief_communication_minutes": 4.62,
+    "longest_continuous_work_minutes": 4.42,
+    "same_task_tool_switches_not_scored": 3,
+    "raw_foreground_context_switches_not_scored": 34,
+    "deviations": [
+      {
+        "start": "2026-07-27T17:01:01+08:00",
+        "end": "2026-07-27T17:01:42+08:00",
+        "minutes": 0.68,
+        "duration_seconds": 41.0,
+        "task": "浏览知乎首页及AI相关话题",
+        "evidence": [
+          "浏览'Kimi K3'等知乎话题，与工作无关",
+          "随后返回课时量分析，属于工作过程中的娱乐偏离"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.78,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-27T17:04:45+08:00",
+        "end": "2026-07-27T17:05:35+08:00",
+        "minutes": 0.83,
+        "duration_seconds": 50.0,
+        "task": "阅读知乎文章'中国粮食进口'",
+        "evidence": [
+          "Edge标签页标题明确为知乎文章",
+          "工作间隙的娱乐偏离"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-27T17:20:44+08:00",
+        "end": "2026-07-27T17:22:52+08:00",
+        "minutes": 2.13,
+        "duration_seconds": 128.0,
+        "task": "浏览知乎文章（美军相关）及首页",
+        "evidence": [
+          "Edge标签页'如何看待美军参联会主席...'持续近2分钟",
+          "随后切换至'肖邦夜曲'主题，表明工作已结束"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "medium"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中出现3次超过30秒的娱乐偏离：①17:01-17:02（41秒）浏览知乎Kimi话题；②17:04:45-17:05:35（50秒）阅读知乎粮食进口文章；③17:20:44-17:22:52（2分8秒）浏览知乎美军相关文章。每次偏离后均返回原课时量分析任务。无其他超过30秒的娱乐偏离。"
+  },
+  "computer_summary": "电脑主要任务为在ChatGPT上分析课时量（家教），累计约13.5分钟；后期转为在ChatGPT上查询肖邦夜曲练习难度和建议（约4.4分钟）。期间多次插入微信通信（共4.62分钟）和知乎浏览（娱乐偏离）。标题证据包括'课时量分析'、'肖邦夜曲练习建议'等。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "tablet_summary": "平板亮屏30分钟，但作为辅助数据源，未发现与电脑或手机活动冲突，不改变休息或工作判断。",
+  "material_uncertainties": [
+    "微信聊天开头和结尾多次快速切换，部分短暂通信（<30秒）可能混入工作段，但整体归类为brief_communication，不会改变超过30秒的归类",
+    "肖邦夜曲练习任务是否属于家教/数学学习还是个人兴趣，但确定为work activity"
+  ],
+  "concise_report": "主要任务：课时量分析（家教）。工作13.5分钟，娱乐4.45分钟，通信4.62分钟，确认休息7.2分钟。工作中出现3次超过30秒的娱乐偏离，共3.65分钟，最长2.13分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "第三次娱乐偏离（17:20:44-17:22:52浏览知乎美军文章）是在休息后发生，返回工作前仅短暂查看课时量分析，该段应属于工作过程中的娱乐偏离还是休息后的纯娱乐？",
+  "observed_metrics": {
+    "computer_active_minutes": 22.81,
+    "computer_afk_minutes": 7.19,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 7.2,
+    "confirmed_rest_minutes": 7.2
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 13.5,
+      "range_minutes": [
+        13.5,
+        13.5
+      ],
+      "evidence": [
+        "Edge标签页标题为'课时量分析'（chatgpt.com）",
+        "前段16:55-17:00也在课时量分析，属同一任务",
+        "Edge标签页'课时量分析'持续1分43秒",
+        "前后工作上下文一致"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 4.45,
+      "range_minutes": [
+        4.45,
+        4.45
+      ],
+      "evidence": [
+        "浏览'Kimi K3'等知乎话题，与工作无关",
+        "随后返回课时量分析，属于工作过程中的娱乐偏离",
+        "Edge标签页'首页 - 知乎'",
+        "短暂偏离后返回工作"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 4.62,
+      "range_minutes": [
+        4.62,
+        4.62
+      ],
+      "evidence": [
+        "微信前台窗口，标题'微信'和'图片和视频'",
+        "短暂通信，随后返回课时量分析",
+        "微信前台窗口",
+        "短暂通信后返回工作"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 7.2,
+      "range_minutes": [
+        7.2,
+        7.2
+      ],
+      "evidence": [
+        "电脑AFK持续7分12秒，手机熄屏",
+        "平板亮屏但仅作为辅助参考，不否决休息",
+        "用户确认规则给出的休息段"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.23,
+      "range_minutes": [
+        0.23,
+        0.23
+      ],
+      "evidence": [
+        "活跃但无窗口记录5秒，后进入知乎",
+        "继续追踪后续操作",
+        "Cleaner One.exe和explorer.exe短暂运行",
+        "可能整理文件，辅助工作"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "17:00-17:01",
+      "likely_state": "工作",
+      "minutes": 1.02,
+      "task": "在ChatGPT上分析课时量",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页标题为'课时量分析'（chatgpt.com）",
+        "前段16:55-17:00也在课时量分析，属同一任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:01-17:01",
+      "likely_state": "娱乐",
+      "minutes": 0.68,
+      "task": "浏览知乎首页及AI相关话题",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览'Kimi K3'等知乎话题，与工作无关",
+        "随后返回课时量分析，属于工作过程中的娱乐偏离"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:01-17:02",
+      "likely_state": "通信",
+      "minutes": 0.78,
+      "task": "微信聊天（含查看图片）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台窗口，标题'微信'和'图片和视频'",
+        "短暂通信，随后返回课时量分析"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:02-17:04",
+      "likely_state": "工作",
+      "minutes": 1.78,
+      "task": "在ChatGPT上继续分析课时量",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'课时量分析'持续1分43秒",
+        "前后工作上下文一致"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:04-17:04",
+      "likely_state": "娱乐",
+      "minutes": 0.32,
+      "task": "浏览知乎首页",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'首页 - 知乎'",
+        "短暂偏离后返回工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:04-17:04",
+      "likely_state": "其他",
+      "minutes": 0.17,
+      "task": "短暂无窗口记录，可能切换活动",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "活跃但无窗口记录5秒，后进入知乎",
+        "继续追踪后续操作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "17:04-17:05",
+      "likely_state": "娱乐",
+      "minutes": 0.83,
+      "task": "阅读知乎文章'中国粮食进口'",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页标题明确为知乎文章",
+        "工作间隙的娱乐偏离"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:05-17:06",
+      "likely_state": "工作",
+      "minutes": 1.13,
+      "task": "返回ChatGPT进行课时量分析",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'课时量分析'，使用截图工具"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:06-17:06",
+      "likely_state": "工作",
+      "minutes": 0.13,
+      "task": "使用截图工具截取课时量分析内容",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "SnippingTool.exe前台，紧接着课时量分析",
+        "属于工作的一部分"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:06-17:07",
+      "likely_state": "通信",
+      "minutes": 0.23,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台窗口",
+        "短暂通信后返回工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:07-17:07",
+      "likely_state": "工作",
+      "minutes": 0.57,
+      "task": "继续课时量分析（含截图及短暂无窗口）",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'课时量分析'，SnippingTool截图",
+        "期间3秒无窗口记录但后续仍为工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:07-17:08",
+      "likely_state": "通信",
+      "minutes": 0.4,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台窗口"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:08-17:08",
+      "likely_state": "工作",
+      "minutes": 0.63,
+      "task": "课时量分析（含ChatGPT）",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'课时量分析'，间歇微信快速切换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:08-17:08",
+      "likely_state": "通信",
+      "minutes": 0.23,
+      "task": "微信聊天（含查看图片）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口标题'微信'和'图片和视频'",
+        "随后5秒无窗口记录"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:08-17:10",
+      "likely_state": "工作",
+      "minutes": 1.15,
+      "task": "在Word中整理时间统计结果",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Word窗口'时间统计结果.docx'和'文档1'",
+        "属于课时量分析的输出环节",
+        "同时有文件资源管理器及清理君短暂操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:10-17:10",
+      "likely_state": "其他",
+      "minutes": 0.07,
+      "task": "清理操作及资源管理器",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Cleaner One.exe和explorer.exe短暂运行",
+        "可能整理文件，辅助工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "17:10-17:10",
+      "likely_state": "通信",
+      "minutes": 0.22,
+      "task": "微信聊天后返回Word",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台7秒，然后Word 5秒",
+        "通信短暂"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:10-17:10",
+      "likely_state": "通信",
+      "minutes": 0.43,
+      "task": "微信聊天（较长通信）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台从17:10:22持续18秒，后2秒Word",
+        "然后3秒无窗口及1秒微信，属于通信收尾"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:10-17:11",
+      "likely_state": "工作",
+      "minutes": 0.25,
+      "task": "返回ChatGPT进行课时量分析",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'课时量分析'",
+        "使用截图工具"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:11-17:11",
+      "likely_state": "工作",
+      "minutes": 0.07,
+      "task": "截图课时量分析",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "SnippingTool.exe前台2秒",
+        "紧接着微信，属于工作收尾"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:11-17:13",
+      "likely_state": "通信",
+      "minutes": 2.12,
+      "task": "微信聊天（含图片查看）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信连续前台超过2分钟",
+        "标题含'微信'和'图片和视频'",
+        "属于独立通信，非工作辅助"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:13-17:20",
+      "likely_state": "休息",
+      "minutes": 7.2,
+      "task": "休息（无设备交互）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK持续7分12秒，手机熄屏",
+        "平板亮屏但仅作为辅助参考，不否决休息",
+        "用户确认规则给出的休息段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:20-17:20",
+      "likely_state": "通信",
+      "minutes": 0.2,
+      "task": "微信聊天（含图片查看）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台窗口，包含'图片和视频'",
+        "短暂通信后切换浏览器"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:20-17:20",
+      "likely_state": "工作",
+      "minutes": 0.12,
+      "task": "返回ChatGPT查看课时量分析",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'课时量分析'",
+        "休息后短暂返回工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:20-17:22",
+      "likely_state": "娱乐",
+      "minutes": 2.13,
+      "task": "浏览知乎文章（美军相关）及首页",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'如何看待美军参联会主席...'持续近2分钟",
+        "随后切换至'肖邦夜曲'主题，表明工作已结束"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:22-17:23",
+      "likely_state": "工作",
+      "minutes": 0.67,
+      "task": "再次返回ChatGPT课时量分析",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'课时量分析'"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:23-17:23",
+      "likely_state": "工作",
+      "minutes": 0.45,
+      "task": "在ChatGPT上查询肖邦夜曲练习难度",
+      "work_category": "其他工作",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'肖邦夜曲练习难度'（chatgpt.com）",
+        "与家教/数学学习不同，开始新的音乐学习任务"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:23-17:24",
+      "likely_state": "娱乐",
+      "minutes": 0.07,
+      "task": "浏览知乎首页",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'首页 - 知乎'短暂出现"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:24-17:24",
+      "likely_state": "娱乐",
+      "minutes": 0.42,
+      "task": "浏览知乎AI话题",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'一般没人讨论...'和'首页 - 知乎'",
+        "与工作无关，属娱乐"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:24-17:25",
+      "likely_state": "工作",
+      "minutes": 1.12,
+      "task": "继续在ChatGPT上查询肖邦夜曲练习难度",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'肖邦夜曲练习难度'连续1分07秒",
+        "属于音乐学习相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:25-17:30",
+      "likely_state": "工作",
+      "minutes": 4.42,
+      "task": "在ChatGPT上获取肖邦夜曲练习建议",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'肖邦夜曲练习建议'持续4分25秒",
+        "与前一任务紧密衔接，属音乐学习"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "课时量分析（家教）",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 16111,
+      "completion_tokens": 2276,
+      "total_tokens": 18387,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1699
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 15215
+    }
+  }
+}

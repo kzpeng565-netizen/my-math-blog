@@ -1,0 +1,208 @@
+{
+  "period": "2026-07-25T10:00:00+08:00/2026-07-25T10:30:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐29.18分钟，通信0.82分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 29.18,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.82,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 19,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作分钟为0，娱乐分钟为29.18，短暂通信0.82分钟。无工作过程，故不存在娱乐偏离。"
+  },
+  "computer_summary": "全程使用Edge浏览器浏览知乎，涉及政治社会（出口管制）、AI行业动态（DeepSeek跳票、Claude Opus 5、马斯克新模型）、科学话题（基因编辑、王虹获奖）等，未发现工作相关主题。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "material_uncertainties": [
+    "10:12:56-10:25:56 期间 DeepSeek 相关话题是否可视为对AI工具的技术调研（工作）取决于用户意图，目前归为娱乐以体现浏览性质",
+    "10:12:56-10:25:56期间DeepSeek相关话题若视为技术调研则可能改变分类，但当前证据显示为信息浏览而非工作任务。"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐29.18分钟，通信0.82分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "DeepSeek相关话题浏览（10:12:56-10:25:56）是否属于工作任务而非娱乐？",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 29.18,
+      "range_minutes": [
+        29.18,
+        29.18
+      ],
+      "evidence": [
+        "Edge 浏览知乎标题：商务部宣布为维护国家安全和利益，将 14 家欧盟实体列入出口管制管控名单",
+        "连续浏览约 3.87 分钟",
+        "前辅助上下文显示此前进食 Obsidian 数学备课和 bilibili 数学视频",
+        "刚完成数学学习任务后自然转至休闲浏览"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.82,
+      "range_minutes": [
+        0.82,
+        0.82
+      ],
+      "evidence": [
+        "微信活跃 2 秒后切换到微信小程序 41 秒",
+        "与前后知乎浏览无直接工作关联",
+        "持续约 0.77 分钟"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "10:00-10:03",
+      "likely_state": "娱乐",
+      "minutes": 3.87,
+      "task": "浏览知乎政治社会话题（出口管制名单）",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge 浏览知乎标题：商务部宣布为维护国家安全和利益，将 14 家欧盟实体列入出口管制管控名单",
+        "连续浏览约 3.87 分钟",
+        "前辅助上下文显示此前进食 Obsidian 数学备课和 bilibili 数学视频",
+        "刚完成数学学习任务后自然转至休闲浏览"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:03-10:04",
+      "likely_state": "通信",
+      "minutes": 0.82,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信活跃 2 秒后切换到微信小程序 41 秒",
+        "与前后知乎浏览无直接工作关联",
+        "持续约 0.77 分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:04-10:27",
+      "likely_state": "娱乐",
+      "minutes": 22.55,
+      "task": "浏览知乎多个娱乐兴趣话题",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "看了DeepSeek跳票、Claude Opus 5、马斯克新模型等AI圈动态",
+        "也看了王虹数学突破、农民日报评论等话题，但性质为信息浏览而非自主学习",
+        "期间有短暂首页返回，但主要围绕技术八卦与综合话题",
+        "持续约 22.5 分钟，与前辅数学学习无直接工作关联"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "10:27-10:30",
+      "likely_state": "娱乐",
+      "minutes": 2.77,
+      "task": "浏览知乎其他话题（基因编辑、科研难题、王虹获奖评论）",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "先后浏览 Science 基因编辑事故、科研难题、农民日报评论",
+        "与AI科技类娱乐浏览方向一致，无工作信号",
+        "持续至报告期末"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8777,
+      "completion_tokens": 511,
+      "total_tokens": 9288,
+      "prompt_tokens_details": {
+        "cached_tokens": 8704
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 147
+      },
+      "prompt_cache_hit_tokens": 8704,
+      "prompt_cache_miss_tokens": 73
+    }
+  }
+}

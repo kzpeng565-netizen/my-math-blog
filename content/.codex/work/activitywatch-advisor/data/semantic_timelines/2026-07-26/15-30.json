@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T15:30:00+08:00",
+    "end": "2026-07-26T16:00:00+08:00"
+  },
+  "primary_work_task": "数学学习（直线运动v-t图像）",
+  "segments": [
+    {
+      "start": "2026-07-26T15:30:00+08:00",
+      "end": "2026-07-26T15:35:31+08:00",
+      "duration_seconds": 331.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "看B站v-t图像教学视频，在Obsidian记笔记，用ChatGPT辅助，短暂微信通信",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "看B站【直线运动】2.2v-t图像（基础）和ChatGPT帮助学习",
+        "在Obsidian编写高中物理1 加速度笔记",
+        "微信通信（图片和视频、消息）时长约1分钟，属于brief_communication",
+        "前后时段都是同一物理学习任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T15:35:31+08:00",
+      "end": "2026-07-26T15:41:21+08:00",
+      "duration_seconds": 350.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（电脑AFK，手机无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK超过3分钟，手机全程息屏",
+        "跨设备休息规则确认该区间为休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T15:41:21+08:00",
+      "end": "2026-07-26T15:46:37+08:00",
+      "duration_seconds": 316.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑活动状态未知（可能短暂离开或低强度操作）",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口记录",
+        "手机全程息屏",
+        "无法判断用户是否在电脑前或进行什么活动"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T15:46:37+08:00",
+      "end": "2026-07-26T15:55:43+08:00",
+      "duration_seconds": 546.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（电脑AFK，手机无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK超过3分钟，手机全程息屏",
+        "跨设备休息规则确认该区间为休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T15:55:43+08:00",
+      "end": "2026-07-26T16:00:00+08:00",
+      "duration_seconds": 257.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "通过微信沟通后进入腾讯会议（彭康哲的快速会议），可能继续讨论物理学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "结束后立即开始腾讯会议（彭康哲的快速会议），可能与学习相关",
+        "之前打开文件资源管理器、搜索，准备会议",
+        "微信通信后进入会议，学习任务仍在进行",
+        "ChatGPT页面一直打开，PDF也保持"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "未知活动段（15:41-15:46）无法确定是否休息或其他活动",
+    "最后腾讯会议是否完全用于数学学习存疑（会议标题未明确主题）"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 14846,
+      "completion_tokens": 927,
+      "total_tokens": 15773,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 13950
+    }
+  }
+}

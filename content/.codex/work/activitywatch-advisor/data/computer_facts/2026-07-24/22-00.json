@@ -1,0 +1,2100 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-24T22:00:00+08:00",
+    "end": "2026-07-24T22:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 256,
+      "aw-watcher-afk_xyh": 1,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 21,
+      "aw-watcher-web-edge_xyh": 50
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 30.0,
+    "afk_minutes": 0.0,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 25.61
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 12.8
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 5.82
+    },
+    {
+      "app": "微信",
+      "minutes": 4.59
+    },
+    {
+      "app": "Clash Verge",
+      "minutes": 1.65
+    },
+    {
+      "app": "Google Chrome",
+      "minutes": 0.38
+    },
+    {
+      "app": "微信小程序",
+      "minutes": 0.24
+    },
+    {
+      "app": "SnippingTool.exe",
+      "minutes": 0.09
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.02
+    },
+    {
+      "app": "ShellHost.exe",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "nature.com",
+      "minutes": 3.34
+    },
+    {
+      "domain": "bilibili.com",
+      "minutes": 2.43
+    },
+    {
+      "domain": "gemini.google.com",
+      "minutes": 2.3
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "minutes": 2.12
+    },
+    {
+      "domain": "bing.com",
+      "minutes": 0.77
+    },
+    {
+      "domain": "space.bilibili.com",
+      "minutes": 0.12
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.07
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 5.82
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 4.17
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "minutes": 3.26
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "minutes": 2.37
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "gemini.google.com",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "minutes": 2.29
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "震撼非首发 - 小红书",
+      "minutes": 2.12
+    },
+    {
+      "app": "Clash Verge",
+      "domain": "",
+      "title": "Clash Verge",
+      "minutes": 1.65
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "s41586-026-10113-6.pdf",
+      "minutes": 0.98
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bing.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "minutes": 0.77
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.41
+    },
+    {
+      "app": "Google Chrome",
+      "domain": "",
+      "title": "Recent download history",
+      "minutes": 0.24
+    },
+    {
+      "app": "微信小程序",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.24
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "space.bilibili.com",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "minutes": 0.12
+    },
+    {
+      "app": "Google Chrome",
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "minutes": 0.09
+    },
+    {
+      "app": "SnippingTool.exe",
+      "domain": "",
+      "title": "截图工具覆盖",
+      "minutes": 0.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "无标题",
+      "minutes": 0.05
+    },
+    {
+      "app": "Google Chrome",
+      "domain": "",
+      "title": "New Tab",
+      "minutes": 0.05
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "minutes": 0.05
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "【初高衔接】3.1 解方程：自由度与消元思想_哔哩哔哩_bilibili",
+      "minutes": 0.03
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "小红书 - 你的生活兴趣社区",
+      "minutes": 0.03
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "edge浏览器下载 - 文件资源管理器",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "gemini.google.com",
+      "title": "Google Gemini",
+      "minutes": 0.0
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "上海交大基因编辑 - 小红书搜索",
+      "minutes": 0.0
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "gemini.google.com",
+      "title": "Google Gemini",
+      "first_seen": "2026-07-24T21:59:26+08:00",
+      "last_seen": "2026-07-24T22:00:00+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "gemini.google.com",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "first_seen": "2026-07-24T22:00:00+08:00",
+      "last_seen": "2026-07-24T22:24:16+08:00",
+      "raw_event_count": 8
+    },
+    {
+      "domain": "console.tailscale.com",
+      "title": "DNS - Tailscale",
+      "first_seen": "2026-07-24T22:01:08+08:00",
+      "last_seen": "2026-07-24T22:20:38+08:00",
+      "raw_event_count": 14
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-24T22:03:30+08:00",
+      "last_seen": "2026-07-24T22:03:34+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-24T22:04:07+08:00",
+      "last_seen": "2026-07-24T22:29:00+08:00",
+      "raw_event_count": 5
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-24T22:06:30+08:00",
+      "last_seen": "2026-07-24T22:29:38+08:00",
+      "raw_event_count": 19
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "上海交大基因编辑 - 小红书搜索",
+      "first_seen": "2026-07-24T22:08:02+08:00",
+      "last_seen": "2026-07-24T22:09:30+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "震撼非首发 - 小红书",
+      "first_seen": "2026-07-24T22:09:30+08:00",
+      "last_seen": "2026-07-24T22:24:15+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "bing.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "first_seen": "2026-07-24T22:13:32+08:00",
+      "last_seen": "2026-07-24T22:24:16+08:00",
+      "raw_event_count": 6
+    },
+    {
+      "domain": "",
+      "title": "s41586-026-10113-6.pdf",
+      "first_seen": "2026-07-24T22:21:49+08:00",
+      "last_seen": "2026-07-24T22:24:18+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "任务管理模型选择",
+      "first_seen": "2026-07-24T22:24:14+08:00",
+      "last_seen": "2026-07-24T22:24:15+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-24T22:24:15+08:00",
+      "last_seen": "2026-07-24T22:24:15+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "api-docs.deepseek.com",
+      "title": "首次调用 API | DeepSeek API Docs",
+      "first_seen": "2026-07-24T22:24:15+08:00",
+      "last_seen": "2026-07-24T22:24:15+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "localhost",
+      "title": "ActivityWatch",
+      "first_seen": "2026-07-24T22:24:15+08:00",
+      "last_seen": "2026-07-24T22:24:16+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "first_seen": "2026-07-24T22:24:16+08:00",
+      "last_seen": "2026-07-24T22:24:16+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "pubmed.ncbi.nlm.nih.gov",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - PubMed",
+      "first_seen": "2026-07-24T22:24:16+08:00",
+      "last_seen": "2026-07-24T22:24:16+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-24T22:24:18+08:00",
+      "last_seen": "2026-07-24T22:24:22+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "space.bilibili.com",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "first_seen": "2026-07-24T22:24:22+08:00",
+      "last_seen": "2026-07-24T22:28:00+08:00",
+      "raw_event_count": 3
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-24T22:00:00+08:00",
+      "end": "2026-07-24T22:30:00+08:00",
+      "duration_seconds": 1800.0,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-24T22:00:00+08:00",
+      "end": "2026-07-24T22:00:00+08:00",
+      "duration_seconds": 0.277,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:00:00+08:00",
+      "end": "2026-07-24T22:00:00+08:00",
+      "duration_seconds": 0.312,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:00:01+08:00",
+      "end": "2026-07-24T22:00:05+08:00",
+      "duration_seconds": 4.142,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:00:06+08:00",
+      "end": "2026-07-24T22:00:14+08:00",
+      "duration_seconds": 7.229,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:00:15+08:00",
+      "end": "2026-07-24T22:00:16+08:00",
+      "duration_seconds": 1.024,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:00:17+08:00",
+      "end": "2026-07-24T22:00:31+08:00",
+      "duration_seconds": 14.457,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:00:32+08:00",
+      "end": "2026-07-24T22:00:42+08:00",
+      "duration_seconds": 10.316,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:00:44+08:00",
+      "end": "2026-07-24T22:00:49+08:00",
+      "duration_seconds": 4.16,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:00:50+08:00",
+      "end": "2026-07-24T22:01:04+08:00",
+      "duration_seconds": 14.484,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:01:05+08:00",
+      "end": "2026-07-24T22:01:27+08:00",
+      "duration_seconds": 21.694,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:01:28+08:00",
+      "end": "2026-07-24T22:01:49+08:00",
+      "duration_seconds": 20.677,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:01:50+08:00",
+      "end": "2026-07-24T22:02:36+08:00",
+      "duration_seconds": 46.517,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:02:37+08:00",
+      "end": "2026-07-24T22:02:38+08:00",
+      "duration_seconds": 1.034,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:02:39+08:00",
+      "end": "2026-07-24T22:02:42+08:00",
+      "duration_seconds": 3.115,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:02:43+08:00",
+      "end": "2026-07-24T22:02:45+08:00",
+      "duration_seconds": 2.066,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:02:45+08:00",
+      "end": "2026-07-24T22:02:49+08:00",
+      "duration_seconds": 3.093,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:02:49+08:00",
+      "end": "2026-07-24T22:02:50+08:00",
+      "duration_seconds": 1.035,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:02:52+08:00",
+      "end": "2026-07-24T22:03:00+08:00",
+      "duration_seconds": 8.265,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:01+08:00",
+      "end": "2026-07-24T22:03:04+08:00",
+      "duration_seconds": 3.114,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:05+08:00",
+      "end": "2026-07-24T22:03:10+08:00",
+      "duration_seconds": 5.165,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:11+08:00",
+      "end": "2026-07-24T22:03:13+08:00",
+      "duration_seconds": 2.057,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:14+08:00",
+      "end": "2026-07-24T22:03:17+08:00",
+      "duration_seconds": 3.08,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:18+08:00",
+      "end": "2026-07-24T22:03:21+08:00",
+      "duration_seconds": 2.054,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:23+08:00",
+      "end": "2026-07-24T22:03:24+08:00",
+      "duration_seconds": 1.047,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:25+08:00",
+      "end": "2026-07-24T22:03:29+08:00",
+      "duration_seconds": 4.122,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:03:30+08:00",
+      "end": "2026-07-24T22:03:34+08:00",
+      "duration_seconds": 4.144,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:03:35+08:00",
+      "end": "2026-07-24T22:03:38+08:00",
+      "duration_seconds": 3.095,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:03:40+08:00",
+      "end": "2026-07-24T22:03:41+08:00",
+      "duration_seconds": 1.02,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:42+08:00",
+      "end": "2026-07-24T22:03:43+08:00",
+      "duration_seconds": 1.027,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:03:45+08:00",
+      "end": "2026-07-24T22:03:47+08:00",
+      "duration_seconds": 2.066,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:03:47+08:00",
+      "end": "2026-07-24T22:03:50+08:00",
+      "duration_seconds": 3.107,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:03:50+08:00",
+      "end": "2026-07-24T22:04:06+08:00",
+      "duration_seconds": 15.495,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:04:06+08:00",
+      "end": "2026-07-24T22:04:09+08:00",
+      "duration_seconds": 3.081,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:04:09+08:00",
+      "end": "2026-07-24T22:04:20+08:00",
+      "duration_seconds": 9.318,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:04:21+08:00",
+      "end": "2026-07-24T22:04:28+08:00",
+      "duration_seconds": 6.188,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:04:30+08:00",
+      "end": "2026-07-24T22:04:34+08:00",
+      "duration_seconds": 4.15,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:04:35+08:00",
+      "end": "2026-07-24T22:05:05+08:00",
+      "duration_seconds": 29.938,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:05:06+08:00",
+      "end": "2026-07-24T22:05:07+08:00",
+      "duration_seconds": 1.023,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "无标题",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:05:08+08:00",
+      "end": "2026-07-24T22:05:09+08:00",
+      "duration_seconds": 1.04,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "domain": "bing.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:05:10+08:00",
+      "end": "2026-07-24T22:05:12+08:00",
+      "duration_seconds": 2.081,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "无标题",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:05:13+08:00",
+      "end": "2026-07-24T22:05:14+08:00",
+      "duration_seconds": 1.032,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:05:15+08:00",
+      "end": "2026-07-24T22:05:21+08:00",
+      "duration_seconds": 6.166,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:05:22+08:00",
+      "end": "2026-07-24T22:05:37+08:00",
+      "duration_seconds": 14.483,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:05:38+08:00",
+      "end": "2026-07-24T22:05:56+08:00",
+      "duration_seconds": 14.462,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:05:58+08:00",
+      "end": "2026-07-24T22:06:13+08:00",
+      "duration_seconds": 15.522,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:06:14+08:00",
+      "end": "2026-07-24T22:06:15+08:00",
+      "duration_seconds": 1.04,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:06:16+08:00",
+      "end": "2026-07-24T22:06:20+08:00",
+      "duration_seconds": 4.158,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:06:21+08:00",
+      "end": "2026-07-24T22:07:11+08:00",
+      "duration_seconds": 47.522,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-24T22:07:12+08:00",
+      "end": "2026-07-24T22:07:16+08:00",
+      "duration_seconds": 4.148,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:07:16+08:00",
+      "end": "2026-07-24T22:07:20+08:00",
+      "duration_seconds": 4.145,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:07:20+08:00",
+      "end": "2026-07-24T22:07:21+08:00",
+      "duration_seconds": 1.033,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:07:21+08:00",
+      "end": "2026-07-24T22:07:24+08:00",
+      "duration_seconds": 3.088,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:07:24+08:00",
+      "end": "2026-07-24T22:07:26+08:00",
+      "duration_seconds": 2.055,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:07:27+08:00",
+      "end": "2026-07-24T22:07:28+08:00",
+      "duration_seconds": 1.018,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:07:29+08:00",
+      "end": "2026-07-24T22:07:31+08:00",
+      "duration_seconds": 1.034,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:07:32+08:00",
+      "end": "2026-07-24T22:08:01+08:00",
+      "duration_seconds": 29.94,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大基因编辑致死事件 - Google Gemini",
+      "domain": "gemini.google.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:08:04+08:00",
+      "end": "2026-07-24T22:08:06+08:00",
+      "duration_seconds": 2.061,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:08:07+08:00",
+      "end": "2026-07-24T22:10:12+08:00",
+      "duration_seconds": 125.093,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "震撼非首发 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:10:13+08:00",
+      "end": "2026-07-24T22:10:19+08:00",
+      "duration_seconds": 6.215,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:10:19+08:00",
+      "end": "2026-07-24T22:10:22+08:00",
+      "duration_seconds": 3.094,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:10:22+08:00",
+      "end": "2026-07-24T22:11:22+08:00",
+      "duration_seconds": 59.915,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:11:22+08:00",
+      "end": "2026-07-24T22:11:25+08:00",
+      "duration_seconds": 3.085,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:11:25+08:00",
+      "end": "2026-07-24T22:11:27+08:00",
+      "duration_seconds": 2.045,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:11:28+08:00",
+      "end": "2026-07-24T22:11:31+08:00",
+      "duration_seconds": 3.176,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:11:32+08:00",
+      "end": "2026-07-24T22:11:33+08:00",
+      "duration_seconds": 1.042,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:11:34+08:00",
+      "end": "2026-07-24T22:11:37+08:00",
+      "duration_seconds": 2.075,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "震撼非首发 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:11:38+08:00",
+      "end": "2026-07-24T22:11:46+08:00",
+      "duration_seconds": 8.245,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:11:47+08:00",
+      "end": "2026-07-24T22:11:54+08:00",
+      "duration_seconds": 7.21,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:11:55+08:00",
+      "end": "2026-07-24T22:11:56+08:00",
+      "duration_seconds": 1.031,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:11:57+08:00",
+      "end": "2026-07-24T22:12:01+08:00",
+      "duration_seconds": 4.123,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:12:02+08:00",
+      "end": "2026-07-24T22:12:05+08:00",
+      "duration_seconds": 3.089,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:12:06+08:00",
+      "end": "2026-07-24T22:12:16+08:00",
+      "duration_seconds": 5.156,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:12:17+08:00",
+      "end": "2026-07-24T22:12:19+08:00",
+      "duration_seconds": 2.06,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:12:20+08:00",
+      "end": "2026-07-24T22:12:21+08:00",
+      "duration_seconds": 1.029,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:12:23+08:00",
+      "end": "2026-07-24T22:12:37+08:00",
+      "duration_seconds": 14.485,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:12:38+08:00",
+      "end": "2026-07-24T22:12:39+08:00",
+      "duration_seconds": 1.03,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:12:40+08:00",
+      "end": "2026-07-24T22:12:43+08:00",
+      "duration_seconds": 2.057,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:12:44+08:00",
+      "end": "2026-07-24T22:12:52+08:00",
+      "duration_seconds": 8.255,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:12:53+08:00",
+      "end": "2026-07-24T22:12:54+08:00",
+      "duration_seconds": 1.028,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:12:55+08:00",
+      "end": "2026-07-24T22:12:59+08:00",
+      "duration_seconds": 4.1,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:13:00+08:00",
+      "end": "2026-07-24T22:13:08+08:00",
+      "duration_seconds": 8.244,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:13:09+08:00",
+      "end": "2026-07-24T22:13:12+08:00",
+      "duration_seconds": 3.083,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:13:12+08:00",
+      "end": "2026-07-24T22:13:16+08:00",
+      "duration_seconds": 3.106,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:13:16+08:00",
+      "end": "2026-07-24T22:13:19+08:00",
+      "duration_seconds": 3.089,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:13:20+08:00",
+      "end": "2026-07-24T22:13:31+08:00",
+      "duration_seconds": 9.432,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:13:32+08:00",
+      "end": "2026-07-24T22:13:33+08:00",
+      "duration_seconds": 1.04,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "domain": "bing.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:13:33+08:00",
+      "end": "2026-07-24T22:13:36+08:00",
+      "duration_seconds": 3.108,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:13:36+08:00",
+      "end": "2026-07-24T22:13:45+08:00",
+      "duration_seconds": 8.27,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:13:46+08:00",
+      "end": "2026-07-24T22:13:50+08:00",
+      "duration_seconds": 4.151,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "domain": "bing.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:13:50+08:00",
+      "end": "2026-07-24T22:13:55+08:00",
+      "duration_seconds": 5.161,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:13:55+08:00",
+      "end": "2026-07-24T22:13:59+08:00",
+      "duration_seconds": 4.134,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:13:59+08:00",
+      "end": "2026-07-24T22:14:02+08:00",
+      "duration_seconds": 3.102,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:14:02+08:00",
+      "end": "2026-07-24T22:14:05+08:00",
+      "duration_seconds": 3.09,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "domain": "bing.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:14:06+08:00",
+      "end": "2026-07-24T22:14:12+08:00",
+      "duration_seconds": 6.207,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:14:15+08:00",
+      "end": "2026-07-24T22:14:25+08:00",
+      "duration_seconds": 9.312,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "domain": "bing.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:14:26+08:00",
+      "end": "2026-07-24T22:14:39+08:00",
+      "duration_seconds": 13.431,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:14:40+08:00",
+      "end": "2026-07-24T22:15:00+08:00",
+      "duration_seconds": 19.387,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "domain": "bing.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:15:00+08:00",
+      "end": "2026-07-24T22:15:04+08:00",
+      "duration_seconds": 4.351,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:15:06+08:00",
+      "end": "2026-07-24T22:15:08+08:00",
+      "duration_seconds": 2.055,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:15:09+08:00",
+      "end": "2026-07-24T22:15:15+08:00",
+      "duration_seconds": 6.196,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:15:15+08:00",
+      "end": "2026-07-24T22:15:20+08:00",
+      "duration_seconds": 4.133,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:15:20+08:00",
+      "end": "2026-07-24T22:15:36+08:00",
+      "duration_seconds": 14.473,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:15:38+08:00",
+      "end": "2026-07-24T22:15:39+08:00",
+      "duration_seconds": 1.025,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:15:40+08:00",
+      "end": "2026-07-24T22:15:42+08:00",
+      "duration_seconds": 2.064,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:15:43+08:00",
+      "end": "2026-07-24T22:15:46+08:00",
+      "duration_seconds": 3.096,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:15:47+08:00",
+      "end": "2026-07-24T22:15:50+08:00",
+      "duration_seconds": 2.065,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:15:51+08:00",
+      "end": "2026-07-24T22:15:53+08:00",
+      "duration_seconds": 2.084,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:15:54+08:00",
+      "end": "2026-07-24T22:15:55+08:00",
+      "duration_seconds": 1.045,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:15:56+08:00",
+      "end": "2026-07-24T22:15:57+08:00",
+      "duration_seconds": 1.037,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:15:58+08:00",
+      "end": "2026-07-24T22:16:09+08:00",
+      "duration_seconds": 11.372,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:16:09+08:00",
+      "end": "2026-07-24T22:16:15+08:00",
+      "duration_seconds": 6.2,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:16:15+08:00",
+      "end": "2026-07-24T22:16:19+08:00",
+      "duration_seconds": 3.092,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:16:20+08:00",
+      "end": "2026-07-24T22:16:30+08:00",
+      "duration_seconds": 10.333,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-24T22:16:32+08:00",
+      "end": "2026-07-24T22:16:36+08:00",
+      "duration_seconds": 4.12,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:16:37+08:00",
+      "end": "2026-07-24T22:16:38+08:00",
+      "duration_seconds": 1.029,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:16:39+08:00",
+      "end": "2026-07-24T22:16:40+08:00",
+      "duration_seconds": 1.037,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:16:41+08:00",
+      "end": "2026-07-24T22:17:02+08:00",
+      "duration_seconds": 18.538,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:17:03+08:00",
+      "end": "2026-07-24T22:17:08+08:00",
+      "duration_seconds": 5.146,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:17:10+08:00",
+      "end": "2026-07-24T22:17:16+08:00",
+      "duration_seconds": 5.16,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:17:18+08:00",
+      "end": "2026-07-24T22:17:19+08:00",
+      "duration_seconds": 1.036,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:17:22+08:00",
+      "end": "2026-07-24T22:17:25+08:00",
+      "duration_seconds": 3.097,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:17:27+08:00",
+      "end": "2026-07-24T22:17:34+08:00",
+      "duration_seconds": 5.165,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:17:35+08:00",
+      "end": "2026-07-24T22:17:41+08:00",
+      "duration_seconds": 4.142,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "domain": "bing.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:17:42+08:00",
+      "end": "2026-07-24T22:17:45+08:00",
+      "duration_seconds": 3.095,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:17:46+08:00",
+      "end": "2026-07-24T22:17:54+08:00",
+      "duration_seconds": 7.229,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:17:55+08:00",
+      "end": "2026-07-24T22:18:06+08:00",
+      "duration_seconds": 9.317,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:18:07+08:00",
+      "end": "2026-07-24T22:18:11+08:00",
+      "duration_seconds": 4.135,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice - 搜索",
+      "domain": "bing.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:18:13+08:00",
+      "end": "2026-07-24T22:18:15+08:00",
+      "duration_seconds": 2.078,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:18:18+08:00",
+      "end": "2026-07-24T22:18:42+08:00",
+      "duration_seconds": 24.863,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:18:45+08:00",
+      "end": "2026-07-24T22:18:50+08:00",
+      "duration_seconds": 4.143,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:18:51+08:00",
+      "end": "2026-07-24T22:18:55+08:00",
+      "duration_seconds": 4.118,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:18:56+08:00",
+      "end": "2026-07-24T22:19:09+08:00",
+      "duration_seconds": 13.432,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-24T22:19:11+08:00",
+      "end": "2026-07-24T22:19:14+08:00",
+      "duration_seconds": 3.103,
+      "app": "chrome.exe",
+      "app_display": "Google Chrome",
+      "title": "New Tab",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:19:14+08:00",
+      "end": "2026-07-24T22:19:18+08:00",
+      "duration_seconds": 3.118,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:19:18+08:00",
+      "end": "2026-07-24T22:19:22+08:00",
+      "duration_seconds": 4.136,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:19:23+08:00",
+      "end": "2026-07-24T22:19:28+08:00",
+      "duration_seconds": 5.148,
+      "app": "chrome.exe",
+      "app_display": "Google Chrome",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:19:29+08:00",
+      "end": "2026-07-24T22:19:43+08:00",
+      "duration_seconds": 14.487,
+      "app": "chrome.exe",
+      "app_display": "Google Chrome",
+      "title": "Recent download history",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:19:43+08:00",
+      "end": "2026-07-24T22:19:47+08:00",
+      "duration_seconds": 3.194,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:19:47+08:00",
+      "end": "2026-07-24T22:19:49+08:00",
+      "duration_seconds": 2.066,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:19:50+08:00",
+      "end": "2026-07-24T22:19:51+08:00",
+      "duration_seconds": 1.044,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:19:52+08:00",
+      "end": "2026-07-24T22:19:57+08:00",
+      "duration_seconds": 5.194,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:19:58+08:00",
+      "end": "2026-07-24T22:20:13+08:00",
+      "duration_seconds": 14.533,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:20:15+08:00",
+      "end": "2026-07-24T22:20:23+08:00",
+      "duration_seconds": 8.26,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:20:24+08:00",
+      "end": "2026-07-24T22:21:01+08:00",
+      "duration_seconds": 37.276,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:21:02+08:00",
+      "end": "2026-07-24T22:21:12+08:00",
+      "duration_seconds": 9.313,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:21:12+08:00",
+      "end": "2026-07-24T22:21:16+08:00",
+      "duration_seconds": 4.13,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:21:16+08:00",
+      "end": "2026-07-24T22:21:17+08:00",
+      "duration_seconds": 1.037,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "domain": "nature.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:21:19+08:00",
+      "end": "2026-07-24T22:21:20+08:00",
+      "duration_seconds": 1.041,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "edge浏览器下载 - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:21:21+08:00",
+      "end": "2026-07-24T22:21:22+08:00",
+      "duration_seconds": 1.036,
+      "app": "ShellHost.exe",
+      "app_display": "ShellHost.exe",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:21:23+08:00",
+      "end": "2026-07-24T22:21:48+08:00",
+      "duration_seconds": 24.77,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:21:49+08:00",
+      "end": "2026-07-24T22:21:57+08:00",
+      "duration_seconds": 8.274,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "s41586-026-10113-6.pdf",
+      "domain": "",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:21:58+08:00",
+      "end": "2026-07-24T22:23:04+08:00",
+      "duration_seconds": 64.162,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:23:06+08:00",
+      "end": "2026-07-24T22:23:07+08:00",
+      "duration_seconds": 1.045,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:23:09+08:00",
+      "end": "2026-07-24T22:23:10+08:00",
+      "duration_seconds": 1.033,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "s41586-026-10113-6.pdf",
+      "domain": "",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:23:11+08:00",
+      "end": "2026-07-24T22:23:14+08:00",
+      "duration_seconds": 2.074,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:23:15+08:00",
+      "end": "2026-07-24T22:24:03+08:00",
+      "duration_seconds": 48.619,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "s41586-026-10113-6.pdf",
+      "domain": "",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:24:03+08:00",
+      "end": "2026-07-24T22:24:06+08:00",
+      "duration_seconds": 3.095,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:24:06+08:00",
+      "end": "2026-07-24T22:24:10+08:00",
+      "duration_seconds": 4.139,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:24:13+08:00",
+      "end": "2026-07-24T22:24:14+08:00",
+      "duration_seconds": 1.036,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "s41586-026-10113-6.pdf",
+      "domain": "",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:24:14+08:00",
+      "end": "2026-07-24T22:24:18+08:00",
+      "duration_seconds": 4.122,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T22:24:18+08:00",
+      "end": "2026-07-24T22:24:21+08:00",
+      "duration_seconds": 3.102,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:24:23+08:00",
+      "end": "2026-07-24T22:24:26+08:00",
+      "duration_seconds": 3.108,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "domain": "space.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:24:27+08:00",
+      "end": "2026-07-24T22:24:28+08:00",
+      "duration_seconds": 1.031,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:24:29+08:00",
+      "end": "2026-07-24T22:24:32+08:00",
+      "duration_seconds": 3.096,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "domain": "space.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T22:24:33+08:00",
+      "end": "2026-07-24T22:25:30+08:00",
+      "duration_seconds": 56.86,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:25:31+08:00",
+      "end": "2026-07-24T22:25:32+08:00",
+      "duration_seconds": 1.037,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿不高中数学的个人空间-阿不高中数学个人主页-哔哩哔哩视频",
+      "domain": "space.bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T22:25:34+08:00",
+      "end": "2026-07-24T22:25:36+08:00",
+      "duration_seconds": 2.068,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】3.1 解方程：自由度与消元思想_哔哩哔哩_bilibili",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:25:37+08:00",
+      "end": "2026-07-24T22:28:02+08:00",
+      "duration_seconds": 142.494,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-24T22:28:03+08:00",
+      "end": "2026-07-24T22:28:04+08:00",
+      "duration_seconds": 1.037,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T22:28:06+08:00",
+      "end": "2026-07-24T22:30:00+08:00",
+      "duration_seconds": 111.485,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.854,
+    "browser_title_coverage": 0.928,
+    "browser_domain_context_coverage": 0.846,
+    "web_watcher_exact_time_overlap": 0.447,
+    "browser_share_of_active_time": 0.439,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活跃窗口只覆盖85.4%。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

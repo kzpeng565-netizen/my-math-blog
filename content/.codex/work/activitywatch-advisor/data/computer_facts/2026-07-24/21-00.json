@@ -1,0 +1,795 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-24T21:00:00+08:00",
+    "end": "2026-07-24T21:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 93,
+      "aw-watcher-afk_xyh": 5,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 39
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 25.94,
+    "afk_minutes": 4.06,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 24.4
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 6.7
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 6.38
+    },
+    {
+      "app": "微信",
+      "minutes": 5.8
+    },
+    {
+      "app": "微信小程序",
+      "minutes": 5.47
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 0.05
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "zhihu.com",
+      "minutes": 2.61
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "minutes": 0.78
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.26
+    },
+    {
+      "domain": "search.bilibili.com",
+      "minutes": 0.1
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 6.38
+    },
+    {
+      "app": "微信小程序",
+      "domain": "",
+      "title": "微信",
+      "minutes": 5.47
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 5.16
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "minutes": 2.16
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "minutes": 1.17
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 0.74
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "首页 - 知乎",
+      "minutes": 0.71
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "仇子龙 - 知乎",
+      "minutes": 0.71
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.62
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "上海交大 治疗 - 小红书搜索",
+      "minutes": 0.41
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "针对《科学》（Science）报道的6岁女童接受基因编辑试验后死亡事件，7月24日，经济观察报联系了涉事的上海交通大学医学院，其宣传部门一位工作人员回应：“目前还在调查中。”#6岁女童基因编辑试验后死亡 #上海交大医学院调查中 - 小红书",
+      "minutes": 0.36
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.26
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "search.bilibili.com",
+      "title": "阿布高中数学-哔哩哔哩_bilibili",
+      "minutes": 0.1
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "仇子龙 - 知乎",
+      "minutes": 0.07
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "手机使用记录系统——树莓派端操作与维护指南",
+      "minutes": 0.05
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "阿布高中数学-哔哩哔哩_bilibili",
+      "minutes": 0.02
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信发送给",
+      "minutes": 0.02
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-24T21:00:00+08:00",
+      "end": "2026-07-24T21:00:25+08:00",
+      "duration_seconds": 25.643,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-24T21:00:25+08:00",
+      "end": "2026-07-24T21:01:53+08:00",
+      "duration_seconds": 87.953,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-24T21:01:53+08:00",
+      "end": "2026-07-24T21:05:31+08:00",
+      "duration_seconds": 217.673,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-24T21:05:31+08:00",
+      "end": "2026-07-24T21:30:00+08:00",
+      "duration_seconds": 1468.729,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-24T21:00:26+08:00",
+      "end": "2026-07-24T21:01:08+08:00",
+      "duration_seconds": 42.372,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:01:08+08:00",
+      "end": "2026-07-24T21:01:12+08:00",
+      "duration_seconds": 3.091,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T21:01:12+08:00",
+      "end": "2026-07-24T21:01:53+08:00",
+      "duration_seconds": 41.575,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:05:31+08:00",
+      "end": "2026-07-24T21:06:31+08:00",
+      "duration_seconds": 56.882,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:06:31+08:00",
+      "end": "2026-07-24T21:07:59+08:00",
+      "duration_seconds": 88.161,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:07:59+08:00",
+      "end": "2026-07-24T21:08:06+08:00",
+      "duration_seconds": 6.884,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:08:07+08:00",
+      "end": "2026-07-24T21:08:11+08:00",
+      "duration_seconds": 4.14,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "仇子龙 - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:08:12+08:00",
+      "end": "2026-07-24T21:11:21+08:00",
+      "duration_seconds": 189.389,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:11:22+08:00",
+      "end": "2026-07-24T21:12:05+08:00",
+      "duration_seconds": 42.328,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "仇子龙 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:12:06+08:00",
+      "end": "2026-07-24T21:12:12+08:00",
+      "duration_seconds": 6.193,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Science 刊文揭露一位中国 6 岁女孩在基因编辑实验中死亡，涉事医学院称在调查，如何看待此事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:12:13+08:00",
+      "end": "2026-07-24T21:12:23+08:00",
+      "duration_seconds": 10.315,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:12:23+08:00",
+      "end": "2026-07-24T21:12:28+08:00",
+      "duration_seconds": 5.169,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T21:12:28+08:00",
+      "end": "2026-07-24T21:12:54+08:00",
+      "duration_seconds": 25.822,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:12:54+08:00",
+      "end": "2026-07-24T21:12:58+08:00",
+      "duration_seconds": 4.13,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T21:12:58+08:00",
+      "end": "2026-07-24T21:13:01+08:00",
+      "duration_seconds": 2.073,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿布高中数学-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:13:02+08:00",
+      "end": "2026-07-24T21:15:05+08:00",
+      "duration_seconds": 123.838,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:15:07+08:00",
+      "end": "2026-07-24T21:15:13+08:00",
+      "duration_seconds": 5.164,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:15:14+08:00",
+      "end": "2026-07-24T21:15:45+08:00",
+      "duration_seconds": 31.048,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:15:46+08:00",
+      "end": "2026-07-24T21:15:47+08:00",
+      "duration_seconds": 1.041,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:15:48+08:00",
+      "end": "2026-07-24T21:15:49+08:00",
+      "duration_seconds": 1.038,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:15:50+08:00",
+      "end": "2026-07-24T21:15:57+08:00",
+      "duration_seconds": 7.223,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:15:58+08:00",
+      "end": "2026-07-24T21:16:11+08:00",
+      "duration_seconds": 12.389,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:16:12+08:00",
+      "end": "2026-07-24T21:16:31+08:00",
+      "duration_seconds": 19.62,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:16:33+08:00",
+      "end": "2026-07-24T21:16:37+08:00",
+      "duration_seconds": 3.092,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿布高中数学-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:16:38+08:00",
+      "end": "2026-07-24T21:16:39+08:00",
+      "duration_seconds": 1.036,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿布高中数学-哔哩哔哩_bilibili",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:16:41+08:00",
+      "end": "2026-07-24T21:16:45+08:00",
+      "duration_seconds": 3.086,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "手机使用记录系统——树莓派端操作与维护指南",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:16:47+08:00",
+      "end": "2026-07-24T21:17:19+08:00",
+      "duration_seconds": 32.032,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:17:20+08:00",
+      "end": "2026-07-24T21:17:21+08:00",
+      "duration_seconds": 1.053,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:17:22+08:00",
+      "end": "2026-07-24T21:17:30+08:00",
+      "duration_seconds": 8.285,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:17:31+08:00",
+      "end": "2026-07-24T21:17:48+08:00",
+      "duration_seconds": 16.553,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:17:49+08:00",
+      "end": "2026-07-24T21:18:57+08:00",
+      "duration_seconds": 68.179,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:18:58+08:00",
+      "end": "2026-07-24T21:19:02+08:00",
+      "duration_seconds": 4.141,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:19:04+08:00",
+      "end": "2026-07-24T21:19:07+08:00",
+      "duration_seconds": 3.098,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:19:08+08:00",
+      "end": "2026-07-24T21:19:09+08:00",
+      "duration_seconds": 1.034,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信发送给",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:19:11+08:00",
+      "end": "2026-07-24T21:19:14+08:00",
+      "duration_seconds": 3.103,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:19:15+08:00",
+      "end": "2026-07-24T21:19:19+08:00",
+      "duration_seconds": 3.098,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:19:20+08:00",
+      "end": "2026-07-24T21:19:22+08:00",
+      "duration_seconds": 2.078,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:19:24+08:00",
+      "end": "2026-07-24T21:22:45+08:00",
+      "duration_seconds": 201.05,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:22:47+08:00",
+      "end": "2026-07-24T21:22:51+08:00",
+      "duration_seconds": 4.144,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:22:52+08:00",
+      "end": "2026-07-24T21:23:43+08:00",
+      "duration_seconds": 50.532,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:23:43+08:00",
+      "end": "2026-07-24T21:23:47+08:00",
+      "duration_seconds": 4.114,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T21:23:47+08:00",
+      "end": "2026-07-24T21:24:30+08:00",
+      "duration_seconds": 43.332,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:24:31+08:00",
+      "end": "2026-07-24T21:24:32+08:00",
+      "duration_seconds": 1.036,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "阿布高中数学-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:24:33+08:00",
+      "end": "2026-07-24T21:24:51+08:00",
+      "duration_seconds": 15.459,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:24:51+08:00",
+      "end": "2026-07-24T21:24:54+08:00",
+      "duration_seconds": 3.1,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T21:24:54+08:00",
+      "end": "2026-07-24T21:25:02+08:00",
+      "duration_seconds": 8.274,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:25:03+08:00",
+      "end": "2026-07-24T21:25:08+08:00",
+      "duration_seconds": 5.164,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:25:10+08:00",
+      "end": "2026-07-24T21:25:37+08:00",
+      "duration_seconds": 24.767,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上海交大 治疗 - 小红书搜索",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:25:38+08:00",
+      "end": "2026-07-24T21:26:23+08:00",
+      "duration_seconds": 44.529,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:26:23+08:00",
+      "end": "2026-07-24T21:26:26+08:00",
+      "duration_seconds": 3.106,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T21:26:26+08:00",
+      "end": "2026-07-24T21:29:08+08:00",
+      "duration_seconds": 162.083,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:29:10+08:00",
+      "end": "2026-07-24T21:29:12+08:00",
+      "duration_seconds": 2.069,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "针对《科学》（Science）报道的6岁女童接受基因编辑试验后死亡事件，7月24日，经济观察报联系了涉事的上海交通大学医学院，其宣传部门一位工作人员回应：“目前还在调查中。”#6岁女童基因编辑试验后死亡 #上海交大医学院调查中 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:29:12+08:00",
+      "end": "2026-07-24T21:29:15+08:00",
+      "duration_seconds": 3.101,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T21:29:15+08:00",
+      "end": "2026-07-24T21:29:21+08:00",
+      "duration_seconds": 5.251,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "针对《科学》（Science）报道的6岁女童接受基因编辑试验后死亡事件，7月24日，经济观察报联系了涉事的上海交通大学医学院，其宣传部门一位工作人员回应：“目前还在调查中。”#6岁女童基因编辑试验后死亡 #上海交大医学院调查中 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:29:22+08:00",
+      "end": "2026-07-24T21:29:39+08:00",
+      "duration_seconds": 14.43,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T21:29:40+08:00",
+      "end": "2026-07-24T21:29:44+08:00",
+      "duration_seconds": 4.126,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "针对《科学》（Science）报道的6岁女童接受基因编辑试验后死亡事件，7月24日，经济观察报联系了涉事的上海交通大学医学院，其宣传部门一位工作人员回应：“目前还在调查中。”#6岁女童基因编辑试验后死亡 #上海交大医学院调查中 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T21:29:44+08:00",
+      "end": "2026-07-24T21:29:49+08:00",
+      "duration_seconds": 5.169,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T21:29:49+08:00",
+      "end": "2026-07-24T21:30:00+08:00",
+      "duration_seconds": 10.354,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "针对《科学》（Science）报道的6岁女童接受基因编辑试验后死亡事件，7月24日，经济观察报联系了涉事的上海交通大学医学院，其宣传部门一位工作人员回应：“目前还在调查中。”#6岁女童基因编辑试验后死亡 #上海交大医学院调查中 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.94,
+    "browser_web_context_coverage": 0.559,
+    "browser_share_of_active_time": 0.258,
+    "timeline_truncated": false,
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "网页标题和当前标签页可能过期或不能完整代表实际阅读内容。",
+      "未匹配网页事件时保留窗口标题，不强行推断网页用途。"
+    ]
+  }
+}

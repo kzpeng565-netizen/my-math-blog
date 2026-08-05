@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T18:00:00+08:00",
+    "end": "2026-07-25T18:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 33,
+      "aw-watcher-afk_xyh": 13,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 24
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 5.08,
+    "afk_minutes": 19.32,
+    "unknown_status_minutes": 5.6,
+    "window_observed_minutes": 4.6
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 4.6
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 1.33
+    },
+    {
+      "domain": "zhihu.com",
+      "minutes": 1.09
+    },
+    {
+      "domain": "t.bilibili.com",
+      "minutes": 0.98
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "minutes": 1.33
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 1.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "t.bilibili.com",
+      "title": "不长双小核的动态-哔哩哔哩",
+      "minutes": 0.98
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "任正非为什么说「τ 定律是华为唯一出路」？ - 知乎",
+      "minutes": 0.6
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "如何评价启境 GT7 搭载全球首个韬定律的数字底盘？ - 知乎",
+      "minutes": 0.57
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T18:00:33+08:00",
+      "last_seen": "2026-07-25T18:07:17+08:00",
+      "raw_event_count": 5
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T18:00:46+08:00",
+      "last_seen": "2026-07-25T18:29:16+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "first_seen": "2026-07-25T18:07:17+08:00",
+      "last_seen": "2026-07-25T18:11:15+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "t.bilibili.com",
+      "title": "不长双小核的动态-哔哩哔哩",
+      "first_seen": "2026-07-25T18:07:37+08:00",
+      "last_seen": "2026-07-25T18:08:37+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-25T18:11:15+08:00",
+      "last_seen": "2026-07-25T18:13:03+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "日系车三巨头在华销量全线下跌，专家称短期难扭转，主要原因是什么？ - 知乎",
+      "first_seen": "2026-07-25T18:13:03+08:00",
+      "last_seen": "2026-07-25T18:29:33+08:00",
+      "raw_event_count": 12
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T18:00:00+08:00",
+      "end": "2026-07-25T18:07:17+08:00",
+      "duration_seconds": 437.39,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T18:07:17+08:00",
+      "end": "2026-07-25T18:12:22+08:00",
+      "duration_seconds": 304.965,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T18:12:22+08:00",
+      "end": "2026-07-25T18:16:03+08:00",
+      "duration_seconds": 221.089,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T18:16:03+08:00",
+      "end": "2026-07-25T18:21:39+08:00",
+      "duration_seconds": 335.792,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-25T18:21:39+08:00",
+      "end": "2026-07-25T18:30:00+08:00",
+      "duration_seconds": 500.763,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T18:07:17+08:00",
+      "end": "2026-07-25T18:07:34+08:00",
+      "duration_seconds": 12.39,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T18:07:34+08:00",
+      "end": "2026-07-25T18:07:38+08:00",
+      "duration_seconds": 3.094,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T18:07:38+08:00",
+      "end": "2026-07-25T18:08:37+08:00",
+      "duration_seconds": 59.026,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "不长双小核的动态-哔哩哔哩",
+      "domain": "t.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T18:08:38+08:00",
+      "end": "2026-07-25T18:09:48+08:00",
+      "duration_seconds": 67.174,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T18:09:49+08:00",
+      "end": "2026-07-25T18:09:51+08:00",
+      "duration_seconds": 2.069,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T18:09:51+08:00",
+      "end": "2026-07-25T18:09:55+08:00",
+      "duration_seconds": 4.128,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T18:09:55+08:00",
+      "end": "2026-07-25T18:09:59+08:00",
+      "duration_seconds": 4.151,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T18:09:59+08:00",
+      "end": "2026-07-25T18:10:02+08:00",
+      "duration_seconds": 3.1,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-25T18:10:02+08:00",
+      "end": "2026-07-25T18:10:39+08:00",
+      "duration_seconds": 36.124,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "任正非为什么说「τ 定律是华为唯一出路」？ - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T18:10:41+08:00",
+      "end": "2026-07-25T18:11:15+08:00",
+      "duration_seconds": 34.107,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "如何评价启境 GT7 搭载全球首个韬定律的数字底盘？ - 知乎",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T18:11:16+08:00",
+      "end": "2026-07-25T18:12:22+08:00",
+      "duration_seconds": 60.978,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    }
+  ],
+  "quality": {
+    "level": "low",
+    "active_window_coverage": 0.905,
+    "browser_title_coverage": 0.993,
+    "browser_domain_context_coverage": 0.738,
+    "web_watcher_exact_time_overlap": 0.719,
+    "browser_share_of_active_time": 0.905,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活动状态未知5.6分钟。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

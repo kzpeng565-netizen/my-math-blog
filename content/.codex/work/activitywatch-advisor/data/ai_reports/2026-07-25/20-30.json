@@ -1,0 +1,168 @@
+{
+  "period": "2026-07-25T20:30:00+08:00/2026-07-25T21:00:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐30.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 30.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 6,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "整个时段均为纯娱乐活动，未发现工作活动，因此不存在工作内的娱乐偏离。"
+  },
+  "computer_summary": "电脑在20:47:38之后开始使用Microsoft Edge浏览知乎，累计约12.36分钟，浏览了多个知乎话题（如基因编辑、菲尔兹奖、日系车等），属于纯信息浏览/娱乐。",
+  "phone_summary": "手机在20:30-20:47:38期间屏幕常亮，主要使用抖音（约11.92分钟）和微信（约4.15分钟），之后息屏。微信使用属于短暂通信或社交，抖音为娱乐。",
+  "material_uncertainties": [],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐30.0分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "请核验：本时段电脑浏览知乎是否为工作相关？如果为工作，则状态将变为工作伴随娱乐偏离，但目前判断为纯娱乐。",
+  "observed_metrics": {
+    "computer_active_minutes": 12.36,
+    "computer_afk_minutes": 17.64,
+    "phone_screen_on_minutes": 17.68,
+    "simultaneous_computer_active_phone_on_minutes": 1.02,
+    "no_detected_device_interaction_minutes": 0.97,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 30.0,
+      "range_minutes": [
+        30.0,
+        30.0
+      ],
+      "evidence": [
+        "手机一直在用，前台以抖音为主（com.ss.android.ugc.aweme累计约11分钟）",
+        "期间有短时使用微信（累计约4分钟）",
+        "电脑处于AFK状态，无操作",
+        "前后上下文无工作迹象，属于纯娱乐活动"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "20:30-20:47",
+      "likely_state": "娱乐",
+      "minutes": 17.63,
+      "task": "刷抖音短视频和短时微信通信",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机一直在用，前台以抖音为主（com.ss.android.ugc.aweme累计约11分钟）",
+        "期间有短时使用微信（累计约4分钟）",
+        "电脑处于AFK状态，无操作",
+        "前后上下文无工作迹象，属于纯娱乐活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:47-21:00",
+      "likely_state": "娱乐",
+      "minutes": 12.37,
+      "task": "浏览知乎各类话题",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从AFK恢复，连续使用Microsoft Edge浏览知乎",
+        "浏览了多个知乎问题：基因编辑、菲尔兹奖、日系车等，内容混杂",
+        "手机在此段大部分时间息屏，无活动",
+        "前后上下文无工作内容，纯信息/娱乐浏览"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8578,
+      "completion_tokens": 1409,
+      "total_tokens": 9987,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1060
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 7682
+    }
+  }
+}

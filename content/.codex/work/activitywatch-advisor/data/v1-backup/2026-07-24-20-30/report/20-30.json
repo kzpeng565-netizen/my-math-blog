@@ -1,0 +1,101 @@
+{
+  "period": "2026-07-24T20:30:00+08:00/2026-07-24T21:00:00+08:00",
+  "concise_report": "这半小时内，电脑主要用于观看B站初高衔接数学视频和与ChatGPT交互，短暂查阅DeepSeek API文档。手机仅有两次短暂亮屏（共30秒），快速查看了哔哩哔哩、桌面、全局搜索和QQ。整体以学习活动为主，手机使用短暂，未发现长时间分心。",
+  "computer_interpretation": {
+    "facts": [
+      "电脑活跃26.72分钟，AFK 3.28分钟。",
+      "主要应用：Microsoft Edge（17.6分钟）、ChatGPT（8.1分钟）、Clash Verge（0.24分钟）。",
+      "Edge主要浏览B站（bilibili.com）的教育视频，标题含‘初高衔接’、‘对称式、主元思想’等，累计约9分钟。",
+      "打开过DeepSeek开放平台和API文档页面，但时间很短（不到1分钟）。",
+      "在Edge中搜索‘kimi和deepseek’，并短暂访问B站搜索结果。",
+      "ChatGPT连续使用（8.1分钟），中间穿插Edge活动。",
+      "最后3分多钟处于AFK状态。"
+    ],
+    "likely_explanation": "用户在电脑上进行学习活动，主要观看B站上的初高衔接数学教学视频，同时使用ChatGPT辅助理解或提问，并短暂调查DeepSeek API和对比AI工具。中途短暂切换到Clash Verge可能用于网络配置。",
+    "confidence": "medium",
+    "uncertainties": [
+      "浏览器网页覆盖率仅36.3%，部分Edge活动可能未捕获具体网页内容。",
+      "ChatGPT的具体交互内容未知，无法确定是学习、编程还是其他用途。",
+      "AFK阶段可能是短暂离开或思考，不一定代表休息。"
+    ]
+  },
+  "phone_interpretation": {
+    "facts": [
+      "手机亮屏总时长0.5分钟，分两次：20:37:25-20:37:48（23秒）和20:40:23-20:40:30（7秒）。",
+      "第一次亮屏前台应用依次为：未知(3秒) → 哔哩哔哩(1秒) → 手机桌面(3秒) → Vivo全局搜索(4秒) → QQ(12秒)。",
+      "第二次亮屏前台应用未知(7秒)。",
+      "两次亮屏间隔约2分35秒（手机灭屏）。",
+      "手机静置时间较长，无其他活动。"
+    ],
+    "likely_explanation": "用户很可能只是快速查看手机，第一次可能是查看消息或快速搜索后回复QQ，第二次可能是查看通知或解锁后立刻放回。总时间极短，不像深度使用。",
+    "confidence": "medium",
+    "uncertainties": [
+      "前台应用未知时段（10秒）无法确定具体操作。",
+      "手机亮屏不代表用户一定在注视或操作，可能只是拿起来查看。"
+    ]
+  },
+  "cross_device_observations": [
+    {
+      "observation": "两次手机亮屏均发生在电脑活跃时段（非AFK），重叠时间共0.5分钟。",
+      "confidence": "medium",
+      "evidence": [
+        "电脑活跃时间线显示20:37-20:40期间在ChatGPT活跃，20:40-20:41短暂切换到Edge。",
+        "手机两次亮屏分别对应电脑活跃的ChatGPT和Edge时段。"
+      ]
+    }
+  ],
+  "likely_activities": [
+    {
+      "hypothesis": "用户正在通过B站视频学习初高衔接数学，并借助ChatGPT辅助理解或做笔记。",
+      "confidence": "medium",
+      "evidence": [
+        "B站教育视频（初高衔接）累计时长约9分钟。",
+        "ChatGPT使用8.1分钟，且与Edge观看视频时间上交替。"
+      ],
+      "alternatives": [
+        "也可能是在复习或备课，ChatGPT用于生成练习题。",
+        "观看视频时同时使用ChatGPT查询相关概念。"
+      ]
+    },
+    {
+      "hypothesis": "用户短暂调查DeepSeek API和对比AI（kimi vs deepseek），但未深入。",
+      "confidence": "low",
+      "evidence": [
+        "Edge中出现了DeepSeek开放平台和API文档页面（但总时长不足1分钟）。",
+        "搜索了‘kimi和deepseek’并快速浏览。"
+      ],
+      "alternatives": [
+        "可能只是好奇打开，未实际使用。",
+        "搜索后即关闭，未阅读。"
+      ]
+    }
+  ],
+  "data_quality_assessment": {
+    "level": "medium",
+    "issues": [
+      "电脑浏览器网页覆盖率仅36.3%，部分Edge标签页内容可能未记录。",
+      "手机心跳事件距离时段结束有约11分钟缺口，可能遗漏最后阶段的手机活动。",
+      "手机两次亮屏部分时段前台应用未知（10秒），影响精确分析。"
+    ]
+  },
+  "gentle_suggestions": [],
+  "verification_question": "第一次手机亮屏（20:37）前后，您是否正使用ChatGPT并与学习内容相关？",
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6027,
+      "completion_tokens": 2241,
+      "total_tokens": 8268,
+      "prompt_tokens_details": {
+        "cached_tokens": 6016
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1066
+      },
+      "prompt_cache_hit_tokens": 6016,
+      "prompt_cache_miss_tokens": 11
+    }
+  }
+}

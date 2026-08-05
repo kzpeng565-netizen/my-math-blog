@@ -1,0 +1,198 @@
+{
+  "schema_version": 3,
+  "period": {
+    "start": "2026-07-25T09:30:00+08:00",
+    "end": "2026-07-25T10:00:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-25/09-30.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-25/09-30.json",
+  "semantic_timeline_file": "/home/conrad/workspace/activitywatch-advisor/data/semantic_timelines/2026-07-25/09-30.json",
+  "mixing_metrics_file": "/home/conrad/workspace/activitywatch-advisor/data/mixing_metrics/2026-07-25/09-30.json",
+  "cross_device_facts": {
+    "schema_version": 2,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-25T09:30:00+08:00",
+      "end": "2026-07-25T10:00:00+08:00"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 15.02,
+      "computer_afk_minutes": 14.98,
+      "phone_screen_on_minutes": 6.28,
+      "any_device_interaction_minutes": 19.98,
+      "no_detected_device_interaction_minutes": 10.02,
+      "confirmed_rest_minutes": 9.08,
+      "note": "confirmed_rest_minutes按用户确认的跨设备连续无操作规则计算。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "future_devices_not_connected": [
+        "tablet"
+      ],
+      "condition": "电脑连续AFK达到阈值，且所有已接入移动设备均无操作。",
+      "confirmed_intervals": [
+        {
+          "start": "2026-07-25T09:35:53+08:00",
+          "end": "2026-07-25T09:44:58+08:00",
+          "minutes": 9.08
+        }
+      ]
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 16,
+      "context_switch_count": 15,
+      "switches_per_active_hour": 66.27,
+      "short_context_blocks_under_60_seconds": 11,
+      "sustained_context_blocks_at_least_5_minutes": 0,
+      "longest_context_minutes": 4.26,
+      "median_context_minutes": 0.36,
+      "context_blocks": [
+        {
+          "start": "2026-07-25T09:45:11+08:00",
+          "end": "2026-07-25T09:49:26+08:00",
+          "minutes": 4.26,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:49:29+08:00",
+          "end": "2026-07-25T09:49:47+08:00",
+          "minutes": 0.29,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:49:50+08:00",
+          "end": "2026-07-25T09:50:01+08:00",
+          "minutes": 0.15,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:50:13+08:00",
+          "end": "2026-07-25T09:50:22+08:00",
+          "minutes": 0.14,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:50:23+08:00",
+          "end": "2026-07-25T09:50:28+08:00",
+          "minutes": 0.09,
+          "app": "活跃但无窗口记录",
+          "title": "",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:50:28+08:00",
+          "end": "2026-07-25T09:52:01+08:00",
+          "minutes": 1.54,
+          "app": "Microsoft Edge",
+          "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T09:52:02+08:00",
+          "end": "2026-07-25T09:53:42+08:00",
+          "minutes": 1.67,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:53:43+08:00",
+          "end": "2026-07-25T09:53:54+08:00",
+          "minutes": 0.19,
+          "app": "Obsidian",
+          "title": "初高衔接1 从因式分解与不等式",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:53:57+08:00",
+          "end": "2026-07-25T09:54:30+08:00",
+          "minutes": 0.55,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:54:36+08:00",
+          "end": "2026-07-25T09:55:02+08:00",
+          "minutes": 0.43,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:55:06+08:00",
+          "end": "2026-07-25T09:55:13+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:55:21+08:00",
+          "end": "2026-07-25T09:55:28+08:00",
+          "minutes": 0.1,
+          "app": "Obsidian",
+          "title": "初高衔接2 乘法公式&主元思想&因式分解",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T09:55:37+08:00",
+          "end": "2026-07-25T09:55:45+08:00",
+          "minutes": 0.14,
+          "app": "Microsoft Edge",
+          "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-25T09:55:48+08:00",
+          "end": "2026-07-25T09:56:22+08:00",
+          "minutes": 0.57,
+          "app": "Microsoft Edge",
+          "title": "新建标签页",
+          "domain": "newtab"
+        },
+        {
+          "start": "2026-07-25T09:56:23+08:00",
+          "end": "2026-07-25T09:57:58+08:00",
+          "minutes": 1.58,
+          "app": "Microsoft Edge",
+          "title": "A380时隔多年现身杭州，373名乘客被困机舱超10小时，为何不能下机? 多方回应",
+          "domain": "msn.cn"
+        },
+        {
+          "start": "2026-07-25T09:58:13+08:00",
+          "end": "2026-07-25T10:00:00+08:00",
+          "minutes": 1.77,
+          "app": "Microsoft Edge",
+          "title": "商务部宣布为维护国家安全和利益，将 14 家欧盟实体列入出口管制管控名单，有哪些信息值得关注？ - 知乎",
+          "domain": "zhihu.com"
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 1.33,
+      "computer_afk_and_phone_on": 4.95,
+      "computer_not_afk_and_phone_off": 13.7,
+      "computer_afk_and_phone_off": 10.02
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。"
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T09:00:00+08:00",
+    "end": "2026-07-26T09:30:00+08:00"
+  },
+  "primary_work_task": "数学学习",
+  "segments": [
+    {
+      "start": "2026-07-26T09:00:00+08:00",
+      "end": "2026-07-26T09:15:13+08:00",
+      "duration_seconds": 913.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览小红书、知乎等关于王虹邓煜菲尔兹奖的娱乐内容",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "09:00-09:02 浏览知乎首页和Kimi K3文章，之后切换到小红书浏览“王虹在nyu和ucla教书时期的学生评分”、“女神会被曾经的大佬同学嫉妒吗”等与个人生活相关话题，非学术内容",
+        "09:03-09:15 连续浏览小红书多个帖子（王虹学生评分、田刚合影、王虹INTP邓煜INTJ、每对情侣身边都会有个Steve等），主题娱乐八卦化，非工作",
+        "前后上下文显示用户8:55-9:00在配置AI工具（CC Switch、ChatGPT），工作意图明显；但报告时段内主要行为是娱乐刷小红书，后因AFK中断",
+        "手机全程息屏，无其他设备干扰"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T09:15:13+08:00",
+      "end": "2026-07-26T09:27:13+08:00",
+      "duration_seconds": 720.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "跨设备休息规则确认的休息区间：09:15:13-09:27:13",
+        "电脑持续AFK，手机全程息屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T09:27:13+08:00",
+      "end": "2026-07-26T09:28:27+08:00",
+      "duration_seconds": 74.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "观看B站数学视频《集合与逻辑》1.1 集合",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "AFK结束后回到电脑，打开B站视频【集合与逻辑】1.1 集合",
+        "前后上下文显示用户之后继续学习数学（Obsidian笔记、1.2视频）"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T09:28:27+08:00",
+      "end": "2026-07-26T09:30:00+08:00",
+      "duration_seconds": 93.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "暂时离开（AFK，未达3分钟确认休息）",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑进入AFK状态，持续时间92秒，不足3分钟",
+        "手机息屏",
+        "非确认休息区间"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "09:27-09:28的短暂工作段（1.25分钟）后立即AFK，可能只是看一下视频后离开，任务是否持续不确定"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 2
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 20024,
+      "completion_tokens": 857,
+      "total_tokens": 20881,
+      "prompt_tokens_details": {
+        "cached_tokens": 19072
+      },
+      "prompt_cache_hit_tokens": 19072,
+      "prompt_cache_miss_tokens": 952
+    }
+  }
+}

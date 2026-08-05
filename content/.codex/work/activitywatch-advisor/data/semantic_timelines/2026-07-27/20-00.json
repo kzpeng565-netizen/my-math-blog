@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T20:00:00+08:00",
+    "end": "2026-07-27T20:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T20:00:00+08:00",
+      "end": "2026-07-27T20:11:00+08:00",
+      "duration_seconds": 660.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机熄屏11分钟",
+        "符合确定性休息规则中的确认休息区间",
+        "平板亮屏仅作为辅助数据",
+        "前后上下文：电脑此前已长时间AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T20:11:00+08:00",
+      "end": "2026-07-27T20:15:31+08:00",
+      "duration_seconds": 271.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "使用手机相机和微信",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台应用：相机约2.5分钟、微信约1分钟",
+        "相机多次切换，可能拍照；微信短时间通信",
+        "电脑全程AFK，无工作上下文",
+        "休息后自然开始使用手机"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T20:15:31+08:00",
+      "end": "2026-07-27T20:19:28+08:00",
+      "duration_seconds": 237.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK状态持续",
+        "手机熄屏3.95分钟",
+        "符合确定性休息规则中的确认休息区间",
+        "平板亮屏不否决休息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T20:19:28+08:00",
+      "end": "2026-07-27T20:29:27+08:00",
+      "duration_seconds": 599.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "听QQ音乐并观看哔哩哔哩",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台QQ音乐持续6.5分钟",
+        "随后哔哩哔哩使用约1.3分钟",
+        "期间有2秒亮屏无应用，但整体为娱乐",
+        "电脑全程AFK，无工作相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T20:29:27+08:00",
+      "end": "2026-07-27T20:30:00+08:00",
+      "duration_seconds": 33.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "继续观看哔哩哔哩",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台应用哔哩哔哩",
+        "延续上一娱乐段",
+        "电脑AFK",
+        "辅助上下文显示之后继续娱乐"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "平板亮屏但无前台应用数据，可能用户在平板上有活动，但辅助数据不改变主要判断",
+    "手机相机用途不确定（拍照或录像），但不改变归类为other"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 2
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11565,
+      "completion_tokens": 886,
+      "total_tokens": 12451,
+      "prompt_tokens_details": {
+        "cached_tokens": 10368
+      },
+      "prompt_cache_hit_tokens": 10368,
+      "prompt_cache_miss_tokens": 1197
+    }
+  }
+}

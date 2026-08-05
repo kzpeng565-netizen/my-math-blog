@@ -1,0 +1,270 @@
+{
+  "period": "2026-07-25T13:00:00+08:00/2026-07-25T13:30:00+08:00",
+  "state_assessment": {
+    "label": "work_disrupted_by_entertainment",
+    "confidence": "medium",
+    "one_sentence": "主要任务：初高中衔接课程学习。工作2.47分钟，娱乐22.07分钟，通信0.0分钟，确认休息4.55分钟。工作中出现2次超过30秒的娱乐偏离，共22.07分钟，最长18.85分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 2,
+    "entertainment_deviation_minutes": 22.07,
+    "all_entertainment_minutes": 22.07,
+    "longest_entertainment_deviation_minutes": 18.85,
+    "work_entertainment_transition_count": 1,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 2.47,
+    "same_task_tool_switches_not_scored": 4,
+    "raw_foreground_context_switches_not_scored": 4,
+    "deviations": [
+      {
+        "start": "2026-07-25T13:02:28+08:00",
+        "end": "2026-07-25T13:05:41+08:00",
+        "minutes": 3.22,
+        "duration_seconds": 193.0,
+        "task": "手机使用哔哩哔哩，浏览娱乐内容",
+        "evidence": [
+          "电脑AFK，无操作",
+          "13:02:29手机亮屏，哔哩哔哩频繁切换",
+          "手机哔哩哔哩时长占比高，标题为'跟学在B站'但频繁切换至微信和桌面",
+          "13:03:42后手机哔哩哔哩连续193秒"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-25T13:06:36+08:00",
+        "end": "2026-07-25T13:25:27+08:00",
+        "minutes": 18.85,
+        "duration_seconds": 1131.0,
+        "task": "手机使用哔哩哔哩、微信、淘宝等，持续娱乐与通信混合",
+        "evidence": [
+          "电脑持续AFK",
+          "手机哔哩哔哩为主要前台（累计8.63分钟）",
+          "微信频繁使用（累计4.83分钟），但主要为通信，未服务于工作",
+          "13:20后出现淘宝购物和全局搜索"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "第一次娱乐偏离13:02:28-13:05:41（3.22分钟），手机哔哩哔哩，未返回工作；第二次偏离13:06:36-13:25:27（18.85分钟），手机哔哩哔哩、微信、淘宝混合，未返回工作，直接进入休息。"
+  },
+  "computer_summary": "电脑仅在前2.47分钟活跃，使用Microsoft Edge浏览阿不高中数学个人空间和搜索初高中物理衔接视频，之后持续AFK。",
+  "phone_summary": "手机累计亮屏15.75分钟，主要使用哔哩哔哩（8.63分钟，娱乐）、微信（4.83分钟，通信）、短暂淘宝购物（0.23分钟）和相机（0.07分钟）。",
+  "material_uncertainties": [
+    "13:05:41-13:06:36电脑状态未知，手机前台未知，无法判断用户是否在操作",
+    "13:00:00-13:01:25手机微信前台与电脑学习活动重叠，微信内容未知，可能部分为工作通信"
+  ],
+  "concise_report": "主要任务：初高中衔接课程学习。工作2.47分钟，娱乐22.07分钟，通信0.0分钟，确认休息4.55分钟。工作中出现2次超过30秒的娱乐偏离，共22.07分钟，最长18.85分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "13:00-13:01期间微信的使用是服务于学习通信还是纯私人聊天？",
+  "observed_metrics": {
+    "computer_active_minutes": 2.05,
+    "computer_afk_minutes": 27.03,
+    "phone_screen_on_minutes": 15.75,
+    "simultaneous_computer_active_phone_on_minutes": 1.0,
+    "no_detected_device_interaction_minutes": 13.2,
+    "confirmed_rest_minutes": 4.55
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 2.47,
+      "range_minutes": [
+        2.47,
+        2.47
+      ],
+      "evidence": [
+        "电脑Edge访问阿不高中数学个人空间和初高中物理衔接搜索页",
+        "电脑同时出现腾讯会议（此前有会议）",
+        "手机微信前台至13:01:25",
+        "13:00:25电脑AFK结束开始活跃"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 22.07,
+      "range_minutes": [
+        22.07,
+        22.07
+      ],
+      "evidence": [
+        "电脑AFK，无操作",
+        "13:02:29手机亮屏，哔哩哔哩频繁切换",
+        "手机哔哩哔哩时长占比高，标题为'跟学在B站'但频繁切换至微信和桌面",
+        "13:03:42后手机哔哩哔哩连续193秒"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 4.55,
+      "range_minutes": [
+        4.55,
+        4.55
+      ],
+      "evidence": [
+        "电脑连续AFK",
+        "手机屏幕off",
+        "跨设备事实中确认休息区间"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.92,
+      "range_minutes": [
+        0.92,
+        0.92
+      ],
+      "evidence": [
+        "电脑状态变为unknown",
+        "手机屏幕on但前台应用未知",
+        "时长不足1分钟，无法判断"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "13:00-13:02",
+      "likely_state": "工作",
+      "minutes": 2.47,
+      "task": "浏览阿不高中数学个人空间，搜索初高中物理衔接视频，为学习做准备",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑Edge访问阿不高中数学个人空间和初高中物理衔接搜索页",
+        "电脑同时出现腾讯会议（此前有会议）",
+        "手机微信前台至13:01:25",
+        "13:00:25电脑AFK结束开始活跃"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "13:02-13:05",
+      "likely_state": "娱乐",
+      "minutes": 3.22,
+      "task": "手机使用哔哩哔哩，浏览娱乐内容",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK，无操作",
+        "13:02:29手机亮屏，哔哩哔哩频繁切换",
+        "手机哔哩哔哩时长占比高，标题为'跟学在B站'但频繁切换至微信和桌面",
+        "13:03:42后手机哔哩哔哩连续193秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "13:05-13:06",
+      "likely_state": "无法判断",
+      "minutes": 0.92,
+      "task": "电脑状态未知，手机屏幕持续亮但前台未知",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑状态变为unknown",
+        "手机屏幕on但前台应用未知",
+        "时长不足1分钟，无法判断"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "13:06-13:25",
+      "likely_state": "娱乐",
+      "minutes": 18.85,
+      "task": "手机使用哔哩哔哩、微信、淘宝等，持续娱乐与通信混合",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑持续AFK",
+        "手机哔哩哔哩为主要前台（累计8.63分钟）",
+        "微信频繁使用（累计4.83分钟），但主要为通信，未服务于工作",
+        "13:20后出现淘宝购物和全局搜索"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "13:25-13:30",
+      "likely_state": "休息",
+      "minutes": 4.55,
+      "task": "确认休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK",
+        "手机屏幕off",
+        "跨设备事实中确认休息区间"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "初高中衔接课程学习",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活跃窗口只覆盖89.1%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 10459,
+      "completion_tokens": 1712,
+      "total_tokens": 12171,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1233
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 9563
+    }
+  }
+}

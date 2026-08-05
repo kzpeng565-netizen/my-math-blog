@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "low",
+  "entertainment_deviation_count": 1,
+  "entertainment_deviation_minutes": 0.65,
+  "all_entertainment_minutes": 1.08,
+  "longest_entertainment_deviation_minutes": 0.65,
+  "work_entertainment_transition_count": 6,
+  "brief_communication_minutes": 4.85,
+  "longest_continuous_work_minutes": 7.13,
+  "same_task_tool_switches_not_scored": 36,
+  "raw_foreground_context_switches_not_scored": 75,
+  "deviations": [
+    {
+      "start": "2026-07-25T22:35:19+08:00",
+      "end": "2026-07-25T22:35:58+08:00",
+      "minutes": 0.65,
+      "duration_seconds": 39.0,
+      "task": "继续搜索BNB Chain",
+      "evidence": [
+        "Microsoft Edge title 'BNB Chain 购买 - 搜索' on bing.com"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "medium"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

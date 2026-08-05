@@ -1,0 +1,431 @@
+{
+  "period": "2026-07-25T15:30:00+08:00/2026-07-25T16:00:00+08:00",
+  "state_assessment": {
+    "label": "work_with_entertainment_detour",
+    "confidence": "high",
+    "one_sentence": "主要任务：学习初高中物理运动学基础概念。工作23.6分钟，娱乐2.0分钟，通信3.93分钟，确认休息0.0分钟。工作中出现1次超过30秒的娱乐偏离，共2.0分钟，最长2.0分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "low",
+    "entertainment_deviation_count": 1,
+    "entertainment_deviation_minutes": 2.0,
+    "all_entertainment_minutes": 2.0,
+    "longest_entertainment_deviation_minutes": 2.0,
+    "work_entertainment_transition_count": 2,
+    "brief_communication_minutes": 3.93,
+    "longest_continuous_work_minutes": 10.1,
+    "same_task_tool_switches_not_scored": 44,
+    "raw_foreground_context_switches_not_scored": 61,
+    "deviations": [
+      {
+        "start": "2026-07-25T15:42:17+08:00",
+        "end": "2026-07-25T15:44:17+08:00",
+        "minutes": 2.0,
+        "duration_seconds": 120.0,
+        "task": "浏览知乎关于赛里木湖设卡的娱乐性内容",
+        "evidence": [
+          "Edge标签页「网友爆料称赛里木湖 G219 国道设了两个卡点…」持续约1分50秒",
+          "之后又浏览知乎首页，内容与物理学习无关",
+          "位于工作过程中，之后返回物理学习"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作中出现1次超过30秒的娱乐偏离：15:42:17-15:44:17（2分钟）在Edge上浏览知乎赛里木湖相关内容，之后于15:44:17返回物理学习任务，返回无延迟。"
+  },
+  "computer_summary": "主要使用Obsidian和Edge学习初高中物理运动学：观看B站视频（速度速率、位移路程等）并记笔记；期间有短暂微信通信（共约3.4分钟）；后期进入腾讯会议（彭康哲的快速会议），可能是家教任务。",
+  "phone_summary": "仅亮屏一次（约20秒），前台为微信，用于短暂通信。",
+  "material_uncertainties": [
+    "腾讯会议「彭康哲的快速会议」的内容：可能是家教或辅导，但无法完全确认具体主题，使用work_category「家教」有一定推测",
+    "15:42:09-15:42:17 手机微信与电脑知乎的短暂重叠：主要注意力归属不明确，归为brief_communication但置信度中等"
+  ],
+  "concise_report": "主要任务：学习初高中物理运动学基础概念。工作23.6分钟，娱乐2.0分钟，通信3.93分钟，确认休息0.0分钟。工作中出现1次超过30秒的娱乐偏离，共2.0分钟，最长2.0分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "腾讯会议「彭康哲的快速会议」是否为工作任务（如家教）？这会影响最后约3分钟的分类。",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.33,
+    "simultaneous_computer_active_phone_on_minutes": 0.33,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 23.6,
+      "range_minutes": [
+        23.6,
+        23.6
+      ],
+      "evidence": [
+        "交替使用Edge看B站物理视频「7.★【基础物理量】速度速率」与Obsidian笔记（未命名）",
+        "后续继续学习同一系列物理视频",
+        "无娱乐或通信干扰，专注学习",
+        "Edge标签页标题仍为同一B站物理视频"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 2.0,
+      "range_minutes": [
+        2.0,
+        2.0
+      ],
+      "evidence": [
+        "Edge标签页「网友爆料称赛里木湖 G219 国道设了两个卡点…」持续约1分50秒",
+        "之后又浏览知乎首页，内容与物理学习无关",
+        "位于工作过程中，之后返回物理学习"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 3.93,
+      "range_minutes": [
+        3.93,
+        3.93
+      ],
+      "evidence": [
+        "微信窗口出现「图片和视频」标题，持续约1.5分钟",
+        "时间线显示微信多个短片段（微信、图片和视频、Weixin）",
+        "通信内容不涉及当前工作，为独立社交",
+        "微信窗口连续约33秒"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.47,
+      "range_minutes": [
+        0.47,
+        0.47
+      ],
+      "evidence": [
+        "Edge打开「初高物理1 运动学基础概念.pdf」",
+        "文件资源管理器出现，可能寻找文件",
+        "微信短暂出现（15:54:34-15:54:37），可能与工作沟通有关"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "15:30-15:34",
+      "likely_state": "工作",
+      "minutes": 4.03,
+      "task": "观看B站物理视频《速度速率》并做笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "交替使用Edge看B站物理视频「7.★【基础物理量】速度速率」与Obsidian笔记（未命名）",
+        "后续继续学习同一系列物理视频",
+        "无娱乐或通信干扰，专注学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:34-15:35",
+      "likely_state": "通信",
+      "minutes": 1.27,
+      "task": "在微信中查看和发送图片/视频消息",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口出现「图片和视频」标题，持续约1.5分钟",
+        "时间线显示微信多个短片段（微信、图片和视频、Weixin）",
+        "通信内容不涉及当前工作，为独立社交"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:35-15:40",
+      "likely_state": "工作",
+      "minutes": 5.07,
+      "task": "继续观看B站物理视频《速度速率》并做Obsidian笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页标题仍为同一B站物理视频",
+        "与Obsidian频繁切换，保持学习笔记状态",
+        "延续之前的工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:40-15:40",
+      "likely_state": "通信",
+      "minutes": 0.57,
+      "task": "在微信中聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口连续约33秒",
+        "标题为「微信」和「图片和视频」",
+        "社交性质，与当前物理学习无关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:40-15:42",
+      "likely_state": "工作",
+      "minutes": 1.2,
+      "task": "继续学习物理视频并在Obsidian记录",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge短暂回到B站物理视频页面",
+        "随后在Obsidian持续记录约46秒",
+        "仍在同一工作任务中"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:42-15:42",
+      "likely_state": "通信",
+      "minutes": 0.15,
+      "task": "在手机上使用微信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机屏幕于15:41:46亮起，前台为微信（17秒）",
+        "电脑Edge快速切换到知乎首页（2秒）",
+        "手机微信使用与电脑工作短暂并行但为主"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "15:42-15:44",
+      "likely_state": "娱乐",
+      "minutes": 2.0,
+      "task": "浏览知乎关于赛里木湖设卡的娱乐性内容",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页「网友爆料称赛里木湖 G219 国道设了两个卡点…」持续约1分50秒",
+        "之后又浏览知乎首页，内容与物理学习无关",
+        "位于工作过程中，之后返回物理学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:44-15:54",
+      "likely_state": "工作",
+      "minutes": 10.1,
+      "task": "多次切换B站物理视频（速度速率、位移路程、速度速率基础）并做Obsidian笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "B站标签页依次出现「7.★【基础物理量】速度速率」、搜索页、「【运动描述】1.4位移路程、矢量标量（基础）」、「【运动描述】1.5速度速率（基础）」，均属物理运动学系列内容",
+        "Obsidian频繁作为前台窗口，标题为「未命名」「初高物理1 运动学基础概念」，持续记录笔记",
+        "长时间Focus（如15:46:39-15:51:38 Obsidian连续5分钟）",
+        "此段包含短暂微信（15:45:50-15:45:52）、截图（15:45:38-15:45:42），为工作内短暂切换，不改变整体任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:54-15:54",
+      "likely_state": "其他",
+      "minutes": 0.47,
+      "task": "在Edge中打开PDF文件、文件资源管理器、微信等零散操作",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge打开「初高物理1 运动学基础概念.pdf」",
+        "文件资源管理器出现，可能寻找文件",
+        "微信短暂出现（15:54:34-15:54:37），可能与工作沟通有关"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "15:54-15:56",
+      "likely_state": "通信",
+      "minutes": 1.52,
+      "task": "在微信中长时间聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口连续约1.5分钟",
+        "标题为「微信」",
+        "社交性质，与当前物理学习无关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:56-15:56",
+      "likely_state": "通信",
+      "minutes": 0.1,
+      "task": "切换到腾讯会议",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口出现（标题「腾讯会议」）",
+        "随后进入会议选择音频接入方式"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "15:56-15:56",
+      "likely_state": "工作",
+      "minutes": 0.48,
+      "task": "准备进入腾讯会议（彭康哲的快速会议）",
+      "work_category": "家教",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题「请选择会议音频的接入方式」",
+        "会议名称为「彭康哲的快速会议」，结合后续可能是家教会议"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "15:56-15:58",
+      "likely_state": "工作",
+      "minutes": 1.18,
+      "task": "参加腾讯会议（彭康哲的快速会议）",
+      "work_category": "家教",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题「彭康哲的快速会议」，持续约1分11秒",
+        "新任务开始，与之前物理学习不同"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:58-15:58",
+      "likely_state": "通信",
+      "minutes": 0.17,
+      "task": "腾讯会议与微信短暂切换",
+      "work_category": "",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题短暂变为「腾讯会议」「会议号：472 739 501」",
+        "微信出现约9秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "15:58-15:58",
+      "likely_state": "通信",
+      "minutes": 0.17,
+      "task": "在微信中聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口连续约10秒",
+        "标题为「微信」"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "15:58-16:00",
+      "likely_state": "工作",
+      "minutes": 1.53,
+      "task": "继续参加腾讯会议（彭康哲的快速会议）",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题「彭康哲的快速会议」持续至报告期末",
+        "会议进行中"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "学习初高中物理运动学基础概念",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19583,
+      "completion_tokens": 1378,
+      "total_tokens": 20961,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 940
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 18687
+    }
+  }
+}

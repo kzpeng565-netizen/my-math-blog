@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-26T16:30:00+08:00",
+    "end": "2026-07-26T17:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 3,
+      "aw-watcher-afk_xyh": 33,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 20
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 0.13,
+    "afk_minutes": 29.45,
+    "unknown_status_minutes": 0.42,
+    "window_observed_minutes": 0.13
+  },
+  "top_apps": [
+    {
+      "app": "微信",
+      "minutes": 0.11
+    },
+    {
+      "app": "腾讯会议",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [],
+  "top_titles": [
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.11
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "",
+      "title": "高中物理1 加速度.pdf",
+      "first_seen": "2026-07-26T16:30:04+08:00",
+      "last_seen": "2026-07-26T16:58:34+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-26T16:30:16+08:00",
+      "last_seen": "2026-07-26T16:58:46+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-26T16:30:00+08:00",
+      "end": "2026-07-26T16:31:42+08:00",
+      "duration_seconds": 102.277,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-26T16:31:42+08:00",
+      "end": "2026-07-26T16:31:49+08:00",
+      "duration_seconds": 6.996,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-26T16:31:49+08:00",
+      "end": "2026-07-26T16:36:08+08:00",
+      "duration_seconds": 258.769,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-26T16:36:08+08:00",
+      "end": "2026-07-26T16:36:33+08:00",
+      "duration_seconds": 25.064,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-26T16:36:33+08:00",
+      "end": "2026-07-26T16:54:15+08:00",
+      "duration_seconds": 1062.219,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-26T16:54:15+08:00",
+      "end": "2026-07-26T16:54:16+08:00",
+      "duration_seconds": 1.052,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-26T16:54:16+08:00",
+      "end": "2026-07-26T17:00:00+08:00",
+      "duration_seconds": 343.621,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-26T16:31:42+08:00",
+      "end": "2026-07-26T16:31:49+08:00",
+      "duration_seconds": 6.801,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T16:54:15+08:00",
+      "end": "2026-07-26T16:54:16+08:00",
+      "duration_seconds": 1.052,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.976,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 1.0,
+    "browser_share_of_active_time": 0.0,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

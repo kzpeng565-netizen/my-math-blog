@@ -1,0 +1,256 @@
+{
+  "period": "2026-07-27T10:30:00+08:00/2026-07-27T11:00:00+08:00",
+  "state_assessment": {
+    "label": "work_with_brief_checkins",
+    "confidence": "high",
+    "one_sentence": "主要任务：高中数学2 集合与逻辑。工作20.15分钟，娱乐0.0分钟，通信1.02分钟，确认休息8.38分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 1.02,
+    "longest_continuous_work_minutes": 11.35,
+    "same_task_tool_switches_not_scored": 24,
+    "raw_foreground_context_switches_not_scored": 29,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中无任何超过30秒的娱乐偏离，B站视频和ChatGPT均服务于数学学习任务，微信通信1分钟属短暂通信，不视为娱乐偏离。"
+  },
+  "computer_summary": "电脑主要任务为高中数学2集合与逻辑学习：使用Obsidian记笔记（13.5分钟）、观看B站教育视频（1.9分钟）、使用ChatGPT练习充分必要条件和量词命题（0.8分钟），以及后续参与腾讯会议“彭康哲的快速会议”（2.4分钟，可能为家教或学习讨论），全程无娱乐应用。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "tablet_summary": "平板辅助数据源显示持续亮屏，但手机电脑无对应活动，不改变主要结论。",
+  "material_uncertainties": [
+    "腾讯会议‘彭康哲的快速会议’的具体内容未知，可能为家教或学习讨论，因此work_category暂定为‘家教’，但可能属于‘数学学习’。",
+    "微信通信1分钟未显示标题内容，无法判断是否与工作相关，归为brief_communication。"
+  ],
+  "concise_report": "主要任务：高中数学2 集合与逻辑。工作20.15分钟，娱乐0.0分钟，通信1.02分钟，确认休息8.38分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "腾讯会议“彭康哲的快速会议”是否为数学学习或家教相关？这会影响工作类别判定。",
+  "observed_metrics": {
+    "computer_active_minutes": 21.62,
+    "computer_afk_minutes": 8.38,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 8.38,
+    "confirmed_rest_minutes": 8.38
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 20.15,
+      "range_minutes": [
+        20.15,
+        20.15
+      ],
+      "evidence": [
+        "Obsidian笔记标题‘高中数学2 集合与逻辑’持续显示",
+        "B站视频标题‘【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili’",
+        "ChatGPT标签页‘充分必要条件练习’和‘量词命题练习’",
+        "Mathpix截图工具短暂出现，配合笔记"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 1.02,
+      "range_minutes": [
+        1.02,
+        1.02
+      ],
+      "evidence": [
+        "微信前台持续约58秒",
+        "标题为‘微信’",
+        "前后均为工作相关活动，但此段通信未显示明确工作关联"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 8.38,
+      "range_minutes": [
+        8.38,
+        8.38
+      ],
+      "evidence": [
+        "电脑AFK持续8分23秒",
+        "手机全程熄屏",
+        "平板亮屏（辅助）但降低置信度",
+        "跨设备规则确认为休息"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.45,
+      "range_minutes": [
+        0.45,
+        0.45
+      ],
+      "evidence": [
+        "Obsidian‘另存为’对话框出现",
+        "‘活跃但无窗口记录’约4秒",
+        "文件资源管理器‘Program Manager’出现",
+        "可能保存笔记文件"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "10:30-10:41",
+      "likely_state": "工作",
+      "minutes": 11.35,
+      "task": "学习集合与逻辑，包括观看B站视频、在Obsidian记笔记、使用ChatGPT练习充分必要条件和量词命题",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian笔记标题‘高中数学2 集合与逻辑’持续显示",
+        "B站视频标题‘【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili’",
+        "ChatGPT标签页‘充分必要条件练习’和‘量词命题练习’",
+        "Mathpix截图工具短暂出现，配合笔记"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:41-10:49",
+      "likely_state": "休息",
+      "minutes": 8.38,
+      "task": "休息（无设备交互）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK持续8分23秒",
+        "手机全程熄屏",
+        "平板亮屏（辅助）但降低置信度",
+        "跨设备规则确认为休息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "10:49-10:55",
+      "likely_state": "工作",
+      "minutes": 5.97,
+      "task": "继续学习集合与逻辑，在Obsidian编辑笔记并参考B站视频和ChatGPT",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "恢复活动后首先在Obsidian上编辑‘高中数学2 集合与逻辑’",
+        "短暂切到ChatGPT‘量词命题练习’",
+        "再次访问B站视频",
+        "长期段中Obsidian占据主要时间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:55-10:56",
+      "likely_state": "其他",
+      "minutes": 0.45,
+      "task": "短暂文件操作和切换窗口",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian‘另存为’对话框出现",
+        "‘活跃但无窗口记录’约4秒",
+        "文件资源管理器‘Program Manager’出现",
+        "可能保存笔记文件"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "10:56-10:57",
+      "likely_state": "通信",
+      "minutes": 1.02,
+      "task": "微信通信约1分钟",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台持续约58秒",
+        "标题为‘微信’",
+        "前后均为工作相关活动，但此段通信未显示明确工作关联"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:57-11:00",
+      "likely_state": "工作",
+      "minutes": 2.83,
+      "task": "参与腾讯会议‘彭康哲的快速会议’，可能涉及家教或讨论",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题‘彭康哲的快速会议’持续约2分15秒",
+        "会议名为‘彭康哲’，可能与家教相关",
+        "在会议前后有微信和DeepSeek出现，但会议本身是主要活动",
+        "跨设备上下文显示后续继续会议和DeepSeek"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "高中数学2 集合与逻辑",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 11409,
+      "completion_tokens": 927,
+      "total_tokens": 12336,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 470
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 10513
+    }
+  }
+}

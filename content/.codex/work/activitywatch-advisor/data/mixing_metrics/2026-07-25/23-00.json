@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "low",
+  "entertainment_deviation_count": 1,
+  "entertainment_deviation_minutes": 1.3,
+  "all_entertainment_minutes": 1.32,
+  "longest_entertainment_deviation_minutes": 1.3,
+  "work_entertainment_transition_count": 4,
+  "brief_communication_minutes": 2.43,
+  "longest_continuous_work_minutes": 12.32,
+  "same_task_tool_switches_not_scored": 58,
+  "raw_foreground_context_switches_not_scored": 72,
+  "deviations": [
+    {
+      "start": "2026-07-25T23:12:19+08:00",
+      "end": "2026-07-25T23:13:37+08:00",
+      "minutes": 1.3,
+      "duration_seconds": 78.0,
+      "task": "浏览知乎啤酒档口话题及搜索 CC Switch",
+      "evidence": [
+        "标题为知乎啤酒档口社会话题",
+        "随后访问 DeepSeek 平台、GitHub release 页面和 Bing 搜索",
+        "短时间内与工作任务无关的多次页面切换",
+        "事后迅速返回原工作"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

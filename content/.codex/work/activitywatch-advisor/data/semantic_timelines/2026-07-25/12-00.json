@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T12:00:00+08:00",
+    "end": "2026-07-25T12:30:00+08:00"
+  },
+  "primary_work_task": "家教",
+  "segments": [
+    {
+      "start": "2026-07-25T12:00:00+08:00",
+      "end": "2026-07-25T12:12:30+08:00",
+      "duration_seconds": 750.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:00-12:12:30"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:12:30+08:00",
+      "end": "2026-07-25T12:13:11+08:00",
+      "duration_seconds": 41.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "参加腾讯会议讨论家教内容",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "12:12:30-12:13:11使用腾讯会议\"彭康哲的快速会议\"",
+        "标题与家教备课吻合"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T12:13:11+08:00",
+      "end": "2026-07-25T12:16:50+08:00",
+      "duration_seconds": 219.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:13:11-12:16:50"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:16:50+08:00",
+      "end": "2026-07-25T12:17:28+08:00",
+      "duration_seconds": 38.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "参加腾讯会议讨论家教内容",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "12:16:50-12:17:28使用腾讯会议\"彭康哲的快速会议\"",
+        "与上一工作段任务相同，因AFK中断后恢复"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T12:17:28+08:00",
+      "end": "2026-07-25T12:20:36+08:00",
+      "duration_seconds": 188.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:17:28-12:20:36"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:20:36+08:00",
+      "end": "2026-07-25T12:21:34+08:00",
+      "duration_seconds": 58.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "在Obsidian中整理家教笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "12:20:36-12:21:33使用Obsidian，标题\"初高衔接2 乘法公式&主元思想&因式分解\"",
+        "内容与家教相关，属于同一工作领域"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T12:21:34+08:00",
+      "end": "2026-07-25T12:25:51+08:00",
+      "duration_seconds": 257.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:21:34-12:25:51"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T12:25:51+08:00",
+      "end": "2026-07-25T12:26:41+08:00",
+      "duration_seconds": 50.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "短暂未知活动",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口标题记录",
+        "持续时间约50秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T12:26:41+08:00",
+      "end": "2026-07-25T12:30:00+08:00",
+      "duration_seconds": 199.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机息屏，连续无操作超过3分钟",
+        "符合rest_rule.confirmed_intervals 12:26:41-12:30:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "12:25:51-12:26:41的unknown状态是否涉及短暂活动无法确定，但少于1分钟",
+    "腾讯会议和Obsidian的确切任务内容依赖标题推断，缺乏音频/文字证据"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 2
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8803,
+      "completion_tokens": 1405,
+      "total_tokens": 10208,
+      "prompt_tokens_details": {
+        "cached_tokens": 7680
+      },
+      "prompt_cache_hit_tokens": 7680,
+      "prompt_cache_miss_tokens": 1123
+    }
+  }
+}

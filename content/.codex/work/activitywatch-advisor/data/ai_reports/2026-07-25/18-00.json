@@ -1,0 +1,270 @@
+{
+  "period": "2026-07-25T18:00:00+08:00/2026-07-25T18:30:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐26.65分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 26.65,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 5,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "不存在工作-娱乐混杂，因为整个时段无工作活动。确定性混杂指标显示娱乐偏离次数为0，娱乐偏离分钟数为0。"
+  },
+  "computer_summary": "电脑在18:07后短暂非AFK，浏览B站和知乎娱乐内容，总计约5.08分钟，其余时间AFK或未知。",
+  "phone_summary": "手机亮屏22.18分钟，主要使用哔哩哔哩（12.03分钟）和微信（5.57分钟），夹杂闲鱼、淘宝等，均为娱乐和通信。",
+  "material_uncertainties": [
+    "18:16:29-18:19:50电脑状态未知且手机关闭，无法确定用户是否在休息或短暂离开",
+    "18:09:51-18:09:55电脑有活跃但无窗口记录3秒，可能短暂切换应用但无法确认"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐26.65分钟，通信0.0分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "这段30分钟内是否有任何工作活动被遗漏？例如，微信聊天或知乎文章中是否包含工作相关内容？",
+  "observed_metrics": {
+    "computer_active_minutes": 5.08,
+    "computer_afk_minutes": 19.32,
+    "phone_screen_on_minutes": 22.18,
+    "simultaneous_computer_active_phone_on_minutes": 1.32,
+    "no_detected_device_interaction_minutes": 4.05,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 26.65,
+      "range_minutes": [
+        26.65,
+        26.65
+      ],
+      "evidence": [
+        "手机前台连续使用哔哩哔哩和微信",
+        "电脑在此期间AFK（无操作）",
+        "手机屏幕一直亮着",
+        "无任何工作相关活动"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 3.35,
+      "range_minutes": [
+        3.35,
+        3.35
+      ],
+      "evidence": [
+        "电脑状态未知（非AFK非unknown但无窗口记录）",
+        "手机屏幕关闭",
+        "无任何明确的设备交互",
+        "不属于确认休息段"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "18:00-18:05",
+      "likely_state": "娱乐",
+      "minutes": 5.12,
+      "task": "刷手机B站视频和微信聊天",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台连续使用哔哩哔哩和微信",
+        "电脑在此期间AFK（无操作）",
+        "手机屏幕一直亮着",
+        "无任何工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:05-18:07",
+      "likely_state": "娱乐",
+      "minutes": 2.17,
+      "task": "手机上刷B站视频，同时电脑短暂操作B站",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机仍在前台使用哔哩哔哩",
+        "电脑短暂非AFK，窗口为B站首页和动态页",
+        "电脑活动碎片化（12秒、3秒、59秒、1分钟等）",
+        "无工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:07-18:10",
+      "likely_state": "娱乐",
+      "minutes": 3.4,
+      "task": "手机休息，电脑短暂浏览B站和知乎娱乐内容",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑非AFK，先后浏览B站首页、动态、知乎首页及两篇娱乐性文章",
+        "手机屏幕关闭（18:08:36-18:10:41）",
+        "知乎文章标题为娱乐性质（任正非、启境GT7）",
+        "无任何工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:10-18:12",
+      "likely_state": "娱乐",
+      "minutes": 1.68,
+      "task": "浏览知乎娱乐文章",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑浏览知乎文章，标题为娱乐性质",
+        "手机仍处于关闭状态",
+        "无任何工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:12-18:16",
+      "likely_state": "娱乐",
+      "minutes": 4.12,
+      "task": "手机亮起，使用微信、淘宝、闲鱼、B站等，电脑AFK",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机亮屏，使用微信、淘宝、闲鱼、B站等娱乐和购物应用",
+        "电脑自18:12:22起AFK",
+        "无任何工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "18:16-18:19",
+      "likely_state": "其他",
+      "minutes": 3.35,
+      "task": "电脑未知状态，手机关闭，可能离开或休息",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑状态未知（非AFK非unknown但无窗口记录）",
+        "手机屏幕关闭",
+        "无任何明确的设备交互",
+        "不属于确认休息段"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "18:19-18:30",
+      "likely_state": "娱乐",
+      "minutes": 10.17,
+      "task": "手机亮起，刷B站和微信，电脑AFK",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机屏幕亮起，前台切换微信、B站，长时间使用B站",
+        "电脑自18:21:39起AFK",
+        "无任何工作相关活动",
+        "B站和微信均为娱乐或通信，非工作"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活动状态未知5.6分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 10177,
+      "completion_tokens": 913,
+      "total_tokens": 11090,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 498
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 9281
+    }
+  }
+}

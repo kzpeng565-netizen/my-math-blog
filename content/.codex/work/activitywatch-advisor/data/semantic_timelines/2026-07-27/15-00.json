@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T15:00:00+08:00",
+    "end": "2026-07-27T15:30:00+08:00"
+  },
+  "primary_work_task": "职高升学与数学学习",
+  "segments": [
+    {
+      "start": "2026-07-27T15:00:00+08:00",
+      "end": "2026-07-27T15:06:47+08:00",
+      "duration_seconds": 407.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "研究职高升学路径，搜索和观看B站视频了解中职升学方式，访问ChatGPT获取暑假预习计划",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器标题'盘点中职生升学四种方式'、'职高升学-哔哩哔哩'等",
+        "ChatGPT标题'暑假预习计划与资料'、'药学课程学习建议'",
+        "持续的非AFK状态，电脑活跃",
+        "前后辅助时间线的任务一致性"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T15:06:47+08:00",
+      "end": "2026-07-27T15:12:51+08:00",
+      "duration_seconds": 364.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息，电脑AFK且手机熄屏",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK持续363秒（超3分钟阈值）",
+        "手机屏幕全程关闭",
+        "平板亮屏但不否决休息辅助判定",
+        "确定性跨设备休息规则确认"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T15:12:51+08:00",
+      "end": "2026-07-27T15:19:00+08:00",
+      "duration_seconds": 369.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续研究职高升学，观看B站视频并用ChatGPT整理资料",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "回归后立即观看'没考上高中？'、'盘点中职生升学四种方式'",
+        "ChatGPT标题'暑假预习计划与资料'和'ChatGPT'",
+        "时间线紧接休息之后，任务自然延续",
+        "无设备切换或明显分心"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T15:19:00+08:00",
+      "end": "2026-07-27T15:22:35+08:00",
+      "duration_seconds": 215.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "使用微信聊天和查看图片视频",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口前台活动，标题'微信'、'图片和视频'",
+        "持续时间约3.5分钟，为独立通信片段",
+        "通信内容未显示与当前工作直接相关",
+        "之后返回ChatGPT继续工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T15:22:35+08:00",
+      "end": "2026-07-27T15:30:00+08:00",
+      "duration_seconds": 445.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续学习职高升学，使用ChatGPT查询昆明职高升学途径，观看B站视频'我们可以向土耳其学习什么'（可能为教育相关内容），访问云南省职教高考实施办法",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT标题'昆明职高升学途径'",
+        "B站视频'我们可以向土耳其学习什么'（教育相关）",
+        "云南省职教高考实施办法页面",
+        "任务与前期升学调研完全一致"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "B站视频'我们可以向土耳其学习什么'内容不明确，可能为教育经验分享，也可能为一般文化内容，但结合上下文更偏向教育学习。",
+    "微信通信的具体内容未知，是否包含工作相关沟通无法确定，但独立前台片段较长，故归为brief_communication。"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 18430,
+      "completion_tokens": 1043,
+      "total_tokens": 19473,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 17406
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 3,
+  "period": {
+    "start": "2026-07-25T00:30:00+08:00",
+    "end": "2026-07-25T01:00:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-25/00-30.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-25/00-30.json",
+  "semantic_timeline_file": "/home/conrad/workspace/activitywatch-advisor/data/semantic_timelines/2026-07-25/00-30.json",
+  "mixing_metrics_file": "/home/conrad/workspace/activitywatch-advisor/data/mixing_metrics/2026-07-25/00-30.json",
+  "cross_device_facts": {
+    "schema_version": 2,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-25T00:30:00+08:00",
+      "end": "2026-07-25T01:00:00+08:00"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 8.74,
+      "computer_afk_minutes": 13.58,
+      "phone_screen_on_minutes": 20.28,
+      "any_device_interaction_minutes": 26.43,
+      "no_detected_device_interaction_minutes": 3.57,
+      "confirmed_rest_minutes": 0.0,
+      "note": "confirmed_rest_minutes按用户确认的跨设备连续无操作规则计算。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "future_devices_not_connected": [
+        "tablet"
+      ],
+      "condition": "电脑连续AFK达到阈值，且所有已接入移动设备均无操作。",
+      "confirmed_intervals": []
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 17,
+      "context_switch_count": 16,
+      "switches_per_active_hour": 123.82,
+      "short_context_blocks_under_60_seconds": 14,
+      "sustained_context_blocks_at_least_5_minutes": 0,
+      "longest_context_minutes": 1.76,
+      "median_context_minutes": 0.33,
+      "context_blocks": [
+        {
+          "start": "2026-07-25T00:30:00+08:00",
+          "end": "2026-07-25T00:30:24+08:00",
+          "minutes": 0.41,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:30:27+08:00",
+          "end": "2026-07-25T00:30:43+08:00",
+          "minutes": 0.26,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:30:44+08:00",
+          "end": "2026-07-25T00:32:12+08:00",
+          "minutes": 1.43,
+          "app": "微信小程序",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:32:13+08:00",
+          "end": "2026-07-25T00:32:34+08:00",
+          "minutes": 0.34,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:32:38+08:00",
+          "end": "2026-07-25T00:33:41+08:00",
+          "minutes": 1.01,
+          "app": "Microsoft Edge",
+          "title": "Claudian接入DeepSeek V4 Pro",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T00:33:42+08:00",
+          "end": "2026-07-25T00:33:49+08:00",
+          "minutes": 0.12,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:33:50+08:00",
+          "end": "2026-07-25T00:33:59+08:00",
+          "minutes": 0.15,
+          "app": "Microsoft Edge",
+          "title": "Claudian接入DeepSeek V4 Pro",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T00:34:05+08:00",
+          "end": "2026-07-25T00:34:12+08:00",
+          "minutes": 0.1,
+          "app": "Microsoft Edge",
+          "title": "Claudian接入DeepSeek V4 Pro",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T00:34:13+08:00",
+          "end": "2026-07-25T00:35:58+08:00",
+          "minutes": 1.76,
+          "app": "Windows Terminal",
+          "title": "Windows PowerShell",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:35:59+08:00",
+          "end": "2026-07-25T00:36:04+08:00",
+          "minutes": 0.09,
+          "app": "Clash Verge",
+          "title": "Clash Verge",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:36:18+08:00",
+          "end": "2026-07-25T00:36:58+08:00",
+          "minutes": 0.61,
+          "app": "Windows Terminal",
+          "title": "Windows PowerShell",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:36:59+08:00",
+          "end": "2026-07-25T00:37:07+08:00",
+          "minutes": 0.13,
+          "app": "Microsoft Edge",
+          "title": "Claudian接入DeepSeek V4 Pro",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T00:37:10+08:00",
+          "end": "2026-07-25T00:37:30+08:00",
+          "minutes": 0.33,
+          "app": "Microsoft Edge",
+          "title": "Claudian接入DeepSeek V4 Pro",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T00:37:36+08:00",
+          "end": "2026-07-25T00:37:41+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "Claudian接入DeepSeek V4 Pro",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T00:37:47+08:00",
+          "end": "2026-07-25T00:37:52+08:00",
+          "minutes": 0.09,
+          "app": "Microsoft Edge",
+          "title": "Claudian接入DeepSeek V4 Pro",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-25T00:37:53+08:00",
+          "end": "2026-07-25T00:38:21+08:00",
+          "minutes": 0.46,
+          "app": "Windows Terminal",
+          "title": "Windows PowerShell",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-25T00:38:22+08:00",
+          "end": "2026-07-25T00:38:44+08:00",
+          "minutes": 0.37,
+          "app": "Microsoft Edge",
+          "title": "Claudian接入DeepSeek V4 Pro",
+          "domain": "chatgpt.com"
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 2.58,
+      "computer_afk_and_phone_on": 11.03,
+      "computer_not_afk_and_phone_off": 6.15,
+      "computer_afk_and_phone_off": 2.55
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。"
+    ]
+  }
+}

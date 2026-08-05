@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T18:00:00+08:00",
+    "end": "2026-07-25T18:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-25T18:00:00+08:00",
+      "end": "2026-07-25T18:05:07+08:00",
+      "duration_seconds": 307.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷手机B站视频和微信聊天",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台连续使用哔哩哔哩和微信",
+        "电脑在此期间AFK（无操作）",
+        "手机屏幕一直亮着",
+        "无任何工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:05:07+08:00",
+      "end": "2026-07-25T18:07:17+08:00",
+      "duration_seconds": 130.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机上刷B站视频，同时电脑短暂操作B站",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机仍在前台使用哔哩哔哩",
+        "电脑短暂非AFK，窗口为B站首页和动态页",
+        "电脑活动碎片化（12秒、3秒、59秒、1分钟等）",
+        "无工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:07:17+08:00",
+      "end": "2026-07-25T18:10:41+08:00",
+      "duration_seconds": 204.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机休息，电脑短暂浏览B站和知乎娱乐内容",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑非AFK，先后浏览B站首页、动态、知乎首页及两篇娱乐性文章",
+        "手机屏幕关闭（18:08:36-18:10:41）",
+        "知乎文章标题为娱乐性质（任正非、启境GT7）",
+        "无任何工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:10:41+08:00",
+      "end": "2026-07-25T18:12:22+08:00",
+      "duration_seconds": 101.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎娱乐文章",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑浏览知乎文章，标题为娱乐性质",
+        "手机仍处于关闭状态",
+        "无任何工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:12:22+08:00",
+      "end": "2026-07-25T18:16:29+08:00",
+      "duration_seconds": 247.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机亮起，使用微信、淘宝、闲鱼、B站等，电脑AFK",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机亮屏，使用微信、淘宝、闲鱼、B站等娱乐和购物应用",
+        "电脑自18:12:22起AFK",
+        "无任何工作相关活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T18:16:29+08:00",
+      "end": "2026-07-25T18:19:50+08:00",
+      "duration_seconds": 201.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "电脑未知状态，手机关闭，可能离开或休息",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑状态未知（非AFK非unknown但无窗口记录）",
+        "手机屏幕关闭",
+        "无任何明确的设备交互",
+        "不属于确认休息段"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T18:19:50+08:00",
+      "end": "2026-07-25T18:30:00+08:00",
+      "duration_seconds": 610.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机亮起，刷B站和微信，电脑AFK",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone",
+        "computer"
+      ],
+      "evidence": [
+        "手机屏幕亮起，前台切换微信、B站，长时间使用B站",
+        "电脑自18:21:39起AFK",
+        "无任何工作相关活动",
+        "B站和微信均为娱乐或通信，非工作"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "18:16:29-18:19:50电脑状态未知且手机关闭，无法确定用户是否在休息或短暂离开",
+    "18:09:51-18:09:55电脑有活跃但无窗口记录3秒，可能短暂切换应用但无法确认"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 16271,
+      "completion_tokens": 1294,
+      "total_tokens": 17565,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 15375
+    }
+  }
+}

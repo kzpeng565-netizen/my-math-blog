@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "medium",
+  "entertainment_deviation_count": 2,
+  "entertainment_deviation_minutes": 2.02,
+  "all_entertainment_minutes": 2.23,
+  "longest_entertainment_deviation_minutes": 1.25,
+  "work_entertainment_transition_count": 8,
+  "brief_communication_minutes": 3.78,
+  "longest_continuous_work_minutes": 4.97,
+  "same_task_tool_switches_not_scored": 17,
+  "raw_foreground_context_switches_not_scored": 33,
+  "deviations": [
+    {
+      "start": "2026-07-27T22:46:06+08:00",
+      "end": "2026-07-27T22:46:52+08:00",
+      "minutes": 0.77,
+      "duration_seconds": 46.0,
+      "task": "浏览知乎首页及单篇文章",
+      "evidence": [
+        "Edge域名zhihu.com，标题'首页 - 知乎'",
+        "浏览约0.5分钟",
+        "之后很快返回工作"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.62,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T22:57:46+08:00",
+      "end": "2026-07-27T22:59:01+08:00",
+      "minutes": 1.25,
+      "duration_seconds": 75.0,
+      "task": "浏览知乎首页（可能分心）",
+      "evidence": [
+        "Edge域名zhihu.com标题'首页 - 知乎'持续1.22分钟",
+        "属于娱乐浏览"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.05,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

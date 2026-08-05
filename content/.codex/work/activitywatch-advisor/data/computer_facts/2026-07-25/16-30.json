@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T16:30:00+08:00",
+    "end": "2026-07-25T17:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 13,
+      "aw-watcher-afk_xyh": 16,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 22
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 5.25,
+    "afk_minutes": 8.12,
+    "unknown_status_minutes": 16.63,
+    "window_observed_minutes": 5.04
+  },
+  "top_apps": [
+    {
+      "app": "Obsidian",
+      "minutes": 4.62
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 0.34
+    },
+    {
+      "app": "微信",
+      "minutes": 0.07
+    },
+    {
+      "app": "腾讯会议",
+      "minutes": 0.01
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 0.26
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高物理1 运动学基础概念",
+      "minutes": 4.45
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "minutes": 0.26
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "第二章内容整理",
+      "minutes": 0.12
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "初高物理1 运动学基础概念.pdf",
+      "minutes": 0.09
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.07
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "ToDo-已经规划好的任务",
+      "minutes": 0.03
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "初高衔接1 从因式分解与不等式",
+      "minutes": 0.02
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 0.01
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "",
+      "title": "初高物理1 运动学基础概念.pdf",
+      "first_seen": "2026-07-25T16:30:01+08:00",
+      "last_seen": "2026-07-25T16:54:40+08:00",
+      "raw_event_count": 17
+    },
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T16:30:44+08:00",
+      "last_seen": "2026-07-25T16:59:15+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-25T16:54:40+08:00",
+      "last_seen": "2026-07-25T16:59:02+08:00",
+      "raw_event_count": 5
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T16:30:00+08:00",
+      "end": "2026-07-25T16:46:37+08:00",
+      "duration_seconds": 997.825,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-25T16:46:37+08:00",
+      "end": "2026-07-25T16:53:58+08:00",
+      "duration_seconds": 440.86,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T16:53:58+08:00",
+      "end": "2026-07-25T16:59:13+08:00",
+      "duration_seconds": 314.832,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-25T16:59:13+08:00",
+      "end": "2026-07-25T17:00:00+08:00",
+      "duration_seconds": 46.482,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T16:53:58+08:00",
+      "end": "2026-07-25T16:53:59+08:00",
+      "duration_seconds": 0.465,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T16:54:00+08:00",
+      "end": "2026-07-25T16:54:04+08:00",
+      "duration_seconds": 4.13,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T16:54:06+08:00",
+      "end": "2026-07-25T16:54:11+08:00",
+      "duration_seconds": 5.147,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高物理1 运动学基础概念.pdf",
+      "domain": "",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T16:54:12+08:00",
+      "end": "2026-07-25T16:54:13+08:00",
+      "duration_seconds": 1.034,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T16:54:14+08:00",
+      "end": "2026-07-25T16:54:15+08:00",
+      "duration_seconds": 1.021,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高衔接1 从因式分解与不等式",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T16:54:16+08:00",
+      "end": "2026-07-25T16:54:18+08:00",
+      "duration_seconds": 2.056,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "ToDo-已经规划好的任务",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T16:54:19+08:00",
+      "end": "2026-07-25T16:54:26+08:00",
+      "duration_seconds": 7.233,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "第二章内容整理",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T16:54:29+08:00",
+      "end": "2026-07-25T16:54:38+08:00",
+      "duration_seconds": 9.284,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-25T16:54:40+08:00",
+      "end": "2026-07-25T16:54:55+08:00",
+      "duration_seconds": 15.467,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【运动描述】1.5速度速率（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T16:54:56+08:00",
+      "end": "2026-07-25T16:59:13+08:00",
+      "duration_seconds": 256.655,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "初高物理1 运动学基础概念",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "low",
+    "active_window_coverage": 0.961,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 0.75,
+    "web_watcher_exact_time_overlap": 0.25,
+    "browser_share_of_active_time": 0.065,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活动状态未知16.63分钟。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

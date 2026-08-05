@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-27T11:30:00+08:00",
+    "end": "2026-07-27T12:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 7,
+      "aw-watcher-afk_xyh": 35,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 20
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 0.43,
+    "afk_minutes": 28.57,
+    "unknown_status_minutes": 1.0,
+    "window_observed_minutes": 0.32
+  },
+  "top_apps": [
+    {
+      "app": "Obsidian",
+      "minutes": 0.15
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 0.1
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.05
+    },
+    {
+      "app": "腾讯会议",
+      "minutes": 0.01
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "platform.deepseek.com",
+      "minutes": 0.1
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "高中数学2 集合与逻辑",
+      "minutes": 0.15
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "minutes": 0.1
+    },
+    {
+      "app": "腾讯会议",
+      "domain": "",
+      "title": "彭康哲的快速会议",
+      "minutes": 0.01
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-27T11:30:05+08:00",
+      "last_seen": "2026-07-27T11:58:35+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-27T11:30:45+08:00",
+      "last_seen": "2026-07-27T11:59:15+08:00",
+      "raw_event_count": 20
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-27T11:30:00+08:00",
+      "end": "2026-07-27T11:51:06+08:00",
+      "duration_seconds": 1266.255,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T11:51:06+08:00",
+      "end": "2026-07-27T11:51:31+08:00",
+      "duration_seconds": 25.645,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-27T11:51:31+08:00",
+      "end": "2026-07-27T11:55:36+08:00",
+      "duration_seconds": 244.832,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-27T11:55:36+08:00",
+      "end": "2026-07-27T11:56:36+08:00",
+      "duration_seconds": 60.133,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-27T11:56:36+08:00",
+      "end": "2026-07-27T12:00:00+08:00",
+      "duration_seconds": 203.134,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T11:51:06+08:00",
+      "end": "2026-07-27T11:51:09+08:00",
+      "duration_seconds": 3.298,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T11:51:09+08:00",
+      "end": "2026-07-27T11:51:12+08:00",
+      "duration_seconds": 3.103,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-27T11:51:12+08:00",
+      "end": "2026-07-27T11:51:18+08:00",
+      "duration_seconds": 6.184,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "DeepSeek 开放平台",
+      "domain": "platform.deepseek.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-27T11:51:19+08:00",
+      "end": "2026-07-27T11:51:29+08:00",
+      "duration_seconds": 9.282,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中数学2 集合与逻辑",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-27T11:51:31+08:00",
+      "end": "2026-07-27T11:51:31+08:00",
+      "duration_seconds": 0.682,
+      "app": "wemeetapp.exe",
+      "app_display": "腾讯会议",
+      "title": "彭康哲的快速会议",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.758,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.0,
+    "browser_share_of_active_time": 0.241,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活跃窗口只覆盖75.8%。",
+      "电脑活动状态未知1.0分钟。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

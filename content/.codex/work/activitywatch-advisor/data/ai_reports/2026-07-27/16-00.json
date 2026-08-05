@@ -1,0 +1,663 @@
+{
+  "period": "2026-07-27T16:00:00+08:00/2026-07-27T16:30:00+08:00",
+  "state_assessment": {
+    "label": "work_disrupted_by_entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：课时量分析与准备。工作10.1分钟，娱乐11.88分钟，通信8.02分钟，确认休息0.0分钟。工作中出现6次超过30秒的娱乐偏离，共11.88分钟，最长4.88分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 6,
+    "entertainment_deviation_minutes": 11.88,
+    "all_entertainment_minutes": 11.88,
+    "longest_entertainment_deviation_minutes": 4.88,
+    "work_entertainment_transition_count": 5,
+    "brief_communication_minutes": 8.02,
+    "longest_continuous_work_minutes": 3.45,
+    "same_task_tool_switches_not_scored": 1,
+    "raw_foreground_context_switches_not_scored": 41,
+    "deviations": [
+      {
+        "start": "2026-07-27T16:01:49+08:00",
+        "end": "2026-07-27T16:03:50+08:00",
+        "minutes": 2.02,
+        "duration_seconds": 121.0,
+        "task": "浏览知乎各类话题（社会、数学、医疗等）",
+        "evidence": [
+          "16:01:49-16:02:35首页-知乎",
+          "16:02:39-16:03:04首页-知乎",
+          "16:03:04-16:03:49浏览'24岁女孩正颌手术被做反...'等新闻话题",
+          "后续16:03:50打开研究数学等页面但很快切换，属于娱乐偏离"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-27T16:04:18+08:00",
+        "end": "2026-07-27T16:09:11+08:00",
+        "minutes": 4.88,
+        "duration_seconds": 293.0,
+        "task": "浏览知乎长文和首页",
+        "evidence": [
+          "16:04:18-16:05:04首页-知乎",
+          "16:05:04-16:08:32阅读'王虹、邓煜的成长经历...'长篇知乎文章",
+          "16:08:33-16:09:11首页-知乎",
+          "该文章主题与工作无关，属于娱乐偏离"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.73,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-27T16:13:14+08:00",
+        "end": "2026-07-27T16:14:25+08:00",
+        "minutes": 1.18,
+        "duration_seconds": 71.0,
+        "task": "继续浏览知乎文章及首页",
+        "evidence": [
+          "16:13:14-16:14:11阅读'王虹、邓煜的成长经历...'（再次返回）",
+          "16:14:20-16:14:25首页-知乎",
+          "短暂切换回ChatGPT但主要时间在知乎"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 3.8,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-27T16:14:25+08:00",
+        "end": "2026-07-27T16:15:34+08:00",
+        "minutes": 1.15,
+        "duration_seconds": 69.0,
+        "task": "浏览知乎首页",
+        "evidence": [
+          "16:14:28-16:15:34首页-知乎",
+          "无窗口记录间隙短"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 2.65,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-27T16:15:34+08:00",
+        "end": "2026-07-27T16:16:34+08:00",
+        "minutes": 1.0,
+        "duration_seconds": 60.0,
+        "task": "浏览知乎AI话题文章",
+        "evidence": [
+          "16:15:34-16:15:40浏览'一般没人讨论这个，但我想问，Kimi K3出了...'",
+          "16:15:41-16:16:33切换到课时量分析但不足1分钟",
+          "属于娱乐偏离"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 1.65,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-27T16:16:34+08:00",
+        "end": "2026-07-27T16:18:13+08:00",
+        "minutes": 1.65,
+        "duration_seconds": 99.0,
+        "task": "继续浏览知乎AI话题文章",
+        "evidence": [
+          "16:16:34-16:18:12阅读'一般没人讨论这个...'全文",
+          "持续时间约1.6分钟"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "本时段工作（课时量分析）与娱乐（知乎浏览）高度混杂。6次娱乐偏离分别发生在：16:01:49-16:03:50（2.02分钟，浏览社会医疗等话题后返回工作）、16:04:18-16:09:11（4.88分钟，阅读知乎长文后返回）、16:13:14-16:14:25（1.18分钟，再次阅读同一篇文章后返回）、16:14:25-16:15:34（1.15分钟，浏览知乎首页后返回）、16:15:34-16:16:34（1.0分钟，浏览AI话题后返回）、16:16:34-16:18:13（1.65分钟，继续浏览AI话题后返回）。每次偏离后均回到原工作任务（课时量分析），但娱乐总时长超过工作且次数频繁。"
+  },
+  "computer_summary": "电脑为主要活动设备，全程活跃。主要任务为通过Edge浏览器使用ChatGPT进行课时量分析（约10分钟），期间穿插大量知乎娱乐浏览（约11.88分钟），以及微信通信（约8.02分钟）。标题证据显示工作与娱乐在Edge中交替出现。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "tablet_summary": "平板亮屏30分钟但无应用记录，作为辅助数据源，无法确认具体活动，不改变主要判断。",
+  "material_uncertainties": [
+    "浏览知乎时部分页面（如研究数学话题）可能服务于工作，但标题无明确工作指向，归类为娱乐偏离",
+    "微信聊天中部分对话可能涉及工作内容，但无法确认，归类为brief_communication"
+  ],
+  "concise_report": "主要任务：课时量分析与准备。工作10.1分钟，娱乐11.88分钟，通信8.02分钟，确认休息0.0分钟。工作中出现6次超过30秒的娱乐偏离，共11.88分钟，最长4.88分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "浏览知乎时是否有部分页面（如研究数学话题）实际服务于工作，从而应重新归类为工作而非娱乐偏离？",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 10.1,
+      "range_minutes": [
+        10.1,
+        10.1
+      ],
+      "evidence": [
+        "16:03:51-16:10:34在ChatGPT中查询'昆明职高升学途径'",
+        "标题明确显示该任务",
+        "属于工作相关的前期调研",
+        "16:09:55-16:10:34在ChatGPT中继续'昆明职高升学途径'"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 11.88,
+      "range_minutes": [
+        11.88,
+        11.88
+      ],
+      "evidence": [
+        "16:01:49-16:02:35首页-知乎",
+        "16:02:39-16:03:04首页-知乎",
+        "16:03:04-16:03:49浏览'24岁女孩正颌手术被做反...'等新闻话题",
+        "后续16:03:50打开研究数学等页面但很快切换，属于娱乐偏离"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 8.02,
+      "range_minutes": [
+        8.02,
+        8.02
+      ],
+      "evidence": [
+        "16:00:00-16:00:37微信前台，标题'微信'",
+        "16:00:41-16:01:07切换到ChatGPT，标题'ChatGPT'和'Get started | ChatGPT'",
+        "16:01:08-16:01:11再次微信前台",
+        "前后有微信通信活动"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "16:00-16:01",
+      "likely_state": "通信",
+      "minutes": 1.12,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:00:00-16:00:37微信前台，标题'微信'",
+        "16:00:41-16:01:07切换到ChatGPT，标题'ChatGPT'和'Get started | ChatGPT'",
+        "16:01:08-16:01:11再次微信前台",
+        "前后有微信通信活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:01-16:01",
+      "likely_state": "通信",
+      "minutes": 0.7,
+      "task": "微信聊天及图片查看",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:01:14-16:01:28微信前台，标题'微信'",
+        "16:01:29-16:01:31微信，标题'图片和视频'",
+        "16:01:32-16:01:41继续微信聊天",
+        "16:01:41-16:01:49活跃但无窗口记录"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:01-16:03",
+      "likely_state": "娱乐",
+      "minutes": 2.02,
+      "task": "浏览知乎各类话题（社会、数学、医疗等）",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:01:49-16:02:35首页-知乎",
+        "16:02:39-16:03:04首页-知乎",
+        "16:03:04-16:03:49浏览'24岁女孩正颌手术被做反...'等新闻话题",
+        "后续16:03:50打开研究数学等页面但很快切换，属于娱乐偏离"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "16:03-16:04",
+      "likely_state": "工作",
+      "minutes": 0.47,
+      "task": "查询昆明职高升学途径（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:03:51-16:10:34在ChatGPT中查询'昆明职高升学途径'",
+        "标题明确显示该任务",
+        "属于工作相关的前期调研"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:04-16:09",
+      "likely_state": "娱乐",
+      "minutes": 4.88,
+      "task": "浏览知乎长文和首页",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:04:18-16:05:04首页-知乎",
+        "16:05:04-16:08:32阅读'王虹、邓煜的成长经历...'长篇知乎文章",
+        "16:08:33-16:09:11首页-知乎",
+        "该文章主题与工作无关，属于娱乐偏离"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:09-16:09",
+      "likely_state": "通信",
+      "minutes": 0.73,
+      "task": "微信聊天及图片视频查看",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:09:13-16:09:26微信前台",
+        "16:09:33-16:09:40微信前台",
+        "16:09:48-16:09:51微信前台",
+        "16:09:52-16:09:54微信图片和视频"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:09-16:11",
+      "likely_state": "工作",
+      "minutes": 1.3,
+      "task": "继续查询昆明职高升学途径（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:09:55-16:10:34在ChatGPT中继续'昆明职高升学途径'",
+        "16:10:34-16:10:41ChatGPT首页或切换",
+        "16:10:46-16:11:13ChatGPT使用",
+        "标题一致，属于同一工作主题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:11-16:13",
+      "likely_state": "工作",
+      "minutes": 2.02,
+      "task": "进行课时量分析（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:11:14-16:13:13使用ChatGPT，标题'课时量分析'",
+        "持续时间约2分钟，作为主要工作任务的开始",
+        "后续反复出现该标题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:13-16:14",
+      "likely_state": "娱乐",
+      "minutes": 1.18,
+      "task": "继续浏览知乎文章及首页",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:13:14-16:14:11阅读'王虹、邓煜的成长经历...'（再次返回）",
+        "16:14:20-16:14:25首页-知乎",
+        "短暂切换回ChatGPT但主要时间在知乎"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "16:14-16:15",
+      "likely_state": "娱乐",
+      "minutes": 1.15,
+      "task": "浏览知乎首页",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:14:28-16:15:34首页-知乎",
+        "无窗口记录间隙短"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:15-16:16",
+      "likely_state": "娱乐",
+      "minutes": 1.0,
+      "task": "浏览知乎AI话题文章",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:15:34-16:15:40浏览'一般没人讨论这个，但我想问，Kimi K3出了...'",
+        "16:15:41-16:16:33切换到课时量分析但不足1分钟",
+        "属于娱乐偏离"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "16:16-16:18",
+      "likely_state": "娱乐",
+      "minutes": 1.65,
+      "task": "继续浏览知乎AI话题文章",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:16:34-16:18:12阅读'一般没人讨论这个...'全文",
+        "持续时间约1.6分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:18-16:20",
+      "likely_state": "工作",
+      "minutes": 2.73,
+      "task": "进行课时量分析（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:18:13-16:20:56使用ChatGPT，标题'课时量分析'",
+        "持续约2.7分钟，返回主要工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:20-16:21",
+      "likely_state": "通信",
+      "minutes": 0.48,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:20:57-16:21:25微信前台，标题'微信'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:21-16:24",
+      "likely_state": "工作",
+      "minutes": 2.65,
+      "task": "继续课时量分析（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:21:26-16:24:03使用ChatGPT，标题'课时量分析'",
+        "持续约2.6分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:24-16:24",
+      "likely_state": "通信",
+      "minutes": 0.78,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:24:05-16:24:38微信前台",
+        "16:24:47-16:24:51微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:24-16:25",
+      "likely_state": "工作",
+      "minutes": 0.45,
+      "task": "课时量分析（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:24:52-16:25:13使用ChatGPT，标题'课时量分析'",
+        "16:25:17-16:25:18继续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:25-16:25",
+      "likely_state": "通信",
+      "minutes": 0.12,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:19-16:25:25微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:25-16:25",
+      "likely_state": "工作",
+      "minutes": 0.12,
+      "task": "课时量分析（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:26-16:25:32使用ChatGPT，标题'课时量分析'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:25-16:25",
+      "likely_state": "通信",
+      "minutes": 0.13,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:33-16:25:40微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:25-16:25",
+      "likely_state": "工作",
+      "minutes": 0.12,
+      "task": "课时量分析（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:41-16:25:47使用ChatGPT，标题'课时量分析'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:25-16:26",
+      "likely_state": "通信",
+      "minutes": 0.92,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:25:48-16:26:04微信前台",
+        "16:26:14-16:26:42微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:26-16:26",
+      "likely_state": "工作",
+      "minutes": 0.07,
+      "task": "课时量分析（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:26:43-16:26:46使用ChatGPT，标题'课时量分析'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:26-16:28",
+      "likely_state": "通信",
+      "minutes": 1.35,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:26:47-16:27:08微信前台",
+        "16:27:27-16:28:06微信前台"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:28-16:28",
+      "likely_state": "工作",
+      "minutes": 0.18,
+      "task": "课时量分析（ChatGPT）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:28:08-16:28:18使用ChatGPT，标题'课时量分析'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:28-16:30",
+      "likely_state": "通信",
+      "minutes": 1.68,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:28:19-16:30:00微信前台",
+        "持续约1.7分钟"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "课时量分析与准备",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 17156,
+      "completion_tokens": 1682,
+      "total_tokens": 18838,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1073
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 16260
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T16:00:00+08:00",
+    "end": "2026-07-26T16:30:00+08:00"
+  },
+  "primary_work_task": "备课（高中物理加速度）",
+  "segments": [
+    {
+      "start": "2026-07-26T16:00:00+08:00",
+      "end": "2026-07-26T16:01:11+08:00",
+      "duration_seconds": 71.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "使用腾讯会议和微信进行工作沟通，查看物理PDF",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口标题'彭康哲的快速会议'，微信在前台，浏览器标签页'高中物理1 加速度.pdf'和ChatGPT持续存在",
+        "16:00:00-16:00:39腾讯会议活跃，16:00:40-16:01:09微信活跃",
+        "前后文有浏览PDF和使用ChatGPT的记录，表明该时段是工作的一部分",
+        "16:01:11后电脑AFK，手机全程熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T16:01:11+08:00",
+      "end": "2026-07-26T16:05:29+08:00",
+      "duration_seconds": 258.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（跨设备无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机全程熄屏，符合休息规则",
+        "跨设备休息确认区间16:01:11-16:05:29"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T16:05:29+08:00",
+      "end": "2026-07-26T16:08:42+08:00",
+      "duration_seconds": 193.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "工作沟通：腾讯会议和微信交替使用，涉及备课讨论",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "16:05:29短暂回到腾讯会议，16:05:31-16:07:19微信活跃，16:07:20-16:08:42腾讯会议活跃",
+        "标题'彭康哲的快速会议'表明会议仍在进行",
+        "前后文持续有PDF和ChatGPT，表明工作连续性"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T16:08:42+08:00",
+      "end": "2026-07-26T16:15:10+08:00",
+      "duration_seconds": 388.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（跨设备无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机熄屏，符合休息规则",
+        "跨设备休息确认区间16:08:42-16:15:10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T16:15:10+08:00",
+      "end": "2026-07-26T16:16:35+08:00",
+      "duration_seconds": 85.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑状态未知，手机熄屏，无法判断活动",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为'unknown'，无窗口记录，手机熄屏",
+        "期间无任何可观测活动"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T16:16:35+08:00",
+      "end": "2026-07-26T16:30:00+08:00",
+      "duration_seconds": 805.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（跨设备无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK，手机熄屏，符合休息规则",
+        "跨设备休息确认区间16:16:35-16:30:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "16:15:10-16:16:35电脑状态unknown，可能短暂工作或继续休息，但缺乏证据",
+    "微信和腾讯会议的具体通信内容未知，只能推断为工作沟通"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7478,
+      "completion_tokens": 1098,
+      "total_tokens": 8576,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6582
+    }
+  }
+}

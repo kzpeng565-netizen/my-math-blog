@@ -1,0 +1,170 @@
+{
+  "period": "2026-07-25T11:00:00+08:00/2026-07-25T11:30:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：初高衔接数学备课（对称式、主元思想、因式分解）。工作13.87分钟，娱乐0.0分钟，通信0.0分钟，确认休息16.13分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 13.87,
+    "same_task_tool_switches_not_scored": 15,
+    "raw_foreground_context_switches_not_scored": 15,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中没有出现任何超过30秒的娱乐偏离，B站视频内容（初高衔接教学）属于工作任务本身，腾讯会议、Obsidian、PDF均为备课工具切换，不计入混杂。"
+  },
+  "computer_summary": "电脑主要用于初高衔接数学备课：腾讯会议讨论（约6分钟）、Edge浏览B站教学视频和PDF（共约7分钟）、Obsidian笔记（约0.2分钟），另有零星微信通信（约2.7分钟）属于短暂通信。",
+  "phone_summary": "手机仅在11:07:41-11:07:59亮屏约18秒，前台为微信（8秒），属于短暂查看消息，未影响工作连续性。",
+  "material_uncertainties": [
+    "B站视频标题明确为初高衔接教学，但视频内容是否完全属于工作备课（而非娱乐）无法从标题100%确认，不过结合腾讯会议讨论和PDF上下文，可信度高。",
+    "微信通信的具体内容未知，但时长极短且分散，不影响工作判断。"
+  ],
+  "concise_report": "主要任务：初高衔接数学备课（对称式、主元思想、因式分解）。工作13.87分钟，娱乐0.0分钟，通信0.0分钟，确认休息16.13分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "B站视频【初高衔接】1.1 对称式、主元思想是否确实用于备课讨论，而非个人娱乐？",
+  "observed_metrics": {
+    "computer_active_minutes": 13.87,
+    "computer_afk_minutes": 16.13,
+    "phone_screen_on_minutes": 0.3,
+    "simultaneous_computer_active_phone_on_minutes": 0.3,
+    "no_detected_device_interaction_minutes": 16.13,
+    "confirmed_rest_minutes": 16.13
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 13.87,
+      "range_minutes": [
+        13.87,
+        13.87
+      ],
+      "evidence": [
+        "腾讯会议彭康哲的快速会议贯穿此段，讨论初高衔接内容",
+        "Microsoft Edge浏览B站视频【初高衔接】1.1 对称式、主元思想",
+        "打开PDF《初高衔接2 乘法公式&主元思想&因式分解.pdf》",
+        "Obsidian中编辑同主题笔记"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 16.13,
+      "range_minutes": [
+        16.13,
+        16.13
+      ],
+      "evidence": [
+        "11:13:52起电脑连续AFK且无手机操作，符合休息规则",
+        "跨设备确认休息区间：11:13:52-11:30:00"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "11:00-11:13",
+      "likely_state": "工作",
+      "minutes": 13.87,
+      "task": "初高衔接数学备课：腾讯会议讨论、看B站教学视频、阅读PDF、做笔记",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "腾讯会议彭康哲的快速会议贯穿此段，讨论初高衔接内容",
+        "Microsoft Edge浏览B站视频【初高衔接】1.1 对称式、主元思想",
+        "打开PDF《初高衔接2 乘法公式&主元思想&因式分解.pdf》",
+        "Obsidian中编辑同主题笔记"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:13-11:30",
+      "likely_state": "休息",
+      "minutes": 16.13,
+      "task": "休息（电脑AFK，手机无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "11:13:52起电脑连续AFK且无手机操作，符合休息规则",
+        "跨设备确认休息区间：11:13:52-11:30:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "初高衔接数学备课（对称式、主元思想、因式分解）",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7256,
+      "completion_tokens": 598,
+      "total_tokens": 7854,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 154
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6360
+    }
+  }
+}

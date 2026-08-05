@@ -1,0 +1,226 @@
+{
+  "period": "2026-07-25T16:00:00+08:00/2026-07-25T16:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：物理家教（腾讯会议）。工作2.35分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.37分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 2.3,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无娱乐偏离，工作与休息完全分离。"
+  },
+  "computer_summary": "电脑上主要用于腾讯会议进行物理家教（2.3分钟），其余时间AFK或unknown。",
+  "phone_summary": "手机屏幕全程关闭，无活动。",
+  "material_uncertainties": [
+    "16:08:16至16:11:33的unknown状态期间用户是否在休息或做其他无设备活动不确定",
+    "16:08:16至16:11:33的unknown状态期间用户是否在休息或做其他无设备活动不确定。"
+  ],
+  "concise_report": "主要任务：物理家教（腾讯会议）。工作2.35分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.37分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "16:08:16至16:11:33的unknown状态是否为休息？",
+  "observed_metrics": {
+    "computer_active_minutes": 2.36,
+    "computer_afk_minutes": 24.36,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 27.65,
+    "confirmed_rest_minutes": 24.37
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 2.35,
+      "range_minutes": [
+        2.35,
+        2.35
+      ],
+      "evidence": [
+        "前台窗口为腾讯会议，标题彭康哲的快速会议",
+        "观察到PDF文件初高物理1 运动学基础概念.pdf",
+        "前后上下文显示15:55起已在微信和腾讯会议间切换准备会议",
+        "AFK结束前3秒电脑有短暂活动"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 24.37,
+      "range_minutes": [
+        24.37,
+        24.37
+      ],
+      "evidence": [
+        "跨设备休息规则确认的休息区间",
+        "电脑AFK且手机屏幕关闭",
+        "没有检测到任何设备交互"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 3.28,
+      "range_minutes": [
+        3.28,
+        3.28
+      ],
+      "evidence": [
+        "电脑AFK状态结束后进入unknown状态",
+        "手机仍保持屏幕关闭",
+        "前后为确认的休息区间",
+        "无法确定用户活动"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "16:00-16:02",
+      "likely_state": "工作",
+      "minutes": 2.3,
+      "task": "腾讯会议中进行物理家教，标题为彭康哲的快速会议，涉及初高物理运动学概念PDF",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口为腾讯会议，标题彭康哲的快速会议",
+        "观察到PDF文件初高物理1 运动学基础概念.pdf",
+        "前后上下文显示15:55起已在微信和腾讯会议间切换准备会议",
+        "AFK结束前3秒电脑有短暂活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:02-16:08",
+      "likely_state": "休息",
+      "minutes": 5.92,
+      "task": "已确认的休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认的休息区间",
+        "电脑AFK且手机屏幕关闭",
+        "没有检测到任何设备交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "16:08-16:08",
+      "likely_state": "工作",
+      "minutes": 0.05,
+      "task": "短暂返回腾讯会议（彭康哲的快速会议），可能检查或结束会议",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口短暂变为腾讯会议，标题彭康哲的快速会议",
+        "持续时间仅3秒，可能为快速操作后再次离开",
+        "之后电脑状态变为unknown"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "16:08-16:11",
+      "likely_state": "无法判断",
+      "minutes": 3.28,
+      "task": "电脑活动状态未知，无法判断",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑AFK状态结束后进入unknown状态",
+        "手机仍保持屏幕关闭",
+        "前后为确认的休息区间",
+        "无法确定用户活动"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "16:11-16:30",
+      "likely_state": "休息",
+      "minutes": 18.45,
+      "task": "已确认的休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认的休息区间",
+        "电脑AFK且手机屏幕关闭",
+        "没有检测到任何设备交互"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "物理家教（腾讯会议）",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活动状态未知3.29分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4339,
+      "completion_tokens": 531,
+      "total_tokens": 4870,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 241
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 3443
+    }
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T21:30:00+08:00",
+    "end": "2026-07-26T22:00:00+08:00"
+  },
+  "primary_work_task": "增强DeepSeek搜索能力/配置调试",
+  "segments": [
+    {
+      "start": "2026-07-26T21:30:00+08:00",
+      "end": "2026-07-26T21:34:34+08:00",
+      "duration_seconds": 274.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT中工作，涉及搜索增强和配置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "ChatGPT前台持续约3分钟（21:30-21:32, 21:32-21:35）",
+        "手机在微信前台（21:30-21:33），但主要注意在电脑",
+        "随后打开文件夹和搜索，准备配置",
+        "手机屏幕关闭，电脑继续使用ChatGPT"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:34:34+08:00",
+      "end": "2026-07-26T21:34:42+08:00",
+      "duration_seconds": 8.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "快速查看手机微信消息",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏出现微信前台（21:34:38-21:34:42）",
+        "短暂查看后关闭屏幕"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T21:34:42+08:00",
+      "end": "2026-07-26T21:38:51+08:00",
+      "duration_seconds": 249.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT中工作，涉及搜索增强和配置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT前台持续（21:34-21:35, 21:35-21:36）",
+        "打开cc-switch，使用截图工具，再回ChatGPT",
+        "微信短暂出现但很快回到ChatGPT"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:38:51+08:00",
+      "end": "2026-07-26T21:39:53+08:00",
+      "duration_seconds": 62.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷小红书首页",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览器标签页切换至小红书首页",
+        "标题：'小红书 - 你的生活兴趣社区'",
+        "约1分钟，之后回到工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:39:53+08:00",
+      "end": "2026-07-26T21:43:18+08:00",
+      "duration_seconds": 205.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT和终端中配置增强DeepSeek搜索",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'增强DeepSeek搜索能力'持续",
+        "Windows Terminal运行PowerShell命令",
+        "小红书浏览结束，回归工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:43:18+08:00",
+      "end": "2026-07-26T21:46:18+08:00",
+      "duration_seconds": 180.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览小红书多篇帖子",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "连续浏览多个小红书标题：'王虹教授的博论致谢'、'pku期末季存活致谢'、'昆明同德广场'等",
+        "总时长约3分钟",
+        "期间穿插微信，但主要为浏览内容"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:46:18+08:00",
+      "end": "2026-07-26T21:46:39+08:00",
+      "duration_seconds": 21.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "返回ChatGPT工作，涉及搜索增强",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页回到'增强DeepSeek搜索能力'",
+        "文件资源管理器短暂出现",
+        "准备打开Notepad"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:46:39+08:00",
+      "end": "2026-07-26T21:48:04+08:00",
+      "duration_seconds": 85.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "编辑config.toml配置文件",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Notepad打开config.toml，编辑约1分钟",
+        "多次切换回Edge和终端，但主要在编辑配置",
+        "标题出现'config.toml - Notepad'和'*config.toml - Notepad'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:48:04+08:00",
+      "end": "2026-07-26T21:48:37+08:00",
+      "duration_seconds": 33.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "使用微信小程序和微信进行沟通",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信小程序'微信'出现约23秒",
+        "随后微信主窗口短暂出现"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T21:48:37+08:00",
+      "end": "2026-07-26T21:53:25+08:00",
+      "duration_seconds": 288.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在ChatGPT和终端中继续工作，涉及搜索增强和配置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "多次在Edge'增强DeepSeek搜索能力'和Windows Terminal之间切换",
+        "ChatGPT前台持续出现",
+        "微信短暂出现但很快回到工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:53:25+08:00",
+      "end": "2026-07-26T21:54:47+08:00",
+      "duration_seconds": 82.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在Edge中专注工作，增强DeepSeek搜索",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'增强DeepSeek搜索能力'持续约1分20秒",
+        "期间无其他应用切换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:54:47+08:00",
+      "end": "2026-07-26T21:55:15+08:00",
+      "duration_seconds": 28.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "在小红书搜索并浏览内容",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页切换到'昆明同德广场 - 小红书搜索'",
+        "浏览约28秒"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T21:55:15+08:00",
+      "end": "2026-07-26T21:55:54+08:00",
+      "duration_seconds": 39.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "使用微信沟通",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台持续约34秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:55:54+08:00",
+      "end": "2026-07-26T22:00:00+08:00",
+      "duration_seconds": 246.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "在Edge和终端中继续工作，涉及搜索增强和配置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'增强DeepSeek搜索能力'持续，多次往返终端",
+        "Windows Terminal运行PowerShell和npm命令",
+        "最后ChatGPT前台持续到22:00"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "微信通信内容未知，无法判断是否服务于工作"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 36997,
+      "completion_tokens": 2336,
+      "total_tokens": 39333,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 36101
+    }
+  }
+}

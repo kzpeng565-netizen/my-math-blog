@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-25T20:30:00+08:00",
+    "end": "2026-07-25T21:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 14,
+      "aw-watcher-afk_xyh": 156,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 19,
+      "aw-watcher-web-edge_xyh": 24
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 12.36,
+    "afk_minutes": 17.64,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 12.15
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 12.15
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "zhihu.com",
+      "minutes": 12.15
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "上交医学院回应《科学》报道6岁女孩在接受基因编辑试验后死亡，称正在调查，谁该对此负责？ - 知乎",
+      "minutes": 5.42
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 3.72
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "菲尔兹奖得主邓煜公开安利二次元作品，强力背书让父母再难以二次元耽误学习阻挠孩子爱好，如何看待此事？ - 知乎",
+      "minutes": 1.59
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "马克龙为什么要祝贺王虹获菲尔兹奖？王虹是我国培养的人才，他一个法国总统祝贺一个中国籍数学家是何用意？ - 知乎",
+      "minutes": 1.38
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "日系车三巨头在华销量全线下跌，专家称短期难扭转，主要原因是什么？ - 知乎",
+      "minutes": 0.03
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "为什么两广地区在计算机和数学领域出现了人才井喷? - 知乎",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "nature.com",
+      "title": "In vivo base editing of Chd3 rescues behavioural abnormalities in mice | Nature",
+      "first_seen": "2026-07-25T20:30:48+08:00",
+      "last_seen": "2026-07-25T20:58:56+08:00",
+      "raw_event_count": 19
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "日系车三巨头在华销量全线下跌，专家称短期难扭转，主要原因是什么？ - 知乎",
+      "first_seen": "2026-07-25T20:30:55+08:00",
+      "last_seen": "2026-07-25T20:47:41+08:00",
+      "raw_event_count": 12
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "为什么两广地区在计算机和数学领域出现了人才井喷? - 知乎",
+      "first_seen": "2026-07-25T20:47:41+08:00",
+      "last_seen": "2026-07-25T20:47:42+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-25T20:47:42+08:00",
+      "last_seen": "2026-07-25T20:59:26+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "马克龙为什么要祝贺王虹获菲尔兹奖？王虹是我国培养的人才，他一个法国总统祝贺一个中国籍数学家是何用意？ - 知乎",
+      "first_seen": "2026-07-25T20:49:26+08:00",
+      "last_seen": "2026-07-25T20:49:44+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "上交医学院回应《科学》报道6岁女孩在接受基因编辑试验后死亡，称正在调查，谁该对此负责？ - 知乎",
+      "first_seen": "2026-07-25T20:50:56+08:00",
+      "last_seen": "2026-07-25T20:57:56+08:00",
+      "raw_event_count": 5
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "菲尔兹奖得主邓煜公开安利二次元作品，强力背书让父母再难以二次元耽误学习阻挠孩子爱好，如何看待此事？ - 知乎",
+      "first_seen": "2026-07-25T20:57:56+08:00",
+      "last_seen": "2026-07-25T20:58:26+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-25T20:30:00+08:00",
+      "end": "2026-07-25T20:47:38+08:00",
+      "duration_seconds": 1058.533,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-25T20:47:38+08:00",
+      "end": "2026-07-25T21:00:00+08:00",
+      "duration_seconds": 741.466,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-25T20:47:38+08:00",
+      "end": "2026-07-25T20:47:40+08:00",
+      "duration_seconds": 1.813,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "日系车三巨头在华销量全线下跌，专家称短期难扭转，主要原因是什么？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T20:47:41+08:00",
+      "end": "2026-07-25T20:47:42+08:00",
+      "duration_seconds": 1.026,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "为什么两广地区在计算机和数学领域出现了人才井喷? - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T20:47:43+08:00",
+      "end": "2026-07-25T20:48:19+08:00",
+      "duration_seconds": 36.215,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T20:48:21+08:00",
+      "end": "2026-07-25T20:49:44+08:00",
+      "duration_seconds": 82.768,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "马克龙为什么要祝贺王虹获菲尔兹奖？王虹是我国培养的人才，他一个法国总统祝贺一个中国籍数学家是何用意？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T20:49:45+08:00",
+      "end": "2026-07-25T20:50:56+08:00",
+      "duration_seconds": 68.573,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-25T20:50:56+08:00",
+      "end": "2026-07-25T20:56:21+08:00",
+      "duration_seconds": 325.025,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "上交医学院回应《科学》报道6岁女孩在接受基因编辑试验后死亡，称正在调查，谁该对此负责？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T20:56:22+08:00",
+      "end": "2026-07-25T20:56:48+08:00",
+      "duration_seconds": 24.832,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-25T20:56:50+08:00",
+      "end": "2026-07-25T20:58:25+08:00",
+      "duration_seconds": 95.105,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "菲尔兹奖得主邓煜公开安利二次元作品，强力背书让父母再难以二次元耽误学习阻挠孩子爱好，如何看待此事？ - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-25T20:58:26+08:00",
+      "end": "2026-07-25T21:00:00+08:00",
+      "duration_seconds": 93.663,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "title_match+web"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.983,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.245,
+    "browser_share_of_active_time": 0.983,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

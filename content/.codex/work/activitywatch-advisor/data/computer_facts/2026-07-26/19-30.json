@@ -1,0 +1,682 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-26T19:30:00+08:00",
+    "end": "2026-07-26T20:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 68,
+      "aw-watcher-afk_xyh": 82,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 24
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 6.7,
+    "afk_minutes": 23.3,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 5.56
+  },
+  "top_apps": [
+    {
+      "app": "微信",
+      "minutes": 3.42
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 1.9
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 0.09
+    },
+    {
+      "app": "SearchHost.exe",
+      "minutes": 0.07
+    },
+    {
+      "app": "QQMusic.exe",
+      "minutes": 0.05
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.02
+    },
+    {
+      "app": "cc-switch.exe",
+      "minutes": 0.02
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "zhihu.com",
+      "minutes": 0.67
+    },
+    {
+      "domain": "bilibili.com",
+      "minutes": 0.43
+    },
+    {
+      "domain": "chatgpt.com",
+      "minutes": 0.24
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 2.77
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "minutes": 0.67
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.66
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "minutes": 0.43
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "HutaoCards | 虚拟信用卡 · 海淘支付 · 数字支付管家",
+      "minutes": 0.31
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "minutes": 0.16
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "讲义题目调整建议",
+      "minutes": 0.09
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 0.09
+    },
+    {
+      "app": "SearchHost.exe",
+      "domain": "",
+      "title": "搜索",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "新建标签页",
+      "minutes": 0.05
+    },
+    {
+      "app": "QQMusic.exe",
+      "domain": "",
+      "title": "平凡之路 - 朴树",
+      "minutes": 0.05
+    },
+    {
+      "app": "cc-switch.exe",
+      "domain": "",
+      "title": "CC Switch",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "ChatGPT: Chat, Work, Create & Code with AI",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "高中物理1 加速度.pdf",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-26T19:30:18+08:00",
+      "last_seen": "2026-07-26T19:58:49+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "",
+      "title": "高中物理1 加速度.pdf",
+      "first_seen": "2026-07-26T19:30:55+08:00",
+      "last_seen": "2026-07-26T19:54:30+08:00",
+      "raw_event_count": 16
+    },
+    {
+      "domain": "message.bilibili.com",
+      "title": "消息中心 - 哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili",
+      "first_seen": "2026-07-26T19:54:30+08:00",
+      "last_seen": "2026-07-26T19:54:31+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "高中物理-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-26T19:54:31+08:00",
+      "last_seen": "2026-07-26T19:54:31+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "first_seen": "2026-07-26T19:54:31+08:00",
+      "last_seen": "2026-07-26T19:55:06+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "zhihu.com",
+      "title": "首页 - 知乎",
+      "first_seen": "2026-07-26T19:55:06+08:00",
+      "last_seen": "2026-07-26T19:57:20+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "讲义题目调整建议",
+      "first_seen": "2026-07-26T19:57:20+08:00",
+      "last_seen": "2026-07-26T19:59:51+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "first_seen": "2026-07-26T19:59:51+08:00",
+      "last_seen": "2026-07-26T20:00:34+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-26T19:30:00+08:00",
+      "end": "2026-07-26T19:53:18+08:00",
+      "duration_seconds": 1398.183,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-26T19:53:18+08:00",
+      "end": "2026-07-26T20:00:00+08:00",
+      "duration_seconds": 401.816,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-26T19:53:18+08:00",
+      "end": "2026-07-26T19:53:28+08:00",
+      "duration_seconds": 9.895,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:53:29+08:00",
+      "end": "2026-07-26T19:53:35+08:00",
+      "duration_seconds": 6.2,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:53:36+08:00",
+      "end": "2026-07-26T19:53:51+08:00",
+      "duration_seconds": 15.503,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:53:52+08:00",
+      "end": "2026-07-26T19:53:55+08:00",
+      "duration_seconds": 3.105,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:53:57+08:00",
+      "end": "2026-07-26T19:54:13+08:00",
+      "duration_seconds": 16.532,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:54:14+08:00",
+      "end": "2026-07-26T19:54:17+08:00",
+      "duration_seconds": 3.103,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:54:18+08:00",
+      "end": "2026-07-26T19:54:25+08:00",
+      "duration_seconds": 7.226,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:54:25+08:00",
+      "end": "2026-07-26T19:54:29+08:00",
+      "duration_seconds": 3.098,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T19:54:29+08:00",
+      "end": "2026-07-26T19:54:30+08:00",
+      "duration_seconds": 1.023,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "高中物理1 加速度.pdf",
+      "domain": "",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T19:54:32+08:00",
+      "end": "2026-07-26T19:54:41+08:00",
+      "duration_seconds": 8.257,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T19:54:41+08:00",
+      "end": "2026-07-26T19:54:44+08:00",
+      "duration_seconds": 3.09,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T19:54:44+08:00",
+      "end": "2026-07-26T19:54:48+08:00",
+      "duration_seconds": 3.091,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T19:54:48+08:00",
+      "end": "2026-07-26T19:54:51+08:00",
+      "duration_seconds": 3.117,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T19:54:51+08:00",
+      "end": "2026-07-26T19:55:06+08:00",
+      "duration_seconds": 14.476,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T19:55:07+08:00",
+      "end": "2026-07-26T19:55:09+08:00",
+      "duration_seconds": 2.057,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T19:55:09+08:00",
+      "end": "2026-07-26T19:55:12+08:00",
+      "duration_seconds": 3.094,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T19:55:12+08:00",
+      "end": "2026-07-26T19:55:49+08:00",
+      "duration_seconds": 33.143,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T19:55:51+08:00",
+      "end": "2026-07-26T19:55:56+08:00",
+      "duration_seconds": 5.182,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:55:57+08:00",
+      "end": "2026-07-26T19:56:01+08:00",
+      "duration_seconds": 3.104,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:56:02+08:00",
+      "end": "2026-07-26T19:56:17+08:00",
+      "duration_seconds": 15.529,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:56:18+08:00",
+      "end": "2026-07-26T19:56:37+08:00",
+      "duration_seconds": 18.629,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:56:38+08:00",
+      "end": "2026-07-26T19:56:42+08:00",
+      "duration_seconds": 4.13,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T19:56:44+08:00",
+      "end": "2026-07-26T19:57:06+08:00",
+      "duration_seconds": 21.76,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:57:07+08:00",
+      "end": "2026-07-26T19:57:11+08:00",
+      "duration_seconds": 4.139,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:57:13+08:00",
+      "end": "2026-07-26T19:57:18+08:00",
+      "duration_seconds": 5.175,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:57:19+08:00",
+      "end": "2026-07-26T19:57:20+08:00",
+      "duration_seconds": 1.024,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首页 - 知乎",
+      "domain": "zhihu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T19:57:20+08:00",
+      "end": "2026-07-26T19:57:25+08:00",
+      "duration_seconds": 5.139,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T19:57:25+08:00",
+      "end": "2026-07-26T19:57:26+08:00",
+      "duration_seconds": 1.042,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:57:27+08:00",
+      "end": "2026-07-26T19:58:21+08:00",
+      "duration_seconds": 53.794,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:58:22+08:00",
+      "end": "2026-07-26T19:58:28+08:00",
+      "duration_seconds": 6.204,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:58:30+08:00",
+      "end": "2026-07-26T19:58:48+08:00",
+      "duration_seconds": 18.641,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:58:49+08:00",
+      "end": "2026-07-26T19:58:50+08:00",
+      "duration_seconds": 1.027,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:58:52+08:00",
+      "end": "2026-07-26T19:58:53+08:00",
+      "duration_seconds": 1.038,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:58:54+08:00",
+      "end": "2026-07-26T19:59:00+08:00",
+      "duration_seconds": 5.176,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "讲义题目调整建议",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T19:59:02+08:00",
+      "end": "2026-07-26T19:59:05+08:00",
+      "duration_seconds": 3.09,
+      "app": "QQMusic.exe",
+      "app_display": "QQMusic.exe",
+      "title": "平凡之路 - 朴树",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:59:05+08:00",
+      "end": "2026-07-26T19:59:09+08:00",
+      "duration_seconds": 4.108,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T19:59:09+08:00",
+      "end": "2026-07-26T19:59:18+08:00",
+      "duration_seconds": 9.287,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:59:20+08:00",
+      "end": "2026-07-26T19:59:21+08:00",
+      "duration_seconds": 1.026,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT: Chat, Work, Create & Code with AI",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:59:22+08:00",
+      "end": "2026-07-26T19:59:24+08:00",
+      "duration_seconds": 2.056,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T19:59:24+08:00",
+      "end": "2026-07-26T19:59:27+08:00",
+      "duration_seconds": 3.09,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T19:59:27+08:00",
+      "end": "2026-07-26T19:59:30+08:00",
+      "duration_seconds": 3.097,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:59:31+08:00",
+      "end": "2026-07-26T19:59:50+08:00",
+      "duration_seconds": 18.57,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "HutaoCards | 虚拟信用卡 · 海淘支付 · 数字支付管家",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T19:59:51+08:00",
+      "end": "2026-07-26T20:00:00+08:00",
+      "duration_seconds": 7.378,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.831,
+    "browser_title_coverage": 0.9,
+    "browser_domain_context_coverage": 0.71,
+    "web_watcher_exact_time_overlap": 0.655,
+    "browser_share_of_active_time": 0.283,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活跃窗口只覆盖83.1%。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

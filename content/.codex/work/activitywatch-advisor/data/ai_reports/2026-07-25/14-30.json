@@ -1,0 +1,217 @@
+{
+  "period": "2026-07-25T14:30:00+08:00/2026-07-25T15:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：物理学习：时间与位移。工作17.22分钟，娱乐8.35分钟，通信4.43分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 8.35,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 1,
+    "brief_communication_minutes": 4.43,
+    "longest_continuous_work_minutes": 16.37,
+    "same_task_tool_switches_not_scored": 27,
+    "raw_foreground_context_switches_not_scored": 36,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中未出现超过30秒的娱乐偏离；14:30-14:30:51和14:35:17-14:51:39为连续工作，14:51:39后自然过渡到娱乐。"
+  },
+  "computer_summary": "电脑主要用于物理学习：观看B站视频《基础物理量》系列、使用Obsidian记笔记、Mathpix截图；最后8.35分钟浏览知乎娱乐内容（诗词、搜索结果）。",
+  "phone_summary": "手机活动以通信为主：QQ约5.97分钟、微信约0.45分钟，期间有短暂哔哩哔哩查看（约0.08分钟），属于通信和短查看。",
+  "material_uncertainties": [
+    "14:30:51-14:35:17的QQ使用是否包含学习相关的交流？无明确证据，归为通信。",
+    "14:51:39之后的知乎浏览是否包含非娱乐目的？标题和内容均为诗词娱乐，无工作相关，判断为娱乐。"
+  ],
+  "concise_report": "主要任务：物理学习：时间与位移。工作17.22分钟，娱乐8.35分钟，通信4.43分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "14:51:39之后的知乎浏览（菲尔兹奖得主诗词等）是否确实属于娱乐而非工作相关？",
+  "observed_metrics": {
+    "computer_active_minutes": 25.56,
+    "computer_afk_minutes": 4.44,
+    "phone_screen_on_minutes": 7.43,
+    "simultaneous_computer_active_phone_on_minutes": 3.02,
+    "no_detected_device_interaction_minutes": 0.02,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 17.22,
+      "range_minutes": [
+        17.22,
+        17.22
+      ],
+      "evidence": [
+        "Edge前台播放B站视频'4.★【基础物理量】时间时刻'",
+        "配合Mathpix截图和Obsidian笔记，属于学习行为",
+        "手机同时亮屏，QQ使用3秒后迅速返回学习（<30秒）",
+        "辅助上下文显示14:25-14:30同样在学习，持续连贯"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 8.35,
+      "range_minutes": [
+        8.35,
+        8.35
+      ],
+      "evidence": [
+        "学习视频结束后新建标签页、进入知乎",
+        "浏览'从文学角度来看，菲尔兹奖得主邓煜的诗词选'",
+        "搜索并阅读诗词内容，与学习无直接关联",
+        "后续辅助上下文显示继续浏览其他知乎娱乐话题（'马克龙打电话祝贺王虹获奖'），为娱乐延续"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 4.43,
+      "range_minutes": [
+        4.43,
+        4.43
+      ],
+      "evidence": [
+        "电脑AFK，手机屏幕全程亮屏（14:30:52-14:35:16）",
+        "手机前台主要为QQ（约5.6分钟）和少量微信",
+        "无证据表明通信服务于学习任务",
+        "属于独立通信时段"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "14:30-14:30",
+      "likely_state": "工作",
+      "minutes": 0.85,
+      "task": "观看B站视频学习物理基础概念（时间、时刻）",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge前台播放B站视频'4.★【基础物理量】时间时刻'",
+        "配合Mathpix截图和Obsidian笔记，属于学习行为",
+        "手机同时亮屏，QQ使用3秒后迅速返回学习（<30秒）",
+        "辅助上下文显示14:25-14:30同样在学习，持续连贯"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:30-14:35",
+      "likely_state": "通信",
+      "minutes": 4.43,
+      "task": "微信、QQ通信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK，手机屏幕全程亮屏（14:30:52-14:35:16）",
+        "手机前台主要为QQ（约5.6分钟）和少量微信",
+        "无证据表明通信服务于学习任务",
+        "属于独立通信时段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:35-14:51",
+      "likely_state": "工作",
+      "minutes": 16.37,
+      "task": "学习物理基础视频（时间、位移）并整理笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "反复切换Edge B站视频（4.时间时刻、5.位移）和Obsidian笔记",
+        "使用Mathpix截图，结合SnippingTool辅助",
+        "搜索'初高中物理衔接'进一步学习",
+        "手机大部分时间屏幕关闭，无干扰"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "14:51-15:00",
+      "likely_state": "娱乐",
+      "minutes": 8.35,
+      "task": "浏览知乎娱乐内容：菲尔兹奖相关诗词及其他",
+      "work_category": "",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "学习视频结束后新建标签页、进入知乎",
+        "浏览'从文学角度来看，菲尔兹奖得主邓煜的诗词选'",
+        "搜索并阅读诗词内容，与学习无直接关联",
+        "后续辅助上下文显示继续浏览其他知乎娱乐话题（'马克龙打电话祝贺王虹获奖'），为娱乐延续"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "物理学习：时间与位移",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15936,
+      "completion_tokens": 2344,
+      "total_tokens": 18280,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1913
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 15040
+    }
+  }
+}

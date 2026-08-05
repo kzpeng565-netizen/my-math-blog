@@ -1,0 +1,470 @@
+{
+  "schema_version": 3,
+  "period": {
+    "start": "2026-07-26T15:00:00+08:00",
+    "end": "2026-07-26T15:30:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-26/15-00.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-26/15-00.json",
+  "semantic_timeline_file": "/home/conrad/workspace/activitywatch-advisor/data/semantic_timelines/2026-07-26/15-00.json",
+  "mixing_metrics_file": "/home/conrad/workspace/activitywatch-advisor/data/mixing_metrics/2026-07-26/15-00.json",
+  "cross_device_facts": {
+    "schema_version": 2,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-26T15:00:00+08:00",
+      "end": "2026-07-26T15:30:00+08:00"
+    },
+    "time_accounting_observed": {
+      "period_minutes": 30.0,
+      "computer_not_afk_minutes": 26.17,
+      "computer_afk_minutes": 3.83,
+      "phone_screen_on_minutes": 0.0,
+      "any_device_interaction_minutes": 26.18,
+      "no_detected_device_interaction_minutes": 3.82,
+      "confirmed_rest_minutes": 3.82,
+      "note": "confirmed_rest_minutes按用户确认的跨设备连续无操作规则计算。"
+    },
+    "rest_rule": {
+      "minimum_continuous_inactive_seconds": 180.0,
+      "devices_evaluated": [
+        "computer",
+        "phone"
+      ],
+      "future_devices_not_connected": [
+        "tablet"
+      ],
+      "condition": "电脑连续AFK达到阈值，且所有已接入移动设备均无操作。",
+      "confirmed_intervals": [
+        {
+          "start": "2026-07-26T15:00:00+08:00",
+          "end": "2026-07-26T15:03:49+08:00",
+          "minutes": 3.82
+        }
+      ]
+    },
+    "computer_fragmentation_metrics": {
+      "minimum_context_seconds": 5,
+      "meaningful_context_blocks": 50,
+      "context_switch_count": 49,
+      "switches_per_active_hour": 130.61,
+      "short_context_blocks_under_60_seconds": 47,
+      "sustained_context_blocks_at_least_5_minutes": 0,
+      "longest_context_minutes": 2.7,
+      "median_context_minutes": 0.31,
+      "context_blocks": [
+        {
+          "start": "2026-07-26T15:03:49+08:00",
+          "end": "2026-07-26T15:04:06+08:00",
+          "minutes": 0.27,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:04:09+08:00",
+          "end": "2026-07-26T15:04:47+08:00",
+          "minutes": 0.64,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:04:48+08:00",
+          "end": "2026-07-26T15:05:00+08:00",
+          "minutes": 0.21,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:05:04+08:00",
+          "end": "2026-07-26T15:05:15+08:00",
+          "minutes": 0.17,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:05:16+08:00",
+          "end": "2026-07-26T15:05:28+08:00",
+          "minutes": 0.17,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:05:34+08:00",
+          "end": "2026-07-26T15:05:57+08:00",
+          "minutes": 0.35,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:05:58+08:00",
+          "end": "2026-07-26T15:07:33+08:00",
+          "minutes": 1.59,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:07:34+08:00",
+          "end": "2026-07-26T15:07:44+08:00",
+          "minutes": 0.12,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:08:00+08:00",
+          "end": "2026-07-26T15:08:07+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:08:08+08:00",
+          "end": "2026-07-26T15:08:29+08:00",
+          "minutes": 0.34,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:08:38+08:00",
+          "end": "2026-07-26T15:08:54+08:00",
+          "minutes": 0.26,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:08:55+08:00",
+          "end": "2026-07-26T15:09:12+08:00",
+          "minutes": 0.26,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:09:13+08:00",
+          "end": "2026-07-26T15:09:19+08:00",
+          "minutes": 0.09,
+          "app": "微信",
+          "title": "图片和视频",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:09:28+08:00",
+          "end": "2026-07-26T15:09:53+08:00",
+          "minutes": 0.41,
+          "app": "微信",
+          "title": "微信",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:09:54+08:00",
+          "end": "2026-07-26T15:10:42+08:00",
+          "minutes": 0.77,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:10:55+08:00",
+          "end": "2026-07-26T15:11:11+08:00",
+          "minutes": 0.24,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:11:13+08:00",
+          "end": "2026-07-26T15:11:40+08:00",
+          "minutes": 0.45,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:11:41+08:00",
+          "end": "2026-07-26T15:12:00+08:00",
+          "minutes": 0.31,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:12:03+08:00",
+          "end": "2026-07-26T15:12:08+08:00",
+          "minutes": 0.09,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:12:13+08:00",
+          "end": "2026-07-26T15:12:25+08:00",
+          "minutes": 0.21,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:12:26+08:00",
+          "end": "2026-07-26T15:15:08+08:00",
+          "minutes": 2.7,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:15:26+08:00",
+          "end": "2026-07-26T15:16:00+08:00",
+          "minutes": 0.53,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:16:08+08:00",
+          "end": "2026-07-26T15:16:28+08:00",
+          "minutes": 0.33,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:16:31+08:00",
+          "end": "2026-07-26T15:17:13+08:00",
+          "minutes": 0.71,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:17:14+08:00",
+          "end": "2026-07-26T15:17:48+08:00",
+          "minutes": 0.57,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:17:56+08:00",
+          "end": "2026-07-26T15:18:55+08:00",
+          "minutes": 0.98,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:18:57+08:00",
+          "end": "2026-07-26T15:19:16+08:00",
+          "minutes": 0.31,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:19:17+08:00",
+          "end": "2026-07-26T15:20:04+08:00",
+          "minutes": 0.79,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:20:05+08:00",
+          "end": "2026-07-26T15:20:14+08:00",
+          "minutes": 0.14,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:20:30+08:00",
+          "end": "2026-07-26T15:20:41+08:00",
+          "minutes": 0.15,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:20:42+08:00",
+          "end": "2026-07-26T15:21:33+08:00",
+          "minutes": 0.82,
+          "app": "Microsoft Edge",
+          "title": "ChatGPT",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-26T15:21:33+08:00",
+          "end": "2026-07-26T15:22:36+08:00",
+          "minutes": 1.03,
+          "app": "Microsoft Edge",
+          "title": "课件内容调整建议",
+          "domain": "chatgpt.com"
+        },
+        {
+          "start": "2026-07-26T15:22:37+08:00",
+          "end": "2026-07-26T15:22:44+08:00",
+          "minutes": 0.12,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:22:50+08:00",
+          "end": "2026-07-26T15:23:40+08:00",
+          "minutes": 0.79,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:23:44+08:00",
+          "end": "2026-07-26T15:23:51+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:23:53+08:00",
+          "end": "2026-07-26T15:24:01+08:00",
+          "minutes": 0.14,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:24:02+08:00",
+          "end": "2026-07-26T15:24:27+08:00",
+          "minutes": 0.41,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:24:33+08:00",
+          "end": "2026-07-26T15:24:47+08:00",
+          "minutes": 0.24,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:24:52+08:00",
+          "end": "2026-07-26T15:25:02+08:00",
+          "minutes": 0.17,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:25:07+08:00",
+          "end": "2026-07-26T15:25:40+08:00",
+          "minutes": 0.55,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:25:41+08:00",
+          "end": "2026-07-26T15:25:47+08:00",
+          "minutes": 0.1,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:25:48+08:00",
+          "end": "2026-07-26T15:26:14+08:00",
+          "minutes": 0.4,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:26:17+08:00",
+          "end": "2026-07-26T15:27:15+08:00",
+          "minutes": 0.93,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:27:16+08:00",
+          "end": "2026-07-26T15:27:54+08:00",
+          "minutes": 0.64,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:27:57+08:00",
+          "end": "2026-07-26T15:28:04+08:00",
+          "minutes": 0.12,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:28:11+08:00",
+          "end": "2026-07-26T15:28:30+08:00",
+          "minutes": 0.33,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:28:31+08:00",
+          "end": "2026-07-26T15:28:40+08:00",
+          "minutes": 0.15,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        },
+        {
+          "start": "2026-07-26T15:28:44+08:00",
+          "end": "2026-07-26T15:28:53+08:00",
+          "minutes": 0.15,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:28:56+08:00",
+          "end": "2026-07-26T15:29:51+08:00",
+          "minutes": 0.91,
+          "app": "Obsidian",
+          "title": "高中物理1 加速度",
+          "domain": ""
+        },
+        {
+          "start": "2026-07-26T15:29:52+08:00",
+          "end": "2026-07-26T15:30:00+08:00",
+          "minutes": 0.13,
+          "app": "Microsoft Edge",
+          "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+          "domain": "bilibili.com"
+        }
+      ],
+      "interpretation_note": "这些是前台电脑上下文的客观切换指标；切换次数不直接等于分心。"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 0.0,
+      "computer_afk_and_phone_on": 0.0,
+      "computer_not_afk_and_phone_off": 26.18,
+      "computer_afk_and_phone_off": 3.82
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "休息由用户确认的跨设备无操作规则确定；工作和其他活动仍由AI结合上下文估计。"
+    ]
+  }
+}

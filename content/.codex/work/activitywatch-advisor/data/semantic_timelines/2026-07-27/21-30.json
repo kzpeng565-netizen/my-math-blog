@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T21:30:00+08:00",
+    "end": "2026-07-27T22:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T21:30:00+08:00",
+      "end": "2026-07-27T21:35:03+08:00",
+      "duration_seconds": 303.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机零星操作：桌面、搜索、代理、微信、浏览器",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机从21:30:53至21:35:03亮屏，共4分钟",
+        "切换Google搜索、Clash Meta、微信、vivo浏览器等应用",
+        "电脑持续AFK，无键盘鼠标操作",
+        "GPT标签页虽存在但电脑无交互，不构成工作任务"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T21:35:03+08:00",
+      "end": "2026-07-27T22:00:00+08:00",
+      "duration_seconds": 1497.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "跨设备休息（电脑AFK、手机熄屏）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑从21:35:03至22:00:00持续AFK",
+        "手机屏幕从21:35:03至22:00:00关闭",
+        "确认休息规则将此区间标记为confirmed_rest",
+        "平板亮屏作为辅助数据不否决休息"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "手机操作期间的具体目的不明，可能包括快速查看或设置，但无明确工作证据",
+    "平板整段时间亮屏，但缺乏前台应用数据，无法判断用户是否在使用平板"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 1
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 9881,
+      "completion_tokens": 484,
+      "total_tokens": 10365,
+      "prompt_tokens_details": {
+        "cached_tokens": 9216
+      },
+      "prompt_cache_hit_tokens": 9216,
+      "prompt_cache_miss_tokens": 665
+    }
+  }
+}

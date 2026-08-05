@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 3,
+  "entertainment_deviation_minutes": 9.47,
+  "all_entertainment_minutes": 9.47,
+  "longest_entertainment_deviation_minutes": 5.22,
+  "work_entertainment_transition_count": 1,
+  "brief_communication_minutes": 6.55,
+  "longest_continuous_work_minutes": 7.77,
+  "same_task_tool_switches_not_scored": 19,
+  "raw_foreground_context_switches_not_scored": 46,
+  "deviations": [
+    {
+      "start": "2026-07-24T23:48:48+08:00",
+      "end": "2026-07-24T23:50:13+08:00",
+      "minutes": 1.42,
+      "duration_seconds": 85.0,
+      "task": "浏览仇子龙百度百科和搜索",
+      "evidence": [
+        "Microsoft Edge新建标签页后打开'仇子龙_百度百科'",
+        "搜索'仇子龙'",
+        "与初高衔接学习无关，属于知识浏览"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-24T23:51:57+08:00",
+      "end": "2026-07-24T23:54:47+08:00",
+      "minutes": 2.83,
+      "duration_seconds": 170.0,
+      "task": "浏览知乎多个话题",
+      "evidence": [
+        "浏览知乎'丘成桐邀请王虹邓煜'、'基因编辑实验'、'仇子龙搜索结果'等",
+        "频繁切换微信但主要注意在知乎"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-24T23:54:47+08:00",
+      "end": "2026-07-25T00:00:00+08:00",
+      "minutes": 5.22,
+      "duration_seconds": 313.0,
+      "task": "阅读知乎Science基因编辑文章",
+      "evidence": [
+        "电脑长时间浏览知乎'基因编辑实验'文章",
+        "手机23:57起亮屏约2.3分钟（前台未知）",
+        "微信短暂插入但主体是新闻阅读"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

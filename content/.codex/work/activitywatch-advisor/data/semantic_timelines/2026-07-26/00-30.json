@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T00:30:00+08:00",
+    "end": "2026-07-26T01:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-26T00:30:00+08:00",
+      "end": "2026-07-26T00:35:56+08:00",
+      "duration_seconds": 356.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷哔哩哔哩视频",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕亮屏，前台应用为哔哩哔哩，持续至00:35:49",
+        "电脑处于AFK状态"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T00:35:56+08:00",
+      "end": "2026-07-26T00:39:55+08:00",
+      "duration_seconds": 239.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息确认区间：00:35:56-00:39:55",
+        "手机屏幕关闭，电脑AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T00:39:55+08:00",
+      "end": "2026-07-26T00:46:31+08:00",
+      "duration_seconds": 396.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷哔哩哔哩视频",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕在00:40:13亮起并主要使用哔哩哔哩至00:46:31",
+        "电脑AFK持续，中间有未知状态但回归娱乐"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T00:46:31+08:00",
+      "end": "2026-07-26T00:46:49+08:00",
+      "duration_seconds": 18.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷哔哩哔哩视频（短暂关闭屏幕）",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机屏幕关闭仅18秒后立即亮屏继续哔哩哔哩，视为同一娱乐段内的短暂停顿",
+        "此间隔不符合休息确认条件（不足3分钟）"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T00:46:49+08:00",
+      "end": "2026-07-26T00:52:45+08:00",
+      "duration_seconds": 356.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷哔哩哔哩视频",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台哔哩哔哩连续使用至00:52:43",
+        "电脑AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T00:52:45+08:00",
+      "end": "2026-07-26T01:00:00+08:00",
+      "duration_seconds": 435.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息确认区间：00:52:45-01:00:00",
+        "手机屏幕关闭，电脑AFK"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "电脑在00:39:55-00:40:13期间状态未知，但手机亮屏后立即进入哔哩哔哩，行为判断不受影响。"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 1
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7816,
+      "completion_tokens": 947,
+      "total_tokens": 8763,
+      "prompt_tokens_details": {
+        "cached_tokens": 6784
+      },
+      "prompt_cache_hit_tokens": 6784,
+      "prompt_cache_miss_tokens": 1032
+    }
+  }
+}

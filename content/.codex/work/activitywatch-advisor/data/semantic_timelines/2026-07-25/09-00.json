@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T09:00:00+08:00",
+    "end": "2026-07-25T09:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-25T09:00:00+08:00",
+      "end": "2026-07-25T09:23:23+08:00",
+      "duration_seconds": 1403.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机上使用QQ、Telegram、微信聊天，随后B站看视频",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑整段时间AFK，手机屏幕大部分时间亮着",
+        "最初约3分钟使用QQ，然后微信，再反复切换Telegram和微信",
+        "约09:16:37后主要使用哔哩哔哩观看视频，持续到09:23:23",
+        "前后辅助时段显示更早也有QQ聊天和之后的B站视频，娱乐倾向明显"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T09:23:23+08:00",
+      "end": "2026-07-25T09:29:40+08:00",
+      "duration_seconds": 377.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（跨设备无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认09:23:23-09:29:40为休息",
+        "电脑AFK，手机屏幕熄灭且无操作",
+        "休息时长6.28分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T09:29:40+08:00",
+      "end": "2026-07-25T09:30:00+08:00",
+      "duration_seconds": 20.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "手机亮屏后短暂使用微信和哔哩哔哩",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "屏幕于09:29:40亮起，先有5秒未知前台，然后微信9秒，桌面2秒，最后B站4秒",
+        "延续休息前的娱乐模式"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "09:23:23-09:29:40的休息段后娱乐段较短，但B站使用明确确认娱乐意图",
+    "电脑后台保留Nature和ChatGPT标签页可能暗示之前有工作，但本时段未使用电脑"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 12384,
+      "completion_tokens": 650,
+      "total_tokens": 13034,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 11488
+    }
+  }
+}

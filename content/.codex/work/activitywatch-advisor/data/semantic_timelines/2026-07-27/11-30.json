@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T11:30:00+08:00",
+    "end": "2026-07-27T12:00:00+08:00"
+  },
+  "primary_work_task": "高中数学备课",
+  "segments": [
+    {
+      "start": "2026-07-27T11:30:00+08:00",
+      "end": "2026-07-27T11:51:06+08:00",
+      "duration_seconds": 1266.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK且手机熄屏超过3分钟，符合休息规则",
+        "平板亮屏但仅作为辅助数据，不否决休息",
+        "前后无任何有效交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:51:06+08:00",
+      "end": "2026-07-27T11:51:31+08:00",
+      "duration_seconds": 25.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "高中数学备课（使用DeepSeek和Obsidian）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "打开文件资源管理器后快速切换到DeepSeek和Obsidian",
+        "Obsidian标题'高中数学2 集合与逻辑'",
+        "DeepSeek平台与Obsidian内容一致，用于备课"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:51:31+08:00",
+      "end": "2026-07-27T11:55:36+08:00",
+      "duration_seconds": 245.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑进入AFK超过3分钟，手机熄屏",
+        "平板亮屏但不否决休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T11:55:36+08:00",
+      "end": "2026-07-27T11:56:36+08:00",
+      "duration_seconds": 60.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "未知状态（电脑状态未知）",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口记录",
+        "时长1分钟，可能影响分类"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-27T11:56:36+08:00",
+      "end": "2026-07-27T12:00:00+08:00",
+      "duration_seconds": 204.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK且手机熄屏超过3分钟",
+        "平板亮屏但不否决休息"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "11:55:36-11:56:36电脑状态unknown，无法确定用户是否有任何活动"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6927,
+      "completion_tokens": 784,
+      "total_tokens": 7711,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 5903
+    }
+  }
+}

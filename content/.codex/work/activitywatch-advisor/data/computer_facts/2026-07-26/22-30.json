@@ -1,0 +1,1112 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-26T22:30:00+08:00",
+    "end": "2026-07-26T23:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 126,
+      "aw-watcher-afk_xyh": 11,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 25
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 20.95,
+    "afk_minutes": 6.8,
+    "unknown_status_minutes": 2.25,
+    "window_observed_minutes": 18.79
+  },
+  "top_apps": [
+    {
+      "app": "微信",
+      "minutes": 12.56
+    },
+    {
+      "app": "Microsoft Edge",
+      "minutes": 4.75
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 1.14
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.19
+    },
+    {
+      "app": "微信小程序",
+      "minutes": 0.16
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 3.86
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "minutes": 0.59
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.02
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 10.55
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "Monaco编辑器方案评估",
+      "minutes": 2.65
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "Monaco方案可行性分析",
+      "minutes": 1.14
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 1.14
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 1.14
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信音视频通话",
+      "minutes": 0.88
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "从来没有被打过 昨天被打了 - 小红书",
+      "minutes": 0.59
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 0.29
+    },
+    {
+      "app": "微信小程序",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.16
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "增强DeepSeek搜索能力",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-26T22:30:01+08:00",
+      "last_seen": "2026-07-26T22:58:31+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "增强DeepSeek搜索能力",
+      "first_seen": "2026-07-26T22:30:37+08:00",
+      "last_seen": "2026-07-26T22:38:37+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-26T22:33:14+08:00",
+      "last_seen": "2026-07-26T22:34:37+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Monaco方案可行性分析",
+      "first_seen": "2026-07-26T22:34:37+08:00",
+      "last_seen": "2026-07-26T22:40:07+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "从来没有被打过 昨天被打了 - 小红书",
+      "first_seen": "2026-07-26T22:35:31+08:00",
+      "last_seen": "2026-07-26T22:36:37+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "问与答2.0 - 小红书",
+      "first_seen": "2026-07-26T22:36:37+08:00",
+      "last_seen": "2026-07-26T22:37:09+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Monaco编辑器方案评估",
+      "first_seen": "2026-07-26T22:40:07+08:00",
+      "last_seen": "2026-07-26T22:59:37+08:00",
+      "raw_event_count": 14
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-26T22:30:00+08:00",
+      "end": "2026-07-26T22:50:57+08:00",
+      "duration_seconds": 1257.015,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-26T22:50:57+08:00",
+      "end": "2026-07-26T22:54:23+08:00",
+      "duration_seconds": 206.887,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-26T22:54:23+08:00",
+      "end": "2026-07-26T22:56:39+08:00",
+      "duration_seconds": 135.267,
+      "status": "unknown"
+    },
+    {
+      "start": "2026-07-26T22:56:39+08:00",
+      "end": "2026-07-26T23:00:00+08:00",
+      "duration_seconds": 200.831,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-26T22:30:00+08:00",
+      "end": "2026-07-26T22:30:07+08:00",
+      "duration_seconds": 7.08,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:30:07+08:00",
+      "end": "2026-07-26T22:30:10+08:00",
+      "duration_seconds": 3.099,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:30:10+08:00",
+      "end": "2026-07-26T22:30:19+08:00",
+      "duration_seconds": 9.302,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:30:20+08:00",
+      "end": "2026-07-26T22:30:22+08:00",
+      "duration_seconds": 2.117,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:30:23+08:00",
+      "end": "2026-07-26T22:30:54+08:00",
+      "duration_seconds": 30.984,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:30:55+08:00",
+      "end": "2026-07-26T22:31:19+08:00",
+      "duration_seconds": 23.752,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:31:20+08:00",
+      "end": "2026-07-26T22:31:22+08:00",
+      "duration_seconds": 2.067,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:31:23+08:00",
+      "end": "2026-07-26T22:31:24+08:00",
+      "duration_seconds": 1.039,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:31:25+08:00",
+      "end": "2026-07-26T22:32:33+08:00",
+      "duration_seconds": 68.118,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:32:33+08:00",
+      "end": "2026-07-26T22:32:37+08:00",
+      "duration_seconds": 4.144,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:32:37+08:00",
+      "end": "2026-07-26T22:32:41+08:00",
+      "duration_seconds": 3.113,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:32:41+08:00",
+      "end": "2026-07-26T22:32:44+08:00",
+      "duration_seconds": 3.115,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:32:44+08:00",
+      "end": "2026-07-26T22:32:51+08:00",
+      "duration_seconds": 7.266,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:32:52+08:00",
+      "end": "2026-07-26T22:33:12+08:00",
+      "duration_seconds": 19.58,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:33:14+08:00",
+      "end": "2026-07-26T22:33:14+08:00",
+      "duration_seconds": 0.058,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T22:33:14+08:00",
+      "end": "2026-07-26T22:33:15+08:00",
+      "duration_seconds": 0.981,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:33:16+08:00",
+      "end": "2026-07-26T22:33:17+08:00",
+      "duration_seconds": 1.036,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:33:17+08:00",
+      "end": "2026-07-26T22:33:20+08:00",
+      "duration_seconds": 3.086,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:33:20+08:00",
+      "end": "2026-07-26T22:33:37+08:00",
+      "duration_seconds": 17.594,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:33:38+08:00",
+      "end": "2026-07-26T22:33:57+08:00",
+      "duration_seconds": 16.576,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:33:58+08:00",
+      "end": "2026-07-26T22:33:59+08:00",
+      "duration_seconds": 1.03,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:00+08:00",
+      "end": "2026-07-26T22:34:02+08:00",
+      "duration_seconds": 2.067,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:03+08:00",
+      "end": "2026-07-26T22:34:04+08:00",
+      "duration_seconds": 1.035,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:05+08:00",
+      "end": "2026-07-26T22:34:06+08:00",
+      "duration_seconds": 1.028,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:08+08:00",
+      "end": "2026-07-26T22:34:10+08:00",
+      "duration_seconds": 2.062,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:11+08:00",
+      "end": "2026-07-26T22:34:14+08:00",
+      "duration_seconds": 2.067,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:15+08:00",
+      "end": "2026-07-26T22:34:23+08:00",
+      "duration_seconds": 8.241,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:24+08:00",
+      "end": "2026-07-26T22:34:36+08:00",
+      "duration_seconds": 12.396,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:37+08:00",
+      "end": "2026-07-26T22:34:38+08:00",
+      "duration_seconds": 1.041,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:39+08:00",
+      "end": "2026-07-26T22:34:41+08:00",
+      "duration_seconds": 2.067,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco方案可行性分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T22:34:42+08:00",
+      "end": "2026-07-26T22:34:47+08:00",
+      "duration_seconds": 4.119,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:34:47+08:00",
+      "end": "2026-07-26T22:34:51+08:00",
+      "duration_seconds": 4.141,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:34:51+08:00",
+      "end": "2026-07-26T22:34:54+08:00",
+      "duration_seconds": 3.092,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco方案可行性分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T22:34:55+08:00",
+      "end": "2026-07-26T22:35:06+08:00",
+      "duration_seconds": 11.402,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:35:07+08:00",
+      "end": "2026-07-26T22:35:19+08:00",
+      "duration_seconds": 11.404,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco方案可行性分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T22:35:20+08:00",
+      "end": "2026-07-26T22:35:21+08:00",
+      "duration_seconds": 1.031,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:35:22+08:00",
+      "end": "2026-07-26T22:35:26+08:00",
+      "duration_seconds": 4.182,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:35:27+08:00",
+      "end": "2026-07-26T22:35:28+08:00",
+      "duration_seconds": 1.04,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:35:29+08:00",
+      "end": "2026-07-26T22:35:30+08:00",
+      "duration_seconds": 1.043,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco方案可行性分析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T22:35:32+08:00",
+      "end": "2026-07-26T22:35:38+08:00",
+      "duration_seconds": 6.212,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "从来没有被打过 昨天被打了 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T22:35:38+08:00",
+      "end": "2026-07-26T22:35:41+08:00",
+      "duration_seconds": 3.102,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:35:41+08:00",
+      "end": "2026-07-26T22:35:42+08:00",
+      "duration_seconds": 1.03,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "从来没有被打过 昨天被打了 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T22:35:45+08:00",
+      "end": "2026-07-26T22:35:46+08:00",
+      "duration_seconds": 1.026,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:35:46+08:00",
+      "end": "2026-07-26T22:35:49+08:00",
+      "duration_seconds": 3.083,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:35:49+08:00",
+      "end": "2026-07-26T22:35:50+08:00",
+      "duration_seconds": 1.026,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:35:51+08:00",
+      "end": "2026-07-26T22:35:53+08:00",
+      "duration_seconds": 2.068,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:35:55+08:00",
+      "end": "2026-07-26T22:36:23+08:00",
+      "duration_seconds": 27.927,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "从来没有被打过 昨天被打了 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T22:36:24+08:00",
+      "end": "2026-07-26T22:36:26+08:00",
+      "duration_seconds": 2.071,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:36:27+08:00",
+      "end": "2026-07-26T22:37:05+08:00",
+      "duration_seconds": 36.211,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:37:05+08:00",
+      "end": "2026-07-26T22:37:09+08:00",
+      "duration_seconds": 4.137,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:37:09+08:00",
+      "end": "2026-07-26T22:37:11+08:00",
+      "duration_seconds": 2.072,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:37:12+08:00",
+      "end": "2026-07-26T22:37:23+08:00",
+      "duration_seconds": 10.336,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco方案可行性分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:37:24+08:00",
+      "end": "2026-07-26T22:37:47+08:00",
+      "duration_seconds": 22.771,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:37:48+08:00",
+      "end": "2026-07-26T22:38:28+08:00",
+      "duration_seconds": 40.226,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco方案可行性分析",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:38:30+08:00",
+      "end": "2026-07-26T22:39:38+08:00",
+      "duration_seconds": 68.131,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:39:39+08:00",
+      "end": "2026-07-26T22:40:04+08:00",
+      "duration_seconds": 22.743,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:40:06+08:00",
+      "end": "2026-07-26T22:41:11+08:00",
+      "duration_seconds": 65.098,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco编辑器方案评估",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:41:12+08:00",
+      "end": "2026-07-26T22:41:13+08:00",
+      "duration_seconds": 1.023,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:41:14+08:00",
+      "end": "2026-07-26T22:41:20+08:00",
+      "duration_seconds": 3.076,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco编辑器方案评估",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:41:21+08:00",
+      "end": "2026-07-26T22:42:42+08:00",
+      "duration_seconds": 79.558,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:42:43+08:00",
+      "end": "2026-07-26T22:42:47+08:00",
+      "duration_seconds": 3.07,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco编辑器方案评估",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:42:49+08:00",
+      "end": "2026-07-26T22:43:06+08:00",
+      "duration_seconds": 15.454,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:43:07+08:00",
+      "end": "2026-07-26T22:43:09+08:00",
+      "duration_seconds": 2.072,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:43:10+08:00",
+      "end": "2026-07-26T22:43:36+08:00",
+      "duration_seconds": 23.688,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:43:37+08:00",
+      "end": "2026-07-26T22:43:38+08:00",
+      "duration_seconds": 1.03,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:43:39+08:00",
+      "end": "2026-07-26T22:43:40+08:00",
+      "duration_seconds": 1.037,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:43:41+08:00",
+      "end": "2026-07-26T22:43:58+08:00",
+      "duration_seconds": 16.511,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信音视频通话",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:43:59+08:00",
+      "end": "2026-07-26T22:44:03+08:00",
+      "duration_seconds": 4.115,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:44:04+08:00",
+      "end": "2026-07-26T22:44:05+08:00",
+      "duration_seconds": 1.038,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:44:06+08:00",
+      "end": "2026-07-26T22:44:07+08:00",
+      "duration_seconds": 1.035,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:44:08+08:00",
+      "end": "2026-07-26T22:44:11+08:00",
+      "duration_seconds": 3.097,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:44:13+08:00",
+      "end": "2026-07-26T22:44:49+08:00",
+      "duration_seconds": 36.157,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:44:50+08:00",
+      "end": "2026-07-26T22:44:51+08:00",
+      "duration_seconds": 1.02,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco编辑器方案评估",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:44:52+08:00",
+      "end": "2026-07-26T22:47:44+08:00",
+      "duration_seconds": 169.866,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:47:45+08:00",
+      "end": "2026-07-26T22:48:48+08:00",
+      "duration_seconds": 62.947,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco编辑器方案评估",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:48:49+08:00",
+      "end": "2026-07-26T22:49:04+08:00",
+      "duration_seconds": 14.455,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:49:05+08:00",
+      "end": "2026-07-26T22:49:07+08:00",
+      "duration_seconds": 2.057,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco编辑器方案评估",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:49:08+08:00",
+      "end": "2026-07-26T22:49:22+08:00",
+      "duration_seconds": 14.454,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:49:23+08:00",
+      "end": "2026-07-26T22:49:33+08:00",
+      "duration_seconds": 9.301,
+      "app": "WeChatAppEx.exe",
+      "app_display": "微信小程序",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:49:34+08:00",
+      "end": "2026-07-26T22:49:52+08:00",
+      "duration_seconds": 18.563,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:49:52+08:00",
+      "end": "2026-07-26T22:49:55+08:00",
+      "duration_seconds": 3.097,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:49:55+08:00",
+      "end": "2026-07-26T22:49:56+08:00",
+      "duration_seconds": 1.026,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:49:56+08:00",
+      "end": "2026-07-26T22:50:00+08:00",
+      "duration_seconds": 3.101,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T22:50:00+08:00",
+      "end": "2026-07-26T22:50:01+08:00",
+      "duration_seconds": 1.033,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:50:03+08:00",
+      "end": "2026-07-26T22:50:04+08:00",
+      "duration_seconds": 1.035,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:50:05+08:00",
+      "end": "2026-07-26T22:50:06+08:00",
+      "duration_seconds": 1.031,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T22:50:07+08:00",
+      "end": "2026-07-26T22:50:28+08:00",
+      "duration_seconds": 21.679,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Monaco编辑器方案评估",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T22:50:29+08:00",
+      "end": "2026-07-26T22:50:57+08:00",
+      "duration_seconds": 27.055,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.897,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 0.938,
+    "web_watcher_exact_time_overlap": 0.185,
+    "browser_share_of_active_time": 0.227,
+    "timeline_truncated": false,
+    "material_issues": [
+      "电脑活跃窗口只覆盖89.7%。",
+      "电脑活动状态未知2.25分钟。"
+    ],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

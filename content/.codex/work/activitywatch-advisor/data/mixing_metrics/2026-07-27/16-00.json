@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 6,
+  "entertainment_deviation_minutes": 11.88,
+  "all_entertainment_minutes": 11.88,
+  "longest_entertainment_deviation_minutes": 4.88,
+  "work_entertainment_transition_count": 5,
+  "brief_communication_minutes": 8.02,
+  "longest_continuous_work_minutes": 3.45,
+  "same_task_tool_switches_not_scored": 1,
+  "raw_foreground_context_switches_not_scored": 41,
+  "deviations": [
+    {
+      "start": "2026-07-27T16:01:49+08:00",
+      "end": "2026-07-27T16:03:50+08:00",
+      "minutes": 2.02,
+      "duration_seconds": 121.0,
+      "task": "浏览知乎各类话题（社会、数学、医疗等）",
+      "evidence": [
+        "16:01:49-16:02:35首页-知乎",
+        "16:02:39-16:03:04首页-知乎",
+        "16:03:04-16:03:49浏览'24岁女孩正颌手术被做反...'等新闻话题",
+        "后续16:03:50打开研究数学等页面但很快切换，属于娱乐偏离"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T16:04:18+08:00",
+      "end": "2026-07-27T16:09:11+08:00",
+      "minutes": 4.88,
+      "duration_seconds": 293.0,
+      "task": "浏览知乎长文和首页",
+      "evidence": [
+        "16:04:18-16:05:04首页-知乎",
+        "16:05:04-16:08:32阅读'王虹、邓煜的成长经历...'长篇知乎文章",
+        "16:08:33-16:09:11首页-知乎",
+        "该文章主题与工作无关，属于娱乐偏离"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.73,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:13:14+08:00",
+      "end": "2026-07-27T16:14:25+08:00",
+      "minutes": 1.18,
+      "duration_seconds": 71.0,
+      "task": "继续浏览知乎文章及首页",
+      "evidence": [
+        "16:13:14-16:14:11阅读'王虹、邓煜的成长经历...'（再次返回）",
+        "16:14:20-16:14:25首页-知乎",
+        "短暂切换回ChatGPT但主要时间在知乎"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 3.8,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T16:14:25+08:00",
+      "end": "2026-07-27T16:15:34+08:00",
+      "minutes": 1.15,
+      "duration_seconds": 69.0,
+      "task": "浏览知乎首页",
+      "evidence": [
+        "16:14:28-16:15:34首页-知乎",
+        "无窗口记录间隙短"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 2.65,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T16:15:34+08:00",
+      "end": "2026-07-27T16:16:34+08:00",
+      "minutes": 1.0,
+      "duration_seconds": 60.0,
+      "task": "浏览知乎AI话题文章",
+      "evidence": [
+        "16:15:34-16:15:40浏览'一般没人讨论这个，但我想问，Kimi K3出了...'",
+        "16:15:41-16:16:33切换到课时量分析但不足1分钟",
+        "属于娱乐偏离"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 1.65,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T16:16:34+08:00",
+      "end": "2026-07-27T16:18:13+08:00",
+      "minutes": 1.65,
+      "duration_seconds": 99.0,
+      "task": "继续浏览知乎AI话题文章",
+      "evidence": [
+        "16:16:34-16:18:12阅读'一般没人讨论这个...'全文",
+        "持续时间约1.6分钟"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

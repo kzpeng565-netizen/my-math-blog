@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 3,
+  "entertainment_deviation_minutes": 10.08,
+  "all_entertainment_minutes": 10.08,
+  "longest_entertainment_deviation_minutes": 5.88,
+  "work_entertainment_transition_count": 2,
+  "brief_communication_minutes": 0.07,
+  "longest_continuous_work_minutes": 10.53,
+  "same_task_tool_switches_not_scored": 11,
+  "raw_foreground_context_switches_not_scored": 15,
+  "deviations": [
+    {
+      "start": "2026-07-25T09:30:00+08:00",
+      "end": "2026-07-25T09:35:53+08:00",
+      "minutes": 5.88,
+      "duration_seconds": 353.0,
+      "task": "在手机上看哔哩哔哩视频（前段辅助上下文显示09:29开始，持续至09:34），接着听QQ音乐",
+      "evidence": [
+        "手机屏幕从09:30:58亮至09:35:53，哔哩哔哩前台约3分钟，后听QQ音乐约1.7分钟。",
+        "哔哩哔哩视频内容未明确关联工作（无标题）。",
+        "电脑此时为AFK状态，无操作，之后返回数学工作。"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 9.08,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T09:55:48+08:00",
+      "end": "2026-07-25T09:58:13+08:00",
+      "minutes": 2.42,
+      "duration_seconds": 145.0,
+      "task": "从新建标签页开始浏览娱乐新闻（A380被困、知乎首页）",
+      "evidence": [
+        "Edge打开新建标签页后浏览msn.cn新闻「A380被困」。",
+        "随后打开知乎首页和多个随机话题。",
+        "手机在09:56:02-09:56:15出现微信前台11秒（短暂通信），但不改变娱乐判断。"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T09:58:13+08:00",
+      "end": "2026-07-25T10:00:00+08:00",
+      "minutes": 1.78,
+      "duration_seconds": 107.0,
+      "task": "浏览知乎新闻话题（出口管制、基因编辑等）",
+      "evidence": [
+        "Edge活动窗口标题「商务部宣布...出口管制管控名单」。",
+        "继续知乎浏览，无工作相关标题。",
+        "助手上下文显示10:00后仍持续此行为。"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

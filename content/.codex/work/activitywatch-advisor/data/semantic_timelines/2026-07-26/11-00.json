@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T11:00:00+08:00",
+    "end": "2026-07-26T11:30:00+08:00"
+  },
+  "primary_work_task": "数学学习",
+  "segments": [
+    {
+      "start": "2026-07-26T11:00:00+08:00",
+      "end": "2026-07-26T11:01:59+08:00",
+      "duration_seconds": 119.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "高中数学1集合与逻辑PDF学习，同时在腾讯会议中参与彭康哲的快速会议",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑：腾讯会议窗口'彭康哲的快速会议'",
+        "电脑：浏览器'高中数学1 集合与逻辑.pdf'",
+        "辅助上下文显示10:55已开始该PDF",
+        "涉及数学学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T11:01:59+08:00",
+      "end": "2026-07-26T11:14:04+08:00",
+      "duration_seconds": 725.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK连续12.08分钟",
+        "手机全程熄屏无操作",
+        "跨设备规则确认休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T11:14:04+08:00",
+      "end": "2026-07-26T11:14:05+08:00",
+      "duration_seconds": 1.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "回到腾讯会议彭康哲的快速会议",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑窗口短暂切换到腾讯会议'彭康哲的快速会议'",
+        "前后有PDF文档打开，属于同一工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T11:14:05+08:00",
+      "end": "2026-07-26T11:17:50+08:00",
+      "duration_seconds": 225.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK连续3.75分钟",
+        "手机熄屏无操作",
+        "跨设备规则确认休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T11:17:50+08:00",
+      "end": "2026-07-26T11:21:40+08:00",
+      "duration_seconds": 230.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "未知活动：电脑状态未知，手机熄屏",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活动状态未知3.84分钟",
+        "手机熄屏",
+        "无法判断是否工作或休息"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T11:21:40+08:00",
+      "end": "2026-07-26T11:30:00+08:00",
+      "duration_seconds": 500.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK连续8.33分钟",
+        "手机熄屏无操作",
+        "跨设备规则确认休息"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "未知Activity状态3.84分钟（11:17:50-11:21:40）是否包含实际交互无法确定"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7098,
+      "completion_tokens": 912,
+      "total_tokens": 8010,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6202
+    }
+  }
+}

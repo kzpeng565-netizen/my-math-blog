@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T20:00:00+08:00",
+    "end": "2026-07-25T20:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-25T20:00:00+08:00",
+      "end": "2026-07-25T20:24:56+08:00",
+      "duration_seconds": 1496.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无设备操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑全程AFK且手机屏幕关闭",
+        "跨设备休息规则确认连续24.93分钟无操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T20:24:56+08:00",
+      "end": "2026-07-25T20:30:00+08:00",
+      "duration_seconds": 304.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "刷手机（微信、抖音、浏览知乎）",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "20:24:56手机亮屏，先后使用微信、抖音、Vivo全局搜索、手机桌面",
+        "电脑始终AFK，用户注意力完全在手机",
+        "微信共3分钟，抖音约44秒，期间无工作活动"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "20:24:56-20:25:00亮屏但前台未知4秒，不影响整体归类",
+    "微信中是否包含工作相关通信？但无任何工作上下文且紧邻娱乐，按brief_communication会割裂短段，故整体视为娱乐"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7534,
+      "completion_tokens": 423,
+      "total_tokens": 7957,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6638
+    }
+  }
+}

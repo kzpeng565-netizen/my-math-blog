@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T16:00:00+08:00",
+    "end": "2026-07-25T16:30:00+08:00"
+  },
+  "primary_work_task": "物理家教（腾讯会议）",
+  "segments": [
+    {
+      "start": "2026-07-25T16:00:00+08:00",
+      "end": "2026-07-25T16:02:18+08:00",
+      "duration_seconds": 138.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "腾讯会议中进行物理家教，标题为彭康哲的快速会议，涉及初高物理运动学概念PDF",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口为腾讯会议，标题彭康哲的快速会议",
+        "观察到PDF文件初高物理1 运动学基础概念.pdf",
+        "前后上下文显示15:55起已在微信和腾讯会议间切换准备会议",
+        "AFK结束前3秒电脑有短暂活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T16:02:18+08:00",
+      "end": "2026-07-25T16:08:13+08:00",
+      "duration_seconds": 355.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "已确认的休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认的休息区间",
+        "电脑AFK且手机屏幕关闭",
+        "没有检测到任何设备交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T16:08:13+08:00",
+      "end": "2026-07-25T16:08:16+08:00",
+      "duration_seconds": 3.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "短暂返回腾讯会议（彭康哲的快速会议），可能检查或结束会议",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "前台窗口短暂变为腾讯会议，标题彭康哲的快速会议",
+        "持续时间仅3秒，可能为快速操作后再次离开",
+        "之后电脑状态变为unknown"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T16:08:16+08:00",
+      "end": "2026-07-25T16:11:33+08:00",
+      "duration_seconds": 197.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑活动状态未知，无法判断",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑AFK状态结束后进入unknown状态",
+        "手机仍保持屏幕关闭",
+        "前后为确认的休息区间",
+        "无法确定用户活动"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-25T16:11:33+08:00",
+      "end": "2026-07-25T16:30:00+08:00",
+      "duration_seconds": 1107.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "已确认的休息",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "跨设备休息规则确认的休息区间",
+        "电脑AFK且手机屏幕关闭",
+        "没有检测到任何设备交互"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "16:08:16至16:11:33的unknown状态期间用户是否在休息或做其他无设备活动不确定"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5936,
+      "completion_tokens": 875,
+      "total_tokens": 6811,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 5040
+    }
+  }
+}

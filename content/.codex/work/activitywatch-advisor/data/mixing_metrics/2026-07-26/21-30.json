@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "medium",
+  "entertainment_deviation_count": 2,
+  "entertainment_deviation_minutes": 4.03,
+  "all_entertainment_minutes": 4.5,
+  "longest_entertainment_deviation_minutes": 3.0,
+  "work_entertainment_transition_count": 6,
+  "brief_communication_minutes": 1.33,
+  "longest_continuous_work_minutes": 8.85,
+  "same_task_tool_switches_not_scored": 48,
+  "raw_foreground_context_switches_not_scored": 63,
+  "deviations": [
+    {
+      "start": "2026-07-26T21:38:51+08:00",
+      "end": "2026-07-26T21:39:53+08:00",
+      "minutes": 1.03,
+      "duration_seconds": 62.0,
+      "task": "刷小红书首页",
+      "evidence": [
+        "浏览器标签页切换至小红书首页",
+        "标题：'小红书 - 你的生活兴趣社区'",
+        "约1分钟，之后回到工作"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T21:43:18+08:00",
+      "end": "2026-07-26T21:46:18+08:00",
+      "minutes": 3.0,
+      "duration_seconds": 180.0,
+      "task": "浏览小红书多篇帖子",
+      "evidence": [
+        "连续浏览多个小红书标题：'王虹教授的博论致谢'、'pku期末季存活致谢'、'昆明同德广场'等",
+        "总时长约3分钟",
+        "期间穿插微信，但主要为浏览内容"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

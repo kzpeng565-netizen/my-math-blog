@@ -1,0 +1,254 @@
+{
+  "period": "2026-07-27T12:30:00+08:00/2026-07-27T13:00:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "medium",
+    "one_sentence": "主要任务：数学学习。工作3.28分钟，娱乐0.0分钟，通信0.0分钟，确认休息16.6分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 3.15,
+    "same_task_tool_switches_not_scored": 4,
+    "raw_foreground_context_switches_not_scored": 4,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无娱乐偏离，工作期间未出现任何娱乐活动，等级为none"
+  },
+  "computer_summary": "电脑活动集中在前期约3分钟，使用Obsidian和腾讯会议进行数学学习（集合与逻辑），之后大部分时间AFK，中间有短暂返回腾讯会议约8秒，其余时间AFK或unknown",
+  "phone_summary": "手机全程熄屏，无任何活动记录",
+  "tablet_summary": "平板全程亮屏，但无前台应用数据，无法确认用途，仅作为辅助上下文",
+  "material_uncertainties": [
+    "12:46:32-12:56:39电脑状态部分unknown，无法确定用户活动",
+    "平板亮屏但无前台应用数据，无法确定其用途"
+  ],
+  "concise_report": "主要任务：数学学习。工作3.28分钟，娱乐0.0分钟，通信0.0分钟，确认休息16.6分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "12:46:32至12:56:39期间电脑状态unknown，您是否在休息、使用平板或其他活动？",
+  "observed_metrics": {
+    "computer_active_minutes": 3.29,
+    "computer_afk_minutes": 18.36,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 26.72,
+    "confirmed_rest_minutes": 16.6
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 3.28,
+      "range_minutes": [
+        3.28,
+        3.28
+      ],
+      "evidence": [
+        "Obsidian窗口标题'高中数学2 集合与逻辑'",
+        "腾讯会议窗口标题'彭康哲的快速会议'",
+        "DeepSeek和ChatGPT页面在后台打开",
+        "腾讯会议窗口在12:42:56-12:43:01显示'彭康哲的快速会议'"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 16.6,
+      "range_minutes": [
+        16.6,
+        16.6
+      ],
+      "evidence": [
+        "电脑连续AFK从12:33:09到12:42:56",
+        "手机全程熄屏",
+        "rest_rule确认休息区间",
+        "电脑AFK从12:43:04到12:46:32"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 10.12,
+      "range_minutes": [
+        10.12,
+        10.12
+      ],
+      "evidence": [
+        "电脑状态unknown从12:48:23到12:56:39",
+        "期间有AFK片段",
+        "手机全程熄屏",
+        "平板亮屏但无前台应用数据"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "12:30-12:33",
+      "likely_state": "工作",
+      "minutes": 3.15,
+      "task": "高中数学集合与逻辑，使用Obsidian和腾讯会议",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题'高中数学2 集合与逻辑'",
+        "腾讯会议窗口标题'彭康哲的快速会议'",
+        "DeepSeek和ChatGPT页面在后台打开"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:33-12:42",
+      "likely_state": "休息",
+      "minutes": 9.78,
+      "task": "休息（电脑AFK且手机熄屏）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑连续AFK从12:33:09到12:42:56",
+        "手机全程熄屏",
+        "rest_rule确认休息区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:42-12:43",
+      "likely_state": "工作",
+      "minutes": 0.13,
+      "task": "短暂回到腾讯会议（彭康哲的快速会议）",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口在12:42:56-12:43:01显示'彭康哲的快速会议'",
+        "随后变为'腾讯会议'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:43-12:46",
+      "likely_state": "休息",
+      "minutes": 3.47,
+      "task": "休息（电脑AFK且手机熄屏）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK从12:43:04到12:46:32",
+        "手机全程熄屏",
+        "rest_rule确认休息区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:46-12:56",
+      "likely_state": "其他",
+      "minutes": 10.12,
+      "task": "电脑AFK与unknown交替，手机熄屏，平板亮屏但无前台信息",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer",
+        "tablet"
+      ],
+      "evidence": [
+        "电脑状态unknown从12:48:23到12:56:39",
+        "期间有AFK片段",
+        "手机全程熄屏",
+        "平板亮屏但无前台应用数据"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "12:56-13:00",
+      "likely_state": "休息",
+      "minutes": 3.35,
+      "task": "休息（电脑AFK且手机熄屏）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK从12:56:39到时段结束",
+        "手机全程熄屏",
+        "rest_rule确认休息区间"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "数学学习",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活动状态未知8.35分钟。",
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6240,
+      "completion_tokens": 779,
+      "total_tokens": 7019,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 382
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 5344
+    }
+  }
+}

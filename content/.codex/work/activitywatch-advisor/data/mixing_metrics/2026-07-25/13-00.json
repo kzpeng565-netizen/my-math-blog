@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 2,
+  "entertainment_deviation_minutes": 22.07,
+  "all_entertainment_minutes": 22.07,
+  "longest_entertainment_deviation_minutes": 18.85,
+  "work_entertainment_transition_count": 1,
+  "brief_communication_minutes": 0.0,
+  "longest_continuous_work_minutes": 2.47,
+  "same_task_tool_switches_not_scored": 4,
+  "raw_foreground_context_switches_not_scored": 4,
+  "deviations": [
+    {
+      "start": "2026-07-25T13:02:28+08:00",
+      "end": "2026-07-25T13:05:41+08:00",
+      "minutes": 3.22,
+      "duration_seconds": 193.0,
+      "task": "手机使用哔哩哔哩，浏览娱乐内容",
+      "evidence": [
+        "电脑AFK，无操作",
+        "13:02:29手机亮屏，哔哩哔哩频繁切换",
+        "手机哔哩哔哩时长占比高，标题为'跟学在B站'但频繁切换至微信和桌面",
+        "13:03:42后手机哔哩哔哩连续193秒"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T13:06:36+08:00",
+      "end": "2026-07-25T13:25:27+08:00",
+      "minutes": 18.85,
+      "duration_seconds": 1131.0,
+      "task": "手机使用哔哩哔哩、微信、淘宝等，持续娱乐与通信混合",
+      "evidence": [
+        "电脑持续AFK",
+        "手机哔哩哔哩为主要前台（累计8.63分钟）",
+        "微信频繁使用（累计4.83分钟），但主要为通信，未服务于工作",
+        "13:20后出现淘宝购物和全局搜索"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

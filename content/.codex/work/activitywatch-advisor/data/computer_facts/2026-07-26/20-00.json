@@ -1,0 +1,1211 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-26T20:00:00+08:00",
+    "end": "2026-07-26T20:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 112,
+      "aw-watcher-afk_xyh": 5,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 4,
+      "aw-watcher-web-edge_xyh": 52
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 29.57,
+    "afk_minutes": 0.43,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 27.66
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 17.59
+    },
+    {
+      "app": "微信",
+      "minutes": 5.43
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 2.73
+    },
+    {
+      "app": "Windows Terminal",
+      "minutes": 1.07
+    },
+    {
+      "app": "cc-switch.exe",
+      "minutes": 0.52
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 0.19
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.07
+    },
+    {
+      "app": "SearchHost.exe",
+      "minutes": 0.05
+    },
+    {
+      "app": "QQMusic.exe",
+      "minutes": 0.01
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "xiaohongshu.com",
+      "minutes": 9.21
+    },
+    {
+      "domain": "chatgpt.com",
+      "minutes": 3.01
+    },
+    {
+      "domain": "newtab",
+      "minutes": 1.17
+    },
+    {
+      "domain": "auth.tavily.com",
+      "minutes": 1.07
+    },
+    {
+      "domain": "bing.com",
+      "minutes": 0.6
+    },
+    {
+      "domain": "app.tavily.com",
+      "minutes": 0.38
+    },
+    {
+      "domain": "tavily.com",
+      "minutes": 0.07
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 5.4
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 2.73
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "大栅栏美食攻略 - 小红书搜索",
+      "minutes": 2.7
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "增强DeepSeek搜索能力",
+      "minutes": 2.57
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "北京夜市大赏 | 越夜越精彩，逛吃不停歇！ - 小红书",
+      "minutes": 1.45
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "北京夜晚的牛街不需要排队呀！ - 小红书",
+      "minutes": 1.35
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "北师大日常我就吃这些 - 小红书",
+      "minutes": 1.3
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 1.17
+    },
+    {
+      "app": "Windows Terminal",
+      "domain": "",
+      "title": "Windows PowerShell",
+      "minutes": 1.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "插尿管 - 小红书",
+      "minutes": 1.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "auth.tavily.com",
+      "title": "Log in | Tavily",
+      "minutes": 1.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "北京7大美食街🔥你吃过几个 - 小红书",
+      "minutes": 0.88
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "护国寺街的小吃您了解吗，我帮您避雷不踩坑 - 小红书",
+      "minutes": 0.88
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bing.com",
+      "title": "Tavily - 搜索",
+      "minutes": 0.6
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "北京｜超好吃5️⃣条小吃街，路线📍必吃榜🏆 - 小红书",
+      "minutes": 0.59
+    },
+    {
+      "app": "cc-switch.exe",
+      "domain": "",
+      "title": "CC Switch",
+      "minutes": 0.52
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "minutes": 0.44
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "app.tavily.com",
+      "title": "Tavily API Platform",
+      "minutes": 0.38
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "护国寺街有夜市吗 - 小红书搜索",
+      "minutes": 0.22
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "高中物理1 加速度",
+      "minutes": 0.19
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "护国寺街 美食 - 小红书搜索",
+      "minutes": 0.14
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "北京小吃街首选，太好吃了！！！！ - 小红书",
+      "minutes": 0.14
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "北京前门大栅栏一路逛吃逛吃😋 - 小红书",
+      "minutes": 0.12
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "北师大附中附近美食 - 小红书搜索",
+      "minutes": 0.12
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "xiaohongshu.com",
+      "title": "菲尔兹奖在中国的三代传承。#菲尔兹奖 #数学界诺贝尔奖 #邓煜 #王虹 #姜萍#全球影响力 #全球化视野 #数学界 #科技与人文 - 小红书",
+      "minutes": 0.1
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "北京护国寺街 精简逛吃路线 不绕路 - 小红书",
+      "minutes": 0.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "北京美食街 - 小红书搜索",
+      "minutes": 0.09
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "tavily.com",
+      "title": "Tavily",
+      "minutes": 0.07
+    },
+    {
+      "app": "SearchHost.exe",
+      "domain": "",
+      "title": "搜索",
+      "minutes": 0.05
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.03
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "first_seen": "2026-07-26T19:59:51+08:00",
+      "last_seen": "2026-07-26T20:00:34+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-26T20:00:19+08:00",
+      "last_seen": "2026-07-26T20:35:53+08:00",
+      "raw_event_count": 4
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "CC Switch 接入 DeepSeek",
+      "first_seen": "2026-07-26T20:00:34+08:00",
+      "last_seen": "2026-07-26T20:03:34+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "增强Deepseek搜索能力",
+      "first_seen": "2026-07-26T20:03:34+08:00",
+      "last_seen": "2026-07-26T20:05:04+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "增强DeepSeek搜索能力",
+      "first_seen": "2026-07-26T20:05:04+08:00",
+      "last_seen": "2026-07-26T20:29:05+08:00",
+      "raw_event_count": 7
+    },
+    {
+      "domain": "bing.com",
+      "title": "Tavily - 搜索",
+      "first_seen": "2026-07-26T20:05:37+08:00",
+      "last_seen": "2026-07-26T20:27:42+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-26T20:06:17+08:00",
+      "last_seen": "2026-07-26T20:07:34+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "北师大日常我就吃这些 - 小红书",
+      "first_seen": "2026-07-26T20:07:34+08:00",
+      "last_seen": "2026-07-26T20:09:04+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "大栅栏美食攻略 - 小红书搜索",
+      "first_seen": "2026-07-26T20:09:04+08:00",
+      "last_seen": "2026-07-26T20:12:04+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "北京小吃街首选，太好吃了！！！！ - 小红书",
+      "first_seen": "2026-07-26T20:12:04+08:00",
+      "last_seen": "2026-07-26T20:13:34+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "北京夜市大赏 | 越夜越精彩，逛吃不停歇！ - 小红书",
+      "first_seen": "2026-07-26T20:13:34+08:00",
+      "last_seen": "2026-07-26T20:15:04+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "护国寺街的小吃您了解吗，我帮您避雷不踩坑 - 小红书",
+      "first_seen": "2026-07-26T20:15:04+08:00",
+      "last_seen": "2026-07-26T20:16:34+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "护国寺街有夜市吗 - 小红书搜索",
+      "first_seen": "2026-07-26T20:16:34+08:00",
+      "last_seen": "2026-07-26T20:18:04+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "北京夜晚的牛街不需要排队呀！ - 小红书",
+      "first_seen": "2026-07-26T20:18:04+08:00",
+      "last_seen": "2026-07-26T20:21:35+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "auth.tavily.com",
+      "title": "Log in | Tavily",
+      "first_seen": "2026-07-26T20:18:38+08:00",
+      "last_seen": "2026-07-26T20:20:04+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "tavily.com",
+      "title": "Tavily",
+      "first_seen": "2026-07-26T20:18:39+08:00",
+      "last_seen": "2026-07-26T20:24:48+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "app.tavily.com",
+      "title": "Tavily API Platform",
+      "first_seen": "2026-07-26T20:20:04+08:00",
+      "last_seen": "2026-07-26T20:27:41+08:00",
+      "raw_event_count": 8
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "菲尔兹奖在中国的三代传承。#菲尔兹奖 #数学界诺贝尔奖 #邓煜 #王虹 #姜萍#全球影响力 #全球化视野 #数学界 #科技与人文 - 小红书",
+      "first_seen": "2026-07-26T20:21:35+08:00",
+      "last_seen": "2026-07-26T20:23:04+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "xiaohongshu.com",
+      "title": "插尿管 - 小红书",
+      "first_seen": "2026-07-26T20:23:04+08:00",
+      "last_seen": "2026-07-26T20:27:42+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "hutaocards.com",
+      "title": "HutaoCards | 虚拟信用卡 · 海淘支付 · 数字支付管家",
+      "first_seen": "2026-07-26T20:24:58+08:00",
+      "last_seen": "2026-07-26T20:27:43+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "ccswitch.io",
+      "title": "CC Switch 官方网站 - AI 编程工具统一管理平台",
+      "first_seen": "2026-07-26T20:29:05+08:00",
+      "last_seen": "2026-07-26T20:29:05+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-26T20:00:00+08:00",
+      "end": "2026-07-26T20:29:33+08:00",
+      "duration_seconds": 1773.99,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-26T20:29:33+08:00",
+      "end": "2026-07-26T20:30:00+08:00",
+      "duration_seconds": 26.01,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-26T20:00:00+08:00",
+      "end": "2026-07-26T20:00:00+08:00",
+      "duration_seconds": 0.871,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:00:01+08:00",
+      "end": "2026-07-26T20:01:02+08:00",
+      "duration_seconds": 60.792,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:01:03+08:00",
+      "end": "2026-07-26T20:01:15+08:00",
+      "duration_seconds": 11.308,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:01:16+08:00",
+      "end": "2026-07-26T20:02:59+08:00",
+      "duration_seconds": 103.172,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:02:59+08:00",
+      "end": "2026-07-26T20:03:02+08:00",
+      "duration_seconds": 3.085,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:03:02+08:00",
+      "end": "2026-07-26T20:03:28+08:00",
+      "duration_seconds": 25.765,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:03:29+08:00",
+      "end": "2026-07-26T20:04:48+08:00",
+      "duration_seconds": 79.55,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:04:49+08:00",
+      "end": "2026-07-26T20:04:51+08:00",
+      "duration_seconds": 2.073,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:04:51+08:00",
+      "end": "2026-07-26T20:04:54+08:00",
+      "duration_seconds": 3.109,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:04:54+08:00",
+      "end": "2026-07-26T20:05:37+08:00",
+      "duration_seconds": 40.28,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-26T20:05:38+08:00",
+      "end": "2026-07-26T20:06:16+08:00",
+      "duration_seconds": 36.119,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily - 搜索",
+      "domain": "bing.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:06:18+08:00",
+      "end": "2026-07-26T20:07:34+08:00",
+      "duration_seconds": 70.078,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:07:34+08:00",
+      "end": "2026-07-26T20:08:52+08:00",
+      "duration_seconds": 78.164,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北师大日常我就吃这些 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:08:53+08:00",
+      "end": "2026-07-26T20:09:01+08:00",
+      "duration_seconds": 7.24,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北师大附中附近美食 - 小红书搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:09:02+08:00",
+      "end": "2026-07-26T20:09:06+08:00",
+      "duration_seconds": 4.133,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "大栅栏美食攻略 - 小红书搜索",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:09:07+08:00",
+      "end": "2026-07-26T20:09:14+08:00",
+      "duration_seconds": 7.322,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京前门大栅栏一路逛吃逛吃😋 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:09:15+08:00",
+      "end": "2026-07-26T20:11:53+08:00",
+      "duration_seconds": 158.143,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "大栅栏美食攻略 - 小红书搜索",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:11:54+08:00",
+      "end": "2026-07-26T20:11:56+08:00",
+      "duration_seconds": 2.071,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京美食街 - 小红书搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:11:57+08:00",
+      "end": "2026-07-26T20:12:06+08:00",
+      "duration_seconds": 8.255,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京小吃街首选，太好吃了！！！！ - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:12:08+08:00",
+      "end": "2026-07-26T20:13:01+08:00",
+      "duration_seconds": 52.753,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京7大美食街🔥你吃过几个 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:13:02+08:00",
+      "end": "2026-07-26T20:13:05+08:00",
+      "duration_seconds": 3.105,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京美食街 - 小红书搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:13:06+08:00",
+      "end": "2026-07-26T20:13:09+08:00",
+      "duration_seconds": 3.082,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "护国寺街 美食 - 小红书搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:13:10+08:00",
+      "end": "2026-07-26T20:13:15+08:00",
+      "duration_seconds": 5.178,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京护国寺街 精简逛吃路线 不绕路 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:13:16+08:00",
+      "end": "2026-07-26T20:13:21+08:00",
+      "duration_seconds": 5.236,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "护国寺街 美食 - 小红书搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:13:22+08:00",
+      "end": "2026-07-26T20:13:24+08:00",
+      "duration_seconds": 2.052,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "护国寺街有夜市吗 - 小红书搜索",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:13:25+08:00",
+      "end": "2026-07-26T20:14:52+08:00",
+      "duration_seconds": 86.764,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京夜市大赏 | 越夜越精彩，逛吃不停歇！ - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:14:53+08:00",
+      "end": "2026-07-26T20:14:55+08:00",
+      "duration_seconds": 2.079,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "护国寺街有夜市吗 - 小红书搜索",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:14:56+08:00",
+      "end": "2026-07-26T20:15:49+08:00",
+      "duration_seconds": 52.669,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "护国寺街的小吃您了解吗，我帮您避雷不踩坑 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:15:50+08:00",
+      "end": "2026-07-26T20:15:51+08:00",
+      "duration_seconds": 1.039,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "护国寺街有夜市吗 - 小红书搜索",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:15:52+08:00",
+      "end": "2026-07-26T20:16:27+08:00",
+      "duration_seconds": 35.183,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京｜超好吃5️⃣条小吃街，路线📍必吃榜🏆 - 小红书",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:16:28+08:00",
+      "end": "2026-07-26T20:16:37+08:00",
+      "duration_seconds": 8.295,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "护国寺街有夜市吗 - 小红书搜索",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:16:38+08:00",
+      "end": "2026-07-26T20:16:40+08:00",
+      "duration_seconds": 2.065,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "牛街夜市吗 - 小红书搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:16:41+08:00",
+      "end": "2026-07-26T20:17:07+08:00",
+      "duration_seconds": 25.864,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京夜晚的牛街不需要排队呀！ - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:17:08+08:00",
+      "end": "2026-07-26T20:18:34+08:00",
+      "duration_seconds": 86.055,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:18:34+08:00",
+      "end": "2026-07-26T20:18:39+08:00",
+      "duration_seconds": 5.183,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:18:39+08:00",
+      "end": "2026-07-26T20:18:43+08:00",
+      "duration_seconds": 4.119,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily",
+      "domain": "tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:18:44+08:00",
+      "end": "2026-07-26T20:18:55+08:00",
+      "duration_seconds": 11.364,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:18:55+08:00",
+      "end": "2026-07-26T20:18:58+08:00",
+      "duration_seconds": 3.08,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:18:58+08:00",
+      "end": "2026-07-26T20:20:04+08:00",
+      "duration_seconds": 63.903,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Log in | Tavily",
+      "domain": "auth.tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:20:04+08:00",
+      "end": "2026-07-26T20:20:09+08:00",
+      "duration_seconds": 4.348,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily API Platform",
+      "domain": "app.tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:20:10+08:00",
+      "end": "2026-07-26T20:20:34+08:00",
+      "duration_seconds": 23.72,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:20:34+08:00",
+      "end": "2026-07-26T20:20:37+08:00",
+      "duration_seconds": 3.094,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:20:37+08:00",
+      "end": "2026-07-26T20:21:35+08:00",
+      "duration_seconds": 54.932,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "北京夜晚的牛街不需要排队呀！ - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:21:35+08:00",
+      "end": "2026-07-26T20:21:41+08:00",
+      "duration_seconds": 5.934,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "菲尔兹奖在中国的三代传承。#菲尔兹奖 #数学界诺贝尔奖 #邓煜 #王虹 #姜萍#全球影响力 #全球化视野 #数学界 #科技与人文 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:21:42+08:00",
+      "end": "2026-07-26T20:21:43+08:00",
+      "duration_seconds": 1.038,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "小红书 - 你的生活兴趣社区",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:21:44+08:00",
+      "end": "2026-07-26T20:22:48+08:00",
+      "duration_seconds": 63.983,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "插尿管 - 小红书",
+      "domain": "xiaohongshu.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:22:50+08:00",
+      "end": "2026-07-26T20:23:48+08:00",
+      "duration_seconds": 57.962,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:23:48+08:00",
+      "end": "2026-07-26T20:23:52+08:00",
+      "duration_seconds": 4.152,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:23:52+08:00",
+      "end": "2026-07-26T20:24:40+08:00",
+      "duration_seconds": 48.615,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:24:41+08:00",
+      "end": "2026-07-26T20:24:45+08:00",
+      "duration_seconds": 3.122,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily API Platform",
+      "domain": "app.tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:24:45+08:00",
+      "end": "2026-07-26T20:24:48+08:00",
+      "duration_seconds": 3.101,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:24:48+08:00",
+      "end": "2026-07-26T20:24:48+08:00",
+      "duration_seconds": 0.229,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily",
+      "domain": "tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:24:48+08:00",
+      "end": "2026-07-26T20:24:57+08:00",
+      "duration_seconds": 9.058,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily API Platform",
+      "domain": "app.tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:24:57+08:00",
+      "end": "2026-07-26T20:25:00+08:00",
+      "duration_seconds": 3.111,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:25:00+08:00",
+      "end": "2026-07-26T20:25:26+08:00",
+      "duration_seconds": 25.789,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:25:26+08:00",
+      "end": "2026-07-26T20:25:29+08:00",
+      "duration_seconds": 3.095,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:25:29+08:00",
+      "end": "2026-07-26T20:26:02+08:00",
+      "duration_seconds": 33.145,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:26:03+08:00",
+      "end": "2026-07-26T20:26:08+08:00",
+      "duration_seconds": 5.19,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:26:09+08:00",
+      "end": "2026-07-26T20:26:12+08:00",
+      "duration_seconds": 3.091,
+      "app": "SearchHost.exe",
+      "app_display": "SearchHost.exe",
+      "title": "搜索",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:26:14+08:00",
+      "end": "2026-07-26T20:26:55+08:00",
+      "duration_seconds": 41.305,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:26:57+08:00",
+      "end": "2026-07-26T20:26:57+08:00",
+      "duration_seconds": 0.198,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:26:57+08:00",
+      "end": "2026-07-26T20:27:00+08:00",
+      "duration_seconds": 2.894,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily API Platform",
+      "domain": "app.tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:27:00+08:00",
+      "end": "2026-07-26T20:27:03+08:00",
+      "duration_seconds": 3.087,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:27:03+08:00",
+      "end": "2026-07-26T20:27:05+08:00",
+      "duration_seconds": 2.064,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily API Platform",
+      "domain": "app.tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:27:05+08:00",
+      "end": "2026-07-26T20:27:09+08:00",
+      "duration_seconds": 4.114,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:27:09+08:00",
+      "end": "2026-07-26T20:27:13+08:00",
+      "duration_seconds": 4.125,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:27:14+08:00",
+      "end": "2026-07-26T20:27:37+08:00",
+      "duration_seconds": 22.742,
+      "app": "WindowsTerminal.exe",
+      "app_display": "Windows Terminal",
+      "title": "Windows PowerShell",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:27:38+08:00",
+      "end": "2026-07-26T20:27:39+08:00",
+      "duration_seconds": 1.042,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Tavily API Platform",
+      "domain": "app.tavily.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T20:27:39+08:00",
+      "end": "2026-07-26T20:27:43+08:00",
+      "duration_seconds": 4.131,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T20:27:43+08:00",
+      "end": "2026-07-26T20:27:56+08:00",
+      "duration_seconds": 10.296,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "增强DeepSeek搜索能力",
+      "domain": "chatgpt.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T20:27:58+08:00",
+      "end": "2026-07-26T20:27:59+08:00",
+      "duration_seconds": 1.031,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:28:00+08:00",
+      "end": "2026-07-26T20:28:01+08:00",
+      "duration_seconds": 1.038,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "无标题",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:28:02+08:00",
+      "end": "2026-07-26T20:28:34+08:00",
+      "duration_seconds": 30.031,
+      "app": "cc-switch.exe",
+      "app_display": "cc-switch.exe",
+      "title": "CC Switch",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:28:35+08:00",
+      "end": "2026-07-26T20:29:31+08:00",
+      "duration_seconds": 55.81,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T20:29:33+08:00",
+      "end": "2026-07-26T20:29:33+08:00",
+      "duration_seconds": 0.627,
+      "app": "QQMusic.exe",
+      "app_display": "QQMusic.exe",
+      "title": "Actually Romantic (Explicit) - Taylor Swift",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.935,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 0.881,
+    "web_watcher_exact_time_overlap": 0.366,
+    "browser_share_of_active_time": 0.595,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

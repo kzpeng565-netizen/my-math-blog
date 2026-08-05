@@ -1,0 +1,321 @@
+{
+  "period": "2026-07-27T10:00:00+08:00/2026-07-27T10:30:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：高中数学2 集合与逻辑学习。工作25.73分钟，娱乐0.0分钟，通信2.02分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 2.02,
+    "longest_continuous_work_minutes": 7.53,
+    "same_task_tool_switches_not_scored": 39,
+    "raw_foreground_context_switches_not_scored": 58,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "未检测到任何超过30秒的工作内娱乐偏离，工作过程中仅包含短暂通信（微信聊天约2.02分钟）和系统维护（Cleaner One清理约2.17分钟），均不构成娱乐混杂。"
+  },
+  "computer_summary": "主要使用Obsidian编辑数学笔记（约18分钟），并反复切换至Edge浏览器观看B站集合逻辑教学视频（约4.43分钟）和查询ChatGPT（约0.41分钟），配合Mathpix截图辅助记录。期间穿插微信短暂通信（约0.35分钟）和Cleaner One系统清理（约2.17分钟）。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "tablet_summary": "平板在整个时间段内亮屏（30分钟），但采集器未记录前台应用，无法确定具体活动，仅作为辅助数据源，不改变电脑和手机主导的判断。",
+  "material_uncertainties": [
+    "微信聊天具体内容未知，但短时间且标题为迁移备份，故归为brief_communication",
+    "Cleaner One清理操作与主任务关联性中等，但短时间不影响分段"
+  ],
+  "concise_report": "主要任务：高中数学2 集合与逻辑学习。工作25.73分钟，娱乐0.0分钟，通信2.02分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "10:14-10:16的Cleaner One清理操作是否属于与学习任务无关的分散注意力的活动？如果是，则可能减少工作分钟数，但不会产生娱乐偏离，不影响当前状态判断。",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 25.73,
+      "range_minutes": [
+        25.73,
+        25.73
+      ],
+      "evidence": [
+        "Obsidian窗口标题'高中数学2 集合与逻辑'持续显示",
+        "多次使用Mathpix截图记录",
+        "前置上下文显示此前已在Obsidian学习同一主题",
+        "B站视频标题为'高中数学中的充分必要条件......'"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 2.02,
+      "range_minutes": [
+        2.02,
+        2.02
+      ],
+      "evidence": [
+        "微信窗口显示'聊天记录迁移与备份'约9秒",
+        "微信前台总时长约0.35分钟",
+        "穿插文件资源管理器浏览系统盘",
+        "之后切回Obsidian继续工作"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 2.25,
+      "range_minutes": [
+        2.25,
+        2.25
+      ],
+      "evidence": [
+        "Cleaner One.exe窗口标题'清理君'持续约2.17分钟",
+        "涉及系统盘和Program Files等系统目录",
+        "穿插Microsoft Store启动",
+        "属于系统维护，短时间支持任务"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "10:00-10:07",
+      "likely_state": "工作",
+      "minutes": 7.53,
+      "task": "在Obsidian学习集合与逻辑，使用Mathpix截图，并参考B站视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题'高中数学2 集合与逻辑'持续显示",
+        "多次使用Mathpix截图记录",
+        "前置上下文显示此前已在Obsidian学习同一主题",
+        "B站视频标题为'高中数学中的充分必要条件......'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:07-10:09",
+      "likely_state": "通信",
+      "minutes": 2.02,
+      "task": "处理微信聊天和聊天记录迁移",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口显示'聊天记录迁移与备份'约9秒",
+        "微信前台总时长约0.35分钟",
+        "穿插文件资源管理器浏览系统盘",
+        "之后切回Obsidian继续工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:09-10:10",
+      "likely_state": "工作",
+      "minutes": 1.05,
+      "task": "在Obsidian继续学习集合与逻辑",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题'高中数学2 集合与逻辑'持续显示1.05分钟",
+        "前一段微信后直接返回Obsidian",
+        "前后文档一致"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:10-10:14",
+      "likely_state": "工作",
+      "minutes": 3.95,
+      "task": "观看B站集合与逻辑教学视频，并在Obsidian做笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "反复切换Edge浏览'【集合与逻辑】2.1 逻辑'和Obsidian",
+        "视频与笔记主题一致，互为补充",
+        "包含少量Mathpix截图"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:14-10:16",
+      "likely_state": "其他",
+      "minutes": 2.25,
+      "task": "使用Cleaner One清理系统临时文件，并浏览文件资源管理器",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Cleaner One.exe窗口标题'清理君'持续约2.17分钟",
+        "涉及系统盘和Program Files等系统目录",
+        "穿插Microsoft Store启动",
+        "属于系统维护，短时间支持任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:16-10:23",
+      "likely_state": "工作",
+      "minutes": 6.47,
+      "task": "在Obsidian学习集合与逻辑，间歇切换B站视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian主窗口标题持续显示'高中数学2 集合与逻辑'",
+        "频繁切换Edge视频，时长较短支持性观看",
+        "Mathpix截图穿插使用"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:23-10:23",
+      "likely_state": "工作",
+      "minutes": 0.47,
+      "task": "使用ChatGPT查询集合运算转换问题",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge访问chatgpt.com，标题'集合运算转换'",
+        "时长约18秒",
+        "与学习主题直接相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:23-10:27",
+      "likely_state": "工作",
+      "minutes": 4.15,
+      "task": "在Obsidian继续集合与逻辑学习，穿插B站视频和ChatGPT",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian持续显示学习主题",
+        "B站视频和ChatGPT '充分必要条件练习'标签页可见",
+        "Mathpix截图辅助记录"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:27-10:28",
+      "likely_state": "工作",
+      "minutes": 0.32,
+      "task": "使用ChatGPT进行充分必要条件练习",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge访问chatgpt.com，标题'充分必要条件练习'",
+        "时长约14秒",
+        "与学习主题直接相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "10:28-10:30",
+      "likely_state": "工作",
+      "minutes": 1.8,
+      "task": "在Obsidian完成集合与逻辑笔记，浏览B站视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题持续显示",
+        "末尾切换Edge观看视频11秒",
+        "整体学习任务延续"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "高中数学2 集合与逻辑学习",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖89.3%。",
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 20352,
+      "completion_tokens": 1787,
+      "total_tokens": 22139,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1285
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 19456
+    }
+  }
+}

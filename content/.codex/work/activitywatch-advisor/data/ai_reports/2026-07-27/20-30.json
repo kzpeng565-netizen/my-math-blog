@@ -1,0 +1,270 @@
+{
+  "period": "2026-07-27T20:30:00+08:00/2026-07-27T21:00:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐25.4分钟，通信1.8分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 25.4,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 1.8,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "没有出现工作过程中的娱乐偏离，因为整个时段无工作任务。确定性混杂等级为none。"
+  },
+  "computer_summary": "电脑持续AFK 30分钟，无前台窗口活跃；浏览器标签页显示ChatGPT但无活动记录，表明未使用或仅打开未操作。",
+  "phone_summary": "手机亮屏30分钟，主要应用：小红书14.1分钟、微信8.9分钟、哔哩哔哩6.1分钟，以刷社交媒体和看视频为主，均为娱乐；微信通信合计约1.8分钟归类为短暂通信。",
+  "tablet_summary": "平板亮屏30分钟，但无具体前台数据，仅作为辅助数据源，不影响电脑和手机的主要结论。",
+  "material_uncertainties": [
+    "手机快速切换期间（20:32:54-20:35:42）的具体意图不明确，无法确定是否包含工作或娱乐，但总时长占比小",
+    "20:32:54-20:35:42期间的快速切换（桌面、相机、微信、哔哩哔哩、浏览器）具体意图不明确，但总时长仅2.8分钟，且不改变娱乐为主的结论。"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐25.4分钟，通信1.8分钟，确认休息0.0分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "20:32:54-20:35:42期间的多次应用切换是否包含任何与工作相关的操作？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 30.0,
+    "phone_screen_on_minutes": 30.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 25.4,
+      "range_minutes": [
+        25.4,
+        25.4
+      ],
+      "evidence": [
+        "手机前台应用：哔哩哔哩",
+        "辅助上下文显示20:29:33开始继续看哔哩哔哩",
+        "电脑AFK且无交互",
+        "平板亮屏但作为辅助数据"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 1.8,
+      "range_minutes": [
+        1.8,
+        1.8
+      ],
+      "evidence": [
+        "手机前台应用：微信",
+        "持续30秒",
+        "无明显工作相关证据",
+        "属于独立通信片段"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 2.8,
+      "range_minutes": [
+        2.8,
+        2.8
+      ],
+      "evidence": [
+        "手机前台应用频繁切换：桌面、相机、微信、哔哩哔哩、浏览器",
+        "单段最长为50秒（哔哩哔哩）",
+        "电脑AFK",
+        "难以确定统一任务，归为其他"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "20:30-20:32",
+      "likely_state": "娱乐",
+      "minutes": 2.4,
+      "task": "在哔哩哔哩看视频",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：哔哩哔哩",
+        "辅助上下文显示20:29:33开始继续看哔哩哔哩",
+        "电脑AFK且无交互",
+        "平板亮屏但作为辅助数据"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:32-20:32",
+      "likely_state": "通信",
+      "minutes": 0.5,
+      "task": "快速查看微信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：微信",
+        "持续30秒",
+        "无明显工作相关证据",
+        "属于独立通信片段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:32-20:35",
+      "likely_state": "其他",
+      "minutes": 2.8,
+      "task": "手机桌面操作、相机、微信、哔哩哔哩、浏览器等短切换",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用频繁切换：桌面、相机、微信、哔哩哔哩、浏览器",
+        "单段最长为50秒（哔哩哔哩）",
+        "电脑AFK",
+        "难以确定统一任务，归为其他"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:35-20:37",
+      "likely_state": "通信",
+      "minutes": 1.3,
+      "task": "使用微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：微信，持续78秒",
+        "无工作相关标题证据",
+        "属于独立通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:37-20:39",
+      "likely_state": "娱乐",
+      "minutes": 2.88,
+      "task": "在哔哩哔哩看视频",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：哔哩哔哩，持续171秒",
+        "电脑AFK",
+        "平板亮屏仅辅助"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:39-20:52",
+      "likely_state": "娱乐",
+      "minutes": 12.45,
+      "task": "交替使用微信、小红书、哔哩哔哩，以刷社交媒体和聊天为主",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：微信（总计约3.5min）、小红书（约5.7min）、哔哩哔哩（短暂）",
+        "高频切换，以小红书和微信为主",
+        "电脑AFK，无工作迹象",
+        "电脑浏览器标签页显示ChatGPT 'Get started'，但未见主动使用"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:52-21:00",
+      "likely_state": "娱乐",
+      "minutes": 7.67,
+      "task": "在小红书刷信息流",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：小红书，持续460秒至时段结束",
+        "电脑AFK",
+        "平板亮屏但无具体前台数据"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7145,
+      "completion_tokens": 881,
+      "total_tokens": 8026,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 434
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6249
+    }
+  }
+}

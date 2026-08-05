@@ -1,0 +1,118 @@
+{
+  "period": "2026-07-24T20:30:00+08:00/2026-07-24T21:00:00+08:00",
+  "state_assessment": {
+    "label": "fragmented_work",
+    "confidence": "high",
+    "one_sentence": "以工作为主（约26.7分钟），B站教学视频和ChatGPT/DeepSeek表明备课或学习，但切换14次，有10个短上下文，仅1个持续块11.2分钟，手机使用约6分钟分散在工作间隙或电脑AFK时，未打断主要上下文。"
+  },
+  "observed_metrics": {
+    "computer_active_minutes": 26.72,
+    "computer_afk_minutes": 3.28,
+    "phone_screen_on_minutes": 6.02,
+    "simultaneous_computer_active_phone_on_minutes": 2.73,
+    "no_detected_device_interaction_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 26.72,
+      "range_minutes": [
+        26.0,
+        27.0
+      ],
+      "evidence": [
+        "电脑非AFK共26.72分钟，主要使用Edge（B站数学教学视频15.1分钟）和ChatGPT（8.1分钟），以及DeepSeek开放平台/API文档、Clash Verge，均为备课/学习相关。",
+        "手机亮屏2.73分钟与电脑活跃同时，但电脑上下文未中断，估计仍属工作（短暂查看消息后立即返回）。"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 3.28,
+      "range_minutes": [
+        3.0,
+        4.0
+      ],
+      "evidence": [
+        "电脑AFK 3.28分钟，期间手机持续亮屏（微信、QQ），完全脱离电脑，合理为休息。"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "fragmentation_assessment": {
+    "level": "high",
+    "meaningful_context_blocks": 15,
+    "context_switch_count": 14,
+    "short_context_blocks": 10,
+    "sustained_context_blocks": 1,
+    "longest_context_minutes": 11.21,
+    "interpretation": "切换14次，10个短上下文（<60秒），仅1个持续块（11.2分钟观看B站视频）。虽有长块但前20分钟频繁在ChatGPT、Edge标签页间切换，任务连贯性被破坏，属高度碎片化。"
+  },
+  "timeline_summary": [
+    {
+      "time_range": "20:30-20:56",
+      "likely_state": "工作",
+      "minutes": 26.72,
+      "evidence": [
+        "ChatGPT用于编程/学习，Edge浏览B站数学教学视频、DeepSeek文档，Clash Verge，电脑非AFK"
+      ]
+    },
+    {
+      "time_range": "20:56-21:00",
+      "likely_state": "休息",
+      "minutes": 3.28,
+      "evidence": [
+        "电脑AFK，手机亮屏使用微信和QQ"
+      ]
+    }
+  ],
+  "computer_summary": "电脑活跃26.72分钟，主要用Edge（B站数学教学视频15.1分钟）和ChatGPT（8.1分钟），另有DeepSeek平台、Clash Verge。切换频繁但围绕备课主题。最后一次AFK 3.28分钟。",
+  "phone_summary": "手机亮屏6.02分钟，分4次：QQ/微信/哔哩哔哩短暂使用。2.73分钟与电脑活跃重叠，3.28分钟在电脑AFK期间。未形成明显中断，但增加了碎片感。",
+  "material_uncertainties": [
+    "20:41后的B站数学视频是否用于备课（如备课件）还是纯粹学习休息？若为个人学习，仍是工作；若为娱乐，则休息需增加约11分钟。但标题内容与前后工具关联强，判断为工作。",
+    "手机微信/QQ使用中是否包含工作相关沟通？无明确证据，按休息处理影响约3分钟。"
+  ],
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "concise_report": "30分钟内以工作为主（约26.7分钟），包括观看B站初高衔接教学视频（15分钟）和使用ChatGPT/DeepSeek（8分钟）进行备课或学习。切换14次，碎片化高，但有一个11.2分钟的连续视频块。休息约3.3分钟（电脑AFK时看手机）。需核验B站视频是否用于备课。",
+  "gentle_suggestions": [],
+  "verification_question": "20:41后观看的B站数学视频（‘对称式、主元思想’等）是否用于备课或学习？",
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 1
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 9377,
+      "completion_tokens": 2059,
+      "total_tokens": 11436,
+      "prompt_tokens_details": {
+        "cached_tokens": 8064
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 870
+      },
+      "prompt_cache_hit_tokens": 8064,
+      "prompt_cache_miss_tokens": 1313
+    }
+  }
+}

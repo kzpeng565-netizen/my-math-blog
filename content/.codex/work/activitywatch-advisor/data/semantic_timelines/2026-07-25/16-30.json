@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T16:30:00+08:00",
+    "end": "2026-07-25T17:00:00+08:00"
+  },
+  "primary_work_task": "物理学习（运动学基础概念）",
+  "segments": [
+    {
+      "start": "2026-07-25T16:30:00+08:00",
+      "end": "2026-07-25T16:46:37+08:00",
+      "duration_seconds": 997.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑活动状态未知，可能非主动使用",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑AFK状态未知，无窗口事件",
+        "手机持续熄屏",
+        "无任何设备交互证据"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-25T16:46:37+08:00",
+      "end": "2026-07-25T16:53:58+08:00",
+      "duration_seconds": 441.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（用户确认的跨设备无操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK状态持续",
+        "手机持续熄屏",
+        "跨设备休息规则确认的休息区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T16:53:58+08:00",
+      "end": "2026-07-25T17:00:00+08:00",
+      "duration_seconds": 362.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "物理运动学基础概念学习（Obsidian整理笔记与B站看相关视频）",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题'初高物理1 运动学基础概念'",
+        "Edge浏览B站视频'【运动描述】1.5速度速率（基础）'",
+        "短暂使用微信和腾讯会议（共5秒，不影响主要任务）",
+        "前后辅助上下文显示同一主题持续至17:05"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "16:30-16:46电脑活动状态未知，无法确定用户是在工作、休息还是其他，但报告时段内无任何设备交互证据，可能为休息或未使用设备。"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 7698,
+      "completion_tokens": 597,
+      "total_tokens": 8295,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 6802
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "period": "2026-07-26T11:00:00+08:00/2026-07-26T11:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：数学学习。工作2.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.17分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 1.98,
+    "same_task_tool_switches_not_scored": 2,
+    "raw_foreground_context_switches_not_scored": 2,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中未出现任何超过30秒的娱乐偏离，娱乐偏离次数为0，最长偏离0分钟。"
+  },
+  "computer_summary": "电脑上主要活动为数学学习，包括腾讯会议'彭康哲的快速会议'和浏览器PDF'高中数学1 集合与逻辑.pdf'，共约2分钟；其余时间电脑AFK或无操作。",
+  "phone_summary": "手机在整个时段内熄屏无操作，无娱乐或通信活动。",
+  "material_uncertainties": [
+    "未知Activity状态3.84分钟（11:17:50-11:21:40）是否包含实际交互无法确定",
+    "未知Activity状态3.84分钟（11:17:50-11:21:40）可能包含实际操作或休息，但不影响主要状态判断。"
+  ],
+  "concise_report": "主要任务：数学学习。工作2.0分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.17分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "请确认11:17:50-11:21:40期间您是否在继续工作或休息？",
+  "observed_metrics": {
+    "computer_active_minutes": 2.01,
+    "computer_afk_minutes": 24.15,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 28.0,
+    "confirmed_rest_minutes": 24.17
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 2.0,
+      "range_minutes": [
+        2.0,
+        2.0
+      ],
+      "evidence": [
+        "电脑：腾讯会议窗口'彭康哲的快速会议'",
+        "电脑：浏览器'高中数学1 集合与逻辑.pdf'",
+        "辅助上下文显示10:55已开始该PDF",
+        "涉及数学学习"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 24.17,
+      "range_minutes": [
+        24.17,
+        24.17
+      ],
+      "evidence": [
+        "电脑AFK连续12.08分钟",
+        "手机全程熄屏无操作",
+        "跨设备规则确认休息",
+        "电脑AFK连续3.75分钟"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 3.83,
+      "range_minutes": [
+        3.83,
+        3.83
+      ],
+      "evidence": [
+        "电脑活动状态未知3.84分钟",
+        "手机熄屏",
+        "无法判断是否工作或休息"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "11:00-11:01",
+      "likely_state": "工作",
+      "minutes": 1.98,
+      "task": "高中数学1集合与逻辑PDF学习，同时在腾讯会议中参与彭康哲的快速会议",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑：腾讯会议窗口'彭康哲的快速会议'",
+        "电脑：浏览器'高中数学1 集合与逻辑.pdf'",
+        "辅助上下文显示10:55已开始该PDF",
+        "涉及数学学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:01-11:14",
+      "likely_state": "休息",
+      "minutes": 12.08,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK连续12.08分钟",
+        "手机全程熄屏无操作",
+        "跨设备规则确认休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:14-11:14",
+      "likely_state": "工作",
+      "minutes": 0.02,
+      "task": "回到腾讯会议彭康哲的快速会议",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑窗口短暂切换到腾讯会议'彭康哲的快速会议'",
+        "前后有PDF文档打开，属于同一工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "11:14-11:17",
+      "likely_state": "休息",
+      "minutes": 3.75,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK连续3.75分钟",
+        "手机熄屏无操作",
+        "跨设备规则确认休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:17-11:21",
+      "likely_state": "无法判断",
+      "minutes": 3.83,
+      "task": "未知活动：电脑状态未知，手机熄屏",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑活动状态未知3.84分钟",
+        "手机熄屏",
+        "无法判断是否工作或休息"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "11:21-11:30",
+      "likely_state": "休息",
+      "minutes": 8.33,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK连续8.33分钟",
+        "手机熄屏无操作",
+        "跨设备规则确认休息"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "数学学习",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活动状态未知3.84分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 4767,
+      "completion_tokens": 546,
+      "total_tokens": 5313,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 206
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 3871
+    }
+  }
+}

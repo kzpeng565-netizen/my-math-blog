@@ -1,0 +1,360 @@
+{
+  "period": "2026-07-24T23:30:00+08:00/2026-07-25T00:00:00+08:00",
+  "state_assessment": {
+    "label": "work_disrupted_by_entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：初高衔接数学学习。工作13.98分钟，娱乐9.47分钟，通信6.55分钟，确认休息0.0分钟。工作中出现3次超过30秒的娱乐偏离，共9.47分钟，最长5.22分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 3,
+    "entertainment_deviation_minutes": 9.47,
+    "all_entertainment_minutes": 9.47,
+    "longest_entertainment_deviation_minutes": 5.22,
+    "work_entertainment_transition_count": 1,
+    "brief_communication_minutes": 6.55,
+    "longest_continuous_work_minutes": 7.77,
+    "same_task_tool_switches_not_scored": 19,
+    "raw_foreground_context_switches_not_scored": 46,
+    "deviations": [
+      {
+        "start": "2026-07-24T23:48:48+08:00",
+        "end": "2026-07-24T23:50:13+08:00",
+        "minutes": 1.42,
+        "duration_seconds": 85.0,
+        "task": "浏览仇子龙百度百科和搜索",
+        "evidence": [
+          "Microsoft Edge新建标签页后打开'仇子龙_百度百科'",
+          "搜索'仇子龙'",
+          "与初高衔接学习无关，属于知识浏览"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-24T23:51:57+08:00",
+        "end": "2026-07-24T23:54:47+08:00",
+        "minutes": 2.83,
+        "duration_seconds": 170.0,
+        "task": "浏览知乎多个话题",
+        "evidence": [
+          "浏览知乎'丘成桐邀请王虹邓煜'、'基因编辑实验'、'仇子龙搜索结果'等",
+          "频繁切换微信但主要注意在知乎"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      },
+      {
+        "start": "2026-07-24T23:54:47+08:00",
+        "end": "2026-07-25T00:00:00+08:00",
+        "minutes": 5.22,
+        "duration_seconds": 313.0,
+        "task": "阅读知乎Science基因编辑文章",
+        "evidence": [
+          "电脑长时间浏览知乎'基因编辑实验'文章",
+          "手机23:57起亮屏约2.3分钟（前台未知）",
+          "微信短暂插入但主体是新闻阅读"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作中出现3次超过30秒的娱乐偏离：第一次23:48:48-23:50:13浏览仇子龙百科（1.42分钟）；第二次23:51:57-23:54:47浏览知乎多个话题（2.83分钟）；第三次23:54:47-00:00阅读知乎基因编辑文章（5.22分钟）。三次均未返回原工作（初高衔接学习）。"
+  },
+  "computer_summary": "电脑上主要使用微信（16.43分钟，含通信和图片视频）、Edge（6.5分钟，用于百度百科、知乎和B站学习视频）、Obsidian（5.11分钟，写数学笔记）。工作以Obsidian编写数学笔记为主，伴随B站学习视频；娱乐为Edge浏览百度百科和知乎。",
+  "phone_summary": "手机亮屏3.22分钟：第一次23:38:28-23:39:23使用微信约55秒（属于通信）；第二次23:57:42-00:00亮屏2.3分钟但前台应用未知，此时电脑在知乎娱乐，手机可能辅助或无关。",
+  "material_uncertainties": [
+    "手机23:57-00:00亮屏但前台应用未知，可能也是微信或知乎，但不影响归类",
+    "手机23:57-00:00亮屏但前台应用未知，不改变娱乐判断。"
+  ],
+  "concise_report": "主要任务：初高衔接数学学习。工作13.98分钟，娱乐9.47分钟，通信6.55分钟，确认休息0.0分钟。工作中出现3次超过30秒的娱乐偏离，共9.47分钟，最长5.22分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "23:48:48-23:50:13浏览仇子龙百度百科是否属于数学学习的一部分？",
+  "observed_metrics": {
+    "computer_active_minutes": 30.0,
+    "computer_afk_minutes": 0.0,
+    "phone_screen_on_minutes": 3.22,
+    "simultaneous_computer_active_phone_on_minutes": 3.22,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 13.98,
+      "range_minutes": [
+        13.98,
+        13.98
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'",
+        "使用Mathpix截图工具辅助录入",
+        "穿插微信通信但主体是工作",
+        "电脑B站打开'【初高衔接】1.1 对称式、主元思想'视频"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 9.47,
+      "range_minutes": [
+        9.47,
+        9.47
+      ],
+      "evidence": [
+        "Microsoft Edge新建标签页后打开'仇子龙_百度百科'",
+        "搜索'仇子龙'",
+        "与初高衔接学习无关，属于知识浏览",
+        "浏览知乎'丘成桐邀请王虹邓煜'、'基因编辑实验'、'仇子龙搜索结果'等"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 6.55,
+      "range_minutes": [
+        6.55,
+        6.55
+      ],
+      "evidence": [
+        "电脑微信前台标题'图片和视频'、'微信'共约1.5分钟",
+        "正值学习任务间隙，通信未打断后续工作",
+        "电脑微信前台长时间持续",
+        "标题为'微信'和'图片和视频'"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "23:30-23:31",
+      "likely_state": "通信",
+      "minutes": 1.63,
+      "task": "微信图片和视频交流",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑微信前台标题'图片和视频'、'微信'共约1.5分钟",
+        "正值学习任务间隙，通信未打断后续工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:31-23:35",
+      "likely_state": "工作",
+      "minutes": 3.43,
+      "task": "在Obsidian做初高衔接数学笔记",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'",
+        "使用Mathpix截图工具辅助录入",
+        "穿插微信通信但主体是工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:35-23:38",
+      "likely_state": "通信",
+      "minutes": 3.18,
+      "task": "微信通信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑微信前台长时间持续",
+        "标题为'微信'和'图片和视频'",
+        "工作间歇中的通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:38-23:39",
+      "likely_state": "工作",
+      "minutes": 1.23,
+      "task": "切换B站观看初高衔接视频并返回微信",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑B站打开'【初高衔接】1.1 对称式、主元思想'视频",
+        "同时电脑微信持续，但学习意图明确",
+        "手机23:38-23:39亮屏使用微信约1分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:39-23:47",
+      "likely_state": "工作",
+      "minutes": 7.77,
+      "task": "在Obsidian做数学笔记，间歇参考B站视频",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'",
+        "多次使用Mathpix截图",
+        "短时切换B站视频然后返回Obsidian"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:47-23:48",
+      "likely_state": "工作",
+      "minutes": 1.55,
+      "task": "观看B站初高衔接视频并用Obsidian整理",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "B站视频'【初高衔接】1.1 对称式、主元思想'",
+        "随后回到Obsidian记录",
+        "微信图片和视频短暂插入"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:48-23:50",
+      "likely_state": "娱乐",
+      "minutes": 1.42,
+      "task": "浏览仇子龙百度百科和搜索",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge新建标签页后打开'仇子龙_百度百科'",
+        "搜索'仇子龙'",
+        "与初高衔接学习无关，属于知识浏览"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:50-23:51",
+      "likely_state": "通信",
+      "minutes": 1.73,
+      "task": "微信通信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑微信前台约1.5分钟",
+        "短暂打开MSN资讯"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:51-23:54",
+      "likely_state": "娱乐",
+      "minutes": 2.83,
+      "task": "浏览知乎多个话题",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "浏览知乎'丘成桐邀请王虹邓煜'、'基因编辑实验'、'仇子龙搜索结果'等",
+        "频繁切换微信但主要注意在知乎"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "23:54-00:00",
+      "likely_state": "娱乐",
+      "minutes": 5.22,
+      "task": "阅读知乎Science基因编辑文章",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑长时间浏览知乎'基因编辑实验'文章",
+        "手机23:57起亮屏约2.3分钟（前台未知）",
+        "微信短暂插入但主体是新闻阅读"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "初高衔接数学学习",
+  "data_quality": {
+    "level": "high",
+    "material_issues": [
+      "亮屏期间前台应用未知2.35分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 15543,
+      "completion_tokens": 1346,
+      "total_tokens": 16889,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 815
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 14647
+    }
+  }
+}

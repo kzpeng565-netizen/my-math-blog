@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T14:00:00+08:00",
+    "end": "2026-07-26T14:30:00+08:00"
+  },
+  "primary_work_task": "高中物理加速度学习",
+  "segments": [
+    {
+      "start": "2026-07-26T14:00:00+08:00",
+      "end": "2026-07-26T14:00:21+08:00",
+      "duration_seconds": 21.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "AFK短暂离开",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "AFK从14:00:00到14:00:21",
+        "电脑无操作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:00:21+08:00",
+      "end": "2026-07-26T14:01:31+08:00",
+      "duration_seconds": 70.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "准备数学学习，打开PDF并浏览ChatGPT和B站首页",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "打开高中数学1集合与逻辑PDF",
+        "ChatGPT标签页出现",
+        "随后进入B站搜索物理内容"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T14:01:31+08:00",
+      "end": "2026-07-26T14:02:59+08:00",
+      "duration_seconds": 88.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在B站搜索高中物理课程并浏览搜索结果",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "B站搜索'高中物理'",
+        "浏览搜索结果列表",
+        "属于学习准备阶段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:02:59+08:00",
+      "end": "2026-07-26T14:03:06+08:00",
+      "duration_seconds": 7.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "预览高中物理全集视频标题",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "短暂浏览'新高一适用高中物理基础与解法全集'视频"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T14:03:06+08:00",
+      "end": "2026-07-26T14:10:42+08:00",
+      "duration_seconds": 456.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "观看B站视频'运动描述1.7加速度'",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "长时间观看加速度教学视频",
+        "之后切换Obsidian做笔记",
+        "属于物理学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:10:42+08:00",
+      "end": "2026-07-26T14:11:07+08:00",
+      "duration_seconds": 25.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian中整理笔记，从高中数学切换到高中物理加速度笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian记录高中数学集合与逻辑",
+        "创建未命名笔记",
+        "切换到'高中物理1 加速度'文件"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:11:07+08:00",
+      "end": "2026-07-26T14:12:45+08:00",
+      "duration_seconds": 98.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续观看加速度视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "回到B站视频约1.6分钟",
+        "视频内容与笔记相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:12:45+08:00",
+      "end": "2026-07-26T14:17:56+08:00",
+      "duration_seconds": 311.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian中做加速度笔记，期间频繁切换视频确认",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "多个Obsidian片段持续记录高中物理1加速度",
+        "频繁切换回B站视频",
+        "使用Mathpix截图工具"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:17:56+08:00",
+      "end": "2026-07-26T14:18:17+08:00",
+      "duration_seconds": 21.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "使用Mathpix截图物理内容",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Mathpix截图工具出现",
+        "之后粘贴到Obsidian"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:18:17+08:00",
+      "end": "2026-07-26T14:18:59+08:00",
+      "duration_seconds": 42.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "短暂调整Clash Verge代理设置",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Clash Verge前台持续40秒",
+        "可能临时配置网络，不影响主要工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T14:18:59+08:00",
+      "end": "2026-07-26T14:19:01+08:00",
+      "duration_seconds": 2.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "打开文件资源管理器",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "文件资源管理器短暂出现1秒"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T14:19:01+08:00",
+      "end": "2026-07-26T14:23:53+08:00",
+      "duration_seconds": 292.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian和B站视频之间交替，做加速度笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "多次交替在视频和Obsidian之间",
+        "使用Mathpix截图",
+        "笔记文件为'高中物理1 加速度'"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:23:53+08:00",
+      "end": "2026-07-26T14:25:31+08:00",
+      "duration_seconds": 98.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "集中观看加速度视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "持续观看B站视频约1.6分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T14:25:31+08:00",
+      "end": "2026-07-26T14:30:00+08:00",
+      "duration_seconds": 269.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续在Obsidian做笔记，穿插观看视频和使用截图",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian记录高中物理1加速度",
+        "交替查看B站视频",
+        "使用Mathpix和截图工具"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 24345,
+      "completion_tokens": 1910,
+      "total_tokens": 26255,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 23449
+    }
+  }
+}

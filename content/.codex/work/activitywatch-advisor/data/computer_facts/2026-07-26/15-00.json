@@ -1,0 +1,1213 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-26T15:00:00+08:00",
+    "end": "2026-07-26T15:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 141,
+      "aw-watcher-afk_xyh": 4,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 32
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 26.17,
+    "afk_minutes": 3.83,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 23.77
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 11.05
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 9.84
+    },
+    {
+      "app": "微信",
+      "minutes": 2.54
+    },
+    {
+      "app": "SnippingTool.exe",
+      "minutes": 0.15
+    },
+    {
+      "app": "Mathpix",
+      "minutes": 0.14
+    },
+    {
+      "app": "文件资源管理器",
+      "minutes": 0.05
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 9.17
+    },
+    {
+      "domain": "chatgpt.com",
+      "minutes": 1.87
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "高中物理1 加速度",
+      "minutes": 9.84
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "minutes": 5.91
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "minutes": 3.26
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 2.33
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "课件内容调整建议",
+      "minutes": 1.03
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "minutes": 0.82
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.21
+    },
+    {
+      "app": "SnippingTool.exe",
+      "domain": "",
+      "title": "截图工具覆盖",
+      "minutes": 0.15
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "minutes": 0.09
+    },
+    {
+      "app": "Mathpix",
+      "domain": "",
+      "title": "Mathpix Snipping Tool",
+      "minutes": 0.05
+    },
+    {
+      "app": "文件资源管理器",
+      "domain": "",
+      "title": "数学物理家教 - 文件资源管理器",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "包含关系习题解析",
+      "minutes": 0.02
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "bilibili.com",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-26T15:00:02+08:00",
+      "last_seen": "2026-07-26T15:19:33+08:00",
+      "raw_event_count": 18
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "Get started | ChatGPT",
+      "first_seen": "2026-07-26T15:00:14+08:00",
+      "last_seen": "2026-07-26T15:28:44+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-26T15:19:33+08:00",
+      "last_seen": "2026-07-26T15:28:33+08:00",
+      "raw_event_count": 10
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "包含关系习题解析",
+      "first_seen": "2026-07-26T15:20:24+08:00",
+      "last_seen": "2026-07-26T15:20:29+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "first_seen": "2026-07-26T15:20:42+08:00",
+      "last_seen": "2026-07-26T15:21:33+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "chatgpt.com",
+      "title": "课件内容调整建议",
+      "first_seen": "2026-07-26T15:21:33+08:00",
+      "last_seen": "2026-07-26T15:22:36+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "message.bilibili.com",
+      "title": "消息中心 - 哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili",
+      "first_seen": "2026-07-26T15:22:36+08:00",
+      "last_seen": "2026-07-26T15:22:37+08:00",
+      "raw_event_count": 1
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-26T15:00:00+08:00",
+      "end": "2026-07-26T15:03:49+08:00",
+      "duration_seconds": 229.875,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-26T15:03:49+08:00",
+      "end": "2026-07-26T15:30:00+08:00",
+      "duration_seconds": 1570.125,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-26T15:03:49+08:00",
+      "end": "2026-07-26T15:04:06+08:00",
+      "duration_seconds": 16.249,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:04:07+08:00",
+      "end": "2026-07-26T15:04:08+08:00",
+      "duration_seconds": 1.034,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:04:09+08:00",
+      "end": "2026-07-26T15:04:47+08:00",
+      "duration_seconds": 38.181,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:04:48+08:00",
+      "end": "2026-07-26T15:05:00+08:00",
+      "duration_seconds": 12.389,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:05:01+08:00",
+      "end": "2026-07-26T15:05:03+08:00",
+      "duration_seconds": 2.053,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:05:04+08:00",
+      "end": "2026-07-26T15:05:15+08:00",
+      "duration_seconds": 10.286,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:05:16+08:00",
+      "end": "2026-07-26T15:05:28+08:00",
+      "duration_seconds": 10.295,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:05:29+08:00",
+      "end": "2026-07-26T15:05:31+08:00",
+      "duration_seconds": 2.057,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:05:32+08:00",
+      "end": "2026-07-26T15:05:33+08:00",
+      "duration_seconds": 1.031,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:05:34+08:00",
+      "end": "2026-07-26T15:05:57+08:00",
+      "duration_seconds": 20.717,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:05:58+08:00",
+      "end": "2026-07-26T15:07:33+08:00",
+      "duration_seconds": 95.328,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:07:34+08:00",
+      "end": "2026-07-26T15:07:44+08:00",
+      "duration_seconds": 7.207,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:07:46+08:00",
+      "end": "2026-07-26T15:07:48+08:00",
+      "duration_seconds": 2.057,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:07:50+08:00",
+      "end": "2026-07-26T15:07:55+08:00",
+      "duration_seconds": 3.09,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:07:56+08:00",
+      "end": "2026-07-26T15:07:57+08:00",
+      "duration_seconds": 1.027,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:07:58+08:00",
+      "end": "2026-07-26T15:07:59+08:00",
+      "duration_seconds": 1.025,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:08:00+08:00",
+      "end": "2026-07-26T15:08:07+08:00",
+      "duration_seconds": 7.198,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:08:08+08:00",
+      "end": "2026-07-26T15:08:29+08:00",
+      "duration_seconds": 20.643,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:08:30+08:00",
+      "end": "2026-07-26T15:08:31+08:00",
+      "duration_seconds": 1.032,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:08:32+08:00",
+      "end": "2026-07-26T15:08:35+08:00",
+      "duration_seconds": 3.094,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:08:36+08:00",
+      "end": "2026-07-26T15:08:37+08:00",
+      "duration_seconds": 1.039,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:08:38+08:00",
+      "end": "2026-07-26T15:08:54+08:00",
+      "duration_seconds": 15.453,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:08:55+08:00",
+      "end": "2026-07-26T15:09:12+08:00",
+      "duration_seconds": 15.545,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:09:13+08:00",
+      "end": "2026-07-26T15:09:19+08:00",
+      "duration_seconds": 5.173,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:09:20+08:00",
+      "end": "2026-07-26T15:09:24+08:00",
+      "duration_seconds": 4.152,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:09:25+08:00",
+      "end": "2026-07-26T15:09:27+08:00",
+      "duration_seconds": 2.059,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:09:28+08:00",
+      "end": "2026-07-26T15:09:53+08:00",
+      "duration_seconds": 24.871,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:09:54+08:00",
+      "end": "2026-07-26T15:10:42+08:00",
+      "duration_seconds": 46.338,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:10:43+08:00",
+      "end": "2026-07-26T15:10:44+08:00",
+      "duration_seconds": 1.04,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:10:45+08:00",
+      "end": "2026-07-26T15:10:46+08:00",
+      "duration_seconds": 1.024,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:10:48+08:00",
+      "end": "2026-07-26T15:10:50+08:00",
+      "duration_seconds": 2.061,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:10:52+08:00",
+      "end": "2026-07-26T15:10:54+08:00",
+      "duration_seconds": 2.071,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:10:55+08:00",
+      "end": "2026-07-26T15:11:11+08:00",
+      "duration_seconds": 14.417,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:11:13+08:00",
+      "end": "2026-07-26T15:11:40+08:00",
+      "duration_seconds": 26.846,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:11:41+08:00",
+      "end": "2026-07-26T15:12:00+08:00",
+      "duration_seconds": 18.569,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:12:01+08:00",
+      "end": "2026-07-26T15:12:02+08:00",
+      "duration_seconds": 1.027,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:12:03+08:00",
+      "end": "2026-07-26T15:12:08+08:00",
+      "duration_seconds": 5.171,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:12:09+08:00",
+      "end": "2026-07-26T15:12:12+08:00",
+      "duration_seconds": 3.098,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:12:13+08:00",
+      "end": "2026-07-26T15:12:25+08:00",
+      "duration_seconds": 12.356,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:12:26+08:00",
+      "end": "2026-07-26T15:15:08+08:00",
+      "duration_seconds": 162.041,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:15:09+08:00",
+      "end": "2026-07-26T15:15:10+08:00",
+      "duration_seconds": 1.028,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:15:11+08:00",
+      "end": "2026-07-26T15:15:15+08:00",
+      "duration_seconds": 3.099,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:15:16+08:00",
+      "end": "2026-07-26T15:15:17+08:00",
+      "duration_seconds": 1.03,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:15:18+08:00",
+      "end": "2026-07-26T15:15:21+08:00",
+      "duration_seconds": 3.081,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:15:23+08:00",
+      "end": "2026-07-26T15:15:25+08:00",
+      "duration_seconds": 2.063,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:15:26+08:00",
+      "end": "2026-07-26T15:16:00+08:00",
+      "duration_seconds": 31.883,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:16:01+08:00",
+      "end": "2026-07-26T15:16:03+08:00",
+      "duration_seconds": 2.062,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:16:04+08:00",
+      "end": "2026-07-26T15:16:05+08:00",
+      "duration_seconds": 1.025,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:16:06+08:00",
+      "end": "2026-07-26T15:16:07+08:00",
+      "duration_seconds": 1.03,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:16:08+08:00",
+      "end": "2026-07-26T15:16:28+08:00",
+      "duration_seconds": 19.605,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:16:28+08:00",
+      "end": "2026-07-26T15:16:31+08:00",
+      "duration_seconds": 3.086,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T15:16:31+08:00",
+      "end": "2026-07-26T15:17:13+08:00",
+      "duration_seconds": 42.305,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:17:14+08:00",
+      "end": "2026-07-26T15:17:48+08:00",
+      "duration_seconds": 34.072,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:17:49+08:00",
+      "end": "2026-07-26T15:17:50+08:00",
+      "duration_seconds": 1.037,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:17:51+08:00",
+      "end": "2026-07-26T15:17:53+08:00",
+      "duration_seconds": 2.069,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:17:53+08:00",
+      "end": "2026-07-26T15:17:56+08:00",
+      "duration_seconds": 3.081,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T15:17:56+08:00",
+      "end": "2026-07-26T15:18:55+08:00",
+      "duration_seconds": 58.746,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:18:57+08:00",
+      "end": "2026-07-26T15:19:16+08:00",
+      "duration_seconds": 18.549,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.1x-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:19:17+08:00",
+      "end": "2026-07-26T15:20:04+08:00",
+      "duration_seconds": 47.506,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-26T15:20:05+08:00",
+      "end": "2026-07-26T15:20:14+08:00",
+      "duration_seconds": 8.253,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:20:16+08:00",
+      "end": "2026-07-26T15:20:18+08:00",
+      "duration_seconds": 2.058,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:20:19+08:00",
+      "end": "2026-07-26T15:20:20+08:00",
+      "duration_seconds": 1.039,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T15:20:21+08:00",
+      "end": "2026-07-26T15:20:22+08:00",
+      "duration_seconds": 1.034,
+      "app": "explorer.exe",
+      "app_display": "文件资源管理器",
+      "title": "数学物理家教 - 文件资源管理器",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:20:23+08:00",
+      "end": "2026-07-26T15:20:24+08:00",
+      "duration_seconds": 1.023,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T15:20:25+08:00",
+      "end": "2026-07-26T15:20:26+08:00",
+      "duration_seconds": 1.026,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "包含关系习题解析",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T15:20:26+08:00",
+      "end": "2026-07-26T15:20:30+08:00",
+      "duration_seconds": 4.113,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T15:20:30+08:00",
+      "end": "2026-07-26T15:20:41+08:00",
+      "duration_seconds": 9.266,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T15:20:42+08:00",
+      "end": "2026-07-26T15:21:33+08:00",
+      "duration_seconds": 49.158,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T15:21:33+08:00",
+      "end": "2026-07-26T15:22:36+08:00",
+      "duration_seconds": 62.078,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "课件内容调整建议",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-26T15:22:37+08:00",
+      "end": "2026-07-26T15:22:44+08:00",
+      "duration_seconds": 7.217,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:22:45+08:00",
+      "end": "2026-07-26T15:22:48+08:00",
+      "duration_seconds": 3.068,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:22:50+08:00",
+      "end": "2026-07-26T15:23:40+08:00",
+      "duration_seconds": 47.393,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:23:41+08:00",
+      "end": "2026-07-26T15:23:43+08:00",
+      "duration_seconds": 2.067,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:23:44+08:00",
+      "end": "2026-07-26T15:23:51+08:00",
+      "duration_seconds": 7.206,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:23:53+08:00",
+      "end": "2026-07-26T15:24:01+08:00",
+      "duration_seconds": 8.238,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:24:02+08:00",
+      "end": "2026-07-26T15:24:27+08:00",
+      "duration_seconds": 24.684,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:24:28+08:00",
+      "end": "2026-07-26T15:24:32+08:00",
+      "duration_seconds": 4.109,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:24:33+08:00",
+      "end": "2026-07-26T15:24:47+08:00",
+      "duration_seconds": 14.399,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:24:50+08:00",
+      "end": "2026-07-26T15:24:51+08:00",
+      "duration_seconds": 1.143,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:24:52+08:00",
+      "end": "2026-07-26T15:25:02+08:00",
+      "duration_seconds": 10.294,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:25:02+08:00",
+      "end": "2026-07-26T15:25:05+08:00",
+      "duration_seconds": 3.091,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T15:25:05+08:00",
+      "end": "2026-07-26T15:25:06+08:00",
+      "duration_seconds": 1.027,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:25:07+08:00",
+      "end": "2026-07-26T15:25:40+08:00",
+      "duration_seconds": 32.964,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:25:41+08:00",
+      "end": "2026-07-26T15:25:47+08:00",
+      "duration_seconds": 6.177,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:25:48+08:00",
+      "end": "2026-07-26T15:26:14+08:00",
+      "duration_seconds": 23.709,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:26:15+08:00",
+      "end": "2026-07-26T15:26:16+08:00",
+      "duration_seconds": 1.032,
+      "app": "mathpix-snipping-tool.exe",
+      "app_display": "Mathpix",
+      "title": "Mathpix Snipping Tool - Snip View",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:26:17+08:00",
+      "end": "2026-07-26T15:27:15+08:00",
+      "duration_seconds": 55.649,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:27:16+08:00",
+      "end": "2026-07-26T15:27:54+08:00",
+      "duration_seconds": 38.223,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:27:54+08:00",
+      "end": "2026-07-26T15:27:57+08:00",
+      "duration_seconds": 3.086,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T15:27:57+08:00",
+      "end": "2026-07-26T15:28:04+08:00",
+      "duration_seconds": 7.208,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:28:05+08:00",
+      "end": "2026-07-26T15:28:06+08:00",
+      "duration_seconds": 1.029,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:28:08+08:00",
+      "end": "2026-07-26T15:28:10+08:00",
+      "duration_seconds": 2.05,
+      "app": "SnippingTool.exe",
+      "app_display": "SnippingTool.exe",
+      "title": "截图工具覆盖",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:28:11+08:00",
+      "end": "2026-07-26T15:28:30+08:00",
+      "duration_seconds": 19.578,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:28:31+08:00",
+      "end": "2026-07-26T15:28:40+08:00",
+      "duration_seconds": 9.28,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:28:40+08:00",
+      "end": "2026-07-26T15:28:44+08:00",
+      "duration_seconds": 3.099,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-26T15:28:44+08:00",
+      "end": "2026-07-26T15:28:53+08:00",
+      "duration_seconds": 9.298,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:28:54+08:00",
+      "end": "2026-07-26T15:28:55+08:00",
+      "duration_seconds": 1.126,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-26T15:28:56+08:00",
+      "end": "2026-07-26T15:29:51+08:00",
+      "duration_seconds": 54.632,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "高中物理1 加速度",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-26T15:29:52+08:00",
+      "end": "2026-07-26T15:30:00+08:00",
+      "duration_seconds": 7.786,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【直线运动】2.2v-t图像（基础）_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.908,
+    "browser_title_coverage": 1.0,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.234,
+    "browser_share_of_active_time": 0.422,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

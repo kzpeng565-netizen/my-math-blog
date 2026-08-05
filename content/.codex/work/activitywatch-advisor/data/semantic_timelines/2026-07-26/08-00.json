@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T08:00:00+08:00",
+    "end": "2026-07-26T08:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-26T08:00:00+08:00",
+      "end": "2026-07-26T08:20:11+08:00",
+      "duration_seconds": 1211.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无任何设备操作）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑全程AFK",
+        "手机屏幕关闭",
+        "跨设备休息规则确认的连续无操作区间：08:00:00-08:20:11（20.18分钟）"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:20:11+08:00",
+      "end": "2026-07-26T08:23:08+08:00",
+      "duration_seconds": 177.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机使用微信和QQ进行快速通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏后前台依次为微信（约1.5分钟）、QQ（约1分钟）",
+        "电脑仍然AFK，无相关工作背景",
+        "无证据表明通信服务于工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:23:08+08:00",
+      "end": "2026-07-26T08:24:00+08:00",
+      "duration_seconds": 52.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "短暂熄屏间隔，前后均为手机通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [],
+      "evidence": [
+        "手机屏幕关闭52秒，期间电脑仍AFK",
+        "熄屏间隔较短（<180秒），不满足rest规则最小连续无操作阈值",
+        "前后均为手机通信行为，视为同一通信时段的间隙"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T08:24:00+08:00",
+      "end": "2026-07-26T08:27:40+08:00",
+      "duration_seconds": 220.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机使用微信、QQ及Chrome等应用",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，微信占主导（约1.2分钟），QQ、Chrome、搜索等短暂使用",
+        "电脑仍然AFK",
+        "无工作相关任务证据"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T08:27:40+08:00",
+      "end": "2026-07-26T08:29:16+08:00",
+      "duration_seconds": 96.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "短暂熄屏间隔，前后均为手机通信",
+      "relationship_to_work": "brief_communication",
+      "devices": [],
+      "evidence": [
+        "手机屏幕关闭96秒，期间电脑仍AFK",
+        "熄屏间隔较短（<180秒），不满足rest规则最小连续无操作阈值",
+        "前后均为手机通信行为，视为同一通信时段的间隙"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T08:29:16+08:00",
+      "end": "2026-07-26T08:30:00+08:00",
+      "duration_seconds": 44.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "手机使用微信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏后前台为微信（39秒，持续至报告时段外）",
+        "电脑仍然AFK",
+        "无工作相关任务证据"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 2
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 10839,
+      "completion_tokens": 998,
+      "total_tokens": 11837,
+      "prompt_tokens_details": {
+        "cached_tokens": 9856
+      },
+      "prompt_cache_hit_tokens": 9856,
+      "prompt_cache_miss_tokens": 983
+    }
+  }
+}

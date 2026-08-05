@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-24T20:30:00+08:00",
+    "end": "2026-07-24T21:00:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 46,
+      "aw-watcher-afk_xyh": 3,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 20,
+      "aw-watcher-web-edge_xyh": 27
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 26.72,
+    "afk_minutes": 3.28,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 25.95
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 17.6
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 8.1
+    },
+    {
+      "app": "Clash Verge",
+      "minutes": 0.24
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "bilibili.com",
+      "minutes": 15.12
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.92
+    },
+    {
+      "domain": "search.bilibili.com",
+      "minutes": 0.88
+    },
+    {
+      "domain": "platform.deepseek.com",
+      "minutes": 0.58
+    },
+    {
+      "domain": "api-docs.deepseek.com",
+      "minutes": 0.1
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "minutes": 11.21
+    },
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 8.1
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "minutes": 2.48
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "minutes": 1.43
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.92
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "search.bilibili.com",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "minutes": 0.88
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "minutes": 0.58
+    },
+    {
+      "app": "Clash Verge",
+      "domain": "",
+      "title": "Clash Verge",
+      "minutes": 0.24
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "api-docs.deepseek.com",
+      "title": "首次调用 API | DeepSeek API Docs",
+      "minutes": 0.1
+    }
+  ],
+  "observed_pages": [
+    {
+      "domain": "console.tailscale.com",
+      "title": "DNS - Tailscale",
+      "first_seen": "2026-07-24T20:30:00+08:00",
+      "last_seen": "2026-07-24T20:59:36+08:00",
+      "raw_event_count": 20
+    },
+    {
+      "domain": "search.bilibili.com",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "first_seen": "2026-07-24T20:30:25+08:00",
+      "last_seen": "2026-07-24T20:41:21+08:00",
+      "raw_event_count": 5
+    },
+    {
+      "domain": "newtab",
+      "title": "新建标签页",
+      "first_seen": "2026-07-24T20:30:25+08:00",
+      "last_seen": "2026-07-24T20:31:28+08:00",
+      "raw_event_count": 1
+    },
+    {
+      "domain": "platform.deepseek.com",
+      "title": "DeepSeek 开放平台",
+      "first_seen": "2026-07-24T20:31:28+08:00",
+      "last_seen": "2026-07-24T20:33:28+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "api-docs.deepseek.com",
+      "title": "首次调用 API | DeepSeek API Docs",
+      "first_seen": "2026-07-24T20:33:28+08:00",
+      "last_seen": "2026-07-24T20:56:41+08:00",
+      "raw_event_count": 3
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "first_seen": "2026-07-24T20:41:21+08:00",
+      "last_seen": "2026-07-24T20:45:28+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-24T20:41:58+08:00",
+      "last_seen": "2026-07-24T20:44:28+08:00",
+      "raw_event_count": 2
+    },
+    {
+      "domain": "bilibili.com",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "first_seen": "2026-07-24T20:45:28+08:00",
+      "last_seen": "2026-07-24T21:00:24+08:00",
+      "raw_event_count": 12
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-24T20:30:00+08:00",
+      "end": "2026-07-24T20:56:43+08:00",
+      "duration_seconds": 1603.25,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-24T20:56:43+08:00",
+      "end": "2026-07-24T21:00:00+08:00",
+      "duration_seconds": 196.75,
+      "status": "afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-24T20:30:00+08:00",
+      "end": "2026-07-24T20:30:24+08:00",
+      "duration_seconds": 24.467,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:30:26+08:00",
+      "end": "2026-07-24T20:31:28+08:00",
+      "duration_seconds": 55.055,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:31:28+08:00",
+      "end": "2026-07-24T20:31:57+08:00",
+      "duration_seconds": 26.512,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "DeepSeek 开放平台",
+      "domain": "platform.deepseek.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T20:31:58+08:00",
+      "end": "2026-07-24T20:32:10+08:00",
+      "duration_seconds": 12.396,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:32:11+08:00",
+      "end": "2026-07-24T20:32:12+08:00",
+      "duration_seconds": 1.044,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "DeepSeek 开放平台",
+      "domain": "platform.deepseek.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T20:32:13+08:00",
+      "end": "2026-07-24T20:32:14+08:00",
+      "duration_seconds": 1.041,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:32:15+08:00",
+      "end": "2026-07-24T20:32:23+08:00",
+      "duration_seconds": 7.238,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "DeepSeek 开放平台",
+      "domain": "platform.deepseek.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T20:32:25+08:00",
+      "end": "2026-07-24T20:32:30+08:00",
+      "duration_seconds": 5.199,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首次调用 API | DeepSeek API Docs",
+      "domain": "api-docs.deepseek.com",
+      "context_source": "title_match"
+    },
+    {
+      "start": "2026-07-24T20:32:31+08:00",
+      "end": "2026-07-24T20:36:07+08:00",
+      "duration_seconds": 215.961,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:36:08+08:00",
+      "end": "2026-07-24T20:36:09+08:00",
+      "duration_seconds": 1.036,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "首次调用 API | DeepSeek API Docs",
+      "domain": "api-docs.deepseek.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:36:10+08:00",
+      "end": "2026-07-24T20:36:11+08:00",
+      "duration_seconds": 1.034,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:36:13+08:00",
+      "end": "2026-07-24T20:39:01+08:00",
+      "duration_seconds": 167.354,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:39:02+08:00",
+      "end": "2026-07-24T20:39:16+08:00",
+      "duration_seconds": 14.438,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:39:18+08:00",
+      "end": "2026-07-24T20:40:23+08:00",
+      "duration_seconds": 65.06,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:40:24+08:00",
+      "end": "2026-07-24T20:41:21+08:00",
+      "duration_seconds": 51.83,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-24T20:41:22+08:00",
+      "end": "2026-07-24T20:41:58+08:00",
+      "duration_seconds": 33.013,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:41:58+08:00",
+      "end": "2026-07-24T20:44:27+08:00",
+      "duration_seconds": 148.969,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "初高衔接】1等式变形方法回顾_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    },
+    {
+      "start": "2026-07-24T20:44:28+08:00",
+      "end": "2026-07-24T20:45:28+08:00",
+      "duration_seconds": 52.812,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:45:28+08:00",
+      "end": "2026-07-24T20:56:43+08:00",
+      "duration_seconds": 672.34,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "【初高衔接】1.1 对称式、主元思想_哔哩哔哩_bilibili",
+      "domain": "bilibili.com",
+      "context_source": "title_match+web"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "active_window_coverage": 0.971,
+    "browser_title_coverage": 0.978,
+    "browser_domain_context_coverage": 1.0,
+    "web_watcher_exact_time_overlap": 0.363,
+    "browser_share_of_active_time": 0.659,
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "web_watcher_exact_time_overlap只衡量两个采集器的事件时长重合，不衡量标签页是否被识别。",
+      "网页用途优先参考前台窗口标题及本时段观察到的标签页；网页事件时长不直接当作浏览时长。"
+    ]
+  }
+}

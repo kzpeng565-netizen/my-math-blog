@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-26T10:30:00+08:00",
+    "end": "2026-07-26T11:00:00+08:00"
+  },
+  "primary_work_task": "高中数学集合与逻辑学习",
+  "segments": [
+    {
+      "start": "2026-07-26T10:30:00+08:00",
+      "end": "2026-07-26T10:41:11+08:00",
+      "duration_seconds": 671.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "用Obsidian整理集合与逻辑笔记，中间切换ChatGPT查询包含关系习题解析，并短暂浏览B站容斥原理视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题“高中数学1 集合与逻辑”持续10:30-10:40",
+        "ChatGPT标签页“包含关系习题解析”于10:32-10:33前台",
+        "B站视频“【集合与逻辑】1.4 容斥原理”于10:32短暂前台",
+        "10:40打开本地PDF“高中数学1 集合与逻辑.pdf”"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-26T10:41:11+08:00",
+      "end": "2026-07-26T10:57:51+08:00",
+      "duration_seconds": 1000.0,
+      "activity": "uncertain",
+      "work_category": "",
+      "task": "电脑AFK（10:41-10:46, 10:51-10:57），中间电脑状态未知（10:46-10:51），但手机有频繁解锁和使用微信QQ",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK两段共约11分钟",
+        "电脑状态未知约5分钟",
+        "手机屏幕多次亮起，使用微信和QQ通信",
+        "跨设备重叠显示手机亮屏与电脑AFK/未知重叠"
+      ],
+      "confidence": "low"
+    },
+    {
+      "start": "2026-07-26T10:57:51+08:00",
+      "end": "2026-07-26T11:00:00+08:00",
+      "duration_seconds": 129.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "通过腾讯会议进入彭康哲的快速会议，准备进行家教辅导",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "10:58腾讯会议前台显示“彭康哲的快速会议”",
+        "微信短暂前台后切换到腾讯会议",
+        "会议标题表明是个人会议，结合此前数学学习，可能为家教",
+        "辅助上下文显示腾讯会议持续到11:01"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "10:41-10:57手机通信（微信/QQ）是独立通信还是与工作相关？但无法确认，故归为uncertain",
+    "10:57-11:00腾讯会议是否属于家教或数学辅导，依据会议标题推测，但缺乏直接证据"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 18132,
+      "completion_tokens": 746,
+      "total_tokens": 18878,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 17236
+    }
+  }
+}

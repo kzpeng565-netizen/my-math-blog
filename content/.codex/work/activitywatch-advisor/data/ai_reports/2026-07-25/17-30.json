@@ -1,0 +1,277 @@
+{
+  "period": "2026-07-25T17:30:00+08:00/2026-07-25T18:00:00+08:00",
+  "state_assessment": {
+    "label": "entertainment",
+    "confidence": "high",
+    "one_sentence": "主要任务：物理学习与备课（运动学基础）。工作0.17分钟，娱乐26.2分钟，通信0.0分钟，确认休息3.63分钟。工作中出现3次超过30秒的娱乐偏离，共26.2分钟，最长13.43分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "high",
+    "entertainment_deviation_count": 3,
+    "entertainment_deviation_minutes": 26.2,
+    "all_entertainment_minutes": 26.2,
+    "longest_entertainment_deviation_minutes": 13.43,
+    "work_entertainment_transition_count": 1,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.17,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [
+      {
+        "start": "2026-07-25T17:33:48+08:00",
+        "end": "2026-07-25T17:40:23+08:00",
+        "minutes": 6.58,
+        "duration_seconds": 395.0,
+        "task": "刷哔哩哔哩视频（运动学相关）",
+        "evidence": [
+          "电脑AFK，手机屏幕亮起并在哔哩哔哩和微信间切换",
+          "哔哩哔哩标题为'【运动描述】1.5速度速率（基础）'，与物理学习主题相关，但属于非强制性的娱乐性观看",
+          "前后辅助上下文显示用户之前在进行物理备课，之后又返回相同主题"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-25T17:40:23+08:00",
+        "end": "2026-07-25T17:46:34+08:00",
+        "minutes": 6.18,
+        "duration_seconds": 371.0,
+        "task": "刷哔哩哔哩和微信通信",
+        "evidence": [
+          "电脑状态未知（可能仍AFK），手机持续亮屏",
+          "手机前台在哔哩哔哩和微信之间频繁切换",
+          "微信通信属于社交，哔哩哔哩视频延续之前内容"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "medium"
+      },
+      {
+        "start": "2026-07-25T17:46:34+08:00",
+        "end": "2026-07-25T18:00:00+08:00",
+        "minutes": 13.43,
+        "duration_seconds": 806.0,
+        "task": "刷哔哩哔哩视频（运动学相关）",
+        "evidence": [
+          "电脑持续AFK，手机亮屏并主要在哔哩哔哩",
+          "哔哩哔哩标题仍为'【运动描述】1.5速度速率（基础）'",
+          "期间穿插微信、QQ通信，但哔哩哔哩占主导",
+          "前后辅助上下文显示用户之后仍持续看哔哩哔哩，未返回电脑工作"
+        ],
+        "returned_to_work": false,
+        "return_latency_minutes": null,
+        "confidence": "medium"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "三次娱乐偏离（6.58分钟、6.18分钟、13.43分钟）从17:33:48开始持续至时段结束，期间未返回电脑工作，属于连续娱乐而非工作中断。"
+  },
+  "computer_summary": "电脑仅短暂使用腾讯会议0.12分钟（彭康哲的快速会议），其余时间AFK或状态未知，无后续工作。",
+  "phone_summary": "手机活动以哔哩哔哩（12.42分钟）和微信（7.22分钟）为主，辅以QQ（0.4分钟）和亮屏未知（2.55分钟）；哔哩哔哩标题为运动学相关视频，但判断为娱乐性观看。",
+  "material_uncertainties": [
+    "电脑17:40:23~17:46:34状态未知，无法确定用户是否短暂操作电脑",
+    "哔哩哔哩视频内容可能为物理学习材料，但无法确认是主动学习还是娱乐消遣"
+  ],
+  "concise_report": "主要任务：物理学习与备课（运动学基础）。工作0.17分钟，娱乐26.2分钟，通信0.0分钟，确认休息3.63分钟。工作中出现3次超过30秒的娱乐偏离，共26.2分钟，最长13.43分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "哔哩哔哩视频（运动学基础）是否属于主动物理学习而非娱乐消遣？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.17,
+    "computer_afk_minutes": 23.65,
+    "phone_screen_on_minutes": 23.18,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 6.65,
+    "confirmed_rest_minutes": 3.63
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.17,
+      "range_minutes": [
+        0.17,
+        0.17
+      ],
+      "evidence": [
+        "电脑窗口腾讯会议，标题'彭康哲的快速会议'",
+        "前后辅助上下文显示会议与物理备课相关",
+        "手机短暂亮屏但未持续娱乐"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 26.2,
+      "range_minutes": [
+        26.2,
+        26.2
+      ],
+      "evidence": [
+        "电脑AFK，手机屏幕亮起并在哔哩哔哩和微信间切换",
+        "哔哩哔哩标题为'【运动描述】1.5速度速率（基础）'，与物理学习主题相关，但属于非强制性的娱乐性观看",
+        "前后辅助上下文显示用户之前在进行物理备课，之后又返回相同主题",
+        "电脑状态未知（可能仍AFK），手机持续亮屏"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 3.63,
+      "range_minutes": [
+        3.63,
+        3.63
+      ],
+      "evidence": [
+        "电脑AFK且手机熄屏，跨设备确认休息区间",
+        "前后辅助上下文显示休息前正在腾讯会议和Obsidian处理物理备课",
+        "无任何设备交互"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "17:30-17:33",
+      "likely_state": "休息",
+      "minutes": 3.63,
+      "task": "休息（跨设备无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机熄屏，跨设备确认休息区间",
+        "前后辅助上下文显示休息前正在腾讯会议和Obsidian处理物理备课",
+        "无任何设备交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "17:33-17:33",
+      "likely_state": "工作",
+      "minutes": 0.17,
+      "task": "物理教学会议（腾讯会议快速会议）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑窗口腾讯会议，标题'彭康哲的快速会议'",
+        "前后辅助上下文显示会议与物理备课相关",
+        "手机短暂亮屏但未持续娱乐"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "17:33-17:40",
+      "likely_state": "娱乐",
+      "minutes": 6.58,
+      "task": "刷哔哩哔哩视频（运动学相关）",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑AFK，手机屏幕亮起并在哔哩哔哩和微信间切换",
+        "哔哩哔哩标题为'【运动描述】1.5速度速率（基础）'，与物理学习主题相关，但属于非强制性的娱乐性观看",
+        "前后辅助上下文显示用户之前在进行物理备课，之后又返回相同主题"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:40-17:46",
+      "likely_state": "娱乐",
+      "minutes": 6.18,
+      "task": "刷哔哩哔哩和微信通信",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑状态未知（可能仍AFK），手机持续亮屏",
+        "手机前台在哔哩哔哩和微信之间频繁切换",
+        "微信通信属于社交，哔哩哔哩视频延续之前内容"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "17:46-18:00",
+      "likely_state": "娱乐",
+      "minutes": 13.43,
+      "task": "刷哔哩哔哩视频（运动学相关）",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑持续AFK，手机亮屏并主要在哔哩哔哩",
+        "哔哩哔哩标题仍为'【运动描述】1.5速度速率（基础）'",
+        "期间穿插微信、QQ通信，但哔哩哔哩占主导",
+        "前后辅助上下文显示用户之后仍持续看哔哩哔哩，未返回电脑工作"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "物理学习与备课（运动学基础）",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖67.9%。",
+      "电脑活动状态未知6.18分钟。",
+      "亮屏期间前台应用未知2.55分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8620,
+      "completion_tokens": 1048,
+      "total_tokens": 9668,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 617
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 7724
+    }
+  }
+}

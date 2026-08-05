@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T00:00:00+08:00",
+    "end": "2026-07-25T00:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-25T00:00:00+08:00",
+      "end": "2026-07-25T00:01:01+08:00",
+      "duration_seconds": 61.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "浏览知乎基因编辑文章，可能涉及生物知识学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑前台为知乎文章'Science 刊文揭露一位中国6岁女孩在基因编辑实验中死亡'",
+        "微信被短暂切换，但时间短未构成独立任务",
+        "手机同时使用微信和个人搜索"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T00:01:01+08:00",
+      "end": "2026-07-25T00:12:11+08:00",
+      "duration_seconds": 670.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "电脑AFK无操作，手机持续亮屏使用微信和搜索",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "电脑00:01:01至00:12:11处于AFK状态",
+        "手机屏幕一直亮，用于微信、搜索、家庭关怀等",
+        "手机用途以通信和搜索为主，不涉及娱乐或工作",
+        "电脑无操作期间手机持续活跃，但无法精确判断主要任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:12:11+08:00",
+      "end": "2026-07-25T00:14:46+08:00",
+      "duration_seconds": 155.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续阅读知乎基因编辑文章",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑返回后主要使用Edge浏览知乎同一篇文章",
+        "手机屏幕在此区间关闭",
+        "短暂的微信'图片和视频'和'微信'窗口切换，但时间极短"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:14:46+08:00",
+      "end": "2026-07-25T00:15:20+08:00",
+      "duration_seconds": 34.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "使用微信查看图片/视频并聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "连续微信窗口：'微信'和'图片和视频'，共约34秒",
+        "紧随其后切换到ChatGPT，说明通信段独立"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:15:20+08:00",
+      "end": "2026-07-25T00:18:02+08:00",
+      "duration_seconds": 162.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "使用ChatGPT和Edge查询Codex价格，可能涉及API配置",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "主要使用ChatGPT桌面应用和Edge浏览OpenAI帮助中心",
+        "查看Codex价目表，涉及技术配置",
+        "期间有短暂通知中心和微信，但未改变主任务"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T00:18:02+08:00",
+      "end": "2026-07-25T00:18:27+08:00",
+      "duration_seconds": 25.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian中编辑数学笔记'初高衔接2 乘法公式&主元思想&因式分解'",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian窗口标题明确为初高衔接数学内容",
+        "前后活动均与学习相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:18:27+08:00",
+      "end": "2026-07-25T00:18:40+08:00",
+      "duration_seconds": 13.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "快速查看微信消息",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口持续约13秒",
+        "随后打开新标签页，任务转换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:18:40+08:00",
+      "end": "2026-07-25T00:22:13+08:00",
+      "duration_seconds": 213.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "配置Claudian接入DeepSeek V4 Pro，涉及API和工具集成",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "Edge标签页'Claudian接入DeepSeek V4 Pro'持续使用",
+        "中间穿插查看仇子龙百度百科（可能相关研究）",
+        "Obsidian和微信短暂切换但不改变主任务",
+        "手机在00:19:12-00:19:53短暂亮屏使用微信，可能快速回复"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T00:22:13+08:00",
+      "end": "2026-07-25T00:24:02+08:00",
+      "duration_seconds": 109.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "持续使用微信聊天（约1分48秒）",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口连续约1分48秒",
+        "后续回到ChatGPT任务，说明是独立通信时段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:24:02+08:00",
+      "end": "2026-07-25T00:27:22+08:00",
+      "duration_seconds": 200.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "继续配置Claudian接入DeepSeek，使用终端和ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页持续ChatGPT关于DeepSeek的对话",
+        "使用Windows Terminal执行命令（claude）",
+        "微信穿插但时间短，未构成独立段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:27:22+08:00",
+      "end": "2026-07-25T00:28:10+08:00",
+      "duration_seconds": 48.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "快速回复微信消息",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口约48秒",
+        "随后立即回到DeepSeek对话"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:28:10+08:00",
+      "end": "2026-07-25T00:29:51+08:00",
+      "duration_seconds": 101.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "长时间使用微信聊天（约1分40秒）",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口连续约1分40秒",
+        "报告时段末尾短暂回到ChatGPT，但主要时间在微信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:29:51+08:00",
+      "end": "2026-07-25T00:30:00+08:00",
+      "duration_seconds": 9.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "短暂回到ChatGPT DeepSeek配置任务",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标签页'Claudian接入DeepSeek V4 Pro'出现1秒",
+        "随后又切回微信，但此段为时段末尾"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "00:01:01-00:12:11期间手机用途不明（微信和搜索，但具体内容未知），无法确认是否工作相关",
+    "ChatGPT和Edge上的DeepSeek配置与数学学习任务的关系不明确，可能属于同一项目也可能独立"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 28016,
+      "completion_tokens": 2071,
+      "total_tokens": 30087,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 27120
+    }
+  }
+}

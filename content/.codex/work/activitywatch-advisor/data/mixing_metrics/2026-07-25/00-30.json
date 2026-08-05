@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 2,
+  "entertainment_deviation_minutes": 15.78,
+  "all_entertainment_minutes": 15.78,
+  "longest_entertainment_deviation_minutes": 11.13,
+  "work_entertainment_transition_count": 1,
+  "brief_communication_minutes": 0.0,
+  "longest_continuous_work_minutes": 4.52,
+  "same_task_tool_switches_not_scored": 15,
+  "raw_foreground_context_switches_not_scored": 16,
+  "deviations": [
+    {
+      "start": "2026-07-25T00:38:44+08:00",
+      "end": "2026-07-25T00:49:52+08:00",
+      "minutes": 11.13,
+      "duration_seconds": 668.0,
+      "task": "在哔哩哔哩观看视频",
+      "evidence": [
+        "手机屏幕亮屏",
+        "手机前台哔哩哔哩应用8分钟",
+        "电脑处于AFK状态，无操作",
+        "之后返回电脑工作"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T00:49:52+08:00",
+      "end": "2026-07-25T00:54:31+08:00",
+      "minutes": 4.65,
+      "duration_seconds": 279.0,
+      "task": "继续在哔哩哔哩看视频，并使用Chrome浏览",
+      "evidence": [
+        "手机屏幕亮屏",
+        "哔哩哔哩前台3分钟",
+        "com.android.chrome前台1.5分钟",
+        "电脑仍AFK"
+      ],
+      "returned_to_work": false,
+      "return_latency_minutes": null,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

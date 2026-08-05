@@ -1,0 +1,222 @@
+{
+  "period": "2026-07-27T11:30:00+08:00/2026-07-27T12:00:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：高中数学备课。工作0.42分钟，娱乐0.0分钟，通信0.0分钟，确认休息28.58分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.42,
+    "same_task_tool_switches_not_scored": 1,
+    "raw_foreground_context_switches_not_scored": 1,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作仅持续约25秒（11:51:06-11:51:31），期间无娱乐偏离。整个时段没有娱乐活动，工作—娱乐混杂等级为无。"
+  },
+  "computer_summary": "电脑在11:51:06-11:51:31期间短暂活跃：先打开文件资源管理器，然后使用Microsoft Edge访问DeepSeek开放平台，配合Obsidian编辑“高中数学2 集合与逻辑”，属于高中数学备课。其余时间电脑AFK。",
+  "phone_summary": "手机全程熄屏，无活动。",
+  "tablet_summary": "平板在整个时段亮屏，但作为辅助数据源，不推翻休息判断。用户可能在平板上有活动，但无法确认。",
+  "material_uncertainties": [
+    "11:55:36-11:56:36电脑状态unknown，无法确定用户是否有任何活动",
+    "11:55:36-11:56:36电脑状态unknown，无法确定用户是否有任何活动，但前后均为休息，整体影响有限。"
+  ],
+  "concise_report": "主要任务：高中数学备课。工作0.42分钟，娱乐0.0分钟，通信0.0分钟，确认休息28.58分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "11:55:36-11:56:36电脑状态未知的1分钟，您是否有任何活动（如操作电脑或手机）？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.43,
+    "computer_afk_minutes": 28.57,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 29.58,
+    "confirmed_rest_minutes": 28.58
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.42,
+      "range_minutes": [
+        0.42,
+        0.42
+      ],
+      "evidence": [
+        "打开文件资源管理器后快速切换到DeepSeek和Obsidian",
+        "Obsidian标题'高中数学2 集合与逻辑'",
+        "DeepSeek平台与Obsidian内容一致，用于备课"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 28.58,
+      "range_minutes": [
+        28.58,
+        28.58
+      ],
+      "evidence": [
+        "电脑连续AFK且手机熄屏超过3分钟，符合休息规则",
+        "平板亮屏但仅作为辅助数据，不否决休息",
+        "前后无任何有效交互",
+        "电脑进入AFK超过3分钟，手机熄屏"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 1.0,
+      "range_minutes": [
+        1.0,
+        1.0
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口记录",
+        "时长1分钟，可能影响分类"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "11:30-11:51",
+      "likely_state": "休息",
+      "minutes": 21.1,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK且手机熄屏超过3分钟，符合休息规则",
+        "平板亮屏但仅作为辅助数据，不否决休息",
+        "前后无任何有效交互"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:51-11:51",
+      "likely_state": "工作",
+      "minutes": 0.42,
+      "task": "高中数学备课（使用DeepSeek和Obsidian）",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "打开文件资源管理器后快速切换到DeepSeek和Obsidian",
+        "Obsidian标题'高中数学2 集合与逻辑'",
+        "DeepSeek平台与Obsidian内容一致，用于备课"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:51-11:55",
+      "likely_state": "休息",
+      "minutes": 4.08,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑进入AFK超过3分钟，手机熄屏",
+        "平板亮屏但不否决休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:55-11:56",
+      "likely_state": "无法判断",
+      "minutes": 1.0,
+      "task": "未知状态（电脑状态未知）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态为unknown，无窗口记录",
+        "时长1分钟，可能影响分类"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "11:56-12:00",
+      "likely_state": "休息",
+      "minutes": 3.4,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK且手机熄屏超过3分钟",
+        "平板亮屏但不否决休息"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "高中数学备课",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖75.8%。",
+      "电脑活动状态未知1.0分钟。",
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5327,
+      "completion_tokens": 786,
+      "total_tokens": 6113,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 378
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4431
+    }
+  }
+}

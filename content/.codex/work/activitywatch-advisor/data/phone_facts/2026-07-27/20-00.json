@@ -1,0 +1,361 @@
+{
+  "schema_version": 1,
+  "source": "mobile_usage_jsonl",
+  "period": {
+    "start": "2026-07-27T20:00:00+08:00",
+    "end": "2026-07-27T20:30:00+08:00"
+  },
+  "input": {
+    "files_read": [
+      "/home/conrad/phone_usage/archive/2026-07-26/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-26/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-26/screen.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/screen.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_foreground.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_heartbeat.jsonl",
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_screen.jsonl",
+      "/home/conrad/phone_usage/incoming/foreground.jsonl",
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl",
+      "/home/conrad/phone_usage/incoming/screen.jsonl",
+      "/home/conrad/phone_usage/incoming/tablet_foreground.jsonl",
+      "/home/conrad/phone_usage/incoming/tablet_heartbeat.jsonl",
+      "/home/conrad/phone_usage/incoming/tablet_screen.jsonl"
+    ],
+    "deduplicated_events_in_period": 55,
+    "deduplicated_events_by_type": {
+      "heartbeat": 2,
+      "screen": 5,
+      "foreground": 48
+    },
+    "accepted_events_by_file": {
+      "/home/conrad/phone_usage/archive/2026-07-26/foreground.jsonl": 1626,
+      "/home/conrad/phone_usage/archive/2026-07-26/heartbeat.jsonl": 92,
+      "/home/conrad/phone_usage/archive/2026-07-26/screen.jsonl": 200,
+      "/home/conrad/phone_usage/archive/2026-07-27/foreground.jsonl": 801,
+      "/home/conrad/phone_usage/archive/2026-07-27/heartbeat.jsonl": 81,
+      "/home/conrad/phone_usage/archive/2026-07-27/screen.jsonl": 178,
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_foreground.jsonl": 0,
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/archive/2026-07-27/tablet_screen.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/foreground.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/screen.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/tablet_foreground.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/tablet_heartbeat.jsonl": 0,
+      "/home/conrad/phone_usage/incoming/tablet_screen.jsonl": 0
+    }
+  },
+  "screen": {
+    "on_minutes": 14.55,
+    "off_minutes": 15.45,
+    "unknown_minutes": 0.0,
+    "unlock_count": 3
+  },
+  "foreground": {
+    "switch_count": 48,
+    "top_apps": [
+      {
+        "app": "com.tencent.qqmusic",
+        "minutes": 6.53
+      },
+      {
+        "app": "com.android.camera",
+        "minutes": 2.55
+      },
+      {
+        "app": "哔哩哔哩",
+        "minutes": 1.75
+      },
+      {
+        "app": "不做手机控",
+        "minutes": 1.32
+      },
+      {
+        "app": "微信",
+        "minutes": 1.13
+      },
+      {
+        "app": "com.vivo.gallery",
+        "minutes": 0.65
+      },
+      {
+        "app": "手机桌面",
+        "minutes": 0.53
+      },
+      {
+        "app": "亮屏但前台应用未知",
+        "minutes": 0.07
+      },
+      {
+        "app": "com.vivo.appfilter",
+        "minutes": 0.02
+      }
+    ],
+    "top_packages": [
+      {
+        "package": "com.tencent.qqmusic",
+        "minutes": 6.53
+      },
+      {
+        "package": "com.android.camera",
+        "minutes": 2.55
+      },
+      {
+        "package": "tv.danmaku.bili",
+        "minutes": 1.75
+      },
+      {
+        "package": "com.pl.getaway.getaway",
+        "minutes": 1.32
+      },
+      {
+        "package": "com.tencent.mm",
+        "minutes": 1.13
+      },
+      {
+        "package": "com.vivo.gallery",
+        "minutes": 0.65
+      },
+      {
+        "package": "com.bbk.launcher2",
+        "minutes": 0.53
+      },
+      {
+        "package": "com.vivo.appfilter",
+        "minutes": 0.02
+      }
+    ]
+  },
+  "screen_timeline": [
+    {
+      "start": "2026-07-27T20:00:00+08:00",
+      "end": "2026-07-27T20:11:00+08:00",
+      "duration_seconds": 660.0,
+      "state": "off"
+    },
+    {
+      "start": "2026-07-27T20:11:00+08:00",
+      "end": "2026-07-27T20:15:31+08:00",
+      "duration_seconds": 271.0,
+      "state": "on"
+    },
+    {
+      "start": "2026-07-27T20:15:31+08:00",
+      "end": "2026-07-27T20:19:28+08:00",
+      "duration_seconds": 237.0,
+      "state": "off"
+    },
+    {
+      "start": "2026-07-27T20:19:28+08:00",
+      "end": "2026-07-27T20:28:57+08:00",
+      "duration_seconds": 569.0,
+      "state": "on"
+    },
+    {
+      "start": "2026-07-27T20:28:57+08:00",
+      "end": "2026-07-27T20:29:27+08:00",
+      "duration_seconds": 30.0,
+      "state": "off"
+    },
+    {
+      "start": "2026-07-27T20:29:27+08:00",
+      "end": "2026-07-27T20:30:00+08:00",
+      "duration_seconds": 33.0,
+      "state": "on"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-27T20:11:00+08:00",
+      "end": "2026-07-27T20:11:01+08:00",
+      "duration_seconds": 1.0,
+      "package": "",
+      "app_display": "亮屏但前台应用未知"
+    },
+    {
+      "start": "2026-07-27T20:11:01+08:00",
+      "end": "2026-07-27T20:12:27+08:00",
+      "duration_seconds": 86.0,
+      "package": "com.android.camera",
+      "app_display": "com.android.camera"
+    },
+    {
+      "start": "2026-07-27T20:12:27+08:00",
+      "end": "2026-07-27T20:12:29+08:00",
+      "duration_seconds": 2.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    },
+    {
+      "start": "2026-07-27T20:12:29+08:00",
+      "end": "2026-07-27T20:12:44+08:00",
+      "duration_seconds": 15.0,
+      "package": "com.tencent.mm",
+      "app_display": "微信"
+    },
+    {
+      "start": "2026-07-27T20:12:44+08:00",
+      "end": "2026-07-27T20:12:45+08:00",
+      "duration_seconds": 1.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    },
+    {
+      "start": "2026-07-27T20:12:45+08:00",
+      "end": "2026-07-27T20:12:59+08:00",
+      "duration_seconds": 14.0,
+      "package": "com.android.camera",
+      "app_display": "com.android.camera"
+    },
+    {
+      "start": "2026-07-27T20:12:59+08:00",
+      "end": "2026-07-27T20:13:04+08:00",
+      "duration_seconds": 5.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    },
+    {
+      "start": "2026-07-27T20:13:04+08:00",
+      "end": "2026-07-27T20:13:05+08:00",
+      "duration_seconds": 1.0,
+      "package": "com.tencent.mm",
+      "app_display": "微信"
+    },
+    {
+      "start": "2026-07-27T20:13:05+08:00",
+      "end": "2026-07-27T20:13:07+08:00",
+      "duration_seconds": 2.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    },
+    {
+      "start": "2026-07-27T20:13:07+08:00",
+      "end": "2026-07-27T20:13:58+08:00",
+      "duration_seconds": 51.0,
+      "package": "com.android.camera",
+      "app_display": "com.android.camera"
+    },
+    {
+      "start": "2026-07-27T20:13:58+08:00",
+      "end": "2026-07-27T20:14:37+08:00",
+      "duration_seconds": 39.0,
+      "package": "com.vivo.gallery",
+      "app_display": "com.vivo.gallery"
+    },
+    {
+      "start": "2026-07-27T20:14:37+08:00",
+      "end": "2026-07-27T20:14:39+08:00",
+      "duration_seconds": 2.0,
+      "package": "com.android.camera",
+      "app_display": "com.android.camera"
+    },
+    {
+      "start": "2026-07-27T20:14:39+08:00",
+      "end": "2026-07-27T20:15:31+08:00",
+      "duration_seconds": 52.0,
+      "package": "com.tencent.mm",
+      "app_display": "微信"
+    },
+    {
+      "start": "2026-07-27T20:19:28+08:00",
+      "end": "2026-07-27T20:19:30+08:00",
+      "duration_seconds": 2.0,
+      "package": "",
+      "app_display": "亮屏但前台应用未知"
+    },
+    {
+      "start": "2026-07-27T20:19:30+08:00",
+      "end": "2026-07-27T20:19:34+08:00",
+      "duration_seconds": 4.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    },
+    {
+      "start": "2026-07-27T20:19:34+08:00",
+      "end": "2026-07-27T20:26:06+08:00",
+      "duration_seconds": 392.0,
+      "package": "com.tencent.qqmusic",
+      "app_display": "com.tencent.qqmusic"
+    },
+    {
+      "start": "2026-07-27T20:26:06+08:00",
+      "end": "2026-07-27T20:26:22+08:00",
+      "duration_seconds": 16.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    },
+    {
+      "start": "2026-07-27T20:26:22+08:00",
+      "end": "2026-07-27T20:26:23+08:00",
+      "duration_seconds": 1.0,
+      "package": "tv.danmaku.bili",
+      "app_display": "哔哩哔哩"
+    },
+    {
+      "start": "2026-07-27T20:26:23+08:00",
+      "end": "2026-07-27T20:26:24+08:00",
+      "duration_seconds": 1.0,
+      "package": "com.vivo.appfilter",
+      "app_display": "com.vivo.appfilter"
+    },
+    {
+      "start": "2026-07-27T20:26:24+08:00",
+      "end": "2026-07-27T20:27:41+08:00",
+      "duration_seconds": 77.0,
+      "package": "tv.danmaku.bili",
+      "app_display": "哔哩哔哩"
+    },
+    {
+      "start": "2026-07-27T20:27:41+08:00",
+      "end": "2026-07-27T20:27:43+08:00",
+      "duration_seconds": 2.0,
+      "package": "com.bbk.launcher2",
+      "app_display": "手机桌面"
+    },
+    {
+      "start": "2026-07-27T20:27:43+08:00",
+      "end": "2026-07-27T20:28:57+08:00",
+      "duration_seconds": 74.0,
+      "package": "com.pl.getaway.getaway",
+      "app_display": "不做手机控"
+    },
+    {
+      "start": "2026-07-27T20:29:27+08:00",
+      "end": "2026-07-27T20:29:28+08:00",
+      "duration_seconds": 1.0,
+      "package": "",
+      "app_display": "亮屏但前台应用未知"
+    },
+    {
+      "start": "2026-07-27T20:29:28+08:00",
+      "end": "2026-07-27T20:29:33+08:00",
+      "duration_seconds": 5.0,
+      "package": "com.pl.getaway.getaway",
+      "app_display": "不做手机控"
+    },
+    {
+      "start": "2026-07-27T20:29:33+08:00",
+      "end": "2026-07-27T20:30:00+08:00",
+      "duration_seconds": 27.0,
+      "package": "tv.danmaku.bili",
+      "app_display": "哔哩哔哩"
+    }
+  ],
+  "quality": {
+    "level": "high",
+    "collector_heartbeat": {
+      "closest_seen": "2026-07-27T20:32:44+08:00",
+      "offset_seconds_from_period_end": 164.0,
+      "level": "high"
+    },
+    "timeline_truncated": false,
+    "material_issues": [],
+    "limitations": [
+      "亮屏表示屏幕开启，不保证用户持续注视或操作。",
+      "前台应用只说明当时显示的应用，不直接表示使用目的。",
+      "亮屏后尚未收到新的前台事件时，不沿用旧应用，保留为未知。"
+    ]
+  }
+}

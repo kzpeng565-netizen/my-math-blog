@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "period": {
+    "start": "2026-07-24T21:00:00+08:00",
+    "end": "2026-07-24T21:30:00+08:00"
+  },
+  "computer_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/computer_facts/2026-07-24/21-00.json",
+  "phone_facts_file": "/home/conrad/workspace/activitywatch-advisor/data/phone_facts/2026-07-24/21-00.json",
+  "cross_device_facts": {
+    "schema_version": 1,
+    "source": "deterministic_cross_device_overlap",
+    "period": {
+      "start": "2026-07-24T21:00:00+08:00",
+      "end": "2026-07-24T21:30:00+08:00"
+    },
+    "overlap_minutes": {
+      "computer_not_afk_and_phone_on": 7.3,
+      "computer_afk_and_phone_on": 4.05,
+      "computer_not_afk_and_phone_off": 18.65,
+      "computer_afk_and_phone_off": 0.0
+    },
+    "limitations": [
+      "这里只计算时间重叠，不推断分心、休息或行为动机。",
+      "任一设备数据质量较低时，跨设备重叠也应降低置信度。"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "medium",
+  "entertainment_deviation_count": 3,
+  "entertainment_deviation_minutes": 2.83,
+  "all_entertainment_minutes": 7.48,
+  "longest_entertainment_deviation_minutes": 1.38,
+  "work_entertainment_transition_count": 7,
+  "brief_communication_minutes": 0.47,
+  "longest_continuous_work_minutes": 3.55,
+  "same_task_tool_switches_not_scored": 14,
+  "raw_foreground_context_switches_not_scored": 41,
+  "deviations": [
+    {
+      "start": "2026-07-25T21:36:16+08:00",
+      "end": "2026-07-25T21:36:56+08:00",
+      "minutes": 0.67,
+      "duration_seconds": 40.0,
+      "task": "浏览知乎话题（人民币兑日元）后新建标签页",
+      "evidence": [
+        "短暂回到知乎话题页面",
+        "随后新建标签页",
+        "提示从工作短暂分心"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T21:42:34+08:00",
+      "end": "2026-07-25T21:43:57+08:00",
+      "minutes": 1.38,
+      "duration_seconds": 83.0,
+      "task": "浏览知乎话题（人民币兑日元、服务区啤酒档口）",
+      "evidence": [
+        "两次切换到知乎话题",
+        "话题为非工作相关社会新闻",
+        "之后返回工作"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.12,
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T21:51:22+08:00",
+      "end": "2026-07-25T21:52:09+08:00",
+      "minutes": 0.78,
+      "duration_seconds": 47.0,
+      "task": "阅读知乎专栏：BNB Chain介绍和买卖币教程",
+      "evidence": [
+        "知乎专栏：怎么买币安币、十大公链介绍",
+        "内容与工作相关（加密货币研究），但为信息阅读",
+        "手机同时段使用计算器和Clash Meta，不影响"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "high"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

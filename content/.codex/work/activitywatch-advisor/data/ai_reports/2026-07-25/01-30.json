@@ -1,0 +1,173 @@
+{
+  "period": "2026-07-25T01:30:00+08:00/2026-07-25T02:00:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：ChatGPT Plus 讨论。工作5.5分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.5分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 5.5,
+    "same_task_tool_switches_not_scored": 4,
+    "raw_foreground_context_switches_not_scored": 4,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "程序计算无娱乐偏离，工作过程中未出现任何超过30秒的娱乐偏离。"
+  },
+  "computer_summary": "电脑活跃时间仅5.5分钟，主要使用Microsoft Edge访问ChatGPT（3.96分钟）和知乎（1.32分钟），01:35:30后进入AFK状态。",
+  "phone_summary": "手机仅在01:33:52亮屏15秒，前台应用未知，无其他活动。",
+  "material_uncertainties": [
+    "报告时段内01:30:00-01:30:12 和 01:31:45-01:35:30 之间出现的知乎浏览（约1.5分钟）是工作过程中的短暂娱乐偏离，但因前后均为同一工作任务，整体合并为工作段。",
+    "01:30:40-01:31:44的知乎首页浏览（64秒）被AI语义时间线视为工作过程中的短暂娱乐偏离，但确定性混杂指标未将其计为娱乐偏离，可能被解释为工作相关或短暂查看。"
+  ],
+  "concise_report": "主要任务：ChatGPT Plus 讨论。工作5.5分钟，娱乐0.0分钟，通信0.0分钟，确认休息24.5分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "01:30:40-01:31:44的知乎首页浏览是否属于工作过程中的娱乐偏离，还是与工作相关？",
+  "observed_metrics": {
+    "computer_active_minutes": 5.5,
+    "computer_afk_minutes": 24.5,
+    "phone_screen_on_minutes": 0.25,
+    "simultaneous_computer_active_phone_on_minutes": 0.25,
+    "no_detected_device_interaction_minutes": 24.5,
+    "confirmed_rest_minutes": 24.5
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 5.5,
+      "range_minutes": [
+        5.5,
+        5.5
+      ],
+      "evidence": [
+        "01:31:45 起连续在 chatgpt.com 浏览 'ChatGPT Plus 足够' 直至 01:35:30",
+        "01:30:00 短暂切换到知乎娱乐页面后迅速返回 ChatGPT",
+        "01:33:52 手机亮屏15秒，前台未知，未中断电脑工作",
+        "01:35:30 后电脑进入 AFK，直到报告结束"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 24.5,
+      "range_minutes": [
+        24.5,
+        24.5
+      ],
+      "evidence": [
+        "电脑 AFK 持续24.5分钟",
+        "手机屏幕关闭",
+        "跨设备规则确认休息区间 01:35:30-02:00:00",
+        "无任何操作记录"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "01:30-01:35",
+      "likely_state": "工作",
+      "minutes": 5.5,
+      "task": "ChatGPT Plus 讨论/研究",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "01:31:45 起连续在 chatgpt.com 浏览 'ChatGPT Plus 足够' 直至 01:35:30",
+        "01:30:00 短暂切换到知乎娱乐页面后迅速返回 ChatGPT",
+        "01:33:52 手机亮屏15秒，前台未知，未中断电脑工作",
+        "01:35:30 后电脑进入 AFK，直到报告结束"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "01:35-02:00",
+      "likely_state": "休息",
+      "minutes": 24.5,
+      "task": "休息（无设备交互）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑 AFK 持续24.5分钟",
+        "手机屏幕关闭",
+        "跨设备规则确认休息区间 01:35:30-02:00:00",
+        "无任何操作记录"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "ChatGPT Plus 讨论",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5129,
+      "completion_tokens": 2004,
+      "total_tokens": 7133,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1620
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 4233
+    }
+  }
+}

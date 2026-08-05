@@ -1,0 +1,283 @@
+{
+  "period": "2026-07-26T15:00:00+08:00/2026-07-26T15:30:00+08:00",
+  "state_assessment": {
+    "label": "work_with_brief_checkins",
+    "confidence": "high",
+    "one_sentence": "主要任务：高中物理1 加速度（x-t/v-t图像学习与备课）。工作22.25分钟，娱乐0.0分钟，通信3.92分钟，确认休息3.82分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 3.92,
+    "longest_continuous_work_minutes": 9.4,
+    "same_task_tool_switches_not_scored": 37,
+    "raw_foreground_context_switches_not_scored": 49,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无娱乐偏离。所有B站视频均为教学相关，微信通信属于短暂通信，不计入混杂。"
+  },
+  "computer_summary": "电脑主要用于备课：观看B站x-t/v-t图像教学视频、在Obsidian记笔记、使用ChatGPT及Mathpix截图，期间有微信通信约3.9分钟。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "material_uncertainties": [
+    "15:22:36-15:22:37期间B站消息中心的1秒浏览，无法判断是否刻意查看消息",
+    "微信聊天内容未知，无法判断是否包含工作相关内容"
+  ],
+  "concise_report": "主要任务：高中物理1 加速度（x-t/v-t图像学习与备课）。工作22.25分钟，娱乐0.0分钟，通信3.92分钟，确认休息3.82分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "15:22:36-15:22:37期间B站消息中心的1秒浏览是否属于误点或有意识查看？",
+  "observed_metrics": {
+    "computer_active_minutes": 26.17,
+    "computer_afk_minutes": 3.83,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 3.82,
+    "confirmed_rest_minutes": 3.82
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 22.25,
+      "range_minutes": [
+        22.25,
+        22.25
+      ],
+      "evidence": [
+        "Edge浏览器播放【直线运动】2.1x-t图像（基础）",
+        "Obsidian笔记标题'高中物理1 加速度'",
+        "使用Mathpix截图工具截取公式",
+        "与14:55-15:00期间的备课活动连续"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 3.92,
+      "range_minutes": [
+        3.92,
+        3.92
+      ],
+      "evidence": [
+        "微信前台连续约3.9分钟",
+        "包含'图片和视频'窗口段",
+        "前后均为同一工作任务，通信中断后恢复工作"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 3.82,
+      "range_minutes": [
+        3.82,
+        3.82
+      ],
+      "evidence": [
+        "电脑连续AFK 3.82分钟",
+        "手机全程熄屏无操作",
+        "跨设备无操作规则确认休息"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 0.02,
+      "range_minutes": [
+        0.02,
+        0.02
+      ],
+      "evidence": [
+        "Edge切换到B站消息中心仅1秒",
+        "无法判断是有意查看还是误点"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "15:00-15:03",
+      "likely_state": "休息",
+      "minutes": 3.82,
+      "task": "休息（无任何设备操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 3.82分钟",
+        "手机全程熄屏无操作",
+        "跨设备无操作规则确认休息"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:03-15:05",
+      "likely_state": "工作",
+      "minutes": 2.15,
+      "task": "观看B站x-t图像教学视频并在Obsidian记笔记（使用Mathpix截图）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge浏览器播放【直线运动】2.1x-t图像（基础）",
+        "Obsidian笔记标题'高中物理1 加速度'",
+        "使用Mathpix截图工具截取公式",
+        "与14:55-15:00期间的备课活动连续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:05-15:09",
+      "likely_state": "通信",
+      "minutes": 3.92,
+      "task": "微信聊天（含查看图片和视频）",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台连续约3.9分钟",
+        "包含'图片和视频'窗口段",
+        "前后均为同一工作任务，通信中断后恢复工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:09-15:19",
+      "likely_state": "工作",
+      "minutes": 9.4,
+      "task": "继续学习x-t图像并在Obsidian记笔记（使用截图和Mathpix）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "频繁切换Edge B站视频与Obsidian笔记",
+        "Obsidian标题'高中物理1 加速度'持续出现",
+        "使用SnippingTool和Mathpix截图",
+        "15:12:26-15:15:08连续观看视频2.7分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:19-15:20",
+      "likely_state": "工作",
+      "minutes": 1.13,
+      "task": "切换到B站v-t图像教学视频，短暂打开文件资源管理器（家教文件夹）",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge标题变为【直线运动】2.2v-t图像（基础）",
+        "打开'数学物理家教'文件夹",
+        "Obsidian笔记仍在同一项目"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:20-15:22",
+      "likely_state": "工作",
+      "minutes": 2.18,
+      "task": "使用ChatGPT获取课件内容调整建议并短暂查看包含关系习题解析",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ChatGPT标签页'课件内容调整建议'持续约1分钟",
+        "短暂访问'包含关系习题解析'",
+        "结合视频学习，属于备课工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "15:22-15:22",
+      "likely_state": "无法判断",
+      "minutes": 0.02,
+      "task": "短暂浏览B站消息中心（1秒）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge切换到B站消息中心仅1秒",
+        "无法判断是有意查看还是误点"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "15:22-15:30",
+      "likely_state": "工作",
+      "minutes": 7.38,
+      "task": "继续学习v-t图像，在Obsidian记笔记，使用截图和Mathpix",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Edge反复播放【直线运动】2.2v-t图像（基础）",
+        "Obsidian笔记持续编辑",
+        "使用SnippingTool和Mathpix截图",
+        "与15:30后继续观看视频和微信通信的辅助上下文一致"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "高中物理1 加速度（x-t/v-t图像学习与备课）",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 16944,
+      "completion_tokens": 1001,
+      "total_tokens": 17945,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 638
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 16048
+    }
+  }
+}

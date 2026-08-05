@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "source": "deterministic_from_ai_semantic_timeline",
+  "rule": {
+    "entertainment_deviation_minimum_seconds": 30.0,
+    "comparison": "strictly_greater_than",
+    "brief_communication_is_not_scored": true,
+    "same_work_task_tool_switches_are_not_scored": true
+  },
+  "level": "high",
+  "entertainment_deviation_count": 5,
+  "entertainment_deviation_minutes": 4.73,
+  "all_entertainment_minutes": 4.73,
+  "longest_entertainment_deviation_minutes": 1.33,
+  "work_entertainment_transition_count": 6,
+  "brief_communication_minutes": 0.0,
+  "longest_continuous_work_minutes": 5.9,
+  "same_task_tool_switches_not_scored": 5,
+  "raw_foreground_context_switches_not_scored": 33,
+  "deviations": [
+    {
+      "start": "2026-07-26T23:33:34+08:00",
+      "end": "2026-07-26T23:34:43+08:00",
+      "minutes": 1.15,
+      "duration_seconds": 69.0,
+      "task": "浏览知乎首页",
+      "evidence": [
+        "Microsoft Edge打开知乎首页约12秒",
+        "知乎首页内容通常为娱乐或无关浏览",
+        "之后返回工作主题",
+        "持续约57秒，知乎首页"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 1.7,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:34:43+08:00",
+      "end": "2026-07-26T23:35:41+08:00",
+      "minutes": 0.97,
+      "duration_seconds": 58.0,
+      "task": "搜索无锡人才标准",
+      "evidence": [
+        "知乎搜索结果页面，标题'无锡人才标准 - 搜索结果 - 知乎'",
+        "与工作主题无关，属于个人兴趣浏览"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.73,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:35:41+08:00",
+      "end": "2026-07-26T23:36:25+08:00",
+      "minutes": 0.73,
+      "duration_seconds": 44.0,
+      "task": "浏览知乎文章：关于无锡人才政策",
+      "evidence": [
+        "知乎文章标题涉及人才政策",
+        "属于个人兴趣浏览"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:37:11+08:00",
+      "end": "2026-07-26T23:37:44+08:00",
+      "minutes": 0.55,
+      "duration_seconds": 33.0,
+      "task": "再次浏览知乎首页",
+      "evidence": [
+        "知乎首页约33秒",
+        "工作过程中的二次娱乐偏离"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-26T23:44:15+08:00",
+      "end": "2026-07-26T23:45:35+08:00",
+      "minutes": 1.33,
+      "duration_seconds": 80.0,
+      "task": "在ChatGPT网页上可能浏览无关内容",
+      "evidence": [
+        "ChatGPT网页标签页标题为'ChatGPT'，持续1分20秒",
+        "但之后出现HutaoCards虚拟信用卡页面和ChatGPT桌面应用混用，可能偏离工作"
+      ],
+      "returned_to_work": true,
+      "return_latency_minutes": 0.0,
+      "confidence": "low"
+    }
+  ],
+  "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。"
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T20:30:00+08:00",
+    "end": "2026-07-27T21:00:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [
+    {
+      "start": "2026-07-27T20:30:00+08:00",
+      "end": "2026-07-27T20:32:24+08:00",
+      "duration_seconds": 144.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "在哔哩哔哩看视频",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：哔哩哔哩",
+        "辅助上下文显示20:29:33开始继续看哔哩哔哩",
+        "电脑AFK且无交互",
+        "平板亮屏但作为辅助数据"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T20:32:24+08:00",
+      "end": "2026-07-27T20:32:54+08:00",
+      "duration_seconds": 30.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "快速查看微信",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：微信",
+        "持续30秒",
+        "无明显工作相关证据",
+        "属于独立通信片段"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T20:32:54+08:00",
+      "end": "2026-07-27T20:35:42+08:00",
+      "duration_seconds": 168.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "手机桌面操作、相机、微信、哔哩哔哩、浏览器等短切换",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用频繁切换：桌面、相机、微信、哔哩哔哩、浏览器",
+        "单段最长为50秒（哔哩哔哩）",
+        "电脑AFK",
+        "难以确定统一任务，归为其他"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T20:35:42+08:00",
+      "end": "2026-07-27T20:37:00+08:00",
+      "duration_seconds": 78.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "使用微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：微信，持续78秒",
+        "无工作相关标题证据",
+        "属于独立通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T20:37:00+08:00",
+      "end": "2026-07-27T20:39:53+08:00",
+      "duration_seconds": 173.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "在哔哩哔哩看视频",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：哔哩哔哩，持续171秒",
+        "电脑AFK",
+        "平板亮屏仅辅助"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T20:39:53+08:00",
+      "end": "2026-07-27T20:52:20+08:00",
+      "duration_seconds": 747.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "交替使用微信、小红书、哔哩哔哩，以刷社交媒体和聊天为主",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：微信（总计约3.5min）、小红书（约5.7min）、哔哩哔哩（短暂）",
+        "高频切换，以小红书和微信为主",
+        "电脑AFK，无工作迹象",
+        "电脑浏览器标签页显示ChatGPT 'Get started'，但未见主动使用"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T20:52:20+08:00",
+      "end": "2026-07-27T21:00:00+08:00",
+      "duration_seconds": 460.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "在小红书刷信息流",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台应用：小红书，持续460秒至时段结束",
+        "电脑AFK",
+        "平板亮屏但无具体前台数据"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "手机快速切换期间（20:32:54-20:35:42）的具体意图不明确，无法确定是否包含工作或娱乐，但总时长占比小"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 10948,
+      "completion_tokens": 1209,
+      "total_tokens": 12157,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 9924
+    }
+  }
+}

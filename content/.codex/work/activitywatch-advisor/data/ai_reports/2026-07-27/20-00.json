@@ -1,0 +1,233 @@
+{
+  "period": "2026-07-27T20:00:00+08:00/2026-07-27T20:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：未明确主要任务。工作0.0分钟，娱乐10.53分钟，通信0.0分钟，确认休息14.95分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 10.53,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "无工作活动，因此不存在工作过程中的娱乐偏离；确定性混杂等级为none"
+  },
+  "computer_summary": "电脑全程AFK（30分钟），无活跃窗口，无工作证据",
+  "phone_summary": "手机亮屏14.55分钟，主要时段为20:11-20:15（相机约2.5分钟、微信约1分钟）和20:19-20:30（QQ音乐约6.5分钟、哔哩哔哩约2.8分钟、不做手机控约1.3分钟）；整体为娱乐和短暂通信",
+  "tablet_summary": "平板全程亮屏但无前台应用数据，仅作为辅助数据源，不影响主要判断",
+  "material_uncertainties": [
+    "平板亮屏但无前台应用数据，可能用户在平板上有活动，但辅助数据不改变主要判断",
+    "手机相机用途不确定（拍照或录像），但不改变归类为other"
+  ],
+  "concise_report": "主要任务：未明确主要任务。工作0.0分钟，娱乐10.53分钟，通信0.0分钟，确认休息14.95分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "20:11-20:15期间使用手机相机（约2.5分钟），其具体用途是个人拍照还是与工作相关？",
+  "observed_metrics": {
+    "computer_active_minutes": 0.0,
+    "computer_afk_minutes": 30.0,
+    "phone_screen_on_minutes": 14.55,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 15.45,
+    "confirmed_rest_minutes": 14.95
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 10.53,
+      "range_minutes": [
+        10.53,
+        10.53
+      ],
+      "evidence": [
+        "手机前台QQ音乐持续6.5分钟",
+        "随后哔哩哔哩使用约1.3分钟",
+        "期间有2秒亮屏无应用，但整体为娱乐",
+        "电脑全程AFK，无工作相关"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 14.95,
+      "range_minutes": [
+        14.95,
+        14.95
+      ],
+      "evidence": [
+        "电脑AFK且手机熄屏11分钟",
+        "符合确定性休息规则中的确认休息区间",
+        "平板亮屏仅作为辅助数据",
+        "前后上下文：电脑此前已长时间AFK"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 4.52,
+      "range_minutes": [
+        4.52,
+        4.52
+      ],
+      "evidence": [
+        "手机亮屏，前台应用：相机约2.5分钟、微信约1分钟",
+        "相机多次切换，可能拍照；微信短时间通信",
+        "电脑全程AFK，无工作上下文",
+        "休息后自然开始使用手机"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "20:00-20:11",
+      "likely_state": "休息",
+      "minutes": 11.0,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK且手机熄屏11分钟",
+        "符合确定性休息规则中的确认休息区间",
+        "平板亮屏仅作为辅助数据",
+        "前后上下文：电脑此前已长时间AFK"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:11-20:15",
+      "likely_state": "其他",
+      "minutes": 4.52,
+      "task": "使用手机相机和微信",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台应用：相机约2.5分钟、微信约1分钟",
+        "相机多次切换，可能拍照；微信短时间通信",
+        "电脑全程AFK，无工作上下文",
+        "休息后自然开始使用手机"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:15-20:19",
+      "likely_state": "休息",
+      "minutes": 3.95,
+      "task": "休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK状态持续",
+        "手机熄屏3.95分钟",
+        "符合确定性休息规则中的确认休息区间",
+        "平板亮屏不否决休息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "20:19-20:29",
+      "likely_state": "娱乐",
+      "minutes": 9.98,
+      "task": "听QQ音乐并观看哔哩哔哩",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机前台QQ音乐持续6.5分钟",
+        "随后哔哩哔哩使用约1.3分钟",
+        "期间有2秒亮屏无应用，但整体为娱乐",
+        "电脑全程AFK，无工作相关"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "20:29-20:30",
+      "likely_state": "娱乐",
+      "minutes": 0.55,
+      "task": "继续观看哔哩哔哩",
+      "work_category": "",
+      "relationship_to_work": "standalone_activity",
+      "devices": [
+        "phone"
+      ],
+      "evidence": [
+        "手机亮屏，前台应用哔哩哔哩",
+        "延续上一娱乐段",
+        "电脑AFK",
+        "辅助上下文显示之后继续娱乐"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活跃窗口只覆盖0.0%。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6576,
+      "completion_tokens": 1627,
+      "total_tokens": 8203,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1183
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 5680
+    }
+  }
+}

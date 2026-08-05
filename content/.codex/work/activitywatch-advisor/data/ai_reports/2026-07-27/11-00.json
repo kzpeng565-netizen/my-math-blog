@@ -1,0 +1,300 @@
+{
+  "period": "2026-07-27T11:00:00+08:00/2026-07-27T11:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：腾讯会议家教-集合与逻辑。工作8.25分钟，娱乐0.0分钟，通信0.0分钟，确认休息20.38分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 5.65,
+    "same_task_tool_switches_not_scored": 2,
+    "raw_foreground_context_switches_not_scored": 3,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "没有娱乐偏离，因为整个时段以休息为主，工作期间（共约8.28分钟）没有出现娱乐活动。"
+  },
+  "computer_summary": "电脑活跃8.28分钟，主要使用腾讯会议进行家教（集合与逻辑教学），窗口标题为“彭康哲的快速会议”；另有短暂ShellHost快速设置操作。",
+  "phone_summary": "手机全程熄屏，无任何活动。",
+  "tablet_summary": "平板屏幕持续亮屏30分钟，但无前台应用记录，无法确认是否实际使用；作为辅助数据源，不改变休息判断。",
+  "material_uncertainties": [
+    "11:25:13-11:26:33电脑状态未知，可能短暂检测不到活动，不影响主要休息判断",
+    "平板屏幕持续亮屏，但手表无前台应用记录，无法确认是否使用平板"
+  ],
+  "concise_report": "主要任务：腾讯会议家教-集合与逻辑。工作8.25分钟，娱乐0.0分钟，通信0.0分钟，确认休息20.38分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "平板屏幕持续亮屏30分钟但无应用记录，您在这半小时内是否实际使用了平板？",
+  "observed_metrics": {
+    "computer_active_minutes": 8.28,
+    "computer_afk_minutes": 20.39,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 21.72,
+    "confirmed_rest_minutes": 20.38
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 8.25,
+      "range_minutes": [
+        8.25,
+        8.25
+      ],
+      "evidence": [
+        "腾讯会议窗口标题“彭康哲的快速会议”持续2分10秒",
+        "前后文有Obsidian笔记“高中数学2 集合与逻辑”及B站相关视频",
+        "ChatGPT和DeepSeek标签页可能辅助教学",
+        "腾讯会议“彭康哲的快速会议”持续5分38秒"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 20.38,
+      "range_minutes": [
+        20.38,
+        20.38
+      ],
+      "evidence": [
+        "电脑连续AFK 192.6秒，手机熄屏",
+        "规则确认休息区间3.2分钟",
+        "电脑连续AFK 262.9秒，手机熄屏",
+        "规则确认休息区间4.38分钟"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.03,
+      "range_minutes": [
+        0.03,
+        0.03
+      ],
+      "evidence": [
+        "ShellHost快速设置窗口出现1.36秒",
+        "可能调整系统设置后继续休息"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 1.33,
+      "range_minutes": [
+        1.33,
+        1.33
+      ],
+      "evidence": [
+        "电脑状态从11:25:13变为unknown持续1.34分钟",
+        "前后均为AFK，手机熄屏，无操作证据"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "11:00-11:02",
+      "likely_state": "工作",
+      "minutes": 2.47,
+      "task": "使用腾讯会议进行集合与逻辑内容的远程教学",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口标题“彭康哲的快速会议”持续2分10秒",
+        "前后文有Obsidian笔记“高中数学2 集合与逻辑”及B站相关视频",
+        "ChatGPT和DeepSeek标签页可能辅助教学"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:02-11:05",
+      "likely_state": "休息",
+      "minutes": 3.2,
+      "task": "休息（无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 192.6秒，手机熄屏",
+        "规则确认休息区间3.2分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:05-11:11",
+      "likely_state": "工作",
+      "minutes": 5.65,
+      "task": "继续使用腾讯会议进行集合与逻辑教学",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议“彭康哲的快速会议”持续5分38秒",
+        "ChatGPT和DeepSeek标签页持续存在，可能用于辅助"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:11-11:15",
+      "likely_state": "休息",
+      "minutes": 4.38,
+      "task": "休息（无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 262.9秒，手机熄屏",
+        "规则确认休息区间4.38分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:15-11:15",
+      "likely_state": "工作",
+      "minutes": 0.13,
+      "task": "短暂返回腾讯会议，快速操作设置",
+      "work_category": "家教",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议窗口短暂出现2秒，然后ShellHost快速设置4秒",
+        "可能调整音频或设置后继续休息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "11:15-11:20",
+      "likely_state": "休息",
+      "minutes": 5.03,
+      "task": "休息（无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 302.1秒，手机熄屏",
+        "规则确认休息区间5.03分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:20-11:20",
+      "likely_state": "其他",
+      "minutes": 0.03,
+      "task": "短暂操作ShellHost快速设置",
+      "work_category": "",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "ShellHost快速设置窗口出现1.36秒",
+        "可能调整系统设置后继续休息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "11:20-11:25",
+      "likely_state": "休息",
+      "minutes": 4.32,
+      "task": "休息（无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 258.7秒，手机熄屏",
+        "规则确认休息区间4.32分钟"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "11:25-11:26",
+      "likely_state": "无法判断",
+      "minutes": 1.33,
+      "task": "电脑状态未知（可能短暂被遮挡或采集中断）",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "电脑状态从11:25:13变为unknown持续1.34分钟",
+        "前后均为AFK，手机熄屏，无操作证据"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "11:26-11:30",
+      "likely_state": "休息",
+      "minutes": 3.45,
+      "task": "休息（无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑连续AFK 206.8秒至时段结束，手机熄屏",
+        "规则确认休息区间3.45分钟"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "腾讯会议家教-集合与逻辑",
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "电脑活动状态未知1.34分钟。",
+      "采集器长时间没有心跳，可能存在数据缺口。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6625,
+      "completion_tokens": 592,
+      "total_tokens": 7217,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 190
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 5729
+    }
+  }
+}

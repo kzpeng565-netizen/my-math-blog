@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T17:00:00+08:00",
+    "end": "2026-07-25T17:30:00+08:00"
+  },
+  "primary_work_task": "",
+  "segments": [],
+  "material_uncertainties": [
+    "AI未能生成通过一致性检查的时间线。"
+  ],
+  "_validation": {
+    "passed": false,
+    "errors": [
+      "AI时间线中的休息分钟数不等于确定性休息规则结果",
+      "AI时间线中的休息区间数量与确定性休息区间不一致"
+    ],
+    "correction_attempts": 2
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 10700,
+      "completion_tokens": 935,
+      "total_tokens": 11635,
+      "prompt_tokens_details": {
+        "cached_tokens": 9600
+      },
+      "prompt_cache_hit_tokens": 9600,
+      "prompt_cache_miss_tokens": 1100
+    }
+  }
+}

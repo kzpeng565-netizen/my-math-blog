@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-27T10:30:00+08:00",
+    "end": "2026-07-27T11:00:00+08:00"
+  },
+  "primary_work_task": "高中数学2 集合与逻辑",
+  "segments": [
+    {
+      "start": "2026-07-27T10:30:00+08:00",
+      "end": "2026-07-27T10:41:21+08:00",
+      "duration_seconds": 681.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "学习集合与逻辑，包括观看B站视频、在Obsidian记笔记、使用ChatGPT练习充分必要条件和量词命题",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian笔记标题‘高中数学2 集合与逻辑’持续显示",
+        "B站视频标题‘【集合与逻辑】2.1 逻辑_哔哩哔哩_bilibili’",
+        "ChatGPT标签页‘充分必要条件练习’和‘量词命题练习’",
+        "Mathpix截图工具短暂出现，配合笔记"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:41:21+08:00",
+      "end": "2026-07-27T10:49:44+08:00",
+      "duration_seconds": 503.0,
+      "activity": "rest",
+      "work_category": "",
+      "task": "休息（无设备交互）",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK持续8分23秒",
+        "手机全程熄屏",
+        "平板亮屏（辅助）但降低置信度",
+        "跨设备规则确认为休息"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T10:49:44+08:00",
+      "end": "2026-07-27T10:55:42+08:00",
+      "duration_seconds": 358.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "继续学习集合与逻辑，在Obsidian编辑笔记并参考B站视频和ChatGPT",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "恢复活动后首先在Obsidian上编辑‘高中数学2 集合与逻辑’",
+        "短暂切到ChatGPT‘量词命题练习’",
+        "再次访问B站视频",
+        "长期段中Obsidian占据主要时间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:55:42+08:00",
+      "end": "2026-07-27T10:56:09+08:00",
+      "duration_seconds": 27.0,
+      "activity": "other",
+      "work_category": "",
+      "task": "短暂文件操作和切换窗口",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian‘另存为’对话框出现",
+        "‘活跃但无窗口记录’约4秒",
+        "文件资源管理器‘Program Manager’出现",
+        "可能保存笔记文件"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-27T10:56:09+08:00",
+      "end": "2026-07-27T10:57:10+08:00",
+      "duration_seconds": 61.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信通信约1分钟",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台持续约58秒",
+        "标题为‘微信’",
+        "前后均为工作相关活动，但此段通信未显示明确工作关联"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-27T10:57:10+08:00",
+      "end": "2026-07-27T11:00:00+08:00",
+      "duration_seconds": 170.0,
+      "activity": "work",
+      "work_category": "家教",
+      "task": "参与腾讯会议‘彭康哲的快速会议’，可能涉及家教或讨论",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "腾讯会议标题‘彭康哲的快速会议’持续约2分15秒",
+        "会议名为‘彭康哲’，可能与家教相关",
+        "在会议前后有微信和DeepSeek出现，但会议本身是主要活动",
+        "跨设备上下文显示后续继续会议和DeepSeek"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "material_uncertainties": [
+    "腾讯会议‘彭康哲的快速会议’的具体内容未知，可能为家教或学习讨论，因此work_category暂定为‘家教’，但可能属于‘数学学习’。",
+    "微信通信1分钟未显示标题内容，无法判断是否与工作相关，归为brief_communication。"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 18797,
+      "completion_tokens": 1163,
+      "total_tokens": 19960,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 17773
+    }
+  }
+}

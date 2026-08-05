@@ -1,0 +1,441 @@
+{
+  "period": "2026-07-26T22:30:00+08:00/2026-07-26T23:00:00+08:00",
+  "state_assessment": {
+    "label": "work_with_entertainment_detour",
+    "confidence": "high",
+    "one_sentence": "主要任务：Monaco编辑器方案评估。工作10.83分钟，娱乐0.92分钟，通信9.2分钟，确认休息6.78分钟。工作中出现1次超过30秒的娱乐偏离，共0.53分钟，最长0.53分钟。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "low",
+    "entertainment_deviation_count": 1,
+    "entertainment_deviation_minutes": 0.53,
+    "all_entertainment_minutes": 0.92,
+    "longest_entertainment_deviation_minutes": 0.53,
+    "work_entertainment_transition_count": 2,
+    "brief_communication_minutes": 9.2,
+    "longest_continuous_work_minutes": 4.12,
+    "same_task_tool_switches_not_scored": 13,
+    "raw_foreground_context_switches_not_scored": 34,
+    "deviations": [
+      {
+        "start": "2026-07-26T22:35:55+08:00",
+        "end": "2026-07-26T22:36:27+08:00",
+        "minutes": 0.53,
+        "duration_seconds": 32.0,
+        "task": "继续浏览小红书",
+        "evidence": [
+          "22:35:55-22:36:23小红书同标题",
+          "间隔音视频通话后继续"
+        ],
+        "returned_to_work": true,
+        "return_latency_minutes": 0.0,
+        "confidence": "high"
+      }
+    ],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作中出现一次超过30秒的娱乐偏离：22:35:55-22:36:27（约0.53分钟）在Edge浏览器浏览小红书文章'从来没有被打过'，之后返回Monaco方案评估工作。其余娱乐（共0.92分钟）含另一次短暂小红书浏览（0.1分钟，未达30秒阈值），不计为偏离。"
+  },
+  "computer_summary": "电脑主要活动为Monaco编辑器方案评估，大量在Edge ChatGPT页面（标题'Monaco编辑器方案评估'、'Monaco方案可行性分析'）及微信工作通信。间有短暂小红书浏览。",
+  "phone_summary": "手机屏幕全时段关闭，无任何活动。",
+  "material_uncertainties": [
+    "22:54:23-22:56:39电脑状态unknown，推测为短暂离开但无法确认是否算休息",
+    "22:54:23-22:56:39电脑状态unknown（2.25分钟），推测短暂离开但无法确认是否算休息，不影响混杂判断。"
+  ],
+  "concise_report": "主要任务：Monaco编辑器方案评估。工作10.83分钟，娱乐0.92分钟，通信9.2分钟，确认休息6.78分钟。工作中出现1次超过30秒的娱乐偏离，共0.53分钟，最长0.53分钟。",
+  "gentle_suggestions": [],
+  "verification_question": "22:38:30-22:40:06的微信'图片和视频'浏览是否应视为娱乐偏离？这可能会增加偏离次数和混杂等级。",
+  "observed_metrics": {
+    "computer_active_minutes": 20.95,
+    "computer_afk_minutes": 6.8,
+    "phone_screen_on_minutes": 0.0,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 9.05,
+    "confirmed_rest_minutes": 6.78
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 10.83,
+      "range_minutes": [
+        10.83,
+        10.83
+      ],
+      "evidence": [
+        "22:31:25-22:32:33微信连续活跃1.14分钟，但随后ChatGPT标题出现增强DeepSeek搜索能力，属同一工作意图",
+        "微信为工作相关通信的混合，但时长较长，归入工作段",
+        "22:33:38-22:33:57 Edge标题ChatGPT，属于之前工作",
+        "短暂间隙后继续"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.92,
+      "range_minutes": [
+        0.92,
+        0.92
+      ],
+      "evidence": [
+        "22:35:32-22:35:38及22:35:41-22:35:42 Edge小红书标题'从来没有被打过'",
+        "短暂偏离工作，之后返回",
+        "22:35:55-22:36:23小红书同标题",
+        "间隔音视频通话后继续"
+      ]
+    },
+    "brief_communication": {
+      "estimate_minutes": 9.2,
+      "range_minutes": [
+        9.2,
+        9.2
+      ],
+      "evidence": [
+        "22:30-22:31微信反复切换活跃约1.5分钟",
+        "ChatGPT短暂访问，但标题为通用页",
+        "前后工作未开始，通信未服务于已知工作任务",
+        "22:32:33-22:33:12微信与ChatGPT交替，音视频通话出现"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 6.78,
+      "range_minutes": [
+        6.78,
+        6.78
+      ],
+      "evidence": [
+        "规则确认跨设备无操作3.43分钟",
+        "电脑AFK且手机熄屏",
+        "规则确认跨设备无操作3.35分钟"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 2.27,
+      "range_minutes": [
+        2.27,
+        2.27
+      ],
+      "evidence": [
+        "电脑状态unknown，手机仍熄屏",
+        "可能短暂离开或空闲"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "22:30-22:31",
+      "likely_state": "通信",
+      "minutes": 1.42,
+      "task": "微信聊天与间歇查ChatGPT",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:30-22:31微信反复切换活跃约1.5分钟",
+        "ChatGPT短暂访问，但标题为通用页",
+        "前后工作未开始，通信未服务于已知工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:31-22:32",
+      "likely_state": "工作",
+      "minutes": 1.13,
+      "task": "ChatGPT中开始Monaco方案评估",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:31:25-22:32:33微信连续活跃1.14分钟，但随后ChatGPT标题出现增强DeepSeek搜索能力，属同一工作意图",
+        "微信为工作相关通信的混合，但时长较长，归入工作段"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:32-22:33",
+      "likely_state": "通信",
+      "minutes": 0.72,
+      "task": "微信音视频通话与聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:32:33-22:33:12微信与ChatGPT交替，音视频通话出现",
+        "通话前后有短暂微信文字通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:33-22:33",
+      "likely_state": "通信",
+      "minutes": 0.37,
+      "task": "微信音视频通话及短暂聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:33:16-22:33:17音视频通话",
+        "22:33:20-22:33:37微信聊天"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:33-22:33",
+      "likely_state": "工作",
+      "minutes": 0.33,
+      "task": "Edge ChatGPT页面评估",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:33:38-22:33:57 Edge标题ChatGPT，属于之前工作",
+        "短暂间隙后继续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:33-22:35",
+      "likely_state": "通信",
+      "minutes": 1.57,
+      "task": "微信音视频通话与聊天，夹杂文件管理器",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:33:58-22:35:30多次音视频通话及微信聊天",
+        "文件资源管理器短暂出现"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:35-22:35",
+      "likely_state": "娱乐",
+      "minutes": 0.38,
+      "task": "浏览小红书",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:35:32-22:35:38及22:35:41-22:35:42 Edge小红书标题'从来没有被打过'",
+        "短暂偏离工作，之后返回"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:35-22:36",
+      "likely_state": "娱乐",
+      "minutes": 0.53,
+      "task": "继续浏览小红书",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:35:55-22:36:23小红书同标题",
+        "间隔音视频通话后继续"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:36-22:38",
+      "likely_state": "工作",
+      "minutes": 2.05,
+      "task": "Monaco方案可行性分析及微信工作通信",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:36:27-22:37:05微信聊天",
+        "22:37:12-22:38:28 Edge标题Monaco方案可行性分析",
+        "22:37:24-22:37:47微信聊天可能相关工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:38-22:40",
+      "likely_state": "通信",
+      "minutes": 1.6,
+      "task": "微信图片和视频浏览及聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:38:30-22:39:38微信标题'图片和视频'",
+        "22:39:39-22:40:04微信聊天"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:40-22:44",
+      "likely_state": "工作",
+      "minutes": 4.12,
+      "task": "Monaco编辑器方案评估与ChatGPT辅助",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:40:06-22:41:11 Edge标题Monaco编辑器方案评估",
+        "22:42:43-22:42:47同标题",
+        "22:42:49-22:43:06 ChatGPT桌面版",
+        "夹杂微信音视频通话但时间极短，不改变主要活动"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:44-22:44",
+      "likely_state": "通信",
+      "minutes": 0.65,
+      "task": "微信聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:44:13-22:44:49微信连续活跃",
+        "前后切换Edge但总长较短"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:44-22:47",
+      "likely_state": "通信",
+      "minutes": 2.88,
+      "task": "微信长时间聊天",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:44:52-22:47:44微信连续活跃2.83分钟",
+        "时间较长，明显为独立通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:47-22:50",
+      "likely_state": "工作",
+      "minutes": 3.2,
+      "task": "Monaco编辑器方案评估与最后微信通信",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "22:47:45-22:48:48 Edge标题Monaco编辑器方案评估",
+        "22:49:23-22:49:33微信小程序",
+        "22:50:07-22:50:28 Edge继续评估",
+        "最后微信0.45分钟结束"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:50-22:54",
+      "likely_state": "休息",
+      "minutes": 3.43,
+      "task": "确认休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "规则确认跨设备无操作3.43分钟",
+        "电脑AFK且手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "22:54-22:56",
+      "likely_state": "无法判断",
+      "minutes": 2.27,
+      "task": "电脑未知状态，无窗口无AFK",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑状态unknown，手机仍熄屏",
+        "可能短暂离开或空闲"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "22:56-23:00",
+      "likely_state": "休息",
+      "minutes": 3.35,
+      "task": "确认休息",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "规则确认跨设备无操作3.35分钟",
+        "电脑AFK且手机熄屏"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "primary_work_task": "Monaco编辑器方案评估",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活跃窗口只覆盖89.7%。",
+      "电脑活动状态未知2.25分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 14879,
+      "completion_tokens": 1571,
+      "total_tokens": 16450,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1078
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 13983
+    }
+  }
+}

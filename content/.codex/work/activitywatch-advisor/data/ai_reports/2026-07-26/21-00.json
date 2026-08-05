@@ -1,0 +1,346 @@
+{
+  "period": "2026-07-26T21:00:00+08:00/2026-07-26T21:30:00+08:00",
+  "state_assessment": {
+    "label": "resting",
+    "confidence": "high",
+    "one_sentence": "主要任务：增强DeepSeek搜索能力。工作8.23分钟，娱乐0.0分钟，通信3.23分钟，确认休息17.55分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 3.23,
+    "longest_continuous_work_minutes": 5.43,
+    "same_task_tool_switches_not_scored": 4,
+    "raw_foreground_context_switches_not_scored": 16,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "程序计算无工作内娱乐偏离（entertainment_deviation_count=0）。语义时间线中有一段59秒的小红书浏览（21:19:22-21:20:21）被标记为entertainment_detour，但因活动类型为other而非entertainment，未计入偏离。因此，无超过30秒的工作内娱乐偏离。"
+  },
+  "computer_summary": "电脑在21:17:33前AFK（休息），之后以Edge和ChatGPT为主进行'增强DeepSeek搜索能力'任务，中途穿插微信通信（约3.2分钟）、CC Switch和HutaoCards工具（支持工作），以及一次59秒的小红书浏览（不计入娱乐偏离）。最长连续工作块5.43分钟。",
+  "phone_summary": "手机屏幕仅在21:26:40后亮屏，使用相机约3.3分钟，与电脑的微信通信和后续ChatGPT工作重叠，可能为无关活动或短暂使用。",
+  "material_uncertainties": [
+    "cc-switch.exe和HutaoCards工具的用途不完全明确",
+    "手机相机在21:26:40后使用约3.3分钟，与电脑ChatGPT重叠，主要注意力在电脑，但手机使用可能分散"
+  ],
+  "concise_report": "主要任务：增强DeepSeek搜索能力。工作8.23分钟，娱乐0.0分钟，通信3.23分钟，确认休息17.55分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "手机在21:26:42-21:30:00使用相机，与电脑ChatGPT工作重叠，这是否属于娱乐且持续超过30秒？",
+  "observed_metrics": {
+    "computer_active_minutes": 12.45,
+    "computer_afk_minutes": 17.55,
+    "phone_screen_on_minutes": 3.33,
+    "simultaneous_computer_active_phone_on_minutes": 3.33,
+    "no_detected_device_interaction_minutes": 17.55,
+    "confirmed_rest_minutes": 17.55
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 8.23,
+      "range_minutes": [
+        8.23,
+        8.23
+      ],
+      "evidence": [
+        "21:17:33开始使用Microsoft Edge，标题'增强DeepSeek搜索能力'，域名chatgpt.com",
+        "中间短暂搜索和打开终端，快速回到相同工作",
+        "属于同一工作任务",
+        "返回Microsoft Edge，标题'增强DeepSeek搜索能力'，域名chatgpt.com"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 3.23,
+      "range_minutes": [
+        3.23,
+        3.23
+      ],
+      "evidence": [
+        "使用微信约30秒",
+        "打开微信小程序（公众号）",
+        "非娱乐，短暂中断",
+        "连续使用微信约2.65分钟"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 17.55,
+      "range_minutes": [
+        17.55,
+        17.55
+      ],
+      "evidence": [
+        "电脑AFK从21:00到21:17:33",
+        "手机屏幕关闭",
+        "跨设备规则确认为休息区间"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.98,
+      "range_minutes": [
+        0.98,
+        0.98
+      ],
+      "evidence": [
+        "Microsoft Edge访问xiaohongshu.com，标题'插尿管 - 小红书'",
+        "持续约1分钟",
+        "紧接前后都是ChatGPT工作，属于分心"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "21:00-21:17",
+      "likely_state": "休息",
+      "minutes": 17.55,
+      "task": "休息（无操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑AFK从21:00到21:17:33",
+        "手机屏幕关闭",
+        "跨设备规则确认为休息区间"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:17-21:19",
+      "likely_state": "工作",
+      "minutes": 1.82,
+      "task": "在ChatGPT中增强DeepSeek搜索能力",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "21:17:33开始使用Microsoft Edge，标题'增强DeepSeek搜索能力'，域名chatgpt.com",
+        "中间短暂搜索和打开终端，快速回到相同工作",
+        "属于同一工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:19-21:20",
+      "likely_state": "其他",
+      "minutes": 0.98,
+      "task": "浏览小红书：插尿管相关内容",
+      "work_category": "",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Microsoft Edge访问xiaohongshu.com，标题'插尿管 - 小红书'",
+        "持续约1分钟",
+        "紧接前后都是ChatGPT工作，属于分心"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:20-21:21",
+      "likely_state": "工作",
+      "minutes": 0.75,
+      "task": "在ChatGPT中增强DeepSeek搜索能力",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "返回Microsoft Edge，标题'增强DeepSeek搜索能力'，域名chatgpt.com",
+        "继续之前任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:21-21:21",
+      "likely_state": "工作",
+      "minutes": 0.65,
+      "task": "使用CC Switch（可能涉及网络切换或工具）",
+      "work_category": "其他工作",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "使用cc-switch.exe，可能为工作环境工具",
+        "短暂使用后恢复ChatGPT工作"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "21:21-21:22",
+      "likely_state": "工作",
+      "minutes": 0.78,
+      "task": "在ChatGPT中增强DeepSeek搜索能力",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "回到Microsoft Edge，标题'增强DeepSeek搜索能力'，域名chatgpt.com",
+        "中间穿插微信但很快返回，微信时长很短视为通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:22-21:23",
+      "likely_state": "通信",
+      "minutes": 0.57,
+      "task": "微信及小程序：简短通信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "使用微信约30秒",
+        "打开微信小程序（公众号）",
+        "非娱乐，短暂中断"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "time_range": "21:23-21:24",
+      "likely_state": "工作",
+      "minutes": 0.93,
+      "task": "在ChatGPT中增强DeepSeek搜索能力",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "返回Microsoft Edge，标题'增强DeepSeek搜索能力'",
+        "短暂访问HutaoCards（可能用于支付测试）",
+        "继续ChatGPT工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:24-21:24",
+      "likely_state": "工作",
+      "minutes": 0.53,
+      "task": "使用ChatGPT客户端继续增强DeepSeek搜索能力",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "切换到ChatGPT.exe，标题'ChatGPT'",
+        "紧随Edge中相同任务",
+        "快速切换Edge短暂操作后回到ChatGPT"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:24-21:25",
+      "likely_state": "工作",
+      "minutes": 1.08,
+      "task": "使用ChatGPT客户端增强DeepSeek搜索能力",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "持续使用ChatGPT.exe约1分钟",
+        "标题'ChatGPT'，无分散",
+        "属于同一工作任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:25-21:28",
+      "likely_state": "通信",
+      "minutes": 2.67,
+      "task": "微信通信",
+      "work_category": "",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "连续使用微信约2.65分钟",
+        "非娱乐，属于通信",
+        "之后返回ChatGPT工作，未断开任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "21:28-21:30",
+      "likely_state": "工作",
+      "minutes": 1.68,
+      "task": "使用ChatGPT客户端增强DeepSeek搜索能力",
+      "work_category": "其他工作",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "回到ChatGPT.exe",
+        "继续之前任务",
+        "期间手机在21:26:40亮屏并打开相机，但电脑焦点仍在ChatGPT，手机使用可能短暂但未改变电脑主任务"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "primary_work_task": "增强DeepSeek搜索能力",
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8335,
+      "completion_tokens": 3998,
+      "total_tokens": 12333,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3477
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 7439
+    }
+  }
+}

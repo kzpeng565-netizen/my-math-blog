@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T14:00:00+08:00",
+    "end": "2026-07-25T14:30:00+08:00"
+  },
+  "primary_work_task": "高中物理预习（质点、参考系、时间时刻）",
+  "segments": [
+    {
+      "start": "2026-07-25T14:00:00+08:00",
+      "end": "2026-07-25T14:03:35+08:00",
+      "duration_seconds": 215.0,
+      "activity": "work",
+      "work_category": "数学学习",
+      "task": "在Obsidian中做初高衔接数学笔记，使用Mathpix截图取公式",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题初高衔接2 乘法公式&主元思想&因式分解",
+        "Mathpix用于截图公式",
+        "前文13:59有初高衔接数学视频，属于同一学习任务"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T14:03:35+08:00",
+      "end": "2026-07-25T14:08:29+08:00",
+      "duration_seconds": 294.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "在B站搜索和观看初高中物理衔接视频，研究物理预习内容",
+      "relationship_to_work": "task_transition",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "搜索初高中物理衔接，打开质点视频",
+        "标题2.【基础物理量】质点_哔哩哔哩_bilibili",
+        "从数学转向物理，属于同一预习任务的自然转换"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T14:08:29+08:00",
+      "end": "2026-07-25T14:16:34+08:00",
+      "duration_seconds": 485.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "观看B站物理视频“3.【基础物理量】参考系”，边看边在Obsidian做笔记",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题3.【基础物理量】参考系_哔哩哔哩_bilibili",
+        "在Obsidian写笔记，多次使用Mathpix截图",
+        "视频和笔记频繁切换，连贯学习"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T14:16:34+08:00",
+      "end": "2026-07-25T14:17:27+08:00",
+      "duration_seconds": 53.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "打开新标签页和文件资源管理器，可能是查找或下载资料",
+      "relationship_to_work": "supporting_work",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "新建标签页（newtab）",
+        "打开edge浏览器下载文件夹",
+        "短暂中断后继续在Obsidian工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T14:17:27+08:00",
+      "end": "2026-07-25T14:24:00+08:00",
+      "duration_seconds": 393.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "继续在Obsidian做笔记，并返回B站看参考系视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian未命名笔记持续",
+        "标题3.【基础物理量】参考系_哔哩哔哩_bilibili",
+        "微信0.47分钟为短暂通信，不改变工作性质"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T14:24:00+08:00",
+      "end": "2026-07-25T14:28:50+08:00",
+      "duration_seconds": 290.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "观看B站物理视频“4.★【基础物理量】时间时刻”，中途有微信通信",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题4.★【基础物理量】时间时刻_哔哩哔哩_bilibili",
+        "14:24:57-14:25:24微信27秒，属于brief_communication",
+        "随后继续看视频"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T14:28:50+08:00",
+      "end": "2026-07-25T14:30:00+08:00",
+      "duration_seconds": 70.0,
+      "activity": "work",
+      "work_category": "其他工作",
+      "task": "回到Obsidian做笔记，并使用截图工具，然后继续看时间时刻视频",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian未命名笔记",
+        "SnippingTool截图",
+        "继续观看视频4.★【基础物理量】时间时刻"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "微信/QQ通信的具体内容未知，无法判断是否为工作相关通信"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 35310,
+      "completion_tokens": 1272,
+      "total_tokens": 36582,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 34414
+    }
+  }
+}

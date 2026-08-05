@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "source": "deepseek_semantic_timeline",
+  "period": {
+    "start": "2026-07-25T23:00:00+08:00",
+    "end": "2026-07-25T23:30:00+08:00"
+  },
+  "primary_work_task": "CC Switch 接入 DeepSeek",
+  "segments": [
+    {
+      "start": "2026-07-25T23:00:00+08:00",
+      "end": "2026-07-25T23:12:19+08:00",
+      "duration_seconds": 739.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "配置 CC Switch 接入 DeepSeek",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "长时间使用 Microsoft Edge 浏览 chatgpt.com，标题为 CC Switch 接入 DeepSeek",
+        "交替使用 Windows Terminal 执行 PowerShell 命令",
+        "期间穿插使用 ChatGPT 桌面应用和 cc-switch.exe",
+        "手机全程熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:12:19+08:00",
+      "end": "2026-07-25T23:13:37+08:00",
+      "duration_seconds": 78.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览知乎啤酒档口话题及搜索 CC Switch",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "标题为知乎啤酒档口社会话题",
+        "随后访问 DeepSeek 平台、GitHub release 页面和 Bing 搜索",
+        "短时间内与工作任务无关的多次页面切换",
+        "事后迅速返回原工作"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:13:37+08:00",
+      "end": "2026-07-25T23:21:07+08:00",
+      "duration_seconds": 450.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "配置 CC Switch 接入 DeepSeek",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "返回 chatgpt.com 标题 CC Switch 接入 DeepSeek",
+        "再次使用 Windows Terminal 执行命令和 cc-switch.exe",
+        "短暂微信后立即恢复工作",
+        "手机始终熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:21:07+08:00",
+      "end": "2026-07-25T23:21:26+08:00",
+      "duration_seconds": 19.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口前台16秒",
+        "相邻前后均为工作，为通信间隙"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:21:26+08:00",
+      "end": "2026-07-25T23:21:27+08:00",
+      "duration_seconds": 1.0,
+      "activity": "entertainment",
+      "work_category": "",
+      "task": "浏览小红书景点内容",
+      "relationship_to_work": "entertainment_detour",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "快速浏览小红书帖子标题（北京读研等）",
+        "仅持续约1秒",
+        "嵌在工作微信之间，极短暂"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T23:21:27+08:00",
+      "end": "2026-07-25T23:22:08+08:00",
+      "duration_seconds": 41.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "配置 CC Switch 接入 DeepSeek",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "返回 chatgpt.com 标题 CC Switch 接入 DeepSeek",
+        "持续约39秒",
+        "手机熄屏"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:22:08+08:00",
+      "end": "2026-07-25T23:22:43+08:00",
+      "duration_seconds": 35.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信前台35秒",
+        "工作间隙通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:22:43+08:00",
+      "end": "2026-07-25T23:27:32+08:00",
+      "duration_seconds": 289.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "配置 CC Switch 接入 DeepSeek",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "多次切换到 chatgpt.com 和 Windows Terminal",
+        "包含 cc-switch.exe 使用",
+        "微信图片和视频窗口短，可能是工作相关截图",
+        "返回 chatgpt.com 短暂2秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:27:32+08:00",
+      "end": "2026-07-25T23:27:51+08:00",
+      "duration_seconds": 19.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天（含图片和视频）",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信窗口出现多次，包含图片和视频子窗口",
+        "前后工作，为通信间隙"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:27:51+08:00",
+      "end": "2026-07-25T23:28:07+08:00",
+      "duration_seconds": 16.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "配置 CC Switch 接入 DeepSeek",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "chatgpt.com 短暂2秒",
+        "随后活跃无窗口记录，可能仍在工作"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "start": "2026-07-25T23:28:07+08:00",
+      "end": "2026-07-25T23:28:36+08:00",
+      "duration_seconds": 29.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信使用（含小程序）",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信小程序（WeChatAppEx）前台25秒",
+        "微信窗口继续",
+        "工作间隙"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:28:36+08:00",
+      "end": "2026-07-25T23:29:16+08:00",
+      "duration_seconds": 40.0,
+      "activity": "work",
+      "work_category": "系统维护",
+      "task": "配置 CC Switch 接入 DeepSeek",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Windows Terminal 短暂后返回 chatgpt.com",
+        "持续28秒"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:29:16+08:00",
+      "end": "2026-07-25T23:29:58+08:00",
+      "duration_seconds": 42.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信使用（含小程序）",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "微信小程序（WeChatAppEx）前台32秒",
+        "微信窗口最后切换",
+        "时段末尾通信"
+      ],
+      "confidence": "high"
+    },
+    {
+      "start": "2026-07-25T23:29:58+08:00",
+      "end": "2026-07-25T23:30:00+08:00",
+      "duration_seconds": 2.0,
+      "activity": "brief_communication",
+      "work_category": "",
+      "task": "微信聊天",
+      "relationship_to_work": "brief_communication",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "最后2秒微信前台",
+        "延续上段通信"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "material_uncertainties": [
+    "23:12:19-23:13:37的清晰分割：该段的娱乐内容是否属于休闲浏览而非工作支持",
+    "23:27:51-23:28:07的活跃但无窗口记录期间是否仍可归类为工作"
+  ],
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 40491,
+      "completion_tokens": 2774,
+      "total_tokens": 43265,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 39595
+    }
+  }
+}

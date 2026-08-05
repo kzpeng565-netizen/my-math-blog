@@ -1,0 +1,175 @@
+{
+  "period": "2026-07-24T20:30:00+08:00/2026-07-24T21:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "medium",
+    "one_sentence": "30分钟内以工作为主（约24分钟），存在11分钟连续B站数学视频学习，手机社交6分钟主要发生在电脑AFK时段，整体任务连贯。"
+  },
+  "observed_metrics": {
+    "computer_active_minutes": 26.72,
+    "computer_afk_minutes": 3.28,
+    "phone_screen_on_minutes": 6.02,
+    "simultaneous_computer_active_phone_on_minutes": 2.73,
+    "no_detected_device_interaction_minutes": 0.0,
+    "confirmed_rest_minutes": 0.0
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 24.0,
+      "range_minutes": [
+        22.0,
+        26.0
+      ],
+      "evidence": [
+        "电脑not_afk 26.72分钟，其中重叠手机社交2.73分钟扣除；电脑前台主要为ChatGPT（8.1分钟）、B站数学视频（15.12分钟）、DeepSeek API与搜索（共约1.5分钟），均与教学备课或学习相关。"
+      ]
+    },
+    "rest": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": [
+        "无满足跨设备连续无操作180秒的区间；电脑AFK期间手机持续操作（微信），不符合休息规则。"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 6.0,
+      "range_minutes": [
+        4.0,
+        8.0
+      ],
+      "evidence": [
+        "手机亮屏共6.02分钟，主要在20:37-20:37:48（QQ）、20:40:23-20:40:30（未知）、20:52:42-20:53:18（微信QQ）、20:55:05-21:00（微信），其中2.73分钟与电脑活动重叠，均归为其他社交活动。"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "total_minutes": 30.0
+  },
+  "fragmentation_assessment": {
+    "level": "low",
+    "meaningful_context_blocks": 15,
+    "context_switch_count": 14,
+    "short_context_blocks": 10,
+    "sustained_context_blocks": 1,
+    "longest_context_minutes": 11.21,
+    "interpretation": "尽管有14次切换和10个短上下文（<1分钟），但多数切换发生在ChatGPT与Edge之间，围绕同一学习任务（搜索API、比较模型、看教学视频），且存在11.21分钟的连续B站视频上下文，任务连续性未被严重破坏。"
+  },
+  "timeline_summary": [
+    {
+      "time_range": "20:30-20:37:25",
+      "likely_state": "工作",
+      "minutes": 7.42,
+      "evidence": [
+        "电脑前台：ChatGPT、Edge搜索DeepSeek和新标签页；手机屏幕关闭。"
+      ]
+    },
+    {
+      "time_range": "20:37:25-20:37:48",
+      "likely_state": "其他",
+      "minutes": 0.38,
+      "evidence": [
+        "手机亮屏，前台QQ；电脑仍在ChatGPT活动。"
+      ]
+    },
+    {
+      "time_range": "20:37:48-20:40:23",
+      "likely_state": "工作",
+      "minutes": 2.58,
+      "evidence": [
+        "电脑前台：ChatGPT；手机关闭。"
+      ]
+    },
+    {
+      "time_range": "20:40:23-20:40:30",
+      "likely_state": "其他",
+      "minutes": 0.12,
+      "evidence": [
+        "手机亮屏7秒（未知前台）；电脑Edge搜索B站。"
+      ]
+    },
+    {
+      "time_range": "20:40:30-20:52:42",
+      "likely_state": "工作",
+      "minutes": 12.2,
+      "evidence": [
+        "电脑前台：Edge B站数学视频（初高衔接）和B站首页；手机关闭。"
+      ]
+    },
+    {
+      "time_range": "20:52:42-20:53:18",
+      "likely_state": "其他",
+      "minutes": 0.6,
+      "evidence": [
+        "手机亮屏，微信QQ；电脑仍在B站视频。"
+      ]
+    },
+    {
+      "time_range": "20:53:18-20:55:05",
+      "likely_state": "工作",
+      "minutes": 1.78,
+      "evidence": [
+        "电脑前台：B站视频；手机关闭。"
+      ]
+    },
+    {
+      "time_range": "20:55:05-20:56:43",
+      "likely_state": "其他",
+      "minutes": 1.63,
+      "evidence": [
+        "手机亮屏，微信；电脑仍在B站视频（not_afk）。"
+      ]
+    },
+    {
+      "time_range": "20:56:43-21:00",
+      "likely_state": "其他",
+      "minutes": 3.28,
+      "evidence": [
+        "电脑AFK，手机亮屏微信；无设备同时满足休息条件。"
+      ]
+    }
+  ],
+  "computer_summary": "电脑活跃26.72分钟，主要使用Edge浏览B站数学教学视频（15.12分钟）和ChatGPT（8.1分钟），另有少量DeepSeek API文档和搜索，整体内容与数学教学相关。",
+  "phone_summary": "手机亮屏6.02分钟，集中在4个短时段，应用以微信（4.95分钟）和QQ（0.55分钟）为主；其中2.73分钟与电脑活动重叠，未形成明显工作中断，最后3.28分钟发生在电脑AFK期间。",
+  "material_uncertainties": [
+    "B站数学视频（11.21分钟）被归为工作，但若实际为娱乐则工作估计需大幅下调，可能改变状态结论。"
+  ],
+  "data_quality": {
+    "level": "high",
+    "material_issues": []
+  },
+  "concise_report": "30分钟以工作为主（约24分钟），核心是看B站初高衔接数学视频和ChatGPT/DeepSeek API操作，最长连续工作11分钟。手机社交6分钟主要分布在电脑AFK时段及短暂同步使用，未严重打断工作。切换14次但围绕同一任务，碎片化程度低。关键不确定性：B站视频是否用于备课。",
+  "gentle_suggestions": [],
+  "verification_question": "20:41后观看的B站数学视频（《初高衔接》系列）是用于备课或学习，还是个人娱乐？",
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 8316,
+      "completion_tokens": 4366,
+      "total_tokens": 12682,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2798
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 8316
+    }
+  }
+}

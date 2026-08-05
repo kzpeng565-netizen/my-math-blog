@@ -1,0 +1,112 @@
+{
+  "period": "2026-07-25T21:00:00+08:00/2026-07-25T21:30:00+08:00",
+  "state_assessment": {
+    "label": "unclear",
+    "confidence": "low",
+    "one_sentence": "设备事实已采集，但AI时间段解释未通过校验；确认休息14.45分钟，其余15.55分钟暂不归类。"
+  },
+  "observed_metrics": {
+    "computer_active_minutes": 5.02,
+    "computer_afk_minutes": 24.81,
+    "phone_screen_on_minutes": 7.6,
+    "simultaneous_computer_active_phone_on_minutes": 0.65,
+    "no_detected_device_interaction_minutes": 18.03,
+    "confirmed_rest_minutes": 14.45
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        30.0
+      ],
+      "evidence": []
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 14.45,
+      "range_minutes": [
+        14.45,
+        14.45
+      ],
+      "evidence": [
+        "符合跨设备连续无操作休息规则。"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        30.0
+      ],
+      "evidence": []
+    },
+    "uncertain": {
+      "estimate_minutes": 15.55,
+      "range_minutes": [
+        15.55,
+        15.55
+      ],
+      "evidence": [
+        "没有足够设备活动证据。"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "mixing_assessment": {
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 0.0,
+    "same_task_tool_switches_not_scored": 0,
+    "raw_foreground_context_switches_not_scored": 0,
+    "deviations": [],
+    "interpretation": "没有足够活动，未发现工作—娱乐混杂。"
+  },
+  "timeline_summary": [],
+  "computer_summary": "电脑事实已保存，等待语义时间段重新解释。",
+  "phone_summary": "手机事实已保存，等待语义时间段重新解释。",
+  "material_uncertainties": [
+    "AI语义时间线未通过一致性检查。"
+  ],
+  "data_quality": {
+    "level": "low",
+    "material_issues": [
+      "有效活动证据不足。",
+      "AI语义时间线未通过一致性检查。"
+    ]
+  },
+  "concise_report": "设备事实已采集，但AI时间段解释未通过校验；确认休息14.45分钟，其余15.55分钟暂不归类。",
+  "gentle_suggestions": [],
+  "verification_question": "这段时间的主要活动是什么？",
+  "_generation": {
+    "provider": "local_rule",
+    "model": null
+  },
+  "_validation": {
+    "passed": false,
+    "errors": [
+      "AI时间线中的休息分钟数不等于确定性休息规则结果",
+      "AI时间线中的休息区间数量与确定性休息区间不一致"
+    ]
+  }
+}

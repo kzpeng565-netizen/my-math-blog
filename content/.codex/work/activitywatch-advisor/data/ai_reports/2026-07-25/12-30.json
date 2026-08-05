@@ -1,0 +1,257 @@
+{
+  "period": "2026-07-25T12:30:00+08:00/2026-07-25T13:00:00+08:00",
+  "state_assessment": {
+    "label": "focused_work",
+    "confidence": "high",
+    "one_sentence": "主要任务：初高衔接数学备课与会议。工作7.28分钟，娱乐0.0分钟，通信0.0分钟，确认休息14.58分钟。没有发现工作过程中超过30秒的娱乐偏离。"
+  },
+  "mixing_assessment": {
+    "schema_version": 1,
+    "source": "deterministic_from_ai_semantic_timeline",
+    "rule": {
+      "entertainment_deviation_minimum_seconds": 30.0,
+      "comparison": "strictly_greater_than",
+      "brief_communication_is_not_scored": true,
+      "same_work_task_tool_switches_are_not_scored": true
+    },
+    "level": "none",
+    "entertainment_deviation_count": 0,
+    "entertainment_deviation_minutes": 0.0,
+    "all_entertainment_minutes": 0.0,
+    "longest_entertainment_deviation_minutes": 0.0,
+    "work_entertainment_transition_count": 0,
+    "brief_communication_minutes": 0.0,
+    "longest_continuous_work_minutes": 6.48,
+    "same_task_tool_switches_not_scored": 8,
+    "raw_foreground_context_switches_not_scored": 9,
+    "deviations": [],
+    "interpretation_note": "等级只反映工作过程中超过30秒的娱乐偏离；纯娱乐、短暂通信和同任务工具切换不计为混杂。",
+    "interpretation": "工作过程中未出现任何超过30秒的娱乐偏离。确定娱乐偏离次数为0，总娱乐分钟0，最长偏离0。"
+  },
+  "computer_summary": "电脑主要使用Obsidian和腾讯会议编辑数学笔记和讨论，标题为'初高衔接2 乘法公式&主元思想&因式分解'和'彭康哲的快速会议'，属同一工作任务。",
+  "phone_summary": "手机屏幕99%时间关闭，仅12:55:55后亮屏4.08分钟但前台应用未知，无法判断用途，可能为短暂检查。",
+  "material_uncertainties": [
+    "12:48:07-12:51:34期间电脑状态unknown，手机屏幕关闭，无法确定是否为休息或其他活动。",
+    "12:55:19-13:00:00手机亮屏但前台应用未知，电脑短暂活动后AFK，用途不明。"
+  ],
+  "concise_report": "主要任务：初高衔接数学备课与会议。工作7.28分钟，娱乐0.0分钟，通信0.0分钟，确认休息14.58分钟。没有发现工作过程中超过30秒的娱乐偏离。",
+  "gentle_suggestions": [],
+  "verification_question": "12:55:19-13:00:00手机亮屏但前台未知，这段期间是否涉及娱乐或与工作相关？这可能改变娱乐偏离结论。",
+  "observed_metrics": {
+    "computer_active_minutes": 7.36,
+    "computer_afk_minutes": 19.19,
+    "phone_screen_on_minutes": 4.08,
+    "simultaneous_computer_active_phone_on_minutes": 0.0,
+    "no_detected_device_interaction_minutes": 18.53,
+    "confirmed_rest_minutes": 14.58
+  },
+  "estimated_time_allocation": {
+    "work": {
+      "estimate_minutes": 7.28,
+      "range_minutes": [
+        7.28,
+        7.28
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'",
+        "腾讯会议窗口标题'彭康哲的快速会议'",
+        "前后上下文显示数学备课主题",
+        "Obsidian笔记标题'初高衔接2 乘法公式&主元思想&因式分解'"
+      ]
+    },
+    "entertainment": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "brief_communication": {
+      "estimate_minutes": 0.0,
+      "range_minutes": [
+        0.0,
+        0.0
+      ],
+      "evidence": []
+    },
+    "rest": {
+      "estimate_minutes": 14.58,
+      "range_minutes": [
+        14.58,
+        14.58
+      ],
+      "evidence": [
+        "电脑持续AFK，手机屏幕关闭",
+        "跨设备确认休息区间12:30:00-12:35:47",
+        "跨设备确认休息区间12:36:35-12:41:38",
+        "跨设备确认休息区间12:51:34-12:55:19"
+      ]
+    },
+    "other": {
+      "estimate_minutes": 3.45,
+      "range_minutes": [
+        3.45,
+        3.45
+      ],
+      "evidence": [
+        "电脑状态unknown，手机屏幕关闭",
+        "无任何交互记录，无法判断活动"
+      ]
+    },
+    "uncertain": {
+      "estimate_minutes": 4.68,
+      "range_minutes": [
+        4.68,
+        4.68
+      ],
+      "evidence": [
+        "电脑短时使用腾讯会议后进入AFK",
+        "手机亮屏但前台应用未知",
+        "无足够证据判断是继续工作、娱乐还是休息"
+      ]
+    },
+    "total_minutes": 30.0
+  },
+  "timeline_summary": [
+    {
+      "time_range": "12:30-12:35",
+      "likely_state": "休息",
+      "minutes": 5.78,
+      "task": "休息（无任何设备操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑持续AFK，手机屏幕关闭",
+        "跨设备确认休息区间12:30:00-12:35:47"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:35-12:36",
+      "likely_state": "工作",
+      "minutes": 0.8,
+      "task": "在Obsidian编辑初高衔接数学笔记，并快速会议沟通",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian标题'初高衔接2 乘法公式&主元思想&因式分解'",
+        "腾讯会议窗口标题'彭康哲的快速会议'",
+        "前后上下文显示数学备课主题"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:36-12:41",
+      "likely_state": "休息",
+      "minutes": 5.05,
+      "task": "休息（无任何设备操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑持续AFK，手机屏幕关闭",
+        "跨设备确认休息区间12:36:35-12:41:38"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:41-12:48",
+      "likely_state": "工作",
+      "minutes": 6.48,
+      "task": "在Obsidian和腾讯会议间切换，讨论初高衔接数学内容",
+      "work_category": "数学学习",
+      "relationship_to_work": "same_work_task",
+      "devices": [
+        "computer"
+      ],
+      "evidence": [
+        "Obsidian笔记标题'初高衔接2 乘法公式&主元思想&因式分解'",
+        "腾讯会议'彭康哲的快速会议'持续使用",
+        "Obsidian与会议交替使用，符合协作讨论模式"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:48-12:51",
+      "likely_state": "其他",
+      "minutes": 3.45,
+      "task": "电脑状态未知，无设备操作证据",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [],
+      "evidence": [
+        "电脑状态unknown，手机屏幕关闭",
+        "无任何交互记录，无法判断活动"
+      ],
+      "confidence": "low"
+    },
+    {
+      "time_range": "12:51-12:55",
+      "likely_state": "休息",
+      "minutes": 3.75,
+      "task": "休息（无任何设备操作）",
+      "work_category": "",
+      "relationship_to_work": "confirmed_rest",
+      "devices": [],
+      "evidence": [
+        "电脑持续AFK，手机屏幕关闭",
+        "跨设备确认休息区间12:51:34-12:55:19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "time_range": "12:55-13:00",
+      "likely_state": "无法判断",
+      "minutes": 4.68,
+      "task": "前台应用未知，亮屏但无法判断用途",
+      "work_category": "",
+      "relationship_to_work": "uncertain",
+      "devices": [
+        "computer",
+        "phone"
+      ],
+      "evidence": [
+        "电脑短时使用腾讯会议后进入AFK",
+        "手机亮屏但前台应用未知",
+        "无足够证据判断是继续工作、娱乐还是休息"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "primary_work_task": "初高衔接数学备课与会议",
+  "data_quality": {
+    "level": "medium",
+    "material_issues": [
+      "电脑活动状态未知3.45分钟。",
+      "亮屏期间前台应用未知4.08分钟。"
+    ]
+  },
+  "_validation": {
+    "passed": true,
+    "errors": [],
+    "correction_attempts": 0
+  },
+  "_generation": {
+    "provider": "DeepSeek",
+    "model": "deepseek-v4-flash",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 6863,
+      "completion_tokens": 931,
+      "total_tokens": 7794,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 504
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 5967
+    }
+  }
+}

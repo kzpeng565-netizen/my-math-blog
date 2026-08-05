@@ -1,0 +1,547 @@
+{
+  "schema_version": 1,
+  "source": "computer_activitywatch",
+  "period": {
+    "start": "2026-07-24T20:00:00+08:00",
+    "end": "2026-07-24T20:30:00+08:00"
+  },
+  "database": {
+    "file_name": "test.db",
+    "buckets_seen": [
+      "aw-watcher-window_xyh",
+      "aw-watcher-afk_xyh",
+      "aw-watcher-web-chrome",
+      "aw-watcher-web-chrome_xyh",
+      "aw-watcher-web-edge_xyh"
+    ],
+    "raw_event_counts_in_period": {
+      "aw-watcher-window_xyh": 47,
+      "aw-watcher-afk_xyh": 34,
+      "aw-watcher-web-chrome": 0,
+      "aw-watcher-web-chrome_xyh": 19,
+      "aw-watcher-web-edge_xyh": 25
+    }
+  },
+  "activity": {
+    "not_afk_minutes": 8.79,
+    "afk_minutes": 21.21,
+    "unknown_status_minutes": 0.0,
+    "window_observed_minutes": 8.08
+  },
+  "top_apps": [
+    {
+      "app": "Microsoft Edge",
+      "minutes": 3.88
+    },
+    {
+      "app": "ChatGPT",
+      "minutes": 3.07
+    },
+    {
+      "app": "微信",
+      "minutes": 0.64
+    },
+    {
+      "app": "Obsidian",
+      "minutes": 0.43
+    },
+    {
+      "app": "Clash Verge",
+      "minutes": 0.07
+    }
+  ],
+  "top_websites": [
+    {
+      "domain": "chatgpt.com",
+      "minutes": 0.42
+    },
+    {
+      "domain": "newtab",
+      "minutes": 0.17
+    },
+    {
+      "domain": "search.bilibili.com",
+      "minutes": 0.1
+    }
+  ],
+  "top_titles": [
+    {
+      "app": "ChatGPT",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 3.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "任务管理模型选择",
+      "minutes": 1.81
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "Kimi K2.7 vs Deepseek",
+      "minutes": 0.59
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "微信",
+      "minutes": 0.57
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "手机使用记录系统——树莓派端操作与维护指南",
+      "minutes": 0.41
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "ChatGPT",
+      "minutes": 0.41
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "ChatGPT",
+      "minutes": 0.32
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "minutes": 0.21
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "newtab",
+      "title": "新建标签页",
+      "minutes": 0.17
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "minutes": 0.12
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "search.bilibili.com",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "minutes": 0.1
+    },
+    {
+      "app": "Clash Verge",
+      "domain": "",
+      "title": "Clash Verge",
+      "minutes": 0.07
+    },
+    {
+      "app": "微信",
+      "domain": "",
+      "title": "图片和视频",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "kimi-哔哩哔哩_bilibili",
+      "minutes": 0.07
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "华为运动健康数据上传",
+      "minutes": 0.03
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "",
+      "title": "新建标签页",
+      "minutes": 0.02
+    },
+    {
+      "app": "Microsoft Edge",
+      "domain": "chatgpt.com",
+      "title": "任务管理模型选择",
+      "minutes": 0.02
+    },
+    {
+      "app": "Obsidian",
+      "domain": "",
+      "title": "树莓派服务器Web管理指南",
+      "minutes": 0.02
+    }
+  ],
+  "status_timeline": [
+    {
+      "start": "2026-07-24T20:00:00+08:00",
+      "end": "2026-07-24T20:08:44+08:00",
+      "duration_seconds": 524.429,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-24T20:08:44+08:00",
+      "end": "2026-07-24T20:16:33+08:00",
+      "duration_seconds": 469.215,
+      "status": "not-afk"
+    },
+    {
+      "start": "2026-07-24T20:16:33+08:00",
+      "end": "2026-07-24T20:29:02+08:00",
+      "duration_seconds": 748.362,
+      "status": "afk"
+    },
+    {
+      "start": "2026-07-24T20:29:02+08:00",
+      "end": "2026-07-24T20:30:00+08:00",
+      "duration_seconds": 57.992,
+      "status": "not-afk"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "2026-07-24T20:08:44+08:00",
+      "end": "2026-07-24T20:09:43+08:00",
+      "duration_seconds": 58.803,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:09:44+08:00",
+      "end": "2026-07-24T20:09:46+08:00",
+      "duration_seconds": 2.097,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "华为运动健康数据上传",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:09:47+08:00",
+      "end": "2026-07-24T20:09:48+08:00",
+      "duration_seconds": 1.087,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:09:49+08:00",
+      "end": "2026-07-24T20:09:50+08:00",
+      "duration_seconds": 1.243,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:09:52+08:00",
+      "end": "2026-07-24T20:09:58+08:00",
+      "duration_seconds": 5.181,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:10:00+08:00",
+      "end": "2026-07-24T20:10:04+08:00",
+      "duration_seconds": 4.124,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "kimi-哔哩哔哩_bilibili",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:10:05+08:00",
+      "end": "2026-07-24T20:10:15+08:00",
+      "duration_seconds": 10.325,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:10:16+08:00",
+      "end": "2026-07-24T20:10:26+08:00",
+      "duration_seconds": 10.321,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "新建标签页",
+      "domain": "newtab",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:10:26+08:00",
+      "end": "2026-07-24T20:10:30+08:00",
+      "duration_seconds": 3.111,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T20:10:30+08:00",
+      "end": "2026-07-24T20:10:36+08:00",
+      "duration_seconds": 6.189,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "domain": "search.bilibili.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:10:36+08:00",
+      "end": "2026-07-24T20:10:40+08:00",
+      "duration_seconds": 4.145,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T20:10:40+08:00",
+      "end": "2026-07-24T20:11:02+08:00",
+      "duration_seconds": 19.627,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:11:03+08:00",
+      "end": "2026-07-24T20:11:04+08:00",
+      "duration_seconds": 1.051,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:11:04+08:00",
+      "end": "2026-07-24T20:11:07+08:00",
+      "duration_seconds": 3.098,
+      "app": "",
+      "app_display": "活跃但无窗口记录",
+      "title": "",
+      "domain": "",
+      "context_source": "missing"
+    },
+    {
+      "start": "2026-07-24T20:11:07+08:00",
+      "end": "2026-07-24T20:11:10+08:00",
+      "duration_seconds": 3.098,
+      "app": "clash-verge.exe",
+      "app_display": "Clash Verge",
+      "title": "Clash Verge",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:11:11+08:00",
+      "end": "2026-07-24T20:11:13+08:00",
+      "duration_seconds": 2.065,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:11:14+08:00",
+      "end": "2026-07-24T20:11:18+08:00",
+      "duration_seconds": 4.126,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "图片和视频",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:11:19+08:00",
+      "end": "2026-07-24T20:11:32+08:00",
+      "duration_seconds": 12.415,
+      "app": "Weixin.exe",
+      "app_display": "微信",
+      "title": "微信",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:11:34+08:00",
+      "end": "2026-07-24T20:11:58+08:00",
+      "duration_seconds": 24.396,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:11:58+08:00",
+      "end": "2026-07-24T20:12:17+08:00",
+      "duration_seconds": 18.971,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:12:18+08:00",
+      "end": "2026-07-24T20:12:53+08:00",
+      "duration_seconds": 35.135,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "Kimi K2.7 vs Deepseek",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:12:54+08:00",
+      "end": "2026-07-24T20:13:18+08:00",
+      "duration_seconds": 23.729,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:13:19+08:00",
+      "end": "2026-07-24T20:13:20+08:00",
+      "duration_seconds": 1.033,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "树莓派服务器Web管理指南",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:13:22+08:00",
+      "end": "2026-07-24T20:13:47+08:00",
+      "duration_seconds": 24.739,
+      "app": "Obsidian.exe",
+      "app_display": "Obsidian",
+      "title": "手机使用记录系统——树莓派端操作与维护指南",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:13:48+08:00",
+      "end": "2026-07-24T20:13:59+08:00",
+      "duration_seconds": 11.315,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:14:00+08:00",
+      "end": "2026-07-24T20:14:58+08:00",
+      "duration_seconds": 57.908,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "任务管理模型选择",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:14:58+08:00",
+      "end": "2026-07-24T20:14:58+08:00",
+      "duration_seconds": 0.002,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "任务管理模型选择",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:14:58+08:00",
+      "end": "2026-07-24T20:15:51+08:00",
+      "duration_seconds": 50.746,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "任务管理模型选择",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:15:52+08:00",
+      "end": "2026-07-24T20:16:28+08:00",
+      "duration_seconds": 36.145,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:16:29+08:00",
+      "end": "2026-07-24T20:16:30+08:00",
+      "duration_seconds": 1.039,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "任务管理模型选择",
+      "domain": "chatgpt.com",
+      "context_source": "web"
+    },
+    {
+      "start": "2026-07-24T20:16:31+08:00",
+      "end": "2026-07-24T20:16:33+08:00",
+      "duration_seconds": 1.892,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:29:02+08:00",
+      "end": "2026-07-24T20:29:04+08:00",
+      "duration_seconds": 2.047,
+      "app": "msedge.exe",
+      "app_display": "Microsoft Edge",
+      "title": "kimi和deepseek-哔哩哔哩_bilibili",
+      "domain": "",
+      "context_source": "window"
+    },
+    {
+      "start": "2026-07-24T20:29:05+08:00",
+      "end": "2026-07-24T20:30:00+08:00",
+      "duration_seconds": 54.058,
+      "app": "ChatGPT.exe",
+      "app_display": "ChatGPT",
+      "title": "ChatGPT",
+      "domain": "",
+      "context_source": "window"
+    }
+  ],
+  "quality": {
+    "level": "medium",
+    "active_window_coverage": 0.92,
+    "browser_web_context_coverage": 0.18,
+    "browser_share_of_active_time": 0.441,
+    "timeline_truncated": false,
+    "limitations": [
+      "AFK只表示电脑无键鼠操作，不等于休息。",
+      "网页标题和当前标签页可能过期或不能完整代表实际阅读内容。",
+      "未匹配网页事件时保留窗口标题，不强行推断网页用途。"
+    ]
+  }
+}
