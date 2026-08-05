@@ -1007,6 +1007,14 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
 
+## 2026-08-06：Focus Garden 请求顺序与暂停显示
+
+==`computer_intervention._request_files()` 按请求文件实际写入时间保留最新 80 条，不能按文件名字典序；否则大量 `manual-focus-release-*` 会遮蔽更新的 `manual-focus-时间戳-*`，使 Windows agent 收不到启动或恢复锁机请求。Windows `ComputerInterventionAgent` 已使用 5 秒轮询；不要调回 30 秒。==
+
+==New Pomodoro Timer 每 5 秒只读 `https://pi.taild4d3f7.ts.net:8460/api/bootstrap`，并提供手动刷新。暂停操作先强制刷新 Pi session；若 Pi 返回 paused，插件显示暂停并以 `paused_at` 冻结剩余时间，到 `resume_at` 再恢复。Pi SQLite 仍是唯一状态权威，网页和插件都不直接写 Markdown。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=server-verified; retrieved_notes="advisor computer_intervention.py, Windows agent runtime, New Pomodoro Timer" -->
+
 ## 2026-08-05：Focus Garden 自动暂停恢复
 
 ==数据库暂停记录增加恢复截止时刻。POST /api/focus/pause 仍只允许每个 session 一次，接收 1—120 分钟并向现有 Windows agent 排队 release；focus-garden 的 2 秒 reconciler 到期后自动走 resume，恢复相同的电脑 profile 与 blocks。静态网页由 static/focus-pause-ui.js 显示倒计时，没有手动“继续”入口；New Pomodoro Timer 本地计时也在同一截止时刻自动继续。手机 Quick Pomodoro 暂无远程停止 API，暂停期不改变其已启动时长。==

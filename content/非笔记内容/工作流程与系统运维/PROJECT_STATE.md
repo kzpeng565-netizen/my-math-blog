@@ -371,6 +371,12 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
 
+## 2026-08-06 状态更新：统一暂停状态与云端刷新
+
+==New Pomodoro Timer 的暂停入口现在总是先读取 Pi 的权威 Focus Garden session，再允许输入暂停时长；不再依赖可能落后的本地 `running` 标志。网页端暂停会携带 `paused_at`，插件据此冻结倒计时并显示“Pi 云端：本轮已暂停，到点会自动恢复”；暂停时钟不会继续按墙钟流逝。插件保留手动“刷新云端进度”，且运行时每 5 秒同步一次 bootstrap。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=local-verified; retrieved_notes="New Pomodoro Timer installed runtime, Focus Garden pause API" -->
+
 ## 2026-08-05 状态更新：统一的定时暂停
 
 ==网页 Focus Garden 与 New Pomodoro Timer 现在共享一次定时暂停：用户先输入 1—120 分钟并确认；Pi 权威 SQLite 记录暂停开始与恢复截止时刻，立即请求既有 Windows agent 解除 Cold Turkey 会话。专注服务的后台 reconciler 每 2 秒检查截止时刻，因此网页和 Obsidian 都关闭时仍会自动恢复电脑锁定与计时。手机 Quick Pomodoro 目前没有远程暂停接口，不能承诺在暂停期停止。==

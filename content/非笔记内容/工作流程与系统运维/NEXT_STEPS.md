@@ -470,6 +470,12 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
+### ☐ P1：日常复核一次插件暂停的完整闭环
+
+==在一次“仅电脑”真实专注中，从 New Pomodoro Timer 点击暂停、输入 1—3 分钟，确认插件立即显示 Pi 暂停、Windows Cold Turkey release 生效，到 `resume_at` 后显示恢复并重新锁定。该项用于观察真实回执；无需为验收使用手机锁定。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=unchecked; retrieved_notes="Focus Garden pause flow and Windows agent" -->
+
 ### ☐ P1：用一次真实的短暂停闭环复核自动恢复
 
 ==在正常专注中选择一次 1—3 分钟暂停，确认 Windows agent 的 Cold Turkey 会话停止、网页显示倒计时、截止后无需点击就恢复计时和锁定；再确认 session 标记为曾暂停且结算仅按半额。不要为了此项测试使用手机的不可逆硬锁。==
