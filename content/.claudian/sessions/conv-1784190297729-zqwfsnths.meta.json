@@ -4,15 +4,9 @@
   "title": "Send WeChat notification",
   "titleGenerationStatus": "success",
   "createdAt": 1784190297730,
-  "updatedAt": 1785471237371,
-  "lastResponseAt": 1784337848625,
-  "sessionId": "019f7118-9736-7690-8e4d-8ad7c27475a5",
+  "lastActivityAt": 1784337848625,
+  "sessionId": null,
   "selectedModel": "gpt-5.5",
-  "providerState": {
-    "threadId": "019f7118-9736-7690-8e4d-8ad7c27475a5",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\18\\rollout-2026-07-18T01-21-09-019f7118-9736-7690-8e4d-8ad7c27475a5.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
   "currentNote": "遍历论/GTM259/Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf",
   "usage": {
     "inputTokens": 18372,

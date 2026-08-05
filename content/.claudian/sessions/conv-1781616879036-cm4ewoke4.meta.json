@@ -4,14 +4,9 @@
   "title": "Respond to greeting",
   "titleGenerationStatus": "success",
   "createdAt": 1781616879036,
-  "updatedAt": 1781695070809,
-  "lastResponseAt": 1781618526296,
-  "sessionId": "019ed0a4-26b5-7723-89a1-8fce2521138f",
-  "providerState": {
-    "threadId": "019ed0a4-26b5-7723-89a1-8fce2521138f",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\16\\rollout-2026-06-16T21-34-44-019ed0a4-26b5-7723-89a1-8fce2521138f.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1781618526296,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "usage": {
     "inputTokens": 31829,
     "cacheCreationInputTokens": 0,

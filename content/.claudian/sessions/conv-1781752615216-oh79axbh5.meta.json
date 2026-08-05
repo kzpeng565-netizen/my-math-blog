@@ -4,14 +4,9 @@
   "title": "Plan daily review schedule for three courses",
   "titleGenerationStatus": "success",
   "createdAt": 1781752615217,
-  "updatedAt": 1781850600573,
-  "lastResponseAt": 1781753818623,
-  "sessionId": "019ed8bb-573e-7ae2-abb5-ec4818fa3b42",
-  "providerState": {
-    "threadId": "019ed8bb-573e-7ae2-abb5-ec4818fa3b42",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\18\\rollout-2026-06-18T11-17-01-019ed8bb-573e-7ae2-abb5-ec4818fa3b42.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1781753818623,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "currentNote": "非笔记内容/任务计划/ToDo-任务集合.md",
   "usage": {
     "inputTokens": 74468,

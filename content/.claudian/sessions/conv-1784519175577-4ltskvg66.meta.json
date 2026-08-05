@@ -4,15 +4,9 @@
   "title": "你帮我看看GTM259的课后习题值得做吗, 我假期需要学明白前四章",
   "titleGenerationStatus": "failed",
   "createdAt": 1784519175578,
-  "updatedAt": 1784800653657,
-  "lastResponseAt": 1784520012741,
-  "sessionId": "019f7da1-aee3-70d2-9b60-e56d5b0a7549",
+  "lastActivityAt": 1784520012741,
+  "sessionId": null,
   "selectedModel": "gpt-5.6-sol",
-  "providerState": {
-    "threadId": "019f7da1-aee3-70d2-9b60-e56d5b0a7549",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\20\\rollout-2026-07-20T11-46-20-019f7da1-aee3-70d2-9b60-e56d5b0a7549.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
   "usage": {
     "inputTokens": 98516,
     "cacheCreationInputTokens": 0,

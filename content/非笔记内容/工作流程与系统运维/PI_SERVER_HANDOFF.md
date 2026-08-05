@@ -1031,7 +1031,7 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ## 2026-08-05：Focus Garden 分级植物规则
 
-==`focus_garden/database.py` 现在在 Pi 权威 SQLite 内派生奖励资格：3 次未兑换 `intervention_accepted` 才创建 1 个 `intervention_basic` 初级资格；每种下 3 株初级植物才创建 1 个 `advanced_unlock` 高级资格。种植 API 依据 `config/plants.json` 的 `tier` 在服务端强制校验。历史已种下的高级植物抵扣同等高级资格，升级不重复发放。未增加端口、外部依赖或公开路由。==
+==`focus_garden/database.py` 现在在 Pi 权威 SQLite 内派生奖励资格：3 次未兑换 `intervention_accepted` 才创建 1 个 `intervention_basic` 初级种植机会；3 个尚未使用的初级机会才可在一次 `advanced_exchange` 中原子消耗，种下 1 个高级植物。种植 API 依据 `config/plants.json` 的 `tier` 在服务端强制校验；`reward_exchanges` 记录被兑换的机会，防止复用。花园底部显示初级机会数与可用高级种植次数。未增加端口、外部依赖或公开路由。==
 
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-passed; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md,非笔记内容/工作流程与系统运维/我的专注花园/02-游戏架构.md" -->
 

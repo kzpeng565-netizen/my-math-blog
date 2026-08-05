@@ -4,14 +4,9 @@
   "title": "Create Obsidian pomodoro log cleaner",
   "titleGenerationStatus": "success",
   "createdAt": 1782042160066,
-  "updatedAt": 1783876460208,
-  "lastResponseAt": 1782043491467,
-  "sessionId": "019ee9fd-7c7e-71a2-bbe6-c05f554a4054",
-  "providerState": {
-    "threadId": "019ee9fd-7c7e-71a2-bbe6-c05f554a4054",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\21\\rollout-2026-06-21T19-42-49-019ee9fd-7c7e-71a2-bbe6-c05f554a4054.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1782043491467,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "currentNote": "非笔记内容/任务计划/番茄钟log.md",
   "usage": {
     "inputTokens": 29962,

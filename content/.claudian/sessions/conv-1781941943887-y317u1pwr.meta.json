@@ -4,14 +4,9 @@
   "title": "Format Obsidian math notes",
   "titleGenerationStatus": "success",
   "createdAt": 1781941943888,
-  "updatedAt": 1782042065786,
-  "lastResponseAt": 1781943178391,
-  "sessionId": "019ee404-48b0-7181-ab7e-e363cc14454a",
-  "providerState": {
-    "threadId": "019ee404-48b0-7181-ab7e-e363cc14454a",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\20\\rollout-2026-06-20T15-52-31-019ee404-48b0-7181-ab7e-e363cc14454a.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1781943178391,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "currentNote": "分析/微分方程/调和方程格林函数的推导.md",
   "usage": {
     "inputTokens": 85662,

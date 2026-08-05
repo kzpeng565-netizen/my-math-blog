@@ -4,14 +4,9 @@
   "title": "Format Obsidian math note",
   "titleGenerationStatus": "success",
   "createdAt": 1781940468786,
-  "updatedAt": 1781941931303,
-  "lastResponseAt": 1781940930651,
-  "sessionId": "019ee3ed-c8bc-7ea3-a9f7-4ce58d71fd49",
-  "providerState": {
-    "threadId": "019ee3ed-c8bc-7ea3-a9f7-4ce58d71fd49",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\20\\rollout-2026-06-20T15-27-57-019ee3ed-c8bc-7ea3-a9f7-4ce58d71fd49.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1781940930651,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "currentNote": "分析/实分析/好核与恒等逼近.md",
   "usage": {
     "inputTokens": 34489,

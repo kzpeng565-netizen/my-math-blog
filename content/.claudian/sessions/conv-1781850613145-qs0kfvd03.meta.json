@@ -4,14 +4,9 @@
   "title": "Format Obsidian math note",
   "titleGenerationStatus": "success",
   "createdAt": 1781850613146,
-  "updatedAt": 1781934846604,
-  "lastResponseAt": 1781879215015,
-  "sessionId": "019ede92-ba51-7350-b85d-6a46d9df50b2",
-  "providerState": {
-    "threadId": "019ede92-ba51-7350-b85d-6a46d9df50b2",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\19\\rollout-2026-06-19T14-30-23-019ede92-ba51-7350-b85d-6a46d9df50b2.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1781879215015,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "currentNote": "分析/实分析/Lebesgue-Radon-Nikodym定理.md",
   "usage": {
     "inputTokens": 78792,

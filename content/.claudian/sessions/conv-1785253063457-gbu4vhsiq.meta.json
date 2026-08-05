@@ -4,15 +4,9 @@
   "title": "$task-planner 重新规划任务, 今天已经过去了, 从明天开始安排",
   "titleGenerationStatus": "failed",
   "createdAt": 1785253063457,
-  "updatedAt": 1785471185427,
-  "lastResponseAt": 1785253459930,
-  "sessionId": "019fa95f-ec28-7c42-b189-e4426d17f152",
+  "lastActivityAt": 1785253459930,
+  "sessionId": null,
   "selectedModel": "gpt-5.6-sol",
-  "providerState": {
-    "threadId": "019fa95f-ec28-7c42-b189-e4426d17f152",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\28\\rollout-2026-07-28T23-37-43-019fa95f-ec28-7c42-b189-e4426d17f152.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
   "currentNote": "分析/遍历论/第二章内容整理.md",
   "usage": {
     "inputTokens": 68163,

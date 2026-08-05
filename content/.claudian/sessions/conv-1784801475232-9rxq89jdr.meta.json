@@ -4,15 +4,9 @@
   "title": "$task-planner 我现在确定了, 每周六周天周一上课, 周六周天, 早上11:00-12:...",
   "titleGenerationStatus": "failed",
   "createdAt": 1784801475232,
-  "updatedAt": 1784811079998,
-  "lastResponseAt": 1784810993081,
-  "sessionId": "019f8e75-3d23-7a02-89c8-b47c1d798a98",
+  "lastActivityAt": 1784810993081,
+  "sessionId": null,
   "selectedModel": "gpt-5.6-sol",
-  "providerState": {
-    "threadId": "019f8e75-3d23-7a02-89c8-b47c1d798a98",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\23\\rollout-2026-07-23T18-11-20-019f8e75-3d23-7a02-89c8-b47c1d798a98.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
   "currentNote": "非笔记内容/任务计划/ToDo-已经规划好的任务.md",
   "usage": {
     "inputTokens": 74697,

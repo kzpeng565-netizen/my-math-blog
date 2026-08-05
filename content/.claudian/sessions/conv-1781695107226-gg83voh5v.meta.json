@@ -4,14 +4,9 @@
   "title": "Plan Obsidian tasks and update all estimates",
   "titleGenerationStatus": "success",
   "createdAt": 1781695107226,
-  "updatedAt": 1781697250738,
-  "lastResponseAt": 1781697176362,
-  "sessionId": "019ed54d-d156-72a1-aff9-466a8008d65e",
-  "providerState": {
-    "threadId": "019ed54d-d156-72a1-aff9-466a8008d65e",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\06\\17\\rollout-2026-06-17T19-18-32-019ed54d-d156-72a1-aff9-466a8008d65e.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1781697176362,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "usage": {
     "inputTokens": 103724,
     "cacheCreationInputTokens": 0,

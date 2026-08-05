@@ -4,9 +4,11 @@
   "title": "遍历论/GTM259 给我一个开始Chapter1的引导",
   "titleGenerationStatus": "failed",
   "createdAt": 1784190356957,
-  "updatedAt": 1784190386997,
-  "lastResponseAt": 1784190357003,
+  "lastActivityAt": 1784190357003,
   "sessionId": null,
-  "providerState": {},
+  "modelRecoverySource": {
+    "sessionId": null,
+    "providerState": {}
+  },
   "currentNote": "遍历论/GTM259/Ch01_Sec01_Examples_of_Ergodic_Behavior.pdf"
 }

@@ -4,15 +4,9 @@
   "title": "$task-planner 重新帮我规划任务",
   "titleGenerationStatus": "failed",
   "createdAt": 1785164252445,
-  "updatedAt": 1785253018169,
-  "lastResponseAt": 1785165610188,
-  "sessionId": "019fa414-c5f4-76e0-97f3-89615709e386",
+  "lastActivityAt": 1785165610188,
+  "sessionId": null,
   "selectedModel": "gpt-5.6-sol",
-  "providerState": {
-    "threadId": "019fa414-c5f4-76e0-97f3-89615709e386",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\27\\rollout-2026-07-27T22-57-32-019fa414-c5f4-76e0-97f3-89615709e386.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
   "currentNote": "非笔记内容/任务计划/ToDo-已经规划好的任务.md",
   "usage": {
     "inputTokens": 58881,

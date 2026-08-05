@@ -6,6 +6,7 @@
   "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
+  "titleGenerationLocale": "",
   "titleGenerationModel": "",
   "excludedTags": [],
   "mediaFolder": "",
@@ -24,6 +25,7 @@
   "locale": "zh-CN",
   "providerConfigs": {
     "claude": {
+      "enabled": true,
       "safeMode": "acceptEdits",
       "cliPath": "",
       "cliPathsByHost": {},
@@ -32,8 +34,10 @@
       "enableBangBash": false,
       "customModels": "",
       "lastModel": "sonnet",
+      "modelEnvironmentType": "",
+      "titleModelEnvironmentType": "",
       "environmentVariables": "ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic\nANTHROPIC_AUTH_TOKEN=sk-e9386c9a62b14dff9e5799e38bcccad8\nANTHROPIC_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash\nCLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash\nCLAUDE_CODE_EFFORT_LEVEL=max",
-      "environmentHash": "ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic|ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash|ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m]|ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m]|ANTHROPIC_MODEL=deepseek-v4-pro[1m]"
+      "environmentHash": "runtime-input:v1:87474b2ad89e092b8e0260e6b9ab7e2e4eb26cbd6069c18dea5977201121cf3c"
     },
     "codex": {
       "enabled": true,
@@ -43,11 +47,15 @@
         "device:a65af03f-bce5-4793-af1e-205a19208756": "C:\\Users\\15345\\.codex\\plugins\\.plugin-appserver\\codex.exe"
       },
       "customModels": "",
+      "discoveredModels": [],
       "modelAliases": {},
       "visibleModels": null,
+      "enableUltraEffort": false,
       "reasoningSummary": "detailed",
       "environmentVariables": "",
-      "environmentHash": "",
+      "environmentHash": "runtime-input:v1:f7883676baae8bb27f2a882fee027044b37a0430fe24027a0bf5635e811e3e94",
+      "catalogTimestamp": 0,
+      "catalogFingerprint": "",
       "installationMethodsByHost": {
         "device:a65af03f-bce5-4793-af1e-205a19208756": "native-windows"
       },
@@ -76,12 +84,24 @@
       "preferredThinkingByModel": {},
       "toolMode": "all",
       "visibleModels": []
+    },
+    "grok": {
+      "catalogsByHost": {},
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "enabled": false,
+      "environmentHash": "",
+      "environmentVariables": "",
+      "modelAliases": {},
+      "planBasePermissionMode": "normal",
+      "preferredReasoningByModel": {},
+      "visibleModels": null
     }
   },
   "settingsProvider": "claude",
   "savedProviderModel": {
     "claude": "claude-code/deepseek-v4-pro[1m]",
-    "codex": "gpt-5.6-sol"
+    "codex": "claude-code/deepseek-v4-pro[1m]"
   },
   "savedProviderEffort": {
     "claude": "high",
@@ -95,12 +115,19 @@
     "claude": "yolo",
     "codex": "yolo"
   },
+  "pendingProviderSessionInvalidations": {},
   "lastCustomModel": "claude-code/deepseek-v4-pro[1m]",
-  "maxTabs": 3,
+  "maxWarmAgentProcesses": 5,
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
   "expandFileEditsByDefault": false,
   "chatViewPlacement": "left-sidebar",
+  "enableDualPane": true,
+  "dualPaneSide": "right",
+  "sessionManagerOrganization": "list",
+  "sessionManagerSort": "last-updated",
+  "pinnedLinkedNotePaths": [],
   "hiddenProviderCommands": {},
+  "maxTabs": 3,
   "tabBarPosition": "input"
 }

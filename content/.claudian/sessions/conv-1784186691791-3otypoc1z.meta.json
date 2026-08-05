@@ -4,14 +4,9 @@
   "title": "确认 PDF 阅读能力",
   "titleGenerationStatus": "success",
   "createdAt": 1784186691792,
-  "updatedAt": 1784190163592,
-  "lastResponseAt": 1784189374746,
-  "sessionId": "019f69d0-7551-7fa2-ad5e-47f70deee6f9",
-  "providerState": {
-    "threadId": "019f69d0-7551-7fa2-ad5e-47f70deee6f9",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\16\\rollout-2026-07-16T15-25-02-019f69d0-7551-7fa2-ad5e-47f70deee6f9.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1784189374746,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "currentNote": "非笔记内容/任务计划/Tasks.md",
   "usage": {
     "inputTokens": 17332,

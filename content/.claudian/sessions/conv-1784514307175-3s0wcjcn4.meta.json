@@ -4,15 +4,9 @@
   "title": "把日期19号的挪到20号, 以此类推20号挪到21号",
   "titleGenerationStatus": "failed",
   "createdAt": 1784514307176,
-  "updatedAt": 1784519151023,
-  "lastResponseAt": 1784514601104,
-  "sessionId": "019f7d57-6526-72f0-ad8b-7811dfb19f4a",
+  "lastActivityAt": 1784514601104,
+  "sessionId": null,
   "selectedModel": "gpt-5.6-sol",
-  "providerState": {
-    "threadId": "019f7d57-6526-72f0-ad8b-7811dfb19f4a",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\20\\rollout-2026-07-20T10-25-12-019f7d57-6526-72f0-ad8b-7811dfb19f4a.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
   "currentNote": "非笔记内容/任务计划/ToDo-已经规划好的任务.md",
   "usage": {
     "inputTokens": 27223,

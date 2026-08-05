@@ -4,14 +4,9 @@
   "title": "规划假期任务清单",
   "titleGenerationStatus": "success",
   "createdAt": 1783917434754,
-  "updatedAt": 1784133866133,
-  "lastResponseAt": 1783917838761,
-  "sessionId": "019f59c3-da5d-78a0-83a9-fcfd684ea827",
-  "providerState": {
-    "threadId": "019f59c3-da5d-78a0-83a9-fcfd684ea827",
-    "sessionFilePath": "C:\\Users\\15345\\.codex\\sessions\\2026\\07\\13\\rollout-2026-07-13T12-37-20-019f59c3-da5d-78a0-83a9-fcfd684ea827.jsonl",
-    "transcriptRootPath": "C:\\Users\\15345\\.codex\\sessions"
-  },
+  "lastActivityAt": 1783917838761,
+  "sessionId": null,
+  "selectedModel": "openai-codex/gpt-5.5",
   "usage": {
     "inputTokens": 45335,
     "cacheCreationInputTokens": 0,
