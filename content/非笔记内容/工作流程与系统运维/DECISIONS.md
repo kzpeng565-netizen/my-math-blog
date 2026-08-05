@@ -567,6 +567,14 @@
 
 ==第一版从本机已安装的 Minecraft Education Edition 复制 20 个植物 PNG；这些文件加入项目 `.gitignore`，不得上传、分享或分发。第二版保持植物 ID 和注册接口不变，逐步换成原创素材。==
 
+### D62. 关联任务的番茄进度必须来自完成的同一条专注会话【有效】
+
+==Focus Garden 的全局专注奖励与任务 🍅 是两个独立账本。只有带有有效 Obsidian block ID 的完成会话才进入该任务的 40 分钟累计；无关联专注、其他任务的专注、取消/失败会话均不得贡献该任务的番茄。达到 40 分钟后，Pi 只排队一个带稳定 session ID 的绝对 `target_completed`，Obsidian 插件以 `max(当前值, target)` 写入，保证重试幂等且不覆盖人工更高进度。==
+
+### D63. New Pomodoro Timer 是 Focus Garden 的桌面入口，不是第二个记账者【有效】
+
+==工作段开始时，New Pomodoro Timer 只通过 Pi 的 tailnet-only `:8460` 创建同一条 Focus Garden 会话，默认时长 40 分钟，默认锁定电脑＋手机。用户可选择仅电脑、仅手机或仅计时；不锁机时不发送设备介入。插件不得自行增加 `[🍅::]`，所有任务写回仍由 Pi Context Sync 在打开 Obsidian 后完成。==
+
 <!-- ai_provenance: source=codex; date=2026-08-02; verification=user-confirmed; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
 
 ### D53. Cold Turkey 自动开启由 Windows 本地 agent 执行【有效】
