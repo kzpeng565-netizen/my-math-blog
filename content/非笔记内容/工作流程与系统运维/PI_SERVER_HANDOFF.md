@@ -1029,6 +1029,12 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md" -->
 
+## 2026-08-05：Focus Garden 分级植物规则
+
+==`focus_garden/database.py` 现在在 Pi 权威 SQLite 内派生奖励资格：3 次未兑换 `intervention_accepted` 才创建 1 个 `intervention_basic` 初级资格；每种下 3 株初级植物才创建 1 个 `advanced_unlock` 高级资格。种植 API 依据 `config/plants.json` 的 `tier` 在服务端强制校验。历史已种下的高级植物抵扣同等高级资格，升级不重复发放。未增加端口、外部依赖或公开路由。==
+
+<!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-passed; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md,非笔记内容/工作流程与系统运维/我的专注花园/02-游戏架构.md" -->
+
 ## 2026-08-04：专注花园正式电脑＋手机桥接
 
 ==`focus-garden.service` 保持 `127.0.0.1:8838` 与 `:8460` 的 tailnet-only Serve，但 `FOCUS_GARDEN_DRY_RUN=0`，`FOCUS_GARDEN_DISPATCH_INTERVENTIONS=1`。网页状态应显示“正式锁定”；切换或排障后用 `curl -fsS http://127.0.0.1:8838/api/health` 和 `GET /api/bootstrap` 检查。==
