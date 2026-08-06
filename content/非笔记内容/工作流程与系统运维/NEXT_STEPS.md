@@ -504,6 +504,10 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 ==2026-08-06 已部署修复：Windows agent 的 `active_locks` 以列表保存时不再让 `/api/system-status` 断连；浏览器也会在空响应时显示明确提示。本地 22 项测试与 Pi 15 项测试通过。==
 
+### ☑ 已完成：进入页面空元素报错修复
+
+==2026-08-06 已移除 `sync()` 中残留的 `#piStatus` 写入，并为 `app.js` 加版本号；进入页面不再出现 `Cannot set properties of null`。==
+
 ### ☐ 待观察：日常心跳与陈旧状态语义
 
 ==连续日常使用 3—7 天，确认 Windows heartbeat 在登录、休眠、网络中断和恢复后的显示符合实际；Android 超过 20 分钟、Windows 超过 12 分钟应显示 stale，而不能伪装为在线。==

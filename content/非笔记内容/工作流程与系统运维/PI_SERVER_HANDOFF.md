@@ -1061,6 +1061,12 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 <!-- ai_provenance: source=codex; date=2026-08-06; verification=server-verified; retrieved_notes="Pi focus-garden journal, deployed server.py and app.js" -->
 
+## 2026-08-06：进入页面空元素报错修复
+
+==`static/app.js` 的同步函数仍引用已从 `index.html` 移除的 `#piStatus`，导致每次进入页面触发 `Cannot set properties of null`。已删除残留写入，并将 `app.js` 改为带 `?v=20260806.2` 版本号。备份位于 `/home/conrad/workspace/backups/focus-garden-sync-pistatus-20260806-1344/`；本地 23 项测试、Pi 21 项测试通过，`:8460` 已确认新脚本不含 `piStatus`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=server-verified; retrieved_notes="Focus Garden static app.js and index.html, Pi service health" -->
+
 ## 2026-08-05：Windows 到 Pi 统一使用 MagicDNS
 
 ==Pi Context Sync 的 SSH 校验、`D:\MyFocusGarden` 开发副本的只读 Pi 同步，以及 Windows 的 `ssh pi.local` 别名均已改为使用 `pi.taild4d3f7.ts.net`。不得在运行配置中固定 `100.109.89.52` 或局域网 DHCP 地址；Tailscale IP 仅可作为当时的诊断信息。MagicDNS SSH 与快照哈希校验已实际通过。==

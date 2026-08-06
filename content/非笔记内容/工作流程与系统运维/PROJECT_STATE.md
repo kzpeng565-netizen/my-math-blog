@@ -421,6 +421,12 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 <!-- ai_provenance: source=codex; date=2026-08-06; verification=server-verified; retrieved_notes="Pi focus-garden journal, deployed server.py and app.js" -->
 
+## 2026-08-06 状态更新：进入页面空元素报错修复
+
+==自动“同步奖励”曾引用已不存在的 `#piStatus`，刚进入页面会出现 `Cannot set properties of null (setting 'textContent')`。已移除残留引用并给 `app.js` 增加版本号；本地 23 项测试、Pi 21 项测试通过，服务保持 active。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=server-verified; retrieved_notes="Focus Garden static app.js and index.html, Pi service health" -->
+
 ## 2026-08-05 状态更新：任务网页写回桥
 
 ==已部署任务同步 v1：`ToDo-任务集合.md`、`ToDo-已经规划好的任务.md`、`已完成任务.md` 进入同一同步范围；每个任务以 Obsidian block ID（新 ID 为 8 位小写字母数字）作为稳定键。Pi 只持久化网页操作意图和即时有效任务视图；Pi 不直接写 Markdown，Obsidian 的 Pi Context Sync 插件在打开 Vault 后写回并在新的快照抵达 Pi 后确认队列。==
