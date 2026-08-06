@@ -1007,6 +1007,18 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
 
+## 2026-08-06：New Pomodoro Timer 架构交接
+
+==插件结构说明已写入 `New-Pomodoro-Timer-代码结构与交接.md`。今后排查插件与 Pi 不一致时，先看 Pi `/api/bootstrap` 和 SQLite 会话，再看插件 `focusGardenSession`、`Timer.state` 与 `paused_at/resume_at`；不要用 `data.json` 判断云端专注或奖励。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=local-verified; retrieved_notes="New-Pomodoro-Timer-代码结构与交接.md" -->
+
+## 2026-08-06：插件 Work/Break 控件交接
+
+==New Pomodoro Timer v1.2.3-focus-garden.8 已在本地插件目录更新。Work 仅使用 Pi 支持的 5/20/30/40/45/60 分钟预设，默认 40；Break 可选 0/5/10/15/20/30 分钟。Break 状态可跳过并自动开始 Work，Work 不可跳过；表盘数字保留启动入口。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=local-verified; retrieved_notes="New Pomodoro Timer v1.2.3-focus-garden.8" -->
+
 ## 2026-08-06：Focus Garden 请求顺序与暂停显示
 
 ==`computer_intervention._request_files()` 按请求文件实际写入时间保留最新 80 条，不能按文件名字典序；否则大量 `manual-focus-release-*` 会遮蔽更新的 `manual-focus-时间戳-*`，使 Windows agent 收不到启动或恢复锁机请求。Windows `ComputerInterventionAgent` 已使用 5 秒轮询；不要调回 30 秒。==

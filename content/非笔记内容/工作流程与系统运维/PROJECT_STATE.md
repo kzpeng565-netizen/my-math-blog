@@ -371,6 +371,18 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
 
+## 2026-08-06：New Pomodoro Timer 代码结构交接
+
+==新增 `New-Pomodoro-Timer-代码结构与交接.md`，记录打包插件的模块边界、Timer 状态机、Pi API 同步、Work/Break 规则、配置来源和排障顺序。Pi Focus Garden 会话仍是权威状态；插件只负责显示和发起操作。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=local-verified; retrieved_notes="New-Pomodoro-Timer-代码结构与交接.md" -->
+
+## 2026-08-06：New Pomodoro Timer 时长与 Work/Break 交互
+
+==插件面板现在提供 Work 预设 `5/20/30/40/45/60`（默认 40）和可编辑的 Break 预设（含跳过休息）；进行中的会话会暂时锁定这两个选择，避免改变 Pi 权威会话。点击表盘数字可启动或暂停；点击 Break 状态会跳过休息并自动进入 Work，点击 Work 状态不执行跳过。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=local-verified; retrieved_notes="New Pomodoro Timer duration controls and mode interaction" -->
+
 ## 2026-08-06 状态更新：统一暂停状态与云端刷新
 
 ==New Pomodoro Timer 的暂停入口现在总是先读取 Pi 的权威 Focus Garden session，再允许输入暂停时长；不再依赖可能落后的本地 `running` 标志。网页端暂停会携带 `paused_at`，插件据此冻结倒计时并显示“Pi 云端：本轮已暂停，到点会自动恢复”；暂停时钟不会继续按墙钟流逝。插件保留手动“刷新云端进度”，且运行时每 5 秒同步一次 bootstrap。==

@@ -470,6 +470,12 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
+### ☐ P1：按新架构文档完成一次插件端非破坏性验收
+
+==重载 New Pomodoro Timer 后只做无锁机或已有测试会话的检查：确认 Work/Break 选择、表盘启动、Break 跳过、手动刷新和网页暂停同步。不要用 `data.json` 判断 Pi 会话；若发现不一致，按 `New-Pomodoro-Timer-代码结构与交接.md` 的排障顺序处理。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=local-verified; retrieved_notes="New-Pomodoro-Timer-代码结构与交接.md" -->
+
 ### ☐ P1：日常复核一次插件暂停的完整闭环
 
 ==在一次“仅电脑”真实专注中，从 New Pomodoro Timer 点击暂停、输入 1—3 分钟，确认插件立即显示 Pi 暂停、Windows Cold Turkey release 生效，到 `resume_at` 后显示恢复并重新锁定。该项用于观察真实回执；无需为验收使用手机锁定。==
