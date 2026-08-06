@@ -500,6 +500,10 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 ==花园已显示 Pi 服务、任务 queue、Obsidian 快照、同步检查、Windows/Android bridge、上下文缓存、最近报告和 SQLite 备份的新鲜度。Windows agent 已切换为计划任务启动并已成功发送 heartbeat。==
 
+### ☑ 已完成：系统状态接口兼容列表 active_locks
+
+==2026-08-06 已部署修复：Windows agent 的 `active_locks` 以列表保存时不再让 `/api/system-status` 断连；浏览器也会在空响应时显示明确提示。本地 22 项测试与 Pi 15 项测试通过。==
+
 ### ☐ 待观察：日常心跳与陈旧状态语义
 
 ==连续日常使用 3—7 天，确认 Windows heartbeat 在登录、休眠、网络中断和恢复后的显示符合实际；Android 超过 20 分钟、Windows 超过 12 分钟应显示 stale，而不能伪装为在线。==

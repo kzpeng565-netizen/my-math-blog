@@ -1055,6 +1055,12 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
+## 2026-08-06：系统状态接口兼容列表 active_locks
+
+==2026-08-06 排查：`/api/system-status` 因 `active_locks` 为列表而按字典 `.keys()` 报错，HTTP 连接空响应导致浏览器“Unexpected end of JSON input”。已部署兼容列表/字典的 `focus_garden/server.py`，并在 `static/app.js` 对空响应给出明确提示。备份位于 `/home/conrad/workspace/backups/focus-garden-system-status-20260806-1018/`；本地 22 项测试、Pi 15 项测试通过，服务重启后 loopback 与 `:8460` 均返回 200，五个核心服务 active。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=server-verified; retrieved_notes="Pi focus-garden journal, deployed server.py and app.js" -->
+
 ## 2026-08-05：Windows 到 Pi 统一使用 MagicDNS
 
 ==Pi Context Sync 的 SSH 校验、`D:\MyFocusGarden` 开发副本的只读 Pi 同步，以及 Windows 的 `ssh pi.local` 别名均已改为使用 `pi.taild4d3f7.ts.net`。不得在运行配置中固定 `100.109.89.52` 或局域网 DHCP 地址；Tailscale IP 仅可作为当时的诊断信息。MagicDNS SSH 与快照哈希校验已实际通过。==

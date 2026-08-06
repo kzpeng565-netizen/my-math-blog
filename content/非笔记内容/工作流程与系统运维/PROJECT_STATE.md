@@ -415,6 +415,12 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
 
+## 2026-08-06 状态更新：系统状态接口兼容 active_locks
+
+==Windows agent 的 `active_locks` 是列表，系统状态接口原先按字典取键导致空响应。`focus_garden/server.py` 已兼容列表与字典，前端对空响应显示明确提示；本地 22 项测试、Pi 15 项测试通过，服务已重启并从 `:8460` 验证返回 200。==
+
+<!-- ai_provenance: source=codex; date=2026-08-06; verification=server-verified; retrieved_notes="Pi focus-garden journal, deployed server.py and app.js" -->
+
 ## 2026-08-05 状态更新：任务网页写回桥
 
 ==已部署任务同步 v1：`ToDo-任务集合.md`、`ToDo-已经规划好的任务.md`、`已完成任务.md` 进入同一同步范围；每个任务以 Obsidian block ID（新 ID 为 8 位小写字母数字）作为稳定键。Pi 只持久化网页操作意图和即时有效任务视图；Pi 不直接写 Markdown，Obsidian 的 Pi Context Sync 插件在打开 Vault 后写回并在新的快照抵达 Pi 后确认队列。==
