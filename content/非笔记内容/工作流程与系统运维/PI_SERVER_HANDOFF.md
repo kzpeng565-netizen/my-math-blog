@@ -1124,3 +1124,7 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==Windows agent 已加入非阻塞的“专注锁机已开始”短提示；其 Cold Turkey 命令不成功时在 30 秒后重试一次。Focus Bridge v1.0.1 在手机锁屏导致可访问窗口不可用时，每 30 秒重新尝试启动已确认的快速番茄，最多 6 次；第一次尝试即显示手机通知。新 APK 已编译，但设备安装命令等待 Package Manager，需在解锁后重新单次安装确认。==
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-06：近期动态 v3.1 交接补充
+
+==新增模块：src/recent_context.py（存储/RLock/revision/损坏恢复/解析/动态状态/粗筛）、src/recent_context_selector.py（V4 Flash 非思考筛选 + 本地降级）。数据：data/recent_context/state.json + parse_audit.jsonl。API（全部要求 loopback + X-Focus-Garden-Bridge==1）：GET /api/recent-context[?include_archived=1]、GET /api/recent-context/relevant；POST /api/recent-context、/{id}/update、/{id}/archive、/{id}/unarchive、/{id}/pin、/{id}/unpin、/{id}/confirm。写接口必须带 expected_revision；冲突 409 {code:revision_conflict,current_revision}；损坏 503 recent_context_state_corrupt（损坏文件只复制一次为 state.json.corrupt-<ts>，不回退空状态）。next_action.py PROMPT_VERSION=next-action-v1.3，build_decision_state 之后 attach recent_context（代码粗筛→AI 筛选→最多 6 条），最终 AI 需返回 decision_trace.recent_context_used（服务端子集校验）。Focus Garden：侧栏「近期动态」页 + Next Action「当前情境」卡（≤3 条，代码粗筛，不调筛选 AI）；代理白名单 _RECENT_CONTEXT_PATHS。settings.json 新增 recent_context 段（enabled/direct_window_hours=24/preparation_window_days=7/review_after_days=14/parser_*/selector_*）。验收：2026-08-06 本地真实 AI 冒烟 + Pi 全量测试（advisor 141 仅 2 项既有失败、garden 23/23）+ enabled=false→true 分阶段 + 两条测试记录归档。回滚：保留 data/recent_context/ 永不删除。==

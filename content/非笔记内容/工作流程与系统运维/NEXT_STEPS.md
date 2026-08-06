@@ -544,3 +544,18 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+## 2026-08-06 近期动态 v3.1 部署清单
+
+### ☑ 已完成：本地真实 AI 冒烟与部署
+==本地真实 DeepSeek 冒烟（4 次调用：daypart/event/vague/selector）全部通过；以 enabled=false 一次性部署两端，Pi 全量测试 advisor 141 项（仅 2 项既有失败）、garden 23/23；随后开启开关。生产验收：两条 [系统验收测试] 记录真实解析正确、生成建议时 state snapshot 含 recent_context 与 selection（fallback_used=false）、记录已归档。==
+
+### ☐ 待观察：日常使用 3—7 天
+- 解析质量：明天/本周/事件型/模糊表达是否符合直觉；不精确小时不误判过期；
+- 筛选质量：selector 是否把无关动态带入建议；conditional 提示是否合理；
+- 页面体验：分区、置顶、仍然相关、409 冲突提示是否顺手；
+- 生成建议时 decision_trace.recent_context_used 是否出现且只含候选 ID。
+
+### ☐ 待办
+- 在真实 UI 中关闭当前建议后，再生成一次，确认 recent_context_used 由最终模型输出并回显；
+- 长期：把既有 task_sync 的 read-modify-write 也加上 RLock（recent_context 已实现，task_sync 仍是无锁模式）。

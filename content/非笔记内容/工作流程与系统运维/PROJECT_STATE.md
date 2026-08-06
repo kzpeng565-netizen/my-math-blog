@@ -456,3 +456,7 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==为保证默认电脑＋手机始终同步，10 分钟已从网页和 API 删除；当前所有公开专注入口统一只接受 5、20、30、40、45、60 分钟。==
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-08-06 状态更新：近期动态 v3.1 已部署
+
+==近期动态（recent context）已上线：advisor 新增 src/recent_context.py、src/recent_context_selector.py 与 /api/recent-context* 九个固定接口；Focus Garden 新增「近期动态」侧栏页与 Next Action「当前情境」卡片。数据存于 data/recent_context/state.json（revision + RLock 乐观并发），解析审计 data/recent_context/parse_audit.jsonl。用户原文是唯一权威，AI 解析与筛选只作辅助；解析 prompt 以 recorded_at 为基准；筛选失败自动降级，不中断 Next Action。PROMPT_VERSION 升至 next-action-v1.3；recent_context_used 只保存并校验候选 ID。认证要求 loopback + X-Focus-Garden-Bridge==1。2026-08-06 以 enabled=false 部署两端、Pi 全量测试（advisor 141 项仅 2 项既有失败；garden 23/23）后开启开关，并完成两条 [系统验收测试] 记录的真实解析、生成与归档。==

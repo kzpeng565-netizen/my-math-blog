@@ -613,3 +613,23 @@
 
 
 <!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
+## 2026-08-06 近期动态决策
+
+### D70. 用户原文是近期动态的唯一权威来源【有效】
+==content/impact_text 由用户输入并原样保存；AI 解析只写 parse 辅助字段，不得改写原文；created_at 服务端生成不可修改；编辑时更新 updated_at/confirmed_at 并重新解析。==
+
+### D71. 相对时间一律以 recorded_at 为基准【有效】
+==解析 prompt 强制以记录时间为基准解释「今天/明天/本周/下午」，不得以模型调用时间重新计算；daypart 只给日期粒度，不伪造精确小时作为过期边界。==
+
+### D72. 条件型记录不自动过期，但需要确认【有效】
+==event/open/vague/解析失败按 conditional 处理；超过 review_after_days（默认 14 天）后 needs_review=true，仍在页面显示但不进入 AI 上下文（置顶不能绕过）；「仍然相关」更新 confirmed_at。==
+
+### D73. 近期动态 API 只接受 loopback + X-Focus-Garden-Bridge【有效】
+==/api/recent-context* 全部要求来源为 127.0.0.0/8 或 ::1 且带固定 bridge header，不允许全局免密兜底；花园是固定白名单代理，不持有、不直接读写 state.json。写接口必须携带 expected_revision，冲突返回 409。==
+
+### D74. 数据处理 AI 失败不影响 Next Action【有效】
+==解析失败只保存 error；筛选 AI 超时/非法输出按本地规则降级（fallback_used=true）；state.json 损坏返回 503 并保留 .corrupt 副本，不回退空状态、不覆盖损坏文件。==
+
+### D75. recent_context_used 只保存并校验候选 ID【有效】
+==最终模型只能引用本次传入的 selected/forced ID；虚构 ID 被剔除；页面按 ID 反查用户原文展示。prompt 版本：next-action-v1.3 / recent-context-parse-v1 / recent-context-selector-v1。==

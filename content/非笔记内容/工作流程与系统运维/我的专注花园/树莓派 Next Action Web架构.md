@@ -280,3 +280,7 @@ POST /api/next-action with unresolved active suggestion         -> 409 pending_o
 ==Focus Garden 仅在 Pi loopback 中读取该状态并展示为健康摘要；Windows heartbeat 超过 12 分钟标记 stale。页面经 :8460 的 tailnet-only Serve 访问，未增加任何公网 API。==
 
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-06：近期动态注入（v3.1）
+
+==生成建议流程变为：build_decision_state → 代码粗筛近期动态（排除 archived/ended/needs_review/7 天后，强制保留 active 与 24h 内，候选≤20）→ V4 Flash 非思考筛选（最小投影 now/tasks/context，输出 selected id+reason，非法输出降级）→ 合并强制保留并去重排序（最多 6 条）→ 注入 decision_state.recent_context 与 recent_context_selection → 最终 AI。最终 AI 必须返回 decision_trace.recent_context_used（仅本次候选 ID，服务端子集校验）。解析 prompt=recent-context-parse-v1、筛选 prompt=recent-context-selector-v1、最终 PROMPT_VERSION=next-action-v1.3。==
