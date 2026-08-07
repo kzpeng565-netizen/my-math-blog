@@ -489,6 +489,6 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 ## 2026-08-07 状态更新：Next Action 两轮行动澄清
 
-==Next Action 现支持最多两轮“卡点 → 更新行动”的短对话。每轮与初始建议一样使用 `deepseek-v4-pro`、`thinking=enabled`，将用户的一句阻力重新纳入完整判断后生成新的可执行行动版本；不会创建/修改任务、安排、番茄钟或花园记录。接受请求携带 `expected_action_revision`，服务端只接受 active suggestion 的当前最后版本，并把 `accepted_action_id/revision` 写入反馈记录，旧版本和过期点击一律拒绝。==
+==Next Action 现支持最多两轮“卡点 → 更新行动”的短对话。每轮与初始建议一样使用 `deepseek-v4-pro`、`thinking=enabled`，将用户的一句阻力重新纳入完整判断后生成新的可执行行动版本；第二轮会明确收到第一轮的用户卡点、助手回应和产生的行动版本，不只看当前结果。不会创建/修改任务、安排、番茄钟或花园记录。接受请求携带 `expected_action_revision`，服务端只接受 active suggestion 的当前最后版本，并把 `accepted_action_id/revision` 写入反馈记录，旧版本和过期点击一律拒绝。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=targeted-unit-test-plus-pi-loopback; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md" -->

@@ -480,6 +480,9 @@ def _clarification_prompt() -> str:
         "the normal Next Action fields: decision_type, title, duration_minutes, first_step, "
         "task_title, reason_short, evidence_points, persuasive_explanation, "
         "anticipated_resistance, reduced_version, confidence.\n"
+        "The input includes dialogue_history from every earlier clarification turn. "
+        "Treat it as continuous conversation: preserve the user's stated constraints and "
+        "do not contradict an earlier answer without explaining the practical adjustment.\n"
         "Rules: speak concise, warm Chinese; make only one directly startable action; do not "
         "create or edit tasks, schedules, Pomodoros, or garden records; task actions must use "
         "only a listed task title; obey the supplied hard rules. This is a clarification, not "
@@ -894,6 +897,27 @@ def _action_view(suggestion: dict[str, Any]) -> dict[str, Any]:
     return {key: copy.deepcopy(suggestion.get(key)) for key in keys}
 
 
+def _dialogue_history(rounds: list[Any]) -> list[dict[str, Any]]:
+    """Pass the full, bounded prior dialogue to the next (and final) repair turn."""
+    history: list[dict[str, Any]] = []
+    for item in rounds[:CLARIFICATION_MAX_ROUNDS]:
+        if not isinstance(item, dict):
+            continue
+        action = item.get("resulting_action")
+        history.append(
+            {
+                "round": item.get("round"),
+                "user_message": _clean_text(item.get("user_message"), 600),
+                "assistant_message": _clean_text(item.get("assistant_message"), 280),
+                "resulting_action": _action_view(action) if isinstance(action, dict) else {
+                    "action_id": item.get("action_id"),
+                    "action_revision": item.get("action_revision"),
+                },
+            }
+        )
+    return history
+
+
 def clarify_next_action(
     settings: dict[str, Any],
     output_root: Path,
@@ -939,6 +963,7 @@ def clarify_next_action(
         "user_message": user_message,
         "current_action": _action_view(active),
         "original_action": _action_view(rounds[0].get("original_action", active)) if rounds else _action_view(active),
+        "dialogue_history": _dialogue_history(rounds),
         "decision_state": state,
     }
     _load_env_file(env_file)
@@ -976,6 +1001,7 @@ def clarify_next_action(
             "action_id": revised["suggestion_id"],
             "action_revision": current_revision + 1,
             "original_action": _action_view(active) if not rounds else rounds[0].get("original_action", _action_view(active)),
+            "resulting_action": _action_view(updated),
             "generation": generation,
         }],
     }

@@ -660,6 +660,6 @@
 
 ### D79. Next Action 澄清最多两轮，接受永远指向最后行动版本【有效】
 
-==澄清不是开放聊天：每个 active suggestion 最多接收两条用户澄清，每条产生一个新的 action revision。浏览器必须提交其看到的 `expected_action_revision`；服务端只在该 revision 等于 active 当前 revision 时记录 accepted，并持久化实际接受的 `action_id/revision`。因此第一轮、初始建议或过期标签页都不能被误当作最后一轮接受。澄清固定复用初始建议的 V4 Pro 思考模型，最终建议仍受既有任务标题、时段和番茄钟规则校验。==
+==澄清不是开放聊天：每个 active suggestion 最多接收两条用户澄清，每条产生一个新的 action revision。第二轮必须收到完整的第一轮 `user_message + assistant_message + resulting_action`，使上下文连续而仍受两轮和字段长度限制。浏览器必须提交其看到的 `expected_action_revision`；服务端只在该 revision 等于 active 当前 revision 时记录 accepted，并持久化实际接受的 `action_id/revision`。因此第一轮、初始建议或过期标签页都不能被误当作最后一轮接受。澄清固定复用初始建议的 V4 Pro 思考模型，最终建议仍受既有任务标题、时段和番茄钟规则校验。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=targeted-unit-test-plus-pi-loopback; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md" -->

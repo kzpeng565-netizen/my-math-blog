@@ -361,6 +361,10 @@ class NextActionTests(unittest.TestCase):
                 "reduced_version": "先站起来。", "confidence": 0.7,
             },
         }
+        requests = []
+        def model_call(_settings, payload):
+            requests.append(payload)
+            return raw, {"model": "pro"}
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             active = {
@@ -371,7 +375,7 @@ class NextActionTests(unittest.TestCase):
             active_path = root / "next_action" / "active.json"
             active_path.parent.mkdir(parents=True)
             active_path.write_text(json.dumps(active), encoding="utf-8")
-            with patch("next_action.build_decision_state", return_value=state), patch("next_action._attach_recent_context"), patch("next_action._load_env_file"), patch("next_action._call_clarification_model", return_value=(raw, {"model": "pro"})):
+            with patch("next_action.build_decision_state", return_value=state), patch("next_action._attach_recent_context"), patch("next_action._load_env_file"), patch("next_action._call_clarification_model", side_effect=model_call):
                 first = clarify_next_action(settings, root, "s1", "第一步太大", 0)
                 self.assertEqual(first["action_revision"], 1)
                 self.assertEqual(len(first["clarification"]["rounds"]), 1)
@@ -385,6 +389,9 @@ class NextActionTests(unittest.TestCase):
                 (root / "next_action" / "responses" / "2026-07-30" / "s1-accepted.json").unlink()
                 second = clarify_next_action(settings, root, "s1", "还是很累", 1)
                 self.assertEqual(second["action_revision"], 2)
+                self.assertEqual(requests[1]["dialogue_history"][0]["user_message"], "第一步太大")
+                self.assertEqual(requests[1]["dialogue_history"][0]["assistant_message"], "先把动作缩到能立刻开始。")
+                self.assertEqual(requests[1]["dialogue_history"][0]["resulting_action"]["action_revision"], 1)
                 with self.assertRaisesRegex(ValueError, "round limit"):
                     clarify_next_action(settings, root, "s1", "再来一次", 2)
 

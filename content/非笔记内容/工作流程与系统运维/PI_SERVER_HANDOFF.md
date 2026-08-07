@@ -1165,8 +1165,8 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ## 2026-08-07：Next Action 两轮行动澄清
 
-==advisor 修改：`src/next_action.py`（`clarify_next_action`、与初始建议相同的 V4 Pro 思考模型、action revision 与接受校验）、`src/web_app.py`（`POST /api/next-action/{suggestion_id}/clarify`）、`tests/test_next_action.py`。Garden 修改：`focus_garden/server.py` 固定白名单转发 `/clarify`，`static/{app.js,index.html,style.css}` 提供“说说哪里卡住”卡片、0/2 轮次、简短上下文与“接受最后更新的这一步”提示。==
+==advisor 修改：`src/next_action.py`（`clarify_next_action`、与初始建议相同的 V4 Pro 思考模型、完整有界 `dialogue_history`、action revision 与接受校验）、`src/web_app.py`（`POST /api/next-action/{suggestion_id}/clarify`）、`tests/test_next_action.py`。Garden 修改：`focus_garden/server.py` 固定白名单转发 `/clarify`，`static/{app.js,index.html,style.css}` 提供“说说哪里卡住”卡片、0/2 轮次、简短上下文与“接受最后更新的这一步”提示。==
 
-==初版 UI/接口备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260807-clarify-2rounds/` 与 `/home/conrad/services/focus-garden/backups/20260807-clarify-2rounds/`；随后模型策略改为复用 V4 Pro 思考模型前的 advisor 备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260807-clarify-pro-model/`。恢复时只还原所需同名源码/静态文件并重启 `activitywatch-advisor-web.service focus-garden.service`；保留 `data/next_action/`，它包含用户的 active suggestion、澄清和反馈审计。验证：新增两轮/version/accept/model 单测通过，两服务 active，loopback 的 advisor 与 Garden `/api/next-action/active` 均返回 200。==
+==初版 UI/接口备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260807-clarify-2rounds/` 与 `/home/conrad/services/focus-garden/backups/20260807-clarify-2rounds/`；随后模型策略改为复用 V4 Pro 思考模型前的 advisor 备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260807-clarify-pro-model/`；加入完整两轮 dialogue history 前的 advisor 备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260807-clarify-dialogue-context/`。恢复时只还原所需同名源码/静态文件并重启 `activitywatch-advisor-web.service focus-garden.service`；保留 `data/next_action/`，它包含用户的 active suggestion、澄清和反馈审计。验证：新增两轮/version/accept/model/context 单测通过，两服务 active，loopback 的 advisor 与 Garden `/api/next-action/active` 均返回 200。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=targeted-unit-test-plus-pi-service-restart; retrieved_notes="Pi activitywatch-advisor and focus-garden deployment" -->

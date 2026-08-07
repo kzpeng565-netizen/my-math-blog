@@ -287,7 +287,7 @@ POST /api/next-action with unresolved active suggestion         -> 409 pending_o
 
 ## 2026-08-07：两轮行动澄清与最终接受
 
-==Garden 对外只增加固定路径 `POST /api/next-action/suggestion/{id}/clarify`，代理映射到 advisor 的 `/api/next-action/{id}/clarify`；仍只走 Pi loopback 和既有 Cookie，不能成为任意上游转发。请求体仅允许 `message`（最多 600 字符）与 `expected_action_revision`。每个 active suggestion 的 `clarification.rounds` 最多 2 条，新的行动覆盖 active 的展示字段但保留根 `suggestion_id`，并分配新的 `action_id/action_revision`；完整版本审计写入 `data/next_action/clarifications/`。==
+==Garden 对外只增加固定路径 `POST /api/next-action/suggestion/{id}/clarify`，代理映射到 advisor 的 `/api/next-action/{id}/clarify`；仍只走 Pi loopback 和既有 Cookie，不能成为任意上游转发。请求体仅允许 `message`（最多 600 字符）与 `expected_action_revision`。每个 active suggestion 的 `clarification.rounds` 最多 2 条；后续轮次会把此前每轮的用户卡点、助手回应和 resulting action 作为 `dialogue_history` 传给模型。新的行动覆盖 active 的展示字段但保留根 `suggestion_id`，并分配新的 `action_id/action_revision`；完整版本审计写入 `data/next_action/clarifications/`。==
 
 ==接受仍沿用 `/response`，但 `result=accepted` 必须带当前 revision。服务端读取 active 后比较 revision，成功记录 `accepted_action_id`、`accepted_action_revision` 和澄清轮数；旧页面、初始建议或并发更新后的接受返回冲突。澄清与初始建议一样调用 `decision_model`（当前为 `deepseek-v4-pro`、`thinking=enabled`）并输出 JSON，复用工作任务标题、午休和 40 分钟番茄钟校验；AI 不拥有任务/日程写权限。==
 
