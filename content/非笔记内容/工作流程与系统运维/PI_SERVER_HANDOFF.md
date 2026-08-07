@@ -1152,3 +1152,13 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==回退验证：Android `assembleDebug` 与真机安装此前已成功；公网心跳代理继续保留。Focus Garden 本地与 Pi 原版测试 23/23，`focus-garden.service` active；`/api/recent-context` 返回 `revision=5` 和 1 条记录，Tailnet 页面重新出现「近期动态」。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=rollback-and-server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-07：任务待安排区、删除与分钟级近期动态
+
+==任务 queue 新增 `delete` mutation；有效任务视图新增 `unassigned` 分组。电脑端 Pi Context Sync 是唯一 Markdown 写入器：没有 `⏳` 的 create/update 写入 `ToDo-任务集合.md` 顶部 `# ⚠️ 树莓派新增 · 待正式安排`，保留 `^blockid`；有 `⏳` 时移动至 `ToDo-已经规划好的任务.md`，完成移至 `已完成任务.md`，删除从原文件移除。不要让 Pi 直接改 Vault。==
+
+==`src/recent_context.py` 的 `range.start/end` 现在接受日期或分钟级 `YYYY-MM-DDTHH:MM+08:00`；日期端点仍按整日边界解释。确定性状态判断使用该精度；语义解析与相关性筛选继续固定 `deepseek-v4-flash` / `thinking=disabled`，10 秒、零重试。已备份修改前 advisor 到 `backups/task-context-20260807-181500/`，花园前端到 `/home/conrad/services/focus-garden/backups/task-context-20260807-181500/`。==
+
+==验证：Pi 上 `test_task_sync.py` 5/5、`test_recent_context.py` 23/23；`activitywatch-advisor-web.service` 和 `focus-garden.service` 均重启为 active，并经 loopback `/api/task-sync/state` 与 `/api/tasks` 返回成功确认。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=local-and-pi-tests-plus-live-endpoints; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->

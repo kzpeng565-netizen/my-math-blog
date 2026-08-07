@@ -478,3 +478,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==原计划加入 Focus Garden「系统状态」的 Android Bridge 验收卡已于同日回退：部署时错误覆盖了较新的「近期动态」前端和代理。已从 13:30/13:33 部署前备份恢复 Garden，近期动态 `revision=5`、原有 1 条记录仍在；Pi 与本地原版测试均为 23/23。Android 1.1.0 与公网代理不依赖该页面，继续保留。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=rollback-and-server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-08-07 状态更新：任务待安排区与分钟级近期动态
+
+==Focus Garden 的任务清单现有删除操作；未填写 `⏳` 的网页新任务保留自己的 block ID，并由桌面 Pi Context Sync 写入 `ToDo-任务集合.md` 顶部 `# ⚠️ 树莓派新增 · 待正式安排`。一旦在网页或规划流程中填入安排日，插件会用同一 ID 将该行移动到 `ToDo-已经规划好的任务.md`；Pi 仍只保存 mutation queue，不直接写 Markdown。==
+
+==近期动态的影响区间现可保留两种精度：仅日期继续存 `YYYY-MM-DD`；原文明确到时分时，Flash 解析器存带时区的 `YYYY-MM-DDTHH:MM+08:00`，并按真实起止时刻判断 upcoming/active/ended。解析器和相关性筛选器均固定使用 `deepseek-v4-flash`、`thinking=disabled`；无法可靠解析仍返回 vague/conditional，而非伪造时间。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=local-and-pi-tests-plus-live-endpoints; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->

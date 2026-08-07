@@ -647,3 +647,13 @@
 ==Focus Bridge 的 pending、heartbeat、decision、event 默认经 `https://pi.taild4d3f7.ts.net/focus-bridge/*` 公网 HTTPS 固定白名单路径访问 Pi；每台设备使用仅保存在应用私有目录与 Pi `0600` 文件中的独立 Bearer token。Tailnet `:8460` 只允许作为公网 IOException 后的备用。这样 Clash 与 Tailscale 的 Android 单 VPN 互斥不会中断手机控制。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=android-device-and-pi-verified; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
+### D77. 未安排网页任务以 collection 分区为权威入口【有效】
+
+==网页新增且没有 `⏳` 的任务必须保留 block ID，写入 `ToDo-任务集合.md` 顶部的 `# ⚠️ 树莓派新增 · 待正式安排`；不假装已经安排，也不丢弃到普通文本。填写真实安排日后，桌面唯一 Markdown 写入器将同一行（同一 ID）移至 `ToDo-已经规划好的任务.md`。删除同样只通过 queue 请求桌面写入器完成。==
+
+### D78. 影响时段优先保留用户表达的精度【有效】
+
+==仅有日期的区间保持日期精度；原文明示时分的区间才保存分钟级 ISO 时间与 `+08:00`。代码只能做确定的状态和窗口比较；自然语言无法可靠判定时，交给 `deepseek-v4-flash` 的非思考 JSON 解析，失败则保守标为 vague/conditional，绝不补造小时。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=local-and-pi-tests-plus-live-endpoints; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->

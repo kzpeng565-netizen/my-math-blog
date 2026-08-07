@@ -19,6 +19,12 @@ Read these files before planning:
 
 The task collection is the source of truth for tasks to add. The already-planned file is the source of truth for avoiding duplicates.
 
+## Pi-created unassigned tasks and stable IDs
+
+`# ⚠️ 树莓派新增 · 待正式安排` at the beginning of `ToDo-任务集合.md` is a special intake section. Its `#task` lines were created in My Focus Garden with no scheduled date. Treat them as real source tasks. Before planning, scan the collection, planned, and completed files for block IDs. Each executable Tasks line must end in one stable ID of the form `^` plus 4–32 ASCII letters, digits, or hyphens. Preserve an existing source ID exactly when moving a task; never silently replace or remove it. If an actionable source task has no ID, give it one unique 8-character ID once and keep that ID thereafter.
+
+When a task from this special section receives a real `⏳` date, remove its original line from the collection and write the scheduled line in `ToDo-已经规划好的任务.md` with the identical ID. Do not leave duplicate open copies in both files. Unscheduled Pi-created tasks stay under the special heading in the collection.
+
 If a task collection block contains an Obsidian wikilink that points to a homework note, treat that wikilink as part of the task identity and preserve it in the final Tasks line.
 
 ## Required Workflow
@@ -29,7 +35,7 @@ If a task collection block contains an Obsidian wikilink that points to a homewo
 4. If a block contains an Obsidian wikilink such as `[[15.测度性质与分解习题]]`, follow the link and read the linked note to determine the actual task content.
 5. For homework notes, count `[!Note]` blocks as the primary unit of work. If there are no `[!Note]` blocks, use numbered exercise headings or explicit listed questions.
 6. Estimate time and priority, then create one Tasks line per independent homework/major item. Do not split one homework note into many Tasks lines, but do not merge two different homework links merely because they belong to the same course.
-7. Append the newly planned Tasks code and a concise advice note to the end of `ToDo-已经规划好的任务.md`; never delete, overwrite, or reorganize previously planned content in that file.
+7. Append the newly planned Tasks code and a concise advice note to the end of `ToDo-已经规划好的任务.md`; never delete, overwrite, or reorganize previously planned content in that file. Preserve the source task's trailing block ID.
 8. Remove only task blocks that both (a) were successfully planned and (b) contain an Obsidian wikilink to an archived homework/task note. If a homework/task block in `ToDo-任务集合.md` has no wikilink, keep it in the collection even after creating a planned Tasks line, because it has not been archived yet.
 9. Keep unplanned blocks in `ToDo-任务集合.md` when links cannot be opened or task content is missing. If the task content is visible but no DDL can be inferred, still include it in the schedule, use the current date as `⏳`, omit a firm due date only when Tasks syntax would break, and add `(ddl未知)` to the task name; blocks without Obsidian wikilinks must still remain in the collection after planning.
 10. In the final response, show the Tasks lines that were written, summarize why each estimate was chosen, and list any blocks left unplanned.
@@ -145,6 +151,7 @@ Every planned task line must use this shape:
 Rules:
 
 - Keep task names short.
+- End every line with its stable `^taskid`; retain the exact original ID whenever a task came from `ToDo-任务集合.md`.
 - A postponed incomplete task must include the marker `&推迟过x天` in its name (before the tomato field); this marker is updated in place on later整理 runs and is not duplicated.
 - Preserve the original homework wikilink from `ToDo-任务集合.md` in the task name when present, e.g. `完成实分析作业[[15.测度性质与分解习题]]`.
 - Do not list all exercise numbers in the task description.

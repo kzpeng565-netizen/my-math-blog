@@ -22,6 +22,12 @@ For `$task-planner`, the holiday README takes precedence. Treat `任务管理rea
 
 Treat the collection as the source of tasks and the planned file as the source for duplicate detection. Read relevant holiday-plan, tutoring, reading, driving, appointment, or project wikilinks when needed. Use the current environment date.
 
+## Pi-created unassigned tasks and stable IDs
+
+`# ⚠️ 树莓派新增 · 待正式安排` at the beginning of `ToDo-任务集合.md` is a special intake section. Its `#task` lines were created from My Focus Garden without a scheduled day. They remain in the collection until a real `⏳` date is chosen; they are valid source tasks, not boilerplate.
+
+Every executable Tasks line must end with one stable Obsidian block ID in the form `^` plus 4–32 ASCII letters, digits, or hyphens. Before planning, scan the collection, planned, and completed files for existing IDs. Preserve a source task's exact ID when copying or moving it; never replace or drop it. If an actionable source line has no ID, add a new unique 8-character ID once, then retain that same ID in every later move. When a Pi-created task receives a real `⏳` date, move its line out of the special collection section into `ToDo-已经规划好的任务.md`, preserving its ID exactly; do not duplicate it in both files.
+
 Before reorganizing or appending a new holiday plan, scan `ToDo-已经规划好的任务.md` for tasks already marked completed (`- [x]`). Move only the completed task code lines themselves into `已完成任务.md`, then remove them from `ToDo-已经规划好的任务.md`. The completed archive must contain only Obsidian Tasks lines; do not add source notes, dates, category headings, blockquotes, explanations, or other surrounding context. Do not move unchecked tasks merely because their scheduled date is in the past or their tomato counter is full; keep them in the active plan unless the user explicitly confirms completion.
 
 Read `references/holiday-planning-rules.md` before classifying, grouping, estimating, or scheduling.
@@ -38,7 +44,7 @@ Read `references/holiday-planning-rules.md` before classifying, grouping, estima
 8. Calculate daily capacity after fixed events, travel, waiting, preparation, and buffer. When the user supplies none, use the holiday README fallback of at most 8 planned tomatoes per day. Sum planned tomatoes for every scheduled date and revise until no day exceeds capacity.
 9. Assign dates and priorities. Respect dependencies and do not schedule a contingent follow-up as if an external result were guaranteed.
 10. Run a granularity review: merge same-project, same-day short lines when compatible; split lines that combine dates, locations, dependencies, energy modes, or more than 8 🍅; remove any task derived only from advice or explanation.
-11. Append one dated planning batch to `ToDo-已经规划好的任务.md`. Inside the batch, use dynamically numbered `## N. 类别名称` headings and place every Tasks line under exactly one category.
+11. Append one dated planning batch to `ToDo-已经规划好的任务.md`. Inside the batch, use dynamically numbered `## N. 类别名称` headings and place every Tasks line under exactly one category. Preserve every task's trailing block ID.
 12. Append a concise plan note with capacity, deferred work, uncertainties, and at most three starting suggestions. Never overwrite or reorganize existing planned content.
 13. Remove a source unit only when it was successfully written, its boundary is unambiguous, and removal preserves unresolved context. Remove a whole `---` block only when all its tasks were planned.
 14. Report categorized Tasks written, aggregation decisions, daily capacity check, unresolved items, and removed source units.
@@ -69,7 +75,7 @@ Use a dated batch with inferred categories:
 - [ ] #task 任务名 [🍅:: 0/预计番茄钟] ⏳ YYYY-MM-DD
 ```
 
-Omit Normal priority and nonexistent due dates. Keep names compact; a parenthetical list of 2–4 tightly related deliverables is allowed when it makes a merged bundle verifiable. Use `[🍅:: ]` only when visible information cannot support a responsible estimate, and keep that source item unresolved.
+Omit Normal priority and nonexistent due dates. End every line with its stable `^taskid`. Keep names compact; a parenthetical list of 2–4 tightly related deliverables is allowed when it makes a merged bundle verifiable. Use `[🍅:: ]` only when visible information cannot support a responsible estimate, and keep that source item unresolved.
 
 ## Final Response
 
