@@ -312,8 +312,16 @@ class GardenService:
                 self.resume_focus()
             return 0
         if datetime.fromisoformat(session["ends_at"]) <= datetime.now(timezone.utc):
+            # Do not award or close a Windows focus session before a matching
+            # release has been queued.  The release request is idempotent by
+            # lease ID, so a transient Pi/agent failure is safe to retry.
+            try:
+                self.release_focus_lease(session)
+            except Exception:
+                # Keep the original execute receipt intact: it contains the
+                # lease ID needed by the next retry.
+                return 0
             rewards = self.db.complete_focus(session["id"])
-            self.release_focus_lease(session)
             self.db.advance_focus_plan_for_session(session["id"], utc_now())
             self.flush_task_focus_settlements()
             return rewards
@@ -417,14 +425,38 @@ class GardenService:
         if not blocks:
             return
         if os.environ.get("FOCUS_GARDEN_DISPATCH_INTERVENTIONS") == "1":
+            lease_id = self._focus_lease_id(session)
+            if not lease_id:
+                # Pre-lease historical sessions cannot prove ownership of a
+                # future Cold Turkey lock.  Let the Agent's expiry recovery
+                # handle any old lock instead of emitting a generic stop.
+                return
             status, payload, _ = self.next_action.intervention(
-                "manual_focus_release", "POST", body={"blocks": blocks}
+                "manual_focus_release", "POST",
+                body={"blocks": blocks, "lease_id": lease_id, "session_id": str(session.get("id", ""))},
             )
             if status != HTTPStatus.CREATED:
                 raise RuntimeError(str(payload.get("error", "intervention release rejected")))
             self.db.set_focus_execution(session["id"], [{"status": "release_queued", "targets": ["windows"], "dispatcher": payload}], failed=False)
         else:
             self.cold_turkey.stop(blocks)
+
+    @staticmethod
+    def _focus_lease_id(session: dict[str, Any]) -> str:
+        executions = session.get("cold_turkey", [])
+        if not isinstance(executions, list):
+            return ""
+        for execution in reversed(executions):
+            if not isinstance(execution, dict):
+                continue
+            dispatcher = execution.get("dispatcher", {})
+            request = dispatcher.get("request", {}) if isinstance(dispatcher, dict) else {}
+            if not isinstance(request, dict) or request.get("mode") != "execute":
+                continue
+            lease_id = str(request.get("lease_id") or request.get("request_id") or "").strip()
+            if lease_id:
+                return lease_id
+        return ""
 
     def pause_focus(self, pause_minutes: int) -> dict[str, Any]:
         session = self.db.focus()
@@ -858,9 +890,9 @@ class GardenHandler(BaseHTTPRequestHandler):
             if self.path == "/api/focus/cancel":
                 focus = self.service.db.focus()
                 if focus:
+                    self.service.release_focus_lease(focus)
                     self.service.db.cancel_focus(focus["id"])
                     self.service.db.cancel_focus_plan_for_session(focus["id"])
-                    self.service.release_focus_lease(focus)
                 return self._json({"ok": True})
             if self.path == "/api/focus/pause":
                 return self._json(self.service.pause_focus(int(body["pause_minutes"])))

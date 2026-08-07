@@ -6,7 +6,7 @@
 
 ## 系统是什么
 
-一个运行在树莓派上的**半小时行为解释系统**。每半小时自动收集电脑（ActivityWatch + Syncthing）、手机和平板（Android Automate）的使用数据，清洗后交 DeepSeek V4 Flash 生成语义时间线和核验报告，通过 PushPlus 微信公众号推送给用户。当前阶段**只核验 AI 的理解能力，不做任何自动干预**。
+==一个运行在树莓派上的**半小时行为解释系统**。每半小时自动收集电脑（ActivityWatch + Syncthing）、手机和平板（Android Automate）的使用数据，清洗后交 DeepSeek V4 Flash 生成语义时间线和核验报告，并保存到 `data/ai_reports/` 供 Next Action 与 Focus Garden 读取。自 2026-08-07 起，半小时报告不再发送 PushPlus；周报 PushPlus 与各类 ntfy 提醒仍按各自定时器运行。当前阶段不做未授权的自动干预。==
 
 ## 当前版本：第五版（可配置事实标签 + 精简双层 AI）
 
@@ -15,7 +15,7 @@
 - **第一版**：叙事型报告。用户反馈"没有直接回答工作多久、休息多久"——被否定。
 - **第二版**：指标先行，程序计算确定性数字（工作时间、休息时间等），AI 只负责语义解释。加入用户确认的休息规则（电脑 AFK ≥ 3 分钟 + 手机熄屏）。
 - **第三版**：引入两层 AI 调用——第一次生成语义时间线（work/entertainment/communication/rest/other/uncertain），程序据此计算工作-娱乐混杂指标，第二次 AI 只负责解释结果并生成报告。核心创新是**工作-娱乐混杂检测**：工作中被 AI 判断为娱乐且持续 > 30 秒才算一次偏离，30 秒及以下不计。
-- ==**第四版（2026-07-28 当前）**：增加只读 Obsidian 任务上下文、last-known-good 回退、上下文归档、影子干预候选和日/周统计。影子判断随原半小时 PushPlus 消息发送，但不会执行干预。全设备无活动时停止 AI 调用并跳过 PushPlus，仍完整归档。==
+- ==**第四版（2026-07-28 历史状态）**：增加只读 Obsidian 任务上下文、last-known-good 回退、上下文归档、影子干预候选和日/周统计。当时影子判断随半小时 PushPlus 消息发送但不执行干预；该半小时 PushPlus 通道已于 2026-08-07 停用，归档与影子候选继续保留。==
 - ==**第四版补充（2026-07-28 已部署）**：手机桌面快捷方式异常反馈已接入 `/annotation`。手机只上传 `category` 和可选 `message`；树莓派生成接收时间、编号、当前/候选半小时窗口，并关联最近 90 分钟内接收时间之前的 AI 报告和同窗口事实层。反馈仅作为人工调试标注，不触发 DeepSeek、不修改任务、不自动修复配置。==
 - ==**第五版（2026-07-28 已部署）**：清洗后的电脑、手机、平板事实先由 `fact_tagger.py` 按 `config/tag_rules.json` 打可追踪标签；统一保留“前5分钟 + 正式30分钟 + 后5分钟”的40分钟事实窗口。程序锁定高置信度通信、娱乐和确认休息，吸收1—3秒采样缝隙，DeepSeek只组合未锁定候选单元并输出语义；程序恢复精确秒数、拆开越界分组、计算混杂，第二次 DeepSeek只解释精简摘要。==
 - ==**第五版补充（2026-07-29 已部署）**：新增每日生活复盘 `daily_life_statistics.py` 与 ntfy 推送入口 `daily_life_notifier.py`。每天 09:00 统计前一天总工作、各类工作、娱乐前三项目、通信、AI使用分项和AI用途前三、手机睡眠边界，并结合 Obsidian 任务、番茄钟和 Profile 生成建议；建议层单独使用 DeepSeek V4 Pro，推送走纯文本 emoji 格式 ntfy，receipt 位于 `data/statistics/ntfy_receipts/daily_life/`。==
@@ -40,6 +40,7 @@
 - **[已由服务器核实]** ==标签事实层与双层 AI 瘦身已部署；主项目 49 项测试通过，`git diff --check` 通过。规则文件为 `config/tag_rules.json`，可用 Monaco Lite 直接编辑并以 `python3 src/fact_tagger.py --rules config/tag_rules.json` 校验。==
 - **[已由服务器核实]** ==隔离回放 19:00—19:30：完整覆盖1800秒，知乎两段为75秒和65秒，通信8.0分钟，无法判断0分钟；两次 DeepSeek估算合计约0.0069元。20:00—20:30：确认休息11.03分钟、知乎娱乐2.45分钟、确有35秒不确定段，估算约0.0121元。按两窗均值粗算，48窗/日约0.46元，较原约1.3元/日预计下降约65%。==
 - **[已由服务器核实]** ==部署后的正式 timer 于22:08完成21:30—22:00生产窗口并成功推送：语义时间线覆盖1800秒，报告校验通过，无缓存命中时两次调用合计估算约0.0137元。==
+- ==**[2026-08-07 当前状态]** 上述 PushPlus 成功记录均为历史验收证据；当前半小时服务只生成和归档报告，不再发送微信消息。==
 
 ## 当前运行的组件
 
@@ -51,8 +52,13 @@
 | `phone-usage-maintenance.timer` | active | 每日 03:30 归档压缩（>30 天）和清理（>365 天） |
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | triggered by timer | 单次执行，完成后退出 |
+| `activitywatch-advisor-web.service` | active | Next Action 后端仅监听 `127.0.0.1:8767`，经 tailnet-only `:8450` 访问 |
+| `focus-garden.service` | active | 启动入口 `app.py --port 8838`；HTTP 路由实现在 `focus_garden/server.py`，仅监听 `127.0.0.1:8838`，经 tailnet-only `:8460` 访问 |
+| `focus-garden-backup.timer` | active | 启动 1 分钟后运行，之后每分钟生成一致性 SQLite 快照 |
+| `pi-editor.service` | active | Monaco Lite 后端仅监听 `127.0.0.1:8766`，经 tailnet-only `:8443` 访问 |
+| `sysadmin-time-guard.timer` | active, enabled | 每 3 分钟检查最近 60 分钟系统维护活动 |
 | `activitywatch-advisor-daily-summary.timer` | disabled, inactive | 旧 PushPlus 日统计已停用，避免 09:00 发送旧版总数摘要 |
-| `activitywatch-advisor-daily-life.timer` | active, enabled | 每天 09:00 生成前一天每日生活复盘，并通过纯文本 emoji ntfy 推送；建议层使用 DeepSeek V4 Pro |
+| `activitywatch-advisor-daily-life.timer` | active, enabled | ==每天 09:00、10:00、11:00 检查前一天生活复盘；早晨边界未确定时延后，最迟 11:00 生成并通过纯文本 emoji ntfy 推送== |
 | `afternoon-task-check.timer` | active, enabled | ==每天 15:00 检查当天 Obsidian 规划任务是否完成过半；未过半时调用 DeepSeek V4 Flash 辅助裁决并通过 ntfy 提醒手机== |
 | `activitywatch-advisor-weekly-summary.timer` | active, enabled | 每周一 09:05 发送上一自然周统计 |
 | `bedtime-reminder.timer` | active, enabled | ==深夜设备使用 ntfy 提醒；每分钟夜间唤醒，策略窗口为 00:30—04:30== |
@@ -103,12 +109,12 @@
 6. 语义时间线校验（分钟总和、时间连续性、休息规则一致性）
 7. 工作-娱乐混杂指标计算（>30s 偏离检测）
 8. DeepSeek 生成最终核验报告
-9. PushPlus 微信公众号推送
+9. ==半小时报告本地归档与网页读取；PushPlus 半小时推送的历史验收已完成，但当前通道自 2026-08-07 起停用==
 10. systemd timer 自动调度
 11. ==Obsidian 三文件只读导出、原子写入和源文件哈希验证==
 12. ==Syncthing 独立上下文文件夹单向同步，中文文件名和 UTF-8 内容验证==
 13. ==树莓派上下文 schema 校验、last-known-good 回退和实际使用快照归档==
-14. ==影子候选生成并随半小时 PushPlus 消息供人工核验，正式干预保持关闭==
+14. ==影子候选生成并归档；当前可由本地报告、网页和独立 ntfy 检查链路核验，不再附加到半小时 PushPlus 消息==
 15. ==每日/每周统计生成、白天定时发送和发送回执去重==
 16. ==DeepSeek 非法 JSON 时降级归档，不再导致整个 systemd 流程失败==
 17. ==电脑无非 AFK 活动且手机、平板均无亮屏时，不调用 AI、不发 PushPlus但继续归档==
@@ -212,7 +218,7 @@ half_hour_reminder_check_ntfy
 
 ### 系统维护超时提醒
 
-系统维护超时提醒已部署并运行。`sysadmin-time-guard.timer` 为 `enabled / active`，每 5 分钟执行一次。当前实现不依赖半小时 AI prompt，而是在确定性分类层直接判断最近 30/60 分钟系统维护占比。
+系统维护超时提醒已部署并运行。==`sysadmin-time-guard.timer` 为 `enabled / active`，现场 `OnCalendar=*-*-* *:00/3:00`，每 3 分钟执行一次。==当前实现不依赖半小时 AI prompt，而是在确定性分类层直接判断最近 30/60 分钟系统维护占比。
 
 本次修正解决了 `ChatGPT.exe` 标题只有 `ChatGPT` 导致维护对话漏计的问题：当 `ChatGPT.exe` 或 `Codex.exe` 与明确系统维护片段间隔不超过 300 秒时，会继承为系统维护。数学、作业、定理、证明、`math`、`homework` 等关键词优先排除，避免数学学习中的 ChatGPT 被识别为系统维护。浏览器不作为通用桥接应用。
 
@@ -243,7 +249,7 @@ https://pi.taild4d3f7.ts.net:8450
 
 “下一步”功能已完成第一版闭环：点击网页按钮后临时生成决策状态，调用 DeepSeek V4 Pro，返回包含行动、依据和说服性解释的建议，并把状态快照、建议、响应和手动执行结果归档到 `data/next_action/`。
 
-“半小时报告”网页查看已可用，PushPlus 微信推送保留不变。网页中提交的报告反馈复用 `data/user_annotations/`，与 Automate HTTP 反馈进入同一个 raw/daily/UNREVIEWED 体系。
+“半小时报告”网页查看已可用。==该段最初上线时 PushPlus 微信推送保持不变；自 2026-08-07 起半小时 PushPlus 已停用，报告仍照常归档并供网页与 Focus Garden 读取。==网页中提交的报告反馈复用 `data/user_annotations/`，与 Automate HTTP 反馈进入同一个 raw/daily/UNREVIEWED 体系。
 
 日报睡眠边界已改为 09:00、10:00、11:00 三次检测。09:00/10:00 若早晨边界仍未出现，只写 pending 状态，不推送日报；11:00 仍未观察到则标记 possible_fault 并生成低置信日报。
 
@@ -500,3 +506,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==真机验收完成：测试 `accepted` 于 22:02:52 写入 Pi，22:03:04 手机开始 5 分钟正式流程，22:03:05 “不做手机控”校准确认成功，22:03:06 Pi 收到 final event。另有 10 秒无操作自动 `ignored` 的闭环验收。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=user-confirmed-plus-device-and-pi-event; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md" -->
+
+## 2026-08-07 状态更新：Cold Turkey legacy release 队列回归已隔离
+
+==一次 `accepted` 后立刻 `release` 的根因是旧版 Focus Garden 在 2026-08-05—06 写入了 2,761 条没有 `lease_id` 的 `manual_focus_pause` 请求；后续 durable 扫描把它们重新交给 Agent。Windows Agent 现拒绝无 lease 的 `-stop`；Pi 将这批原始 JSON 移至 `data/computer_interventions/archive/release/legacy-unleased/`，不再进入派发目录。==
+
+==新的 release 必须携带与启动请求相同的 `lease_id`；带 lease 的 release 只有在 Agent 回传 final 后才会移至 `archive/release/completed/`。未确认的带 lease release 不按时间删除，以保留电脑休眠或离线后的解锁补偿。Focus Garden 生产端已恢复从启动 dispatcher receipt 提取 lease、先安全入队 release 再结算或取消 session。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=windows-and-pi-tests-plus-live-queue-check; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->

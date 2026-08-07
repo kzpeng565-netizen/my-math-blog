@@ -6,7 +6,7 @@
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md" -->
 
-==用户确认：半小时报告仍原样写入 `data/ai_reports/YYYY-MM-DD/HH-MM.{json,md}`，专注花园的只读系统状态继续读取最新报告；但 `activitywatch-advisor.service` 不再向微信 PushPlus 发送。已在服务专用 systemd drop-in 中移除 `PUSHPLUS_TOKEN`，所以报告生成、归档、统计、影子候选和半小时 ntfy 提醒检查不受影响。==
+==用户确认：半小时报告仍原样写入 `data/ai_reports/YYYY-MM-DD/HH-MM.{json,md}`，专注花园的只读系统状态继续读取最新报告；但 `activitywatch-advisor.service` 不再向微信 PushPlus 发送。服务专用 drop-in `disable-half-hour-pushplus.conf` 通过 `UnsetEnvironment=PUSHPLUS_TOKEN` 清除半小时服务的有效令牌；基础 unit 对可选 `pushplus.env` 的历史引用仍存在，不代表半小时推送启用。报告生成、归档、统计、影子候选和半小时 ntfy 提醒检查不受影响。==
 
 > [!summary]
 > 本文档供后续 AI Agent 接管此项目时使用。标记体系：**[已由旧对话确认]**、**[已由服务器核实]**、**[仅讨论过]**、**[当前无法确认]**。
@@ -15,11 +15,11 @@
 
 **[已由旧对话确认]**
 
-用户（Conrad）建立一个**个人行为反馈中枢**，在树莓派上每半小时自动收集电脑、手机和平板使用数据，经独立清洗、可配置标签和确定性时间组装后交 AI 解释，通过 PushPlus 微信公众号发送短核验消息。当前第五版仍然**只核验 AI 理解能力，不自动干预**。
+==用户（Conrad）建立一个**个人行为反馈中枢**，在树莓派上每半小时自动收集电脑、手机和平板使用数据，经独立清洗、可配置标签和确定性时间组装后交 AI 解释，生成可供网页、Next Action 与 Focus Garden 读取的本地报告。半小时 PushPlus 已于 2026-08-07 停用；周报 PushPlus 和各类 ntfy 通知仍由独立定时器管理。==
 
 <!-- ai_provenance: source=codex; date=2026-07-28; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/DECISIONS.md,非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
-==**[已由用户确认][已由服务器核实] 第四版增加了只读 Obsidian 上下文、影子判断、日/周统计、PushPlus 人工核验和全设备无活动静默；这些能力在第五版继续保留。正式干预仍未启用。**==
+==**[历史能力][已由用户确认][已由服务器核实] 第四版增加了只读 Obsidian 上下文、影子判断、日/周统计、当时的 PushPlus 人工核验和全设备无活动静默。第五版保留上下文、归档、影子候选与静默判断，但不再发送半小时 PushPlus。**==
 
 ==**[已由用户确认][已由服务器核实] 同日完成第五版：清洗事实先经过可配置标签层，统一向语义模型提供40分钟精简事实；程序锁定确定性段并恢复精确时间，AI只解释未锁定候选。第二次模型只接收活动总量、至少30秒的重要片段和设备Top摘要。**==
 
@@ -70,7 +70,8 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
                      |
            ai_reports/ (JSON + Markdown) + intervention_candidates/
                      |
-           pushplus_client.py → 微信公众号（AI解释 + 影子判断）
+           ai_reports/ → 本地归档 + Next Action / Focus Garden 网页读取
+           pushplus_client.py → 半小时发送已停用（保留历史代码与回执）
                      |
            statistics_notifier.py → PushPlus 周报周一 09:05（旧日报 timer 已停用）
            daily_life_notifier.py → ntfy 每日生活复盘 09:00（纯文本 emoji，建议层用 DeepSeek V4 Pro）
@@ -78,7 +79,7 @@ Obsidian: Profile/Tasks/番茄钟 ---> Windows 只读导出器 ---> Syncthing Se
 ```
 
 > [!important]
-> ==**[已由用户确认][已由服务器核实] 当电脑没有非 AFK 活动（含无电脑消息/数据），且手机、平板均无亮屏证据时，不调用 DeepSeek、不发送 PushPlus；仍归档事实、上下文、本地报告、影子候选和统计。完整版必须保留该 token 节省短路。**==
+> ==**[已由用户确认][已由服务器核实] 当电脑没有非 AFK 活动（含无电脑消息/数据），且手机、平板均无亮屏证据时，不调用 DeepSeek；仍归档事实、上下文和统计所需状态。原“不发送 PushPlus”分支现属于历史兼容逻辑，因为半小时 PushPlus 已整体停用。**==
 
 ## 2. 手机、电脑与树莓派之间的数据流
 
@@ -224,8 +225,13 @@ message=可选说明
 | `phone-usage-maintenance.timer` | active | 每日约 03:30 归档压缩/清理 |
 | `activitywatch-advisor.timer` | active, enabled | 每半小时 08/38 分触发分析 |
 | `activitywatch-advisor.service` | inactive (dead, triggered by timer) | 单次分析，完成后退出 |
+| `activitywatch-advisor-web.service` | active | Next Action：`127.0.0.1:8767` → tailnet-only `:8450` |
+| `focus-garden.service` | active | `app.py --port 8838` 启动，路由在 `focus_garden/server.py`；`127.0.0.1:8838` → tailnet-only `:8460` |
+| `focus-garden-backup.timer` | active | 开机 1 分钟后及之后每分钟生成 SQLite 一致性快照 |
+| `pi-editor.service` | active | Monaco Lite：`127.0.0.1:8766` → tailnet-only `:8443` |
+| `sysadmin-time-guard.timer` | active, enabled | 每 3 分钟检查系统维护活动 |
 | `activitywatch-advisor-daily-summary.timer` | disabled, inactive | 旧 PushPlus 日统计已停用，避免 09:00 发送旧版总数摘要 |
-| `activitywatch-advisor-daily-life.timer` | active, enabled | ==每天 09:00 生成前一天每日生活复盘并通过纯文本 emoji ntfy 推送；建议层使用 DeepSeek V4 Pro== |
+| `activitywatch-advisor-daily-life.timer` | active, enabled | ==每天 09:00、10:00、11:00 检查早晨边界；满足条件即生成前一天生活复盘，最迟 11:00 处理并通过纯文本 emoji ntfy 推送== |
 | `afternoon-task-check.timer` | active, enabled | ==每天 15:00 检查当天 Obsidian 任务完成数和番茄钟是否过半；必要时通过 ntfy 高优先级提醒手机== |
 | `activitywatch-advisor-weekly-summary.timer` | active, enabled | 周一 09:05 发送上一自然周统计 |
 | `bedtime-reminder.timer` | active, enabled | ==深夜设备使用 ntfy 提醒调度；每分钟夜间唤醒，策略窗口 00:30—04:30== |
@@ -577,7 +583,7 @@ half_hour_reminder_check_ntfy
 
 ### 系统维护超时提醒
 
-`sysadmin-time-guard.timer` 已启用，每 5 分钟运行 `src/sysadmin_time_guard.py`。该系统直接读取最近 60 分钟 ActivityWatch 电脑前台时间线，不依赖半小时 AI prompt。此次修正位于确定性分类层：
+==`sysadmin-time-guard.timer` 已启用，现场 `OnCalendar=*-*-* *:00/3:00`，每 3 分钟运行 `src/sysadmin_time_guard.py`。==该系统直接读取最近 60 分钟 ActivityWatch 电脑前台时间线，不依赖半小时 AI prompt。此次修正位于确定性分类层：
 
 - `ChatGPT.exe` / `Codex.exe` 可作为上下文桥接应用。
 - 只有当它们与明确系统维护片段间隔不超过 300 秒时，才继承为系统维护。
@@ -694,10 +700,10 @@ Next Action Web 已新增问题反馈入口，用于记录用户发现的系统�
 
 ### 入口与认证
 
-公网入口仍是 Next Action Web：
+==本节记录 2026-07-30 上线时的历史入口；原公网 `:10000` Funnel 已于 2026-08-04 撤除。当前 Next Action 仅通过 Tailnet Serve `https://pi.taild4d3f7.ts.net:8450`，或通过 Focus Garden 的 tailnet-only `:8460` 代理访问。==
 
 ```text
-https://pi.taild4d3f7.ts.net:10000
+https://pi.taild4d3f7.ts.net:8450
 ```
 
 服务仍只监听本机：
@@ -706,7 +712,7 @@ https://pi.taild4d3f7.ts.net:10000
 127.0.0.1:8767
 ```
 
-登录凭据存放在树莓派私有环境文件中：
+==当前 Next Action 网页密码认证已关闭，安全边界是 Tailnet 和 loopback 代理。以下私有环境路径仅作为历史配置位置保留，不表示当前请求需要登录：==
 
 ```text
 /home/conrad/.config/activitywatch-advisor/web.env
@@ -739,7 +745,7 @@ POST /api/issue-feedback
 GET  /api/issue-feedback/recent
 ```
 
-两者都要求登录。未登录访问最近问题列表应返回 401。
+==两者当前在 `:8450` Tailnet 或 Focus Garden 受限代理内使用，不再要求网页密码登录；不得据此恢复公网 Funnel。==
 
 提交字段：
 
@@ -1200,3 +1206,13 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==生产文件：`/home/conrad/services/focus-garden/focus_garden/{database.py,server.py}`、`static/{index.html,app.js,frequency.css}`，测试为 28/28，通过后 `focus-garden.service` 已重启 active，`https://pi.taild4d3f7.ts.net:8460/` 返回 200。备份：`/home/conrad/services/focus-garden/backups/focus-garden-frequency-20260807-2226/` 与逐日调整前的 `.../focus-garden-frequency-20260807-2231-before-daily-breakdown/`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=local-and-pi-tests-plus-tailnet-ui; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/02-游戏架构.md,我的专注花园/05-Pi迁移验收与恢复清单.md" -->
+
+## 2026-08-07：Cold Turkey release backlog 隔离与保守归档
+
+==事故：22:09 的 execute 回执为 accepted，但 6 秒后收到一条 2026-08-06 创建的 `manual_focus_pause` release。该旧请求没有 `lease_id`，旧 Agent 路径将它作为泛化 `-stop` 执行。随后确认共 2,761 条同类记录；它们产生于旧 Focus Garden 的无 lease release 路径，并被“所有 release durable”扫描重新派发。==
+
+==修复：`D:\tools\computer-intervention-agent\agent.py` 对无 lease release 返回 final `legacy_release_ignored`，绝不调用 Cold Turkey；Advisor `src/computer_intervention.py` 拒绝创建无 lease release，超过 10 分钟宽限期的历史无 lease 文件归档到 `data/computer_interventions/archive/release/legacy-unleased/`。所有带 lease 的 release 一直待命，直到 Agent final 后移至 `archive/release/completed/`。原始 JSON 保留，不做不可恢复删除。==
+
+==Focus Garden 生产端 `/home/conrad/services/focus-garden/focus_garden/server.py` 从 execute dispatcher receipt 读取 lease 并在结束/取消前请求 release；没有可验证 lease 的历史 session 不发泛化 stop，依赖 Agent 的 wall-clock expiry 作为安全兜底。备份：Advisor `/home/conrad/workspace/backups/cold-turkey-release-legacy-fix-20260807-223100/`，Garden `/home/conrad/workspace/backups/focus-garden-release-lease-fix-20260807-224000/`。验证：Windows Agent 7/7、Advisor 9/9、Garden 29/29；两个服务 active，`/api/health` 正常，派发队列 release 为 0。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=windows-and-pi-tests-plus-live-queue-check; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->

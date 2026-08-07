@@ -12,6 +12,16 @@ from focus_garden.server import GardenHTTPServer, GardenService, NextActionProxy
 
 
 class GardenServiceTests(unittest.TestCase):
+    def test_focus_lease_id_only_uses_execute_dispatcher_receipt(self):
+        session = {
+            "cold_turkey": [
+                {"status": "release_queued", "dispatcher": {"request": {"mode": "release", "lease_id": "old"}}},
+                {"status": "queued", "dispatcher": {"request": {"mode": "execute", "lease_id": "lease-123"}}},
+            ]
+        }
+        self.assertEqual(GardenService._focus_lease_id(session), "lease-123")
+        self.assertEqual(GardenService._focus_lease_id({"cold_turkey": []}), "")
+
     def test_next_action_proxy_only_forwards_fixed_loopback_paths_and_cookie(self):
         response = MagicMock()
         response.status = 200

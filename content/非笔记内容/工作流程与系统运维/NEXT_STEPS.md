@@ -599,3 +599,15 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==自动化状态机已覆盖锁屏等待、重新锁屏、2 分钟忽略和解锁后新 10 秒窗口；后续只在自然介入中观察一次，不再为验收额外制造 2 分钟锁屏测试。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=user-confirmed-plus-device-and-pi-event; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md" -->
+
+## 2026-08-07 后续事项：release queue 安全清理
+
+### ☑ 已完成：legacy release 隔离与积压归档
+
+==已归档 2,761 条无 `lease_id` 的历史 release；Windows Agent、Pi dispatcher 与 Focus Garden 三端都要求/传递同一 lease。正常队列只保留未获得 final 回执的带 lease release。==
+
+### ☐ 待观察：自然发生的最终归档
+
+==下次真实暂停或专注结束后，确认带 lease release 在 Agent final 后出现在 `data/computer_interventions/archive/release/completed/`，且新介入不受旧 release 影响。继续保留既有“跨睡眠到期解锁”验收项。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=windows-and-pi-tests-plus-live-queue-check; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->

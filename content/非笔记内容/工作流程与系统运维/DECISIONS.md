@@ -675,3 +675,11 @@
 ==offer 生命周期由前台桥接服务统一管理：锁屏期间不强行弹 Activity，只检查设备可交互状态；解锁后通过已连接的无障碍服务启动应用内介入页。页面只提供接受、拒绝和 10 秒超时，重新锁屏会撤下页面并恢复等待。超时记为 `ignored`，决定先持久化再提交，提交成功前后续 pending 快照不得覆盖。无障碍服务不可用时保留通知操作作为降级入口，不引入 Automate 或第三方唤醒链路。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=user-confirmed-plus-device-and-pi-event; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md" -->
+
+### D81. release 必须有可验证 lease，清理以归档和终态为准【有效】
+
+==任何缺失 `lease_id` 的 release 都不得调用 Cold Turkey `-stop`：它无法证明属于当前锁，必须作为 legacy 记录隔离。Pi 对创建超过 10 分钟的无 lease release 自动移入私有 archive，保留原始 JSON；新 API 不再生成这类请求。==
+
+==带 `lease_id` 的 release 是解锁补偿命令，不以任意 TTL 删除。只有 Windows Agent 回传 final（实际 released 或安全的 ownership 不匹配）后，Pi 才将该 request 从派发目录移入 completed archive。因而自动清理的依据是“无法匹配任何 lease”或“已经获得终态回执”，不是猜测电脑是否在线。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=windows-and-pi-tests-plus-live-queue-check; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
