@@ -27,6 +27,8 @@ tags:
 
 ==`D:\PiClientMigration\CURRENT.json` 是“新设备该用哪一版”的唯一指针。旧 release 不覆盖、不删除；创建新版时使用新的 release ID，并在验收通过后才更新 CURRENT。==
 
+==该目录通过独立 Syncthing folder `pi-client-migration` 复制到 Pi：Windows 为 Send Only，Pi `/home/conrad/workspace/pi-client-migration` 为 Receive Only并保留 staggered 历史版本。这个副本仍是无密钥 release，不代替 Restic 私有备份。==
+
 ## 2. 三类配置必须分开
 
 ### 2.1 可以版本化的内容
@@ -78,6 +80,9 @@ tags:
 ### 3.3 Automate 设置
 
 权威 flow 名为 `Phone Usage Logger`。当前私有二进制位于 `automate手机日志收集发送Flow`，其哈希已记录在客户端 release，但由于包含上传 token，没有复制到安全 release。
+
+> [!danger]
+> 截至 `2026.08.07-r1`，该 flow 没有可恢复的异机副本：哈希只能证明文件身份，不能恢复文件。旧手机和当前 Vault 同时损坏时，只能按本指南手工重建。必须在 Restic 加密仓库启用后补入带版本号的私有 `.flo` 导出。
 
 导入后逐项核对：
 
@@ -136,6 +141,8 @@ tags:
 
 ==release 中的 XML 是旧设备配置证据，不建议在新电脑直接无脑导入：其中含旧用户名、SID、Python 和程序路径。优先运行各源码仓库自带安装脚本，再用 XML 对照触发器、运行级别和电池策略。==
 
+==也可以在核对路径后运行 release 的 `windows\scheduled-tasks\install-client-tasks.ps1`，一次建立 5 个规范任务。它有意不恢复重复的 `Behavior Context Exporter Timer`；脚本运行后仍需逐个检查 action、trigger 和最近结果。==
+
 ### 4.4 Syncthing 方向
 
 - ActivityWatch：Windows Send Only，Pi Receive Only；
@@ -169,5 +176,25 @@ tags:
 4. 停止旧客户端任务，确认 Pi 队列没有未完成命令。
 5. 启用新电脑计划任务和新手机后台服务。
 6. 观察至少一个完整半小时窗口，再移除旧设备的 Tailscale/Syncthing 身份。
+
+## 7. 回滚
+
+在新客户端连续稳定运行一个完整半小时窗口以前，不删除旧设备源码、应用、Tailscale/Syncthing 身份或计划任务。
+
+如果新手机失败：
+
+1. 停止新手机的 Focus Bridge 前台服务与 Automate flow；
+2. 将 Pi 的 `focus_bridge_token.txt` 恢复为旧手机 token，或重新运行旧手机对应的安全配对流程；
+3. 重新启用旧手机 flow/Bridge，确认 heartbeat 和上传恢复；
+4. 保留失败新机日志，但不得让两个手机同时上传相同 device 身份。
+
+如果新电脑失败：
+
+1. 停止新电脑的 5 个客户端计划任务和 Syncthing；
+2. 重新启用旧电脑任务，确认 ActivityWatch、行为上下文和 intervention heartbeat；
+3. 不让新电脑继续消费 intervention 队列或写入同步目录；
+4. 如果故障来自新版构建，将 `CURRENT.json` 改回上一个已验证 release，再从其 Git bundle 恢复；禁止覆盖或修改失败 release 本身。
+
+如果新 Pi 失败，保持客户端仍指向旧 Pi 的 MagicDNS/路由，停用新 Pi 写入 timer，并按 [[我的专注花园/05-Pi迁移验收与恢复清单]] 回退。只有回滚链路验收成功后，才移除失败设备身份。
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=local-build-tests-and-live-config-inventory; retrieved_notes="手机使用记录系统——手机端操作与维护指南.md,ActivityWatch 树莓派同步运维手册.md,我的专注花园/专注花园桥接手机APP.md,PI_SERVER_HANDOFF.md" -->

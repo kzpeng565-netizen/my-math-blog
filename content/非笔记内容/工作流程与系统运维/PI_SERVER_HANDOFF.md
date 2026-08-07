@@ -1255,4 +1255,6 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ==安全边界：Focus Bridge token 在新手机生成后通过 `pair-focus-bridge.ps1` 直接写入 Pi；脚本不打印 token。Automate 私有 flow 位于 Vault 的既有二进制文件，因内含上传 token，只记录哈希而未进入 release。私有配置仍等待外部 Restic 仓库；Minecraft 来源素材不属于任何客户端构建。==
 
+==客户端 release 已通过 Syncthing folder `pi-client-migration` 形成第二份副本：Windows `D:\PiClientMigration` 为 Send Only，Pi `/home/conrad/workspace/pi-client-migration` 为 Receive Only并启用 staggered versioning。该目录无密钥，不能用来恢复 Automate token、SSH/Syncthing 身份或私有素材。==
+
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=local-source-tests-build-and-bundle-verified; retrieved_notes="local client sources, builds, Scheduled Tasks" -->
