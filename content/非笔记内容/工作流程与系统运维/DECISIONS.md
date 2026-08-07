@@ -481,6 +481,14 @@
 
 ==每个 Focus Garden session 最多暂停一次，暂停分钟数为显式输入。暂停阻止结算并请求释放电脑 lease；恢复会重启同 profile 的 allowlist。只要使用过暂停，整轮最终有效专注分钟、植物积分和关联任务番茄积分统一按原计划时长的 1/2 结算。==
 
+### D65. Cold Turkey lease 必须由 agent 按绝对时间回收【有效】
+
+==普通半小时介入与 Focus Garden 专注均保留可暂停的 `-start/-stop` lease，不使用 Cold Turkey `-lock` 计时。Windows agent 持久化 `lease_id` 与 `lock_until_estimated`，在启动、轮询和唤醒后的第一次循环执行过期回收；因此休眠不会让解锁依赖某一个瞬时轮询。==
+
+==Pi 的 release 命令是 durable pending，必须等 Windows agent 对匹配 lease 返回成功或安全的 `lease_superseded` 后才标记完成。release 请求不受普通 180 秒 TTL 限制，并按稳定 ID 去重；旧 lease 的 release 不得关闭新的 lease。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
 
 ### D68. 健康面板只聚合状态和新鲜度，不读取用户内容【有效】

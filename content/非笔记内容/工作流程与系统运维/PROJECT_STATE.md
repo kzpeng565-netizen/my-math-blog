@@ -315,6 +315,16 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 <!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
 
+## 2026-08-07 状态更新：Cold Turkey 可恢复 lease 与休眠补偿
+
+==Windows agent 继续使用 Cold Turkey `-start <block>` / `-stop <block>` 的可暂停 lease，不使用 `-lock 30`。每个 lease 持久化 `lease_id`、来源和绝对 `lock_until_estimated`；agent 在启动、每轮轮询、处理请求后按 wall-clock 回收过期 lease，因此电脑休眠或 agent 重启后也能补发 `-stop`。==
+
+==Pi 的 Focus Garden release 请求改为 durable pending：不再因 180 秒 TTL 在休眠期间丢失；请求带有 lease ownership，旧 release 不能停止新的 lease。Focus session 只有在 release 已成功入队后才完成结算。==
+
+==2026-08-07 验证：Windows agent lease 测试 6/6 通过；Pi computer intervention 测试 6/6 通过；Focus Garden 本地测试 27/27 通过；两个 Pi 服务重启后保持 active，花园 loopback health 返回 `{"status":"ok"}`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
 ## 2026-08-02 状态更新：我的专注花园第一版
 
 ==Windows 本地新增个人使用的像素风游戏“我的专注花园”，项目位于 `D:\MyFocusGarden`，只监听 `127.0.0.1:8838`。它不新增树莓派端口或服务，不回写 Obsidian、Next Action、行为 facts 或 Cold Turkey 数据库。==

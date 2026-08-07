@@ -818,7 +818,7 @@ POST /api/computer-interventions/ack
 POST /api/computer-interventions/response
 ```
 
-==Windows 端 agent 位于 `D:\tools\computer-intervention-agent\`，只允许执行本地 allowlist 中的 Cold Turkey block：`常刷网站` 与 `bilibili`。默认命令路径为 `D:\Cold Turkey\Cold Turkey Blocker.exe`，执行 `-start <block> -lock 30`。拒绝两次后第三次强制介入；封锁成功、agent 判断目标已处于本地估计封锁状态、或系统观察到恢复，都会重置拒绝计数。B 站 block 在周六全天、周日全天、周一 00:00-12:00 Asia/Shanghai 例外。==
+==Windows 端 agent 位于 `D:\tools\computer-intervention-agent\`，只允许执行本地 allowlist 中的 Cold Turkey block：`常刷网站` 与 `bilibili`。默认命令路径为 `D:\Cold Turkey\Cold Turkey Blocker.exe`，普通介入执行可暂停的 `-start <block>` lease，由 agent 按绝对到期时间执行 `-stop <block>`，不使用 `-lock 30`。拒绝两次后第三次强制介入；封锁成功、agent 判断目标已处于本地估计封锁状态、或系统观察到恢复，都会重置拒绝计数。B 站 block 在周六全天、周日全天、周一 00:00-12:00 Asia/Shanghai 例外。==
 
 <!-- ai_provenance: source=codex; date=2026-07-31; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
 
@@ -1039,7 +1039,7 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ==Pi 已部署 `focus_garden/database.py`、`server.py`、`cold_turkey.py`，Advisor 的 `computer_intervention.py`、`web_app.py`，以及 `/static/lease-status.js`。部署前备份位于 `/home/conrad/backups/focus-garden/20260805-pomodoro-lease` 和 `/home/conrad/backups/activitywatch-advisor/20260805-pomodoro-lease`。==
 
-==新增接口：`POST /api/focus/pause {pause_minutes}`、`POST /api/focus/resume`，以及仅供同机 Focus Garden 调用的 Advisor `POST /api/interventions/manual-focus/release {blocks}`。不要对外暴露 Advisor；Garden 仍只通过 loopback 请求它。==
+==新增接口：`POST /api/focus/pause {pause_minutes}`、`POST /api/focus/resume`，以及仅供同机 Focus Garden 调用的 Advisor `POST /api/interventions/manual-focus/release {blocks, lease_id, session_id}`。release 请求是 durable pending，不因电脑休眠超过 180 秒而丢失；不要对外暴露 Advisor，Garden 仍只通过 loopback 请求它。==
 
 ==Windows `D:\tools\computer-intervention-agent\agent.py` 已改为现有 agent 的 `mode=release` 分支和 Cold Turkey `-start`/`-stop` lease，计划任务 `ComputerInterventionAgent` 已重启。系统状态 API 的 `bridges.windows.lease_state` 与 `lease_blocks` 是网页展示的唯一来源。==
 
@@ -1128,3 +1128,15 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ## 2026-08-06：近期动态 v3.1 交接补充
 
 ==新增模块：src/recent_context.py（存储/RLock/revision/损坏恢复/解析/动态状态/粗筛）、src/recent_context_selector.py（V4 Flash 非思考筛选 + 本地降级）。数据：data/recent_context/state.json + parse_audit.jsonl。API（全部要求 loopback + X-Focus-Garden-Bridge==1）：GET /api/recent-context[?include_archived=1]、GET /api/recent-context/relevant；POST /api/recent-context、/{id}/update、/{id}/archive、/{id}/unarchive、/{id}/pin、/{id}/unpin、/{id}/confirm。写接口必须带 expected_revision；冲突 409 {code:revision_conflict,current_revision}；损坏 503 recent_context_state_corrupt（损坏文件只复制一次为 state.json.corrupt-<ts>，不回退空状态）。next_action.py PROMPT_VERSION=next-action-v1.3，build_decision_state 之后 attach recent_context（代码粗筛→AI 筛选→最多 6 条），最终 AI 需返回 decision_trace.recent_context_used（服务端子集校验）。Focus Garden：侧栏「近期动态」页 + Next Action「当前情境」卡（≤3 条，代码粗筛，不调筛选 AI）；代理白名单 _RECENT_CONTEXT_PATHS。settings.json 新增 recent_context 段（enabled/direct_window_hours=24/preparation_window_days=7/review_after_days=14/parser_*/selector_*）。验收：2026-08-06 本地真实 AI 冒烟 + Pi 全量测试（advisor 141 仅 2 项既有失败、garden 23/23）+ enabled=false→true 分阶段 + 两条测试记录归档。回滚：保留 data/recent_context/ 永不删除。==
+
+## 2026-08-07：Cold Turkey lease 休眠补偿部署
+
+==Windows `D:\tools\computer-intervention-agent\agent.py` 已加入 wall-clock lease 回收：agent 启动、每轮轮询和处理请求后检查 `active_locks[*].lock_until_estimated`，过期即执行 `-stop`；状态持久化后，电脑休眠或 agent 重启不会跳过到期解锁。release 请求带 `lease_id` ownership，旧 release 不会关闭新的 lease；失败 release 不发送 final 完成回执，会保留 pending 继续重试。==
+
+==Advisor 的 `computer_intervention.py` 与 `web_app.py` 已将 Focus release 改为 durable pending、稳定请求 ID，并优先保留所有 release 文件，不受普通请求 80 条扫描窗口影响。Focus Garden `server.py` 已改为先确保 release 入队再完成 session，避免到期异常造成已结算但未解锁。==
+
+==部署前备份：`/home/conrad/workspace/backups/cold-turkey-lease-20260807-132900/` 与 `/home/conrad/workspace/backups/focus-garden-cold-turkey-lease-20260807-133000/`。`activitywatch-advisor-web.service`、`focus-garden.service` 已重启并保持 active；loopback health 返回 200。==
+
+==验证：Windows agent 测试 6/6、Advisor intervention 测试 6/6、Focus Garden 本地测试 27/27 通过。Advisor 全量测试仍有 2 项既有 task/Next Action fixture 失败，与本次 lease 改动无关，未修改相关模块。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->

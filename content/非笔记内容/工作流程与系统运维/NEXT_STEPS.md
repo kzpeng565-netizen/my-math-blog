@@ -545,6 +545,22 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 <!-- ai_provenance: source=codex; date=2026-08-04; verification=checked; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
 
+## 2026-08-07 后续事项：Cold Turkey lease 可靠性
+
+### ☑ 已完成：可暂停 lease 的自动到期解锁
+
+==已部署 Windows agent 的 wall-clock 过期回收、lease ownership 和失败重试；普通介入继续使用 `-start/-stop`，不牺牲 Focus Garden 的一次暂停能力。Pi release 改为 durable pending，Focus session 先入队 release 再完成结算。==
+
+### ☐ 待验证：真实休眠跨过到期时刻
+
+==找一次可接受的短时真实专注：在 lease 到期前让电脑休眠，超过到期时间后唤醒，确认 agent 自动执行 `-stop`、Pi 状态刷新为 idle，且没有重复结算。不要用不可逆的 Cold Turkey hard lock。==
+
+### ☐ 待观察：失败 release 的重试状态
+
+==日常观察网络短暂中断、Cold Turkey 进程不可用和 agent 重启时，确认 release 不会被标记为 final 丢失；恢复后应自动清理 pending。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=implementation-verified; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
 ## 2026-08-06 近期动态 v3.1 部署清单
 
 ### ☑ 已完成：本地真实 AI 冒烟与部署
