@@ -486,3 +486,9 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==近期动态的影响区间现可保留两种精度：仅日期继续存 `YYYY-MM-DD`；原文明确到时分时，Flash 解析器存带时区的 `YYYY-MM-DDTHH:MM+08:00`，并按真实起止时刻判断 upcoming/active/ended。解析器和相关性筛选器均固定使用 `deepseek-v4-flash`、`thinking=disabled`；无法可靠解析仍返回 vague/conditional，而非伪造时间。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=local-and-pi-tests-plus-live-endpoints; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-08-07 状态更新：Next Action 两轮行动澄清
+
+==Next Action 现支持最多两轮“卡点 → 更新行动”的短对话。每轮与初始建议一样使用 `deepseek-v4-pro`、`thinking=enabled`，将用户的一句阻力重新纳入完整判断后生成新的可执行行动版本；不会创建/修改任务、安排、番茄钟或花园记录。接受请求携带 `expected_action_revision`，服务端只接受 active suggestion 的当前最后版本，并把 `accepted_action_id/revision` 写入反馈记录，旧版本和过期点击一律拒绝。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=targeted-unit-test-plus-pi-loopback; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md" -->
