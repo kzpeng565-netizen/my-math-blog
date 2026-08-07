@@ -644,10 +644,6 @@
 
 ### D76. 手机控制关键链路不得依赖 Tailscale【有效】
 
-==Focus Bridge 的 pending、heartbeat、decision、event 默认经 `https://pi.taild4d3f7.ts.net/focus-bridge/*` 公网 HTTPS 固定白名单路径访问 Pi；每台设备使用仅保存在应用私有目录与 Pi `0600` 文件中的独立 Bearer token。Tailnet `:8460` 只允许作为公网 IOException 后的备用，不得作为合格验收的网络通道。这样 Clash 与 Tailscale 的 Android 单 VPN 互斥不会中断手机控制。==
-
-### D77. Focus Bridge 合格必须由连续运行证据判定【有效】
-
-==一次新鲜心跳不能判定修复成功。验收同时要求 1.1.0+、前台服务、`public_https`、无障碍已启用且已连接、最近轮询正常，并累计至少 7 次健康心跳、跨度至少 30 分钟、最大间隔不超过 8 分钟；Tailnet 备用、旧版字段、轮询异常或服务重启均不得显示“合格”。==
+==Focus Bridge 的 pending、heartbeat、decision、event 默认经 `https://pi.taild4d3f7.ts.net/focus-bridge/*` 公网 HTTPS 固定白名单路径访问 Pi；每台设备使用仅保存在应用私有目录与 Pi `0600` 文件中的独立 Bearer token。Tailnet `:8460` 只允许作为公网 IOException 后的备用。这样 Clash 与 Tailscale 的 Android 单 VPN 互斥不会中断手机控制。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=android-device-and-pi-verified; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->

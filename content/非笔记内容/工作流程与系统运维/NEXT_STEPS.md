@@ -576,18 +576,14 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 - 在真实 UI 中关闭当前建议后，再生成一次，确认 recent_context_used 由最终模型输出并回显；
 - 长期：把既有 task_sync 的 read-modify-write 也加上 RLock（recent_context 已实现，task_sync 仍是无锁模式）。
 
-## 2026-08-07 后续事项：Focus Bridge 1.1.0 稳定性
+## 2026-08-07 后续事项：Focus Bridge 1.1.0
 
 ### ☑ 已完成：公网主链路、前台常驻与真机即时验收
 
 ==新版 APK 已安装并完成设备 token 配对；Pi 已收到 `transport=public_https`、`fallback_active=false`、无障碍已连接和 `last_poll_status=no_pending`。无需 Automate 或“不做手机控”负责唤醒；二者不进入关键链路。==
 
-### ☐ 自动观察：等待系统状态转为“合格”
-
-==保持日常使用即可，不要额外制造真实锁机。系统累计至少 7 次健康心跳且跨度达到 30 分钟后自动显示“合格”；若变为“失联/未合格”，按卡片中失败项区分公网、无障碍、前台服务或轮询问题。==
-
 ### ☐ 日常复核：实际开启 Clash 后检查一次
 
-==使用 Clash 时打开「专注花园 → 系统状态」，确认通道仍为“公网 HTTPS（不依赖 Tailscale）”、轮询正常；下一次自然专注任务再核对执行回执，不额外触发锁机测试。==
+==下一次自然使用 Clash 时，以 Focus Bridge 本地日志和自然专注任务的执行回执确认公网链路持续正常；不额外触发锁机测试。Focus Garden 验收卡已回退，不再以该卡作为检查入口。==
 
-<!-- ai_provenance: source=codex; date=2026-08-07; verification=android-device-and-pi-verified; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=rollback-and-server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->

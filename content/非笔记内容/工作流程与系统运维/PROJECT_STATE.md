@@ -471,10 +471,10 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 ==近期动态（recent context）已上线：advisor 新增 src/recent_context.py、src/recent_context_selector.py 与 /api/recent-context* 九个固定接口；Focus Garden 新增「近期动态」侧栏页与 Next Action「当前情境」卡片。数据存于 data/recent_context/state.json（revision + RLock 乐观并发），解析审计 data/recent_context/parse_audit.jsonl。用户原文是唯一权威，AI 解析与筛选只作辅助；解析 prompt 以 recorded_at 为基准；筛选失败自动降级，不中断 Next Action。PROMPT_VERSION 升至 next-action-v1.3；recent_context_used 只保存并校验候选 ID。认证要求 loopback + X-Focus-Garden-Bridge==1。2026-08-06 以 enabled=false 部署两端、Pi 全量测试（advisor 141 项仅 2 项既有失败；garden 23/23）后开启开关，并完成两条 [系统验收测试] 记录的真实解析、生成与归档。==
 
-## 2026-08-07 状态更新：Focus Bridge 公网主链路与常驻验收
+## 2026-08-07 状态更新：Focus Bridge 公网主链路
 
 ==Android Focus Bridge 已升级为 1.1.0：独立前台服务承担 15 秒轮询与 5 分钟心跳，使用 `START_STICKY`、持久通知、开机/应用升级恢复；无障碍服务只负责界面执行。关键 API 默认走普通公网 HTTPS，不依赖 Tailscale，旧 `:8460` 仅作为网络异常时的备用。公网固定路径使用设备独立 Bearer token，密钥只存手机应用私有目录和 Pi 的 `0600` 文件。==
 
-==Focus Garden「系统状态」已增加 Android Bridge 极简验收卡：检查心跳、1.1.0 协议、前台服务、`public_https`、无障碍连接、轮询和连续稳定性。2026-08-07 真机即时检查均通过，当前为“观察中”；达到至少 7 次健康心跳且跨度 30 分钟、最大间隔不超过 8 分钟后自动转为“合格”。本地与 Pi 测试均为 28/28。==
+==原计划加入 Focus Garden「系统状态」的 Android Bridge 验收卡已于同日回退：部署时错误覆盖了较新的「近期动态」前端和代理。已从 13:30/13:33 部署前备份恢复 Garden，近期动态 `revision=5`、原有 1 条记录仍在；Pi 与本地原版测试均为 23/23。Android 1.1.0 与公网代理不依赖该页面，继续保留。==
 
-<!-- ai_provenance: source=codex; date=2026-08-07; verification=android-device-and-pi-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=rollback-and-server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
