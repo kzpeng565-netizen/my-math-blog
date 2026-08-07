@@ -1192,3 +1192,11 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==验证：`verify.ps1` 的 13 项状态机检查与 offline clean assembleDebug 通过。用户确认介入页正文、10 秒整数倒计时显示正常。Pi 决定 `bridge-accept-test-20260807T220244-f94ce3=accepted`；Android 22:03:04 开始 5 分钟正式流程、22:03:05 完成 `quick_pomodoro_confirmed_calibrated`，Pi 22:03:06 保存 final response。另一次损坏消息测试在 10 秒后正确提交 `ignored`。未修改 Focus Garden 生产代码、数据库或“近期动态”。完整专题见 [[我的专注花园/专注花园桥接手机APP]]。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=user-confirmed-plus-device-and-pi-event; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md" -->
+
+## 2026-08-07：Focus Garden 使用频率卡片
+
+==开始专注页右侧「最近奖励」下已新增「花园使用频率」。卡片逐日列出近三日的花园已完成专注分钟数、Next Action 完成／采纳／询问数，并另列本周；日行比较上周同日，本周比较上周同期。`完成` 是 accepted suggestion 后记录 completed outcome 的唯一建议数，不是 Garden 专注 session 数。来源只读 Pi SQLite 与 advisor Next Action 归档，不新增写入、端口或公开路由。==
+
+==生产文件：`/home/conrad/services/focus-garden/focus_garden/{database.py,server.py}`、`static/{index.html,app.js,frequency.css}`，测试为 28/28，通过后 `focus-garden.service` 已重启 active，`https://pi.taild4d3f7.ts.net:8460/` 返回 200。备份：`/home/conrad/services/focus-garden/backups/focus-garden-frequency-20260807-2226/` 与逐日调整前的 `.../focus-garden-frequency-20260807-2231-before-daily-breakdown/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=local-and-pi-tests-plus-tailnet-ui; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/02-游戏架构.md,我的专注花园/05-Pi迁移验收与恢复清单.md" -->
