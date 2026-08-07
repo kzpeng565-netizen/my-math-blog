@@ -587,3 +587,15 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==下一次自然使用 Clash 时，以 Focus Bridge 本地日志和自然专注任务的执行回执确认公网链路持续正常；不额外触发锁机测试。Focus Garden 验收卡已回退，不再以该卡作为检查入口。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=rollback-and-server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+## 2026-08-07 后续事项：Focus Bridge 1.2.1
+
+### ☑ 已完成：10 秒介入页与接受执行闭环
+
+==已安装 `1.2.1 (14)`；13 项状态机检查和离线干净构建通过。真机完成两条闭环：10 秒未操作上报 `ignored`；点击接受后 Pi 生成 execute，手机启动 5 分钟“不做手机控”，并回传 `started_requested / quick_pomodoro_confirmed_calibrated`。==
+
+### ☐ 日常观察：锁屏后再解锁的自然场景
+
+==自动化状态机已覆盖锁屏等待、重新锁屏、2 分钟忽略和解锁后新 10 秒窗口；后续只在自然介入中观察一次，不再为验收额外制造 2 分钟锁屏测试。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=user-confirmed-plus-device-and-pi-event; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md" -->

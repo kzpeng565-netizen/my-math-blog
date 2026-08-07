@@ -1182,3 +1182,13 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==症状：页面把最新建议显示为“模型暂时不可用”，但归档 `_generation.finish_reason=stop` 且包含 DeepSeek V4 Pro 的正常 token 用量，说明模型调用本身已成功。根因在 `src/next_action.py` 的番茄钟结果校验：它把不同字段中“还剩 1 个番茄（40 分钟预算）”与“25 分钟启动片段”拼接后误认为“一个番茄等于 25 分钟”，抛出 `ValueError` 并错误降级为 fallback。==
 
 ==修复：校验现只在同一句确实将番茄钟与 15/25/30 分钟相等、完成或耗时关联时拒绝；独立的剩余预算和短启动片段可以共存。保留真正“用 25 分钟完成这个番茄”的拒绝测试，并新增误报场景的允许测试。部署前备份：`/home/conrad/workspace/backups/next-action-20260807-2039/`。==
+
+## 2026-08-07：Focus Bridge 1.2.1 介入页与真机闭环
+
+==Windows 源码位于 `D:\MyFocusGarden\focus-bridge-android`，安装包为 `app\build\outputs\apk\debug\app-debug.apk`，当前手机版本 `1.2.1 (14)`。新增 `InterventionPromptActivity` 与纯 Java `OfferStateMachine`：锁屏等待总预算 120 秒；手机可用后显示 10 秒整数倒计时；接受、拒绝或超时忽略均交回前台服务持久化提交；选择页重新锁屏时关闭并恢复等待。说明文字若已损坏为连续问号或 `U+FFFD`，应用回退为内置中文。==
+
+==前台服务继续独立承担 15 秒 pending 轮询和 5 分钟 heartbeat；公网 HTTPS 是主链路，Tailnet 仅为 IOException fallback。决定在本地持久化，网络失败每 15 秒重试；提交成功前，`no_pending` 或新 offer 不得清除旧决定。无障碍服务继续负责打开“不做手机控”和可见校准点击，Automate 不在关键链路。==
+
+==验证：`verify.ps1` 的 13 项状态机检查与 offline clean assembleDebug 通过。用户确认介入页正文、10 秒整数倒计时显示正常。Pi 决定 `bridge-accept-test-20260807T220244-f94ce3=accepted`；Android 22:03:04 开始 5 分钟正式流程、22:03:05 完成 `quick_pomodoro_confirmed_calibrated`，Pi 22:03:06 保存 final response。另一次损坏消息测试在 10 秒后正确提交 `ignored`。未修改 Focus Garden 生产代码、数据库或“近期动态”。完整专题见 [[我的专注花园/专注花园桥接手机APP]]。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=user-confirmed-plus-device-and-pi-event; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md" -->

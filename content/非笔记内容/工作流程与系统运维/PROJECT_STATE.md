@@ -492,3 +492,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==Next Action 现支持最多两轮“卡点 → 更新行动”的短对话。每轮与初始建议一样使用 `deepseek-v4-pro`、`thinking=enabled`，将用户的一句阻力重新纳入完整判断后生成新的可执行行动版本；第二轮会明确收到第一轮的用户卡点、助手回应和产生的行动版本，不只看当前结果。不会创建/修改任务、安排、番茄钟或花园记录。接受请求携带 `expected_action_revision`，服务端只接受 active suggestion 的当前最后版本，并把 `accepted_action_id/revision` 写入反馈记录，旧版本和过期点击一律拒绝。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=targeted-unit-test-plus-pi-loopback; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md" -->
+
+## 2026-08-07 状态更新：Focus Bridge 1.2.1 介入选择页
+
+==Android Focus Bridge 已部署 `1.2.1 (14)`：收到 offer 后，手机未锁定时打开原生介入页，显示“接受 / 拒绝”和 10 秒整数倒计时；锁屏时继续检查最多 2 分钟，仍不可用则提交 `ignored`。页面期间重新锁屏会关闭页面，解锁后重新给出完整 10 秒。决定持久化并重试，提交成功前不会被新的轮询结果覆盖；已损坏为连续问号或替换字符的说明会回退为应用内置中文。==
+
+==真机验收完成：测试 `accepted` 于 22:02:52 写入 Pi，22:03:04 手机开始 5 分钟正式流程，22:03:05 “不做手机控”校准确认成功，22:03:06 Pi 收到 final event。另有 10 秒无操作自动 `ignored` 的闭环验收。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=user-confirmed-plus-device-and-pi-event; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md" -->
