@@ -623,3 +623,35 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==下次自然打开闲鱼时，只核对半小时报告是否显示“购物”及该窗口不出现 `work_entertainment_alternation`；不要为验收专门制造锁定或介入。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-targeted-tests-and-replay; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+## 2026-08-07 后续事项：可编辑迁移
+
+### ☑ 已完成：安全源码异机副本
+
+==Pi 的可编辑源码、Git 历史、部署清单和恢复脚本已进入 `D:\PiSystemMigration\current`；清单哈希通过，Minecraft 来源素材、令牌和数据目录均为 0。安全导出 timer 已启用，私有备份 timer 未启用。==
+
+### ☐ 待配置：私有加密备份目的地
+
+==准备一个不公开的外置盘、NAS 或 SSH/SFTP 目标，为 Restic 设置仓库和独立密码文件；完成首次备份、`check` 与 staging 恢复后，才启用 `pi-portable-private-backup.timer`。密码不得写进 Git、Syncthing 源码目录或本文档。==
+
+### ☐ 更换设备时：双机并行验收后切换
+
+==先在新设备运行 Ansible、恢复私有状态到 staging，检查端口、权限、素材数和服务健康；迁移 Tailscale 身份并停用旧机写入后，才启用新机的接收、报告和 Focus Garden 写入 timer。不要让两台设备同时写数据库或消费 intervention 队列。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=implementation-verified; retrieved_notes="Pi portable migration implementation" -->
+
+## 2026-08-07 后续事项：客户端迁移
+
+### ☑ 已完成：首个客户端版本化 release
+
+==`D:\PiClientMigration\releases\2026.08.07-r1` 已保存 Android `1.3.1 (16)` APK、三套可编辑 Git bundle、脱敏模板、ActivityWatch/Pi Editor 脚本和计划任务参考；SHA-256 与 bundle 完整性验证通过。==
+
+### ☐ 待加密备份：客户端秘密和 Automate flow
+
+==现有 `Phone Usage Logger` 二进制包含实时上传 token，因此只记录私有路径和哈希，没有复制进普通 release。完成 Restic 外部仓库后，将该 flow、Windows SSH/Syncthing 身份和真实配置纳入加密备份，并在新设备验收时轮换 token。==
+
+### ☐ 下次维护：合并重复的 Behavior Context Exporter 任务
+
+==当前同时保留登录触发任务和旧的 Timer 任务。迁移前不改变正在运行的生产配置；新电脑应优先使用仓库安装脚本创建统一的登录 + 20 分钟任务，验收成功后不再恢复旧兼容任务。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=inventory-and-release-verified; retrieved_notes="Windows Scheduled Tasks and client release" -->

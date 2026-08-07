@@ -689,3 +689,19 @@
 ==闲鱼（网页标题/idlefish 域名、应用名或 `com.taobao.idlefish`）必须被 deterministic tag rule 锁定为 `shopping`，并以独立边界进入语义时间线。购物不是娱乐、也不是休息或工作；它保持时长可见，但不进入 entertainment minutes、娱乐偏离或工作—娱乐转换，因而不得单独或与前后工作段共同触发 `work_entertainment_alternation`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-targeted-tests-and-replay; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
+### D83. 迁移以可编辑源码、声明式重建和分离私有状态为准【有效】
+
+==不把系统打成不可编辑镜像或容器作为主迁移方式。代码、依赖清单、systemd 单元、端口与 Tailscale 路由由本地 Git、清单和 Ansible 重建；运行数据、令牌和受版权约束素材走独立加密备份。新设备先恢复到隔离目录并验收，原 Pi 继续作为唯一生产写入端，直到明确切换。==
+
+### D84. Minecraft 来源素材永不进入公开发布链路【有效】
+
+==`static/assets/{plants,mushrooms,blocks}` 不得被 Git 跟踪、不得进入可公开的源码快照、网站部署或公开远程。私有编辑副本可以保留素材以维持预览能力，但必须依赖 `.gitignore`、pre-push 拦截和发布前检查；迁移时只能通过私有加密 Restic 仓库恢复。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=implemented-and-guard-tested; retrieved_notes="Pi live repositories and copyright asset audit" -->
+
+### D85. 客户端迁移采用“可编辑 Git bundle + 可安装构建 + 分离秘密”【有效】
+
+==每个客户端 release 必须包含可恢复完整历史的 Git bundle、构建/任务参考、脱敏配置模板和 SHA-256 清单；APK 只是快速安装副本，不能代替源码。`CURRENT.json` 只在验收后指向新版，旧 release 保持不可变。设备 token、上传 token、密码、SSH/Syncthing 身份和用户数据只进加密私有备份或在新设备重建。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=implemented-and-release-verified; retrieved_notes="Pi client migration release 2026.08.07-r1" -->

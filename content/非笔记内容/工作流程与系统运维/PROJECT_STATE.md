@@ -520,3 +520,19 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==已将闲鱼固定为 `shopping`，覆盖网页标题/idlefish 域名、手机与平板应用名，以及 `com.taobao.idlefish` 包名。该规则以程序锁定段生效，语义模型不能改写为娱乐；购物会在半小时报告、推送和每日汇总中单列，且不计入高刺激、娱乐偏离或工作—娱乐切换，因此不会以 `work_entertainment_alternation` 触发 Cold Turkey。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-targeted-tests-and-replay; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-08-07 状态更新：可编辑迁移体系已落地
+
+==Pi 已建立源码级迁移体系，生产服务仍从原路径运行。`/home/conrad/workspace/editable/` 提供 Advisor、Focus Garden、手机接收器和 Monaco Lite 的可编辑副本；迁移控制仓库位于 `/home/conrad/workspace/pi-portable-system/`。安全源码快照每 6 小时导出到 `/home/conrad/workspace/pi-system-migration/current/`，再由 Syncthing 以 Pi Send Only、Windows Receive Only 同步到 `D:\PiSystemMigration`。==
+
+==Focus Garden 的 51 个 Minecraft 来源素材仅存在于 Pi 私有生产目录与忽略它们的私有编辑副本，Git 跟踪数和迁移快照包含数均为 0。所有生产仓库无远程并安装拒绝 push 的钩子；编辑副本只允许指向 `/home/conrad/` 的本机远程。Restic 已安装，但外部加密仓库和密码尚未配置，因此私有数据备份定时器保持 disabled；不得为求“完整”而把素材加入公开仓库或普通源码同步。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-and-windows-export-audit; retrieved_notes="Pi live system and migration repositories" -->
+
+## 2026-08-07 状态更新：客户端配置与构建已版本化
+
+==手机/电脑迁移基线现统一记录于 `D:\PiClientMigration\CURRENT.json`。当前 release 为 `2026.08.07-r1`：Focus Bridge `1.3.1 (16)` 保存经验证 APK 与完整 Git bundle；Windows Computer Agent、Behavior Context Exporter 保存本地 Git tag、bundle 和脱敏配置模板；ActivityWatch 同步脚本、Pi Editor bypass 与 6 个计划任务 XML 作为恢复证据保留。==
+
+==三个客户端源码目录已建立本地 Git，均无远程且默认拒绝 push。真实 token、密码、SSH 私钥、Syncthing 身份、用户数据、Automate 含 token 的原始 flow 和 Minecraft 来源素材没有进入 release。完整配置顺序见 [[Pi系统手机端与电脑端迁移配置流程]]。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=build-tests-bundle-and-manifest-verified; retrieved_notes="local Android and Windows client configurations" -->

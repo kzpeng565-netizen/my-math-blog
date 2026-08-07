@@ -1224,3 +1224,35 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==备份：`/home/conrad/backups/activitywatch-advisor/xianyu-shopping-20260807-231928/`。验证：JSON/语法检查通过；`test_cleaning`、`test_daily_life_statistics`、`test_computer_intervention` 共 45/45 通过；按 2026-08-07 22:45—22:49 闲鱼窗口回放为 shopping、deviation=0、qualified transitions=0。全量 discover 为 151/152，通过外的一项为 `test_next_action.test_build_state_uses_context_and_recent_reports` 的任务夹具上下文未产生 task_titles，未改动该模块。无需重启 timer；web service 保持 active。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-targeted-tests-and-replay; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-07：Focus Bridge 1.3.1 真实锁机确认与时效降级
+
+==手机已安装 `1.3.1 (16)`。新增 Android `GetawayNotificationListenerService`（系统通知使用权）确认 `com.pl.getaway.getaway` 的真实 `getaway_pomo` 子通知；group summary 不算成功。熄屏/锁定期间每秒轮询且不消耗 attempts；亮屏解锁后最多三次，每次间隔 20 秒。三次仍无真实通知则写手机日志、上传 final failed，并由花园“最近锁机执行”显示错误。final 结果先存本机，网络失败每 15 秒重传。==
+
+==自动介入执行按 execute `created_at` 降级：`<8 分钟 → 30 分钟`、`8–<15 分钟 → 20 分钟`、`≥15 分钟 → expired 且不锁机`；手动专注与本地调试保持指定时长。Advisor `src/computer_intervention.py` 将接受后 execute TTL 从 180 秒延长到 960 秒，给手机留出 15 分钟判断与短暂 final 回传余量。备份：Android `D:\MyFocusGarden\backups\20260807-lock-confirm-before\focus-bridge-android`；Advisor `/home/conrad/workspace/activitywatch-advisor/backups/20260807-phone-lock-age/`；Garden `/home/conrad/services/focus-garden/backups/20260807-lock-confirm-before/`。==
+
+==Focus Garden 生产端仅窄改 `focus_garden/server.py` 与 `bridge_monitor.py`：心跳白名单接收通知权限/连接、锁机状态/时长/次数/错误；系统状态新增“锁机结果确认”“最近锁机执行”，最低合格版本为 1.3.0。未替换 static 前端、SQLite 或“近期动态”。Garden monitor 5/5、Advisor intervention 10/10、Android 26 项纯 Java 检查与 Gradle build 均通过；`focus-garden.service`、`activitywatch-advisor-web.service` active，loopback `/api/health` 与 `/api/system-status` 正常。==
+
+==真机实测：5 分钟第 1 次通知确认成功；新鲜 30 分钟按 20 秒间隔三次失败并同步到花园；9 分钟请求自动降为 20 分钟并成功确认；15 分钟请求直接 expired；确认 `mWakefulness=Asleep` 后投递时为 `waiting_screen / attempts=0`，手动解锁后才尝试并最终确认 30 分钟。熄屏测试中 Android 服务曾被系统重建，Pi 未 final 的请求重新下发后恢复成功。完整架构见 [[我的专注花园/专注花园桥接手机APP]]。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=device-plus-pi-multi-scenario-tested; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md" -->
+
+## 2026-08-07：可编辑源码迁移与私有素材隔离
+
+==迁移控制仓库：`/home/conrad/workspace/pi-portable-system/`（tag `portable-system-v1`）；安全源码导出：`/home/conrad/workspace/pi-system-migration/current/`；Monaco 可编辑区：`/home/conrad/workspace/editable/`。生产服务路径未改变。安全导出由 `pi-portable-export.timer` 每 6 小时触发，Windows 接收端为 `D:\PiSystemMigration`；Pi 文件夹模式为 Send Only，Windows 为 Receive Only 并启用 staggered versioning。==
+
+==仓库安全边界：Advisor、Focus Garden、phone receiver 和迁移控制仓库均无外部 remote，pre-push 默认拒绝发布；编辑副本的 `production-local` 只能指向 Pi 本机路径。Focus Garden 私有编辑副本含 51 个被忽略的 Minecraft 来源素材，生产仓库和安全导出均不跟踪/携带它们。素材校验清单仅保存在 `/home/conrad/.local/state/pi-portable-system/private-assets.sha256`，权限 0600。==
+
+==私有恢复链路尚未激活：Restic 0.18.0 已安装，但 `/root/.config/pi-portable-system/restic.env` 不存在，`pi-portable-private-backup.timer` 为 disabled/inactive，脚本会以退出码 3 安全拒绝运行。配置外部私有仓库后，应依次运行 `backup-private-state.sh`、`check-private-backup.sh`、`restore-private-to-staging.sh`，先在 staging 验证，禁止直接覆盖生产。验证结果：基础设施脚本语法、YAML、systemd 单元、生产端口/路由和安全导出均通过；Garden 31/31、pi-editor 29/29、phone receiver 编译通过；Advisor 152/153，其中唯一失败仍是已知的 `test_build_state_uses_context_and_recent_reports` 任务夹具问题。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-live-and-windows-manifest-verified; retrieved_notes="Pi live system, systemd units, Git repositories, Syncthing configuration" -->
+
+## 2026-08-07：手机与电脑客户端迁移基线
+
+==客户端版本指针为 `D:\PiClientMigration\CURRENT.json`，当前 `2026.08.07-r1`。Android Focus Bridge 源码 commit `17bd187`、tag `focus-bridge-v1.3.1-build16`，APK SHA-256 为 `9c9c53b4ff46a7d7fb73fbbcdc2089584538e3da013d4090982430e5ff039b9d`；Computer Agent commit `9c97cc7`；Behavior Context Exporter commit `35f6dbf`。三个仓库均无 remote，pre-push 拒绝发布。==
+
+==release 另含 ActivityWatch 同步脚本、Pi Editor bypass 和当前 6 个计划任务 XML。XML 只作旧机证据，不能在新机直接无脑导入，因为用户名、SID 和绝对路径会变化。恢复应从 Git bundle clone 可编辑源码，复制 example 为真实配置，再运行各组件安装脚本。完整流程见 [[Pi系统手机端与电脑端迁移配置流程]]。==
+
+==安全边界：Focus Bridge token 在新手机生成后通过 `pair-focus-bridge.ps1` 直接写入 Pi；脚本不打印 token。Automate 私有 flow 位于 Vault 的既有二进制文件，因内含上传 token，只记录哈希而未进入 release。私有配置仍等待外部 Restic 仓库；Minecraft 来源素材不属于任何客户端构建。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=local-source-tests-build-and-bundle-verified; retrieved_notes="local client sources, builds, Scheduled Tasks" -->
