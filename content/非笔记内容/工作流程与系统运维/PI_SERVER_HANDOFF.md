@@ -1140,3 +1140,15 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==验证：Windows agent 测试 6/6、Advisor intervention 测试 6/6、Focus Garden 本地测试 27/27 通过。Advisor 全量测试仍有 2 项既有 task/Next Action fixture 失败，与本次 lease 改动无关，未修改相关模块。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=local-tests-and-pi-service-restart; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-07：Focus Bridge 1.1.0 公网主链路与验收模块
+
+==Android 工程：`D:\MyFocusGarden\focus-bridge-android`。1.1.0 将轮询/心跳迁入 `BridgeForegroundService`（15 秒/5 分钟、失败心跳 60 秒重试、`START_STICKY`），BootReceiver 在开机和包升级后恢复服务。公网是关键链路；Tailnet `https://pi.taild4d3f7.ts.net:8460` 仅作 IOException 备用。==
+
+==公网代理复用 `phone-usage-receiver.service` 与 Funnel 443，只开放四个固定路径：`GET /focus-bridge/pending`、`POST /focus-bridge/heartbeat`、`POST /focus-bridge/decision`、`POST /focus-bridge/event`，上游只允许 `127.0.0.1:8838` 对应接口，请求体上限 16 KiB。代码：`/home/conrad/phone_usage/receiver.py`；设备密钥：`/home/conrad/phone_usage/focus_bridge_token.txt`（0600，禁止写入日志、Git、文档或终端输出）。==
+
+==验收模块：`/home/conrad/services/focus-garden/focus_garden/bridge_monitor.py`，历史事件保存在现有 Garden SQLite 的 `bridge_heartbeat_events`；页面位于「系统状态 → Android Bridge 验收」。部署备份：`/home/conrad/workspace/backups/focus-bridge-monitor-20260807-1333/`。即时状态须为 `public_https`、前台服务、无障碍已连接、轮询非错误；7 次/30 分钟连续心跳后才显示合格。==
+
+==验证：Android `assembleDebug` 成功并真机 `adb install -r`；前台服务 `isForeground=true`；公网心跳已写入 Pi，状态为 `public_https` / `fallback_active=false` / `no_pending`；Focus Garden 本地与 Pi 测试 28/28，`focus-garden.service`、`phone-usage-receiver.service` 均 active。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=android-device-and-pi-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
