@@ -2,6 +2,12 @@
 
 # 半小时行为解释系统——接管交接文档
 
+## 2026-08-07 更新：停用半小时微信推送
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md" -->
+
+==用户确认：半小时报告仍原样写入 `data/ai_reports/YYYY-MM-DD/HH-MM.{json,md}`，专注花园的只读系统状态继续读取最新报告；但 `activitywatch-advisor.service` 不再向微信 PushPlus 发送。已在服务专用 systemd drop-in 中移除 `PUSHPLUS_TOKEN`，所以报告生成、归档、统计、影子候选和半小时 ntfy 提醒检查不受影响。==
+
 > [!summary]
 > 本文档供后续 AI Agent 接管此项目时使用。标记体系：**[已由旧对话确认]**、**[已由服务器核实]**、**[仅讨论过]**、**[当前无法确认]**。
 

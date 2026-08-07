@@ -2,6 +2,12 @@
 
 # 半小时行为解释系统——DECISIONS
 
+### D45. 半小时报告只归档，不再微信推送 【有效】
+
+**[已由用户确认][已由服务器核实]**
+
+==半小时 AI 报告必须继续写入 `data/ai_reports/`，供专注花园只读状态面板读取最新报告；`activitywatch-advisor.service` 通过 systemd drop-in 移除 `PUSHPLUS_TOKEN`，使该服务的 PushPlus 发送确定性跳过。该开关仅作用于半小时报告，周报 PushPlus 与独立 ntfy 通知不变。==
+
 > 本文档记录项目中的关键设计决策及其原因。每个决策标注状态：**有效** / **已废弃** / **待评估**。
 
 ## 架构决策
