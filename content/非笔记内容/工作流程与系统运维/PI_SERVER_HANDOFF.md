@@ -1170,3 +1170,9 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==初版 UI/接口备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260807-clarify-2rounds/` 与 `/home/conrad/services/focus-garden/backups/20260807-clarify-2rounds/`；随后模型策略改为复用 V4 Pro 思考模型前的 advisor 备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260807-clarify-pro-model/`；加入完整两轮 dialogue history 前的 advisor 备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260807-clarify-dialogue-context/`。恢复时只还原所需同名源码/静态文件并重启 `activitywatch-advisor-web.service focus-garden.service`；保留 `data/next_action/`，它包含用户的 active suggestion、澄清和反馈审计。验证：新增两轮/version/accept/model/context 单测通过，两服务 active，loopback 的 advisor 与 Garden `/api/next-action/active` 均返回 200。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=targeted-unit-test-plus-pi-service-restart; retrieved_notes="Pi activitywatch-advisor and focus-garden deployment" -->
+
+## 2026-08-07：Next Action 模型可用性误报修复
+
+==症状：页面把最新建议显示为“模型暂时不可用”，但归档 `_generation.finish_reason=stop` 且包含 DeepSeek V4 Pro 的正常 token 用量，说明模型调用本身已成功。根因在 `src/next_action.py` 的番茄钟结果校验：它把不同字段中“还剩 1 个番茄（40 分钟预算）”与“25 分钟启动片段”拼接后误认为“一个番茄等于 25 分钟”，抛出 `ValueError` 并错误降级为 fallback。==
+
+==修复：校验现只在同一句确实将番茄钟与 15/25/30 分钟相等、完成或耗时关联时拒绝；独立的剩余预算和短启动片段可以共存。保留真正“用 25 分钟完成这个番茄”的拒绝测试，并新增误报场景的允许测试。部署前备份：`/home/conrad/workspace/backups/next-action-20260807-2039/`。==
