@@ -337,6 +337,7 @@ def _ai_usage(
         "by_activity": {
             "work": _minutes(by_activity["work"]),
             "entertainment": _minutes(by_activity["entertainment"]),
+            "shopping": _minutes(by_activity["shopping"]),
             "brief_communication": _minutes(by_activity["brief_communication"]),
             "other": _minutes(by_activity["other"]),
             "uncertain": _minutes(by_activity["uncertain"]),
@@ -775,6 +776,7 @@ def render_markdown(summary: dict[str, Any]) -> str:
             f"总计：{_format_minutes(ai['total_minutes'])}",
             f"用于工作：{_format_minutes(ai['by_activity'].get('work', 0))}",
             f"用于娱乐：{_format_minutes(ai['by_activity'].get('entertainment', 0))}",
+            f"用于购物：{_format_minutes(ai['by_activity'].get('shopping', 0))}",
             f"用于通信：{_format_minutes(ai['by_activity'].get('brief_communication', 0))}",
             f"无法判断：{_format_minutes(ai['by_activity'].get('uncertain', 0))}",
             "",

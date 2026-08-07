@@ -683,3 +683,9 @@
 ==带 `lease_id` 的 release 是解锁补偿命令，不以任意 TTL 删除。只有 Windows Agent 回传 final（实际 released 或安全的 ownership 不匹配）后，Pi 才将该 request 从派发目录移入 completed archive。因而自动清理的依据是“无法匹配任何 lease”或“已经获得终态回执”，不是猜测电脑是否在线。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=windows-and-pi-tests-plus-live-queue-check; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->
+
+### D82. 闲鱼固定为购物，不能构成娱乐偏离【有效】
+
+==闲鱼（网页标题/idlefish 域名、应用名或 `com.taobao.idlefish`）必须被 deterministic tag rule 锁定为 `shopping`，并以独立边界进入语义时间线。购物不是娱乐、也不是休息或工作；它保持时长可见，但不进入 entertainment minutes、娱乐偏离或工作—娱乐转换，因而不得单独或与前后工作段共同触发 `work_entertainment_alternation`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-targeted-tests-and-replay; retrieved_notes="非笔记内容/工作流程与系统运维/DECISIONS.md" -->

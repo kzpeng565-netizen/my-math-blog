@@ -1216,3 +1216,11 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==Focus Garden 生产端 `/home/conrad/services/focus-garden/focus_garden/server.py` 从 execute dispatcher receipt 读取 lease 并在结束/取消前请求 release；没有可验证 lease 的历史 session 不发泛化 stop，依赖 Agent 的 wall-clock expiry 作为安全兜底。备份：Advisor `/home/conrad/workspace/backups/cold-turkey-release-legacy-fix-20260807-223100/`，Garden `/home/conrad/workspace/backups/focus-garden-release-lease-fix-20260807-224000/`。验证：Windows Agent 7/7、Advisor 9/9、Garden 29/29；两个服务 active，`/api/health` 正常，派发队列 release 为 0。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=windows-and-pi-tests-plus-live-queue-check; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-07：闲鱼购物分类与介入触发隔离
+
+==Advisor 修改：`config/tag_rules.json` 新增 `shopping.xianyu`，以标题、idlefish 域名、手机/平板应用名与 `com.taobao.idlefish` 包名锁定 `shopping`；`src/{fact_tagger.py,semantic_analysis.py,deepseek_client.py,run_half_hour.py,pushplus_client.py,daily_life_statistics.py}` 和 `prompts/semantic-segmenter.md` 已扩展购物分类。`shopping` 在报告、推送和每日汇总中单列，但不参与娱乐偏离、工作—娱乐转换或行为介入。==
+
+==备份：`/home/conrad/backups/activitywatch-advisor/xianyu-shopping-20260807-231928/`。验证：JSON/语法检查通过；`test_cleaning`、`test_daily_life_statistics`、`test_computer_intervention` 共 45/45 通过；按 2026-08-07 22:45—22:49 闲鱼窗口回放为 shopping、deviation=0、qualified transitions=0。全量 discover 为 151/152，通过外的一项为 `test_next_action.test_build_state_uses_context_and_recent_reports` 的任务夹具上下文未产生 task_titles，未改动该模块。无需重启 timer；web service 保持 active。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-targeted-tests-and-replay; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->

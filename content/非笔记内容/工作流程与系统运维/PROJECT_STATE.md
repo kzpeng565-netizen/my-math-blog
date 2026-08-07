@@ -514,3 +514,9 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==新的 release 必须携带与启动请求相同的 `lease_id`；带 lease 的 release 只有在 Agent 回传 final 后才会移至 `archive/release/completed/`。未确认的带 lease release 不按时间删除，以保留电脑休眠或离线后的解锁补偿。Focus Garden 生产端已恢复从启动 dispatcher receipt 提取 lease、先安全入队 release 再结算或取消 session。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=windows-and-pi-tests-plus-live-queue-check; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->
+
+## 2026-08-07 状态更新：闲鱼归类为购物
+
+==已将闲鱼固定为 `shopping`，覆盖网页标题/idlefish 域名、手机与平板应用名，以及 `com.taobao.idlefish` 包名。该规则以程序锁定段生效，语义模型不能改写为娱乐；购物会在半小时报告、推送和每日汇总中单列，且不计入高刺激、娱乐偏离或工作—娱乐切换，因此不会以 `work_entertainment_alternation` 触发 Cold Turkey。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-targeted-tests-and-replay; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md" -->

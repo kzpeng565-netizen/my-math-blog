@@ -611,3 +611,15 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==下次真实暂停或专注结束后，确认带 lease release 在 Agent final 后出现在 `data/computer_interventions/archive/release/completed/`，且新介入不受旧 release 影响。继续保留既有“跨睡眠到期解锁”验收项。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=windows-and-pi-tests-plus-live-queue-check; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
+
+## 2026-08-07 后续事项：闲鱼购物归类
+
+### ☑ 已完成：从娱乐触发链路剥离
+
+==闲鱼已由硬规则归为购物；对 22:45—22:49 的同类时间窗回放，娱乐偏离为 0、合格工作—娱乐切换为 0。核心回归 45/45 通过。==
+
+### ☐ 待自然观察：下一次闲鱼记录
+
+==下次自然打开闲鱼时，只核对半小时报告是否显示“购物”及该窗口不出现 `work_entertainment_alternation`；不要为验收专门制造锁定或介入。==
+
+<!-- ai_provenance: source=codex; date=2026-08-07; verification=pi-targeted-tests-and-replay; retrieved_notes="非笔记内容/工作流程与系统运维/NEXT_STEPS.md" -->
