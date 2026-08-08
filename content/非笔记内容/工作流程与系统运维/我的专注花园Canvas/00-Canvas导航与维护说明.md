@@ -62,3 +62,9 @@
 4. **与权威图的关系**：`../树莓派行为系统总流程图.md` 的 Mermaid 是权威版本（其中的 jpg 历史快照已过时）；本 Canvas 与其一致，若改流程先改 Mermaid 再同步 Canvas。
 5. 本目录不保存任何 token / 密码 / 密钥值，只引用文件路径与端口。
 6. **手工重建 Canvas JSON 时，每个节点必须带 `type` 字段**（`text` / `file` / `group`）。Obsidian 会丢弃缺少 `type` 的节点，并在下次保存时把残缺状态写回磁盘（2026-08-08 曾因缺 `type` 丢失全部正文节点与边，已从 git 恢复）。日常修改请直接用 Obsidian 内置 Canvas 编辑器，不要手工编辑 JSON。
+
+## 2026-08-09 视觉与维护性修复
+
+本次保留原有 4 张 Canvas 的职责与 20–30 个核心节点目标，统一为紧凑列式布局：标题靠近主体、文档列收拢到右侧、所有节点回到分组范围内，避免打开时因横向跨度过大而只看到缩小后的文字。电脑端修正了旧版 Cold Turkey `-lock 30` 表述，改为当前交接中的 lease + 到期回收；Pi 图补出旧目标 `usage-hub` 未实现的边界，并把 `shadow_mode`、认证、`selector_candidate_limit` 等冲突项保留为橙色待确认。
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=source-backed-and-canvas-json-validated; retrieved_notes="PI_SERVER_HANDOFF.md,PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md,我的专注花园/00-交接总览.md,我的专注花园/专注花园桥接手机APP.md" -->
