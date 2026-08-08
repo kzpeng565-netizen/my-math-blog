@@ -5,14 +5,14 @@
 ## 当前状态
 
 - Android 包名：`com.conrad.focusbridge`
-- ==已部署版本：`1.3.1 (16)`==
+- ==已部署版本：`1.3.3 (18)`==
 - Windows 开发目录：`D:\MyFocusGarden\focus-bridge-android`
 - APK：`app\build\outputs\apk\debug\app-debug.apk`
 - 修改前备份：`D:\MyFocusGarden\backups\20260807-lock-confirm-before\focus-bridge-android`
 - Pi 权威服务：`/home/conrad/services/focus-garden`
 - Pi 介入调度代码与状态：`/home/conrad/workspace/activitywatch-advisor`
 
-==手机桥接已经完成通知确认、三次失败、30/20 分钟降级、15 分钟过期、熄屏等待与解锁恢复的多场景真机验收。成功不再以“点击已发出”为准，只有“不做手机控”真实 `getaway_pomo` 子通知出现后才回传 success。==
+==手机桥接已经完成请求级幂等、短暂通知确认、三次总次数限制、30/20 分钟降级、15 分钟过期、熄屏等待与解锁恢复的多场景真机验收。同一 `request_id` 的尝试次数和终态会持久化；旧轮询、结果重传或进程重启不能再创建第二轮执行。==
 
 ## 主要架构
 
@@ -31,6 +31,7 @@ BridgeForegroundService
   ├─ offer 状态机与锁屏检测
   ├─ 决定持久化和 15 秒提交重试
   ├─ execute final 结果持久化和 15 秒提交重试
+  ├─ request_id 执行账本、24 小时完成墓碑和旧轮询代次拦截
   └─ START_STICKY、常驻通知、开机/升级恢复
   │
   ├─ offer ──► InterventionPromptActivity
@@ -41,7 +42,7 @@ BridgeForegroundService
   └─ execute ─► FocusBridgeAccessibilityService
                 ├─ 熄屏/锁屏时每秒等待，不消耗尝试
                 ├─ 亮屏解锁后最多 3 次，每次确认窗口 20 秒
-                └─ GetawayNotificationListenerService 确认真实计时通知
+                └─ GetawayNotificationListenerService 保存活跃及短暂通知事件
 ```
 
 ### 组件分工
@@ -56,7 +57,7 @@ BridgeForegroundService
 
 ==`ExecutionAttemptPolicy` 管理熄屏等待、20 秒尝试窗口和三次失败；`LockDurationPolicy` 管理自动介入请求的时效：不足 8 分钟锁 30 分钟，8–15 分钟锁 20 分钟，满 15 分钟直接过期。手动专注和本地调试仍使用明确指定的时长。==
 
-==`GetawayNotificationListenerService` 只读取系统已授权的活跃通知，过滤 `com.pl.getaway.getaway` 的 `getaway_pomo` channel，并排除 group summary。它不读取“不做手机控”的私有数据库；ADB 只用于开发验收，不属于运行链路。==
+==`GetawayNotificationListenerService` 读取系统已授权的通知，过滤 `com.pl.getaway.getaway` 的 `getaway_pomo` channel、group summary 和已知“今天准备怎么过”推广提示。真实快速番茄通知可能带 `AUTO_CANCEL` 并很快消失，因此监听器保存最近 20 分钟的候选事件，不能再一刀切排除 `AUTO_CANCEL`。它不读取“不做手机控”的私有数据库；ADB 只用于开发验收，不属于运行链路。==
 
 `BridgeApi` 固定先访问公网 HTTPS 桥接路径。公网失败且属于 I/O 异常时，才尝试 Tailnet 地址；因此 Android 上 Clash 与 Tailscale 的单 VPN 冲突不会成为心跳和执行的必需条件。
 
@@ -72,7 +73,8 @@ BridgeForegroundService
 8. 接受后 Pi 生成 execute；该请求在服务端保留 16 分钟，使手机有机会在 15 分钟边界回传 expired。
 9. 自动介入 execute 在首次实际尝试前按请求年龄选时长：`<8m → 30m`，`8m–<15m → 20m`，`≥15m → expired`。
 10. 熄屏或锁定时每秒轮询且 attempts 保持 0；亮屏解锁后开始尝试，每次等待 20 秒真实通知，最多三次。
-11. success、failed、expired 都先持久化，再向 Pi 提交 final event；提交失败每 15 秒重试，同一 request 在 final 前不会因重复轮询再次并行执行。
+11. success、failed、expired 都先进入 `result_pending`，再向 Pi 提交 final event；提交失败每 15 秒重试。
+12. Pi 确认收到后，本地仍保留该 `request_id` 的完成墓碑 24 小时（最多 64 条）；在途旧轮询、重复 pending 和进程重启均不能重新执行，三次上限按 request 而不是内存对象累计。
 
 ## 面对的难点与解决方案
 
@@ -120,13 +122,13 @@ Android 对后台 Activity 启动和锁屏界面有严格限制，短通知也�
 
 ### Android 进程可能在执行中重启
 
-==真机熄屏测试中，前台服务曾在解锁后的尝试阶段被系统重建。当前执行对象不跨进程恢复，但 Pi 在收到 final 前持续保留请求；新实例重新轮询后会重新执行。final 结果在手机本地持久化，上传失败也不会丢失。因此恢复语义是“至少一次尝试、至多一次有效 final”，不是依赖单个 Android 进程一直存活。==
+==`ExecutionRequestStore` 在 SharedPreferences 中保存活动 request、累计 attempts、`result_pending` 和最近完成墓碑。进程重启后可以从已用次数继续，但不能把同一 request 重置为新的三次；第三次之后只会失败或重传已有 final。Pi 的完成 ID 再提供第二层幂等，恢复语义现在是“同一 request 最多三次实际尝试、终态可重复上传但只记一次”。==
 
 ## 已完成验证
 
-- `verify.ps1`：13 项介入状态机、8 项执行尝试策略、5 项时长策略检查通过。
+- `verify.ps1`：13 项介入状态机、8 项执行尝试策略、5 项时长策略、7 项通知确认策略检查通过；Gradle 离线干净构建通过。
 - Gradle：离线 `clean assembleDebug` 通过。
-- 安装：`1.3.1 (16)` 覆盖安装成功。
+- 安装：`1.3.3 (18)` 覆盖安装成功，原有无障碍和通知使用权均保留。
 - 服务：前台服务、无障碍与通知使用权监听升级后均重新连接。
 - 心跳：Pi 收到 `app_version=1.3.1`，公网 HTTPS、两项权限与两项连接状态全部通过。
 - ignored：损坏说明测试显示正常中文，10 秒后提交 `ignored / prompt_timeout_10s`，Pi 队列清空。
@@ -138,6 +140,8 @@ Android 对后台 Activity 启动和锁屏界面有严格限制，短通知也�
 - 9 分钟请求：自动降为 20 分钟，第 2 次尝试确认，花园恢复为“已确认 20 分钟”。
 - 15 分钟请求：不启动“不做手机控”，回传 `expired / lock_request_expired_after_15_minutes`。
 - 熄屏请求：花园显示 `waiting_screen / attempts=0`；解锁后才启动 30 分钟，并在 Android 服务重建后通过 Pi 重下发恢复、最终确认成功。
+- 1.3.3 真实 5 分钟：第 2 次捕获 `id=1111100 / 快速番茄：开始5分钟番茄工作` 后立即 success；跨过下一完整 20 秒窗口无第 3 次和第二轮，Pi 仅有一份 final response，pending 为空。
+- Pi Advisor 重复 final 测试确认第二次只返回 `already_completed`，不生成第二份 response；花园系统状态新增“重复请求防护”计数。
 
 ## 构建、安装与检查
 
