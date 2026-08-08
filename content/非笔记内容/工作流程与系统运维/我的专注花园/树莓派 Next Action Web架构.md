@@ -281,10 +281,16 @@ POST /api/next-action with unresolved active suggestion         -> 409 pending_o
 
 <!-- ai_provenance: source=codex; date=2026-08-05; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
 
-## Recent context injection (2026-08-06, v3.1)
+## Recent context injection (2026-08-08, v3.2)
 
-Flow: build_decision_state -> code coarse filter (exclude archived/ended/needs_review/>7d; force active and within 24h; candidates <=20) -> V4 Flash non-thinking selector (minimal projection now/tasks/context; output selected id+reason; invalid output degrades) -> merge forced + selected, dedupe, priority sort, cap 6 -> inject decision_state.recent_context + recent_context_selection -> final AI. Final AI must return decision_trace.recent_context_used (only candidate IDs; server validates subset). Prompts: recent-context-parse-v1 / recent-context-selector-v1 / PROMPT_VERSION=next-action-v1.3.
+==代码粗筛保留至多 30 条未归档、未结束且仍可能相关的动态。V4 Flash 看到“逾期一天＋今天＋未来两天”的任务安排，其中包含有效日期、priority、循环投影、标题时间窗状态与番茄进度；它以 thinking enabled、请求 `reasoning_effort=low`、800 token 预算筛选。DeepSeek 实际会将 low 映射为 high，该限制会写入审计。==
 
-## 2026-08-07：番茄钟校验的误降级修复
+==健康、生病、考试、硬截止以及当前生效／24 小时内事件会进入强制候选。总量仍为六条；超额时按重要性、是否生效、发生时间、置顶和确认时间裁剪，淘汰 ID 会被记录。Flash 仅给剩余名额排序，返回顺序、相关性、理由、重要性和关联任务会原样保留在 `recent_context_selection`，并随有序 `recent_context` 传给最终 V4 Pro。==
 
-Next Action 会继续拒绝把 `1 🍅` 说成 15/25/30 分钟的模型输出；不过校验不再把不同句子的“剩余约 1 个番茄（约 40 分钟预算）”和“先做 5/10/15/25 分钟启动片段”拼接成错误关联。前者是任务进度证据，后者是启动动作，两者可以同时出现。模型已成功返回但被本地校验拒绝时，建议仍会记录 `model_error`；因此看到 fallback 时应先检查 `_generation.finish_reason` 和该字段，区分模型故障与校验故障。
+## 2026-08-08：任务时间窗与番茄钟校验范围
+
+==Next Action 按可行动时间窗、有效日期、priority、source order 排序。标题内 `11:00–12:30、16:00–17:30` 会被只读解析；当天最后一个时间窗结束后，该任务不再锁死建议。==
+
+==继续在 Prompt 中保留 `1 🍅 = 40 分钟`，也保留半小时报告、每日报告与专注花园的番茄规则；仅删除 Next Action 最终 AI 输出的本地番茄钟文本拒绝器。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=unit-tests-plus-live-v4-flash-selector-and-v4-pro-replay; retrieved_notes="PI_SERVER_HANDOFF.md" -->

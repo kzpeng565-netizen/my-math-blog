@@ -1282,3 +1282,13 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==Advisor 权威代码 `/home/conrad/workspace/activitywatch-advisor/src/computer_intervention.py` 对终态事件加锁并按 completed ID 幂等，重复 final 返回 `already_completed` 且不生成响应文件。Focus Garden 权威代码只窄改 `focus_garden/bridge_monitor.py`：最低合格版本为1.3.3，系统状态新增“重复请求防护”；static、SQLite 与近期动态未改。备份位于 `/home/conrad/workspace/backups/20260808-focus-bridge-idempotency/`。Advisor 11/11、Garden monitor 6/6、Android 策略与离线 Gradle 构建通过；两个 Pi 服务 active。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=device-and-pi-tested; retrieved_notes="我的专注花园/专注花园桥接手机APP.md,PROJECT_STATE.md" -->
+
+## 2026-08-08：Next Action 近期动态召回 v2 与任务时间窗
+
+==Next Action 的近期动态粗筛上限由 20 提高到 30；V4 Flash 现在看到“逾期一天＋今天＋未来两天”的有效任务安排，其中含日期、优先级、循环投影、标题时间窗状态和番茄进度。筛选器用 thinking enabled，并请求 `reasoning_effort=low`、`max_tokens=800`；DeepSeek 当前会将 low 映射为 high，审计中会明确该限制。Flash 返回的相关性排序、direct/preparation/conditional 理由、重要性、关联任务和简短影响说明将原样保留在 `recent_context_selection.selector_ranked/final_ranked`，不再被创建时间覆盖。==
+
+==健康、生病、考试和硬截止动态拥有 critical 保底；当前生效和 24 小时内动态进入强制候选。超过六条时按重要性、是否生效、发生时间、置顶和确认时间确定保留项，并记录被容量淘汰的 forced ID。普通动态必须达到中等以上相关性才可进入最终六条。==
+
+==任务排序现按可行动时间窗、有效日期、priority、source order；标题中的 `11:00–12:30、16:00–17:30` 被只读解析。当天所有时间窗结束后，任务不再锁死 Next Action；未结束的当天任务仍强优先。仅移除了 Next Action 最终 AI 输出的番茄钟文本拒绝器，Prompt 的 `1 🍅 = 40 分钟` 与半小时报告、每日报告、番茄结算等其余模块完全保留。模型把 `confidence` 写成 high/medium/low 时现正规化为数值，不能再导致 fallback。备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260808-2132-next-action-recall-v2/`、`/home/conrad/workspace/activitywatch-advisor/backups/20260808-2141-next-action-confidence-normalization/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=53-unit-tests-plus-live-v4-flash-selector-and-v4-pro-state-replay; retrieved_notes="Pi activitywatch-advisor Next Action source and state snapshots" -->
