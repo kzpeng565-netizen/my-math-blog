@@ -1,0 +1,451 @@
+{
+ "nodes": [
+  {
+   "id": "g-auto",
+   "type": "group",
+   "label": "🤖 Automate 采集（手机）",
+   "x": -18,
+   "y": -64,
+   "width": 396,
+   "height": 567,
+   "color": "3"
+  },
+  {
+   "id": "a-flow",
+   "color": "4",
+   "text": "Flow「Phone Usage Logger」（整体）\n• 三支路: 前台包名 / 亮灭屏 / 心跳+上传\n• 权限: 无障碍观察 + 文件管理 + 忽略电池限制\n• 常驻运行 + 开机启动（Fork 出三条 fiber）",
+   "x": 0,
+   "y": 0,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "a-files",
+   "color": "3",
+   "text": "Documents/PhoneUsage/\n• YYYY-MM-DD-{foreground,screen,heartbeat}.jsonl\n• 心跳每 ~15 分钟一条；启动即写一条\n• ⚠️ 旧版无日期文件是否已清理（待确认）",
+   "x": 0,
+   "y": 122,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "a-upload",
+   "color": "4",
+   "text": "上传循环（每 15 分钟）\n• PUT /upload/{3 个文件} + X-Upload-Token\n• 30s 超时; Failure catch(Retry 1) 记日志后\n  进 Delay(900s Inexact + Wake up)\n• 401/400 需人工查 HTTP 状态码与 Pi 日志",
+   "x": 0,
+   "y": 244,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "a-cleanup",
+   "color": "2",
+   "text": "自动清理 flow（每天 ~03:10）\n• 删除 15 天前 *.jsonl（File delete 通配符）\n• ⚠️ 待确认: 文档标注「尚未实施」\n• 异机 .flo 备份同样未建立（Restic 未启用）",
+   "x": 0,
+   "y": 381,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "g-bridge",
+   "type": "group",
+   "label": "🔗 Focus Bridge 1.3.3（手机）",
+   "x": 474,
+   "y": -64,
+   "width": 396,
+   "height": 903,
+   "color": "5"
+  },
+  {
+   "id": "b-service",
+   "color": "4",
+   "text": "BridgeForegroundService（后台生命线）\n• 15s pending 轮询；5min 心跳（失败 1min 重试）\n• START_STICKY + 常驻通知 + 开机/升级恢复\n• 不把存活交给 Automate 或「不做手机控」",
+   "x": 492,
+   "y": 0,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "b-statemachine",
+   "color": "4",
+   "text": "Offer 状态机 + 执行策略（纯 Java 可测）\n• 锁屏等待 ≤120s；解锁后给完整 10s\n• 执行: 20s 窗口 × 最多 3 次（按 request 计）\n• 时长: <8m→30m，8–15m→20m，≥15m→过期",
+   "x": 492,
+   "y": 122,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "b-ui",
+   "color": "4",
+   "text": "InterventionPromptActivity（选择页）\n• 接受 / 拒绝 / 10s 超时 ignored\n• 不对其他应用导出；禁止外部/返回键绕过",
+   "x": 492,
+   "y": 244,
+   "width": 360,
+   "height": 81
+  },
+  {
+   "id": "b-a11y",
+   "color": "4",
+   "text": "FocusBridgeAccessibilityService\n• 后台打开选择页、启动「不做手机控」\n• 查找目标窗口 + 已校准可见点击",
+   "x": 492,
+   "y": 351,
+   "width": 360,
+   "height": 81
+  },
+  {
+   "id": "b-notify",
+   "color": "4",
+   "text": "GetawayNotificationListenerService\n• 读取授权通知，确认快速番茄真实计时\n• 保存最近 20min 候选（含 AUTO_CANCEL）\n• 过滤「今天准备怎么过」推广提示",
+   "x": 492,
+   "y": 458,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "b-store",
+   "color": "3",
+   "text": "本地持久化（SharedPreferences）\n• 活动请求/attempts/result_pending/墓碑\n• 24h 完成墓碑 ≤64 条 → 请求级幂等\n• 决定提交成功前，轮询快照不得覆盖",
+   "x": 492,
+   "y": 580,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "b-pair",
+   "color": "2",
+   "text": "配对链路（换机/重装时）\n• pair-focus-bridge.ps1: ADB run-as 读私有 token\n  → SSH 直写 Pi（不打印 token）\n• ⚠️ 正式签名 APK 的应用内配对尚未实现\n• 新屏幕需重新校准坐标/网格偏移",
+   "x": 492,
+   "y": 702,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "g-exec",
+   "type": "group",
+   "label": "⏱️ 执行端",
+   "x": 966,
+   "y": -64,
+   "width": 396,
+   "height": 171,
+   "color": "3"
+  },
+  {
+   "id": "b-getaway",
+   "color": "4",
+   "text": "「不做手机控」APP\n• 快速番茄（5min）/专注的实际执行\n• 通过 getaway_pomo 通知回传事件",
+   "x": 984,
+   "y": 0,
+   "width": 360,
+   "height": 81
+  },
+  {
+   "id": "g-net2",
+   "type": "group",
+   "label": "🌐 网络路径",
+   "x": 1458,
+   "y": -64,
+   "width": 396,
+   "height": 338,
+   "color": "2"
+  },
+  {
+   "id": "n-main",
+   "color": "5",
+   "text": "公网 HTTPS 主链路\n• https://pi.taild4d3f7.ts.net（Funnel 443）\n• 固定白名单 /focus-bridge/* + /upload/*\n• 每设备独立 Bearer；规避 Clash 与\n  Tailscale 单 VPN 冲突\n• ⚠️ 是否经 Funnel 机制文档未明说",
+   "x": 1476,
+   "y": 0,
+   "width": 360,
+   "height": 126
+  },
+  {
+   "id": "n-backup",
+   "color": "5",
+   "text": "Tailnet 备用 :8460\n• 仅公网 IOException 后使用\n• 依赖手机 Tailscale 在线（⚠️ 安装状态\n  旧文档与迁移流程表述冲突）",
+   "x": 1476,
+   "y": 152,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "g-pi2",
+   "type": "group",
+   "label": "🖥️ Pi 交互侧",
+   "x": 1950,
+   "y": -64,
+   "width": 396,
+   "height": 597,
+   "color": "6"
+  },
+  {
+   "id": "p-recv",
+   "color": "4",
+   "text": "phone-usage-receiver :8765\n• token 校验 / 大小≤20MiB / UTF-8 / 逐行 JSON\n• 合并去重排序 + 原子写入\n• incoming/ 镜像 + archive/YYYY-MM-DD 权威\n• 维护 timer 03:30（30/365 天）",
+   "x": 1968,
+   "y": 0,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "p-halfhour",
+   "color": "4",
+   "text": "半小时处理链（phone_facts 输入）\n• 手机/平板 JSONL → facts → 合并 → 标签\n• → 语义时间线 → 指标 → AI 报告\n• 详见 03-Pi内部流程.canvas",
+   "x": 1968,
+   "y": 137,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "p-garden",
+   "color": "4",
+   "text": "focus-garden 介入调度 :8838\n• offer/decision/execute/event 固定白名单\n• 请求保留 16min；重复 final 幂等\n  （already_completed，不生成第二份）\n• 系统状态面板有「重复请求防护」计数",
+   "x": 1968,
+   "y": 259,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "p-token",
+   "color": "3",
+   "text": "Pi 私有凭据（600 权限，不落文档）\n• /home/conrad/phone_usage/token.txt\n  （Automate 上传，X-Upload-Token）\n• /home/conrad/phone_usage/focus_bridge_token.txt\n  （桥接 Bearer）",
+   "x": 1968,
+   "y": 396,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "g-fail",
+   "type": "group",
+   "label": "🧯 故障排查入口",
+   "x": 2442,
+   "y": -64,
+   "width": 396,
+   "height": 261,
+   "color": "1"
+  },
+  {
+   "id": "f-failures",
+   "color": "1",
+   "text": "常见故障入口\n• 桥接: 手机私有目录 files/focus-bridge.log\n  + 界面「刷新运行日志」\n• 状态机验证: verify.ps1（13+8+5 项 + 离线构建）\n• Automate: 10.3 快速自检 / 心跳缺失 >30min\n• Pi 侧: journalctl -u phone-usage-receiver\n  / focus-garden.service；ss -lntp :8765\n• 卡 pending/重复执行: 查 24h 墓碑与\n  Pi 请求级幂等计数",
+   "x": 2460,
+   "y": 0,
+   "width": 360,
+   "height": 171
+  },
+  {
+   "id": "g-doc2",
+   "type": "group",
+   "label": "📚 对应文档",
+   "x": 2934,
+   "y": -64,
+   "width": 396,
+   "height": 464,
+   "color": "6"
+  },
+  {
+   "id": "d-bridge",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md",
+   "x": 2952,
+   "y": 0,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "d-phone",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/手机使用记录系统——手机端操作与维护指南.md",
+   "x": 2952,
+   "y": 100,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "d-migrate",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/Pi系统手机端与电脑端迁移配置流程.md",
+   "x": 2952,
+   "y": 200,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "d-ntfy",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/ntfy提醒系统配置.md",
+   "x": 2952,
+   "y": 300,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "title",
+   "type": "text",
+   "text": "# 手机端内部流程\nAutomate 采集 / Focus Bridge 介入 / ntfy 展示 / 与 Pi 的交互。",
+   "x": 0,
+   "y": -406,
+   "width": 620,
+   "height": 66,
+   "color": "3"
+  },
+  {
+   "id": "legend",
+   "type": "text",
+   "text": "🎨 图例\n🟢 绿=自动流程/服务  🟡 黄=数据/配置/状态\n🔵 青=网络边界/接口  🟣 紫=文档（点击打开）\n🔴 红=人工操作/故障入口  🟠 橙=⚠️待确认\n→ 边=数据流/触发关系\n维护：改模块前先看它的入边（依赖）与出边（影响范围）",
+   "x": 660,
+   "y": -340,
+   "width": 430,
+   "height": 126,
+   "color": "6"
+  }
+ ],
+ "edges": [
+  {
+   "id": "e00",
+   "fromNode": "a-flow",
+   "toNode": "a-files",
+   "label": "前台/屏幕/心跳事件（Append）"
+  },
+  {
+   "id": "e01",
+   "fromNode": "a-files",
+   "toNode": "a-upload",
+   "label": "15min 全量快照"
+  },
+  {
+   "id": "e02",
+   "fromNode": "a-upload",
+   "toNode": "n-main",
+   "label": "PUT 三文件 + X-Upload-Token"
+  },
+  {
+   "id": "e03",
+   "fromNode": "a-cleanup",
+   "toNode": "a-files",
+   "label": "⚠️ 删除 15 天前文件（未实施）"
+  },
+  {
+   "id": "e04",
+   "fromNode": "n-main",
+   "toNode": "p-recv",
+   "label": "Funnel 443 → 127.0.0.1:8765"
+  },
+  {
+   "id": "e05",
+   "fromNode": "p-recv",
+   "toNode": "p-halfhour",
+   "label": "phone_facts 数据源"
+  },
+  {
+   "id": "e06",
+   "fromNode": "b-service",
+   "toNode": "n-main",
+   "label": "15s 轮询 / 5min 心跳"
+  },
+  {
+   "id": "e07",
+   "fromNode": "n-main",
+   "toNode": "p-garden",
+   "label": "/focus-bridge/* 白名单接口"
+  },
+  {
+   "id": "e08",
+   "fromNode": "p-garden",
+   "toNode": "b-service",
+   "label": "mode=offer / execute"
+  },
+  {
+   "id": "e09",
+   "fromNode": "b-service",
+   "toNode": "b-statemachine",
+   "label": "offer 进入状态机"
+  },
+  {
+   "id": "e10",
+   "fromNode": "b-statemachine",
+   "toNode": "b-ui",
+   "label": "解锁后 10s 选择页"
+  },
+  {
+   "id": "e11",
+   "fromNode": "b-ui",
+   "toNode": "b-store",
+   "label": "决定先持久化（最高优先级）"
+  },
+  {
+   "id": "e12",
+   "fromNode": "b-store",
+   "toNode": "n-main",
+   "label": "decision 提交（失败 15s 重试）"
+  },
+  {
+   "id": "e13",
+   "fromNode": "b-service",
+   "toNode": "b-a11y",
+   "label": "execute 下发"
+  },
+  {
+   "id": "e14",
+   "fromNode": "b-a11y",
+   "toNode": "b-getaway",
+   "label": "打开快速番茄/校准点击"
+  },
+  {
+   "id": "e15",
+   "fromNode": "b-getaway",
+   "toNode": "b-notify",
+   "label": "getaway_pomo 通知（可 AUTO_CANCEL）"
+  },
+  {
+   "id": "e16",
+   "fromNode": "b-notify",
+   "toNode": "b-a11y",
+   "label": "确认真实计时 → success"
+  },
+  {
+   "id": "e17",
+   "fromNode": "b-store",
+   "toNode": "n-main",
+   "label": "final event（15s 重试，幂等）"
+  },
+  {
+   "id": "e18",
+   "fromNode": "b-service",
+   "toNode": "n-backup",
+   "label": "公网 IOException 后备用"
+  },
+  {
+   "id": "e19",
+   "fromNode": "n-backup",
+   "toNode": "p-garden",
+   "label": "tailnet :8460"
+  },
+  {
+   "id": "e20",
+   "fromNode": "b-pair",
+   "toNode": "p-token",
+   "label": "ADB+SSH 直写（换机时）"
+  },
+  {
+   "id": "e21",
+   "fromNode": "p-garden",
+   "toNode": "p-token",
+   "label": "Bearer 校验"
+  },
+  {
+   "id": "e22",
+   "fromNode": "b-store",
+   "toNode": "f-failures",
+   "label": "排障入口"
+  },
+  {
+   "id": "e23",
+   "fromNode": "p-garden",
+   "toNode": "f-failures",
+   "label": "重复 final / 卡 pending 排查"
+  }
+ ]
+}

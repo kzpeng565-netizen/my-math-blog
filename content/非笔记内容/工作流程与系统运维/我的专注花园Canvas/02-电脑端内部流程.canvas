@@ -1,0 +1,466 @@
+{
+ "nodes": [
+  {
+   "id": "g-aw",
+   "type": "group",
+   "label": "📊 ActivityWatch 采集与同步",
+   "x": -18,
+   "y": -64,
+   "width": 396,
+   "height": 644,
+   "color": "5"
+  },
+  {
+   "id": "aw-watchers",
+   "color": "4",
+   "text": "aw-watcher-window / aw-watcher-afk\n• 前台窗口标题 ~1s；AFK ~180s 超时\n• 随登录启动（D:\\ActivityWatch）",
+   "x": 0,
+   "y": 0,
+   "width": 360,
+   "height": 81
+  },
+  {
+   "id": "aw-server",
+   "color": "4",
+   "text": "aw-server + Web UI :5600（仅本机）\n• SQLite 原始事件（peewee-sqlite.v2.db）\n• classes 分类: 层级深度优先，不改历史\n• 规则源: categories-v5.json（设置页导入）",
+   "x": 0,
+   "y": 107,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "aw-sync",
+   "color": "4",
+   "text": "5 分钟同步计划任务\n• run-activitywatch-sync-hidden.vbs 隐藏启动\n• push-activitywatch.ps1 → aw-sync.exe push\n• 输出 C:\\Users\\15345\\ActivityWatchSync",
+   "x": 0,
+   "y": 229,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "aw-st",
+   "color": "3",
+   "text": "同步状态与日志\n• %LOCALAPPDATA%\\ActivityWatchPiSync\\\n  status.json（ok=false → 先开 AW 再手动跑）\n  logs\\sync-YYYY-MM-DD.log",
+   "x": 0,
+   "y": 351,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "aw-syncthing",
+   "color": "4",
+   "text": "Syncthing（Windows，send-only）\n• 登录启动；传输端口 22000\n• GUI 仅 127.0.0.1:8384；设备名 RaspberryPi",
+   "x": 0,
+   "y": 473,
+   "width": 360,
+   "height": 81
+  },
+  {
+   "id": "g-obs",
+   "type": "group",
+   "label": "📝 Obsidian 与番茄钟",
+   "x": 474,
+   "y": -64,
+   "width": 396,
+   "height": 612,
+   "color": "3"
+  },
+  {
+   "id": "ob-vault",
+   "color": "3",
+   "text": "Obsidian Vault（唯一事实源）\n• 非笔记内容/任务计划/Profile.md\n• ToDo-任务集合.md（⚠️待正式安排区）\n• ToDo-已经规划好的任务.md / 番茄钟log.md\n• 新任务行尾 ^blockid（8 位）",
+   "x": 492,
+   "y": 0,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "ob-export",
+   "color": "4",
+   "text": "Behavior Context Exporter\n• 计划任务每 20 分钟兜底 + 插件手动触发\n• 输出 C:\\Users\\15345\\BehaviorContextSync\\\n  context_snapshot.json + raw 文件\n• lock 文件防并发写坏",
+   "x": 492,
+   "y": 137,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "ob-plugin",
+   "color": "4",
+   "text": "Pi Context Sync 插件\n• 唯一 Markdown 写入者（mutation queue → 文件）\n• 一键同步: 保存 note → exporter → 远端校验\n• SSH SHA-256 比对（12s 连接 / 45s 窗口）\n• 提示「暂未确认接收」≠ 失败（Syncthing 重试）",
+   "x": 492,
+   "y": 274,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "ob-pomodoro",
+   "color": "4",
+   "text": "New Pomodoro Timer（v1.2.3-focus-garden.8）\n• 5s 读 /api/bootstrap +「刷新云端进度」\n• Work 5/20/30/40/45/60（默认 40）\n• Break 0/5/10/15/20/30；暂停 1–120min\n• 暂停一次 → 该轮半额结算",
+   "x": 492,
+   "y": 411,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "g-agent",
+   "type": "group",
+   "label": "🔒 介入 Agent 域",
+   "x": 966,
+   "y": -64,
+   "width": 396,
+   "height": 734,
+   "color": "1"
+  },
+  {
+   "id": "ag-agent",
+   "color": "4",
+   "text": "Computer Intervention Agent（agent.py）\n• 5s 轮询 pending → 先 ack → Tkinter 弹窗\n• → Cold Turkey 执行 → final 回执\n• 5min heartbeat（POST /heartbeat）\n• allowlist: 常刷网站 / bilibili（30min）\n• ⚠️ 启动形态: 普通后台进程 vs 登录计划任务\n  两版文档冲突（待确认）",
+   "x": 984,
+   "y": 0,
+   "width": 360,
+   "height": 141
+  },
+  {
+   "id": "ag-coldturkey",
+   "color": "4",
+   "text": "Cold Turkey Blocker.exe\n• 命令: -start '<block>' -lock 30\n• block 名须与 CT GUI 完全一致\n• status=success 仅表示命令提交成功\n  （v1 无法反查真实封锁状态）",
+   "x": 984,
+   "y": 167,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "ag-ui",
+   "color": "4",
+   "text": "status_ui.py 状态面板\n• 只读: agent 进程/Pi API/pending/拒绝计数\n• 按钮: 启动 agent / 刷新（关闭仅关 UI）",
+   "x": 984,
+   "y": 304,
+   "width": 360,
+   "height": 81
+  },
+  {
+   "id": "ag-state",
+   "color": "3",
+   "text": "本地状态\n• D:\\tools\\computer-intervention-agent\\\n  state.json + data\\agent.log\n• config.json: api_base 用 MagicDNS",
+   "x": 984,
+   "y": 411,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "wx-guard",
+   "color": "4",
+   "text": "微信视频陪伴提醒（独立闭环）\n• 注册表摄像头占用检测 → 置顶提醒 →\n  可选 30min 封锁（复用 CT block）\n• 不依赖 Pi/网络；登录启动；state.json\n  5s 刷新 + events.jsonl 审计",
+   "x": 984,
+   "y": 533,
+   "width": 360,
+   "height": 111
+  },
+  {
+   "id": "g-mgmt",
+   "type": "group",
+   "label": "🛠️ 管理支撑",
+   "x": 1458,
+   "y": -64,
+   "width": 396,
+   "height": 430,
+   "color": "2"
+  },
+  {
+   "id": "clash",
+   "color": "2",
+   "text": "Clash Verge 代理 + fix-bypass\n• ProxyOverride 直连 pi.taild4d3f7.ts.net\n• 登录脚本 + 计划任务写回注册表\n• ⚠️ 任务周期 1min vs 5min（文档冲突）",
+   "x": 1476,
+   "y": 0,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "mgr-migrate",
+   "color": "3",
+   "text": "D:\\PiClientMigration（迁移基线）\n• CURRENT.json 唯一版本指针\n• install-client-tasks.ps1 建 5 个规范任务\n• ⚠️ CURRENT 记录 1.3.1 vs 已装 1.3.3",
+   "x": 1476,
+   "y": 122,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "mgr-garden",
+   "color": "3",
+   "text": "开发/镜像副本（非权威）\n• D:\\MyFocusGarden（开发回滚副本）\n• D:\\MyFocusGardenArchive\\focus-garden.sqlite3\n  （receive-only + staggered 历史）",
+   "x": 1476,
+   "y": 244,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "g-pi3",
+   "type": "group",
+   "label": "🖥️ Pi 交互侧",
+   "x": 1950,
+   "y": -64,
+   "width": 396,
+   "height": 644,
+   "color": "6"
+  },
+  {
+   "id": "pi-awdir",
+   "color": "3",
+   "text": "Pi: activitywatch-sync（receive-only）\n• /home/conrad/workspace/activitywatch-sync\n• 输入半小时 computer_facts 清洗",
+   "x": 1968,
+   "y": 0,
+   "width": 360,
+   "height": 81
+  },
+  {
+   "id": "pi-ctx",
+   "color": "3",
+   "text": "Pi: behavior-context-sync（receive-only）\n• context_snapshot.json → context_cache\n• 判断 sync_heartbeat 的新鲜度",
+   "x": 1968,
+   "y": 107,
+   "width": 360,
+   "height": 81
+  },
+  {
+   "id": "pi-8450",
+   "color": "5",
+   "text": ":8450 advisor-web（tailnet-only）\n• 介入 API: pending / ack / response / heartbeat\n• ⚠️ auth_required=false 与旧文档 401\n  记录并存（待确认，现免密码）",
+   "x": 1968,
+   "y": 214,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "pi-8460",
+   "color": "5",
+   "text": ":8460 focus-garden（tailnet-only）\n• GET /api/bootstrap；POST /api/focus/\n  start | pause | resume（Pi 会话权威）\n• 一轮 Work 最多暂停一次",
+   "x": 1968,
+   "y": 336,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "pi-taskq",
+   "color": "3",
+   "text": "Pi: data/task_sync/state.json\n• 网页 mutation queue（非权威）\n• ack 语义校验: 快照真实包含变更才清除\n• 循环任务只读投影（不改写 Markdown）",
+   "x": 1968,
+   "y": 458,
+   "width": 360,
+   "height": 96
+  },
+  {
+   "id": "g-doc3",
+   "type": "group",
+   "label": "📚 对应文档",
+   "x": 2442,
+   "y": -64,
+   "width": 396,
+   "height": 564,
+   "color": "6"
+  },
+  {
+   "id": "d-np",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/New-Pomodoro-Timer-代码结构与交接.md",
+   "x": 2460,
+   "y": 0,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "d-sync",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/Obsidian一键同步树莓派插件使用说明.md",
+   "x": 2460,
+   "y": 100,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "d-aw",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/ActivityWatch/ActivityWatch维护说明.md",
+   "x": 2460,
+   "y": 200,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "d-ct",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/本地Cold Turkey自动开启模块.md",
+   "x": 2460,
+   "y": 300,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "d-mig",
+   "type": "file",
+   "color": "6",
+   "file": "非笔记内容/工作流程与系统运维/Pi系统手机端与电脑端迁移配置流程.md",
+   "x": 2460,
+   "y": 400,
+   "width": 360,
+   "height": 74
+  },
+  {
+   "id": "title",
+   "type": "text",
+   "text": "# 电脑端内部流程\nActivityWatch 采集 / Obsidian 与番茄钟 / 介入 Agent / 与 Pi 的配合。",
+   "x": 0,
+   "y": -406,
+   "width": 620,
+   "height": 66,
+   "color": "3"
+  },
+  {
+   "id": "legend",
+   "type": "text",
+   "text": "🎨 图例\n🟢 绿=自动流程/服务  🟡 黄=数据/配置/状态\n🔵 青=网络边界/接口  🟣 紫=文档（点击打开）\n🔴 红=人工操作/故障入口  🟠 橙=⚠️待确认\n→ 边=数据流/触发关系\n维护：改模块前先看它的入边（依赖）与出边（影响范围）",
+   "x": 660,
+   "y": -340,
+   "width": 430,
+   "height": 126,
+   "color": "6"
+  }
+ ],
+ "edges": [
+  {
+   "id": "e00",
+   "fromNode": "aw-watchers",
+   "toNode": "aw-server",
+   "label": "原始事件（localhost:5600）"
+  },
+  {
+   "id": "e01",
+   "fromNode": "aw-server",
+   "toNode": "aw-sync",
+   "label": "5min 导出（aw-sync push）"
+  },
+  {
+   "id": "e02",
+   "fromNode": "aw-sync",
+   "toNode": "aw-st",
+   "label": "status.json / logs"
+  },
+  {
+   "id": "e03",
+   "fromNode": "aw-sync",
+   "toNode": "aw-syncthing",
+   "label": "ActivityWatchSync 目录"
+  },
+  {
+   "id": "e04",
+   "fromNode": "aw-syncthing",
+   "toNode": "pi-awdir",
+   "label": "Syncthing TLS:22000（send-only）"
+  },
+  {
+   "id": "e05",
+   "fromNode": "ob-vault",
+   "toNode": "ob-export",
+   "label": "读 Profile/ToDo×2/番茄钟log"
+  },
+  {
+   "id": "e06",
+   "fromNode": "ob-export",
+   "toNode": "pi-ctx",
+   "label": "context_snapshot.json（20min）"
+  },
+  {
+   "id": "e07",
+   "fromNode": "ob-plugin",
+   "toNode": "ob-vault",
+   "label": "唯一 Markdown 写入者"
+  },
+  {
+   "id": "e08",
+   "fromNode": "pi-taskq",
+   "toNode": "ob-plugin",
+   "label": "mutation 写回（待安排区/移动行）"
+  },
+  {
+   "id": "e09",
+   "fromNode": "ob-plugin",
+   "toNode": "pi-taskq",
+   "label": "快照哈希匹配 → 清除 queue 项"
+  },
+  {
+   "id": "e10",
+   "fromNode": "ob-pomodoro",
+   "toNode": "pi-8460",
+   "label": "5s bootstrap + focus API"
+  },
+  {
+   "id": "e11",
+   "fromNode": "pi-8460",
+   "toNode": "pi-taskq",
+   "label": "完成专注 → 任务 🍅 目标进 queue"
+  },
+  {
+   "id": "e12",
+   "fromNode": "ag-agent",
+   "toNode": "pi-8450",
+   "label": "5s 轮询 + ack + final + 5min heartbeat"
+  },
+  {
+   "id": "e13",
+   "fromNode": "pi-8450",
+   "toNode": "ag-agent",
+   "label": "pending 请求下发"
+  },
+  {
+   "id": "e14",
+   "fromNode": "ag-agent",
+   "toNode": "ag-coldturkey",
+   "label": "执行封锁（allowlist）"
+  },
+  {
+   "id": "e15",
+   "fromNode": "ag-agent",
+   "toNode": "ag-state",
+   "label": "state.json / agent.log"
+  },
+  {
+   "id": "e16",
+   "fromNode": "ag-agent",
+   "toNode": "ag-ui",
+   "label": "状态只读展示"
+  },
+  {
+   "id": "e17",
+   "fromNode": "wx-guard",
+   "toNode": "ag-coldturkey",
+   "label": "可选 30min 封锁（复用 block）"
+  },
+  {
+   "id": "e18",
+   "fromNode": "clash",
+   "toNode": "pi-8450",
+   "label": "浏览器直连 MagicDNS（绕过代理）"
+  },
+  {
+   "id": "e19",
+   "fromNode": "clash",
+   "toNode": "pi-8460",
+   "label": "浏览器/插件直连（绕过代理）"
+  },
+  {
+   "id": "e20",
+   "fromNode": "mgr-migrate",
+   "toNode": "aw-syncthing",
+   "label": "迁移基线同步（pi-client-migration）"
+  },
+  {
+   "id": "e21",
+   "fromNode": "mgr-garden",
+   "toNode": "pi-8460",
+   "label": "开发副本应急回退（禁止双写）"
+  }
+ ]
+}
