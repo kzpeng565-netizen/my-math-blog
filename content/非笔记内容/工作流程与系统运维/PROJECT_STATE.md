@@ -544,3 +544,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==Pi Advisor 的 final event 处理增加锁和完成 ID 幂等，重复请求只返回 `already_completed`，不写第二份 response。Focus Garden 权威版系统状态新增“重复请求防护”，最低合格版本改为 1.3.3；未覆盖 static、SQLite 或近期动态。真机5分钟执行在第2次捕获真实通知后 success，之后无第3次或第二轮，Pi pending 为空且只有一份 final。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=device-and-pi-tested; retrieved_notes="我的专注花园/专注花园桥接手机APP.md,PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-08 状态更新：Next Action 召回 v2 部署闭环
+
+==近期动态召回、循环任务投影、任务时间窗和置信度兼容性已全部在 Pi 生产树生效：粗筛 30 条，V4 Flash 筛选最终六条，并读取逾期一天至未来两天的任务安排；健康/考试/硬截止与当前或 24 小时内动态拥有可审计的强制名额。最终模型保留 Flash 的排序，而不是按动态创建时间覆盖。==
+
+==2026-08-08 22 时完成部署复核：生产源文件哈希与已验收版本一致；相关单元测试 56/56 通过；Next Action `:8450` 与 Focus Garden `:8460` 均由 Windows 端实际返回 HTTP 200，Pi 两项 loopback 服务均为 active。没有待部署运行代码或待重启服务。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=pi-source-hash-targeted-tests-and-tailnet-endpoints; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md" -->

@@ -294,3 +294,11 @@ POST /api/next-action with unresolved active suggestion         -> 409 pending_o
 ==继续在 Prompt 中保留 `1 🍅 = 40 分钟`，也保留半小时报告、每日报告与专注花园的番茄规则；仅删除 Next Action 最终 AI 输出的本地番茄钟文本拒绝器。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=unit-tests-plus-live-v4-flash-selector-and-v4-pro-replay; retrieved_notes="PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-08：部署闭环与新增复杂回归
+
+==生产端已核对四个核心源文件哈希及 `selector_candidate_limit=30`。复杂回归覆盖：critical forced 动态在六条上限内优先且记录淘汰项；逾期一天到后天的循环/普通任务投影与 Flash 排序可审计；双时间窗家教结束后不再锁死、明日高优先准备任务可通过校验。相关测试总计 56/56。==
+
+==运行入口未变化：Advisor 仍只监听 `127.0.0.1:8767`，花园仍只调用固定 bridge；从 Windows Tailnet 实测 `:8450` 与 `:8460` 均为 HTTP 200。未新增公网暴露、未重启服务、未写入 Obsidian 任务。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=pi-source-hash-56-tests-and-windows-tailnet-endpoints; retrieved_notes="PI_SERVER_HANDOFF.md" -->

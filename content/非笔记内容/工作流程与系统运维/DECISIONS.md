@@ -705,3 +705,15 @@
 ==每个客户端 release 必须包含可恢复完整历史的 Git bundle、构建/任务参考、脱敏配置模板和 SHA-256 清单；APK 只是快速安装副本，不能代替源码。`CURRENT.json` 只在验收后指向新版，旧 release 保持不可变。设备 token、上传 token、密码、SSH/Syncthing 身份和用户数据只进加密私有备份或在新设备重建。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=implemented-and-release-verified; retrieved_notes="Pi client migration release 2026.08.07-r1" -->
+
+## 2026-08-08 Next Action 召回与任务时间决策
+
+### D86. 近期动态先宽召回，再由 Flash 进行可审计的有限筛选【有效】
+
+==代码粗筛最多保留 30 条；`deepseek-v4-flash` 以 thinking enabled、请求 `reasoning_effort=low` 筛选最多六条。它必须看到逾期一天、今天、明天与后天的任务投影，并返回有序 ID、relevance、direct/preparation/conditional、importance、关联任务和摘要。最终 V4 Pro 只接收该保留顺序；强制动态在模型前占位，超额 forced ID 必须留存审计。==
+
+### D87. 任务时间窗只影响建议锁定，不修改 Obsidian 原任务【有效】
+
+==标题中明确的时间范围仅被只读解析为 upcoming/active/between_windows/elapsed；当天最后窗口结束后不再把该任务放进 `today_task_titles`，但原任务、循环投影和 Obsidian 写入边界均不变。仅取消 Next Action 最终输出的番茄钟文本拒绝器；Prompt 的 `1 🍅 = 40 分钟` 及其他报告、统计和结算规则不得删除。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=56-targeted-tests-plus-production-source-hash; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md" -->

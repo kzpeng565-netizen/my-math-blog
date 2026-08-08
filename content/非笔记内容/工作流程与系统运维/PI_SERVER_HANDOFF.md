@@ -1292,3 +1292,13 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==任务排序现按可行动时间窗、有效日期、priority、source order；标题中的 `11:00–12:30、16:00–17:30` 被只读解析。当天所有时间窗结束后，任务不再锁死 Next Action；未结束的当天任务仍强优先。仅移除了 Next Action 最终 AI 输出的番茄钟文本拒绝器，Prompt 的 `1 🍅 = 40 分钟` 与半小时报告、每日报告、番茄结算等其余模块完全保留。模型把 `confidence` 写成 high/medium/low 时现正规化为数值，不能再导致 fallback。备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260808-2132-next-action-recall-v2/`、`/home/conrad/workspace/activitywatch-advisor/backups/20260808-2141-next-action-confidence-normalization/`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=53-unit-tests-plus-live-v4-flash-selector-and-v4-pro-state-replay; retrieved_notes="Pi activitywatch-advisor Next Action source and state snapshots" -->
+
+## 2026-08-08：Next Action 召回 v2 部署闭环与复杂情景验收
+
+==生产部署已逐文件核实：`src/next_action.py`、`src/recent_context.py`、`src/recent_context_selector.py` 与 `src/deepseek_client.py` 的 SHA-256 均等于验收副本；`config/settings.json` 的 `selector_candidate_limit=30`。本次没有遗留待部署代码，也不需要为测试文件更新重启服务。==
+
+==新增三组复杂回归：八条 forced 动态争抢六个名额时三条生病/就医动态保留且两条普通项进入 `forced_omitted_ids`；昨日到后天的任务投影包含循环任务并排除更远日期、Flash 返回排序保持可见；两段家教分别验证 upcoming/active/between_windows/elapsed，结束后明日考试准备任务可被接受。`tests.test_next_action`、`tests.test_recent_context`、`tests.test_recent_context_selector` 共 56/56 通过。==
+
+==2026-08-08 22 时运行核验：`activitywatch-advisor-web.service` 与 `focus-garden.service` 均 active，Pi loopback `8767/8838` 均返回 200；Windows 从 Tailnet 实测 `https://pi.taild4d3f7.ts.net:8450/` 与 `:8460/` 均返回 200。Pi 自己访问 :8450 会超时，属于本机对 Serve 路由的自测限制，不能据此判断外部 Tailnet 入口未部署。测试前备份为 `/home/conrad/workspace/activitywatch-advisor/backups/20260808-2156-next-action-complex-tests/`；代码备份仍为 `20260808-2132-next-action-recall-v2/` 与 `20260808-2141-next-action-confidence-normalization/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=pi-source-hash-56-tests-loopback-and-windows-tailnet; retrieved_notes="Pi activitywatch-advisor production tree" -->

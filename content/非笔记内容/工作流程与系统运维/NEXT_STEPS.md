@@ -655,3 +655,19 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==当前同时保留登录触发任务和旧的 Timer 任务。迁移前不改变正在运行的生产配置；新电脑应优先使用仓库安装脚本创建统一的登录 + 20 分钟任务，验收成功后不再恢复旧兼容任务。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=inventory-and-release-verified; retrieved_notes="Windows Scheduled Tasks and client release" -->
+
+## 2026-08-08 后续事项：Next Action 召回 v2
+
+### ☑ 已完成：生产部署与三组复杂情景验收
+
+==已验证强制动态超额时 critical 保留、四天任务窗口含循环投影且保留 Flash 排序、两段家教从 upcoming 到 elapsed 后让位于明日高优先准备任务。相关单元测试 56/56；Next Action 与 Focus Garden 的 Tailnet 入口均返回 200。==
+
+### ☐ 待产品确认：任务存在时的非任务型建议边界
+
+==历史快照的真实 V4 Pro 回放未再选到旧遍历论，但有一次给出了合法的非任务建议（task_title 为空）。当前校验允许 break/sleep/exercise 绕过 `today_task_titles`；如需“有进行中或即将开始任务时只能给任务建议”，应另行明确安全例外后增加规则，不能在未确认前重新引入全天硬锁。==
+
+### ☐ 可选兼容性：英文紧急关键词
+
+==critical 词典主要按中文个人记录设计；英文 `medical` 不会自动升为 critical。当前中文记录不受影响；仅在确有中英文混记需求时扩展并补回归测试。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=complex-tests-and-read-only-production-replay; retrieved_notes="PI_SERVER_HANDOFF.md" -->
