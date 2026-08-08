@@ -1264,3 +1264,21 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==客户端 release 已通过 Syncthing folder `pi-client-migration` 形成第二份副本：Windows `D:\PiClientMigration` 为 Send Only，Pi `/home/conrad/workspace/pi-client-migration` 为 Receive Only并启用 staggered versioning。该目录无密钥，不能用来恢复 Automate token、SSH/Syncthing 身份或私有素材。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=local-source-tests-build-and-bundle-verified; retrieved_notes="local client sources, builds, Scheduled Tasks" -->
+
+## 2026-08-08：Next Action 当天循环任务与番茄校验误报修复
+
+==09:46 的“模型暂时不可用”并非 DeepSeek 故障：`deepseek-v4-pro` 正常 `finish_reason=stop`，但 Next Action 的允许标题只读取 `overdue/today/near_term`，漏掉已投影到当天的 `recurring` 周六家教，结果被 `task action must match a known task` 拒绝并错误兜底到遍历论。`src/next_action.py` 现按有效 `scheduled_date` 汇总所有任务分组，`today_task_titles` 优先于逾期和未来任务，模型必须逐字复制允许标题。任务型建议若绕过当天任务会被拒绝，兜底也稳定选择当天任务。真实生产验证在 10:09 直接返回“完成周六两节家教（11:00–12:30、16:00–17:30）”，映射 `^67e856bb`，无 fallback。备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260808-1007-next-action-recurring-priority/`。==
+
+==14:40 的后续 fallback 是第二个独立问题，真实错误为 `pomodoro unit confusion`，页面却因所有 `ValueError` 共用同一 cause 而误写成“任务一致性校验”。番茄校验器此前会把 title、reason、evidence 等字段拼成一句，导致“总预算 5 个番茄”和“先做 15/25 分钟启动片段”跨字段误配。现逐字段、逐句检查，只拒绝明确把一个番茄等同于 15/25/30 分钟或声称用该时长完成一个番茄的表达；任务、番茄和其他格式校验的 fallback 文案分别分类。生产 `tests.test_next_action` 18/18，通过后服务 active、loopback 8767 返回 200。使用 14:40 原始 state snapshot 再跑真实 DeepSeek，结果仍为周六家教 `^67e856bb`，直接通过校验且无 fallback。备份：`/home/conrad/workspace/activitywatch-advisor/backups/20260808-1946-pomodoro-validation-fix/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=pi-unit-tests-plus-live-deepseek-replay-of-failed-state; retrieved_notes="Pi activitywatch-advisor production state and suggestion archives" -->
+
+## 2026-08-08：Focus Bridge 1.3.3 请求级幂等与短暂通知确认
+
+==手机已安装 `1.3.3 (18)`。`ExecutionRequestStore` 按 request ID 持久化 executing/result_pending、累计 attempts 和最近64条24小时完成墓碑；轮询另有 generation 失效检查。三次限制不再随内存 `Execution` 重建而清零，上传成功后也不会立即失去本地去重依据。心跳新增 `duplicate_execution_requests_blocked`。==
+
+==`GetawayNotificationListenerService` 保存最近20分钟的新 `getaway_pomo` 候选事件，使带 `AUTO_CANCEL` 且很快消失的真实快速番茄可以确认；仍排除 group summary 与已知“今天准备怎么过”推广文案。真机5分钟测试捕获 `id=1111100 / 快速番茄：开始5分钟番茄工作`，第2次后立即 success；跨过20秒窗口无第3次和第二轮，Pi 仅一份 final 且 pending 为空。==
+
+==Advisor 权威代码 `/home/conrad/workspace/activitywatch-advisor/src/computer_intervention.py` 对终态事件加锁并按 completed ID 幂等，重复 final 返回 `already_completed` 且不生成响应文件。Focus Garden 权威代码只窄改 `focus_garden/bridge_monitor.py`：最低合格版本为1.3.3，系统状态新增“重复请求防护”；static、SQLite 与近期动态未改。备份位于 `/home/conrad/workspace/backups/20260808-focus-bridge-idempotency/`。Advisor 11/11、Garden monitor 6/6、Android 策略与离线 Gradle 构建通过；两个 Pi 服务 active。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=device-and-pi-tested; retrieved_notes="我的专注花园/专注花园桥接手机APP.md,PROJECT_STATE.md" -->

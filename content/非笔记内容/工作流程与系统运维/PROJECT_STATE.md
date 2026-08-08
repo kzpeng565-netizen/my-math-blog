@@ -536,3 +536,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==三个客户端源码目录已建立本地 Git，均无远程且默认拒绝 push。真实 token、密码、SSH 私钥、Syncthing 身份、用户数据、Automate 含 token 的原始 flow 和 Minecraft 来源素材没有进入 release。完整配置顺序见 [[Pi系统手机端与电脑端迁移配置流程]]。==
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=build-tests-bundle-and-manifest-verified; retrieved_notes="local Android and Windows client configurations" -->
+
+## 2026-08-08 状态更新：Focus Bridge 1.3.3 请求级幂等
+
+==Android 已安装 `1.3.3 (18)`。新增持久化 request 执行账本、累计三次上限、`result_pending`、24小时完成墓碑和轮询 generation；同一 request 在旧响应、结果重传或进程重启后不能创建第二轮。通知监听保存短暂 `getaway_pomo` 事件，不再排除全部 `AUTO_CANCEL`，同时过滤已知“今天准备怎么过”推广提示。==
+
+==Pi Advisor 的 final event 处理增加锁和完成 ID 幂等，重复请求只返回 `already_completed`，不写第二份 response。Focus Garden 权威版系统状态新增“重复请求防护”，最低合格版本改为 1.3.3；未覆盖 static、SQLite 或近期动态。真机5分钟执行在第2次捕获真实通知后 success，之后无第3次或第二轮，Pi pending 为空且只有一份 final。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=device-and-pi-tested; retrieved_notes="我的专注花园/专注花园桥接手机APP.md,PI_SERVER_HANDOFF.md" -->
