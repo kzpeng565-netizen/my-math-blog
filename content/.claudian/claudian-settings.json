@@ -36,7 +36,7 @@
       "lastModel": "sonnet",
       "modelEnvironmentType": "",
       "titleModelEnvironmentType": "",
-      "environmentVariables": "ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic\nANTHROPIC_AUTH_TOKEN=sk-e9386c9a62b14dff9e5799e38bcccad8\nANTHROPIC_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash\nCLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash\nCLAUDE_CODE_EFFORT_LEVEL=max",
+      "environmentVariables": "ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic\nANTHROPIC_AUTH_TOKEN=sk-3d5d6b9a2f4d4c6eb201751d1a2485fa\nANTHROPIC_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash\nCLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash\nCLAUDE_CODE_EFFORT_LEVEL=max",
       "environmentHash": "runtime-input:v1:87474b2ad89e092b8e0260e6b9ab7e2e4eb26cbd6069c18dea5977201121cf3c"
     },
     "codex": {
