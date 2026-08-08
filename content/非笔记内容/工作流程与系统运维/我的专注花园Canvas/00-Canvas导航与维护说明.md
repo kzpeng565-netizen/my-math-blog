@@ -65,6 +65,6 @@
 
 ## 2026-08-09 视觉与维护性修复
 
-本次保留原有 4 张 Canvas 的职责与 20–30 个核心节点目标，统一为紧凑列式布局：标题靠近主体、文档列收拢到右侧、所有节点回到分组范围内，避免打开时因横向跨度过大而只看到缩小后的文字。电脑端修正了旧版 Cold Turkey `-lock 30` 表述，改为当前交接中的 lease + 到期回收；Pi 图补出旧目标 `usage-hub` 未实现的边界，并把 `shadow_mode`、认证、`selector_candidate_limit` 等冲突项保留为橙色待确认。
+本次保留原有 4 张 Canvas 的职责与 20–30 个核心节点目标，统一为宽松列式布局：分组宽约 500、列间距约 560、同组节点垂直间隔至少 80；标题和图例独立置于主体上方，文档列收拢到右侧。边标签同步缩短为维护索引词，详细机制仍放在节点对应的 Markdown 中，以减少标签和连线互相遮挡。电脑端修正了旧版 Cold Turkey `-lock 30` 表述，改为当前交接中的 lease + 到期回收；Pi 图补出旧目标 `usage-hub` 未实现的边界，并把 `shadow_mode`、认证、`selector_candidate_limit` 等冲突项保留为橙色待确认。
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=source-backed-and-canvas-json-validated; retrieved_notes="PI_SERVER_HANDOFF.md,PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md,我的专注花园/00-交接总览.md,我的专注花园/专注花园桥接手机APP.md" -->
