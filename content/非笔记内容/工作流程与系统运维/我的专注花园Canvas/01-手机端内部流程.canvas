@@ -17,7 +17,8 @@
    "x": 0,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "a-files",
@@ -26,7 +27,8 @@
    "x": 0,
    "y": 122,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "a-upload",
@@ -35,7 +37,8 @@
    "x": 0,
    "y": 244,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "a-cleanup",
@@ -44,7 +47,8 @@
    "x": 0,
    "y": 381,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-bridge",
@@ -63,7 +67,8 @@
    "x": 492,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "b-statemachine",
@@ -72,7 +77,8 @@
    "x": 492,
    "y": 122,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "b-ui",
@@ -81,7 +87,8 @@
    "x": 492,
    "y": 244,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "b-a11y",
@@ -90,7 +97,8 @@
    "x": 492,
    "y": 351,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "b-notify",
@@ -99,7 +107,8 @@
    "x": 492,
    "y": 458,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "b-store",
@@ -108,7 +117,8 @@
    "x": 492,
    "y": 580,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "b-pair",
@@ -117,7 +127,8 @@
    "x": 492,
    "y": 702,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-exec",
@@ -136,7 +147,8 @@
    "x": 984,
    "y": 0,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "g-net2",
@@ -155,7 +167,8 @@
    "x": 1476,
    "y": 0,
    "width": 360,
-   "height": 126
+   "height": 126,
+   "type": "text"
   },
   {
    "id": "n-backup",
@@ -164,7 +177,8 @@
    "x": 1476,
    "y": 152,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-pi2",
@@ -183,7 +197,8 @@
    "x": 1968,
    "y": 0,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "p-halfhour",
@@ -192,7 +207,8 @@
    "x": 1968,
    "y": 137,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "p-garden",
@@ -201,7 +217,8 @@
    "x": 1968,
    "y": 259,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "p-token",
@@ -210,7 +227,8 @@
    "x": 1968,
    "y": 396,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-fail",
@@ -229,7 +247,8 @@
    "x": 2460,
    "y": 0,
    "width": 360,
-   "height": 171
+   "height": 171,
+   "type": "text"
   },
   {
    "id": "g-doc2",

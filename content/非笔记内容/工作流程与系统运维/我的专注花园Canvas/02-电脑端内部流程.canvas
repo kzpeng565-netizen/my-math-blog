@@ -17,7 +17,8 @@
    "x": 0,
    "y": 0,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "aw-server",
@@ -26,7 +27,8 @@
    "x": 0,
    "y": 107,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "aw-sync",
@@ -35,7 +37,8 @@
    "x": 0,
    "y": 229,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "aw-st",
@@ -44,7 +47,8 @@
    "x": 0,
    "y": 351,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "aw-syncthing",
@@ -53,7 +57,8 @@
    "x": 0,
    "y": 473,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "g-obs",
@@ -72,7 +77,8 @@
    "x": 492,
    "y": 0,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "ob-export",
@@ -81,7 +87,8 @@
    "x": 492,
    "y": 137,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "ob-plugin",
@@ -90,7 +97,8 @@
    "x": 492,
    "y": 274,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "ob-pomodoro",
@@ -99,7 +107,8 @@
    "x": 492,
    "y": 411,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-agent",
@@ -118,7 +127,8 @@
    "x": 984,
    "y": 0,
    "width": 360,
-   "height": 141
+   "height": 141,
+   "type": "text"
   },
   {
    "id": "ag-coldturkey",
@@ -127,7 +137,8 @@
    "x": 984,
    "y": 167,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "ag-ui",
@@ -136,7 +147,8 @@
    "x": 984,
    "y": 304,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "ag-state",
@@ -145,7 +157,8 @@
    "x": 984,
    "y": 411,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "wx-guard",
@@ -154,7 +167,8 @@
    "x": 984,
    "y": 533,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-mgmt",
@@ -173,7 +187,8 @@
    "x": 1476,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "mgr-migrate",
@@ -182,7 +197,8 @@
    "x": 1476,
    "y": 122,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "mgr-garden",
@@ -191,7 +207,8 @@
    "x": 1476,
    "y": 244,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-pi3",
@@ -210,7 +227,8 @@
    "x": 1968,
    "y": 0,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "pi-ctx",
@@ -219,7 +237,8 @@
    "x": 1968,
    "y": 107,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "pi-8450",
@@ -228,7 +247,8 @@
    "x": 1968,
    "y": 214,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "pi-8460",
@@ -237,7 +257,8 @@
    "x": 1968,
    "y": 336,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "pi-taskq",
@@ -246,7 +267,8 @@
    "x": 1968,
    "y": 458,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-doc3",

@@ -17,7 +17,8 @@
    "x": 0,
    "y": 0,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "p-bridge",
@@ -26,7 +27,8 @@
    "x": 0,
    "y": 137,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "p-getaway",
@@ -35,7 +37,8 @@
    "x": 0,
    "y": 274,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "p-ntfy",
@@ -44,7 +47,8 @@
    "x": 0,
    "y": 381,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "p-feedback",
@@ -53,7 +57,8 @@
    "x": 0,
    "y": 488,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-tablet",
@@ -72,7 +77,8 @@
    "x": 492,
    "y": 0,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-pc",
@@ -91,7 +97,8 @@
    "x": 984,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "c-obsidian",
@@ -100,7 +107,8 @@
    "x": 984,
    "y": 122,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "c-pomodoro",
@@ -109,7 +117,8 @@
    "x": 984,
    "y": 244,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "c-agent",
@@ -118,7 +127,8 @@
    "x": 984,
    "y": 366,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-net",
@@ -137,7 +147,8 @@
    "x": 1476,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "n-serve",
@@ -146,7 +157,8 @@
    "x": 1476,
    "y": 122,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-pi",
@@ -165,7 +177,8 @@
    "x": 1968,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "pi-syncthing",
@@ -174,7 +187,8 @@
    "x": 1968,
    "y": 122,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "pi-halfhour",
@@ -183,7 +197,8 @@
    "x": 1968,
    "y": 244,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "pi-life",
@@ -192,7 +207,8 @@
    "x": 1968,
    "y": 366,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "pi-web",
@@ -201,7 +217,8 @@
    "x": 1968,
    "y": 488,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "pi-garden",
@@ -210,7 +227,8 @@
    "x": 1968,
    "y": 610,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-ext",
@@ -229,7 +247,8 @@
    "x": 2460,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "e-ntfy",
@@ -238,7 +257,8 @@
    "x": 2460,
    "y": 122,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "e-pushplus",
@@ -247,7 +267,8 @@
    "x": 2460,
    "y": 229,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "g-doc",

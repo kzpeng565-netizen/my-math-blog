@@ -17,7 +17,8 @@
    "x": 0,
    "y": 0,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "recv-sync",
@@ -26,7 +27,8 @@
    "x": 0,
    "y": 137,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-half",
@@ -45,7 +47,8 @@
    "x": 492,
    "y": 0,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "hh-facts",
@@ -54,7 +57,8 @@
    "x": 492,
    "y": 107,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "hh-report",
@@ -63,7 +67,8 @@
    "x": 492,
    "y": 244,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "hh-shadow",
@@ -72,7 +77,8 @@
    "x": 492,
    "y": 366,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "ai-flash",
@@ -81,7 +87,8 @@
    "x": 492,
    "y": 488,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-ctx",
@@ -100,7 +107,8 @@
    "x": 984,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "ctx-taskq",
@@ -109,7 +117,8 @@
    "x": 984,
    "y": 122,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "ctx-recent",
@@ -118,7 +127,8 @@
    "x": 984,
    "y": 244,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-rm",
@@ -137,7 +147,8 @@
    "x": 1476,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "rm-weekly",
@@ -146,7 +157,8 @@
    "x": 1476,
    "y": 122,
    "width": 360,
-   "height": 66
+   "height": 66,
+   "type": "text"
   },
   {
    "id": "rm-bedtime",
@@ -155,7 +167,8 @@
    "x": 1476,
    "y": 214,
    "width": 360,
-   "height": 81
+   "height": 81,
+   "type": "text"
   },
   {
    "id": "rm-1500",
@@ -164,7 +177,8 @@
    "x": 1476,
    "y": 321,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "rm-sysadmin",
@@ -173,7 +187,8 @@
    "x": 1476,
    "y": 443,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "ntfy-out",
@@ -182,7 +197,8 @@
    "x": 1476,
    "y": 565,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "g-na",
@@ -201,7 +217,8 @@
    "x": 1968,
    "y": 0,
    "width": 360,
-   "height": 96
+   "height": 96,
+   "type": "text"
   },
   {
    "id": "na-decision",
@@ -210,7 +227,8 @@
    "x": 1968,
    "y": 122,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "na-loop",
@@ -219,7 +237,8 @@
    "x": 1968,
    "y": 259,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-garden",
@@ -238,7 +257,8 @@
    "x": 2460,
    "y": 0,
    "width": 360,
-   "height": 126
+   "height": 126,
+   "type": "text"
   },
   {
    "id": "gd-sqlite",
@@ -247,7 +267,8 @@
    "x": 2460,
    "y": 152,
    "width": 360,
-   "height": 141
+   "height": 141,
+   "type": "text"
   },
   {
    "id": "gd-backup",
@@ -256,7 +277,8 @@
    "x": 2460,
    "y": 319,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "gd-rewards",
@@ -265,7 +287,8 @@
    "x": 2460,
    "y": 456,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-fb",
@@ -284,7 +307,8 @@
    "x": 2952,
    "y": 0,
    "width": 360,
-   "height": 111
+   "height": 111,
+   "type": "text"
   },
   {
    "id": "g-doc4",
