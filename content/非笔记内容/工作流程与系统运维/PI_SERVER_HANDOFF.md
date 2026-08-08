@@ -1099,6 +1099,12 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ==已将“直接安排任务”从 Next Action 拆出，新增侧栏“任务清单”页。静态文件仍为 `/home/conrad/services/focus-garden/static/index.html` 与 `static/app.js`；页面不引入新 API、端口或公开路由，继续只使用既有的 `/api/tasks` 和 `/api/tasks/mutations` loopback bridge。部署前备份在 `/home/conrad/workspace/activitywatch-advisor/backups/focus-garden-task-list-20260805-171019/`。==
 
+## 2026-08-08：任务清单即时刷新修复
+
+==`static/app.js` 的 API 请求默认 `no-store`；“刷新清单”向 `/api/tasks` 添加时间戳，编辑／推迟／完成／删除收到 mutation 的 `effective` 后立刻回显，并再读取最新有效视图。`index.html` 的脚本版本更新为 `20260808.1`，避免客户端沿用旧 bundle。没有新增 API、端口或 Markdown 写入路径。Pi 回滚副本为 `/home/conrad/services/focus-garden/backups/20260808-0920-task-refresh/static/{app.js,index.html}`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=local-29-tests-plus-pi-tailnet-endpoint; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md" -->
+
 ## 2026-08-05：Focus Garden 关联任务与番茄结算
 
 ==`focus_sessions` 已迁移增加 `task_id`、`task_title` 与 `source`；`task_focus_balances` 和 `task_focus_settlements` 是任务专属 40 分钟累计账本。`GardenService.reconcile_focus()` 完成会话后，才通过固定 loopback bridge 向 advisor 的 `/api/task-sync/mutations` 投递 `advance_tomatoes`。这不是 Pi 直写 Markdown：advisor 只保留 queue，Pi Context Sync 读取 effective task view 后以单调的绝对目标更新 `[🍅:: current/total]`，再导出快照并 ack。==
