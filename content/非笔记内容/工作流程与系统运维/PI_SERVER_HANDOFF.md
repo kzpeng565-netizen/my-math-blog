@@ -1101,9 +1101,9 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ## 2026-08-08：任务清单即时刷新修复
 
-==`static/app.js` 的 API 请求默认 `no-store`；“刷新清单”向 `/api/tasks` 添加时间戳，编辑／推迟／完成／删除收到 mutation 的 `effective` 后立刻回显，并再读取最新有效视图。`index.html` 的脚本版本更新为 `20260808.1`，避免客户端沿用旧 bundle。没有新增 API、端口或 Markdown 写入路径。Pi 回滚副本为 `/home/conrad/services/focus-garden/backups/20260808-0920-task-refresh/static/{app.js,index.html}`。==
+==`static/app.js` 的 API 请求默认 `no-store`；“刷新清单”向 `/api/tasks` 添加时间戳，编辑／推迟／完成／删除收到 mutation 的 `effective` 后立刻回显，并再读取最新有效视图。第二次现场追踪确认原“推迟一天”仍停在原日期并非缓存：旧代码以本地零点加一天后调用 `toISOString()`，在 `Asia/Shanghai` 会因 UTC 转换退回前一日期。现由 `shiftCalendarDate()` 直接计算 `YYYY-MM-DD` 日历字段，`2026-08-06 + 1` 回归验证为 `2026-08-07`，脚本版本更新为 `20260808.2`。Advisor `task_sync.py` 的 ack 同时新增 mutation 语义校验，导出快照未真实反映 update/create/advance_tomatoes 或 complete/delete 时，即使哈希匹配也拒绝确认并保留 queue；同一任务的连续修改按最终字段值合并校验。每周循环表达式 `every week on Monday` 至 `Sunday` 会在 effective view 中投影到今天或下一次对应星期，同时保留原日期审计字段，不改 Markdown。`test_task_sync.py` 现为 8/8。没有新增 API、端口或 Markdown 写入路径。缓存修复回滚副本为 `/home/conrad/services/focus-garden/backups/20260808-0920-task-refresh/`；日期修复回滚副本为 `/home/conrad/services/focus-garden/backups/20260808-0928-postpone-timezone/`；ack 保护回滚副本为 `/home/conrad/workspace/activitywatch-advisor/backups/20260808-0934-task-ack-verification/`；循环投影与连续修改合并回滚副本分别为 `/home/conrad/workspace/activitywatch-advisor/backups/20260808-0944-weekly-recurrence-projection/`、`/home/conrad/workspace/activitywatch-advisor/backups/20260808-0950-task-ack-coalesce/`。==
 
-<!-- ai_provenance: source=codex; date=2026-08-08; verification=local-29-tests-plus-pi-tailnet-endpoint; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md" -->
+<!-- ai_provenance: source=codex; date=2026-08-08; verification=reproduced-with-live-task-plus-calendar-regression-ack-guard-and-pi-tailnet-endpoint; retrieved_notes="非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md" -->
 
 ## 2026-08-05：Focus Garden 关联任务与番茄结算
 
