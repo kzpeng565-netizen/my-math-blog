@@ -6,7 +6,7 @@
       "x": 560,
       "y": -100,
       "width": 520,
-      "height": 1894,
+      "height": 2800,
       "color": "5",
       "label": "🔗 Focus Bridge 1.3.3（手机）"
     },
@@ -16,7 +16,7 @@
       "x": 2240,
       "y": -100,
       "width": 520,
-      "height": 1502,
+      "height": 2220,
       "color": "6",
       "label": "🖥️ Pi 交互侧"
     },
@@ -26,7 +26,7 @@
       "x": 0,
       "y": -100,
       "width": 520,
-      "height": 1170,
+      "height": 1730,
       "color": "3",
       "label": "🤖 Automate 采集（手机）"
     },
@@ -36,7 +36,7 @@
       "x": 3360,
       "y": -100,
       "width": 520,
-      "height": 840,
+      "height": 1040,
       "color": "6",
       "label": "📚 对应文档"
     },
@@ -46,7 +46,7 @@
       "x": 1680,
       "y": -100,
       "width": 520,
-      "height": 872,
+      "height": 1290,
       "color": "2",
       "label": "🌐 网络路径与通知"
     },
@@ -56,7 +56,7 @@
       "x": 2800,
       "y": -100,
       "width": 520,
-      "height": 514,
+      "height": 770,
       "color": "1",
       "label": "🧯 故障排查入口"
     },
@@ -66,7 +66,7 @@
       "x": 1120,
       "y": -100,
       "width": 520,
-      "height": 310,
+      "height": 460,
       "color": "3",
       "label": "⏱️ 执行端"
     },
@@ -75,9 +75,9 @@
       "text": "Flow「Phone Usage Logger」（整体）\n• 三支路: 前台包名 / 亮灭屏 / 心跳+上传\n• 权限: 无障碍观察 + 文件管理 + 忽略电池限制\n• 常驻运行 + 开机启动（Fork 出三条 fiber）",
       "type": "text",
       "x": 20,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "4"
     },
     {
@@ -85,9 +85,9 @@
       "text": "上传循环（每 15 分钟）\n• PUT /upload/{3 个文件} + X-Upload-Token\n• 30s 超时; Failure catch(Retry 1) 记日志后\n  进 Delay(900s Inexact + Wake up)\n• 401/400 需人工查 HTTP 状态码与 Pi 日志",
       "type": "text",
       "x": 20,
-      "y": 528,
+      "y": 800,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "color": "4"
     },
     {
@@ -95,9 +95,9 @@
       "text": "自动清理 flow（每天 ~03:10）\n• 删除 15 天前 *.jsonl（File delete 通配符）\n• ⚠️ 待确认: 文档标注「尚未实施」\n• 异机 .flo 备份同样未建立（Restic 未启用）",
       "type": "text",
       "x": 20,
-      "y": 826,
+      "y": 1240,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "2"
     },
     {
@@ -105,9 +105,9 @@
       "text": "BridgeForegroundService（后台生命线）\n• 15s pending 轮询；5min 心跳（失败 1min 重试）\n• START_STICKY + 常驻通知 + 开机/升级恢复\n• 不把存活交给 Automate 或「不做手机控」",
       "type": "text",
       "x": 580,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "4"
     },
     {
@@ -115,9 +115,9 @@
       "text": "Offer 状态机 + 执行策略（纯 Java 可测）\n• 锁屏等待 ≤120s；解锁后给完整 10s\n• 执行: 20s 窗口 × 最多 3 次（按 request 计）\n• 时长: <8m→30m，8–15m→20m，≥15m→过期",
       "type": "text",
       "x": 580,
-      "y": 264,
+      "y": 410,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "4"
     },
     {
@@ -125,9 +125,9 @@
       "text": "InterventionPromptActivity（选择页）\n• 接受 / 拒绝 / 10s 超时 ignored\n• 不对其他应用导出；禁止外部/返回键绕过",
       "type": "text",
       "x": 580,
-      "y": 528,
+      "y": 800,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "color": "4"
     },
     {
@@ -145,9 +145,9 @@
       "text": "FocusBridgeAccessibilityService\n• 后台打开选择页、启动「不做手机控」\n• 查找目标窗口 + 已校准可见点击",
       "type": "text",
       "x": 580,
-      "y": 758,
+      "y": 1140,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "color": "4"
     },
     {
@@ -155,9 +155,9 @@
       "text": "GetawayNotificationListenerService\n• 读取授权通知，确认快速番茄真实计时\n• 保存最近 20min 候选（含 AUTO_CANCEL）\n• 过滤「今天准备怎么过」推广提示",
       "type": "text",
       "x": 580,
-      "y": 988,
+      "y": 1480,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "4"
     },
     {
@@ -165,9 +165,9 @@
       "text": "本地持久化（SharedPreferences）\n• 活动请求/attempts/result_pending/墓碑\n• 24h 完成墓碑 ≤64 条 → 请求级幂等\n• 决定提交成功前，轮询快照不得覆盖",
       "type": "text",
       "x": 580,
-      "y": 1252,
+      "y": 1870,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "3"
     },
     {
@@ -175,9 +175,9 @@
       "text": "配对链路（换机/重装时）\n• pair-focus-bridge.ps1: ADB run-as 读私有 token\n  → SSH 直写 Pi（不打印 token）\n• ⚠️ 正式签名 APK 的应用内配对尚未实现\n• 新屏幕需重新校准坐标/网格偏移",
       "type": "text",
       "x": 580,
-      "y": 1516,
+      "y": 2260,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "color": "2"
     },
     {
@@ -185,9 +185,9 @@
       "text": "「不做手机控」APP\n• 快速番茄（5min）/专注的实际执行\n• 通过 getaway_pomo 通知回传事件",
       "type": "text",
       "x": 1140,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "color": "4"
     },
     {
@@ -195,9 +195,9 @@
       "text": "公网 HTTPS 主链路（⚠️ 代理机制待确认）\n• https://pi.taild4d3f7.ts.net（文档称 :443）\n• 固定白名单 /focus-bridge/* + /upload/*\n• 每设备独立 Bearer；规避 Clash 与\n  Tailscale 单 VPN 冲突",
       "type": "text",
       "x": 1700,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "color": "5"
     },
     {
@@ -205,9 +205,9 @@
       "text": "Tailnet 备用 :8460\n• 仅公网 IOException 后使用\n• 依赖手机 Tailscale 在线（⚠️ 安装状态\n  旧文档与迁移流程表述冲突）",
       "type": "text",
       "x": 1700,
-      "y": 298,
+      "y": 460,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "5"
     },
     {
@@ -225,9 +225,9 @@
       "text": "phone-usage-receiver :8765\n• token 校验 / 大小≤20MiB / UTF-8 / 逐行 JSON\n• 合并去重排序 + 原子写入\n• incoming/ 镜像 + archive/YYYY-MM-DD 权威\n• 维护 timer 03:30（30/365 天）",
       "type": "text",
       "x": 2260,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "color": "4"
     },
     {
@@ -235,9 +235,9 @@
       "text": "focus-garden 介入调度 :8838\n• offer/decision/execute/event 固定白名单\n• 请求保留 16min；重复 final 幂等\n  （already_completed，不生成第二份）\n• 系统状态面板有「重复请求防护」计数",
       "type": "text",
       "x": 2260,
-      "y": 562,
+      "y": 850,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "color": "4"
     },
     {
@@ -245,9 +245,9 @@
       "text": "Pi 私有凭据（600 权限，不落文档）\n• /home/conrad/phone_usage/token.txt\n  （Automate 上传，X-Upload-Token）\n• /home/conrad/phone_usage/focus_bridge_token.txt\n  （桥接 Bearer）",
       "type": "text",
       "x": 2260,
-      "y": 860,
+      "y": 1290,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "color": "3"
     },
     {
@@ -255,9 +255,9 @@
       "text": "Pi ntfy sender / timers\n• 半小时、日报、15:00、深夜、系统维护\n• 发送回执留在 Pi data 目录\n• 主题来自私有 env，不写入客户端",
       "type": "text",
       "x": 2260,
-      "y": 1158,
+      "y": 1730,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "5"
     },
     {
@@ -265,9 +265,9 @@
       "text": "ntfy APP（手机，人工查看）\n• 订阅私有主题，展示日报/15:00/深夜/维护/半小时提醒\n• 不产生提醒；故障先查 Pi 回执与订阅状态",
       "type": "text",
       "x": 1700,
-      "y": 562,
+      "y": 850,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "color": "5"
     },
     {
@@ -275,9 +275,9 @@
       "text": "常见故障入口\n• 桥接: 手机私有目录 files/focus-bridge.log\n  + 界面「刷新运行日志」\n• 状态机验证: verify.ps1（13+8+5 项 + 离线构建）\n• Automate: 10.3 快速自检 / 心跳缺失 >30min\n• Pi 侧: journalctl -u phone-usage-receiver\n  / focus-garden.service；ss -lntp :8765\n• 卡 pending/重复执行: 查 24h 墓碑与\n  Pi 请求级幂等计数",
       "type": "text",
       "x": 2820,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 354,
+      "height": 550,
       "color": "1"
     },
     {
@@ -285,9 +285,9 @@
       "type": "file",
       "file": "非笔记内容/工作流程与系统运维/我的专注花园/专注花园桥接手机APP.md",
       "x": 3380,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 110,
+      "height": 130,
       "color": "6"
     },
     {
@@ -295,9 +295,9 @@
       "type": "file",
       "file": "非笔记内容/工作流程与系统运维/手机使用记录系统——手机端操作与维护指南.md",
       "x": 3380,
-      "y": 190,
+      "y": 250,
       "width": 420,
-      "height": 110,
+      "height": 130,
       "color": "6"
     },
     {
@@ -305,9 +305,9 @@
       "type": "file",
       "file": "非笔记内容/工作流程与系统运维/Pi系统手机端与电脑端迁移配置流程.md",
       "x": 3380,
-      "y": 380,
+      "y": 480,
       "width": 420,
-      "height": 110,
+      "height": 130,
       "color": "6"
     },
     {
@@ -315,9 +315,9 @@
       "type": "file",
       "file": "非笔记内容/工作流程与系统运维/ntfy提醒系统配置.md",
       "x": 3380,
-      "y": 570,
+      "y": 710,
       "width": 420,
-      "height": 110,
+      "height": 130,
       "color": "6"
     },
     {
@@ -325,9 +325,9 @@
       "text": "半小时处理链（phone/tablet_facts 输入）\n• 手机/平板 JSONL → facts → 合并 → 标签\n• → 语义时间线 → 指标 → AI 报告\n• 详见 03-Pi内部流程.canvas",
       "type": "text",
       "x": 2260,
-      "y": 298,
+      "y": 460,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "4"
     },
     {
@@ -335,9 +335,9 @@
       "text": "Documents/PhoneUsage/\n• YYYY-MM-DD-{foreground,screen,heartbeat}.jsonl\n• 心跳每 ~15 分钟一条；启动即写一条​\t\n• ⚠️ 旧版无日期文件是否已清理（待确认）",
       "type": "text",
       "x": 20,
-      "y": 264,
+      "y": 410,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "color": "3"
     }
   ],

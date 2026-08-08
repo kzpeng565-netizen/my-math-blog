@@ -7,7 +7,7 @@
       "x": 0,
       "y": -100,
       "width": 520,
-      "height": 940,
+      "height": 1390,
       "color": "5"
     },
     {
@@ -15,9 +15,9 @@
       "color": "4",
       "text": "phone-usage-receiver :8765\n• 入口: Funnel 443（唯一公网）\n• X-Upload-Token / Bearer 鉴权\n• archive/YYYY-MM-DD（30 天压缩/365 天删除,\n  维护 timer 03:30 Persistent 补跑）",
       "x": 20,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -25,9 +25,9 @@
       "color": "4",
       "text": "syncthing@conrad.service\n• receive-only: activitywatch-sync / \n  behavior-context-sync / pi-client-migration\n• send-only: focus-garden-archive（快照）\n• 禁止把活跃 SQLite 改双向同步",
       "x": 20,
-      "y": 298,
+      "y": 460,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -36,9 +36,9 @@
       "color": "1",
       "text": "旧目标 usage-hub（⚠️ 未实现）\n• 旧规划：SQLite / 半小时与每日汇总中心\n• 当前实际：JSONL 归档 + facts / 报告链\n• 维护时不要按旧目录或旧 schema 操作",
       "x": 20,
-      "y": 596,
+      "y": 900,
       "width": 420,
-      "height": 184
+      "height": 290
     },
     {
       "id": "g-half",
@@ -47,7 +47,7 @@
       "x": 560,
       "y": -100,
       "width": 520,
-      "height": 1434,
+      "height": 2120,
       "color": "3"
     },
     {
@@ -55,9 +55,9 @@
       "color": "4",
       "text": "activitywatch-advisor.timer\n• 每小时在 :08/:38 → run_half_hour.py\n• 40 分钟事实窗口（30+前后 5min）",
       "x": 580,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "type": "text"
     },
     {
@@ -65,9 +65,9 @@
       "color": "3",
       "text": "facts 分层（审计保留，决策读摘要）\n• computer/phone/tablet → combined\n• tagged（config/tag_rules.json）\n• semantic_timelines → mixing_metrics\n• 全设备静默 → 跳过 AI 仍归档",
       "x": 580,
-      "y": 230,
+      "y": 360,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -75,9 +75,9 @@
       "color": "3",
       "text": "data/ai_reports/YYYY-MM-DD/HH-MM.{json,md}\n• 网页仅暴露最新 3 条（去 Markdown 阅读版）\n• PushPlus 半小时推送已停用\n  （drop-in UnsetEnvironment 清 token）",
       "x": 580,
-      "y": 528,
+      "y": 800,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -85,9 +85,9 @@
       "color": "3",
       "text": "半小时提醒候选\n• data/intervention_candidates/\n• would_intervene=true → 半小时 ntfy 检查\n• ⚠️ 文档要求 shadow_mode=true；当前启用状态待确认",
       "x": 580,
-      "y": 792,
+      "y": 1190,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -95,9 +95,9 @@
       "color": "5",
       "text": "DeepSeek V4 flash\n• 语义时间线 / 报告生成\n• 近期动态解析（thinking=disabled）\n• 15:00 进度裁决 / 召回粗筛\n• 失败降级本地规则/低置信",
       "x": 580,
-      "y": 1056,
+      "y": 1580,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -107,7 +107,7 @@
       "x": 1120,
       "y": -100,
       "width": 520,
-      "height": 872,
+      "height": 1290,
       "color": "3"
     },
     {
@@ -115,9 +115,9 @@
       "color": "3",
       "text": "context_snapshot.json → data/context_cache/\n• Profile / Tasks / 番茄钟 / 睡眠边界\n• content age 大 ≠ 故障: 看 sync_heartbeat\n  （source_changed=false 时正常）",
       "x": 1140,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -125,9 +125,9 @@
       "color": "3",
       "text": "data/task_sync/state.json（mutation queue）\n• Pi 只存队列，不写 Vault（插件是唯一写入者）\n• 循环任务只读投影（every week on …）\n• ack 语义校验后清除；409 冲突保留草稿",
       "x": 1140,
-      "y": 264,
+      "y": 410,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -135,9 +135,9 @@
       "color": "3",
       "text": "data/recent_context/state.json\n• 近期动态（原文权威，recorded_at 基准）\n• parse_audit.jsonl 审计；≤6 条注入建议\n• selector_candidate_limit=30（旧文档 20，⚠️ 待确认旧记录）",
       "x": 1140,
-      "y": 528,
+      "y": 800,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -147,7 +147,7 @@
       "x": 1680,
       "y": -100,
       "width": 520,
-      "height": 1630,
+      "height": 2410,
       "color": "1"
     },
     {
@@ -155,9 +155,9 @@
       "color": "4",
       "text": "每日生活复盘 09:00/10:00/11:00\n• 早晨边界未现 → 后延重试\n• 11:00 仍无 → possible_fault 低置信日报\n• data/statistics/daily_life/ + ntfy 回执",
       "x": 1700,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -165,9 +165,9 @@
       "color": "4",
       "text": "周报 周一 09:05 → PushPlus\n• PushPlus 唯一保留的通知（半小时已停）",
       "x": 1700,
-      "y": 264,
+      "y": 410,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "type": "text"
     },
     {
@@ -175,9 +175,9 @@
       "color": "4",
       "text": "深夜提醒 00:30–04:30（每分钟检查）\n• 两层升级 + 25min 冷却；120s 数据新鲜度\n• 过期记 activity_data_stale 不升级",
       "x": 1700,
-      "y": 494,
+      "y": 750,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "type": "text"
     },
     {
@@ -185,9 +185,9 @@
       "color": "4",
       "text": "15:00 任务进度检查\n• 任务+番茄各半综合进度 <0.5 → ntfy high\n• V4 flash 裁决，失败退确定性规则\n• 不写回 Windows/Obsidian",
       "x": 1700,
-      "y": 724,
+      "y": 1090,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -195,9 +195,9 @@
       "color": "4",
       "text": "系统维护守护 每 3 分钟\n• 最近 60min 维护占比（30min≥75% / 60min≥65%）\n• ChatGPT/Codex ≤300s 邻近继承；数学词优先排除\n• ⚠️ 发送 env 文件与 30/60min 表述待确认",
       "x": 1700,
-      "y": 988,
+      "y": 1480,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -205,9 +205,9 @@
       "color": "5",
       "text": "通知出口\n• ntfy.sh: 日报/深夜/15:00/维护/半小时候选\n• env：/home/conrad/.config/activitywatch-advisor/ntfy.env\n  与 ntfy-halfhour.env（600；值不写 Canvas）\n• PushPlus 仅周报（见 rm-weekly）",
       "x": 1700,
-      "y": 1252,
+      "y": 1870,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -217,7 +217,7 @@
       "x": 2240,
       "y": -100,
       "width": 520,
-      "height": 974,
+      "height": 1440,
       "color": "6"
     },
     {
@@ -225,9 +225,9 @@
       "color": "4",
       "text": "activitywatch-advisor-web.service\n• 127.0.0.1:8767，tailnet-only :8450\n• 当前交接口径为免密码；⚠️ 旧 401 记录待清理\n• 页面 /next、任务清单、近期动态\n• 介入 API / issue-feedback / heartbeat",
       "x": 2260,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -235,9 +235,9 @@
       "color": "4",
       "text": "决策链 build_decision_state()\n• 硬规则: 午休 12:00–13:00；🍅=40min 中等可靠\n• 输入: 报告/指标/上下文/反馈/近期动态\n• V4 Pro thinking → 只推荐 1 个行动\n• decision_trace 只存审计摘要",
       "x": 2260,
-      "y": 298,
+      "y": 460,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -245,9 +245,9 @@
       "color": "3",
       "text": "闭环与反馈\n• active.json 未闭环 → 409 强制先反馈\n• 响应 responses/ outcomes/ 回流下一次\n• 行动澄清最多 2 轮（revision 校验）\n• 任务时间窗只影响建议锁定，不改 Obsidian",
       "x": 2260,
-      "y": 596,
+      "y": 900,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -257,7 +257,7 @@
       "x": 2800,
       "y": -100,
       "width": 520,
-      "height": 1374,
+      "height": 2050,
       "color": "4"
     },
     {
@@ -265,9 +265,9 @@
       "color": "4",
       "text": "focus-garden.service\n• app.py + focus_garden/{server,database,pi_sync}.py\n• 监听 127.0.0.1:8838（禁 Funnel/0.0.0.0）\n• NextActionProxy: loopback→8767 白名单 +\n  X-Focus-Garden-Bridge: 1\n• 系统状态面板 /api/system-status（只读聚合）",
       "x": 2820,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 252,
+      "height": 400,
       "type": "text"
     },
     {
@@ -275,9 +275,9 @@
       "color": "3",
       "text": "权威 SQLite（唯一写入端）\n• /home/conrad/services/focus-garden/data/\n  focus-garden.sqlite3（WAL）\n• rewards / garden_plants / focus_sessions /\n  focus_pauses / counters\n• reconciler 每 2s 检查到期/暂停恢复\n• ⚠️ 无 schema version/迁移工具",
       "x": 2820,
-      "y": 332,
+      "y": 520,
       "width": 420,
-      "height": 286,
+      "height": 450,
       "type": "text"
     },
     {
@@ -285,9 +285,9 @@
       "color": "4",
       "text": "focus-garden-backup.timer（每分钟）\n• SQLite backup API 原子一致性快照\n• → Syncthing send-only → Windows 镜像\n  D:\\MyFocusGardenArchive（receive-only）\n• 恢复只复制快照，禁止双向启用",
       "x": 2820,
-      "y": 698,
+      "y": 1070,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -295,9 +295,9 @@
       "color": "3",
       "text": "奖励数据源（只读聚合 advisor JSON）\n• 介入 accepted+success / AI 闭环（同一\n  suggestion_id）/ 早睡估计（日报 period）\n• 40min 专注账本 → 任务 🍅 目标进 queue\n• 分级兑换: 3 接受→1 初级；3 初级→1 高级",
       "x": 2820,
-      "y": 996,
+      "y": 1510,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -307,7 +307,7 @@
       "x": 3360,
       "y": -100,
       "width": 520,
-      "height": 378,
+      "height": 560,
       "color": "1"
     },
     {
@@ -315,9 +315,9 @@
       "color": "3",
       "text": "用户反馈（校正依据，raw 为事实源）\n• data/user_annotations/（半小时纠错）\n• data/issue_feedback/（网页问题, UNREVIEWED）\n• data/next_action/{responses,outcomes}\n• 不自动改 prompt/规则/任务，人工授权后才改",
       "x": 3380,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -327,7 +327,7 @@
       "x": 3920,
       "y": -100,
       "width": 520,
-      "height": 1220,
+      "height": 1500,
       "color": "6"
     },
     {
@@ -336,9 +336,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/我的专注花园/01-数据来源与处理.md",
       "x": 3940,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-02",
@@ -346,9 +346,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/我的专注花园/02-游戏架构.md",
       "x": 3940,
-      "y": 190,
+      "y": 250,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-04",
@@ -356,9 +356,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md",
       "x": 3940,
-      "y": 380,
+      "y": 480,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-05",
@@ -366,9 +366,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/我的专注花园/05-Pi迁移验收与恢复清单.md",
       "x": 3940,
-      "y": 570,
+      "y": 710,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-na",
@@ -376,9 +376,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md",
       "x": 3940,
-      "y": 760,
+      "y": 940,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-index",
@@ -386,9 +386,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md",
       "x": 3940,
-      "y": 950,
+      "y": 1170,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "title",

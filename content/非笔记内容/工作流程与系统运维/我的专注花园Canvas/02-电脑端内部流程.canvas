@@ -7,7 +7,7 @@
       "x": 0,
       "y": -100,
       "width": 520,
-      "height": 1332,
+      "height": 1970,
       "color": "5"
     },
     {
@@ -15,9 +15,9 @@
       "color": "4",
       "text": "aw-watcher-window / aw-watcher-afk\n• 前台窗口标题 ~1s；AFK ~180s 超时\n• 随登录启动（D:\\ActivityWatch）",
       "x": 20,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "type": "text"
     },
     {
@@ -25,9 +25,9 @@
       "color": "4",
       "text": "aw-server + Web UI :5600（仅本机）\n• SQLite 原始事件（peewee-sqlite.v2.db）\n• classes 分类: 层级深度优先，不改历史\n• 规则源: categories-v5.json（设置页导入）",
       "x": 20,
-      "y": 230,
+      "y": 360,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -35,9 +35,9 @@
       "color": "4",
       "text": "5 分钟同步计划任务\n• run-activitywatch-sync-hidden.vbs 隐藏启动\n• push-activitywatch.ps1 → aw-sync.exe push\n• 输出 C:\\Users\\15345\\ActivityWatchSync",
       "x": 20,
-      "y": 494,
+      "y": 750,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -45,9 +45,9 @@
       "color": "3",
       "text": "同步状态与日志\n• %LOCALAPPDATA%\\ActivityWatchPiSync\\\n  status.json（ok=false → 先开 AW 再手动跑）\n  logs\\sync-YYYY-MM-DD.log",
       "x": 20,
-      "y": 758,
+      "y": 1140,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -55,9 +55,9 @@
       "color": "4",
       "text": "Syncthing（Windows，send-only）\n• 登录启动；传输端口 22000\n• GUI 仅 127.0.0.1:8384；设备名 RaspberryPi",
       "x": 20,
-      "y": 1022,
+      "y": 1530,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "type": "text"
     },
     {
@@ -67,7 +67,7 @@
       "x": 560,
       "y": -100,
       "width": 520,
-      "height": 1272,
+      "height": 1880,
       "color": "3"
     },
     {
@@ -75,9 +75,9 @@
       "color": "3",
       "text": "Obsidian Vault（唯一事实源）\n• 非笔记内容/任务计划/Profile.md\n• ToDo-任务集合.md（⚠️待正式安排区）\n• ToDo-已经规划好的任务.md / 番茄钟log.md\n• 新任务行尾 ^blockid（8 位）",
       "x": 580,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -85,9 +85,9 @@
       "color": "4",
       "text": "Behavior Context Exporter\n• 计划任务每 20 分钟兜底 + 插件手动触发\n• 输出 C:\\Users\\15345\\BehaviorContextSync\\\n  context_snapshot.json + raw 文件\n• lock 文件防并发写坏",
       "x": 580,
-      "y": 298,
+      "y": 460,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -95,9 +95,9 @@
       "color": "4",
       "text": "Pi Context Sync 插件\n• 唯一 Markdown 写入者（mutation queue → 文件）\n• 一键同步: 保存 note → exporter → 远端校验\n• SSH SHA-256 比对（12s 连接 / 45s 窗口）\n• 提示「暂未确认接收」≠ 失败（Syncthing 重试）",
       "x": 580,
-      "y": 596,
+      "y": 900,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -105,9 +105,9 @@
       "color": "4",
       "text": "New Pomodoro Timer（v1.2.3-focus-garden.8）\n• 5s 读 /api/bootstrap +「刷新云端进度」\n• Work 5/20/30/40/45/60（默认 40）\n• Break 0/5/10/15/20/30；暂停 1–120min\n• 暂停一次 → 该轮半额结算",
       "x": 580,
-      "y": 894,
+      "y": 1340,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -117,7 +117,7 @@
       "x": 1120,
       "y": -100,
       "width": 520,
-      "height": 1502,
+      "height": 2230,
       "color": "1"
     },
     {
@@ -125,9 +125,9 @@
       "color": "4",
       "text": "Computer Intervention Agent（agent.py）\n• 5s 轮询 pending → 先 ack → Tkinter 弹窗\n• → Cold Turkey lease → final 回执\n• 5min heartbeat（POST /heartbeat）\n• allowlist: 常刷网站 / bilibili；按绝对到期时间回收\n• ⚠️ 最新交接称登录后交互式计划任务，旧文档称后台进程",
       "x": 1140,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 252,
+      "height": 400,
       "type": "text"
     },
     {
@@ -135,9 +135,9 @@
       "color": "4",
       "text": "Cold Turkey Blocker.exe\n• lease: -start '<block>'；到期由 agent -stop\n• block 名须与 CT GUI 完全一致\n• status=success 仅表示命令提交成功\n  （v1 无法反查真实封锁状态）",
       "x": 1140,
-      "y": 332,
+      "y": 520,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -145,9 +145,9 @@
       "color": "4",
       "text": "status_ui.py 状态面板\n• 只读: agent 进程/Pi API/pending/拒绝计数\n• 按钮: 启动 agent / 刷新（关闭仅关 UI）",
       "x": 1140,
-      "y": 630,
+      "y": 960,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "type": "text"
     },
     {
@@ -155,9 +155,9 @@
       "color": "3",
       "text": "本地状态\n• D:\\tools\\computer-intervention-agent\\\n  state.json + data\\agent.log\n• config.json: api_base 用 MagicDNS",
       "x": 1140,
-      "y": 860,
+      "y": 1300,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -165,9 +165,9 @@
       "color": "4",
       "text": "微信视频陪伴提醒（独立闭环）\n• 注册表摄像头占用检测 → 置顶提醒 →\n  可选 30min 封锁（复用 CT block）\n• 不依赖 Pi/网络；登录启动；state.json\n  5s 刷新 + events.jsonl 审计",
       "x": 1140,
-      "y": 1124,
+      "y": 1690,
       "width": 420,
-      "height": 218,
+      "height": 340,
       "type": "text"
     },
     {
@@ -177,7 +177,7 @@
       "x": 1680,
       "y": -100,
       "width": 520,
-      "height": 872,
+      "height": 1290,
       "color": "2"
     },
     {
@@ -185,9 +185,9 @@
       "color": "2",
       "text": "Clash Verge 代理 + fix-bypass\n• ProxyOverride 直连 pi.taild4d3f7.ts.net\n• 登录脚本 + 计划任务写回注册表\n• ⚠️ 任务周期 1min vs 5min（文档冲突）",
       "x": 1700,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -195,9 +195,9 @@
       "color": "3",
       "text": "D:\\PiClientMigration（迁移基线）\n• CURRENT.json 唯一版本指针\n• install-client-tasks.ps1 建 5 个规范任务\n• ⚠️ CURRENT 记录 1.3.1 vs 已装 1.3.3",
       "x": 1700,
-      "y": 264,
+      "y": 410,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -205,9 +205,9 @@
       "color": "3",
       "text": "开发/镜像副本（非权威）\n• D:\\MyFocusGarden（开发回滚副本）\n• D:\\MyFocusGardenArchive\\focus-garden.sqlite3\n  （receive-only + staggered 历史）",
       "x": 1700,
-      "y": 528,
+      "y": 800,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -217,7 +217,7 @@
       "x": 2240,
       "y": -100,
       "width": 520,
-      "height": 1332,
+      "height": 1970,
       "color": "6"
     },
     {
@@ -225,9 +225,9 @@
       "color": "3",
       "text": "Pi: activitywatch-sync（receive-only）\n• /home/conrad/workspace/activitywatch-sync\n• 输入半小时 computer_facts 清洗",
       "x": 2260,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "type": "text"
     },
     {
@@ -235,9 +235,9 @@
       "color": "3",
       "text": "Pi: behavior-context-sync（receive-only）\n• context_snapshot.json → context_cache\n• 判断 sync_heartbeat 的新鲜度",
       "x": 2260,
-      "y": 230,
+      "y": 360,
       "width": 420,
-      "height": 150,
+      "height": 240,
       "type": "text"
     },
     {
@@ -245,9 +245,9 @@
       "color": "5",
       "text": ":8450 advisor-web（tailnet-only）\n• 介入 API: pending / ack / response / heartbeat\n• ⚠️ auth_required=false 与旧文档 401\n  记录并存；当前文档口径为免密码",
       "x": 2260,
-      "y": 460,
+      "y": 700,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -255,9 +255,9 @@
       "color": "5",
       "text": ":8460 focus-garden（tailnet-only）\n• GET /api/bootstrap；POST /api/focus/\n  start | pause | resume（Pi 会话权威）\n• 一轮 Work 最多暂停一次",
       "x": 2260,
-      "y": 724,
+      "y": 1090,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -265,9 +265,9 @@
       "color": "3",
       "text": "Pi: data/task_sync/state.json\n• 网页 mutation queue（非权威）\n• ack 语义校验: 快照真实包含变更才清除\n• 循环任务只读投影（不改写 Markdown）",
       "x": 2260,
-      "y": 988,
+      "y": 1480,
       "width": 420,
-      "height": 184,
+      "height": 290,
       "type": "text"
     },
     {
@@ -277,7 +277,7 @@
       "x": 2800,
       "y": -100,
       "width": 520,
-      "height": 1030,
+      "height": 1270,
       "color": "6"
     },
     {
@@ -286,9 +286,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/New-Pomodoro-Timer-代码结构与交接.md",
       "x": 2820,
-      "y": 0,
+      "y": 20,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-sync",
@@ -296,9 +296,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/Obsidian一键同步树莓派插件使用说明.md",
       "x": 2820,
-      "y": 190,
+      "y": 250,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-aw",
@@ -306,9 +306,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/ActivityWatch/ActivityWatch维护说明.md",
       "x": 2820,
-      "y": 380,
+      "y": 480,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-ct",
@@ -316,9 +316,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/本地Cold Turkey自动开启模块.md",
       "x": 2820,
-      "y": 570,
+      "y": 710,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "d-mig",
@@ -326,9 +326,9 @@
       "color": "6",
       "file": "非笔记内容/工作流程与系统运维/Pi系统手机端与电脑端迁移配置流程.md",
       "x": 2820,
-      "y": 760,
+      "y": 940,
       "width": 420,
-      "height": 110
+      "height": 130
     },
     {
       "id": "title",
