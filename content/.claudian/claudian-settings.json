@@ -1,7 +1,7 @@
 {
   "userName": "",
   "permissionMode": "yolo",
-  "model": "claude-code/deepseek-v4-pro[1m]",
+  "model": "gpt-5.6-sol",
   "thinkingBudget": "off",
   "effortLevel": "high",
   "serviceTier": "default",
@@ -28,7 +28,9 @@
       "enabled": true,
       "safeMode": "acceptEdits",
       "cliPath": "",
-      "cliPathsByHost": {},
+      "cliPathsByHost": {
+        "device:a65af03f-bce5-4793-af1e-205a19208756": "D:\\tools\\claude-code\\claude.cmd"
+      },
       "loadUserSettings": true,
       "enableChrome": false,
       "enableBangBash": false,
@@ -37,7 +39,7 @@
       "modelEnvironmentType": "",
       "titleModelEnvironmentType": "",
       "environmentVariables": "ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic\nANTHROPIC_AUTH_TOKEN=sk-3d5d6b9a2f4d4c6eb201751d1a2485fa\nANTHROPIC_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash\nCLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash\nCLAUDE_CODE_EFFORT_LEVEL=max",
-      "environmentHash": "runtime-input:v1:87474b2ad89e092b8e0260e6b9ab7e2e4eb26cbd6069c18dea5977201121cf3c"
+      "environmentHash": "runtime-input:v1:9299f3e3025a0c2d7ae11cb9b21922f5705e1447177f84d8c13fc02951f7f3b6"
     },
     "codex": {
       "enabled": true,
@@ -291,7 +293,7 @@
       "reasoningSummary": "detailed",
       "environmentVariables": "",
       "environmentHash": "runtime-input:v1:f7883676baae8bb27f2a882fee027044b37a0430fe24027a0bf5635e811e3e94",
-      "catalogTimestamp": 1786194242747,
+      "catalogTimestamp": 1786197133978,
       "catalogFingerprint": "2:225642923134fd4bffc4a0f0fe4c1d08c18e71e326628c4c1899b1924d70d684",
       "installationMethodsByHost": {
         "device:a65af03f-bce5-4793-af1e-205a19208756": "native-windows"
@@ -335,10 +337,10 @@
       "visibleModels": null
     }
   },
-  "settingsProvider": "claude",
+  "settingsProvider": "codex",
   "savedProviderModel": {
     "claude": "claude-code/deepseek-v4-pro[1m]",
-    "codex": "claude-code/deepseek-v4-pro[1m]"
+    "codex": "gpt-5.6-sol"
   },
   "savedProviderEffort": {
     "claude": "high",
