@@ -38,7 +38,7 @@
       "lastModel": "sonnet",
       "modelEnvironmentType": "",
       "titleModelEnvironmentType": "",
-      "environmentVariables": "ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic\nANTHROPIC_AUTH_TOKEN=sk-3d5d6b9a2f4d4c6eb201751d1a2485fa\nANTHROPIC_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash\nCLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash\nCLAUDE_CODE_EFFORT_LEVEL=max",
+      "environmentVariables": "ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic\nANTHROPIC_AUTH_TOKEN=sk-3d5d6b9a2f4d4c6eb201751d1a2485fa\nANTHROPIC_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m]\nANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash\nCLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash\nCLAUDE_CODE_EFFORT_LEVEL=max\nHTTP_PROXY=http://127.0.0.1:7897\nHTTPS_PROXY=http://127.0.0.1:7897\nNO_PROXY=localhost,127.0.0.1",
       "environmentHash": "runtime-input:v1:9299f3e3025a0c2d7ae11cb9b21922f5705e1447177f84d8c13fc02951f7f3b6"
     },
     "codex": {
