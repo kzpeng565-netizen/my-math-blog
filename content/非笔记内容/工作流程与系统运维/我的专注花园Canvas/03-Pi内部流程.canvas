@@ -1,394 +1,154 @@
 {
   "nodes": [
     {
-      "id": "g-in",
+      "id": "g-rm",
       "type": "group",
-      "label": "📥 数据接收层",
-      "x": 0,
+      "x": 1680,
       "y": -100,
       "width": 520,
-      "height": 1390,
-      "color": "5"
-    },
-    {
-      "id": "recv-phone",
-      "color": "4",
-      "text": "phone-usage-receiver :8765\n• 入口: Funnel 443（唯一公网）\n• X-Upload-Token / Bearer 鉴权\n• archive/YYYY-MM-DD（30 天压缩/365 天删除,\n  维护 timer 03:30 Persistent 补跑）",
-      "x": 20,
-      "y": 20,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "recv-sync",
-      "color": "4",
-      "text": "syncthing@conrad.service\n• receive-only: activitywatch-sync / \n  behavior-context-sync / pi-client-migration\n• send-only: focus-garden-archive（快照）\n• 禁止把活跃 SQLite 改双向同步",
-      "x": 20,
-      "y": 460,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "legacy-usagehub",
-      "type": "text",
+      "height": 2700,
       "color": "1",
-      "text": "旧目标 usage-hub（⚠️ 未实现）\n• 旧规划：SQLite / 半小时与每日汇总中心\n• 当前实际：JSONL 归档 + facts / 报告链\n• 维护时不要按旧目录或旧 schema 操作",
-      "x": 20,
-      "y": 900,
-      "width": 420,
-      "height": 290
+      "label": "⏱️ 提醒与统计 timers"
     },
     {
       "id": "g-half",
       "type": "group",
-      "label": "⏰ 半小时处理链（08/38 分）",
       "x": 560,
       "y": -100,
       "width": 520,
-      "height": 2120,
-      "color": "3"
-    },
-    {
-      "id": "hh-timer",
-      "color": "4",
-      "text": "activitywatch-advisor.timer\n• 每小时在 :08/:38 → run_half_hour.py\n• 40 分钟事实窗口（30+前后 5min）",
-      "x": 580,
-      "y": 20,
-      "width": 420,
-      "height": 240,
-      "type": "text"
-    },
-    {
-      "id": "hh-facts",
+      "height": 2380,
       "color": "3",
-      "text": "facts 分层（审计保留，决策读摘要）\n• computer/phone/tablet → combined\n• tagged（config/tag_rules.json）\n• semantic_timelines → mixing_metrics\n• 全设备静默 → 跳过 AI 仍归档",
-      "x": 580,
-      "y": 360,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "hh-report",
-      "color": "3",
-      "text": "data/ai_reports/YYYY-MM-DD/HH-MM.{json,md}\n• 网页仅暴露最新 3 条（去 Markdown 阅读版）\n• PushPlus 半小时推送已停用\n  （drop-in UnsetEnvironment 清 token）",
-      "x": 580,
-      "y": 800,
-      "width": 420,
-      "height": 290,
-      "type": "text"
-    },
-    {
-      "id": "hh-shadow",
-      "color": "3",
-      "text": "半小时提醒候选\n• data/intervention_candidates/\n• would_intervene=true → 半小时 ntfy 检查\n• ⚠️ 文档要求 shadow_mode=true；当前启用状态待确认",
-      "x": 580,
-      "y": 1190,
-      "width": 420,
-      "height": 290,
-      "type": "text"
-    },
-    {
-      "id": "ai-flash",
-      "color": "5",
-      "text": "DeepSeek V4 flash\n• 语义时间线 / 报告生成\n• 近期动态解析（thinking=disabled）\n• 15:00 进度裁决 / 召回粗筛\n• 失败降级本地规则/低置信",
-      "x": 580,
-      "y": 1580,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "g-ctx",
-      "type": "group",
-      "label": "📋 Obsidian/任务上下文",
-      "x": 1120,
-      "y": -100,
-      "width": 520,
-      "height": 1290,
-      "color": "3"
-    },
-    {
-      "id": "ctx-snapshot",
-      "color": "3",
-      "text": "context_snapshot.json → data/context_cache/\n• Profile / Tasks / 番茄钟 / 睡眠边界\n• content age 大 ≠ 故障: 看 sync_heartbeat\n  （source_changed=false 时正常）",
-      "x": 1140,
-      "y": 20,
-      "width": 420,
-      "height": 290,
-      "type": "text"
-    },
-    {
-      "id": "ctx-taskq",
-      "color": "3",
-      "text": "data/task_sync/state.json（mutation queue）\n• Pi 只存队列，不写 Vault（插件是唯一写入者）\n• 循环任务只读投影（every week on …）\n• ack 语义校验后清除；409 冲突保留草稿",
-      "x": 1140,
-      "y": 410,
-      "width": 420,
-      "height": 290,
-      "type": "text"
-    },
-    {
-      "id": "ctx-recent",
-      "color": "3",
-      "text": "data/recent_context/state.json\n• 近期动态（原文权威，recorded_at 基准）\n• parse_audit.jsonl 审计；≤6 条注入建议\n• selector_candidate_limit=30（旧文档 20，⚠️ 待确认旧记录）",
-      "x": 1140,
-      "y": 800,
-      "width": 420,
-      "height": 290,
-      "type": "text"
-    },
-    {
-      "id": "g-rm",
-      "type": "group",
-      "label": "⏱️ 提醒与统计 timers",
-      "x": 1680,
-      "y": -100,
-      "width": 520,
-      "height": 2410,
-      "color": "1"
-    },
-    {
-      "id": "rm-daily",
-      "color": "4",
-      "text": "每日生活复盘 09:00/10:00/11:00\n• 早晨边界未现 → 后延重试\n• 11:00 仍无 → possible_fault 低置信日报\n• data/statistics/daily_life/ + ntfy 回执",
-      "x": 1700,
-      "y": 20,
-      "width": 420,
-      "height": 290,
-      "type": "text"
-    },
-    {
-      "id": "rm-weekly",
-      "color": "4",
-      "text": "周报 周一 09:05 → PushPlus\n• PushPlus 唯一保留的通知（半小时已停）",
-      "x": 1700,
-      "y": 410,
-      "width": 420,
-      "height": 240,
-      "type": "text"
-    },
-    {
-      "id": "rm-bedtime",
-      "color": "4",
-      "text": "深夜提醒 00:30–04:30（每分钟检查）\n• 两层升级 + 25min 冷却；120s 数据新鲜度\n• 过期记 activity_data_stale 不升级",
-      "x": 1700,
-      "y": 750,
-      "width": 420,
-      "height": 240,
-      "type": "text"
-    },
-    {
-      "id": "rm-1500",
-      "color": "4",
-      "text": "15:00 任务进度检查\n• 任务+番茄各半综合进度 <0.5 → ntfy high\n• V4 flash 裁决，失败退确定性规则\n• 不写回 Windows/Obsidian",
-      "x": 1700,
-      "y": 1090,
-      "width": 420,
-      "height": 290,
-      "type": "text"
-    },
-    {
-      "id": "rm-sysadmin",
-      "color": "4",
-      "text": "系统维护守护 每 3 分钟\n• 最近 60min 维护占比（30min≥75% / 60min≥65%）\n• ChatGPT/Codex ≤300s 邻近继承；数学词优先排除\n• ⚠️ 发送 env 文件与 30/60min 表述待确认",
-      "x": 1700,
-      "y": 1480,
-      "width": 420,
-      "height": 290,
-      "type": "text"
-    },
-    {
-      "id": "ntfy-out",
-      "color": "5",
-      "text": "通知出口\n• ntfy.sh: 日报/深夜/15:00/维护/半小时候选\n• env：/home/conrad/.config/activitywatch-advisor/ntfy.env\n  与 ntfy-halfhour.env（600；值不写 Canvas）\n• PushPlus 仅周报（见 rm-weekly）",
-      "x": 1700,
-      "y": 1870,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "g-na",
-      "type": "group",
-      "label": "🎯 Next Action 决策（:8767 → :8450）",
-      "x": 2240,
-      "y": -100,
-      "width": 520,
-      "height": 1440,
-      "color": "6"
-    },
-    {
-      "id": "na-web",
-      "color": "4",
-      "text": "activitywatch-advisor-web.service\n• 127.0.0.1:8767，tailnet-only :8450\n• 当前交接口径为免密码；⚠️ 旧 401 记录待清理\n• 页面 /next、任务清单、近期动态\n• 介入 API / issue-feedback / heartbeat",
-      "x": 2260,
-      "y": 20,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "na-decision",
-      "color": "4",
-      "text": "决策链 build_decision_state()\n• 硬规则: 午休 12:00–13:00；🍅=40min 中等可靠\n• 输入: 报告/指标/上下文/反馈/近期动态\n• V4 Pro thinking → 只推荐 1 个行动\n• decision_trace 只存审计摘要",
-      "x": 2260,
-      "y": 460,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "na-loop",
-      "color": "3",
-      "text": "闭环与反馈\n• active.json 未闭环 → 409 强制先反馈\n• 响应 responses/ outcomes/ 回流下一次\n• 行动澄清最多 2 轮（revision 校验）\n• 任务时间窗只影响建议锁定，不改 Obsidian",
-      "x": 2260,
-      "y": 900,
-      "width": 420,
-      "height": 340,
-      "type": "text"
+      "label": "⏰ 半小时处理链（08/38 分）"
     },
     {
       "id": "g-garden",
       "type": "group",
-      "label": "🌱 专注花园（:8838 → :8460）",
       "x": 2800,
       "y": -100,
       "width": 520,
-      "height": 2050,
-      "color": "4"
-    },
-    {
-      "id": "gd-service",
+      "height": 2300,
       "color": "4",
-      "text": "focus-garden.service\n• app.py + focus_garden/{server,database,pi_sync}.py\n• 监听 127.0.0.1:8838（禁 Funnel/0.0.0.0）\n• NextActionProxy: loopback→8767 白名单 +\n  X-Focus-Garden-Bridge: 1\n• 系统状态面板 /api/system-status（只读聚合）",
-      "x": 2820,
-      "y": 20,
-      "width": 420,
-      "height": 400,
-      "type": "text"
-    },
-    {
-      "id": "gd-sqlite",
-      "color": "3",
-      "text": "权威 SQLite（唯一写入端）\n• /home/conrad/services/focus-garden/data/\n  focus-garden.sqlite3（WAL）\n• rewards / garden_plants / focus_sessions /\n  focus_pauses / counters\n• reconciler 每 2s 检查到期/暂停恢复\n• ⚠️ 无 schema version/迁移工具",
-      "x": 2820,
-      "y": 520,
-      "width": 420,
-      "height": 450,
-      "type": "text"
-    },
-    {
-      "id": "gd-backup",
-      "color": "4",
-      "text": "focus-garden-backup.timer（每分钟）\n• SQLite backup API 原子一致性快照\n• → Syncthing send-only → Windows 镜像\n  D:\\MyFocusGardenArchive（receive-only）\n• 恢复只复制快照，禁止双向启用",
-      "x": 2820,
-      "y": 1070,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "gd-rewards",
-      "color": "3",
-      "text": "奖励数据源（只读聚合 advisor JSON）\n• 介入 accepted+success / AI 闭环（同一\n  suggestion_id）/ 早睡估计（日报 period）\n• 40min 专注账本 → 任务 🍅 目标进 queue\n• 分级兑换: 3 接受→1 初级；3 初级→1 高级",
-      "x": 2820,
-      "y": 1510,
-      "width": 420,
-      "height": 340,
-      "type": "text"
-    },
-    {
-      "id": "g-fb",
-      "type": "group",
-      "label": "🔄 反馈回流",
-      "x": 3360,
-      "y": -100,
-      "width": 520,
-      "height": 560,
-      "color": "1"
-    },
-    {
-      "id": "fb-annot",
-      "color": "3",
-      "text": "用户反馈（校正依据，raw 为事实源）\n• data/user_annotations/（半小时纠错）\n• data/issue_feedback/（网页问题, UNREVIEWED）\n• data/next_action/{responses,outcomes}\n• 不自动改 prompt/规则/任务，人工授权后才改",
-      "x": 3380,
-      "y": 20,
-      "width": 420,
-      "height": 340,
-      "type": "text"
+      "label": "🌱 专注花园（:8838 → :8460）"
     },
     {
       "id": "g-doc4",
       "type": "group",
-      "label": "📚 对应文档",
       "x": 3920,
       "y": -100,
       "width": 520,
-      "height": 1500,
-      "color": "6"
+      "height": 2520,
+      "color": "6",
+      "label": "📚 对应文档"
     },
     {
-      "id": "d-01",
-      "type": "file",
+      "id": "g-na",
+      "type": "group",
+      "x": 2240,
+      "y": -100,
+      "width": 520,
+      "height": 1620,
       "color": "6",
-      "file": "非笔记内容/工作流程与系统运维/我的专注花园/01-数据来源与处理.md",
-      "x": 3940,
+      "label": "🎯 Next Action 决策（:8767 → :8450）"
+    },
+    {
+      "id": "g-in",
+      "type": "group",
+      "x": 0,
+      "y": -100,
+      "width": 520,
+      "height": 1560,
+      "color": "5",
+      "label": "📥 数据接收层"
+    },
+    {
+      "id": "g-ctx",
+      "type": "group",
+      "x": 1120,
+      "y": -100,
+      "width": 520,
+      "height": 1440,
+      "color": "3",
+      "label": "📋 Obsidian/任务上下文"
+    },
+    {
+      "id": "g-fb",
+      "type": "group",
+      "x": 3360,
+      "y": -100,
+      "width": 520,
+      "height": 620,
+      "color": "1",
+      "label": "🔄 反馈回流"
+    },
+    {
+      "id": "recv-phone",
+      "text": "职责：接收公网入口转发的手机事实，完成 Bearer 鉴权与日期归档。\nphone-usage-receiver :8765\n• 入口: Funnel 443（唯一公网）\n• X-Upload-Token / Bearer 鉴权\n• archive/YYYY-MM-DD（30 天压缩/365 天删除,\n  维护 timer 03:30 Persistent 补跑）",
+      "type": "text",
+      "x": 20,
       "y": 20,
       "width": 420,
-      "height": 130
+      "height": 400,
+      "color": "4"
     },
     {
-      "id": "d-02",
-      "type": "file",
-      "color": "6",
-      "file": "非笔记内容/工作流程与系统运维/我的专注花园/02-游戏架构.md",
-      "x": 3940,
-      "y": 250,
+      "id": "recv-sync",
+      "text": "职责：维护电脑事实、上下文和迁移文件的 receive-only 接收，以及花园快照的 send-only 归档。\nsyncthing@conrad.service\n• receive-only: activitywatch-sync / \n  behavior-context-sync / pi-client-migration\n• send-only: focus-garden-archive（快照）\n• 禁止把活跃 SQLite 改双向同步",
+      "type": "text",
+      "x": 20,
+      "y": 520,
       "width": 420,
-      "height": 130
+      "height": 400,
+      "color": "4"
     },
     {
-      "id": "d-04",
-      "type": "file",
-      "color": "6",
-      "file": "非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md",
-      "x": 3940,
-      "y": 480,
+      "id": "legacy-usagehub",
+      "type": "text",
+      "text": "职责：标记旧 usage-hub 目标与当前 JSONL/facts 实现之间的边界，防止按未实现架构操作。\n旧目标 usage-hub（⚠️ 未实现）\n• 旧规划：SQLite / 半小时与每日汇总中心\n• 当前实际：JSONL 归档 + facts / 报告链\n• 维护时不要按旧目录或旧 schema 操作",
+      "x": 20,
+      "y": 1020,
       "width": 420,
-      "height": 130
+      "height": 340,
+      "color": "1"
     },
     {
-      "id": "d-05",
-      "type": "file",
-      "color": "6",
-      "file": "非笔记内容/工作流程与系统运维/我的专注花园/05-Pi迁移验收与恢复清单.md",
-      "x": 3940,
-      "y": 710,
+      "id": "hh-timer",
+      "text": "职责：按 :08/:38 定时触发半小时事实处理脚本。\nactivitywatch-advisor.timer\n• 每小时在 :08/:38 → run_half_hour.py\n• 40 分钟事实窗口（30+前后 5min）",
+      "type": "text",
+      "x": 580,
+      "y": 20,
       "width": 420,
-      "height": 130
+      "height": 280,
+      "color": "4"
     },
     {
-      "id": "d-na",
-      "type": "file",
-      "color": "6",
-      "file": "非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md",
-      "x": 3940,
-      "y": 940,
+      "id": "hh-facts",
+      "text": "职责：把 computer、phone、tablet facts 分层、合并、标记并计算语义指标。\nfacts 分层（审计保留，决策读摘要）\n• computer/phone/tablet → combined\n• tagged（config/tag_rules.json）\n• semantic_timelines → mixing_metrics\n• 全设备静默 → 跳过 AI 仍归档",
+      "type": "text",
+      "x": 580,
+      "y": 400,
       "width": 420,
-      "height": 130
+      "height": 400,
+      "color": "3"
     },
     {
-      "id": "d-index",
-      "type": "file",
-      "color": "6",
-      "file": "非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md",
-      "x": 3940,
-      "y": 1170,
+      "id": "hh-report",
+      "text": "职责：持久化半小时 AI 报告，并向网页提供最新报告阅读结果。\ndata/ai_reports/YYYY-MM-DD/HH-MM.{json,md}\n• 网页仅暴露最新 3 条（去 Markdown 阅读版）\n• PushPlus 半小时推送已停用\n  （drop-in UnsetEnvironment 清 token）",
+      "type": "text",
+      "x": 580,
+      "y": 900,
       "width": 420,
-      "height": 130
+      "height": 340,
+      "color": "3"
+    },
+    {
+      "id": "hh-shadow",
+      "text": "职责：保存半小时干预候选，并根据 would_intervene 和 shadow_mode 决定是否提醒。\n半小时提醒候选\n• data/intervention_candidates/\n• would_intervene=true → 半小时 ntfy 检查\n• ⚠️ 文档要求 shadow_mode=true；当前启用状态待确认",
+      "type": "text",
+      "x": 580,
+      "y": 1340,
+      "width": 420,
+      "height": 340,
+      "color": "3"
     },
     {
       "id": "title",
@@ -401,6 +161,66 @@
       "color": "3"
     },
     {
+      "id": "ai-flash",
+      "text": "职责：执行半小时语义分析、报告生成、近期动态解析和 15:00 粗筛裁决。\nDeepSeek V4 flash\n• 语义时间线 / 报告生成\n• 近期动态解析（thinking=disabled）\n• 15:00 进度裁决 / 召回粗筛\n• 失败降级本地规则/低置信",
+      "type": "text",
+      "x": 580,
+      "y": 1780,
+      "width": 420,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "ctx-snapshot",
+      "text": "职责：提供 Profile、Tasks、番茄钟和睡眠边界等上下文缓存输入。\ncontext_snapshot.json → data/context_cache/\n• Profile / Tasks / 番茄钟 / 睡眠边界\n• content age 大 ≠ 故障: 看 sync_heartbeat\n  （source_changed=false 时正常）",
+      "type": "text",
+      "x": 1140,
+      "y": 20,
+      "width": 420,
+      "height": 340,
+      "color": "3"
+    },
+    {
+      "id": "ctx-taskq",
+      "text": "职责：保存网页 mutation queue，等待唯一 Markdown 写入者确认后清除。\ndata/task_sync/state.json（mutation queue）\n• Pi 只存队列，不写 Vault（插件是唯一写入者）\n• 循环任务只读投影（every week on …）\n• ack 语义校验后清除；409 冲突保留草稿",
+      "type": "text",
+      "x": 1140,
+      "y": 460,
+      "width": 420,
+      "height": 340,
+      "color": "3"
+    },
+    {
+      "id": "ctx-recent",
+      "text": "职责：保存近期动态原文和解析审计，向 Next Action 提供受限候选输入。\ndata/recent_context/state.json\n• 近期动态（原文权威，recorded_at 基准）\n• parse_audit.jsonl 审计；≤6 条注入建议\n• selector_candidate_limit=30（旧文档 20，⚠️ 待确认旧记录）",
+      "type": "text",
+      "x": 1140,
+      "y": 900,
+      "width": 420,
+      "height": 340,
+      "color": "3"
+    },
+    {
+      "id": "rm-daily",
+      "text": "职责：在早晨边界检查后生成生活日报并发送结果或低置信故障提示。\n每日生活复盘 09:00/10:00/11:00\n• 早晨边界未现 → 后延重试\n• 11:00 仍无 → possible_fault 低置信日报\n• data/statistics/daily_life/ + ntfy 回执",
+      "type": "text",
+      "x": 1700,
+      "y": 20,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "rm-weekly",
+      "text": "职责：每周一 09:05 生成并发送唯一保留的 PushPlus 周报。\n周报 周一 09:05 → PushPlus\n• PushPlus 唯一保留的通知（半小时已停）",
+      "type": "text",
+      "x": 1700,
+      "y": 460,
+      "width": 420,
+      "height": 280,
+      "color": "4"
+    },
+    {
       "id": "legend",
       "type": "text",
       "text": "🎨 图例\n🟢 绿=自动流程/服务  🟡 黄=数据/配置/状态\n🔵 青=网络边界/接口  🟣 紫=文档（点击打开）\n🔴 红=人工操作/故障入口  🟠 橙=⚠️待确认\n→ 边=数据流/触发关系\n维护：改模块前先看它的入边（依赖）与出边（影响范围）",
@@ -409,264 +229,444 @@
       "width": 520,
       "height": 180,
       "color": "6"
+    },
+    {
+      "id": "rm-bedtime",
+      "text": "职责：每分钟检查深夜睡眠边界，并按冷却和数据新鲜度规则升级提醒。\n深夜提醒 00:30–04:30（每分钟检查）\n• 两层升级 + 25min 冷却；120s 数据新鲜度\n• 过期记 activity_data_stale 不升级",
+      "type": "text",
+      "x": 1700,
+      "y": 840,
+      "width": 420,
+      "height": 280,
+      "color": "4"
+    },
+    {
+      "id": "rm-1500",
+      "text": "职责：在 15:00 综合任务与番茄进度，决定是否发送高优先级提醒。\n15:00 任务进度检查\n• 任务+番茄各半综合进度 <0.5 → ntfy high\n• V4 flash 裁决，失败退确定性规则\n• 不写回 Windows/Obsidian",
+      "type": "text",
+      "x": 1700,
+      "y": 1220,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "rm-sysadmin",
+      "text": "职责：每 3 分钟检查维护占比和相邻上下文，必要时发送维护提醒。\n系统维护守护 每 3 分钟\n• 最近 60min 维护占比（30min≥75% / 60min≥65%）\n• ChatGPT/Codex ≤300s 邻近继承；数学词优先排除\n• ⚠️ 发送 env 文件与 30/60min 表述待确认",
+      "type": "text",
+      "x": 1700,
+      "y": 1660,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "ntfy-out",
+      "text": "职责：统一承载 Pi 到 ntfy.sh 的日报、深夜、15:00、维护和半小时通知。\n通知出口\n• ntfy.sh: 日报/深夜/15:00/维护/半小时候选\n• env：/home/conrad/.config/activitywatch-advisor/ntfy.env\n  与 ntfy-halfhour.env（600；值不写 Canvas）\n• PushPlus 仅周报（见 rm-weekly）",
+      "type": "text",
+      "x": 1700,
+      "y": 2100,
+      "width": 420,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "na-web",
+      "text": "职责：提供 Next Action 页面、任务列表、近期动态、反馈和介入 API。\nactivitywatch-advisor-web.service\n• 127.0.0.1:8767，tailnet-only :8450\n• 当前交接口径为免密码；⚠️ 旧 401 记录待清理\n• 页面 /next、任务清单、近期动态\n• 介入 API / issue-feedback / heartbeat",
+      "type": "text",
+      "x": 2260,
+      "y": 20,
+      "width": 420,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "na-decision",
+      "text": "职责：汇总报告、指标、上下文和反馈，构造并审计唯一下一行动建议。\n决策链 build_decision_state()\n• 硬规则: 午休 12:00–13:00；🍅=40min 中等可靠\n• 输入: 报告/指标/上下文/反馈/近期动态\n• V4 Pro thinking → 只推荐 1 个行动\n• decision_trace 只存审计摘要",
+      "type": "text",
+      "x": 2260,
+      "y": 520,
+      "width": 420,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "na-loop",
+      "text": "职责：保证建议必须反馈闭环，处理 active、409、responses、outcomes 和最多两轮澄清。\n闭环与反馈\n• active.json 未闭环 → 409 强制先反馈\n• 响应 responses/ outcomes/ 回流下一次\n• 行动澄清最多 2 轮（revision 校验）\n• 任务时间窗只影响建议锁定，不改 Obsidian",
+      "type": "text",
+      "x": 2260,
+      "y": 1020,
+      "width": 420,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "gd-service",
+      "text": "职责：提供 Focus Garden 私有 HTTP 服务、Next Action 代理和只读健康面板。\nfocus-garden.service\n• app.py + focus_garden/{server,database,pi_sync}.py\n• 监听 127.0.0.1:8838（禁 Funnel/0.0.0.0）\n• NextActionProxy: loopback→8767 白名单 +\n  X-Focus-Garden-Bridge: 1\n• 系统状态面板 /api/system-status（只读聚合）",
+      "type": "text",
+      "x": 2820,
+      "y": 20,
+      "width": 420,
+      "height": 460,
+      "color": "4"
+    },
+    {
+      "id": "gd-sqlite",
+      "text": "职责：作为 Focus Garden 会话、奖励、植物和计数的 Pi 权威唯一写入数据库。\n权威 SQLite（唯一写入端）\n• /home/conrad/services/focus-garden/data/\n  focus-garden.sqlite3（WAL）\n• rewards / garden_plants / focus_sessions /\n  focus_pauses / counters\n• reconciler 每 2s 检查到期/暂停恢复\n• ⚠️ 无 schema version/迁移工具",
+      "type": "text",
+      "x": 2820,
+      "y": 580,
+      "width": 420,
+      "height": 520,
+      "color": "3"
+    },
+    {
+      "id": "gd-backup",
+      "text": "职责：每分钟生成 SQLite 原子快照，并通过单向同步保存恢复镜像。\nfocus-garden-backup.timer（每分钟）\n• SQLite backup API 原子一致性快照\n• → Syncthing send-only → Windows 镜像\n  D:\\MyFocusGardenArchive（receive-only）\n• 恢复只复制快照，禁止双向启用",
+      "type": "text",
+      "x": 2820,
+      "y": 1200,
+      "width": 420,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "gd-rewards",
+      "text": "职责：只读聚合 advisor JSON 的介入和专注结果，生成花园奖励输入。\n奖励数据源（只读聚合 advisor JSON）\n• 介入 accepted+success / AI 闭环（同一\n  suggestion_id）/ 早睡估计（日报 period）\n• 40min 专注账本 → 任务 🍅 目标进 queue\n• 分级兑换: 3 接受→1 初级；3 初级→1 高级",
+      "type": "text",
+      "x": 2820,
+      "y": 1700,
+      "width": 420,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "fb-annot",
+      "text": "职责：保存用户对半小时报告、网页问题和 Next Action 结果的原始反馈。\n用户反馈（校正依据，raw 为事实源）\n• data/user_annotations/（半小时纠错）\n• data/issue_feedback/（网页问题, UNREVIEWED）\n• data/next_action/{responses,outcomes}\n• 不自动改 prompt/规则/任务，人工授权后才改",
+      "type": "text",
+      "x": 3380,
+      "y": 20,
+      "width": 420,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "d-01",
+      "type": "text",
+      "x": 3940,
+      "y": 20,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/01-数据来源与处理.md|01-数据来源与处理]]\n职责：说明 Focus Garden 数据来源、facts 处理、指标和反馈数据链。"
+    },
+    {
+      "id": "d-02",
+      "type": "text",
+      "x": 3940,
+      "y": 420,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/02-游戏架构.md|02-游戏架构]]\n职责：说明 Focus Garden 游戏、奖励、植物、专注会话和数据库架构。"
+    },
+    {
+      "id": "d-04",
+      "type": "text",
+      "x": 3940,
+      "y": 820,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md|04-运维与扩展手册]]\n职责：说明 Pi 服务运维、扩展、端口、备份和恢复操作。"
+    },
+    {
+      "id": "d-05",
+      "type": "text",
+      "x": 3940,
+      "y": 1220,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/05-Pi迁移验收与恢复清单.md|05-Pi迁移验收与恢复清单]]\n职责：说明 Pi 迁移验收、客户端切换、备份恢复和回滚检查。"
+    },
+    {
+      "id": "d-na",
+      "type": "text",
+      "x": 3940,
+      "y": 1620,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md|树莓派 Next Action Web架构]]\n职责：说明 Next Action Web 的路由、决策、反馈、认证和代理架构."
+    },
+    {
+      "id": "d-index",
+      "type": "text",
+      "x": 3940,
+      "y": 2020,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md|树莓派行为数据与接口索引]]\n职责：索引各数据源、目录、JSON/JSONL、API、定时器和可靠性边界。"
     }
   ],
   "edges": [
     {
       "id": "e00",
       "fromNode": "recv-phone",
-      "toNode": "hh-facts",
-      "label": "→ phone/tablet facts",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "hh-facts",
+      "toSide": "left",
+      "label": "→ phone/tablet facts"
     },
     {
       "id": "e01",
       "fromNode": "recv-sync",
-      "toNode": "hh-facts",
-      "label": "→ computer facts",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "hh-facts",
+      "toSide": "left",
+      "label": "→ computer facts"
     },
     {
       "id": "e02",
       "fromNode": "recv-sync",
-      "toNode": "ctx-snapshot",
-      "label": "上下文快照",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "ctx-snapshot",
+      "toSide": "left",
+      "label": "上下文快照"
     },
     {
       "id": "e03",
       "fromNode": "hh-timer",
-      "toNode": "hh-facts",
-      "label": "定时触发",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "hh-facts",
+      "toSide": "top",
+      "label": "定时触发"
     },
     {
       "id": "e04",
       "fromNode": "hh-facts",
-      "toNode": "ai-flash",
-      "label": "V4 Flash",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "ai-flash",
+      "toSide": "top",
+      "label": "V4 Flash"
     },
     {
       "id": "e05",
       "fromNode": "ai-flash",
-      "toNode": "hh-facts",
-      "label": "结果回流",
       "fromSide": "top",
-      "toSide": "bottom"
+      "toNode": "hh-facts",
+      "toSide": "bottom",
+      "label": "结果回流"
     },
     {
       "id": "e06",
       "fromNode": "hh-facts",
-      "toNode": "hh-report",
-      "label": "生成报告",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "hh-report",
+      "toSide": "top",
+      "label": "生成报告"
     },
     {
       "id": "e07",
       "fromNode": "hh-report",
-      "toNode": "hh-shadow",
-      "label": "候选判断",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "hh-shadow",
+      "toSide": "top",
+      "label": "候选判断"
     },
     {
       "id": "e08",
       "fromNode": "hh-shadow",
-      "toNode": "ntfy-out",
-      "label": "true → ntfy",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "ntfy-out",
+      "toSide": "left",
+      "label": "true → ntfy"
     },
     {
       "id": "e09",
       "fromNode": "hh-report",
-      "toNode": "na-decision",
-      "label": "报告 / 指标",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "na-decision",
+      "toSide": "left",
+      "label": "报告 / 指标"
     },
     {
       "id": "e10",
       "fromNode": "ctx-snapshot",
-      "toNode": "na-decision",
-      "label": "上下文",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "na-decision",
+      "toSide": "left",
+      "label": "上下文"
     },
     {
       "id": "e11",
       "fromNode": "ctx-taskq",
-      "toNode": "na-decision",
-      "label": "有效任务",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "na-decision",
+      "toSide": "left",
+      "label": "有效任务"
     },
     {
       "id": "e12",
       "fromNode": "ctx-recent",
-      "toNode": "na-decision",
-      "label": "近期动态",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "na-decision",
+      "toSide": "left",
+      "label": "近期动态"
     },
     {
       "id": "e13",
       "fromNode": "rm-daily",
-      "toNode": "ntfy-out",
-      "label": "日报",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "ntfy-out",
+      "toSide": "top",
+      "label": "日报"
     },
     {
       "id": "e14",
       "fromNode": "rm-weekly",
-      "toNode": "ntfy-out",
-      "label": "周报",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "ntfy-out",
+      "toSide": "top",
+      "label": "周报"
     },
     {
       "id": "e15",
       "fromNode": "rm-bedtime",
-      "toNode": "ntfy-out",
-      "label": "深夜升级",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "ntfy-out",
+      "toSide": "top",
+      "label": "深夜升级"
     },
     {
       "id": "e16",
       "fromNode": "rm-1500",
-      "toNode": "ntfy-out",
-      "label": "15:00 high",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "ntfy-out",
+      "toSide": "top",
+      "label": "15:00 high"
     },
     {
       "id": "e17",
       "fromNode": "rm-sysadmin",
-      "toNode": "ntfy-out",
-      "label": "维护 high",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "ntfy-out",
+      "toSide": "top",
+      "label": "维护 high"
     },
     {
       "id": "e18",
       "fromNode": "na-web",
-      "toNode": "na-decision",
-      "label": "请求入口",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "na-decision",
+      "toSide": "top",
+      "label": "请求入口"
     },
     {
       "id": "e19",
       "fromNode": "na-decision",
-      "toNode": "na-loop",
-      "label": "建议 / trace",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "na-loop",
+      "toSide": "top",
+      "label": "建议 / trace"
     },
     {
       "id": "e20",
       "fromNode": "na-loop",
-      "toNode": "na-web",
-      "label": "展示 / 409",
       "fromSide": "top",
-      "toSide": "bottom"
+      "toNode": "na-web",
+      "toSide": "bottom",
+      "label": "展示 / 409"
     },
     {
       "id": "e21",
       "fromNode": "na-loop",
-      "toNode": "fb-annot",
-      "label": "反馈归档",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "fb-annot",
+      "toSide": "left",
+      "label": "反馈归档"
     },
     {
       "id": "e22",
       "fromNode": "fb-annot",
-      "toNode": "na-decision",
-      "label": "反馈回流",
       "fromSide": "left",
-      "toSide": "right"
+      "toNode": "na-decision",
+      "toSide": "right",
+      "label": "反馈回流"
     },
     {
       "id": "e23",
       "fromNode": "fb-annot",
-      "toNode": "hh-report",
-      "label": "报告纠错",
       "fromSide": "left",
-      "toSide": "right"
+      "toNode": "hh-report",
+      "toSide": "right",
+      "label": "报告纠错"
     },
     {
       "id": "e24",
       "fromNode": "gd-service",
-      "toNode": "na-web",
-      "label": "白名单代理",
       "fromSide": "left",
-      "toSide": "right"
+      "toNode": "na-web",
+      "toSide": "right",
+      "label": "白名单代理"
     },
     {
       "id": "e25",
       "fromNode": "gd-service",
-      "toNode": "gd-sqlite",
-      "label": "唯一写入",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "gd-sqlite",
+      "toSide": "top",
+      "label": "唯一写入"
     },
     {
       "id": "e26",
       "fromNode": "gd-service",
-      "toNode": "gd-rewards",
-      "label": "奖励导入",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "gd-rewards",
+      "toSide": "top",
+      "label": "奖励导入"
     },
     {
       "id": "e27",
       "fromNode": "na-loop",
-      "toNode": "gd-rewards",
-      "label": "介入 / AI 回执",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "gd-rewards",
+      "toSide": "left",
+      "label": "介入 / AI 回执"
     },
     {
       "id": "e28",
       "fromNode": "hh-report",
-      "toNode": "gd-rewards",
-      "label": "早睡估计",
       "fromSide": "right",
-      "toSide": "left"
+      "toNode": "gd-rewards",
+      "toSide": "left",
+      "label": "早睡估计"
     },
     {
       "id": "e29",
       "fromNode": "gd-rewards",
-      "toNode": "gd-sqlite",
-      "label": "奖励去重",
       "fromSide": "top",
-      "toSide": "bottom"
+      "toNode": "gd-sqlite",
+      "toSide": "bottom",
+      "label": "奖励去重"
     },
     {
       "id": "e30",
       "fromNode": "gd-sqlite",
-      "toNode": "gd-backup",
-      "label": "每分钟快照",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toNode": "gd-backup",
+      "toSide": "top",
+      "label": "每分钟快照"
     },
     {
       "id": "e31",
       "fromNode": "gd-backup",
-      "toNode": "recv-sync",
-      "label": "→ Windows 镜像",
       "fromSide": "left",
-      "toSide": "right"
+      "toNode": "recv-sync",
+      "toSide": "right",
+      "label": "→ Windows 镜像"
     }
   ]
 }

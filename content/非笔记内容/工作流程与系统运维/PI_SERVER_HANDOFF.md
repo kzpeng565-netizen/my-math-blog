@@ -1310,3 +1310,9 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==已安装 `ComputerInterventionAgent`、`ComputerInterventionAgentWatchdog` 与 `ComputerInterventionAgentWatchdogKick` 三项当前用户交互会话任务。主任务仍有失败重启；常驻 Watchdog 每 20 秒检查、120 秒判定 stale，kick 每两分钟兜底；正常 90 秒选择窗口以 `busy_until` 获得豁免。无 active lease 的受控演练中，终止 PID 4468 后 Watchdog 成功启动 PID 35652。Windows 单元测试 11/11 通过；真实跨睡眠到期释放仍待自然短时会话验收。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=windows-unit-tests-and-live-crash-recovery; retrieved_notes="PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md" -->
+
+==提交记录：Windows Agent 仓库 `main` 已提交 `218dbdf`（`fix: recover intervention agent after crashes`）；本地运维文档仓库 `v4` 已提交 `98ad645`（`docs: record intervention agent crash recovery`）。提交前复核覆盖 11/11 单元测试、Python 编译、UI 隔离冒烟、三项计划任务 XML、实时心跳和受控崩溃恢复。==
+
+==唯一遗留项为 `agent.py` 中未调用的 `legacy_ask_user` 旧 Tk 函数：当前全部调用点均走 `intervention_ui.pyw`，因此它不构成运行风险；后续可作为纯清理删除，完成时须再次验证 UI 子进程隔离。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=post-commit-static-audit; retrieved_notes="NEXT_STEPS.md" -->

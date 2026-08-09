@@ -683,3 +683,9 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==在可接受的短时“仅电脑”会话中，确认 `starting/active` lease 已落盘后让电脑跨过到期时间休眠；唤醒后应由 Agent 恢复路径执行匹配 `-stop`。不得用 `-lock` 硬锁或手机不可逆锁定进行验收。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=windows-unit-tests-and-live-crash-recovery; retrieved_notes="NEXT_STEPS.md" -->
+
+### ☐ 低优先级清理：删除 Agent 内未调用的旧 Tk 函数
+
+==提交前静态审计确认当前确认页和开始提示均只走 `intervention_ui.pyw` 子进程；`agent.py` 中仍保留未调用的 `legacy_ask_user` 及其旧 Tk 实现。它不在运行路径、不影响 Watchdog 或 lease 恢复，但下次维护 Agent 时应删除该死代码并保留 UI 隔离回归测试。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=static-audit-and-ui-isolation-smoke-test; retrieved_notes="NEXT_STEPS.md" -->

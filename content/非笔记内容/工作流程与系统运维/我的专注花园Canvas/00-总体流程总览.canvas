@@ -1,67 +1,562 @@
 {
-	"nodes":[
-		{"id":"g-pi","type":"group","x":2240,"y":-100,"width":520,"height":2460,"color":"6","label":"🖥️ 树莓派（Pi 3B）"},
-		{"id":"g-phone","type":"group","x":0,"y":-100,"width":520,"height":2070,"color":"5","label":"📱 手机端"},
-		{"id":"g-pc","type":"group","x":1120,"y":-100,"width":520,"height":1730,"color":"3","label":"💻 电脑端（Windows）"},
-		{"id":"g-ext","type":"group","x":2800,"y":-100,"width":520,"height":1190,"color":"1","label":"☁️ 外部服务"},
-		{"id":"g-doc","type":"group","x":3360,"y":-100,"width":520,"height":1040,"color":"6","label":"📚 权威文档（点击打开）"},
-		{"id":"g-net","type":"group","x":1680,"y":-100,"width":520,"height":950,"color":"2","label":"🌐 网络边界（Tailscale）"},
-		{"id":"g-tablet","type":"group","x":560,"y":-100,"width":520,"height":560,"color":"5","label":"📟 平板端"},
-		{"id":"p-automate","text":"Automate「Phone Usage Logger」\n• 采集: 前台包名 / 亮灭屏 / 心跳（最小事实）\n• 位置: 手机常驻 Flow（开机启动）\n• 每 15 分钟 PUT 上传，X-Upload-Token 鉴权\n• 故障: 心跳缺失 >30min → 手机端自检（10.3）","type":"text","x":20,"y":20,"width":420,"height":340,"color":"4"},
-		{"id":"title","type":"text","text":"# 总体流程 · 手机 / 平板 / 电脑 / 树莓派\n面向维护的总览：模块职责 + 数据流 + 端口。核心节点 27 个，跨设备跳转对应单端 Canvas。","x":0,"y":-380,"width":700,"height":160,"color":"3"},
-		{"id":"n-funnel","text":"公网 HTTPS :443（文档称 Funnel；\n具体桥接代理机制仍待确认）\n• /upload/*.jsonl + /annotation\n• Focus Bridge /focus-bridge/* 固定白名单\n• 其余服务一律不暴露公网","type":"text","x":1700,"y":20,"width":420,"height":222,"color":"5"},
-		{"id":"c-aw","text":"ActivityWatch 采集 + 同步\n• aw-watcher-window/afk → aw-server :5600\n• 计划任务每 5 分钟 push → Syncthing 镜像 Pi\n• 分类规则 categories-v5.json（层级深度优先）","type":"text","x":1140,"y":20,"width":420,"height":290,"color":"4"},
-		{"id":"legend","type":"text","text":"🎨 图例\n🟢 绿=自动流程/服务  🟡 黄=数据/配置/状态\n🔵 青=网络边界/接口  🟣 紫=文档（点击打开）\n🔴 红=人工操作/故障入口  🟠 橙=⚠️待确认\n→ 边=数据流/触发关系\n维护：改模块前先看它的入边（依赖）与出边（影响范围）","x":760,"y":-380,"width":520,"height":180,"color":"6"},
-		{"id":"t-tablet","text":"平板 MatePad（⚠️ 待确认）\n• 当前交接材料确认 USB 投屏用于线上授课\n• 同时存在 tablet_* 上传接口与 tablet_facts\n• 近期规则称平板不作为提醒触发设备\n• 是否仍在采集/上传：待核实","type":"text","x":580,"y":20,"width":420,"height":340,"color":"2"},
-		{"id":"n-serve","text":"Tailscale Serve（tailnet-only）\n• :8450 → advisor-web :8767（Next Action）\n• :8460 → focus-garden :8838（花园）\n• :8443 → Monaco Lite :8766（规则编辑）","type":"text","x":1700,"y":460,"width":420,"height":290,"color":"5"},
-		{"id":"c-obsidian","text":"Obsidian + Pi Context Sync 插件\n• 任务/Profile/番茄钟 Markdown = 唯一事实源\n• Context Exporter 每 20 分钟导出上下文\n• 插件是唯一 Markdown 写入者（单向）","type":"text","x":1140,"y":410,"width":420,"height":290,"color":"4"},
-		{"id":"c-pomodoro","text":"New Pomodoro Timer 插件\n• 5s 同步 Pi /api/bootstrap（Pi 会话权威）\n• Work 默认 40 分钟（1🍅=40min）\n• start/pause/resume → :8460","type":"text","x":1140,"y":800,"width":420,"height":290,"color":"4"},
-		{"id":"c-agent","text":"介入 Agent + Cold Turkey\n• 5s 轮询 pending → 弹窗 → lease 封锁 → final\n• allowlist: 常刷网站 / bilibili\n• 5min heartbeat；按绝对到期时间回收\n• ⚠️ 启动形态：最新交接称登录后计划任务，旧文档冲突","type":"text","x":1140,"y":1190,"width":420,"height":340,"color":"4"},
-		{"id":"pi-recv","text":"phone-usage-receiver :8765\n• :443 入口；token 校验 + 去重归档\n• incoming/ + archive/YYYY-MM-DD\n• 维护 timer 03:30（30 天压缩/365 天删除）","type":"text","x":2260,"y":20,"width":420,"height":290,"color":"4"},
-		{"id":"pi-syncthing","text":"syncthing@conrad.service\n• 接收: activitywatch-sync / behavior-context-sync\n• 发送: focus-garden-archive 快照（send-only）\n• 单向同步，禁止双向写 SQLite","type":"text","x":2260,"y":410,"width":420,"height":290,"color":"4"},
-		{"id":"pi-halfhour","text":"半小时处理链（:08/:38 触发）\n• facts → 合并 → 标签 → 语义时间线 → 指标\n• → AI 报告 ai_reports/ → 影子干预候选\n• would_intervene=true → ntfy 半小时提醒","type":"text","x":2260,"y":800,"width":420,"height":290,"color":"4"},
-		{"id":"pi-life","text":"生活统计与提醒 timers\n• 日报 09/10/11 · 周报 周一 09:05\n• 深夜 00:30–04:30 · 15:00 任务检查\n• 系统维护守护 每 3 分钟","type":"text","x":2260,"y":1190,"width":420,"height":290,"color":"4"},
-		{"id":"pi-web","text":"Next Action Web :8767 → :8450\n• 建议生成（V4 Pro thinking）+ 2 轮澄清\n• 任务 mutation queue / 近期动态\n• 介入 API / issue-feedback / heartbeat","type":"text","x":2260,"y":1580,"width":420,"height":290,"color":"4"},
-		{"id":"pi-garden","text":"专注花园 focus-garden :8838 → :8460\n• Pi 权威 SQLite（唯一写入端）\n• NextAction 代理（loopback :8767 白名单）\n• 备份 timer 每分钟 → 快照镜像","type":"text","x":2260,"y":1970,"width":420,"height":290,"color":"4"},
-		{"id":"e-deepseek","text":"DeepSeek API\n• V4 flash: 语义时间线/近期动态解析/15:00 裁决\n• V4 Pro: 日报建议 / Next Action 决策\n• 失败降级本地规则或低置信报告","type":"text","x":2820,"y":20,"width":420,"height":290,"color":"5"},
-		{"id":"e-ntfy","text":"ntfy.sh（通知）\n• 深夜 / 15:00 / 系统维护 / 半小时候选 / 日报\n• 主题仅存 Pi 私有 env（600 权限）","type":"text","x":2820,"y":410,"width":420,"height":240,"color":"5"},
-		{"id":"e-pushplus","text":"PushPlus（微信）\n• 仅保留周报（周一 09:05）\n• 半小时推送已停用（drop-in 清 token）","type":"text","x":2820,"y":750,"width":420,"height":240,"color":"5"},
-		{"id":"d-overview","type":"file","file":"非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md","x":3380,"y":20,"width":420,"height":130,"color":"6"},
-		{"id":"d-flow","type":"file","file":"非笔记内容/工作流程与系统运维/树莓派行为系统总流程图.md","x":3380,"y":250,"width":420,"height":130,"color":"6"},
-		{"id":"d-index","type":"file","file":"非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md","x":3380,"y":480,"width":420,"height":130,"color":"6"},
-		{"id":"d-handoff","type":"file","file":"非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md","x":3380,"y":710,"width":420,"height":130,"color":"6"},
-		{"id":"p-bridge","text":"Focus Bridge 1.3.3(18)\n• 介入桥接: 15s 轮询 pending + 5min 心跳\n• 10s 原生选择页（接受/拒绝/忽略）\n• 执行「不做手机控」并回传 final\n• 请求级幂等账本 + 24h 完成墓碑","type":"text","x":20,"y":460,"width":420,"height":340,"color":"4"},
-		{"id":"p-getaway","text":"「不做手机控」APP\n• 快速番茄/专注的实际执行端\n• 由桥接打开，不负责心跳/唤醒","type":"text","x":20,"y":900,"width":420,"height":240,"color":"4"},
-		{"id":"p-ntfy","text":"ntfy APP（手机）\n• 订阅 ntfy.sh 私有主题\n• 仅展示通知（深夜/15:00/维护等）","type":"text","x":20,"y":1240,"width":420,"height":240,"color":"4"},
-		{"id":"p-feedback","text":"人工反馈入口（手机/浏览器）\n• POST /annotation 半小时报告纠错（Bearer）\n• Next Action 反馈: responses / outcomes\n• 网页问题: issue-feedback","type":"text","x":20,"y":1580,"width":420,"height":290,"color":"1"}
-	],
-	"edges":[
-		{"id":"e00","fromNode":"p-automate","fromSide":"right","toNode":"n-funnel","toSide":"left","label":"15min 上传"},
-		{"id":"e01","fromNode":"p-bridge","fromSide":"right","toNode":"n-funnel","toSide":"left","label":"桥接路径"},
-		{"id":"e02","fromNode":"p-feedback","fromSide":"right","toNode":"n-funnel","toSide":"left","label":"半小时反馈"},
-		{"id":"e03","fromNode":"p-bridge","fromSide":"bottom","toNode":"p-getaway","toSide":"top","label":"打开执行端"},
-		{"id":"e04","fromNode":"t-tablet","fromSide":"right","toNode":"n-funnel","toSide":"left","label":"tablet_* 待确认"},
-		{"id":"e05","fromNode":"n-funnel","fromSide":"right","toNode":"pi-recv","toSide":"left","label":"→ receiver"},
-		{"id":"e06","fromNode":"c-aw","fromSide":"right","toNode":"pi-syncthing","toSide":"left","label":"AW 同步"},
-		{"id":"e07","fromNode":"c-obsidian","fromSide":"right","toNode":"pi-syncthing","toSide":"left","label":"上下文快照"},
-		{"id":"e08","fromNode":"c-pomodoro","fromSide":"right","toNode":"n-serve","toSide":"left","label":"Focus API"},
-		{"id":"e09","fromNode":"c-agent","fromSide":"right","toNode":"n-serve","toSide":"left","label":":8450 介入 API（5s 轮询）"},
-		{"id":"e10","fromNode":"n-serve","fromSide":"right","toNode":"pi-web","toSide":"left","label":"→ advisor"},
-		{"id":"e11","fromNode":"n-serve","fromSide":"right","toNode":"pi-garden","toSide":"left","label":"→ garden"},
-		{"id":"e12","fromNode":"e-ntfy","fromSide":"left","toNode":"p-ntfy","toSide":"right","label":"ntfy"},
-		{"id":"e13","fromNode":"pi-recv","fromSide":"bottom","toNode":"pi-halfhour","toSide":"top","label":"→ facts"},
-		{"id":"e14","fromNode":"pi-syncthing","fromSide":"bottom","toNode":"pi-halfhour","toSide":"top","label":"→ computer facts"},
-		{"id":"e15","fromNode":"pi-syncthing","fromSide":"bottom","toNode":"pi-web","toSide":"top","label":"→ context"},
-		{"id":"e16","fromNode":"pi-halfhour","fromSide":"right","toNode":"e-deepseek","toSide":"left","label":"V4 Flash"},
-		{"id":"e17","fromNode":"pi-halfhour","fromSide":"right","toNode":"e-ntfy","toSide":"left","label":"候选为 true"},
-		{"id":"e18","fromNode":"pi-halfhour","fromSide":"bottom","toNode":"pi-web","toSide":"top","label":"报告/指标"},
-		{"id":"e19","fromNode":"pi-life","fromSide":"right","toNode":"e-ntfy","toSide":"left","label":"定时通知"},
-		{"id":"e20","fromNode":"pi-life","fromSide":"right","toNode":"e-pushplus","toSide":"left","label":"周报"},
-		{"id":"e21","fromNode":"pi-web","fromSide":"right","toNode":"e-deepseek","toSide":"left","label":"V4 Pro 决策/澄清"},
-		{"id":"e22","fromNode":"pi-garden","fromSide":"top","toNode":"pi-web","toSide":"bottom","label":"白名单代理"},
-		{"id":"e23","fromNode":"pi-web","fromSide":"bottom","toNode":"pi-garden","toSide":"top","label":"奖励只读聚合"},
-		{"id":"e24","fromNode":"pi-garden","fromSide":"top","toNode":"pi-syncthing","toSide":"bottom","label":"快照同步"},
-		{"id":"e25","fromNode":"pi-garden","fromSide":"left","toNode":"p-bridge","toSide":"right","label":"offer / execute"},
-		{"id":"e26","fromNode":"p-feedback","fromSide":"right","toNode":"pi-web","toSide":"left","label":"反馈回流"}
-	]
+  "nodes": [
+    {
+      "id": "g-pi",
+      "type": "group",
+      "x": 2240,
+      "y": -100,
+      "width": 520,
+      "height": 2760,
+      "color": "6",
+      "label": "🖥️ 树莓派（Pi 3B）"
+    },
+    {
+      "id": "g-phone",
+      "type": "group",
+      "x": 0,
+      "y": -100,
+      "width": 520,
+      "height": 2320,
+      "color": "5",
+      "label": "📱 手机端"
+    },
+    {
+      "id": "g-pc",
+      "type": "group",
+      "x": 1120,
+      "y": -100,
+      "width": 520,
+      "height": 1940,
+      "color": "3",
+      "label": "💻 电脑端（Windows）"
+    },
+    {
+      "id": "g-ext",
+      "type": "group",
+      "x": 2800,
+      "y": -100,
+      "width": 520,
+      "height": 1320,
+      "color": "1",
+      "label": "☁️ 外部服务"
+    },
+    {
+      "id": "g-doc",
+      "type": "group",
+      "x": 3360,
+      "y": -100,
+      "width": 520,
+      "height": 1720,
+      "color": "6",
+      "label": "📚 权威文档（点击打开）"
+    },
+    {
+      "id": "g-net",
+      "type": "group",
+      "x": 1680,
+      "y": -100,
+      "width": 520,
+      "height": 940,
+      "color": "2",
+      "label": "🌐 网络边界（Tailscale）"
+    },
+    {
+      "id": "g-tablet",
+      "type": "group",
+      "x": 560,
+      "y": -100,
+      "width": 520,
+      "height": 620,
+      "color": "5",
+      "label": "📟 平板端"
+    },
+    {
+      "id": "p-automate",
+      "text": "职责：在手机上采集前台应用、屏幕状态和心跳，并按 15 分钟周期上传最小事实。\nAutomate「Phone Usage Logger」\n• 采集: 前台包名 / 亮灭屏 / 心跳（最小事实）\n• 位置: 手机常驻 Flow（开机启动）\n• 每 15 分钟 PUT 上传，X-Upload-Token 鉴权\n• 故障: 心跳缺失 >30min → 手机端自检（10.3）",
+      "type": "text",
+      "x": 20,
+      "y": 20,
+      "width": 420,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "text": "# 总体流程 · 手机 / 平板 / 电脑 / 树莓派\n面向维护的总览：模块职责 + 数据流 + 端口。核心节点 27 个，跨设备跳转对应单端 Canvas。",
+      "x": 0,
+      "y": -380,
+      "width": 700,
+      "height": 80,
+      "color": "3"
+    },
+    {
+      "id": "n-funnel",
+      "text": "职责：作为公网 HTTPS 入口，只承载文档允许的上传和桥接白名单路径。\n公网 HTTPS :443（文档称 Funnel；\n具体桥接代理机制仍待确认）\n• /upload/*.jsonl + /annotation\n• Focus Bridge /focus-bridge/* 固定白名单\n• 其余服务一律不暴露公网",
+      "type": "text",
+      "x": 1700,
+      "y": 20,
+      "width": 420,
+      "height": 280,
+      "color": "5"
+    },
+    {
+      "id": "c-aw",
+      "text": "职责：在电脑上采集窗口与 AFK 事件，按分类规则整理并同步到 Pi。\nActivityWatch 采集 + 同步\n• aw-watcher-window/afk → aw-server :5600\n• 计划任务每 5 分钟 push → Syncthing 镜像 Pi\n• 分类规则 categories-v5.json（层级深度优先）",
+      "type": "text",
+      "x": 1140,
+      "y": 20,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "legend",
+      "type": "text",
+      "text": "🎨 图例\n🟢 绿=自动流程/服务  🟡 黄=数据/配置/状态\n🔵 青=网络边界/接口  🟣 紫=文档（点击打开）\n🔴 红=人工操作/故障入口  🟠 橙=⚠️待确认\n→ 边=数据流/触发关系\n维护：改模块前先看它的入边（依赖）与出边（影响范围）",
+      "x": 760,
+      "y": -380,
+      "width": 520,
+      "height": 180,
+      "color": "6"
+    },
+    {
+      "id": "t-tablet",
+      "text": "职责：表示平板的 USB 投屏及 tablet_* / tablet_facts 数据入口；是否仍采集上传待确认。\n平板 MatePad（⚠️ 待确认）\n• 当前交接材料确认 USB 投屏用于线上授课\n• 同时存在 tablet_* 上传接口与 tablet_facts\n• 近期规则称平板不作为提醒触发设备\n• 是否仍在采集/上传：待核实",
+      "type": "text",
+      "x": 580,
+      "y": 20,
+      "width": 420,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n-serve",
+      "text": "职责：把 Tailnet-only 端口转发到 Next Action、Focus Garden 和规则编辑服务。\nTailscale Serve（tailnet-only）\n• :8450 → advisor-web :8767（Next Action）\n• :8460 → focus-garden :8838（花园）\n• :8443 → Monaco Lite :8766（规则编辑）",
+      "type": "text",
+      "x": 1700,
+      "y": 400,
+      "width": 420,
+      "height": 340,
+      "color": "5"
+    },
+    {
+      "id": "c-obsidian",
+      "text": "职责：维护任务、Profile、番茄钟等 Markdown 事实源，并导出行为上下文。\nObsidian + Pi Context Sync 插件\n• 任务/Profile/番茄钟 Markdown = 唯一事实源\n• Context Exporter 每 20 分钟导出上下文\n• 插件是唯一 Markdown 写入者（单向）",
+      "type": "text",
+      "x": 1140,
+      "y": 460,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "c-pomodoro",
+      "text": "职责：提供电脑端专注计时，并与 Pi 的权威会话接口同步。\nNew Pomodoro Timer 插件\n• 5s 同步 Pi /api/bootstrap（Pi 会话权威）\n• Work 默认 40 分钟（1🍅=40min）\n• start/pause/resume → :8460",
+      "type": "text",
+      "x": 1140,
+      "y": 900,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "c-agent",
+      "text": "职责：轮询 Pi 的 pending 介入请求，协调 Cold Turkey 封锁并回传结果。\n介入 Agent + Cold Turkey\n• 5s 轮询 pending → 弹窗 → lease 封锁 → final\n• allowlist: 常刷网站 / bilibili\n• 5min heartbeat；按绝对到期时间回收\n• ⚠️ 启动形态：最新交接称登录后计划任务，旧文档冲突",
+      "type": "text",
+      "x": 1140,
+      "y": 1340,
+      "width": 420,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "pi-recv",
+      "text": "职责：接收手机上传，校验 token、去重、原子归档并执行保留策略。\nphone-usage-receiver :8765\n• :443 入口；token 校验 + 去重归档\n• incoming/ + archive/YYYY-MM-DD\n• 维护 timer 03:30（30 天压缩/365 天删除）",
+      "type": "text",
+      "x": 2260,
+      "y": 20,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "pi-syncthing",
+      "text": "职责：接收电脑事实与上下文，并把 Focus Garden 快照单向发送到镜像端。\nsyncthing@conrad.service\n• 接收: activitywatch-sync / behavior-context-sync\n• 发送: focus-garden-archive 快照（send-only）\n• 单向同步，禁止双向写 SQLite",
+      "type": "text",
+      "x": 2260,
+      "y": 460,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "pi-halfhour",
+      "text": "职责：把各设备 facts 合并、标记、分析，生成半小时报告和干预候选。\n半小时处理链（:08/:38 触发）\n• facts → 合并 → 标签 → 语义时间线 → 指标\n• → AI 报告 ai_reports/ → 影子干预候选\n• would_intervene=true → ntfy 半小时提醒",
+      "type": "text",
+      "x": 2260,
+      "y": 900,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "pi-life",
+      "text": "职责：调度日报、周报、深夜、15:00 和系统维护等定时提醒。\n生活统计与提醒 timers\n• 日报 09/10/11 · 周报 周一 09:05\n• 深夜 00:30–04:30 · 15:00 任务检查\n• 系统维护守护 每 3 分钟",
+      "type": "text",
+      "x": 2260,
+      "y": 1340,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "pi-web",
+      "text": "职责：提供 Next Action 页面、建议生成、介入 API 和反馈闭环入口。\nNext Action Web :8767 → :8450\n• 建议生成（V4 Pro thinking）+ 2 轮澄清\n• 任务 mutation queue / 近期动态\n• 介入 API / issue-feedback / heartbeat",
+      "type": "text",
+      "x": 2260,
+      "y": 1780,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "pi-garden",
+      "text": "职责：提供 Focus Garden 的权威服务、会话状态、奖励聚合和备份入口。\n专注花园 focus-garden :8838 → :8460\n• Pi 权威 SQLite（唯一写入端）\n• NextAction 代理（loopback :8767 白名单）\n• 备份 timer 每分钟 → 快照镜像",
+      "type": "text",
+      "x": 2260,
+      "y": 2220,
+      "width": 420,
+      "height": 340,
+      "color": "4"
+    },
+    {
+      "id": "e-deepseek",
+      "text": "职责：执行语义时间线、报告和 Next Action 决策所需的 AI 分析。\nDeepSeek API\n• V4 flash: 语义时间线/近期动态解析/15:00 裁决\n• V4 Pro: 日报建议 / Next Action 决策\n• 失败降级本地规则或低置信报告",
+      "type": "text",
+      "x": 2820,
+      "y": 20,
+      "width": 420,
+      "height": 340,
+      "color": "5"
+    },
+    {
+      "id": "e-ntfy",
+      "text": "职责：向 ntfy 主题发送日报、维护、深夜、15:00 和半小时候选通知。\nntfy.sh（通知）\n• 深夜 / 15:00 / 系统维护 / 半小时候选 / 日报\n• 主题仅存 Pi 私有 env（600 权限）",
+      "type": "text",
+      "x": 2820,
+      "y": 460,
+      "width": 420,
+      "height": 280,
+      "color": "5"
+    },
+    {
+      "id": "e-pushplus",
+      "text": "职责：仅发送保留中的周报通知。\nPushPlus（微信）\n• 仅保留周报（周一 09:05）\n• 半小时推送已停用（drop-in 清 token）",
+      "type": "text",
+      "x": 2820,
+      "y": 840,
+      "width": 420,
+      "height": 280,
+      "color": "5"
+    },
+    {
+      "id": "d-flow",
+      "type": "text",
+      "x": 3380,
+      "y": 420,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/树莓派行为系统总流程图.md|树莓派行为系统总流程图]]\n职责：说明手机、平板、电脑、Pi、网络和外部服务的总数据流与端口。"
+    },
+    {
+      "id": "d-index",
+      "type": "text",
+      "x": 3380,
+      "y": 820,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md|树莓派行为数据与接口索引]]\n职责：索引各数据源、目录、JSON/JSONL、API、定时器和可靠性边界。"
+    },
+    {
+      "id": "d-handoff",
+      "type": "text",
+      "x": 3380,
+      "y": 1220,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md|PI_SERVER_HANDOFF]]\n职责：记录 Pi 服务、目录、验证结果、故障处理和后续接管注意事项。"
+    },
+    {
+      "id": "p-bridge",
+      "text": "职责：在手机端轮询介入 offer，展示选择页，启动实际执行并回传 final。\nFocus Bridge 1.3.3(18)\n• 介入桥接: 15s 轮询 pending + 5min 心跳\n• 10s 原生选择页（接受/拒绝/忽略）\n• 执行「不做手机控」并回传 final\n• 请求级幂等账本 + 24h 完成墓碑",
+      "type": "text",
+      "x": 20,
+      "y": 520,
+      "width": 420,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "p-getaway",
+      "text": "职责：执行快速番茄或专注动作；不负责桥接心跳与后台唤醒。\n「不做手机控」APP\n• 快速番茄/专注的实际执行端\n• 由桥接打开，不负责心跳/唤醒",
+      "type": "text",
+      "x": 20,
+      "y": 1020,
+      "width": 420,
+      "height": 280,
+      "color": "4"
+    },
+    {
+      "id": "p-ntfy",
+      "text": "职责：在手机上展示 Pi 发出的通知；不生成提醒。\nntfy APP（手机）\n• 订阅 ntfy.sh 私有主题\n• 仅展示通知（深夜/15:00/维护等）",
+      "type": "text",
+      "x": 20,
+      "y": 1400,
+      "width": 420,
+      "height": 280,
+      "color": "4"
+    },
+    {
+      "id": "p-feedback",
+      "text": "职责：接收人工对半小时报告和 Next Action 的纠错与结果反馈。\n人工反馈入口（手机/浏览器）\n• POST /annotation 半小时报告纠错（Bearer）\n• Next Action 反馈: responses / outcomes\n• 网页问题: issue-feedback",
+      "type": "text",
+      "x": 20,
+      "y": 1780,
+      "width": 420,
+      "height": 340,
+      "color": "1"
+    },
+    {
+      "id": "d-overview",
+      "type": "text",
+      "x": 3380,
+      "y": 20,
+      "width": 420,
+      "height": 300,
+      "color": "6",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md|00-交接总览]]\n职责：提供 Focus Garden 的总交接入口、权威边界和当前状态。"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e00",
+      "fromNode": "p-automate",
+      "fromSide": "right",
+      "toNode": "n-funnel",
+      "toSide": "left",
+      "label": "15min 上传"
+    },
+    {
+      "id": "e01",
+      "fromNode": "p-bridge",
+      "fromSide": "right",
+      "toNode": "n-funnel",
+      "toSide": "left",
+      "label": "桥接路径"
+    },
+    {
+      "id": "e02",
+      "fromNode": "p-feedback",
+      "fromSide": "right",
+      "toNode": "n-funnel",
+      "toSide": "left",
+      "label": "半小时反馈"
+    },
+    {
+      "id": "e03",
+      "fromNode": "p-bridge",
+      "fromSide": "bottom",
+      "toNode": "p-getaway",
+      "toSide": "top",
+      "label": "打开执行端"
+    },
+    {
+      "id": "e04",
+      "fromNode": "t-tablet",
+      "fromSide": "right",
+      "toNode": "n-funnel",
+      "toSide": "left",
+      "label": "tablet_* 待确认"
+    },
+    {
+      "id": "e05",
+      "fromNode": "n-funnel",
+      "fromSide": "right",
+      "toNode": "pi-recv",
+      "toSide": "left",
+      "label": "→ receiver"
+    },
+    {
+      "id": "e06",
+      "fromNode": "c-aw",
+      "fromSide": "right",
+      "toNode": "pi-syncthing",
+      "toSide": "left",
+      "label": "AW 同步"
+    },
+    {
+      "id": "e07",
+      "fromNode": "c-obsidian",
+      "fromSide": "right",
+      "toNode": "pi-syncthing",
+      "toSide": "left",
+      "label": "上下文快照"
+    },
+    {
+      "id": "e08",
+      "fromNode": "c-pomodoro",
+      "fromSide": "right",
+      "toNode": "n-serve",
+      "toSide": "left",
+      "label": "Focus API"
+    },
+    {
+      "id": "e09",
+      "fromNode": "c-agent",
+      "fromSide": "right",
+      "toNode": "n-serve",
+      "toSide": "left",
+      "label": ":8450 介入 API（5s 轮询）"
+    },
+    {
+      "id": "e10",
+      "fromNode": "n-serve",
+      "fromSide": "right",
+      "toNode": "pi-web",
+      "toSide": "left",
+      "label": "→ advisor"
+    },
+    {
+      "id": "e11",
+      "fromNode": "n-serve",
+      "fromSide": "right",
+      "toNode": "pi-garden",
+      "toSide": "left",
+      "label": "→ garden"
+    },
+    {
+      "id": "e12",
+      "fromNode": "e-ntfy",
+      "fromSide": "left",
+      "toNode": "p-ntfy",
+      "toSide": "right",
+      "label": "ntfy"
+    },
+    {
+      "id": "e13",
+      "fromNode": "pi-recv",
+      "fromSide": "bottom",
+      "toNode": "pi-halfhour",
+      "toSide": "top",
+      "label": "→ facts"
+    },
+    {
+      "id": "e14",
+      "fromNode": "pi-syncthing",
+      "fromSide": "bottom",
+      "toNode": "pi-halfhour",
+      "toSide": "top",
+      "label": "→ computer facts"
+    },
+    {
+      "id": "e15",
+      "fromNode": "pi-syncthing",
+      "fromSide": "bottom",
+      "toNode": "pi-web",
+      "toSide": "top",
+      "label": "→ context"
+    },
+    {
+      "id": "e16",
+      "fromNode": "pi-halfhour",
+      "fromSide": "right",
+      "toNode": "e-deepseek",
+      "toSide": "left",
+      "label": "V4 Flash"
+    },
+    {
+      "id": "e17",
+      "fromNode": "pi-halfhour",
+      "fromSide": "right",
+      "toNode": "e-ntfy",
+      "toSide": "left",
+      "label": "候选为 true"
+    },
+    {
+      "id": "e18",
+      "fromNode": "pi-halfhour",
+      "fromSide": "bottom",
+      "toNode": "pi-web",
+      "toSide": "top",
+      "label": "报告/指标"
+    },
+    {
+      "id": "e19",
+      "fromNode": "pi-life",
+      "fromSide": "right",
+      "toNode": "e-ntfy",
+      "toSide": "left",
+      "label": "定时通知"
+    },
+    {
+      "id": "e20",
+      "fromNode": "pi-life",
+      "fromSide": "right",
+      "toNode": "e-pushplus",
+      "toSide": "left",
+      "label": "周报"
+    },
+    {
+      "id": "e21",
+      "fromNode": "pi-web",
+      "fromSide": "right",
+      "toNode": "e-deepseek",
+      "toSide": "left",
+      "label": "V4 Pro 决策/澄清"
+    },
+    {
+      "id": "e22",
+      "fromNode": "pi-garden",
+      "fromSide": "top",
+      "toNode": "pi-web",
+      "toSide": "bottom",
+      "label": "白名单代理"
+    },
+    {
+      "id": "e23",
+      "fromNode": "pi-web",
+      "fromSide": "bottom",
+      "toNode": "pi-garden",
+      "toSide": "top",
+      "label": "奖励只读聚合"
+    },
+    {
+      "id": "e24",
+      "fromNode": "pi-garden",
+      "fromSide": "top",
+      "toNode": "pi-syncthing",
+      "toSide": "bottom",
+      "label": "快照同步"
+    },
+    {
+      "id": "e25",
+      "fromNode": "pi-garden",
+      "fromSide": "left",
+      "toNode": "p-bridge",
+      "toSide": "right",
+      "label": "offer / execute"
+    },
+    {
+      "id": "e26",
+      "fromNode": "p-feedback",
+      "fromSide": "right",
+      "toNode": "pi-web",
+      "toSide": "left",
+      "label": "反馈回流"
+    }
+  ]
 }
