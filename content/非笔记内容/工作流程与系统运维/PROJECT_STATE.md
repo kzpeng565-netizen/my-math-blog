@@ -563,8 +563,10 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 ## 2026-08-09 状态更新：Focus Garden 任务日历
 
-==Focus Garden 的任务页现于刷新区下方提供“任务清单 / 查看日历”双视图。当前待办的“今天”会并入有效日期等于今天的循环任务；七天视图从今天起完整展示七日任务、Priority 与番茄进度，本月视图以任务数和预计番茄数缩略显示，含 `highest` 时标红点，点击日期展开任务详情；两种日历末尾只展示 `status=active` 的近期动态。==
+==Focus Garden 的任务页已删除占屏的 TASK LIST 大横幅；“刷新清单”移到顶部“同步奖励”左侧。“任务清单 / 查看日历”双视图加宽至 640px，与正文视觉宽度协调。当前待办的“今天”会并入有效日期等于今天的循环任务；最近六天从今天起按桌面 3×2、手机单列完整展示任务、Priority 与番茄进度，本月视图以任务数和预计番茄数缩略显示，含 `highest` 时标红点。==
 
-==本次只更新 Pi 权威生产树的 `static/{app.js,index.html,style.css}`，未改变 task-sync/recent-context API、SQLite 或 Obsidian 写回边界，也无需重启服务。Pi 32/32 测试、JavaScript 语法、loopback 三接口、`127.0.0.1:8838` 监听及 Tailnet `:8460` HTTP 200 均通过；桌面与 390px 移动端已完成真实浏览器验收。==
+==日期详情改为独立弹窗，不再追加在日历底部；双击弹窗或六天卡片里的任务会切回任务清单、载入同一稳定 task ID 并聚焦编辑器，手机可点“编辑任务”。循环任务进入的是其任务本体编辑，保存会更新该循环任务。两种日历末尾只展示 `status=active` 的近期动态。==
+
+==本次只更新 Pi 权威生产树的 `static/{app.js,index.html,style.css}`，未改变 task-sync/recent-context API、SQLite 或 Obsidian 写回边界，也无需重启服务。Pi 32/32 测试、JavaScript 语法、loopback 三接口、系统级 `focus-garden.service` active、`127.0.0.1:8838` 监听及 Tailnet `:8460` HTTP 200 均通过；桌面与 390px 移动端已完成真实浏览器验收。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-tests-tailnet-browser-responsive; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md,PI_SERVER_HANDOFF.md" -->

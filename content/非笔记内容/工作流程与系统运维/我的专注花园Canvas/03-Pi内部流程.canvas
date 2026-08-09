@@ -22,7 +22,6 @@
 		{"id":"ctx-recent","text":"职责：保存近期动态原文和解析审计，向 Next Action 提供受限候选输入。\ndata/recent_context/state.json\n• 近期动态（原文权威，recorded_at 基准）\n• parse_audit.jsonl 审计；≤6 条注入建议\n• selector_candidate_limit=30（旧文档 20，⚠️ 待确认旧记录）","type":"text","x":1140,"y":900,"width":420,"height":340,"color":"3"},
 		{"id":"rm-daily","text":"职责：在早晨边界检查后生成生活日报并发送结果或低置信故障提示。\n每日生活复盘 09:00/10:00/11:00\n• 早晨边界未现 → 后延重试\n• 11:00 仍无 → possible_fault 低置信日报\n• data/statistics/daily_life/ + ntfy 回执","type":"text","x":1700,"y":20,"width":420,"height":340,"color":"4"},
 		{"id":"rm-weekly","text":"职责：每周一 09:05 生成并发送唯一保留的 PushPlus 周报。\n周报 周一 09:05 → PushPlus\n• PushPlus 唯一保留的通知（半小时已停）","type":"text","x":1700,"y":460,"width":420,"height":280,"color":"4"},
-		{"id":"legend","type":"text","text":"🎨 图例\n🟢 绿=自动流程/服务  🟡 黄=数据/配置/状态\n🔵 青=网络边界/接口  🟣 紫=文档（点击打开）\n🔴 红=人工操作/故障入口  🟠 橙=⚠️待确认\n→ 边=数据流/触发关系\n维护：改模块前先看它的入边（依赖）与出边（影响范围）","x":760,"y":-380,"width":520,"height":180,"color":"6"},
 		{"id":"rm-bedtime","text":"职责：每分钟检查深夜睡眠边界，并按冷却和数据新鲜度规则升级提醒。\n深夜提醒 00:30–04:30（每分钟检查）\n• 两层升级 + 25min 冷却；120s 数据新鲜度\n• 过期记 activity_data_stale 不升级","type":"text","x":1700,"y":840,"width":420,"height":280,"color":"4"},
 		{"id":"rm-1500","text":"职责：在 15:00 综合任务与番茄进度，决定是否发送高优先级提醒。\n15:00 任务进度检查\n• 任务+番茄各半综合进度 <0.5 → ntfy high\n• V4 flash 裁决，失败退确定性规则\n• 不写回 Windows/Obsidian","type":"text","x":1700,"y":1220,"width":420,"height":340,"color":"4"},
 		{"id":"rm-sysadmin","text":"职责：每 3 分钟检查维护占比和相邻上下文，必要时发送维护提醒。\n系统维护守护 每 3 分钟\n• 最近 60min 维护占比（30min≥75% / 60min≥65%）\n• ChatGPT/Codex ≤300s 邻近继承；数学词优先排除\n• ⚠️ 发送 env 文件与 30/60min 表述待确认","type":"text","x":1700,"y":1660,"width":420,"height":340,"color":"4"},
@@ -40,7 +39,8 @@
 		{"id":"d-04","type":"file","text":"📄 [[非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md|04-运维与扩展手册]]\n职责：说明 Pi 服务运维、扩展、端口、备份和恢复操作。","x":3940,"y":820,"width":420,"height":300,"color":"6","file":"非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md"},
 		{"id":"d-05","type":"file","text":"📄 [[非笔记内容/工作流程与系统运维/我的专注花园/05-Pi迁移验收与恢复清单.md|05-Pi迁移验收与恢复清单]]\n职责：说明 Pi 迁移验收、客户端切换、备份恢复和回滚检查。","x":3940,"y":1220,"width":420,"height":300,"color":"6","file":"非笔记内容/工作流程与系统运维/我的专注花园/05-Pi迁移验收与恢复清单.md"},
 		{"id":"d-na","type":"file","text":"📄 [[非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md|树莓派 Next Action Web架构]]\n职责：说明 Next Action Web 的路由、决策、反馈、认证和代理架构.","x":3940,"y":1620,"width":420,"height":300,"color":"6","file":"非笔记内容/工作流程与系统运维/我的专注花园/树莓派 Next Action Web架构.md"},
-		{"id":"d-index","type":"file","text":"📄 [[非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md|树莓派行为数据与接口索引]]\n职责：索引各数据源、目录、JSON/JSONL、API、定时器和可靠性边界。","x":3940,"y":2020,"width":420,"height":300,"color":"6","file":"非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md"}
+		{"id":"d-index","type":"file","text":"📄 [[非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md|树莓派行为数据与接口索引]]\n职责：索引各数据源、目录、JSON/JSONL、API、定时器和可靠性边界。","x":3940,"y":2020,"width":420,"height":300,"color":"6","file":"非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md"},
+		{"id":"legend","type":"text","text":"🎨 图例\n🟢 绿=自动流程/服务  🟡 黄=数据/配置/状态\n🔵 青=网络边界/接口  🟣 紫=文档（点击打开）\n🔴 红=人工操作/故障入口  🟠 橙=⚠️待确认\n→ 边=数据流/触发关系\n维护：改模块前先看它的入边（依赖）与出边（影响范围）","x":760,"y":-400,"width":520,"height":220,"color":"6"}
 	],
 	"edges":[
 		{"id":"e00","fromNode":"recv-phone","fromSide":"right","toNode":"hh-facts","toSide":"left","label":"→ phone/tablet facts"},

@@ -1319,8 +1319,10 @@ systemctl status activitywatch-advisor-web.service --no-pager
 
 ## 2026-08-09：Focus Garden 任务日历上线
 
-==生产权威 `/home/conrad/services/focus-garden/static/{app.js,index.html,style.css}` 已加入任务清单/日历双视图。清单把 `scheduled_date=今天` 的循环任务并入今天；七天模式为今天起七天并显示优先级与 `tomatoes_completed/tomatoes_total`；本月模式显示任务数、预计番茄数、`highest` 红点与点击日详情；尾部近期动态按 `status=active` 过滤。数据仍来自花园固定代理 `/api/tasks` 与 `/api/recent-context`，前端不直接写 Obsidian。==
+==生产权威 `/home/conrad/services/focus-garden/static/{app.js,index.html,style.css}` 已加入任务清单/日历双视图。清单把 `scheduled_date=今天` 的循环任务并入今天；最近六天为今天起六天，桌面按 3×2 展示并显示优先级与 `tomatoes_completed/tomatoes_total`；本月模式显示任务数、预计番茄数和 `highest` 红点。尾部近期动态按 `status=active` 过滤。数据仍来自花园固定代理 `/api/tasks` 与 `/api/recent-context`，前端不直接写 Obsidian。==
 
-==部署前备份：`/home/conrad/services/focus-garden/backups/task-calendar-20260809-200247/`。回滚只需恢复其中 `app.js`、`index.html`、`style.css`；静态文件按请求读取，正常无需重启，若浏览器缓存旧样式则重新加载。验收：Garden 32/32、`node --check`、loopback health/tasks/recent-context、服务 active、8838 loopback-only、Windows Tailnet `:8460` HTTP 200；桌面无横向溢出，390px 月历七列完整显示。==
+==任务页已删除大横幅，刷新按钮移至顶部同步按钮左侧，视图切换条加宽至 640px。日期点击打开独立弹窗；任务卡双击（手机使用“编辑任务”按钮）会以稳定 task ID 切回清单并载入编辑器，不会在跳转时自动保存。循环任务编辑的是任务本体。==
+
+==当前 UI 调整前备份：`/home/conrad/services/focus-garden/backups/task-calendar-ui-20260809-204650/`；最初日历上线前备份仍为 `backups/task-calendar-20260809-200247/`。回滚只恢复对应目录中的 `app.js`、`index.html`、`style.css`；静态文件按请求读取，正常无需重启。验收：Garden 32/32、`node --check`、loopback health/tasks/recent-context、系统级服务 active、8838 loopback-only、Windows Tailnet `:8460` HTTP 200；桌面 3×2 六天卡片、月历弹窗、双击编辑跳转及 390px 单列/无横向溢出均通过。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-tests-tailnet-browser-responsive; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md,我的专注花园/05-Pi迁移验收与恢复清单.md" -->
