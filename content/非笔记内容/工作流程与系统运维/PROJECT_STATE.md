@@ -578,3 +578,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==权威生产文件为 `/home/conrad/services/focus-garden/static/{app.js,index.html}`，已同步到 Windows 镜像 `D:\MyFocusGarden\static\`。Pi 端可回滚副本：`backups/20260809-224234-next-action-wait-state/`；Windows 镜像副本：`D:\MyFocusGarden\.backups\20260809-2244-next-action-wait-state/`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=javascript-syntax-pi-loopback-and-windows-tailnet; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md" -->
+
+## 2026-08-09 状态更新：任务完成账本与每日满番茄奖励
+
+==Pi 已上线按“任务 ID + 日期”记账的完成账本。普通任务与受支持的每周循环任务完成后仍保留在“今天”，显示为灰色勾选项且不再提供编辑；同时从开放任务集合及 Next Action/Agent 输入中排除。循环任务点击“完成本次”后，Pi 记录当天实例，并通过既有 mutation queue 把模板安排日推进 7 天、番茄完成数归零；Obsidian 两个插件与 Agent 无需修改。==
+
+==每日计划番茄数按当天首次观察后的最大值单调保存。次日 04:10 后结算前一天：若计划至少 7 个且全部完成，日历显示大勾并发放一次可直接种植的高级植株机会。奖励以日期幂等，不折算为 3 个普通奖励；最近六天、日期弹窗与本月视图都读取同一结算记录。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-unit-tests-live-services-and-tailnet-browser; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/01-数据来源与处理.md,我的专注花园/02-游戏架构.md" -->

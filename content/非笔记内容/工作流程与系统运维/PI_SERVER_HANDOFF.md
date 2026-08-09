@@ -1334,3 +1334,13 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==生成标记最多保留 5 分钟，网络/模型异常仍由原请求错误处理清除。已部署 `static/app.js` 与 `static/index.html`（cache version `20260809.7`），重启 `focus-garden.service` 后服务 active；Pi `127.0.0.1:8838` 及 Windows Tailnet `:8460` 都实际返回新版本。Pi 备份：`/home/conrad/services/focus-garden/backups/20260809-224234-next-action-wait-state/`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=javascript-syntax-pi-loopback-and-windows-tailnet; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-09：Focus Garden 完成账本与每日满番茄奖励
+
+==Advisor 的 `src/task_sync.py` 已增加 `completions`、`daily_plans`，有效状态新增 `completed_today`、`daily_scorecards`。网页完成精确每周循环任务时，Pi 记录日期实例并排入既有 `update` mutation；普通任务继续使用既有 `complete`。完成记录在 Obsidian ack 后仍保留，因此当天清单可灰显且 Agent 不会再次选中。==
+
+==Garden SQLite 新增 `daily_achievements`；服务每分钟观察 scorecard，并在次日 04:10 后幂等结算。计划不少于 7 且全部完成时，创建 `daily-full-tomato:YYYY-MM-DD` 高级奖励。前端已支持高级权益直接种植、六日/本月大勾、完成任务紧凑灰显；任务/日历切换条按页面可用宽度放大到最高 960px。==
+
+==生产备份为 Advisor `backups/20260809-232309-task-completion/` 与 Garden `backups/20260809-232309-daily-achievement/`。Advisor 10/10、Garden 34/34 测试通过，两项 systemd 服务 active；Garden 最终文件已同步到 `D:\MyFocusGarden`。当前不支持复杂周期（例如每 4 周），会安全拒绝而不写入。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-unit-tests-live-services-tailnet-browser-and-mirror-hash; retrieved_notes="PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md" -->

@@ -689,3 +689,15 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==提交前静态审计确认当前确认页和开始提示均只走 `intervention_ui.pyw` 子进程；`agent.py` 中仍保留未调用的 `legacy_ask_user` 及其旧 Tk 实现。它不在运行路径、不影响 Watchdog 或 lease 恢复，但下次维护 Agent 时应删除该死代码并保留 UI 隔离回归测试。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=static-audit-and-ui-isolation-smoke-test; retrieved_notes="NEXT_STEPS.md" -->
+
+## 2026-08-09 后续事项：完成账本与每日挑战
+
+### ☐ 观察首次自然跨日结算
+
+==在次日 04:10 后确认前一天的 `daily_achievements` 已固化，并实际领取、种植一次直接高级奖励；重点检查重复 reconcile 不会重复发奖。功能测试已覆盖，仍需一次真实跨日运行观察。==
+
+### ☐ 按需扩展复杂循环表达式
+
+==网页“完成本次”目前只支持精确的每周星期表达式。`every 4 weeks on Sunday` 等复杂 recurrence 会安全拒绝，不会误推进；只有用户确实需要在 Pi 完成这类任务时，才扩展解析器并补周期锚点测试。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=implementation-audit; retrieved_notes="PI_SERVER_HANDOFF.md" -->

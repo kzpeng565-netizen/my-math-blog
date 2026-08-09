@@ -725,3 +725,11 @@
 ==Windows 采用三层恢复：主计划任务在失败时重试；常驻 Watchdog 检查本地心跳；独立两分钟 kick 在常驻 Watchdog 缺席时继续检查。UI 等待期间显式发布 `busy_until`，避免正常 90 秒选择页被误杀。连续重启采用 0/30/60/180/300 秒退避；恢复后先 reconcile persisted lease，才处理新的 pending request。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=windows-unit-tests-and-live-crash-recovery; retrieved_notes="DECISIONS.md" -->
+
+### D89. 循环任务按日期实例完成，每日满番茄奖励独立结算【有效】
+
+==网页完成循环任务时，Pi 必须先以 `task_id@YYYY-MM-DD` 幂等记录本次实例，再复用现有 `update` mutation 推进 Obsidian 模板；不得让 Pi 直接写 Markdown，也不得新增第二套插件写回协议。当前只允许精确的 `every week on <weekday>`，其他循环表达式安全拒绝。完成实例保留在“今天”，但从开放任务和 Agent 输入排除。==
+
+==每日挑战采用当天计划番茄数的单调快照，并仅在次日 04:10 后结算。`planned >= 7 && completed >= planned` 时按日期只发一次独立高级种植权益；该权益不是 3 个普通奖励，也不能种普通植物。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-unit-tests-and-live-service-check; retrieved_notes="PROJECT_STATE.md,PI_SERVER_HANDOFF.md" -->
