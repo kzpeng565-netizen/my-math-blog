@@ -1,0 +1,1148 @@
+{
+  "nodes": [
+    {
+      "id": "g-entry",
+      "type": "group",
+      "x": 0,
+      "y": -120,
+      "width": 520,
+      "height": 2620,
+      "color": "3",
+      "label": "🧭 运行入口与配置"
+    },
+    {
+      "id": "g-focus",
+      "type": "group",
+      "x": 560,
+      "y": -120,
+      "width": 520,
+      "height": 4720,
+      "color": "4",
+      "label": "🍅 专注会话生命周期"
+    },
+    {
+      "id": "g-reward",
+      "type": "group",
+      "x": 1120,
+      "y": -120,
+      "width": 520,
+      "height": 5320,
+      "color": "3",
+      "label": "🌱 奖励、植物与花园"
+    },
+    {
+      "id": "g-db",
+      "type": "group",
+      "x": 1680,
+      "y": -120,
+      "width": 520,
+      "height": 3360,
+      "color": "5",
+      "label": "🗃 SQLite 数据与一致性"
+    },
+    {
+      "id": "g-int",
+      "type": "group",
+      "x": 2240,
+      "y": -120,
+      "width": 520,
+      "height": 5420,
+      "color": "2",
+      "label": "🔌 外部集成与桥接"
+    },
+    {
+      "id": "g-api",
+      "type": "group",
+      "x": 2800,
+      "y": -120,
+      "width": 520,
+      "height": 5260,
+      "color": "4",
+      "label": "🖥 Web UI 与 API 路由"
+    },
+    {
+      "id": "g-ops",
+      "type": "group",
+      "x": 3360,
+      "y": -120,
+      "width": 520,
+      "height": 4020,
+      "color": "1",
+      "label": "🛠 运维、备份与排障"
+    },
+    {
+      "id": "g-doc",
+      "type": "group",
+      "x": 3920,
+      "y": -120,
+      "width": 520,
+      "height": 6180,
+      "color": "6",
+      "label": "📚 扩展入口与交接文档"
+    },
+    {
+      "id": "fg-service",
+      "type": "text",
+      "text": "功能：生产服务入口\n实现：focus-garden.service → app.py --no-browser --port 8838\n职责：以 conrad 用户启动 GardenHTTPServer，并启动后台 reconciler。\n边界：仅监听 127.0.0.1:8838；外部通过 Tailscale Serve :8460。\n改动影响：所有 API、前端加载和后台专注结算。",
+      "x": 20,
+      "y": 20,
+      "width": 420,
+      "height": 520,
+      "color": "3"
+    },
+    {
+      "id": "fg-config",
+      "type": "text",
+      "text": "功能：运行配置与可扩展参数\n实现：config/settings.json、focus_profiles.json、plants.json\n职责：定义数据库、Pi 同步、Next Action、Cold Turkey 模式、专注 profile 和植物 catalog。\n新增 profile：block 必须存在于 Windows Agent allowlist。\n新增植物：资源文件 + plants.json，保持稳定 id。",
+      "x": 20,
+      "y": 640,
+      "width": 420,
+      "height": 560,
+      "color": "5"
+    },
+    {
+      "id": "fg-boundary",
+      "type": "text",
+      "text": "功能：生产权威边界\n实现：Pi /home/conrad/services/focus-garden 是生产树；D:MyFocusGarden 是开发/镜像副本。\n职责：Pi SQLite 是唯一活动写入端，Windows archive 只用于恢复。\n安全：:8460 为 Tailnet-only；禁止把花园 UI 放进 Funnel。\n素材：Minecraft/私有素材只留本地，不进入公共导出。",
+      "x": 20,
+      "y": 1300,
+      "width": 420,
+      "height": 520,
+      "color": "2"
+    },
+    {
+      "id": "fg-static",
+      "type": "text",
+      "text": "功能：前端资源装载\n实现：static/index.html + app.js + focus-pause-ui.js + lease-status.js + CSS。\n职责：渲染 garden、focus、reward、tasks、recent-context、Next Action 和 settings 页面。\n接口依赖：前端统一通过 app.js 的 api(path, options) 请求 JSON。\n改动影响：API 字段变化必须同步页面 render 函数。",
+      "x": 20,
+      "y": 1920,
+      "width": 420,
+      "height": 500,
+      "color": "3"
+    },
+    {
+      "id": "fg-focus-input",
+      "type": "text",
+      "text": "功能：选择专注参数\n实现：前端 preset、profile、targets、可选 task_id/task_title。\n职责：把用户选择转换为 /api/focus/start、schedule 或 continuous 请求。\n数据：profile_id、duration、targets、任务关联不直接写 Obsidian。\n排查：先看 bootstrap 返回的 profiles、focus、focus_plans。",
+      "x": 580,
+      "y": 20,
+      "width": 420,
+      "height": 500,
+      "color": "4"
+    },
+    {
+      "id": "fg-focus-start",
+      "type": "text",
+      "text": "功能：启动一轮专注\n实现：GardenService.start_focus() → _validate_focus_request() → database.create_focus()。\n职责：校验时长/profile/targets，创建 running session，必要时建立 Cold Turkey 执行记录。\n状态：focus_sessions.status=running；同一时刻禁止第二个 running session。\n输出：session_id、started_at、ends_at、profile 和关联任务。",
+      "x": 580,
+      "y": 620,
+      "width": 420,
+      "height": 560,
+      "color": "3"
+    },
+    {
+      "id": "fg-focus-lease",
+      "type": "text",
+      "text": "功能：设备封锁执行\n实现：ColdTurkeyController.start()/stop()，调用 computer-intervention-agent 的 config.json 和 Windows 可执行文件。\n职责：将 profile.blocks 转为实际封锁请求，并保存执行结果 JSON。\n生产 Pi：README 说明正式实例安全模拟，不替 Windows 实际锁机；Windows Agent 是真实执行端。\n待确认：Pi 环境变量 dispatch/dry-run 与 README 口径需维护时复核。",
+      "x": 580,
+      "y": 1280,
+      "width": 420,
+      "height": 600,
+      "color": "2"
+    },
+    {
+      "id": "fg-focus-reconcile",
+      "type": "text",
+      "text": "功能：后台结算与恢复\n实现：start_reconciler() 后台循环调用 GardenService.reconcile_focus()。\n职责：发现 ends_at 到期、完成 session、释放 lease、推进 focus_plan、刷新任务番茄结算。\n实现函数：flush_task_focus_settlements、run_due_focus_plan。\n排查：服务存活但倒计时不结束时先看 journalctl 与 focus_sessions。",
+      "x": 580,
+      "y": 1980,
+      "width": 420,
+      "height": 560,
+      "color": "3"
+    },
+    {
+      "id": "fg-focus-pause",
+      "type": "text",
+      "text": "功能：暂停与恢复\n实现：/api/focus/pause → database.pause_focus；/api/focus/resume → database.resume_focus。\n职责：记录 pause_at、requested_minutes、resume_at；恢复时按确认的暂停承诺调整 ends_at。\n规则：一轮最多暂停一次；暂停中禁止重复完成结算。\n前端：focus-pause-ui.js 每秒更新暂停倒计时。",
+      "x": 580,
+      "y": 2640,
+      "width": 420,
+      "height": 560,
+      "color": "4"
+    },
+    {
+      "id": "fg-focus-plan",
+      "type": "text",
+      "text": "功能：预约专注与连续专注\n实现：create_focus_plan() 写入 focus_plans；run_due_focus_plan() 到点调用 start_focus。\n职责：管理 scheduled → focus → break → completed/failed/cancelled 状态。\n连续模式：focus_minutes、rest_minutes、rounds；每轮通过 last_session_id 关联。\n排查：检查 focus_plans.next_action_at、status、last_session_id。",
+      "x": 580,
+      "y": 3300,
+      "width": 420,
+      "height": 560,
+      "color": "3"
+    },
+    {
+      "id": "fg-focus-complete",
+      "type": "text",
+      "text": "功能：完成结算与任务番茄\n实现：database.complete_focus() 计算 credited_minutes，更新 counters.focus_credit_minutes。\n职责：累计满 40 分钟生成专注奖励；关联任务时写 task_focus_balances/settlements。\n事实：1 🍅 = 40 分钟；番茄是正向证据，不等同于任务完成。\n输出：completed session、奖励候选、待写回任务结算。",
+      "x": 580,
+      "y": 3960,
+      "width": 420,
+      "height": 560,
+      "color": "5"
+    },
+    {
+      "id": "fg-reward-sync",
+      "type": "text",
+      "text": "功能：从行为系统同步奖励事件\n实现：PiRewardSync.fetch() 读取 Pi advisor data，标准化为稳定 id 的 events。\n输入：computer_interventions/responses、next_action/responses、next_action/outcomes、daily_life JSON。\n职责：只读聚合外部事实，不写 advisor 原始数据。\n改动影响：事件字段或稳定 id 改变会影响去重和历史奖励。",
+      "x": 1140,
+      "y": 20,
+      "width": 420,
+      "height": 600,
+      "color": "3"
+    },
+    {
+      "id": "fg-reward-import",
+      "type": "text",
+      "text": "功能：奖励导入与去重\n实现：GardenDatabase.import_rewards() 使用 INSERT OR IGNORE；随后 _reconcile_intervention_rewards() 补齐介入奖励。\n职责：把 accepted+success、Next Action 闭环、早睡等外部证据变为 rewards。\n状态：pending 表示可领取；planted 表示已种植。\n排查：先查 rewards.id、type、status、occurred_at。",
+      "x": 1140,
+      "y": 720,
+      "width": 420,
+      "height": 560,
+      "color": "3"
+    },
+    {
+      "id": "fg-credit",
+      "type": "text",
+      "text": "功能：40 分钟专注奖励\n实现：complete_focus() 把完成分钟写入 counters.focus_credit_minutes。\n职责：满 40 分钟产生 focus reward，保留余数，避免重复发放。\n数据：focus_sessions.credited_minutes + counters.focus_credit_minutes。\n维护：修改分钟口径必须同时检查 Pomodoro、Next Action 和日报规则。",
+      "x": 1140,
+      "y": 1380,
+      "width": 420,
+      "height": 500,
+      "color": "5"
+    },
+    {
+      "id": "fg-plant-basic",
+      "type": "text",
+      "text": "功能：领取初级植物\n实现：/api/rewards/{reward_id}/plant → plant_reward() → _place_plant()。\n职责：校验 reward 未被兑换/种植，选择 species_id，找空坐标后写 garden_plants。\n副作用：reward.status=planted；必要时扩大 garden_size。\n排查：检查 reward_id、species_id、坐标占用和 rewards.status。",
+      "x": 1140,
+      "y": 1980,
+      "width": 420,
+      "height": 560,
+      "color": "3"
+    },
+    {
+      "id": "fg-plant-advanced",
+      "type": "text",
+      "text": "功能：3 次初级机会兑换高级植物\n实现：/api/rewards/advanced-plant → plant_advanced_from_basic()。\n职责：选取 3 个可用 basic reward，写 reward_exchanges，生成 advanced reward 并种植。\n一致性：source_reward_id 不重复兑换；advanced reward 保留来源关联。\n排查：查 reward_exchanges 与 pending basic 数量。",
+      "x": 1140,
+      "y": 2640,
+      "width": 420,
+      "height": 560,
+      "color": "3"
+    },
+    {
+      "id": "fg-garden",
+      "type": "text",
+      "text": "功能：花园布局与自动扩展\n实现：garden() 查询 garden_plants；_place_plant() 计算空坐标并在填满时扩大尺寸。\n职责：从 5×5 起步，填满后扩展到 7×7、9×9 等，保存 x/y 和 planted_at。\n前端：renderGarden() 将坐标映射为等距岛屿和植物 sprite。\n边界：植物素材路径来自 plants.json，私人素材不可公开。",
+      "x": 1140,
+      "y": 3300,
+      "width": 420,
+      "height": 580,
+      "color": "3"
+    },
+    {
+      "id": "fg-catalog",
+      "type": "text",
+      "text": "功能：植物 catalog 与等级\n实现：config/plants.json 定义 id、name、category、tier、sprite。\n职责：前端按 basic/advanced 筛选，种植弹窗按 catalog 选择。\n扩展：新增 PNG + JSON 条目；保持已有 id 和文件名不变。\n风险：素材缺失会导致 catalog 可见但花园图片为空。",
+      "x": 1140,
+      "y": 3980,
+      "width": 420,
+      "height": 520,
+      "color": "5"
+    },
+    {
+      "id": "fg-reward-view",
+      "type": "text",
+      "text": "功能：奖励与种植 UI\n实现：bootstrap.reward_history → renderRewards()；openPlant() 选择植物；plant() 调用种植 API。\n职责：展示奖励原因、等级、时间和 pending/planted 状态。\n用户操作：领取初级植物或消耗 3 次机会种植高级植物。\n排查：先刷新 bootstrap，再查 rewards 和 garden_plants。",
+      "x": 1140,
+      "y": 4600,
+      "width": 420,
+      "height": 520,
+      "color": "4"
+    },
+    {
+      "id": "fg-db-schema",
+      "type": "text",
+      "text": "功能：SQLite 数据模型\n实现：focus_garden/database.py _init_schema() 创建 rewards、garden_plants、reward_exchanges、focus_sessions、focus_pauses、task_focus_balances、task_focus_settlements、focus_plans、bridge_health、bridge_heartbeat_events、counters。\n职责：分别保存奖励、植物、专注、暂停、任务结算、预约计划、桥接健康和计数。\n权威：/home/conrad/services/focus-garden/data/focus-garden.sqlite3。\n排查：使用只读 sqlite 查询确认表、status 和时间字段。",
+      "x": 1700,
+      "y": 20,
+      "width": 420,
+      "height": 620,
+      "color": "5"
+    },
+    {
+      "id": "fg-db-transaction",
+      "type": "text",
+      "text": "功能：事务与 SQLite 一致性\n实现：_connect() 开启 foreign_keys=ON、journal_mode=WAL；_connection() 提供事务上下文。\n职责：让奖励、种植、暂停、完成结算等写入原子提交。\n规则：Pi 是唯一写入端；archive 不得被 Syncthing 双向写回。\n改动影响：数据库写入方法和恢复脚本必须一起测试。",
+      "x": 1700,
+      "y": 740,
+      "width": 420,
+      "height": 520,
+      "color": "5"
+    },
+    {
+      "id": "fg-db-init",
+      "type": "text",
+      "text": "功能：启动时 schema 兼容\n实现：_init_schema() 在启动时检查旧列并执行增量兼容处理。\n当前风险：没有独立 schema version/迁移工具。\n维护：新增列、索引或表前先备份 SQLite，写可重复的兼容逻辑和测试。\n待确认：正式迁移工具仍未建立。",
+      "x": 1700,
+      "y": 1360,
+      "width": 420,
+      "height": 560,
+      "color": "1"
+    },
+    {
+      "id": "fg-db-reconcile",
+      "type": "text",
+      "text": "功能：数据库内派生状态修复\n实现：_reconcile_progression()、_reconcile_intervention_rewards() 在读取/导入阶段补齐派生奖励和进度。\n职责：修复历史事件导入后的奖励、等级和可兑换状态。\n边界：这是确定性聚合，不应替代 advisor 原始事实。\n排查：比较 raw event、rewards、reward_exchanges 三者。",
+      "x": 1700,
+      "y": 2020,
+      "width": 420,
+      "height": 520,
+      "color": "3"
+    },
+    {
+      "id": "fg-db-health",
+      "type": "text",
+      "text": "功能：统计与历史查询\n实现：stats()、focus_history()、completed_focus_summary()、bridge_health()。\n职责：为 bootstrap、system-status、频率卡片和维护排障提供只读摘要。\n输出：专注分钟、奖励计数、种植数、bridge 状态和最近会话。\n原则：摘要可重算，SQLite 原始记录优先。",
+      "x": 1700,
+      "y": 2640,
+      "width": 420,
+      "height": 520,
+      "color": "4"
+    },
+    {
+      "id": "fg-next-proxy",
+      "type": "text",
+      "text": "功能：Next Action 代理\n实现：NextActionProxy 固定 ALLOWED 路径，request() 只转发到 http://127.0.0.1:8767。\n职责：代理 active、reports、generate、feedback、interventions、task-sync、recent-context。\n安全：不接受浏览器任意上游 URL；不读取 Next Action 密码/env/data。\n端口：花园 :8460 → Pi loopback :8838 → Next Action loopback :8767。",
+      "x": 2260,
+      "y": 20,
+      "width": 420,
+      "height": 600,
+      "color": "2"
+    },
+    {
+      "id": "fg-next-login",
+      "type": "text",
+      "text": "功能：Next Action 登录与会话\n实现：/api/next-action/login 由 proxy 转发；cookie 仅回传同一 Pi 上游。\n职责：让花园原生菜单复用 Next Action 登录，不把 cookie 写入 Garden SQLite/config。\n维护：登录失败先查 proxy 路径、上游 8767 和 cookie 头。\n边界：:8450 和 :8460 均 Tailnet-only。",
+      "x": 2260,
+      "y": 720,
+      "width": 420,
+      "height": 500,
+      "color": "2"
+    },
+    {
+      "id": "fg-task-sync",
+      "type": "text",
+      "text": "功能：任务读取与 mutation queue\n实现：/api/tasks 和 /api/tasks/mutations 代理到 Next Action task-sync。\n职责：网页可即时展示/编辑/完成/删除任务；Pi 暂存 mutation，Obsidian 插件负责最终 Markdown 写回。\n一致性：ack 只有在有效快照真实包含变更时清除；409 保留草稿。\n禁止：Pi 不直接改 Obsidian Tasks。",
+      "x": 2260,
+      "y": 1320,
+      "width": 420,
+      "height": 600,
+      "color": "4"
+    },
+    {
+      "id": "fg-recent",
+      "type": "text",
+      "text": "功能：近期动态\n实现：/api/recent-context 及 relevant/list/update/archive/pin/confirm 代理到 Next Action。\n职责：让花园页面查看、编辑和确认近期动态，供建议输入。\n数据权威：原文和 recorded_at 在 advisor 数据目录；Garden 只做代理。\n排查：查 revision、409 和上游最近动态接口。",
+      "x": 2260,
+      "y": 2020,
+      "width": 420,
+      "height": 560,
+      "color": "4"
+    },
+    {
+      "id": "fg-reward-sync2",
+      "type": "text",
+      "text": "功能：SSH 只读奖励同步\n实现：pi_sync.py 在 Pi 上读取 advisor data root，输出标准 events JSON；PiRewardSync.fetch() 解析。\n职责：把外部行为结果转换为 Garden 可去重的 reward 事件。\n不读：密码、token、env；不写 advisor 原始目录。\n改动影响：需要同步测试事件 schema 和稳定唯一 id。",
+      "x": 2260,
+      "y": 2680,
+      "width": 420,
+      "height": 560,
+      "color": "3"
+    },
+    {
+      "id": "fg-bridge",
+      "type": "text",
+      "text": "功能：Android Focus Bridge 健康\n实现：/api/focus-bridge/heartbeat 写 bridge_health 和 bridge_heartbeat_events；bridge_monitor.evaluate_bridge_qualification() 计算资格。\n职责：判断手机 App 版本、契约状态、最近心跳和检查项。\n前端：system-status 显示 never/stale/qualified 等状态。\n排查：先看 heartbeat 时间、device_id、metadata 和 bridge 版本。",
+      "x": 2260,
+      "y": 3340,
+      "width": 420,
+      "height": 600,
+      "color": "3"
+    },
+    {
+      "id": "fg-cold",
+      "type": "text",
+      "text": "功能：电脑 Cold Turkey 配合\n实现：ColdTurkeyController 读取 agent_config，调用 block start/stop 并回传执行结果。\n职责：为 Windows 真正封锁常刷网站；Focus Garden 只保存会话与执行摘要。\nPi 正式实例：安全模拟模式，不替 Windows 执行锁机。\n排查：检查 profile blocks、agent config、Windows Agent 和 lease。",
+      "x": 2260,
+      "y": 4040,
+      "width": 420,
+      "height": 560,
+      "color": "2"
+    },
+    {
+      "id": "fg-network",
+      "type": "text",
+      "text": "功能：网络与暴露边界\n实现：focus-garden.service loopback :8838；Tailscale Serve :8460；Next Action :8450；公网 Funnel 仅用于手机 receiver。\n职责：保证花园 UI 和私有素材不暴露公网。\n禁止：把 :8460 加入 Funnel，或把 0.0.0.0 写入服务监听。\n维护：修改端口时同步 server-layout、systemd、Serve 和 Canvas。",
+      "x": 2260,
+      "y": 4700,
+      "width": 420,
+      "height": 520,
+      "color": "2"
+    },
+    {
+      "id": "fg-bootstrap",
+      "type": "text",
+      "text": "功能：前端统一初始化\n实现：GET /api/bootstrap → GardenService.bootstrap() 聚合 settings、profiles、focus、plans、stats、garden、rewards、catalog、bridge health。\n职责：首屏和多数页面的单一数据入口。\n改动影响：字段变化需要同步 static/app.js 的 render 函数。\n排查：bootstrap 失败先查服务日志和 JSON 错误。",
+      "x": 2820,
+      "y": 20,
+      "width": 420,
+      "height": 580,
+      "color": "4"
+    },
+    {
+      "id": "fg-focus-api",
+      "type": "text",
+      "text": "功能：专注 API 路由\n实现：POST /api/focus/start、/schedule、/continuous、/cancel、/pause、/resume。\n职责：把 UI 请求路由到 GardenService，再由 database 持久化。\n状态：running、paused、completed、cancelled、failed。\n排查：区分 400 参数错误、409 已有会话和 500 服务异常。",
+      "x": 2820,
+      "y": 700,
+      "width": 420,
+      "height": 520,
+      "color": "4"
+    },
+    {
+      "id": "fg-reward-api",
+      "type": "text",
+      "text": "功能：奖励 API 路由\n实现：POST /api/rewards/sync、/api/rewards/{id}/plant、/api/rewards/advanced-plant。\n职责：同步外部事件、领取初级植物、3 换 1 高级植物。\n幂等：reward id、reward_exchanges 和 planted 状态防止重复。\n排查：查 API response、rewards.status 和 exchange 记录。",
+      "x": 2820,
+      "y": 1320,
+      "width": 420,
+      "height": 520,
+      "color": "3"
+    },
+    {
+      "id": "fg-garden-api",
+      "type": "text",
+      "text": "功能：花园与健康 API\n实现：GET /api/garden、/api/health、/api/system-status。\n职责：分别提供花园布局、轻量健康检查、服务/桥接/数据恢复总览。\nsystem-status 聚合 services、tasks、bridges、context、latest report、archive backup。\n原则：健康面板只读，不替代日志。",
+      "x": 2820,
+      "y": 1940,
+      "width": 420,
+      "height": 560,
+      "color": "3"
+    },
+    {
+      "id": "fg-task-api",
+      "type": "text",
+      "text": "功能：任务页面 API\n实现：GET /api/tasks；POST /api/tasks/mutations，经 NextActionProxy 转发。\n职责：花园内读取和编辑有效任务清单。\n写回：Pi queue → Obsidian 插件 → Markdown；成功后再 ack。\n排查：先看 pending mutation、revision 和 409。",
+      "x": 2820,
+      "y": 2600,
+      "width": 420,
+      "height": 500,
+      "color": "4"
+    },
+    {
+      "id": "fg-context-api",
+      "type": "text",
+      "text": "功能：近期动态 API\n实现：GET/POST /api/recent-context 及 id/update、archive、pin、confirm。\n职责：在花园内维护近期动态输入，并把人工确认送回 advisor。\n一致性：携带 expected_revision，冲突时保留用户草稿。\n排查：查 recent_context state 与 parse_audit。",
+      "x": 2820,
+      "y": 3200,
+      "width": 420,
+      "height": 500,
+      "color": "4"
+    },
+    {
+      "id": "fg-next-api",
+      "type": "text",
+      "text": "功能：Next Action API 面板\n实现：/api/next-action/login、generate、active、reports、feedback、issues、response、outcome、clarify。\n职责：把花园作为固定代理 UI，完成“建议→澄清→行动→反馈”闭环。\n安全：仅固定 allowlist；不要新增任意代理路径。\n排查：分开判断登录、上游模型、反馈 409。",
+      "x": 2820,
+      "y": 3800,
+      "width": 420,
+      "height": 600,
+      "color": "2"
+    },
+    {
+      "id": "fg-frontend",
+      "type": "text",
+      "text": "功能：前端页面状态机\n实现：app.js 的 load/render/navigate；focus-pause-ui.js 覆盖暂停倒计时；lease-status.js 扩展健康展示。\n职责：把 API JSON 映射为 garden、rewards、tasks、recent-context、Next Action 和 system-status 页面。\n新增功能：先加 API，再加 state 字段、render 函数、bind 事件和错误 toast。\n测试：node --check static/app.js。",
+      "x": 2820,
+      "y": 4500,
+      "width": 420,
+      "height": 560,
+      "color": "4"
+    },
+    {
+      "id": "fg-reconciler",
+      "type": "text",
+      "text": "功能：后台自动推进\n实现：start_reconciler() 启动线程，循环调用 reconcile_focus()。\n职责：自动结束到期会话、释放执行、推进预约计划、处理任务专注结算。\n依赖：focus-garden.service 必须持续运行；重启后从 SQLite 状态恢复。\n排查：systemctl status + journalctl + focus_sessions/focus_plans。",
+      "x": 3380,
+      "y": 20,
+      "width": 420,
+      "height": 520,
+      "color": "3"
+    },
+    {
+      "id": "fg-backup",
+      "type": "text",
+      "text": "功能：每分钟数据库备份\n实现：focus-garden-backup.timer → backup_save.py，使用 SQLite backup API 生成原子快照。\n源：/home/conrad/services/focus-garden/data/focus-garden.sqlite3。\n目标：/home/conrad/workspace/focus-garden-archive/focus-garden.sqlite3，再由 Syncthing send-only 到 Windows。\n恢复：只从快照复制，禁止双向同时写。",
+      "x": 3380,
+      "y": 640,
+      "width": 420,
+      "height": 600,
+      "color": "3"
+    },
+    {
+      "id": "fg-health",
+      "type": "text",
+      "text": "功能：运行健康与新鲜度\n实现：GardenService.system_status() 检查 systemd 服务、任务 queue、Obsidian snapshot、sync heartbeat、bridge 和 archive backup。\n职责：提供维护入口而不是改变业务状态。\n状态：ok/active/online/pass/qualified 与 stale/missing/failed/never/degraded。\n排查：先定位是哪一层 stale，再看对应日志和源文件。",
+      "x": 3380,
+      "y": 1340,
+      "width": 420,
+      "height": 560,
+      "color": "4"
+    },
+    {
+      "id": "fg-tests",
+      "type": "text",
+      "text": "功能：测试与验收\n实现：tests/test_database.py、test_service.py、test_bridge_monitor.py；部署前运行 Python 测试和 node --check。\n职责：覆盖数据库、服务路由/状态和桥接资格。\n验收：修改 API、schema、前端或部署单元后重新跑对应测试。\n不要：只点页面确认“能打开”就视为功能完成。",
+      "x": 3380,
+      "y": 2000,
+      "width": 420,
+      "height": 520,
+      "color": "1"
+    },
+    {
+      "id": "fg-failure",
+      "type": "text",
+      "text": "功能：故障排查顺序\n入口：service 状态 → journalctl → ss -lntp → API JSON → SQLite 状态 → archive snapshot。\n服务：focus-garden.service、focus-garden-backup.timer。\n常见：端口不通、bootstrap 失败、会话不结束、奖励重复、花园空白、Next Action 代理失败。\n回退：先保留 SQLite/快照和 raw 事件，再改代码或配置。",
+      "x": 3380,
+      "y": 2620,
+      "width": 420,
+      "height": 560,
+      "color": "1"
+    },
+    {
+      "id": "fg-recovery",
+      "type": "text",
+      "text": "功能：恢复与回滚\n实现：使用 focus-garden-archive 的 SQLite 快照恢复；Windows archive 是 receive-only + staggered versioning。\n职责：恢复数据库而不是把开发副本整棵树覆盖 Pi。\n素材：私有资产不从公共导出恢复。\n维护：恢复前停止写入或确认服务状态，恢复后检查服务、端口和 bootstrap。",
+      "x": 3380,
+      "y": 3280,
+      "width": 420,
+      "height": 540,
+      "color": "5"
+    },
+    {
+      "id": "fg-doc-overview",
+      "type": "text",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/00-交接总览.md|Focus Garden 00-交接总览]]\n功能：提供维护时的源文档入口。\n职责：说明权威边界、当前功能、Pi 生产状态和集成交接入口。",
+      "x": 3940,
+      "y": 20,
+      "width": 420,
+      "height": 380,
+      "color": "6"
+    },
+    {
+      "id": "fg-doc-game",
+      "type": "text",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/02-游戏架构.md|Focus Garden 02-游戏架构]]\n功能：提供维护时的源文档入口。\n职责：说明植物、奖励、专注会话、SQLite 和游戏规则。",
+      "x": 3940,
+      "y": 500,
+      "width": 420,
+      "height": 380,
+      "color": "6"
+    },
+    {
+      "id": "fg-doc-ops",
+      "type": "text",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/04-运维与扩展手册.md|Focus Garden 04-运维与扩展手册]]\n功能：提供维护时的源文档入口。\n职责：说明部署、服务、端口、备份、扩展和排障。",
+      "x": 3940,
+      "y": 980,
+      "width": 420,
+      "height": 380,
+      "color": "6"
+    },
+    {
+      "id": "fg-doc-recovery",
+      "type": "text",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/我的专注花园/05-Pi迁移验收与恢复清单.md|Focus Garden 05-迁移验收与恢复]]\n功能：提供维护时的源文档入口。\n职责：说明 Pi 迁移、验收、恢复和回滚步骤。",
+      "x": 3940,
+      "y": 1460,
+      "width": 420,
+      "height": 380,
+      "color": "6"
+    },
+    {
+      "id": "fg-doc-data",
+      "type": "text",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md|行为数据与接口索引]]\n功能：提供维护时的源文档入口。\n职责：说明 advisor 数据源、API、路径、定时器和可靠性边界。",
+      "x": 3940,
+      "y": 1940,
+      "width": 420,
+      "height": 380,
+      "color": "6"
+    },
+    {
+      "id": "fg-doc-handoff",
+      "type": "text",
+      "text": "📄 [[非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md|PI_SERVER_HANDOFF]]\n功能：提供维护时的源文档入口。\n职责：说明 Pi 服务、故障历史、当前限制和后续接管。",
+      "x": 3940,
+      "y": 2420,
+      "width": 420,
+      "height": 380,
+      "color": "6"
+    },
+    {
+      "id": "fg-extend-check",
+      "type": "text",
+      "text": "功能：新增功能维护清单\n步骤：先定位实现组 → 读对应源码/测试 → 定义数据与 API → 更新前端 → 加测试 → 备份/验收。\n必须检查：权威写入端、同步方向、权限/端口、reconciler、system-status、恢复路径。\n若资料冲突：标记待确认，不在 Canvas 中替源文档做决定。",
+      "x": 3940,
+      "y": 2900,
+      "width": 420,
+      "height": 560,
+      "color": "1"
+    },
+    {
+      "id": "fg-extend-plant",
+      "type": "text",
+      "text": "功能：新增植物\n修改：static/assets/plants/ 新资源 + config/plants.json 新条目。\n保持：稳定 id、sprite 路径、category、tier；检查 catalog、种植弹窗和等距花园显示。\n验证：初级/高级筛选、plant API、坐标写入、素材边界。\n不改：已有植物 id 或私人素材公开范围。",
+      "x": 3940,
+      "y": 3560,
+      "width": 420,
+      "height": 520,
+      "color": "5"
+    },
+    {
+      "id": "fg-extend-profile",
+      "type": "text",
+      "text": "功能：新增专注模式\n修改：config/focus_profiles.json 增加 profile 与 blocks。\n前置：blocks 已存在于 computer-intervention-agent allowlist。\n验证：start_focus 校验、Cold Turkey/safe simulation、完成结算和奖励。\n不直接从 Pi 改 Windows Agent 配置。",
+      "x": 3940,
+      "y": 4180,
+      "width": 420,
+      "height": 520,
+      "color": "5"
+    },
+    {
+      "id": "fg-extend-reward",
+      "type": "text",
+      "text": "功能：新增奖励来源\n修改：pi_sync.py 生成带稳定唯一 id 的标准 event。\n然后：import_rewards 去重 → _reconcile_intervention_rewards → rewards pending → plant。\n验证：重复同步不重复奖励；raw advisor 数据仍只读。\n若证据语义不确定，先放待确认或低置信类型。",
+      "x": 3940,
+      "y": 4800,
+      "width": 420,
+      "height": 540,
+      "color": "5"
+    },
+    {
+      "id": "fg-extend-api",
+      "type": "text",
+      "text": "功能：新增页面/API\n顺序：先在 server.py 增加固定路由和 GardenService 方法，再更新 app.js state/render/bind。\n安全：Next Action 代理必须加入固定 allowlist；不要接受任意上游 URL。\n验证：Python 测试、node --check、Tailnet :8460 实测；不启用 Funnel。",
+      "x": 3940,
+      "y": 5440,
+      "width": 420,
+      "height": 540,
+      "color": "2"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "text": "# Focus Garden 功能实现与扩展\n按生产 Pi 源码拆解：入口、专注生命周期、奖励/花园、SQLite、集成、API/UI、运维和新增功能路径。\n维护目标：先定位功能组，再沿实现边和文档链接进入源码/数据/测试。",
+      "x": 0,
+      "y": -430,
+      "width": 760,
+      "height": 120,
+      "color": "3"
+    },
+    {
+      "id": "legend",
+      "type": "text",
+      "text": "🎨 图例\n🟢 服务/自动流程  🔵 数据/API  🟡 配置/状态  🔴 故障/人工操作  🟣 文档入口\n边标签只表示短关系；详细实现写在节点内。\n⚠️ 待确认：只保留源文档中明确存在的冲突或未实现项。",
+      "x": 820,
+      "y": -430,
+      "width": 560,
+      "height": 180,
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "fg-e01",
+      "fromNode": "fg-service",
+      "toNode": "fg-config",
+      "label": "读取",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e02",
+      "fromNode": "fg-service",
+      "toNode": "fg-focus-start",
+      "label": "提供服务",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e03",
+      "fromNode": "fg-config",
+      "toNode": "fg-focus-input",
+      "label": "profile",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e04",
+      "fromNode": "fg-boundary",
+      "toNode": "fg-backup",
+      "label": "权威/镜像",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e05",
+      "fromNode": "fg-static",
+      "toNode": "fg-bootstrap",
+      "label": "加载",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e06",
+      "fromNode": "fg-focus-input",
+      "toNode": "fg-focus-start",
+      "label": "start",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e07",
+      "fromNode": "fg-focus-start",
+      "toNode": "fg-focus-lease",
+      "label": "锁定",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e08",
+      "fromNode": "fg-focus-start",
+      "toNode": "fg-focus-reconcile",
+      "label": "running",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e09",
+      "fromNode": "fg-focus-reconcile",
+      "toNode": "fg-focus-pause",
+      "label": "pause",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e10",
+      "fromNode": "fg-focus-pause",
+      "toNode": "fg-focus-reconcile",
+      "label": "resume",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e11",
+      "fromNode": "fg-focus-reconcile",
+      "toNode": "fg-focus-complete",
+      "label": "到期",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e12",
+      "fromNode": "fg-focus-plan",
+      "toNode": "fg-focus-start",
+      "label": "到点",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e13",
+      "fromNode": "fg-focus-complete",
+      "toNode": "fg-credit",
+      "label": "40min",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e14",
+      "fromNode": "fg-focus-complete",
+      "toNode": "fg-reward-import",
+      "label": "奖励",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e15",
+      "fromNode": "fg-reward-sync",
+      "toNode": "fg-reward-import",
+      "label": "events",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e16",
+      "fromNode": "fg-reward-import",
+      "toNode": "fg-plant-basic",
+      "label": "pending",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e17",
+      "fromNode": "fg-reward-import",
+      "toNode": "fg-credit",
+      "label": "focus",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e18",
+      "fromNode": "fg-plant-basic",
+      "toNode": "fg-garden",
+      "label": "写入",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e19",
+      "fromNode": "fg-plant-advanced",
+      "toNode": "fg-garden",
+      "label": "写入",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e20",
+      "fromNode": "fg-catalog",
+      "toNode": "fg-reward-view",
+      "label": "catalog",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e21",
+      "fromNode": "fg-reward-view",
+      "toNode": "fg-plant-basic",
+      "label": "选择",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e22",
+      "fromNode": "fg-reward-view",
+      "toNode": "fg-plant-advanced",
+      "label": "3换1",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e23",
+      "fromNode": "fg-db-schema",
+      "toNode": "fg-db-transaction",
+      "label": "tables",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e24",
+      "fromNode": "fg-db-transaction",
+      "toNode": "fg-db-init",
+      "label": "startup",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e25",
+      "fromNode": "fg-db-init",
+      "toNode": "fg-db-reconcile",
+      "label": "兼容",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e26",
+      "fromNode": "fg-db-reconcile",
+      "toNode": "fg-db-health",
+      "label": "摘要",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e27",
+      "fromNode": "fg-focus-start",
+      "toNode": "fg-db-schema",
+      "label": "写 session",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e28",
+      "fromNode": "fg-focus-complete",
+      "toNode": "fg-db-schema",
+      "label": "写结算",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e29",
+      "fromNode": "fg-plant-basic",
+      "toNode": "fg-db-schema",
+      "label": "写 plant",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e30",
+      "fromNode": "fg-next-proxy",
+      "toNode": "fg-next-login",
+      "label": "同一上游",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e31",
+      "fromNode": "fg-next-proxy",
+      "toNode": "fg-task-sync",
+      "label": "task API",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e32",
+      "fromNode": "fg-next-proxy",
+      "toNode": "fg-recent",
+      "label": "recent API",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e33",
+      "fromNode": "fg-reward-sync2",
+      "toNode": "fg-reward-sync",
+      "label": "只读事件",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e34",
+      "fromNode": "fg-bridge",
+      "toNode": "fg-health",
+      "label": "状态",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e35",
+      "fromNode": "fg-cold",
+      "toNode": "fg-focus-lease",
+      "label": "执行",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e36",
+      "fromNode": "fg-network",
+      "toNode": "fg-service",
+      "label": ":8460",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e37",
+      "fromNode": "fg-bootstrap",
+      "toNode": "fg-focus-input",
+      "label": "state",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e38",
+      "fromNode": "fg-focus-api",
+      "toNode": "fg-focus-start",
+      "label": "route",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e39",
+      "fromNode": "fg-reward-api",
+      "toNode": "fg-reward-view",
+      "label": "route",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e40",
+      "fromNode": "fg-garden-api",
+      "toNode": "fg-garden",
+      "label": "read",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e41",
+      "fromNode": "fg-task-api",
+      "toNode": "fg-task-sync",
+      "label": "proxy",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e42",
+      "fromNode": "fg-context-api",
+      "toNode": "fg-recent",
+      "label": "proxy",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e43",
+      "fromNode": "fg-next-api",
+      "toNode": "fg-next-proxy",
+      "label": "proxy",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e44",
+      "fromNode": "fg-frontend",
+      "toNode": "fg-bootstrap",
+      "label": "JSON",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e45",
+      "fromNode": "fg-frontend",
+      "toNode": "fg-focus-api",
+      "label": "click",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e46",
+      "fromNode": "fg-reconciler",
+      "toNode": "fg-focus-reconcile",
+      "label": "loop",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e47",
+      "fromNode": "fg-backup",
+      "toNode": "fg-recovery",
+      "label": "snapshot",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e48",
+      "fromNode": "fg-health",
+      "toNode": "fg-failure",
+      "label": "入口",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e49",
+      "fromNode": "fg-tests",
+      "toNode": "fg-extend-check",
+      "label": "验收",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e50",
+      "fromNode": "fg-failure",
+      "toNode": "fg-recovery",
+      "label": "回退",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e51",
+      "fromNode": "fg-extend-check",
+      "toNode": "fg-extend-plant",
+      "label": "示例",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e52",
+      "fromNode": "fg-extend-check",
+      "toNode": "fg-extend-profile",
+      "label": "示例",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e53",
+      "fromNode": "fg-extend-check",
+      "toNode": "fg-extend-reward",
+      "label": "示例",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e54",
+      "fromNode": "fg-extend-check",
+      "toNode": "fg-extend-api",
+      "label": "示例",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fg-e55",
+      "fromNode": "fg-doc-game",
+      "toNode": "fg-extend-plant",
+      "label": "规则",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "fg-e56",
+      "fromNode": "fg-doc-ops",
+      "toNode": "fg-backup",
+      "label": "运维",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e57",
+      "fromNode": "fg-doc-recovery",
+      "toNode": "fg-recovery",
+      "label": "恢复",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e58",
+      "fromNode": "fg-doc-data",
+      "toNode": "fg-reward-sync",
+      "label": "数据",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "fg-e59",
+      "fromNode": "fg-doc-handoff",
+      "toNode": "fg-failure",
+      "label": "交接",
+      "fromSide": "left",
+      "toSide": "right"
+    }
+  ]
+}

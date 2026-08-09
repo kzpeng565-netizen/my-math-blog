@@ -2,7 +2,7 @@
 
 <!-- ai_provenance: source=claude; date=2026-08-08; verification=json-validated; based_on=工作流程与系统运维 目录下交接/边界文档（2026-08-08 版） -->
 
-本目录存放 4 张用于辅助长期维护的 Obsidian Canvas。它们不是新的权威源——**运行真相以 Pi 生产环境与交接文档为准**，Canvas 只是索引和导航层。每张图的节点都带职责、运行位置、关键路径/端口，并有对应文档的 file 节点（紫色，可直接点击打开）。
+本目录存放 5 张用于辅助长期维护的 Obsidian Canvas。它们不是新的权威源——**运行真相以 Pi 生产环境与交接文档为准**，Canvas 只是索引和导航层。每张图的节点都带职责、运行位置、关键路径/端口，并有对应文档节点（紫色，可点击 Markdown 链接打开）。
 
 ## 文件清单与用途
 
@@ -12,6 +12,7 @@
 | `01-手机端内部流程.canvas` | 手机侧两条链路：Automate 采集上传 + Focus Bridge 介入桥接，以及与 Pi 的交互（token 校验、介入调度、幂等） | Automate 采集 / Focus Bridge 组件 / 执行端 / 网络路径 / Pi 交互侧 / 故障排查入口 / 文档 |
 | `02-电脑端内部流程.canvas` | Windows 侧：ActivityWatch 采集与同步、Obsidian 任务上下文单向链路、New Pomodoro Timer 与 Pi 会话同步、介入 Agent 与 Cold Turkey、Clash 代理绕过 | ActivityWatch / Obsidian 与番茄钟 / 介入 Agent 域 / 管理支撑 / Pi 交互侧 / 文档 |
 | `03-Pi内部流程.canvas` | Pi 侧全景：接收层、半小时处理链、Obsidian 上下文、提醒 timers、Next Action 决策、专注花园与备份、反馈回流 | 数据接收层 / 半小时处理链 / Obsidian 上下文 / 提醒与统计 / Next Action / 专注花园 / 反馈回流 / 文档 |
+| `04-Focus Garden功能实现与扩展.canvas` | Focus Garden 独立实现图：从生产入口、配置、专注会话、奖励/植物、SQLite、Next Action/任务/手机桥接，到 API、备份、测试和新增功能路径 | 运行入口与配置 / 专注会话生命周期 / 奖励植物与花园 / SQLite / 外部集成 / Web UI 与 API / 运维备份排障 / 扩展与文档 |
 
 ## 读图约定（每张图右上角也有图例节点）
 
@@ -57,7 +58,7 @@
 ## 维护建议
 
 1. **改模块前**：在对应 Canvas 找该模块节点 → 看入边（依赖）与出边（影响）→ 打开紫色文档节点读细节 → 改完按 `pi-ops-system-context` 的 update-protocol 更新交接文档 → 最后回 Canvas 修正节点文本。
-2. **新增模块**：在同组内加节点（绿色=自动 / 黄色=数据 / 青色=接口），并补入边出边；同步加对应交接文档的 file 节点。
+2. **新增模块**：在同组内加节点（绿色=自动 / 黄色=数据 / 青色=接口），节点第一行写清 `功能` 或 `职责`，并补入边出边；同步加对应交接文档节点。
 3. **待确认项**：橙节点只标记文档事实，不要猜测补全；核实后在节点文本里去掉 ⚠️ 并更新本说明的清单。
 4. **与权威图的关系**：`../树莓派行为系统总流程图.md` 的 Mermaid 是权威版本（其中的 jpg 历史快照已过时）；本 Canvas 与其一致，若改流程先改 Mermaid 再同步 Canvas。
 5. 本目录不保存任何 token / 密码 / 密钥值，只引用文件路径与端口。
@@ -68,3 +69,9 @@
 本次保留原有 4 张 Canvas 的职责与 20–30 个核心节点目标，统一为宽松列式布局：分组宽约 500、列间距约 560、同组节点垂直间隔至少 100；标题和图例独立置于主体上方，文档列收拢到右侧。内容节点统一加大宽高并保留明显的底部安全余量，避免中英文混排在 Canvas 内出现滚动条；所有模块节点补充显式 `职责：` 行，JSON、状态文件、服务名不再单独承担解释；文档节点改为“可点击 Markdown 链接 + 文档职责”。边标签同步缩短为维护索引词，详细机制仍放在节点对应的 Markdown 中，以减少标签和连线互相遮挡。电脑端修正了旧版 Cold Turkey `-lock 30` 表述，改为当前交接中的 lease + 到期回收；Pi 图补出旧目标 `usage-hub` 未实现的边界，并把 `shadow_mode`、认证、`selector_candidate_limit` 等冲突项保留为橙色待确认。
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=source-backed-and-canvas-json-validated; retrieved_notes="PI_SERVER_HANDOFF.md,PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md,我的专注花园/00-交接总览.md,我的专注花园/专注花园桥接手机APP.md" -->
+
+### 2026-08-09 Focus Garden 实现图
+
+新增 `04-Focus Garden功能实现与扩展.canvas`。该图以 Pi 生产源码 `/home/conrad/services/focus-garden` 和交接文档为依据，把 `GardenService`、`GardenDatabase`、`PiRewardSync`、`NextActionProxy`、Focus Bridge 健康、Cold Turkey 控制、前端 API、SQLite 备份和扩展入口拆开。新增功能时先定位所属分组，再沿“功能 → 实现函数/文件 → 数据/API → 测试/排障”的路径维护；Pi 服务、配置和数据库未被修改。
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=source-backed-and-canvas-json-validated; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/00-交接总览.md,我的专注花园/02-游戏架构.md,我的专注花园/04-运维与扩展手册.md,我的专注花园/05-Pi迁移验收与恢复清单.md,Pi生产focus-garden源码与systemd单元" -->
