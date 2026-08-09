@@ -671,3 +671,15 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==critical 词典主要按中文个人记录设计；英文 `medical` 不会自动升为 critical。当前中文记录不受影响；仅在确有中英文混记需求时扩展并补回归测试。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=complex-tests-and-read-only-production-replay; retrieved_notes="PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-09 后续事项：Windows Agent 崩溃恢复
+
+### ☑ 已完成：Agent 心跳 Watchdog 与崩溃拉起
+
+==`agent.py`、`intervention_ui.pyw`、`watchdog.pyw` 和三项 Windows 计划任务已经部署；11 项 Agent/Watchdog 单元测试通过。无 active lease 时受控终止 Agent 后，旧 PID 4468 被新的 PID 35652 替代，主任务和 Watchdog 均回到 Running。==
+
+### ☐ 待验收：跨睡眠的真实到期释放
+
+==在可接受的短时“仅电脑”会话中，确认 `starting/active` lease 已落盘后让电脑跨过到期时间休眠；唤醒后应由 Agent 恢复路径执行匹配 `-stop`。不得用 `-lock` 硬锁或手机不可逆锁定进行验收。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=windows-unit-tests-and-live-crash-recovery; retrieved_notes="NEXT_STEPS.md" -->

@@ -552,3 +552,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==2026-08-08 22 时完成部署复核：生产源文件哈希与已验收版本一致；相关单元测试 56/56 通过；Next Action `:8450` 与 Focus Garden `:8460` 均由 Windows 端实际返回 HTTP 200，Pi 两项 loopback 服务均为 active。没有待部署运行代码或待重启服务。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=pi-source-hash-targeted-tests-and-tailnet-endpoints; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md" -->
+
+## 2026-08-09 状态更新：Windows Cold Turkey Agent 崩溃自恢复 P0
+
+==Windows `computer-intervention-agent` 已将 Cold Turkey lease 在 `-start` 前以 fsync 原子写入 `starting` 状态，成功后更新为 `active`；因此 Python/Tcl 崩溃发生在启动命令附近时，重启后的 Agent 仍保有该 lease 并可在到期时精确回收。==
+
+==Tk 的确认页和“锁机已开始”提示改由独立 `intervention_ui.pyw` 子进程显示，UI 崩溃不再终止 Agent 核心。新增常驻 `ComputerInterventionAgentWatchdog` 与每两分钟 `ComputerInterventionAgentWatchdogKick`；它们以 `agent-health.json` 心跳拉起崩溃或冻结的 Agent，同时保留原任务的失败重启。2026-08-09 已在无 active lease 条件下终止 PID 4468，验证 Watchdog 拉起 PID 35652。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=windows-unit-tests-and-live-crash-recovery; retrieved_notes="PROJECT_STATE.md" -->

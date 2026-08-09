@@ -717,3 +717,11 @@
 ==标题中明确的时间范围仅被只读解析为 upcoming/active/between_windows/elapsed；当天最后窗口结束后不再把该任务放进 `today_task_titles`，但原任务、循环投影和 Obsidian 写入边界均不变。仅取消 Next Action 最终输出的番茄钟文本拒绝器；Prompt 的 `1 🍅 = 40 分钟` 及其他报告、统计和结算规则不得删除。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=56-targeted-tests-plus-production-source-hash; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md" -->
+
+### D88. Agent 崩溃恢复由独立 Watchdog 和预写 lease 共同保证【有效】
+
+==`ComputerInterventionAgent` 不能成为可暂停 Cold Turkey lease 的唯一计时器。每个允许自动停止的 block 必须在 `-start` 前持久化同一 `lease_id`、block 和绝对到期时间；重启后的 Agent 只可对仍由该 lease 所有的 block 执行 `-stop`。UI 必须运行于可丢弃子进程，不能把 Tk/Tcl 生命周期放在后台核心中。==
+
+==Windows 采用三层恢复：主计划任务在失败时重试；常驻 Watchdog 检查本地心跳；独立两分钟 kick 在常驻 Watchdog 缺席时继续检查。UI 等待期间显式发布 `busy_until`，避免正常 90 秒选择页被误杀。连续重启采用 0/30/60/180/300 秒退避；恢复后先 reconcile persisted lease，才处理新的 pending request。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=windows-unit-tests-and-live-crash-recovery; retrieved_notes="DECISIONS.md" -->

@@ -1302,3 +1302,11 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==2026-08-08 22 时运行核验：`activitywatch-advisor-web.service` 与 `focus-garden.service` 均 active，Pi loopback `8767/8838` 均返回 200；Windows 从 Tailnet 实测 `https://pi.taild4d3f7.ts.net:8450/` 与 `:8460/` 均返回 200。Pi 自己访问 :8450 会超时，属于本机对 Serve 路由的自测限制，不能据此判断外部 Tailnet 入口未部署。测试前备份为 `/home/conrad/workspace/activitywatch-advisor/backups/20260808-2156-next-action-complex-tests/`；代码备份仍为 `20260808-2132-next-action-recall-v2/` 与 `20260808-2141-next-action-confidence-normalization/`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=pi-source-hash-56-tests-loopback-and-windows-tailnet; retrieved_notes="Pi activitywatch-advisor production tree" -->
+
+## 2026-08-09：Windows Cold Turkey Agent 崩溃恢复 P0
+
+==本轮只修改 Windows `D:\tools\computer-intervention-agent`，未改动 Pi Advisor 或 Focus Garden 生产代码/服务。备份位于 `D:\tools\computer-intervention-agent\backups\20260809-140529`。`agent.py` 现在在 Cold Turkey `-start` 前 fsync 写入 lease，执行后的 UI 全部移至 `intervention_ui.pyw` 子进程；`watchdog.pyw` 通过 `agent-health.json` 检测核心崩溃或冻结。==
+
+==已安装 `ComputerInterventionAgent`、`ComputerInterventionAgentWatchdog` 与 `ComputerInterventionAgentWatchdogKick` 三项当前用户交互会话任务。主任务仍有失败重启；常驻 Watchdog 每 20 秒检查、120 秒判定 stale，kick 每两分钟兜底；正常 90 秒选择窗口以 `busy_until` 获得豁免。无 active lease 的受控演练中，终止 PID 4468 后 Watchdog 成功启动 PID 35652。Windows 单元测试 11/11 通过；真实跨睡眠到期释放仍待自然短时会话验收。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=windows-unit-tests-and-live-crash-recovery; retrieved_notes="PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md" -->
