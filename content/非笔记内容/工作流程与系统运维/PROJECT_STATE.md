@@ -560,3 +560,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==Tk 的确认页和“锁机已开始”提示改由独立 `intervention_ui.pyw` 子进程显示，UI 崩溃不再终止 Agent 核心。新增常驻 `ComputerInterventionAgentWatchdog` 与每两分钟 `ComputerInterventionAgentWatchdogKick`；它们以 `agent-health.json` 心跳拉起崩溃或冻结的 Agent，同时保留原任务的失败重启。2026-08-09 已在无 active lease 条件下终止 PID 4468，验证 Watchdog 拉起 PID 35652。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=windows-unit-tests-and-live-crash-recovery; retrieved_notes="PROJECT_STATE.md" -->
+
+## 2026-08-09 状态更新：Focus Garden 任务日历
+
+==Focus Garden 的任务页现于刷新区下方提供“任务清单 / 查看日历”双视图。当前待办的“今天”会并入有效日期等于今天的循环任务；七天视图从今天起完整展示七日任务、Priority 与番茄进度，本月视图以任务数和预计番茄数缩略显示，含 `highest` 时标红点，点击日期展开任务详情；两种日历末尾只展示 `status=active` 的近期动态。==
+
+==本次只更新 Pi 权威生产树的 `static/{app.js,index.html,style.css}`，未改变 task-sync/recent-context API、SQLite 或 Obsidian 写回边界，也无需重启服务。Pi 32/32 测试、JavaScript 语法、loopback 三接口、`127.0.0.1:8838` 监听及 Tailnet `:8460` HTTP 200 均通过；桌面与 390px 移动端已完成真实浏览器验收。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-tests-tailnet-browser-responsive; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md,PI_SERVER_HANDOFF.md" -->

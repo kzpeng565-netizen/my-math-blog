@@ -1316,3 +1316,11 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==唯一遗留项为 `agent.py` 中未调用的 `legacy_ask_user` 旧 Tk 函数：当前全部调用点均走 `intervention_ui.pyw`，因此它不构成运行风险；后续可作为纯清理删除，完成时须再次验证 UI 子进程隔离。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=post-commit-static-audit; retrieved_notes="NEXT_STEPS.md" -->
+
+## 2026-08-09：Focus Garden 任务日历上线
+
+==生产权威 `/home/conrad/services/focus-garden/static/{app.js,index.html,style.css}` 已加入任务清单/日历双视图。清单把 `scheduled_date=今天` 的循环任务并入今天；七天模式为今天起七天并显示优先级与 `tomatoes_completed/tomatoes_total`；本月模式显示任务数、预计番茄数、`highest` 红点与点击日详情；尾部近期动态按 `status=active` 过滤。数据仍来自花园固定代理 `/api/tasks` 与 `/api/recent-context`，前端不直接写 Obsidian。==
+
+==部署前备份：`/home/conrad/services/focus-garden/backups/task-calendar-20260809-200247/`。回滚只需恢复其中 `app.js`、`index.html`、`style.css`；静态文件按请求读取，正常无需重启，若浏览器缓存旧样式则重新加载。验收：Garden 32/32、`node --check`、loopback health/tasks/recent-context、服务 active、8838 loopback-only、Windows Tailnet `:8460` HTTP 200；桌面无横向溢出，390px 月历七列完整显示。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-tests-tailnet-browser-responsive; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md,我的专注花园/05-Pi迁移验收与恢复清单.md" -->
