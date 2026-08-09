@@ -5,7 +5,7 @@
 ## 当前状态
 
 - Android 包名：`com.conrad.focusbridge`
-- ==已部署版本：`1.3.3 (18)`==
+- ==手机已部署版本：`1.3.4 (19)`==
 - Windows 开发目录：`D:\MyFocusGarden\focus-bridge-android`
 - APK：`app\build\outputs\apk\debug\app-debug.apk`
 - 修改前备份：`D:\MyFocusGarden\backups\20260807-lock-confirm-before\focus-bridge-android`
@@ -13,6 +13,8 @@
 - Pi 介入调度代码与状态：`/home/conrad/workspace/activitywatch-advisor`
 
 ==手机桥接已经完成请求级幂等、短暂通知确认、三次总次数限制、30/20 分钟降级、15 分钟过期、熄屏等待与解锁恢复的多场景真机验收。同一 `request_id` 的尝试次数和终态会持久化；旧轮询、结果重传或进程重启不能再创建第二轮执行。==
+
+==2026-08-10 Pi 端已部署手动专注“按剩余时间梯次下降”和 phone release 取消协议；Android `1.3.4 (19)` 已覆盖安装，Pi 心跳确认 `app_version=1.3.4`、公网轮询 `no_pending`、无障碍与通知监听均已连接。梯次与取消策略仍待自然场景验收。==
 
 ## 主要架构
 
@@ -55,7 +57,7 @@ BridgeForegroundService
 
 `OfferStateMachine` 是无 Android 依赖的纯 Java 时间策略，便于离线测试锁屏、解锁、重新锁屏、超时和决定等待。
 
-==`ExecutionAttemptPolicy` 管理熄屏等待、20 秒尝试窗口和三次失败；`LockDurationPolicy` 管理自动介入请求的时效：不足 8 分钟锁 30 分钟，8–15 分钟锁 20 分钟，满 15 分钟直接过期。手动专注和本地调试仍使用明确指定的时长。==
+==`ExecutionAttemptPolicy` 管理熄屏等待、20 秒尝试窗口和三次失败；`LockDurationPolicy` 管理自动介入请求的 30/20/0 固定时效。`ManualLockDurationPolicy` 则按绝对截止时间和允许档位快照选择最接近剩余时间的档位，精确中点取较长，首次尝试后冻结。==
 
 ==`GetawayNotificationListenerService` 读取系统已授权的通知，过滤 `com.pl.getaway.getaway` 的 `getaway_pomo` channel、group summary 和已知“今天准备怎么过”推广提示。真实快速番茄通知可能带 `AUTO_CANCEL` 并很快消失，因此监听器保存最近 20 分钟的候选事件，不能再一刀切排除 `AUTO_CANCEL`。它不读取“不做手机控”的私有数据库；ADB 只用于开发验收，不属于运行链路。==
 
@@ -75,6 +77,16 @@ BridgeForegroundService
 10. 熄屏或锁定时每秒轮询且 attempts 保持 0；亮屏解锁后开始尝试，每次等待 20 秒真实通知，最多三次。
 11. success、failed、expired 都先进入 `result_pending`，再向 Pi 提交 final event；提交失败每 15 秒重试。
 12. Pi 确认收到后，本地仍保留该 `request_id` 的完成墓碑 24 小时（最多 64 条）；在途旧轮询、重复 pending 和进程重启均不能重新执行，三次上限按 request 而不是内存对象累计。
+13. 手动专注 execute 携带 `focus_deadline_at` 与 `phone.allowed_minutes`；锁屏等待期间每秒重算，实际尝试开始后冻结选定档位。
+14. 结束、暂停或取消时，Pi 单独下发 phone release；Android 终止尚未确认的原执行，Advisor 同时完成 release ID 和原 execute ID。
+
+## 手动专注时长梯次
+
+==算法把 0 分钟也视为一个终止档：只在不超过原请求时长的允许档位中，选择与“截止时间减当前时间”距离最小者；距离相等取较长档。默认梯次在 Pi 权威 `config/settings.json` 的 `focus.allowed_minutes` 配置，网页按钮和请求快照共用它。==
+
+默认 `5,20,30,40,45,60` 下，60 分钟请求的切换点依次为：7.5、17.5、25、35、47.5、57.5 分钟延迟。刚好位于切换点保留较长档，越过切换点才降到下一档；越过最后切换点直接过期，不再锁机。
+
+==配置可快速删除、重排或缩减现有六个档位。若以后新增 Getaway 当前快捷网格中不存在的任意分钟值，还必须同步扩展 Android `QuickPresetCatalog` 的网格映射，不能只改 Pi 配置。==
 
 ## 面对的难点与解决方案
 
@@ -125,6 +137,10 @@ Android 对后台 Activity 启动和锁屏界面有严格限制，短通知也�
 ==`ExecutionRequestStore` 在 SharedPreferences 中保存活动 request、累计 attempts、`result_pending` 和最近完成墓碑。进程重启后可以从已用次数继续，但不能把同一 request 重置为新的三次；第三次之后只会失败或重传已有 final。Pi 的完成 ID 再提供第二层幂等，恢复语义现在是“同一 request 最多三次实际尝试、终态可重复上传但只记一次”。==
 
 ## 已完成验证
+
+- 2026-08-10：`ManualLockDurationPolicy` 覆盖 60→45 的 7.5/7.6 分钟边界、后续全部中点、0 分钟终止和自定义梯次；`QuickPresetCatalog` 覆盖配置过滤与 4×2 网格映射。
+- 2026-08-10：Advisor 13/13、Focus Garden 20/20、Android 完整离线构建通过；Pi 两服务 active 且无 warning。
+- 2026-08-10：`1.3.4 (19)` 二次覆盖安装成功；包版本、前台服务、无障碍、通知监听和 Pi `app_version=1.3.4` 心跳均已核验。
 
 - `verify.ps1`：13 项介入状态机、8 项执行尝试策略、5 项时长策略、7 项通知确认策略检查通过；Gradle 离线干净构建通过。
 - Gradle：离线 `clean assembleDebug` 通过。

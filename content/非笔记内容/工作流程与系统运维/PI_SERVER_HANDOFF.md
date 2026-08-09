@@ -1344,3 +1344,11 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==生产备份为 Advisor `backups/20260809-232309-task-completion/` 与 Garden `backups/20260809-232309-daily-achievement/`。Advisor 10/10、Garden 34/34 测试通过，两项 systemd 服务 active；Garden 最终文件已同步到 `D:\MyFocusGarden`。当前不支持复杂周期（例如每 4 周），会安全拒绝而不写入。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-unit-tests-live-services-tailnet-browser-and-mirror-hash; retrieved_notes="PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md" -->
+
+## 2026-08-10：手动专注手机锁机剩余时长梯次
+
+==Pi 已部署绝对 `focus_deadline_at`、可配置 `phone.allowed_minutes`、中点取较长的梯次算法，以及 phone/windows 独立 release。默认档位为 `5,20,30,40,45,60`，配置入口为 `/home/conrad/services/focus-garden/config/settings.json` 的 `focus.allowed_minutes`。手机 release 会终止并 supersede 尚未完成的原 execute，避免专注结束后补锁。==
+
+==Advisor 13/13、Garden 20/20、Android 策略与离线构建通过；Android `1.3.4 (19)` 已覆盖安装，Pi 心跳确认 `app_version=1.3.4`、公网轮询 `no_pending`、无障碍与通知监听已连接。Pi 备份：Focus Garden 与 Advisor 各自 `.deploy-backups/20260810-0040-duration-ladder/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-10; verification=pi-deployed-tested-android-install-pending; retrieved_notes="我的专注花园/专注花园桥接手机APP.md" -->
