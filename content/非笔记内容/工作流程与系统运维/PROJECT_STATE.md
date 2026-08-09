@@ -570,3 +570,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==本次只更新 Pi 权威生产树的 `static/{app.js,index.html,style.css}`，未改变 task-sync/recent-context API、SQLite 或 Obsidian 写回边界，也无需重启服务。Pi 32/32 测试、JavaScript 语法、loopback 三接口、系统级 `focus-garden.service` active、`127.0.0.1:8838` 监听及 Tailnet `:8460` HTTP 200 均通过；桌面与 390px 移动端已完成真实浏览器验收。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-tests-tailnet-browser-responsive; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md,PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-09 状态更新：Next Action 等待状态跨页恢复
+
+==“为我找下一步”现在会在浏览器会话内持久化生成开始时刻和生成前建议 ID；等待卡每秒显示已等待时间（如 `1分20秒`）。切到“开始专注”再返回、或在同一标签页刷新后，页面会恢复“正在为你找下一步”，每两秒只查询已有 active suggestion，绝不再次 POST 生成。旧建议仍存在时不会被误当成新结果。==
+
+==权威生产文件为 `/home/conrad/services/focus-garden/static/{app.js,index.html}`，已同步到 Windows 镜像 `D:\MyFocusGarden\static\`。Pi 端可回滚副本：`backups/20260809-224234-next-action-wait-state/`；Windows 镜像副本：`D:\MyFocusGarden\.backups\20260809-2244-next-action-wait-state/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=javascript-syntax-pi-loopback-and-windows-tailnet; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md" -->

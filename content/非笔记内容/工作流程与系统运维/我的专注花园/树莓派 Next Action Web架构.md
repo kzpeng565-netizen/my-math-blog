@@ -302,3 +302,11 @@ POST /api/next-action with unresolved active suggestion         -> 409 pending_o
 ==运行入口未变化：Advisor 仍只监听 `127.0.0.1:8767`，花园仍只调用固定 bridge；从 Windows Tailnet 实测 `:8450` 与 `:8460` 均为 HTTP 200。未新增公网暴露、未重启服务、未写入 Obsidian 任务。==
 
 <!-- ai_provenance: source=codex; date=2026-08-08; verification=pi-source-hash-56-tests-and-windows-tailnet-endpoints; retrieved_notes="PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-09：前端长时生成恢复协议
+
+==`POST /api/next-action/generate` 仍是一次可能持续较久的同步请求；生成结果写入 active storage 只发生在 Advisor 完成后。因此 Focus Garden 不能在导航回 Next Action 时以 active 的 404 清空等待提示。==
+
+==前端在 POST 前于 `sessionStorage[focus-garden-next-action-generation-v1]` 写入 `startedAt` 和 `baselineSuggestionId`，计时器每秒更新等待文案。回到页面先恢复该标记，再每 2 秒 GET `/api/next-action/active`：404 代表仍在运行；若读取到的 ID 仍等于 baseline，代表旧建议，继续等待；读取到新 ID 才清除标记并渲染结果。5 分钟后标记自然失效，避免异常浏览器会话永久禁用生成按钮。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=javascript-syntax-pi-loopback-and-windows-tailnet; retrieved_notes="PI_SERVER_HANDOFF.md" -->

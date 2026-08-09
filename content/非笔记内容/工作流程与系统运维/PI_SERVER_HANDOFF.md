@@ -1326,3 +1326,11 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==当前动态整合前备份：`/home/conrad/services/focus-garden/backups/task-calendar-context-20260809-213013/`；更早 UI 与日历上线前备份仍为 `backups/task-calendar-ui-20260809-204650/`、`backups/task-calendar-20260809-200247/`。回滚只恢复对应目录中的 `app.js`、`index.html`、`style.css`；静态文件按请求读取，无需重启。验收：Garden 32/32、`node --check`、loopback health/tasks/recent-context、系统级服务 active、8838 loopback-only、Windows Tailnet `:8460` HTTP 200；真实 6 日长动态末尾分流、月历黄点计数、日期弹窗、动态编辑跳转及 390px 无溢出均通过。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-tests-tailnet-browser-responsive; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md,我的专注花园/05-Pi迁移验收与恢复清单.md" -->
+
+## 2026-08-09：Focus Garden Next Action 等待计时与跨页恢复
+
+==修复了长时模型调用期间切换页面会丢失“正在为你找下一步”的前端状态。点击生成时，`static/app.js` 在 `sessionStorage` 写入 `startedAt` 与旧 `suggestion_id`；卡片每秒更新为“正在为你找下一步 · 已等待 1分20秒”。返回 Next Action 或刷新同一标签页后，前端恢复等待卡并每 2 秒 GET `/api/next-action/active`。这是被动查询，不会重发 POST `/api/next-action/generate`；只有 active ID 与旧 ID 不同才收束为新结果。==
+
+==生成标记最多保留 5 分钟，网络/模型异常仍由原请求错误处理清除。已部署 `static/app.js` 与 `static/index.html`（cache version `20260809.7`），重启 `focus-garden.service` 后服务 active；Pi `127.0.0.1:8838` 及 Windows Tailnet `:8460` 都实际返回新版本。Pi 备份：`/home/conrad/services/focus-garden/backups/20260809-224234-next-action-wait-state/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-09; verification=javascript-syntax-pi-loopback-and-windows-tailnet; retrieved_notes="我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md" -->
