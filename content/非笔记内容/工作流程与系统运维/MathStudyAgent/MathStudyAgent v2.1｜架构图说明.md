@@ -41,3 +41,17 @@ Canvas 中的实线内容来自交接文档和项目状态；带“当前实现�
 - 工作区：`D:\MathStudyAgent\DECISIONS.md`
 
 本次只创建 Canvas 和说明笔记，没有修改 MathStudyAgent 的代码、数据库、配置、Windows 任务或服务。
+
+```mermaid
+flowchart LR
+  U["用户问题"] --> R["规则路由"]
+  R --> P{"plan.retrieve?"}
+  P -- "否" --> T["Tutor：无教材上下文"]
+  P -- "是" --> L["教材上下文加载"]
+  L --> F["focus_ref 标签/标题/页码"]
+  F -->|"未命中或未填写"| S["整句 FTS"]
+  S --> E["可选向量召回"]
+  E --> X["RRF"]
+  X --> C["直接拼接字符串/snippet"]
+  C --> T
+```
