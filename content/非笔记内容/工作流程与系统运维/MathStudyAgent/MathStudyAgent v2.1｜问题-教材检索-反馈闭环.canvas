@@ -19,7 +19,6 @@
 		{"id":"legend","type":"text","text":"🎨 图例\n绿=输入/输出　蓝=上下文　橙=路由　黄=教材/证据　紫=模型　红=门槛/故障　灰=持久记录　虚线或⚠️=待确认/设计层","x":1120,"y":-420,"width":1000,"height":120,"color":"6"},
 		{"id":"in-progress","type":"text","text":"运行进度\n后台 worker 执行本轮任务；主界面每 250ms 读取进度。\n\n显示 6 个阶段、当前步骤和真实累计耗时，不显示模型承诺的剩余时间。","x":20,"y":920,"width":420,"height":330,"color":"2"},
 		{"id":"ctx-state","type":"text","text":"当前状态与教材上下文\n• 当前教材、章节、focus、页面\n• workspace 中的 sol_thread_id\n• 当前问题和人工模式\n\n大段教材正文不放进 thread 状态，只按需要装载。","x":580,"y":980,"width":420,"height":360,"color":"2"},
-		{"id":"route-rules","type":"text","text":"确定性规则先给下限\n检查：明确章节/证明/习题模式、完整证明要求、风险下限、教材页面和精确定位要求。\n\n规则不能被后续模型判断降低。","x":1140,"y":20,"width":420,"height":420,"color":"3"},
 		{"id":"ing-pdf","type":"text","text":"教材 PDF\n原始教材是权威事实源。导入时不允许对话或模型改写原文。","x":1700,"y":20,"width":420,"height":300,"color":"6"},
 		{"id":"ing-boundary","type":"text","text":"边界\n只重建结构、FTS 和向量索引；不修改教材原文。","x":1700,"y":2060,"width":420,"height":220,"color":"1"},
 		{"id":"search-authority","type":"text","text":"证据权限与失败处理\n一般数学解释 ≠ 教材事实 ≠ 作者意图。\n\n定位失败：若数学问题自包含，继续解释但不声称页码；若必须确认书中位置，返回未定位/歧义。\n\n禁止：focus 失败后使用整本书第一个块。","x":2260,"y":1940,"width":420,"height":470,"color":"2"},
@@ -41,7 +40,8 @@
 		{"id":"fb-recovery","type":"text","text":"故障回流\nProvider 不可用、登录失效、Embedding 401、验证超时等进入明确诊断。\n\n可恢复时：修复连接/索引后重新发送问题；不会自动重放或静默换成未授权模型。","x":3380,"y":1530,"width":420,"height":500,"color":"1"},
 		{"id":"doc-note","type":"text","text":"📄 [[非笔记内容/工作流程与系统运维/MathStudyAgent/MathStudyAgent v2.1｜架构图说明|架构图说明]]\n阅读顺序、术语解释、当前/设计层区分和待确认项。","x":3940,"y":20,"width":420,"height":380,"color":"6"},
 		{"id":"doc-source","type":"text","text":"权威来源（工作区外）\nD:\\MathStudyAgent\\HANDOFF.md\nD:\\MathStudyAgent\\V2_DESIGN_PLAN.md\nD:\\MathStudyAgent\\PROJECT_STATE.md\nD:\\MathStudyAgent\\DECISIONS.md\n\n图中没有把未确认机制当作已实现事实。","x":3940,"y":480,"width":420,"height":540,"color":"6"},
-		{"id":"doc-status","type":"text","text":"状态说明\n实线：交接/状态文档确认的当前能力。\n⚠️：外部依赖、实现范围或文档冲突待确认。\n本 Canvas 只改图和说明，不改代码、数据库或服务。","x":3940,"y":1100,"width":420,"height":320,"color":"1"}
+		{"id":"doc-status","type":"text","text":"状态说明\n实线：交接/状态文档确认的当前能力。\n⚠️：外部依赖、实现范围或文档冲突待确认。\n本 Canvas 只改图和说明，不改代码、数据库或服务。","x":3940,"y":1100,"width":420,"height":320,"color":"1"},
+		{"id":"route-rules","type":"text","text":"确定性规则先给下限\n检查：明确章节/证明/习题模式、完整证明要求、风险下限、教材页面和精确定位要求。\n\n规则不能被后续模型判断降低。","x":1140,"y":20,"width":420,"height":420,"color":"3"}
 	],
 	"edges":[
 		{"id":"e-main-1","fromNode":"in-question","fromSide":"right","toNode":"ctx-history","toSide":"left","label":"提交问题"},
