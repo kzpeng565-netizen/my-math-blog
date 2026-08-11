@@ -733,3 +733,17 @@
 ==每日挑战采用当天计划番茄数的单调快照，并仅在次日 04:10 后结算。`planned >= 7 && completed >= planned` 时按日期只发一次独立高级种植权益；该权益不是 3 个普通奖励，也不能种普通植物。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-unit-tests-and-live-service-check; retrieved_notes="PROJECT_STATE.md,PI_SERVER_HANDOFF.md" -->
+
+### D90. 手动手机锁机以绝对截止时间和可配置梯次为准【有效】
+
+==手动专注必须下发绝对 `focus_deadline_at` 与本次允许档位快照；Android 在首次实际尝试前选择与剩余时间距离最小的非负档位，精确中点取较长档。phone 与 windows 的 release 使用不同 request ID，手机 release 同时 supersede 原 execute ID。==
+
+<!-- ai_provenance: source=codex; date=2026-08-10; verification=unit-and-integration-tested; retrieved_notes="PROJECT_STATE.md,我的专注花园/专注花园桥接手机APP.md" -->
+
+### D91. 累计推迟 2 天即视为拖延，并优先进入 Next Action【有效】
+
+==只有 Focus Garden 的显式“推迟一天”操作累计拖延天数；普通编辑安排日期不计入。累计向后移动达到 2 天后，任务标记 `procrastinated=true`，在清单与日历显示“拖延 · N天”。计数保存在 Pi task-sync 状态中，不写入 Obsidian；完成或删除任务时清除。旧版本没有可靠历史，禁止凭当前日期反推过去推迟次数。==
+
+==存在仍可行动的拖延任务时，Next Action 的 task 类型建议必须先从拖延任务中选择并说明累计推迟天数；模型输出违反该规则时由校验器拒绝并 fallback。午休、深夜睡眠等非 task 硬规则继续优先，表达不得羞辱或道德评判。==
+
+<!-- ai_provenance: source=codex; date=2026-08-12; verification=pi-tests-services-and-tailnet; retrieved_notes="PROJECT_STATE.md,PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md" -->
