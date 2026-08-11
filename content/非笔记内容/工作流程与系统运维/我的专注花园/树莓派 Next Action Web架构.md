@@ -310,3 +310,11 @@ POST /api/next-action with unresolved active suggestion         -> 409 pending_o
 ==前端在 POST 前于 `sessionStorage[focus-garden-next-action-generation-v1]` 写入 `startedAt` 和 `baselineSuggestionId`，计时器每秒更新等待文案。回到页面先恢复该标记，再每 2 秒 GET `/api/next-action/active`：404 代表仍在运行；若读取到的 ID 仍等于 baseline，代表旧建议，继续等待；读取到新 ID 才清除标记并渲染结果。5 分钟后标记自然失效，避免异常浏览器会话永久禁用生成按钮。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=javascript-syntax-pi-loopback-and-windows-tailnet; retrieved_notes="PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-12：拖延任务成为第一任务候选
+
+==任务通过 Focus Garden 的“推迟一天”累计向后移动至少 2 天后，compact context 会带出 `procrastinated=true` 与 `postponed_days`。`build_decision_state` 生成 `procrastinated_tasks` / `procrastinated_task_titles`；这组任务在普通今天、逾期和未来任务之前排序。==
+
+==若 `procrastinated_task_titles` 非空，task 类型模型输出必须逐字选择其中标题，并在原因或证据中说明累计推迟天数；校验器会拒绝选择普通今天任务的结果，fallback 也使用同一优先级。午休禁工作、深夜睡眠等非 task 决策规则不受影响。Prompt 版本为 `next-action-v1.4-procrastination-priority`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-12; verification=advisor-35-tests-and-live-service; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->

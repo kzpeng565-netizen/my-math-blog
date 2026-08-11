@@ -1352,3 +1352,13 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==Advisor 13/13、Garden 20/20、Android 策略与离线构建通过；Android `1.3.4 (19)` 已覆盖安装，Pi 心跳确认 `app_version=1.3.4`、公网轮询 `no_pending`、无障碍与通知监听已连接。Pi 备份：Focus Garden 与 Advisor 各自 `.deploy-backups/20260810-0040-duration-ladder/`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-10; verification=pi-deployed-tested-android-install-pending; retrieved_notes="我的专注花园/专注花园桥接手机APP.md" -->
+
+## 2026-08-12：拖延标签与 Next Action 优先安排
+
+==Advisor `src/task_sync.py` 新增持久化 `postponements` 状态和网页输入操作 `postpone`；对桌面插件仍下发兼容的 `update` mutation。累计向后移动至少 2 天时，有效任务视图与 Next Action compact context 带出 `postponed_days`、`postpone_count`、`procrastinated`。普通编辑日期不计入；完成或删除清除计数。==
+
+==Garden `static/app.js` / `style.css` 已在当前待办和日历任务卡显示“拖延 · N天”。Next Action 的候选排序、`procrastinated_task_titles`、硬规则、校验与 fallback 全部优先拖延任务，提示词版本为 `next-action-v1.4-procrastination-priority`。Advisor 35/35、Garden 36/36、Windows `node --check`、两服务 restart、loopback 与 Tailnet `:8450/:8460` HTTP 200 均通过。==
+
+==部署前备份：`/home/conrad/workspace/backups/procrastination-label-20260812-003216/`，含 Advisor/Garden 受影响文件与部署前 `task_sync/state.json`。回滚只恢复备份中的代码、测试和必要时对应状态副本，再重启 `activitywatch-advisor-web.service` 与 `focus-garden.service`；不得覆盖 Garden SQLite。==
+
+<!-- ai_provenance: source=codex; date=2026-08-12; verification=pi-tests-services-and-tailnet; retrieved_notes="PROJECT_STATE.md,我的专注花园/00-交接总览.md,我的专注花园/05-Pi迁移验收与恢复清单.md" -->

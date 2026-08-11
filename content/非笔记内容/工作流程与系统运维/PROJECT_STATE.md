@@ -586,3 +586,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==每日计划番茄数按当天首次观察后的最大值单调保存。次日 04:10 后结算前一天：若计划至少 7 个且全部完成，日历显示大勾并发放一次可直接种植的高级植株机会。奖励以日期幂等，不折算为 3 个普通奖励；最近六天、日期弹窗与本月视图都读取同一结算记录。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=pi-unit-tests-live-services-and-tailnet-browser; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/01-数据来源与处理.md,我的专注花园/02-游戏架构.md" -->
+
+## 2026-08-12 状态更新：拖延任务标记与 Next Action 优先级
+
+==Focus Garden 的“推迟一天”现由独立 `postpone` 意图进入 Advisor；Pi 在 `data/task_sync/state.json` 中累计每个任务实际向后移动的天数。累计推迟 1 天只记录，达到 2 天即输出 `procrastinated=true`，并在当前待办和任务日历任务卡显示“拖延 · N天”。普通日期编辑不累计；任务完成或删除后清除该任务的拖延计数。现有历史无法从旧快照可靠反推，因此从本次部署后的“推迟一天”操作开始累计。==
+
+==Next Action 提示词版本升为 `next-action-v1.4-procrastination-priority`。只要存在仍可行动的拖延任务，候选排序、硬规则、模型结果校验和本地 fallback 均要求先从拖延任务中选择，并明确累计推迟天数；午休、深夜睡眠等既有非任务硬规则仍优先。==
+
+<!-- ai_provenance: source=codex; date=2026-08-12; verification=pi-tests-services-and-tailnet; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md,我的专注花园/04-运维与扩展手册.md" -->
