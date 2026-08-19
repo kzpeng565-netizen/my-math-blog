@@ -64,3 +64,15 @@ v3 retrieval shadow 已开启。每个未来真实学习 turn 会在不改变用
 源码或配置变化会令旧运行退出本版统计，并使 `frozen_artifact_identity` 失败。评测数据集已采用最新指纹；数据库只找到 7 个去重真实学习提问，仍为 0 approved、0 runs，不能用开发集或生成题冒充 downstream real turn。
 
 浏览器实测 `frozen_artifact_identity=true`，整体冻结仍为 false，冻结按钮保持禁用，控制台无错误。
+
+## 04:05 续作：未污染 sealed 与 hard-negative 作者队列
+
+三本教材中所有已被历史评测引用的 Primary、Acceptable、Forbidden 和 Dependency 对象先被排除，再从剩余对象池建立两套作者队列：`textbook-v3.0-sealed-authoring-40` 与 `textbook-v3.0-hard-negative-authoring-20`。
+
+sealed 40 由 exact、概念描述、相关依赖、相似例子/证明各 10 条组成。hard-negative 20 由相邻定理、定理/证明、命题/推论、习题/例子、同主题不同条件各 4 条组成。60 个目标对象互不重复，覆盖三本教材，与历史评测对象重叠为 0；所有条目均有教材证据和作者依据。
+
+作者模型只能查看指定 target/confuser 证据，没有运行检索，也没有批准金标。两套数据均为 sealed/draft，60 条全部 pending，retrieval run 为 0。机器审计报告为 `data/evaluations/v3-sealed-authoring-queue-audit-2026-08-20.json`，全部结构和污染检查通过。
+
+检索测试台要求逐条填写人工复核意见，缺失时不能批准。全部 case approved、结果仍为 0 且 prompt hash 完整后，冻结按钮才解锁；冻结前预热、v3 Profile 和历史成对运行在页面与后端均被禁止，冻结后金标字段只读。
+
+验证基线更新为 Ruff 通过、Mypy 172 个源文件、Pytest 340 项。标准部署时间为 2026-08-20 04:05:54（Asia/Shanghai），PID 48424，健康检查 HTTP 200；浏览器确认 40/20 队列、人工意见门禁、冻结锁、运行锁和新题型编辑均正常，控制台无错误。
