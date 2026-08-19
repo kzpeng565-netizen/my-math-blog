@@ -1,5 +1,14 @@
 # InkedMark 二次开发项目需求与实施方向
 
+> [!important] 计划基线校正（2026-08-20）
+> ==上游 InkedMark 的公开 `main` 分支当前版本已是 1.3.0。其 README 与技术规格显示，项目已经实现或明确具备：`perfect-freehand` 压感笔迹、`getCoalescedEvents()` / `getPredictedEvents()` 输入、wet/dry 双画布、palm rejection、输入调试 HUD、笔画橡皮、框选、撤销重做、单文件压缩序列化、版本迁移入口和 Vitest/CI。==
+>
+> ==因此，本计划不再把这些能力全部当作待开发功能。二次开发的第一项交付物应是“上游现状矩阵”：逐项标记为直接复用、参数开放、需要扩展、华为实机待验证或暂不采用。==
+>
+> ==下文所称“v1.0”统一指本项目的二次开发版本 `Advanced InkedMark v1.0`，不是上游 InkedMark 的版本号。开始编码时必须记录上游基线的 commit SHA；否则上游持续更新会使审查结论和迁移方案失效。==
+
+<!-- ai_provenance: source=codex; date=2026-08-20; verification=source-backed; retrieved_notes="非笔记内容/工作流程与系统运维/平板手写问题解决方案/ChatGPT需求整理与初始计划.md" -->
+
 ## 一、项目目标
 
 基于 Obsidian 的 InkedMark 插件进行二次开发，使其更适合长期数学学习、数学笔记和手写推导场景。
@@ -1454,3 +1463,222 @@ Reload Plugin
 最终原则：
 
 > 在尽可能少破坏 InkedMark 原有能力的情况下，把它发展成一个适合数学学习、拥有成熟 Pen Box 和高级 Stylus 参数、能够由 AI 持续调试和维护、同时保持 Obsidian 跨平台运行能力的手写插件。
+
+---
+
+# 二十五、调研后的关键结论
+
+## 1. `perfect-freehand` 适合作为 v1.0 的默认几何引擎
+
+==`perfect-freehand` 已直接提供 `size`、`thinning`、`smoothing`、`streamline`、`simulatePressure`、`easing`、首尾 `taper` 与 `cap`。这足以实现 v1.0 的技术笔、圆珠笔式笔迹和高亮笔，不需要立刻引入新渲染引擎。==
+
+==但是，它没有原生的 minimum pressure、maximum pressure、gamma 或多段自定义压力曲线。正确做法是在调用引擎前增加独立的 `PressureMapper`，把设备压力归一化、钳制和映射后，再交给 `perfect-freehand`；真实压感可用时应关闭 `simulatePressure`，不可用时再显式回退到固定线宽或速度模拟。==
+
+## 2. Web 规范提供字段，不保证设备和 WebView 真正提供有效数据
+
+==Pointer Events 规范规定 `pressure` 位于 `[0,1]`；若硬件或平台不支持压感，按规范在按下状态可能返回固定 `0.5`。因此，“字段存在”不能证明 M-Pencil 压感可用，必须检查一段真实书写中压力的范围、方差和分位数。==
+
+==合并事件应优先读取 `getCoalescedEvents()`；规范明确指出父事件是合并样本的汇总，处理合并样本时不应再重复处理父事件。`tiltX`、`tiltY`、`twist`、预测事件和 `pointerrawupdate` 都必须做能力检测，不可成为 v1.0 的硬依赖。==
+
+## 3. Google Ink Stroke Modeler 先作为架构和算法参考
+
+==Google 的 `ink-stroke-modeler` 重点解决平滑、重采样和延迟预测，但官方实现是 C++20，并依赖 Abseil；TypeScript 端口不是 Google 维护。v1.0 不应为了它引入 WASM/C++ 构建链。只有当华为实测证明现有 `perfect-freehand` + 当前采样链无法达到可接受效果时，才进入替代引擎原型。==
+
+## 4. 成熟软件的共同交互不是“参数越多越好”，而是“常用笔一触即达”
+
+==Huawei Notes、Samsung Notes 和 Concepts 的公开说明都把“常用/收藏笔 + 快速切换”放在主界面，把笔型、颜色、宽度、透明度和平滑等详细设置放在二级界面。Pen Box 应优先保证一键切笔、当前笔状态清楚、误触少，再增加高级参数。==
+
+## 5. 移动端兼容必须遵守 Obsidian 插件边界
+
+==Obsidian 官方文档明确说明移动端没有 Node.js 和 Electron API，并建议在 Android 真机上通过 Chromium 远程调试 WebView。v1.0 的运行时代码应保持 Web API + Obsidian API；诊断、导出、保存也不能依赖桌面文件系统 API。==
+
+## 6. 二次开发的发行身份必须先决定
+
+==上游为 MIT 许可，可以二次开发，但若将来作为官方社区插件发布，Obsidian 对 fork 另有审核规则。个人使用阶段建议采用独立仓库、固定上游 commit，并使用独立插件 ID（例如 `inkedmark-advanced`）防止上游更新覆盖；同时规定原版与二次开发版不得同时启用，以免两个插件同时接管 `*.ink.md`。==
+
+---
+
+# 二十六、修订后的模块架构
+
+==v1.0 应在现有 InkedMark 分层结构上增加窄模块，而不是重写 `InkSurface`：==
+
+```text
+PointerEvent / coalesced events
+        ↓
+InputNormalizer
+        ├─ InputDiagnostics
+        └─ RawStrokeRecorder
+        ↓
+PressureMapper
+        ↓
+StrokeBuilder
+        ↓
+BrushEngineAdapter
+        └─ PerfectFreehandEngine (v1.0)
+        ↓
+Wet/Dry Renderer
+
+PenPresetStore ──→ active preset ──→ stroke style snapshot
+                                   ↓
+                              serialization / migration
+```
+
+## 1. InputNormalizer
+
+==把浏览器事件转换成内部统一样本，至少包含 `x`、`y`、`time`、`pressure`、`pointerType`，可选包含 `tiltX`、`tiltY`、`twist`、事件来源与是否为预测点。之后的算法不直接依赖浏览器事件对象。==
+
+## 2. InputDiagnostics 与 RawStrokeRecorder
+
+==诊断统计与原始样本记录必须复用同一条标准化输入链，避免“调试工具看到的数据”和“真正画笔使用的数据”不一致。导出的 fixture 需要记录 schema 版本、设备/系统/Obsidian 版本、画布缩放和时间基准。==
+
+## 3. PressureMapper
+
+==压力映射应是纯函数并可单元测试。最小接口应支持：开关、输入范围校准、输出最小值/最大值、预设曲线、gamma/sensitivity、异常值钳制和固定压力回退。曲线必须单调，端点和中点行为必须可验证。==
+
+## 4. PenPresetStore
+
+==预设属于插件设置，不属于单条笔迹。每个预设需要稳定 ID、名称、排序位置、工具类型、颜色、宽度、透明度、压力映射、`perfect-freehand` 参数和预设 schema 版本。导入时必须校验并为 ID 冲突生成新 ID。==
+
+## 5. Stroke style snapshot
+
+==落笔时把能够稳定重现外观的参数复制到 stroke，而不是只保存 `presetId`。预设修改只影响以后写出的笔迹。旧 stroke 缺少新字段时使用与旧版本一致的默认值，不应在仅打开文件时自动改写原文件。==
+
+## 6. BrushEngineAdapter
+
+==v1.0 只实现 `PerfectFreehandEngine`，但调用边界要允许未来输入相同的规范化样本和 style snapshot，返回可渲染几何。不要为了“未来可能扩展”提前实现 Pencil/Marker 多套空壳。==
+
+---
+
+# 二十七、数据结构与兼容策略
+
+==建议将“预设 schema”和“笔记 stroke schema”分别版本化：==
+
+```ts
+interface PenPresetV1 {
+  schemaVersion: 1;
+  id: string;
+  name: string;
+  tool: "pen" | "highlighter";
+  color: string;
+  size: number;
+  opacity: number;
+  pressure: {
+    enabled: boolean;
+    inputMin: number;
+    inputMax: number;
+    outputMin: number;
+    outputMax: number;
+    curve: "linear" | "soft" | "medium" | "hard";
+    gamma: number;
+  };
+  freehand: {
+    thinning: number;
+    smoothing: number;
+    streamline: number;
+    startTaper: number;
+    endTaper: number;
+  };
+}
+```
+
+==笔记内新增的 style snapshot 应只包含渲染历史笔迹所需字段，不保存名称、排序或收藏状态等 UI 信息。读取旧文档时在内存中补默认值；第一次真正修改并保存该笔记时再升级 schema。每个 migration 都要有旧 fixture、期望新结构和再次序列化后的回归测试。==
+
+==需要建立三类兼容样本：上游原始 v1 文档、二次开发后的文档、损坏或未知版本文档。遇到未知新版本必须只读或拒绝覆盖，不能用旧解析器猜测后保存。==
+
+---
+
+# 二十八、阶段门与实施顺序
+
+## Gate A：上游基线审查完成
+
+- ==固定 commit SHA，成功执行安装、lint、typecheck、test、build；==
+- ==输出模块/需求矩阵，明确现有实现与真正缺口；==
+- ==准备至少 5 份旧 InkedMark 测试笔记及备份；==
+- ==决定插件 ID、安装目录、与上游同步策略。==
+
+==Gate A 未通过，不修改持久化格式。==
+
+## Gate B：Huawei Input Lab 通过
+
+- ==在目标华为平板的 Obsidian WebView 中记录真实 `pointerType`、压力分布、tilt、合并事件数、事件间隔与长间隔；==
+- ==导出至少 8 组标准 raw stroke fixtures，并能在 Windows 重放；==
+- ==明确 pressure 是真实变化、固定占位值还是完全不可用；==
+- ==记录设备型号、M-Pencil 代次、HarmonyOS、Obsidian 与 WebView 版本。==
+
+==若压力数据无真实变化，v1.0 必须把“硬件压感”降级为显式 fallback，不能伪装成已支持；若基础输入存在严重丢点，则先解决输入链，暂停 Pen Box 开发。==
+
+## Gate C：Preset 与 migration RFC 通过
+
+- ==确定 `PenPresetV1`、stroke style snapshot、默认值、ID 冲突规则和升级/回退行为；==
+- ==用测试证明旧笔记打开、渲染和保存不会意外改变；==
+- ==用测试证明修改预设不会改变历史 stroke。==
+
+## Gate D：v1.0 功能闭环完成
+
+- ==Pen Box 一键切换；==
+- ==预设新建、编辑、复制、删除、排序、导入和导出；==
+- ==压力曲线、宽度、颜色、透明度、平滑和 taper 生效；==
+- ==默认数学笔预设可直接使用；==
+- ==Raw Stroke Replay 能复现实机样本。==
+
+## Gate E：实机验收与发行
+
+- ==完成 Windows + 目标华为平板测试矩阵；==
+- ==完成 30 分钟真实数学书写测试和保存/重开测试；==
+- ==所有自动质量门通过；==
+- ==生成可回退的安装包、版本说明与已知限制。==
+
+---
+
+# 二十九、优先级与范围控制
+
+## v1.0 必须完成
+
+- ==华为输入诊断与 raw fixture 导出；==
+- ==可持久化的 PenPreset 与 Pen Box；==
+- ==可测试的 PressureMapper；==
+- ==基于现有 `perfect-freehand` 的参数化笔刷；==
+- ==stroke style snapshot 与向后兼容；==
+- ==桌面重放、自动测试和实机验收。==
+
+## v1.0 只保留上游现状，不新增复杂度
+
+- ==stroke eraser、框选、撤销重做、单文件保存、文本层和 inline ink；==
+- ==现有输入 debug HUD 可扩展，但不另造第二套互不相容的调试入口。==
+
+## v1.0 明确不做
+
+- ==tilt/directional nib、铅笔纹理、局部切割橡皮；==
+- ==Google Ink/WASM 正式集成；==
+- ==OCR/HWR、自动 AI 调参、云端服务；==
+- ==华为原生 SDK、修改 APK、Kotlin/Java 模块；==
+- ==完整复刻 Goodnotes/Huawei Notes 的 UI。==
+
+---
+
+# 三十、主要风险与应对
+
+| 风险 | 早期信号 | 应对 |
+|---|---|---|
+| ==M-Pencil 在 WebView 中只返回固定压力== | ==按下时长期为 `0.5` 或方差近零== | ==记录为设备能力限制；提供固定宽度/速度模拟回退；不开发 tilt brush== |
+| ==旧 HarmonyOS WebView 缺少 API== | ==无合并事件、预测事件或远程调试困难== | ==逐项 feature detection；保留普通 `pointermove` 路径；记录兼容矩阵== |
+| ==preset 修改导致旧笔迹变化== | ==历史 stroke 只引用 preset ID== | ==落笔时保存 style snapshot；添加回归测试== |
+| ==schema 升级破坏笔记== | ==打开即重写、未知版本仍可保存== | ==惰性迁移、备份 fixtures、未知版本只读/拒绝覆盖== |
+| ==输入处理造成重复点或延迟== | ==同时处理父事件和 coalesced events；handler 长任务== | ==每次只消费一种样本序列；输入 handler 只标准化和入队== |
+| ==上游更新与 fork 冲突== | ==直接跟随 `main`、无固定基线== | ==固定 SHA；按周期拉取上游；每次 rebase/merge 前跑兼容矩阵== |
+| ==二次开发版本被上游更新覆盖== | ==沿用同一插件 ID 且启用自动更新== | ==独立 ID/目录或明确关闭上游更新；两版禁止同时启用== |
+
+---
+
+# 三十一、资料索引
+
+- ==[InkedMark 官方仓库与 README](https://github.com/pcrausaz/obsidian-inkedmark)：当前功能、开发命令、文件格式和移动端说明。==
+- ==[InkedMark 技术规格](https://github.com/pcrausaz/obsidian-inkedmark/blob/main/SPECIFICATION.md)：模块结构、输入/渲染链、数据模型、测试策略和现有路线图。==
+- ==[perfect-freehand 官方仓库](https://github.com/steveruizok/perfect-freehand)：参数含义、压力输入格式和 taper/cap 行为。==
+- ==[W3C Pointer Events Level 3](https://www.w3.org/TR/pointerevents3/)：pressure、tilt、合并事件、预测事件和处理语义。==
+- ==[Google Ink Stroke Modeler](https://github.com/google/ink-stroke-modeler)：平滑、重采样、预测与低延迟思路。==
+- ==[Obsidian 移动端插件开发](https://docs.obsidian.md/Plugins/Getting%20started/Mobile%20development)：移动端 API 限制与 Android WebView 调试方法。==
+- ==[Obsidian 插件开发政策](https://docs.obsidian.md/community-directory/developer-policies)：许可、fork 与社区发布边界。==
+- ==[Huawei Notes 官方使用说明](https://consumer.huawei.com/en/support/content/en-us15960169/)：收藏笔、笔刷设置和快速切换交互。==
+- ==[Samsung Notes 官方手写说明](https://www.samsung.com/in/support/mobile-devices/how-to-use-samsung-notes/)：常用笔、笔型、颜色、线宽和橡皮交互。==
+- ==[Concepts Tool Wheel 官方手册](https://concepts.app/en/manual/workspace)：工具槽、尺寸/透明度/平滑预设的交互参考。==
