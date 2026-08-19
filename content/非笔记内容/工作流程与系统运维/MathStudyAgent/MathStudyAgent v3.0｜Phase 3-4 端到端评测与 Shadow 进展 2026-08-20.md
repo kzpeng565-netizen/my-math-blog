@@ -38,11 +38,11 @@ v3 retrieval shadow 已开启。每个未来真实学习 turn 会在不改变用
 ## 验证与部署
 
 - Ruff：通过；
-- Mypy：171 个源文件通过；
-- Pytest：334 条通过；
+- Mypy：172 个源文件通过；
+- Pytest：337 条通过；
 - Alembic：`0016 (head)`；
-- 标准部署：2026-08-20 03:12:31（Asia/Shanghai）；
-- PID：35048；
+- 标准部署：2026-08-20 03:32:06（Asia/Shanghai）；
+- PID：42624；
 - 健康检查：HTTP 200 / `ok`；
 - 页面实测：MathTutorBench、冻结防护和 shadow 面板正常，控制台无 warning/error。
 
@@ -54,3 +54,13 @@ v3 retrieval shadow 已开启。每个未来真实学习 turn 会在不改变用
 4. 完成 v2.1/v3 三重复盲评并运行严格机器报告；
 5. 自然积累并审计 100 个真实 shadow turn；
 6. 全部门禁通过后再进入 quality gate canary 与 production flag 决策。
+
+## 03:32 续作：从金标到盲评的自动证据链
+
+为避免 40 条案例各手工复制六次答案，调试台已经加入可恢复的 `v2.1 / v3 × 3` 自动采集。它只接受人工金标已通过的案例，每次使用全新模型 thread，固定 Prompt、非敏感配置和源代码 SHA-256 指纹，并保存答案、实际教材证据包、注入对象和端到端延迟。已有 case/profile/repeat/code revision 槽位不会被覆盖。
+
+盲评页面同步展示题目、人工金标、关键结论、证明步骤、来源事实、提示边界和此次运行的实际证据包，但不显示系统 profile。Context Utilization 不再依赖模型自报：评审者只能从此次运行真实注入的对象 ID 中勾选答案确实使用的对象，结果写入严格门禁读取字段。
+
+源码或配置变化会令旧运行退出本版统计，并使 `frozen_artifact_identity` 失败。评测数据集已采用最新指纹；数据库只找到 7 个去重真实学习提问，仍为 0 approved、0 runs，不能用开发集或生成题冒充 downstream real turn。
+
+浏览器实测 `frozen_artifact_identity=true`，整体冻结仍为 false，冻结按钮保持禁用，控制台无错误。
