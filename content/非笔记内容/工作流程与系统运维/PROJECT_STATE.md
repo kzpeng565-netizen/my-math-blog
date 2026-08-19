@@ -594,3 +594,44 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==Next Action 提示词版本升为 `next-action-v1.4-procrastination-priority`。只要存在仍可行动的拖延任务，候选排序、硬规则、模型结果校验和本地 fallback 均要求先从拖延任务中选择，并明确累计推迟天数；午休、深夜睡眠等既有非任务硬规则仍优先。==
 
 <!-- ai_provenance: source=codex; date=2026-08-12; verification=pi-tests-services-and-tailnet; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md,我的专注花园/04-运维与扩展手册.md" -->
+
+
+## 2026-08-14 状态更新：Steam 半小时监控、夜间锁定与专注联动
+
+==Steam 客户端、Steam 商店和当前已识别的 Steam 游戏（含 `Game.exe / 祈愿诗篇`）现由确定性规则锁定为 `entertainment`。半小时主流程只统计 report scope 内带 `steam_entertainment` 标签的时长，并把 `steam_activity_minutes` 写入介入候选；每次 08/38 分检查中，该值严格超过 5 分钟便以独立 `steam_activity` 原因令 `would_intervene=true`，把 Cold Turkey `steam游戏` 加入共享提醒，不再依赖其他行为触发理由。首次拒绝保留提醒，第二次连续拒绝转强制执行；强制 Steam 锁定前 Windows 弹出不可关闭的 60 秒存档倒计时。==
+
+==Focus Garden 的 `focus.always_windows_blocks=["steam游戏"]` 是服务端不变量：每次专注都会按该 session 的剩余时长锁 Steam，即使用户只选手机或以后新增专注 profile；暂停、取消、结束和休眠补偿仍沿用 lease ownership 的 `-stop` 路径。2026-08-14 的初版夜间可回收 lease 已由下述 2026-08-15 硬锁与解锁门槛替代。==
+
+<!-- ai_provenance: source=codex; date=2026-08-14; verification=windows-unit-tests-pi-targeted-tests-services-tailnet-and-deterministic-sample; retrieved_notes="DECISIONS.md,PI_SERVER_HANDOFF.md,我的专注花园/02-游戏架构.md" -->
+
+## 2026-08-15 状态更新：Steam 夜间硬锁、主要任务与解锁门槛
+
+==23:30 现在由 Windows Agent 显示 60 秒 Steam 收尾框，可立即关闭精确游戏路径 `C:\steam\steamapps\common\Magical Girl Celesphonia\Game.exe` 并获得一次普通植物奖励，或按 15 分钟档延时，最晚到次日 01:00。无操作或延时到点后先给足 60 秒存档时间，再关闭游戏并使用 Cold Turkey `-lock` 硬锁至 12:00；倒计时窗口按控件实际请求高度动态扩展，数字和“秒”均保留完整下边距。==
+
+==任务清单仅在今天和明天的任务上显示“设为主要”，每个日期至多一个；按钮位于原四按钮上一行右侧。当天必须获得至少 5 个完成任务番茄且当天主要任务已经完成，Steam 解锁门槛才通过：一项任务整项完成时一次性按其 `tomatoes_total` 计入，未完成任务的中途进度（如 `2/4`）完全不计；解锁指标最多显示到 `5/5`。否则 12:00 后 Windows Agent 继续滚动续上 5 分钟硬锁，Pi 离线时采取不解锁。主要任务同步进入 Next Action，但只作既有拖延、时段、健康和休息规则之后的软性参考。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=windows-19-tests-advisor-37-tests-garden-targeted-tests-live-api-and-browser-ui; retrieved_notes="DECISIONS.md,PI_SERVER_HANDOFF.md,我的专注花园/02-游戏架构.md" -->
+
+## 2026-08-15 状态更新：系统状态显示 Steam 解锁原因
+
+==Focus Garden“系统状态”的健康面板最后新增“Steam 解锁指标”宽卡。它同时显示总体状态、当天完成番茄的当前值/要求值、今日主要任务是否设置及是否完成，并把所有阻塞原因合并展示；例如 `0 / 5` 时会明确写“还差 5 个完成番茄”，未设主要任务时另列“今天尚未设置主要任务”。任务同步暂不可用时显示数据不可用并说明系统会保守保持锁定。==
+
+==`GET /api/system-status` 新增不含任务标题和正文的 `steam_unlock` 摘要，读取 Advisor gate 最多等待 3 秒。页面验收确认该卡位于系统状态健康卡片列表的最后；2026-08-15 当前实况为 `0/6`、未设置主要任务、未达成。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-targeted-tests-live-api-and-browser-dom; retrieved_notes="PI_SERVER_HANDOFF.md,我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-15 状态更新：Focus Garden 周级控制层
+
+==Pi 已上线只读控制聚合器与系统状态首屏 UI。主指标固定为 M、D、W、L、A、F、U、R；AI 仅作辅助诊断，不计算 R_c。D 的权威来源是显式“推迟一天”形成的 `postponements.postponed_days`，只汇总仍未完成任务，按优先级加权并逐项封顶 7 天。每日 D 快照与七日冻结周评审均由 systemd timer 驱动；控制层不直接修改硬规则。==
+
+==初始冻结结论为 S7，冻结至 2026-08-22 13:17（Asia/Shanghai）。原因是数学任务匹配覆盖不足且 D 历史基线刚开始积累。当前可读摘要：D=4（2 项，最大推迟 2 天），A=21.4%，F=100%，U=71.4%，R=12.1%；这些数值用于诊断，不合成为自律总分。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-tests-live-api-services-timers-tailnet-browser-and-mirror; retrieved_notes="我的专注花园/系统层控制&识别系统执行效果.md,PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-15 状态更新：控制指标可手动同步
+
+==Focus Garden 系统状态首屏新增“同步状态”。`POST /api/control/sync` 立即更新今日 D 与实时聚合，保存到 `data/control-live.json`；当前周冻结结论继续由 `data/control-review.json` 提供。界面会区分“数据已同步 · 决策冻结”和“待周评审”，并显示最近同步时间。==
+
+==同步接口经 Tailnet 实测保持 S7 和原冻结截止时间不变；生产控制测试 6/6、Windows 全量 43/43。数据充足后的准入门槛、同类日期稳健基线、单参数实验、回滚条件和永久人工维护边界已写入 Focus Garden 控制设计文档。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-api-browser-and-windows-tests; retrieved_notes="我的专注花园/系统层控制&识别系统执行效果.md,PI_SERVER_HANDOFF.md" -->

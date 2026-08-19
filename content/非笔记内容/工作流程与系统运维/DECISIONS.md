@@ -747,3 +747,30 @@
 ==存在仍可行动的拖延任务时，Next Action 的 task 类型建议必须先从拖延任务中选择并说明累计推迟天数；模型输出违反该规则时由校验器拒绝并 fallback。午休、深夜睡眠等非 task 硬规则继续优先，表达不得羞辱或道德评判。==
 
 <!-- ai_provenance: source=codex; date=2026-08-12; verification=pi-tests-services-and-tailnet; retrieved_notes="PROJECT_STATE.md,PI_SERVER_HANDOFF.md,我的专注花园/树莓派 Next Action Web架构.md" -->
+
+
+### D92. Steam 使用是确定性娱乐事实，超过 5 分钟直接触发本轮电脑介入【有效】
+
+==Steam 客户端、Steam 商店和已识别 Steam 游戏必须由 tag rule 锁定为 `entertainment`，不能交给语义模型改写。Steam 时长只累计当前半小时 report scope，阈值采用严格 `> 5` 分钟；每次 08/38 分定时检查中，只要本窗口越过该阈值，就以独立原因 `steam_activity` 令 `would_intervene=true` 并生成 `steam游戏` 目标，不再要求高刺激或工作—娱乐切换等第二个理由。连续触发沿用 Pi 共享介入状态机，第二次拒绝即转 forced；相邻窗口保留拒绝计数，距上次拒绝达到 90 分钟、恢复至少 20 分钟有意义活动或 10 分钟确认休息时重置。forced Steam 执行前必须提供 60 秒不可取消的本地存档倒计时。==
+
+### D93. Steam 夜间收尾使用 Cold Turkey 硬锁，专注与半小时锁仍使用可回收 lease【有效】
+
+==Windows Agent 每日 23:30 弹出 60 秒收尾框：用户可立即关闭配置中精确路径对应的游戏并获得一次普通植物奖励，或按 15 分钟档延时，最晚只能选到次日 01:00；倒计时无操作或延时到点后先保留 60 秒存档时间，再关闭该游戏并以 Cold Turkey `-start "steam游戏" -lock <minutes>` 硬锁到 12:00。夜间硬锁不能由 Agent 中途 `-stop`，避免被本地流程提前解开。半小时强制锁和 Focus Garden 专注锁仍按 lease 所有权建立与回收；旧 release 不能解除更新的 lease。==
+
+### D94. 中午后的 Steam 解锁以“达到 5 个实际完成番茄且当天主要任务已完成”为双门槛【有效】
+
+==任务清单只允许今天和明天各设一个主要任务；标记只保存在 Pi task-sync 状态，不写入 Obsidian Markdown。按钮位于原四个操作按钮上一行的右侧，同一按钮再次点击取消，同日改选则替换。当天完成任务所授予的番茄达到 5 个，并且当天主要任务已经完成，`steam_unlock_gate.eligible` 才为 true；一项任务整项完成时一次性按其 `tomatoes_total` 授予，未完成任务的 `tomatoes_completed` 中途进度（如 `2/4`）不计入，指标封顶显示为 `5/5`。否则 Windows Agent 每分钟续上 5 分钟 Cold Turkey 硬锁，Pi 暂时不可达也按未满足处理。Next Action 只把主要任务作为拖延、时段与健康等既有规则之后的软性排序依据，不得压过硬规则。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=implemented-ui-verified-and-targeted-tested; retrieved_notes="PROJECT_STATE.md,PI_SERVER_HANDOFF.md,我的专注花园/02-游戏架构.md" -->
+
+### D95. 执行效果使用周级状态机，不使用综合自律分【有效】
+
+==系统只把数学产出与延期债务视为结果，把工作、娱乐、Next Action、系统使用、恢复和 AI 视为诊断。主指标固定为 M、D、W、L、A、F、U、R；不计算 R_c。D 只读取用户显式推迟产生的 `postponed_days`，不从截止日期或安排日期猜测拖延。每天只采集，周级只选择一个主状态和一个调整并冻结七天；Steam、Focus 等硬规则不由识别器自动修改。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=implemented-pi-ui-and-timers; retrieved_notes="PROJECT_STATE.md,PI_SERVER_HANDOFF.md,我的专注花园/系统层控制&识别系统执行效果.md" -->
+
+### D96. 手动同步只更新事实，不改写冻结中的周决策【有效】
+
+==“同步状态”可以更新当天 D 和当前八项聚合，但不得重算或替换冻结期内的状态、证据、唯一调整与截止时间。实时数据与周决策分别保存；新的正常周评审产生时废弃旧实时快照。该按钮不是缩短七日冻结或触发参数调整的入口。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=implemented-and-tailnet-verified; retrieved_notes="PROJECT_STATE.md,PI_SERVER_HANDOFF.md,我的专注花园/系统层控制&识别系统执行效果.md" -->

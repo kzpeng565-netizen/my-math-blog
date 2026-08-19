@@ -1362,3 +1362,56 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==部署前备份：`/home/conrad/workspace/backups/procrastination-label-20260812-003216/`，含 Advisor/Garden 受影响文件与部署前 `task_sync/state.json`。回滚只恢复备份中的代码、测试和必要时对应状态副本，再重启 `activitywatch-advisor-web.service` 与 `focus-garden.service`；不得覆盖 Garden SQLite。==
 
 <!-- ai_provenance: source=codex; date=2026-08-12; verification=pi-tests-services-and-tailnet; retrieved_notes="PROJECT_STATE.md,我的专注花园/00-交接总览.md,我的专注花园/05-Pi迁移验收与恢复清单.md" -->
+
+
+## 2026-08-14：Steam 半小时监控、初版夜间 lease 与 Focus Garden 强制附加块
+
+==Advisor `config/tag_rules.json` 新增 `computer.steam.entertainment`：Steam 客户端/页面以及 `Game.exe / 祈愿诗篇` 被硬标为 `steam_entertainment + entertainment`。`src/run_half_hour.py` 只累计 report scope 并写 `intervention.observations.steam_activity_minutes`；该值严格大于 5 时会追加独立原因 `steam_activity` 并直接令 `would_intervene=true`，不要求其他行为理由。`src/computer_intervention.py` 随后加入携带 `pre_lock_countdown_seconds=60` 的 `steam游戏`。共享状态机仍是第一次拒绝累计、第二次拒绝转 forced。==
+
+==Windows `D:\tools\computer-intervention-agent\{agent.py,intervention_ui.pyw,config.json}` 当日初版加入 `steam游戏` allowlist、forced 60 秒不可关闭倒计时和本地 `23:30—次日12:00` 计划 lease；该夜间 lease 已于 2026-08-15 被下节的硬锁流程替代。半小时与专注 lease 仍继续在 `-start` 前原子记录所有权，并按绝对截止时间 `-stop`。Windows 回滚目录为 `D:\tools\computer-intervention-agent\backups\20260814-141833-steam-monitor\`。==
+
+==Focus Garden 权威树 `config/settings.json` 设置 `focus.always_windows_blocks=["steam游戏"]`，`GardenService.start_focus()` 会把该块加入每一个 session，并在需要时强制加入 windows target；`config/focus_profiles.json` 同步展示该块。服务端只通过固定 loopback Advisor API 派发，不直接远控 Windows。生产服务 `activitywatch-advisor-web.service` 与 `focus-garden.service` 已重启并 active；loopback 8767/8838 与 Tailnet 8450/8460 均返回 HTTP 200。==
+
+==验证：Windows Agent 14/14；Advisor 19/19；Steam 样例确定性标签、5.02 分钟目标和手动 Steam focus request 均通过。Garden 本次新增测试通过；全套 21 项中 20 项通过，唯一旧失败是 `test_system_status_is_read_only_and_tolerates_missing_pi_paths` 读取生产的 3 条 pending mutation 却仍断言 0，与 Steam 逻辑无关。由于部署前远端备份命令引号错误，原计划的 Pi 新备份目录没有成功创建；现有 Git 工作树、既有历史备份及 Windows Agent 专用备份仍可用于恢复，后续不得把不存在的 Pi 路径写成恢复点。==
+
+==2026-08-14 复核发现旧实现把 Steam `>5` 错当作总体 `would_intervene` 的附加门槛：14:38 的首轮触发后，15:08 对应窗口虽有 16.93 分钟 Steam，却被错误跳过。现已改为 Steam 超阈值独立触发；历史回放中 14:30、15:00、15:30 三轮均成为 `steam_activity` 候选。Pi 共享拒绝状态同时补齐 `episode_reset_minutes`、有意义活动和确认休息三类重置，保证 15:08 属于连续窗口，而跨过 90 分钟的 18:08 从首次提醒重新计数。相关 Advisor 测试 23/23 通过；18:08 自然运行进一步确认 Steam 10.28 分钟、`steam_activity_triggered=true`、ntfy accepted、Windows ack。部署前备份为 `/home/conrad/workspace/backups/20260814-steam-continuous-trigger-pre/`；不补发历史锁机。==
+
+<!-- ai_provenance: source=codex; date=2026-08-14; verification=windows-unit-tests-pi-targeted-tests-services-tailnet-and-deterministic-sample; retrieved_notes="PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md,我的专注花园/05-Pi迁移验收与恢复清单.md" -->
+
+## 2026-08-15：Steam 夜间硬锁、主要任务与白天解锁门槛
+
+==Windows Agent 的夜间流程改为 `steam_night_prompt`：23:30 显示 60 秒收尾框，明确关闭 `C:\steam\steamapps\common\Magical Girl Celesphonia\Game.exe` 可调用 Garden 奖励接口获得一次普通植物机会；用户也可按 15 分钟档延时，最晚 01:00。无操作或延时到点后先完成 60 秒存档倒计时，再关闭精确路径对应进程并调用 Cold Turkey `-start "steam游戏" -lock <minutes>` 硬锁至 12:00。UI 改为先读取 Tk 控件请求高度再确定窗口尺寸，并在倒计时下方增加 18 px 留白，避免“秒”下沿被裁切。遗留 `scheduled_lock_runs` 会迁移为已执行状态，不重复弹窗。==
+
+==Advisor `task_sync` 新增 `primary_tasks`；Garden 对外生成权威 `steam_unlock_gate`：只允许今天/明天各一个主要任务；当天整项完成的任务一次性按 `tomatoes_total` 授予番茄，累计达到 5 个且主要任务完成才令 `eligible=true`。未完成任务的 `tomatoes_completed`（如 `2/4`）不参与解锁计数，指标封顶显示 `5/5`。Garden 新增“设为主要”代理与界面、Agent 专用只读 gate 端点及夜间主动关闭奖励端点；奖励按 event ID 幂等。12:00 后 Agent 每分钟读取 gate；不满足或 Pi 不可达时续上 5 分钟硬锁，满足后停止续锁，故最迟约 5 分钟自然释放。Next Action 仅把主要任务作为既有硬规则之后的软性排序依据。==
+
+==生产文件已部署到 `/home/conrad/workspace/activitywatch-advisor` 与 `/home/conrad/services/focus-garden`，两服务 active；Garden 6 个变更文件已同步至 `D:\MyFocusGarden`。验证为 Windows Agent 19/19、Advisor task-sync/Next Action 37/37、Garden database 10/10 与两项关键 service 测试通过；Garden 全套仍只有既有的生产 pending mutation 数量断言失败，与本功能无关。浏览器验收确认“设为主要”只出现在今天/明天，位于原四按钮上一行右侧。备份：Windows `D:\tools\computer-intervention-agent\backups\20260815-112333-steam-hard-gate\`；Pi Garden `/home/conrad/services/focus-garden/backups/20260815-1134-steam-hard-gate/`（含一致性 SQLite 备份）；Pi Advisor `/home/conrad/workspace/backups/20260815-1134-steam-hard-gate-activitywatch-advisor/`；Windows Garden 镜像 `D:\MyFocusGarden\backups\20260815-1150-steam-gate-main-task\`。==
+
+==2026-08-15 复核发现系统状态曾显示 `2/6`：`2` 来自未完成任务的 `2/4` 中途进度，按规则不应计入。最终规则改为“任务整项完成时一次性按 `tomatoes_total` 授予”；当前完成的 5 番茄任务直接令指标达到 `5/5`，主要任务也已完成，因此 gate 为 eligible。线上 Agent 端点和系统状态均验证为 `5/5`，来源字段为 `completed_tasks_planned_tomatoes`，Garden 全套 47/47 测试通过；Pi 备份 `/home/conrad/services/focus-garden/backups/20260815-2103-steam-gate-completed-tasks/`，Windows 镜像备份 `D:\MyFocusGarden\backups\20260815-2106-steam-gate-completed-tasks\`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=windows-pi-tests-live-services-api-browser-and-mirror-hashes; retrieved_notes="PROJECT_STATE.md,DECISIONS.md,NEXT_STEPS.md,我的专注花园/00-交接总览.md,我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-15：系统状态末尾新增 Steam 解锁指标
+
+==Focus Garden `GardenService.system_status()` 现返回任务正文脱敏的 `steam_unlock`：`available/date/completed_tomatoes/required_completed_tomatoes/tomato_requirement_met/primary_task_set/primary_task_completed/eligible/blocking_reasons`。它通过既有 loopback task-sync gate 读取，健康页专用超时为 3 秒；失败时不泄露上游错误或任务文本，统一返回“指标暂不可用，继续保持 Steam 锁定”。==
+
+==`static/lease-status.js` 在电脑 lease 卡之后追加宽卡，因此“Steam 解锁指标”始终是健康面板最后一张卡；`index.html` 使用 `lease-status.js?v=20260815.1` 避免浏览器旧缓存。Pi 定向测试 4/4、Windows 完整 Garden service 测试 24/24，通过后 `focus-garden.service` 重启 active、loopback health 200、Tailnet system-status 返回当前 `0/6 + 未设置主要任务`；浏览器 DOM 验收确认总计 7 张健康卡且本卡为最后一张。==
+
+==部署期间生产树另行合入新的 control-system 模块；本次没有覆盖它，而是以 13:17 最新生产文件为基线重新合并。最终 Pi 备份为 `/home/conrad/services/focus-garden/backups/20260815-1324-steam-unlock-after-control-system/`，Windows 镜像备份为 `D:\MyFocusGarden\backups\20260815-1327-control-system-plus-steam-status\`；权威生产文件及 control-system 依赖已逐文件同步到 `D:\MyFocusGarden`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-tests-service-health-tailnet-api-browser-and-mirror-hashes; retrieved_notes="PROJECT_STATE.md,树莓派行为数据与接口索引.md,我的专注花园/00-交接总览.md" -->
+
+## 2026-08-15：Focus Garden 控制识别层部署
+
+==权威生产目录 `/home/conrad/services/focus-garden` 新增 `focus_garden/control_metrics.py`、`scripts/control_review.py`、两组 daily/review systemd service+timer 和 5 项聚合器单测。`GardenService.system_status()` 新增脱敏 `control` 快照，前端在原健康面板之前渲染状态、证据、唯一调整、M/D/W/L/A/F/U/R 与 AI 结构。服务仍仅监听 `127.0.0.1:8838`，Tailnet 入口仍为 `https://pi.taild4d3f7.ts.net:8460/`。==
+
+==初始周快照于 2026-08-15 13:17 生成，状态 S7，冻结七天；再次运行周脚本返回 `still_frozen`。新增测试 5/5，Windows 合并镜像全量 42/42。并行 Steam 解锁实现合入后，Pi 全量 45 项中 44 项通过；唯一失败是旧测试把 `pending_mutation_count` 固定断言为 0，而生产实时 queue 当时有 13 条，属于依赖实时状态的脆弱断言，不是控制层回归。最终合并没有覆盖并行 Steam/Android 改动。控制层备份为 `/home/conrad/services/focus-garden/backups/20260815-1245-control-system/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-targeted-tests-live-services-timers-api-tailnet-browser-and-windows-full-tests; retrieved_notes="PROJECT_STATE.md,我的专注花园/系统层控制&识别系统执行效果.md,我的专注花园/04-运维与扩展手册.md" -->
+
+## 2026-08-15：控制状态手动同步
+
+==生产新增 `POST /api/control/sync` 和系统状态首屏“同步状态”按钮。接口强制刷新当日 D，重新汇总 M/D/W/L/A/F/U/R 到 `data/control-live.json`；活动中的 `control-review.json` 周决策继续提供 `state/evidence/single_adjustment/frozen_until`。新周评审成功写入时删除旧 live 快照，避免跨决策沿用。==
+
+==Tailnet 点击验收确认按钮恢复可用状态、toast 为“状态数据已同步，本周决策保持冻结”、最近同步时间更新，S7 和冻结截止时间未变。控制测试 6/6、Windows 全量 43/43；Pi 全量 46 项中 45 项通过，唯一旧失败仍是生产 queue 非零却固定断言 0。服务 active，仍只监听 `127.0.0.1:8838`。备份：`/home/conrad/services/focus-garden/backups/20260815-133941-control-status-sync/`。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-tests-live-tailnet-api-browser-and-windows-mirror; retrieved_notes="PROJECT_STATE.md,DECISIONS.md,我的专注花园/系统层控制&识别系统执行效果.md" -->

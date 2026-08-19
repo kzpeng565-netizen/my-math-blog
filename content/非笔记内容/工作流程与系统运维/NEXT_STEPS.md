@@ -701,3 +701,34 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==网页“完成本次”目前只支持精确的每周星期表达式。`every 4 weeks on Sunday` 等复杂 recurrence 会安全拒绝，不会误推进；只有用户确实需要在 Pi 完成这类任务时，才扩展解析器并补周期锚点测试。==
 
 <!-- ai_provenance: source=codex; date=2026-08-09; verification=implementation-audit; retrieved_notes="PI_SERVER_HANDOFF.md" -->
+
+
+## 2026-08-14 后续观察：Steam 自然窗口
+
+### ☐ 观察首次自然半小时连续触发
+
+==2026-08-14 18:08 已完成修正后的首次自然触发：17:30—18:00 窗口 Steam 10.28 分钟，`steam_activity` 独立令 `would_intervene=true`，ntfy accepted，Windows 已 ack，offer 正等待用户决定。后续只需在自然相邻窗口核对第二次拒绝后的 60 秒存档倒计时；不要补发历史请求，也不要为了验收主动制造长时间不可逆锁定。==
+
+### ☐ 观察首次自然夜间跨界
+
+==在下一次自然 23:29—23:31 检查 60 秒收尾框、完整显示的倒计时字体、立即关闭奖励与延时选项；若选择延时，只可到次日 01:00。次日 12:00 检查硬锁是否按当日 `steam_unlock_gate` 转入滚动门槛：当天整项完成的任务按计划番茄数累计达到 5 个且主要任务完成才停止续锁，未完成任务的 `2/4` 等中途进度不得计入。不要为了验收手工制造或提前解除 Cold Turkey 硬锁。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=implementation-complete-natural-boundary-pending; retrieved_notes="PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-15 后续观察：控制层基线
+
+### ☐ 补足数学任务匹配与 D 历史窗口
+
+==先让数学专注稳定携带任务 ID/数学分类，并保留每日 04:15 的 D 快照。至少积累 7 天后观察周评审是否仍因 M 覆盖不足或 D 无基线落入 S7；28 天前只把比较值视为渐进基线，不据此修改硬规则。==
+
+### ☐ 验证首次自然周级评审
+
+==冻结期结束后的首次自然周评审，应只输出一个状态、最多三条证据和一个调整；确认没有修改 Steam 30/60/30、Focus 或任务数据。若 U 与产出同时下降，优先 S5；数据不可判定时仍优先 S7。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=implementation-complete-baseline-pending; retrieved_notes="PROJECT_STATE.md,PI_SERVER_HANDOFF.md,我的专注花园/系统层控制&识别系统执行效果.md" -->
+
+### ☐ 按逐项准入门槛启用完整状态机
+
+==不要在第 28 天自动宣布“数据充足”。分别检查 W/L 日报覆盖、M 分类匹配、D 日快照连续性及 A/F/R 样本量；不达标的指标继续展示但不参与状态触发。先运行四个合格周的 shadow 判断，再考虑一次一个、可回滚的软参数实验。==
+
+<!-- ai_provenance: source=codex; date=2026-08-15; verification=design-recorded-implementation-pending; retrieved_notes="我的专注花园/系统层控制&识别系统执行效果.md" -->
