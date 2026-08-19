@@ -5,6 +5,8 @@
 > 日期：2026-08-19
 >
 > 关联：[[教材搜索问题的解决-方案总览]]、[[MathStudyAgent 愿景书]]、[[MathStudyAgent v2.1｜架构图说明]]
+>
+> 讨论来源：[智能检索设计建议](chatgpt-conversation://6a79fe24-88c4-83ec-ba8d-2d5fc40af192)
 
 <!-- ai_provenance: source=codex; date=2026-08-19; verification=source-backed; retrieved_notes="教材搜索问题的解决-方案总览.md, MathStudyAgent 愿景书.md, MathStudyAgent v2.1｜架构图说明.md" -->
 
@@ -38,7 +40,7 @@ Reference Resolution
 \text{candidate\_k} \gg \text{rerank\_k} > \text{active\_k}.
 \]
 
-这个方向有外部研究和当前金标结果支持；但“例子 3 个、定理 1–2 个、证明 1–2 个”只能作为初始策略，不能当作普适常数。最终数值必须由 MathStudyAgent 自己的 (k) 消融实验决定。
+这个方向有外部研究和当前金标结果支持；但“例子 3 个、定理 1–2 个、证明 1–2 个”只能作为初始策略，不能当作普适常数。最终数值必须由 MathStudyAgent 自己的 $k$ 消融实验决定。
 
 ## 2. 当前事实基线
 
@@ -71,7 +73,7 @@ Reference Resolution
 
 但它还不能称为真正的语义重排：
 
-1. 排序器没有联合理解“用户问题—候选对象”的数学含义；
+1. 排序器没有联合理解查询与候选对象之间的数学含义；
 2. 静态来源加分可能压过真正的候选相关度；
 3. 没有成组判断互补性、重复性和错误定理风险；
 4. `active_k` 实际按最大值截取，而不是根据边际收益动态停止；
@@ -94,11 +96,11 @@ Reference Resolution
 
 ## 3. 旧方案中需要修正的认识
 
-### 3.1 固定的 (k) 不是科学结论
+### 3.1 固定的 $k$ 不是科学结论
 
 旧对话把“相似例子 3 个、定理 1–2 个、复杂证明 1–2 个”收敛为默认值。这个数值适合作为工程起点，但证据存在明显适用范围：
 
-- thinking trace 研究中，(k=3) 在 AIME 上比 (k=1,5) 更稳定，但检索对象是推理轨迹，不是教材定理；
+- thinking trace 研究中，$k=3$ 在 AIME 上比 $k=1,5$ 更稳定，但检索对象是推理轨迹，不是教材定理；
 - 通用 Contextual Retrieval 的最佳设置可能向模型提供 20 个 chunk，与数学 Tutor 的最小上下文目标并不相同；
 - 不同模型对多文档干扰的敏感度不同，不能把其他模型结果直接等同于当前 Sol；
 - 对“比较三个定理”和“解释一个定理”，最优 active_k 本来就不同。
@@ -455,7 +457,7 @@ Hydration 必须发生在 Primary Selector 之后。
 
 这样可以回答：提升究竟来自 Planner、Semantic、多通道互补、对象聚合、reranker，还是最终预算选择。
 
-### 9.3 (k) 消融
+### 9.3 $k$ 消融
 
 不要只比较一组默认值：
 
@@ -523,7 +525,7 @@ active_k    ∈ {1, 2, 3, 4, 5}
 - deterministic prefilter；
 - cross-encoder/LLM reranker bake-off；
 - constrained selector、边际停止和置信度校准；
-- (k) 消融报告。
+- $k$ 消融报告。
 
 退出条件：Top 1/Top 2、NDCG、预算和 forbidden-object 门禁全部通过。
 
@@ -583,7 +585,7 @@ active_k    ∈ {1, 2, 3, 4, 5}
 | Reranker 过拟合 54 条 development | 不训练 query-specific 权重；新 sealed 一次性验收 |
 | LLM reranker 幻造对象或改写教材事实 | 只允许从给定 object IDs 中选择；输出 schema；原文为唯一引用来源 |
 | active_k 过小导致依赖缺失 | Primary/Support 分离；一次指定缺失类型的补检索 |
-| active_k 过大干扰推理 | 边际停止、Context Precision、Utilization 和 downstream (k) 实验 |
+| active_k 过大干扰推理 | 边际停止、Context Precision、Utilization 和 downstream $k$ 实验 |
 | 新方案离线好、线上慢 | 分路径 p95、LLM selector 触发率上限、shadow/canary |
 
 ## 13. 证据边界
@@ -593,9 +595,9 @@ active_k    ∈ {1, 2, 3, 4, 5}
 1. [Anthropic Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval)：在其跨领域实验中，Contextual Embedding + Contextual BM25 再加入 reranking，将 top-20 检索失败率从 5.7% 降到 1.9%。这支持混合召回和二阶段重排，但其向生成模型提供 20 chunks 的设置不能直接移植到数学 Tutor。
 2. [Lost in the Middle](https://arxiv.org/abs/2307.03172)：相关信息位于长上下文中部时，多个模型表现显著下降；在开放域 QA 中，从 20 增到 50 个检索文档只带来约 1–1.5% 的边际提升。它支持“上下文窗口大不等于应注入更多对象”。
 3. [More Documents, Same Length](https://arxiv.org/abs/2503.04388)：固定 token 总量和相关信息位置，只增加文档数量，多数模型仍下降，MuSiQue/2WikiMultiHopQA 最多下降约 10%/20%。这支持控制对象数量和半相关候选。
-4. [How Is LLM Reasoning Distracted by Irrelevant Context?](https://arxiv.org/abs/2505.18761)：GSM-DC 的受控实验表明，无关上下文会影响推理路径选择和算术正确性。这支持建立数学 hard-negative 和 downstream (k) 实验。
+4. [How Is LLM Reasoning Distracted by Irrelevant Context?](https://arxiv.org/abs/2505.18761)：GSM-DC 的受控实验表明，无关上下文会影响推理路径选择和算术正确性。这支持建立数学 hard-negative 和 downstream $k$ 实验。
 5. [Semantic Search over 9 Million Mathematical Theorems](https://arxiv.org/abs/2602.05216)：以定理为一等检索对象、使用自然语言 slogan 和 Qwen3 Embedding；在其验证集上，cross-encoder 将 theorem Hit@1 从 17.1% 提高到 18.9%，MRR@20 从 24.3% 提高到 27.0%。这支持 object-first、检索表示和 reranker，但其研究级定理库与本项目教材对象不同。
-6. [RAG over Thinking Traces Can Improve Reasoning Tasks](https://arxiv.org/abs/2605.03344)：在 AIME 及三种 reader/representation 设置中比较 (k=1,3,5)，(k=3) 最稳定，(k=5) 有时因噪声或冗余下降。这支持把 3 作为相似例子/思路的初始实验值，但不能证明定理和证明也应固定为 3。
+6. [RAG over Thinking Traces Can Improve Reasoning Tasks](https://arxiv.org/abs/2605.03344)：在 AIME 及三种 reader/representation 设置中比较 $k=1,3,5$，$k=3$ 最稳定，$k=5$ 有时因噪声或冗余下降。这支持把 3 作为相似例子/思路的初始实验值，但不能证明定理和证明也应固定为 3。
 
 结论是：旧对话和图片的方向成立，但参数必须通过本项目的对象级检索、上下文利用率和端到端数学正确率共同校准。
 
