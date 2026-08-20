@@ -335,7 +335,7 @@ v1.0 不得破坏：
 - 华为实机测试包：`D:\MathInk-Forge-Device-Test-Kit.zip`，包含候选包、回退包、12 组输入 fixture、5 份旧笔记、QA、设备报告模板和完整性哈希；
 - 已实现：5 支默认笔、Pen Box CRUD/排序/合并导入/完整替换导入/导出、四条压力曲线、每笔 style snapshot、v1→v2 真正的惰性迁移（未编辑时保留原始字节）、未来 schema 拒绝覆盖、Input Lab 增强实时 HUD/录制/统计/导出、共用 InputNormalizer、Desktop Replay 三栏对比；
 - 数据集：12 组输入 fixture，包含轻→重、重→轻、快写、慢写、圆、积分号、中文和完整公式；另有 5 份无敏感内容的上游 v1 兼容笔记；
-- 自动结果：format、lint、plugin-review lint、typecheck、240 项测试、production build 全部通过；总体行覆盖率 `96.72%`，`ink/` 为 `96.54%`，`input/` 为 `88.38%`，`model/` 为 `98.85%`；12 组 fixture 均有固定 SHA-256 几何基线；
+- 自动结果：format、lint、plugin-review lint、typecheck、246 项测试、production build 全部通过；总体行覆盖率 `96.65%`，`ink/` 为 `96.54%`，`input/` 为 `88.59%`，`model/` 为 `98.85%`；12 组 fixture 均有固定 SHA-256 几何基线；
 - ==已重新执行一次干净 `npm ci`：按锁文件安装 454 个包，审计为 0 个漏洞；当前完整门禁已重新通过 format、lint、plugin-review lint、typecheck、240 项测试、coverage 与 production build。==
 - 构建产物只有 `main.js`、`manifest.json`、`styles.css`，与测试 Vault 部署文件 SHA-256 一致；
 - 仓库内验收文件：`MATHINK_FORGE_V1_QA.md`、`DEVICE_TEST_REPORT_TEMPLATE.md`、`RELEASE_V1.0.md`、`BASELINE_AUDIT.md`；
@@ -345,13 +345,15 @@ v1.0 不得破坏：
 - ==五份旧笔记在迁移后均通过纯数据层连续编码/重开 10 轮，stroke regions 保持一致；真实 Obsidian 与跨设备的 10 轮重开仍按 P0 实机门禁执行。==
 - ==用户已确认重新加载后的新建笔画、撤销、重做在界面中按 `8→9→8→9` 正常工作；当前磁盘快照仍是此前的 8 笔状态，因此最终重做到磁盘并重开的证据仍单独保留为待验项。==
 - ==Pen Box 导入审计修复：合并导入发生 ID 冲突重命名时，仍能保留导出文件指定的激活笔；新增带确认的 `Replace from JSON`，可完整恢复预设内容、顺序和激活项，且不改变历史笔迹。==
-- ==当前候选包 SHA-256：`30021B0170EEFAF1EFF6B5B90D064752094E2EB7910E71A81FFA157C51DA4DF2`；华为实机测试包 SHA-256：`87387C886AE3ED029F32E6A237108EB120DBE8B5762714F7FD6E0A79C459C589`。==
+- ==华为真机已确认 BAH3-W09、第一代 M-Pencil、HarmonyOS 3.0.0.167、Obsidian 1.13.7 与 Huawei WebView 114.0.5.302；已有 103 条真实笔画、1140 个持久化点和 `0.35294–0.89804` 的变化压力证据。==
+- ==快速书写发现“跟笔稍慢、偶发掉笔”的 P0 问题。首轮修复已部署：普通抬笔不再扫描整份文档或无条件触发布局；Input Lab HUD 改为常量时间统计、4 Hz 刷新并在停止后恢复原状态；导出改为 Obsidian Vault API，固定写入 `MathInk Forge Input Lab/`；fixture 新增 handler 与 WebView dispatch delay 指标。当前必须完成同一快速笔画在 Input Lab 关闭/开启两种状态下的复测。==
+- ==当前候选包 SHA-256：`3D71EEF68ED84846E3EB2C988378C1BF6FE05C7133E31B7F3D402BDCE3A920E8`。==
 <!-- ai_provenance: source=codex; date=2026-08-20; verification=user-confirmed; retrieved_notes="非笔记内容/工作流程与系统运维/平板手写问题解决方案/MathInk Forge v1.0版本规划.md" -->
 
 剩余发布阻断项：
 
-1. 在目标华为平板填写准确型号、M-Pencil 代次、HarmonyOS、Obsidian 与 WebView 版本；
-2. 导出至少 50 个 pen 样本，确认压力 verdict、median/P95/max 间隔和 coalesced/predicted API；
+1. 优先完成快速连写复测；Input Lab 关闭和开启时都不得出现可复现的跟笔延迟或掉笔；
+2. 从 `MathInk Forge Input Lab/` 导出至少 50 个 pen 样本，确认压力、事件间隔、handler/dispatch delay 和 coalesced/predicted API；
 3. 完成 Pen Box 20 次切换、CRUD/排序各 5 次、重启恢复和损坏 JSON 测试；
 4. 完成 30 分钟数学书写以及橡皮、框选、撤销/重做、缩放、平移和防误触验收；
 5. 完成华为→Windows→华为往返与旧笔记 10 轮保存/重开；
