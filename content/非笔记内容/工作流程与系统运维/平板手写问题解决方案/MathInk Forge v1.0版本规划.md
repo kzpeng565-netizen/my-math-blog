@@ -1,7 +1,7 @@
-# Advanced InkedMark v1.0 版本规划
+# MathInk Forge v1.0 版本规划
 
 > [!info] 版本含义
-> 本文的 v1.0 指个人二次开发项目 `Advanced InkedMark v1.0`。上游 InkedMark 在 2026-08-20 的公开版本已经是 1.3.0；实施时必须记录具体上游 commit SHA，本文不把“上游 1.3.0”与“二次开发 v1.0”混为一谈。
+> 本文的 v1.0 指个人二次开发项目 `MathInk Forge v1.0`。上游 InkedMark 在 2026-08-20 的公开版本已经是 1.3.0；实施时必须记录具体上游 commit SHA，本文不把“上游 1.3.0”与“二次开发 v1.0”混为一谈。
 
 <!-- ai_provenance: source=codex; date=2026-08-20; verification=source-backed; retrieved_notes="非笔记内容/工作流程与系统运维/平板手写问题解决方案/ChatGPT需求整理与初始计划.md" -->
 
@@ -320,3 +320,28 @@ v1.0 不得破坏：
 - [Huawei Notes 官方使用说明](https://consumer.huawei.com/en/support/content/en-us15960169/)
 - [Samsung Notes 官方手写说明](https://www.samsung.com/in/support/mobile-devices/how-to-use-samsung-notes/)
 - [Concepts Tool Wheel 官方手册](https://concepts.app/en/manual/workspace)
+
+## 九、实施状态（2026-08-20）
+
+> [!warning] 当前结论：软件实现与自动门禁完成，v1.0 发布仍为 No-Go
+> Windows 上可自动完成的实现、测试、构建、隔离部署和打包已经完成；但本计划把华为平板/M-Pencil 实机能力、30 分钟书写与华为→Windows→华为往返列为 P0，因此在真机证据填写前不能声称 v1.0 已最终验收。
+
+- 独立源码仓库：`D:\InkedMark-Advanced`；
+- 分支：`codex/v1.0`；上游固定为 `25515b65ce0ea9de47271f9b41c7c55cbc2605fa`；
+- 正式名称：`MathInk Forge`；独立插件 ID：`mathink-forge`，未覆盖 Vault 中已有的 `inkedmark` 及其 `data.json`；
+- 专用测试 Vault：`D:\InkedMark-Advanced-TestVault`；
+- 发布包：`D:\MathInk-Forge-Release\mathink-forge-1.0.0.zip`；
+- 已实现：5 支默认笔、Pen Box CRUD/排序/导入导出、四条压力曲线、每笔 style snapshot、v1→v2 惰性迁移、未来 schema 拒绝覆盖、Input Lab 录制/统计/导出、Desktop Replay；
+- 数据集：12 组输入 fixture，包含轻→重、重→轻、快写、慢写、圆、积分号、中文和完整公式；另有 5 份无敏感内容的上游 v1 兼容笔记；
+- 自动结果：format、lint、plugin-review lint、typecheck、228 项测试、production build 全部通过；总体行覆盖率 `96.57%`，`ink/` 为 `96.52%`，`input/` 为 `86.46%`，`model/` 为 `98.80%`；
+- 构建产物只有 `main.js`、`manifest.json`、`styles.css`，与测试 Vault 部署文件 SHA-256 一致；
+- 仓库内验收文件：`ADVANCED_V1_QA.md`、`DEVICE_TEST_REPORT_TEMPLATE.md`、`RELEASE_V1.0.md`、`BASELINE_AUDIT.md`。
+
+剩余发布阻断项：
+
+1. 在目标华为平板填写准确型号、M-Pencil 代次、HarmonyOS、Obsidian 与 WebView 版本；
+2. 导出至少 50 个 pen 样本，确认压力 verdict、median/P95/max 间隔和 coalesced/predicted API；
+3. 完成 Pen Box 20 次切换、CRUD/排序各 5 次、重启恢复和损坏 JSON 测试；
+4. 完成 30 分钟数学书写以及橡皮、框选、撤销/重做、缩放、平移和防误触验收；
+5. 完成华为→Windows→华为往返与旧笔记 10 轮保存/重开；
+6. 将真机 JSON、文件 hash 和结论填写到设备测试报告，全部 P0 通过后再把发布结论改为 Go。
