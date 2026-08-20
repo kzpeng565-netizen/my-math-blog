@@ -332,12 +332,14 @@ v1.0 不得破坏：
 - 专用测试 Vault：`D:\InkedMark-Advanced-TestVault`；
 - 发布包：`D:\MathInk-Forge-Release\mathink-forge-1.0.0.zip`；
 - 回退包：`D:\MathInk-Forge-Release\rollback-upstream-inkedmark-1.3.0.zip`，仅含上游 1.3.0 三个发布文件，明确排除 `data.json`；
+- 华为实机测试包：`D:\MathInk-Forge-Device-Test-Kit.zip`，包含候选包、回退包、12 组输入 fixture、5 份旧笔记、QA、设备报告模板和完整性哈希；
 - 已实现：5 支默认笔、Pen Box CRUD/排序/导入导出、四条压力曲线、每笔 style snapshot、v1→v2 真正的惰性迁移（未编辑时保留原始字节）、未来 schema 拒绝覆盖、Input Lab 增强实时 HUD/录制/统计/导出、共用 InputNormalizer、Desktop Replay 三栏对比；
 - 数据集：12 组输入 fixture，包含轻→重、重→轻、快写、慢写、圆、积分号、中文和完整公式；另有 5 份无敏感内容的上游 v1 兼容笔记；
 - 自动结果：format、lint、plugin-review lint、typecheck、237 项测试、production build 全部通过；总体行覆盖率 `96.71%`，`ink/` 为 `96.52%`，`input/` 为 `88.38%`，`model/` 为 `98.85%`；12 组 fixture 均有固定 SHA-256 几何基线；
 - 构建产物只有 `main.js`、`manifest.json`、`styles.css`，与测试 Vault 部署文件 SHA-256 一致；
 - 仓库内验收文件：`MATHINK_FORGE_V1_QA.md`、`DEVICE_TEST_REPORT_TEMPLATE.md`、`RELEASE_V1.0.md`、`BASELINE_AUDIT.md`；
 - 交接入口：`HANDOFF.md`，并配套 `DECISIONS.md`、`PROJECT_STATE.md`、`NEXT_STEPS.md`。
+- Windows 冒烟报告：`WINDOWS_SMOKE_REPORT.md`；已实证插件命令加载、新建手写笔记、完整工具栏、9 条鼠标笔画保存、颜色切换、style snapshot 与持久化撤销，剩余交互项仍未冒充通过。
 
 剩余发布阻断项：
 
