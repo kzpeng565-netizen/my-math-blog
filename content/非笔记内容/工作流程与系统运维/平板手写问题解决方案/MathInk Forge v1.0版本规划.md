@@ -347,7 +347,8 @@ v1.0 不得破坏：
 - ==Pen Box 导入审计修复：合并导入发生 ID 冲突重命名时，仍能保留导出文件指定的激活笔；新增带确认的 `Replace from JSON`，可完整恢复预设内容、顺序和激活项，且不改变历史笔迹。==
 - ==华为真机已确认 BAH3-W09、第一代 M-Pencil、HarmonyOS 3.0.0.167、Obsidian 1.13.7 与 Huawei WebView 114.0.5.302；已有 103 条真实笔画、1140 个持久化点和 `0.35294–0.89804` 的变化压力证据。==
 - ==快速书写发现“跟笔稍慢、偶发掉笔”的 P0 问题。首轮修复已部署：普通抬笔不再扫描整份文档或无条件触发布局；Input Lab HUD 改为常量时间统计、4 Hz 刷新并在停止后恢复原状态；导出改为 Obsidian Vault API，固定写入 `MathInk Forge Input Lab/`；fixture 新增 handler 与 WebView dispatch delay 指标。当前必须完成同一快速笔画在 Input Lab 关闭/开启两种状态下的复测。==
-- ==当前候选包 SHA-256：`3D71EEF68ED84846E3EB2C988378C1BF6FE05C7133E31B7F3D402BDCE3A920E8`。==
+- ==当前候选包 SHA-256：`3D71EEF68ED84846E3EB2C988378C1BF6FE05C7133E31B7F3D402BDCE3A920E8`；更新后的华为测试包 SHA-256：`60F1421305EB77FDD7394E34F1980023DB47A0FF069F1C47B39C1265ECC83F53`。==
+- ==`V1_COMPLETION_AUDIT.md` 已逐项核对 42 个发布门：自动门 16/16 通过；Huawei Input Lab 仍有 10 项、Pen Box 真机 8 项、兼容/耐久 8 项，共 26 项 P0 真机证据未完成。103 笔与变化压力只记为部分证据，不提前勾选复合验收项。==
 <!-- ai_provenance: source=codex; date=2026-08-20; verification=user-confirmed; retrieved_notes="非笔记内容/工作流程与系统运维/平板手写问题解决方案/MathInk Forge v1.0版本规划.md" -->
 
 剩余发布阻断项：
