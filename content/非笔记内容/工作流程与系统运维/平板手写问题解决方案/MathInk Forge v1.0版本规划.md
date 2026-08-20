@@ -340,6 +340,9 @@ v1.0 不得破坏：
 - 仓库内验收文件：`MATHINK_FORGE_V1_QA.md`、`DEVICE_TEST_REPORT_TEMPLATE.md`、`RELEASE_V1.0.md`、`BASELINE_AUDIT.md`；
 - 交接入口：`HANDOFF.md`，并配套 `DECISIONS.md`、`PROJECT_STATE.md`、`NEXT_STEPS.md`。
 - Windows 冒烟报告：`WINDOWS_SMOKE_REPORT.md`；已实证插件命令加载、新建手写笔记、完整工具栏、9 条鼠标笔画保存、颜色切换、style snapshot 与持久化撤销，剩余交互项仍未冒充通过。
+- ==2026-08-20 复测：Obsidian 重新加载后，测试笔记仍正确显示 8 条已保存笔画；实测发现 Input Lab 停止/导出命令依赖 active view 而消失，现已改为查找实际录制中的 ink leaf，并重新通过 237 项测试、覆盖率与 production build。停止/导出的人工复测仍待完成。==
+- ==当前候选包 SHA-256：`432B33349C21F5B0774B6EA10FF501F1E9F40001C064D6C3BB13A1EF1C17AE27`；华为实机测试包 SHA-256：`1C8BA73CFD5302215885232B3FC1837F75B133C3F632A280FD7BD6D558BF8067`。==
+<!-- ai_provenance: source=codex; date=2026-08-20; verification=user-confirmed; retrieved_notes="非笔记内容/工作流程与系统运维/平板手写问题解决方案/MathInk Forge v1.0版本规划.md" -->
 
 剩余发布阻断项：
 
