@@ -335,7 +335,8 @@ v1.0 不得破坏：
 - 数据集：12 组输入 fixture，包含轻→重、重→轻、快写、慢写、圆、积分号、中文和完整公式；另有 5 份无敏感内容的上游 v1 兼容笔记；
 - 自动结果：format、lint、plugin-review lint、typecheck、228 项测试、production build 全部通过；总体行覆盖率 `96.57%`，`ink/` 为 `96.52%`，`input/` 为 `86.46%`，`model/` 为 `98.80%`；
 - 构建产物只有 `main.js`、`manifest.json`、`styles.css`，与测试 Vault 部署文件 SHA-256 一致；
-- 仓库内验收文件：`ADVANCED_V1_QA.md`、`DEVICE_TEST_REPORT_TEMPLATE.md`、`RELEASE_V1.0.md`、`BASELINE_AUDIT.md`。
+- 仓库内验收文件：`MATHINK_FORGE_V1_QA.md`、`DEVICE_TEST_REPORT_TEMPLATE.md`、`RELEASE_V1.0.md`、`BASELINE_AUDIT.md`；
+- 交接入口：`HANDOFF.md`，并配套 `DECISIONS.md`、`PROJECT_STATE.md`、`NEXT_STEPS.md`。
 
 剩余发布阻断项：
 
