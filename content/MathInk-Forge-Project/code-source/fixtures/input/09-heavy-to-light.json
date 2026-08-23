@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "name": "heavy-to-light",
+    "capturedAt": "2026-08-20T00:00:00.000Z",
+    "device": "synthetic-pen",
+    "app": "MathInk Forge fixture generator",
+    "presetId": "math-black",
+    "synthetic": true,
+    "notes": "Pressure falls from heavy to light."
+  },
+  "records": [
+    {
+      "type": "down",
+      "timeStamp": 0,
+      "sample": { "x": 10, "y": 40, "pressure": 0.95, "tiltX": 0, "tiltY": 0, "timeStamp": 0 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "move",
+      "timeStamp": 12,
+      "sample": { "x": 70, "y": 40, "pressure": 0.1, "tiltX": 0, "tiltY": 0, "timeStamp": 12 },
+      "coalescedSamples": [
+        { "x": 25, "y": 40, "pressure": 0.8, "tiltX": 0, "tiltY": 0, "timeStamp": 3 },
+        { "x": 40, "y": 40, "pressure": 0.6, "tiltX": 0, "tiltY": 0, "timeStamp": 6 },
+        { "x": 55, "y": 40, "pressure": 0.35, "tiltX": 0, "tiltY": 0, "timeStamp": 9 },
+        { "x": 70, "y": 40, "pressure": 0.1, "tiltX": 0, "tiltY": 0, "timeStamp": 12 }
+      ],
+      "predictedSamples": []
+    },
+    {
+      "type": "up",
+      "timeStamp": 15,
+      "sample": { "x": 80, "y": 40, "pressure": 0, "tiltX": 0, "tiltY": 0, "timeStamp": 15 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    }
+  ]
+}

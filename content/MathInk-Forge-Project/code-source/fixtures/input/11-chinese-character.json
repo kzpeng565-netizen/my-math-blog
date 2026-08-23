@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "name": "chinese-character-yong",
+    "capturedAt": "2026-08-20T00:00:00.000Z",
+    "device": "synthetic-pen",
+    "app": "MathInk Forge fixture generator",
+    "presetId": "body-blue",
+    "synthetic": true,
+    "notes": "Multi-stroke Chinese character 永."
+  },
+  "records": [
+    {
+      "type": "down",
+      "timeStamp": 0,
+      "sample": { "x": 45, "y": 10, "pressure": 0.4, "tiltX": 0, "tiltY": 0, "timeStamp": 0 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "move",
+      "timeStamp": 8,
+      "sample": { "x": 55, "y": 24, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 8 },
+      "coalescedSamples": [
+        { "x": 50, "y": 17, "pressure": 0.45, "tiltX": 0, "tiltY": 0, "timeStamp": 4 },
+        { "x": 55, "y": 24, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 8 }
+      ],
+      "predictedSamples": []
+    },
+    {
+      "type": "up",
+      "timeStamp": 10,
+      "sample": { "x": 55, "y": 24, "pressure": 0, "tiltX": 0, "tiltY": 0, "timeStamp": 10 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "down",
+      "timeStamp": 14,
+      "sample": { "x": 25, "y": 35, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 14 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "move",
+      "timeStamp": 26,
+      "sample": { "x": 75, "y": 35, "pressure": 0.55, "tiltX": 0, "tiltY": 0, "timeStamp": 26 },
+      "coalescedSamples": [
+        { "x": 45, "y": 35, "pressure": 0.55, "tiltX": 0, "tiltY": 0, "timeStamp": 20 },
+        { "x": 75, "y": 35, "pressure": 0.55, "tiltX": 0, "tiltY": 0, "timeStamp": 26 }
+      ],
+      "predictedSamples": []
+    },
+    {
+      "type": "up",
+      "timeStamp": 28,
+      "sample": { "x": 75, "y": 35, "pressure": 0, "tiltX": 0, "tiltY": 0, "timeStamp": 28 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "down",
+      "timeStamp": 32,
+      "sample": { "x": 50, "y": 32, "pressure": 0.6, "tiltX": 0, "tiltY": 0, "timeStamp": 32 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "move",
+      "timeStamp": 48,
+      "sample": { "x": 48, "y": 90, "pressure": 0.45, "tiltX": 0, "tiltY": 0, "timeStamp": 48 },
+      "coalescedSamples": [
+        { "x": 50, "y": 55, "pressure": 0.6, "tiltX": 0, "tiltY": 0, "timeStamp": 38 },
+        { "x": 38, "y": 72, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 43 },
+        { "x": 48, "y": 90, "pressure": 0.45, "tiltX": 0, "tiltY": 0, "timeStamp": 48 }
+      ],
+      "predictedSamples": []
+    },
+    {
+      "type": "up",
+      "timeStamp": 50,
+      "sample": { "x": 48, "y": 90, "pressure": 0, "tiltX": 0, "tiltY": 0, "timeStamp": 50 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    }
+  ]
+}

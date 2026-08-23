@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "name": "circle",
+    "capturedAt": "2026-08-20T00:00:00.000Z",
+    "device": "synthetic-pen",
+    "app": "MathInk Forge fixture generator",
+    "presetId": "body-blue",
+    "synthetic": true,
+    "notes": "Circle for smoothing and decimation."
+  },
+  "records": [
+    {
+      "type": "down",
+      "timeStamp": 0,
+      "sample": { "x": 50, "y": 20, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 0 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "move",
+      "timeStamp": 16,
+      "sample": { "x": 50, "y": 20, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 16 },
+      "coalescedSamples": [
+        { "x": 65, "y": 30, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 4 },
+        { "x": 65, "y": 50, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 8 },
+        { "x": 45, "y": 55, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 12 },
+        { "x": 35, "y": 35, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 14 },
+        { "x": 50, "y": 20, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 16 }
+      ],
+      "predictedSamples": []
+    },
+    {
+      "type": "up",
+      "timeStamp": 18,
+      "sample": { "x": 52, "y": 19, "pressure": 0.1, "tiltX": 0, "tiltY": 0, "timeStamp": 18 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    }
+  ]
+}

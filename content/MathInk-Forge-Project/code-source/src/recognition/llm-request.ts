@@ -1,0 +1,368 @@
+/**
+ * Pure request/response shapes for the BYOK cloud recognition provider (§7).
+ *
+ * Builds vendor-specific HTTP requests (Anthropic / OpenAI / Google /
+ * OpenRouter / custom OpenAI-compatible endpoint) that send a rendered PNG of
+ * the ink plus a transcription prompt, and extracts the transcribed text from
+ * each vendor's response JSON. No DOM, no Obsidian, no network — the IO lives
+ * in `llm.ts`.
+ */
+
+export const LLM_PROVIDER_ID = "llm-byok";
+
+export type LlmVendor = "anthropic" | "openai" | "google" | "openrouter" | "custom";
+
+/**
+ * Wire format a vendor speaks. Several vendors share one dialect — OpenRouter
+ * and any self-hosted OpenAI-compatible server are the OpenAI dialect — so
+ * request bodies and response parsing key off this, not off the vendor.
+ */
+export type LlmDialect = "anthropic" | "openai" | "google";
+
+/** Where a request goes; `baseUrl` is only set for user-supplied endpoints. */
+export interface VendorUrlInput {
+  model: string;
+  baseUrl?: string;
+}
+
+/**
+ * Everything that varies between vendors, in one place. Adding a vendor should
+ * mean adding one entry here — the IO shell (`llm.ts`), the settings UI, and
+ * `main.ts` all read these flags instead of re-testing the vendor id.
+ */
+export interface VendorDescriptor {
+  /** Dropdown label, and how the vendor is named in user-facing messages. */
+  label: string;
+  /** Starting point for the model field; the user can override it. */
+  defaultModel: string;
+  /** Request/response wire format. */
+  dialect: LlmDialect;
+  /** False only where a key is genuinely optional (self-hosted servers). */
+  requiresKey: boolean;
+  /**
+   * True when the user supplies the endpoint. Such a destination is untrusted
+   * in a way a named vendor is not, so it gets its own API key slot and its
+   * own consent scope rather than inheriting a cloud vendor's.
+   */
+  userEndpoint: boolean;
+  /** Browser-based key provisioning (OpenRouter PKCE) is available. */
+  oauthConnect: boolean;
+  /** Endpoint for a request. */
+  url(input: VendorUrlInput): string;
+  /** Auth and any vendor-specific headers. `content-type` is added for all. */
+  headers(apiKey: string): Record<string, string>;
+}
+
+export const VENDORS: Record<LlmVendor, VendorDescriptor> = {
+  anthropic: {
+    label: "Anthropic (Claude)",
+    defaultModel: "claude-opus-4-8",
+    dialect: "anthropic",
+    requiresKey: true,
+    userEndpoint: false,
+    oauthConnect: false,
+    url: () => "https://api.anthropic.com/v1/messages",
+    headers: (apiKey) => ({ "x-api-key": apiKey, "anthropic-version": "2023-06-01" }),
+  },
+  openai: {
+    label: "OpenAI (GPT)",
+    defaultModel: "gpt-4o-mini",
+    dialect: "openai",
+    requiresKey: true,
+    userEndpoint: false,
+    oauthConnect: false,
+    url: () => "https://api.openai.com/v1/chat/completions",
+    headers: (apiKey) => ({ authorization: `Bearer ${apiKey}` }),
+  },
+  google: {
+    label: "Google (Gemini)",
+    // 2.5-flash shuts down 2026-10-16 (and free-tier keys lost access
+    // earlier, surfacing as bare 404s — issue #16).
+    defaultModel: "gemini-3.5-flash",
+    dialect: "google",
+    requiresKey: true,
+    userEndpoint: false,
+    oauthConnect: false,
+    url: ({ model }) =>
+      "https://generativelanguage.googleapis.com/v1beta/models/" +
+      `${encodeURIComponent(model)}:generateContent`,
+    headers: (apiKey) => ({ "x-goog-api-key": apiKey }),
+  },
+  openrouter: {
+    label: "OpenRouter (any model)",
+    defaultModel: "google/gemini-3.5-flash",
+    dialect: "openai",
+    requiresKey: true,
+    userEndpoint: false,
+    oauthConnect: true,
+    url: () => "https://openrouter.ai/api/v1/chat/completions",
+    // Attribution headers are OpenRouter-specific; other servers ignore them.
+    headers: (apiKey) => ({
+      authorization: `Bearer ${apiKey}`,
+      "http-referer": "https://inkedmark.com",
+      "x-title": "MathInk Forge",
+    }),
+  },
+  custom: {
+    label: "Custom endpoint (OpenAI-compatible)",
+    defaultModel: "qwen2.5vl:7b",
+    dialect: "openai",
+    requiresKey: false,
+    userEndpoint: true,
+    oauthConnect: false,
+    url: ({ baseUrl }) => chatCompletionsUrl(baseUrl ?? ""),
+    // Most self-hosted servers need no key; send the header only when set.
+    headers: (apiKey): Record<string, string> =>
+      apiKey.trim() ? { authorization: `Bearer ${apiKey}` } : {},
+  },
+};
+
+export const VENDOR_LABELS: Record<LlmVendor, string> = Object.fromEntries(
+  Object.entries(VENDORS).map(([id, v]) => [id, v.label]),
+) as Record<LlmVendor, string>;
+
+/** Editable in settings; these are only the starting points. */
+export const DEFAULT_MODELS: Record<LlmVendor, string> = Object.fromEntries(
+  Object.entries(VENDORS).map(([id, v]) => [id, v.defaultModel]),
+) as Record<LlmVendor, string>;
+
+/**
+ * Output budget for a page transcription. A ceiling, not an allocation —
+ * unused headroom costs nothing, and reasoning models spend a large part of it
+ * on thinking tokens before the transcription itself starts.
+ */
+export const MAX_OUTPUT_TOKENS = 8192;
+
+export function defaultModelFor(vendor: LlmVendor): string {
+  return DEFAULT_MODELS[vendor];
+}
+
+/** Markdown-focused transcription prompt (§7: text must be markdown-ready). */
+export function buildRecognitionPrompt(hint?: string, locale?: string): string {
+  const lines = [
+    "Transcribe ALL handwritten content in this image into clean markdown.",
+    "Rules:",
+    "- Output ONLY the transcription - no preamble, no commentary, no code fences.",
+    "- Preserve the writing's line structure; use markdown lists or headings only where the writing clearly implies them.",
+    "- Keep [[wiki-links]] and #tags exactly as written.",
+    "- Use $...$ LaTeX for mathematical notation.",
+    "- For drawings or diagrams, insert a short bracketed description like [sketch: flow diagram].",
+    "- If a word is illegible, write your best guess followed by (?).",
+  ];
+  if (hint === "math") lines.push("- The content is primarily mathematical notation.");
+  if (locale) lines.push(`- The handwriting is most likely in this language/locale: ${locale}.`);
+  return lines.join("\n");
+}
+
+export interface LlmRequestInput {
+  vendor: LlmVendor;
+  model: string;
+  /** Optional for the `custom` vendor (most self-hosted servers need none). */
+  apiKey: string;
+  /** OpenAI-compatible base URL; required when vendor is `custom`. */
+  baseUrl?: string;
+  /** PNG image, base64 without a data-URL prefix. */
+  imageBase64: string;
+  prompt: string;
+}
+
+/**
+ * Normalize a user-entered OpenAI-compatible base URL (e.g.
+ * `http://localhost:11434/v1`) into its chat-completions endpoint. The `/v1`
+ * segment is the user's responsibility — servers differ on whether they use it.
+ */
+export function chatCompletionsUrl(baseUrl: string): string {
+  const trimmed = baseUrl.trim();
+  let parsed: URL;
+  try {
+    parsed = new URL(trimmed);
+  } catch {
+    throw new Error(
+      `invalid endpoint URL "${trimmed}" — enter a full URL like ` +
+        "http://localhost:11434/v1 or https://yourbox.your-tailnet.ts.net/v1",
+    );
+  }
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+    throw new Error(`endpoint URL must start with http:// or https://: "${trimmed}"`);
+  }
+  // Operate on the pathname so a query string survives (gateways often need
+  // one, e.g. ?api-version=…) instead of the suffix landing inside it.
+  const path = parsed.pathname.replace(/\/+$/, "");
+  parsed.pathname = path.endsWith("/chat/completions") ? path : `${path}/chat/completions`;
+  parsed.hash = "";
+  return parsed.href;
+}
+
+/** True when the URL parses and uses plain HTTP, whatever the letter case. */
+export function isPlainHttpUrl(url: string): boolean {
+  try {
+    return new URL(url.trim()).protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
+/** Human-readable description of where recognition requests are sent. */
+export function describeLlmTarget(vendor: LlmVendor, baseUrl?: string): string {
+  const descriptor = VENDORS[vendor];
+  if (!descriptor.userEndpoint) return descriptor.label;
+  try {
+    return `your configured endpoint (${new URL((baseUrl ?? "").trim()).host})`;
+  } catch {
+    return "your configured endpoint";
+  }
+}
+
+export interface LlmHttpRequest {
+  url: string;
+  headers: Record<string, string>;
+  body: unknown;
+}
+
+/** Request body per wire dialect — the image block comes first in all three. */
+const DIALECT_BODIES: Record<LlmDialect, (input: LlmRequestInput) => unknown> = {
+  anthropic: (input) => ({
+    model: input.model,
+    max_tokens: MAX_OUTPUT_TOKENS,
+    messages: [
+      {
+        role: "user",
+        content: [
+          {
+            type: "image",
+            source: { type: "base64", media_type: "image/png", data: input.imageBase64 },
+          },
+          { type: "text", text: input.prompt },
+        ],
+      },
+    ],
+  }),
+
+  openai: (input) => ({
+    model: input.model,
+    max_completion_tokens: MAX_OUTPUT_TOKENS,
+    messages: [
+      {
+        role: "user",
+        content: [
+          { type: "image_url", image_url: { url: `data:image/png;base64,${input.imageBase64}` } },
+          { type: "text", text: input.prompt },
+        ],
+      },
+    ],
+  }),
+
+  google: (input) => ({
+    contents: [
+      {
+        parts: [
+          { inline_data: { mime_type: "image/png", data: input.imageBase64 } },
+          { text: input.prompt },
+        ],
+      },
+    ],
+    generationConfig: { maxOutputTokens: MAX_OUTPUT_TOKENS },
+  }),
+};
+
+/** Build the vendor's HTTP request. Throws when the vendor requires a key and none is set. */
+export function buildLlmRequest(input: LlmRequestInput): LlmHttpRequest {
+  const vendor = VENDORS[input.vendor];
+  if (vendor.requiresKey && !input.apiKey.trim()) throw new Error("missing API key");
+
+  return {
+    url: vendor.url({ model: input.model, baseUrl: input.baseUrl }),
+    headers: { ...vendor.headers(input.apiKey), "content-type": "application/json" },
+    body: DIALECT_BODIES[vendor.dialect](input),
+  };
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+/**
+ * True when the model stopped because it hit `MAX_OUTPUT_TOKENS` rather than
+ * because it finished. Worth its own check: a truncated response either drops
+ * a partial transcription into the note as if it were complete, or — when a
+ * reasoning model spends the whole budget thinking — carries no text at all.
+ */
+export function isTruncatedLlmResponse(vendor: LlmVendor, json: unknown): boolean {
+  if (!isRecord(json)) return false;
+
+  switch (VENDORS[vendor].dialect) {
+    case "anthropic":
+      return json.stop_reason === "max_tokens";
+
+    case "openai": {
+      const choices = json.choices;
+      if (!Array.isArray(choices) || !isRecord(choices[0])) return false;
+      return choices[0].finish_reason === "length";
+    }
+
+    case "google": {
+      const candidates = json.candidates;
+      if (!Array.isArray(candidates) || !isRecord(candidates[0])) return false;
+      return candidates[0].finishReason === "MAX_TOKENS";
+    }
+  }
+}
+
+/** Extract the transcription text from a vendor response, or "" if absent. */
+export function extractLlmText(vendor: LlmVendor, json: unknown): string {
+  if (!isRecord(json)) return "";
+
+  switch (VENDORS[vendor].dialect) {
+    case "anthropic": {
+      const content = json.content;
+      if (!Array.isArray(content)) return "";
+      return content
+        .filter((b): b is { type: string; text: string } => isRecord(b) && b.type === "text")
+        .map((b) => b.text)
+        .join("\n");
+    }
+
+    case "openai": {
+      const choices = json.choices;
+      if (!Array.isArray(choices) || !isRecord(choices[0])) return "";
+      const message = choices[0].message;
+      if (!isRecord(message) || typeof message.content !== "string") return "";
+      return message.content;
+    }
+
+    case "google": {
+      const candidates = json.candidates;
+      if (!Array.isArray(candidates) || !isRecord(candidates[0])) return "";
+      const content = candidates[0].content;
+      if (!isRecord(content) || !Array.isArray(content.parts)) return "";
+      return content.parts
+        .filter((p): p is { text: string } => isRecord(p) && typeof p.text === "string")
+        .map((p) => p.text)
+        .join("");
+    }
+  }
+}
+
+/**
+ * Best-effort human-readable message from a vendor error response, or "".
+ * All three dialects use `{error: {message}}`; some OpenAI-compatible servers
+ * (e.g. Ollama) use a bare `{error: "…"}` string. Surfacing this matters: a
+ * Google 404 body names the exact problem ("model X is not available"), while
+ * the status code alone sends users chasing their key (issue #16).
+ */
+export function extractLlmErrorMessage(json: unknown): string {
+  if (!isRecord(json)) return "";
+  const error = json.error;
+  const message = typeof error === "string" ? error : isRecord(error) ? error.message : undefined;
+  if (typeof message !== "string") return "";
+  const trimmed = message.trim();
+  return trimmed.length > 300 ? `${trimmed.slice(0, 300)}…` : trimmed;
+}
+
+/** Normalize model output: trim and unwrap a single accidental code fence. */
+export function cleanTranscription(text: string): string {
+  let out = text.trim();
+  const fence = /^```[a-z]*\n([\s\S]*?)\n?```$/i.exec(out);
+  if (fence) out = fence[1].trim();
+  return out;
+}

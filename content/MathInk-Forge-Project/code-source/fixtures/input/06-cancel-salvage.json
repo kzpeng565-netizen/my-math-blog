@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "name": "cancel-salvage",
+    "capturedAt": "2026-08-20T00:00:00.000Z",
+    "device": "synthetic-pen",
+    "app": "MathInk Forge fixture generator",
+    "presetId": "math-black",
+    "synthetic": true,
+    "notes": "Interrupted stroke must retain committed points."
+  },
+  "records": [
+    {
+      "type": "down",
+      "timeStamp": 0,
+      "sample": { "x": 10, "y": 10, "pressure": 0.4, "tiltX": 0, "tiltY": 0, "timeStamp": 0 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "move",
+      "timeStamp": 10,
+      "sample": { "x": 45, "y": 35, "pressure": 0.6, "tiltX": 0, "tiltY": 0, "timeStamp": 10 },
+      "coalescedSamples": [
+        { "x": 25, "y": 20, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 5 },
+        { "x": 45, "y": 35, "pressure": 0.6, "tiltX": 0, "tiltY": 0, "timeStamp": 10 }
+      ],
+      "predictedSamples": []
+    },
+    {
+      "type": "cancel",
+      "timeStamp": 11,
+      "sample": { "x": 45, "y": 35, "pressure": 0, "tiltX": 0, "tiltY": 0, "timeStamp": 11 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    }
+  ]
+}

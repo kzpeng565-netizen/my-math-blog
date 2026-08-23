@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "name": "slow-line",
+    "capturedAt": "2026-08-20T00:00:00.000Z",
+    "device": "synthetic-pointer",
+    "app": "MathInk Forge fixture generator",
+    "presetId": "math-black",
+    "synthetic": true,
+    "notes": "Slow straight stroke."
+  },
+  "records": [
+    {
+      "type": "down",
+      "timeStamp": 0,
+      "sample": { "x": 10, "y": 20, "pressure": 0.2, "tiltX": 0, "tiltY": 0, "timeStamp": 0 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    },
+    {
+      "type": "move",
+      "timeStamp": 20,
+      "sample": { "x": 50, "y": 20, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 20 },
+      "coalescedSamples": [
+        { "x": 20, "y": 20, "pressure": 0.3, "tiltX": 0, "tiltY": 0, "timeStamp": 5 },
+        { "x": 35, "y": 20, "pressure": 0.4, "tiltX": 0, "tiltY": 0, "timeStamp": 12 },
+        { "x": 50, "y": 20, "pressure": 0.5, "tiltX": 0, "tiltY": 0, "timeStamp": 20 }
+      ],
+      "predictedSamples": []
+    },
+    {
+      "type": "up",
+      "timeStamp": 30,
+      "sample": { "x": 65, "y": 20, "pressure": 0.1, "tiltX": 0, "tiltY": 0, "timeStamp": 30 },
+      "coalescedSamples": [],
+      "predictedSamples": []
+    }
+  ]
+}

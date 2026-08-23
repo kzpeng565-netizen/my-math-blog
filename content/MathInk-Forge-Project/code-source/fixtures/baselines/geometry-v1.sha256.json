@@ -1,0 +1,14 @@
+{
+  "01-slow-line.json": "c7ed67f4317e5a9a13df24e542327acc02e477c8a377bc8bbd00125db67aac3e",
+  "02-fast-flick.json": "f488868e9ef0feb36c3e133338b8316f97f8b914671f2da24a3d6221e0759b1a",
+  "03-pressure-ramp.json": "f17ea73a50e5113e830da7c7368869fd45d6e313f826e3d18f8d50d1e31226ac",
+  "04-tight-curve.json": "7a681f40f910de0b77100e953479e3ff3eb9b0559f534a57a0f80350c7f9561c",
+  "05-dot.json": "3d0cbca2402cb779abfd8e59815475aa6d7e126a09e2accfe7ae6b3ce0c8d4e5",
+  "06-cancel-salvage.json": "8de3c58a80aa64c6d8204819e4e528fa002eaa1152dceee3e02d67960226702e",
+  "07-coalesced-burst.json": "4308bd93a4065967af2060b158dc4fa51b28dfc975d18604bea9120dd8f2969f",
+  "08-predicted-tail.json": "bc3042ddd621027fde0682a8a34b2c32221282e7b75300c65fe6fe6b291368e5",
+  "09-heavy-to-light.json": "95d5042fd12ddb3ff0dd9d231269fa2b088a825283883c30c55a50cefc7e292a",
+  "10-integral-sign.json": "e003946aef5b353ed5965c9d2778fc0d556feb7cca21ba49225de3f8cefc6bde",
+  "11-chinese-character.json": "d26bec09bba3dcba9991203d3446ab1cb0c41933cf4932c3c6ba847dc4196ae5",
+  "12-math-formula.json": "60cb17f5b9602e7a436ac87343edbb04e1edf2a2e51125ec6e70ae57de8915ff"
+}
