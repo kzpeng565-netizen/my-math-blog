@@ -3,6 +3,12 @@ aliases:
   - 格点拓扑群R/Z
 ---
 
+
+
+
+
+
+
 # 1. 商空间、度量与拓扑
 
 在 $\mathbb R$ 上定义 $r\sim s\iff r-s\in\mathbb Z$，所得商空间记为

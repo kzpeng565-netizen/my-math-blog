@@ -293,7 +293,7 @@
       "reasoningSummary": "detailed",
       "environmentVariables": "",
       "environmentHash": "runtime-input:v1:f7883676baae8bb27f2a882fee027044b37a0430fe24027a0bf5635e811e3e94",
-      "catalogTimestamp": 1786286321302,
+      "catalogTimestamp": 1787644941428,
       "catalogFingerprint": "2:225642923134fd4bffc4a0f0fe4c1d08c18e71e326628c4c1899b1924d70d684",
       "installationMethodsByHost": {
         "device:a65af03f-bce5-4793-af1e-205a19208756": "native-windows"
