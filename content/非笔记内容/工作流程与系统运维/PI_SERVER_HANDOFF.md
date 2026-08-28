@@ -2,6 +2,16 @@
 
 # 半小时行为解释系统——接管交接文档
 
+## 2026-08-28 更新：新平板 Automate 迁移保护
+
+==新 vivo 平板 `PA2535` 已迁入原 Automate 二进制 flow；ADB 核实 Automate 1.53.0 的进程、主服务与无障碍服务均在运行。Pi 端上传服务健康，`tablet_foreground.jsonl`、`tablet_screen.jsonl`、`tablet_heartbeat.jsonl` 仍进入同一条接收链路。`incoming/` 只是最近一次请求体镜像，允许被新设备上传替换；历史权威仍是 `archive/YYYY-MM-DD/`，接收端会在原文件或 `.gz` 文件中合并并去重，不会用新请求体覆盖旧事件。==
+
+==迁移前基线已保存到 `/home/conrad/workspace/backups/phone-usage/tablet-migration-20260828-1515-before-new-pa2535/`：包含旧平板五个分日归档文件、三个 incoming 镜像、`receiver.py`、`maintenance.py` 与 `SHA256SUMS`；权限为仅 `conrad` 可读写。该目录不在 `phone_usage/archive/` 下，不受 365 天归档清理任务影响。实测旧平板基线为 foreground 10 条、screen 2 条、heartbeat 4 条；实时 `merge_archive` 隔离测试通过旧行保留、重试去重和压缩归档续写。==
+
+==截至 2026-08-28 15:11 Asia/Shanghai，Pi 尚未收到新平板的首次 `/upload/tablet_*` 请求。因此服务端衔接和防删保护已完成，最后一步仍是启动 flow 后观察首次真实上传并核对当天 archive 增量。==
+
+<!-- ai_provenance: source=codex; date=2026-08-28; verification=device-and-pi-tested; retrieved_notes="非笔记内容/工作流程与系统运维/PROJECT_STATE.md,非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md" -->
+
 ## 2026-08-07 更新：停用半小时微信推送
 
 <!-- ai_provenance: source=codex; date=2026-08-07; verification=server-verified; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md" -->

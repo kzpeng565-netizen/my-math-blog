@@ -4,6 +4,12 @@
 
 > 本文档描述系统当前实际状态。技术细节见 PI_SERVER_HANDOFF.md，设计决策见 DECISIONS.md。
 
+## 2026-08-28：新平板 Automate 迁移保护
+
+==新 vivo 平板 `PA2535` 已安装并运行 Automate 1.53.0，主服务与无障碍服务均在运行。Pi 端 `phone-usage-receiver.service` 健康，既有 `tablet_*` 历史归档仍由按日期合并、逐行去重的逻辑保护；迁移前旧平板数据另存于 `/home/conrad/workspace/backups/phone-usage/tablet-migration-20260828-1515-before-new-pa2535/`，并带 `SHA256SUMS`。截至本次检查尚未收到新平板的首次 `tablet_*` 上传，迁移闭环仍待一次真实上传验证。==
+
+<!-- ai_provenance: source=codex; date=2026-08-28; verification=device-and-pi-checked; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md,非笔记内容/工作流程与系统运维/树莓派行为数据与接口索引.md" -->
+
 ## 系统是什么
 
 ==一个运行在树莓派上的**半小时行为解释系统**。每半小时自动收集电脑（ActivityWatch + Syncthing）、手机和平板（Android Automate）的使用数据，清洗后交 DeepSeek V4 Flash 生成语义时间线和核验报告，并保存到 `data/ai_reports/` 供 Next Action 与 Focus Garden 读取。自 2026-08-07 起，半小时报告不再发送 PushPlus；周报 PushPlus 与各类 ntfy 提醒仍按各自定时器运行。当前阶段不做未授权的自动干预。==
