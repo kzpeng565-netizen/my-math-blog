@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $existing = Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue
 if ($existing -and -not $Force) {
-    throw "计划任务 '$TaskName' 已存在。若确需覆盖，请显式添加 -Force。"
+    throw "Scheduled task '$TaskName' already exists. Use -Force only when replacement is intended."
 }
 
 $runnerPath = Join-Path $PSScriptRoot 'run-watcher.ps1'
@@ -26,14 +26,14 @@ $settings = New-ScheduledTaskSettingsSet `
     -RestartInterval (New-TimeSpan -Minutes 1) `
     -ExecutionTimeLimit ([TimeSpan]::Zero)
 
-if ($PSCmdlet.ShouldProcess($TaskName, '注册当前用户登录启动任务')) {
+if ($PSCmdlet.ShouldProcess($TaskName, 'Register current-user logon task')) {
     Register-ScheduledTask `
         -TaskName $TaskName `
         -Action $action `
         -Trigger $trigger `
         -Settings $settings `
-        -Description '每分钟检查国科大雁栖湖人文讲座；真实预约须由用户在本地面板确认。' `
+        -Description 'Monitor UCAS Yanqihu humanity lectures; every real booking requires local user confirmation.' `
         -User $currentUser `
         -Force | Out-Null
-    Write-Host "已注册计划任务：$TaskName"
+    Write-Host "Registered scheduled task: $TaskName"
 }

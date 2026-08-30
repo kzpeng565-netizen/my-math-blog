@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>国科大人文讲座监控</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">UCAS HUMANITY WATCHER</p>
+        <h1>人文讲座监控</h1>
+        <p class="subtitle">每分钟扫描 · 仅雁栖湖 · 预约前由你确认</p>
+      </div>
+      <span id="phase" class="phase">正在连接</span>
+    </header>
+
+    <section class="status-grid" aria-label="运行状态">
+      <article class="status-card wide">
+        <span>当前状态</span>
+        <strong id="message">正在读取监控器状态……</strong>
+        <small id="error"></small>
+      </article>
+      <article class="status-card">
+        <span>上次扫描</span>
+        <strong id="last-scan">—</strong>
+      </article>
+      <article class="status-card">
+        <span>下次扫描</span>
+        <strong id="next-scan">—</strong>
+      </article>
+      <article class="status-card">
+        <span>已扫描页数</span>
+        <strong id="pages-scanned">0</strong>
+      </article>
+    </section>
+
+    <section id="login-panel" class="login-panel hidden">
+      <div>
+        <h2>需要手动登录</h2>
+        <p>监控已经暂停。登录窗口使用独立 Edge 配置，不读取日常浏览器数据，也不会填写密码或识别验证码。</p>
+      </div>
+      <button id="open-login" class="button primary">打开登录窗口</button>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">AVAILABLE</p>
+          <h2>可预约候选</h2>
+        </div>
+        <span id="candidate-count" class="count">0</span>
+      </div>
+      <div id="candidates" class="lecture-list"></div>
+    </section>
+
+    <section class="section muted-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FILTERED</p>
+          <h2>已排除</h2>
+        </div>
+        <span id="excluded-count" class="count">0</span>
+      </div>
+      <div id="excluded" class="lecture-list"></div>
+    </section>
+
+    <footer>
+      本页面仅监听 127.0.0.1。真实预约只会在点击“确认预约”后提交。
+    </footer>
+  </main>
+</body>
+</html>

@@ -641,3 +641,15 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==同步接口经 Tailnet 实测保持 S7 和原冻结截止时间不变；生产控制测试 6/6、Windows 全量 43/43。数据充足后的准入门槛、同类日期稳健基线、单参数实验、回滚条件和永久人工维护边界已写入 Focus Garden 控制设计文档。==
 
 <!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-api-browser-and-windows-tests; retrieved_notes="我的专注花园/系统层控制&识别系统执行效果.md,PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-31 状态更新：独立目标模式 Goal Agent
+
+==“我的专注花园”已上线独立“目标模式”。Goal Agent 的职责是衡量距离长期目标的证据、管理月/周计划并调整策略；Next Action 仍只推荐当前行动。两者提示词、模型配置、聊天、SQLite 和审计历史相互独立，只通过 task-sync 中的共享任务与稳定完成证据联动。==
+
+==当前 Portfolio 为“2028 级保研到数学所何伟鲲方向”，四轨道权重为专业课 40%、数学所笔试 20%、遍历论与导师交流 30%、抽象代数 10%。首个 4 周试运行从 2026-08-31 到 09-27，每周 1590 分钟；工作日推荐不超过 180 分钟，周末每一天不超过 480 分钟。生产计划为 v1，本周 12 项、证据 0、授权资料 0，因此四轨道和吞吐量均正确显示“未知”，没有生成虚假进度。==
+
+==Goal Agent 运行在 Advisor `127.0.0.1:8767` 内，权威库为 `data/goal_agent/goal-agent.sqlite3`；Focus Garden `127.0.0.1:8838` 只通过固定白名单代理 Goal API，外部入口仍是 tailnet-only `:8460`。周日 20:30 的 `goal-agent-review.timer` 已启用。Tavily 已安全复用 Codex MCP 的同一把密钥，Pi 实测公共查询 HTTP 200；密钥只在私有环境文件中。==
+
+==验收结果：Advisor 199/199、Pi Garden 48/48、Goal 增量 12/12、Windows 导出器 11/11、Windows Garden 镜像 48/48。Goal SQLite `quick_check=ok`、权限 600；旧计划版本写请求实测返回 409 且不产生证据。尚未点击真实“确认这一天”、未运行真实 AI 对话，也尚未经历第一次自然周复盘。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-production-tests-tailnet-api-tavily-and-windows-mirror; retrieved_notes="计划模式/00-目标模式总览与方案设计.md,计划模式/02-当前完成与待补充.md" -->

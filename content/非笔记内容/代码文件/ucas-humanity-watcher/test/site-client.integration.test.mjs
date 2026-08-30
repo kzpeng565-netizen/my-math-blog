@@ -31,7 +31,7 @@ function lecturePage() {
   </body></html>`;
 }
 
-test('模拟站点覆盖登录暂停、扫描、真实控件点击和记录核验', async (t) => {
+test('模拟站点覆盖登录暂停、扫描、真实控件点击和记录核验', { timeout: 60_000 }, async (t) => {
   let loginRequired = true;
   let bookingRequests = 0;
   const server = createServer((request, response) => {
@@ -55,10 +55,8 @@ test('模拟站点覆盖登录暂停、扫描、真实控件点击和记录核�
     response.end('not found');
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
-  t.after(() => new Promise((resolve) => server.close(resolve)));
 
   const root = await mkdtemp(join(tmpdir(), 'ucas-watcher-browser-'));
-  t.after(() => rm(root, { recursive: true, force: true }));
   const baseUrl = `http://127.0.0.1:${server.address().port}`;
   const config = {
     targetUrl: `${baseUrl}/subject/humanityLecture`,
@@ -70,7 +68,11 @@ test('模拟站点覆盖登录暂停、扫描、真实控件点击和记录核�
     edgeExecutable,
   };
   const browserManager = new BrowserManager({ config, logger });
-  t.after(() => browserManager.stop());
+  t.after(async () => {
+    await browserManager.stop();
+    await new Promise((resolve) => server.close(resolve));
+    await rm(root, { recursive: true, force: true });
+  });
   const client = new HumanitySiteClient({ config, browserManager, logger });
 
   const blocked = await client.scan();

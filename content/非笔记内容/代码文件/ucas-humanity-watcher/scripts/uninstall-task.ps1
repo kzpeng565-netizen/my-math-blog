@@ -6,11 +6,11 @@ param(
 $ErrorActionPreference = 'Stop'
 $existing = Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue
 if (-not $existing) {
-    Write-Host "计划任务不存在：$TaskName"
+    Write-Host "Scheduled task does not exist: $TaskName"
     exit 0
 }
 
-if ($PSCmdlet.ShouldProcess($TaskName, '删除登录启动任务')) {
+if ($PSCmdlet.ShouldProcess($TaskName, 'Remove logon task')) {
     Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false
-    Write-Host "已删除计划任务：$TaskName"
+    Write-Host "Removed scheduled task: $TaskName"
 }

@@ -1425,3 +1425,65 @@ systemctl status activitywatch-advisor-web.service --no-pager
 ==Tailnet 点击验收确认按钮恢复可用状态、toast 为“状态数据已同步，本周决策保持冻结”、最近同步时间更新，S7 和冻结截止时间未变。控制测试 6/6、Windows 全量 43/43；Pi 全量 46 项中 45 项通过，唯一旧失败仍是生产 queue 非零却固定断言 0。服务 active，仍只监听 `127.0.0.1:8838`。备份：`/home/conrad/services/focus-garden/backups/20260815-133941-control-status-sync/`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-tests-live-tailnet-api-browser-and-windows-mirror; retrieved_notes="PROJECT_STATE.md,DECISIONS.md,我的专注花园/系统层控制&识别系统执行效果.md" -->
+
+## 2026-08-31：独立 Goal Agent 与 Focus Garden 目标模式
+
+==生产已新增独立 Goal Agent。源文件为 `/home/conrad/workspace/activitywatch-advisor/src/goal_agent.py`，提示词为 `prompts/goal-agent.md`，权威数据库为 `data/goal_agent/goal-agent.sqlite3`，授权资料根为 `/home/conrad/workspace/behavior-context-sync/goal_agent`。模型配置在 `config/settings.json -> goal_agent`，当前为独立 DeepSeek V4 Pro thinking；私密环境仍只放 `/home/conrad/.config/activitywatch-advisor/`。==
+
+### 服务与入口
+
+| 对象 | 当前值 |
+|---|---|
+| Advisor Web | `activitywatch-advisor-web.service`，`127.0.0.1:8767` |
+| Garden | `focus-garden.service`，`127.0.0.1:8838` |
+| 私有入口 | `https://pi.taild4d3f7.ts.net:8460/`，Tailscale Serve，禁止 Funnel |
+| 周复盘 | `goal-agent-review.timer`，周日 20:30 Asia/Shanghai |
+| Tavily 私有环境 | `/home/conrad/.config/activitywatch-advisor/tavily.env`，600，仅记录路径不得读出或复制到文档 |
+
+Garden 只转发固定 `/api/goal-agent/*` 白名单并附内部 bridge header；直接访问 Advisor Goal API 没有 bridge 时返回 401。Goal Agent 与 Next Action 共用 Web 进程但不共用领域状态。
+
+### 生产快照
+
+==2026-08-31 实况为 plan v1、4 条轨道、7 个里程碑、4 个 1590 分钟试运行周、本周 12 项、证据 0、授权资料 0、资料缺口 7、来源 14、待审批 0。四轨道和吞吐量均为 unknown；这是资料尚未录入的正确降级。Tavily 同源密钥已配置，公共非个人测试查询返回 HTTP 200。==
+
+### Goal API
+
+```text
+GET  /api/goal-agent/state
+GET  /api/goal-agent/plan
+POST /api/goal-agent/feedback
+POST /api/goal-agent/chat
+POST /api/goal-agent/plan-items/{id}/accept-day
+POST /api/goal-agent/review
+POST /api/goal-agent/approvals/{id}/decision
+POST /api/goal-agent/versions/{id}/rollback
+```
+
+所有 POST 需要 `request_id` 和 `base_plan_version`。冲突返回 409 且不部分应用；重复 request 返回原结果。Goal Agent 通过既有 task-sync 排 mutation，Pi 不直接修改 Markdown。
+
+### 数据与备份
+
+- Goal SQLite：`/home/conrad/workspace/activitywatch-advisor/data/goal_agent/goal-agent.sqlite3`；
+- 资料索引输入：`/home/conrad/workspace/behavior-context-sync/goal_agent/materials/index.json` 和 gzip 文档；
+- Windows 授权清单：`非笔记内容/任务计划/目标模式资料清单.md`；
+- 部署总备份：`/home/conrad/workspace/backups/goal-mode-20260830-221600/`；
+- Windows 导出器备份：`D:\mathblog\tools\behavior-context-exporter-backups\goal-mode-20260830-233500`；
+- Windows Garden 备份：`D:\MyFocusGarden-backups\goal-mode-20260831-005000`。
+
+### 验证结果与未做事项
+
+==Advisor 199/199、Pi Garden 48/48、Goal 增量 12/12、导出器 11/11、Windows Garden 48/48。SQLite `quick_check=ok`、权限 600；两个服务和 timer active，监听仍为 loopback，Tailnet Goal GET 返回 200。尚未执行真实资料授权、真实 accept-day、真实 AI 对话、重大审批、回退或第一次自然周复盘；这些必须在用户自然使用时验收。==
+
+常用只读检查：
+
+```bash
+systemctl is-active activitywatch-advisor-web.service focus-garden.service goal-agent-review.timer
+systemctl list-timers goal-agent-review.timer --all
+ss -lnt | grep -E ':(8767|8838) '
+curl -fsS http://127.0.0.1:8838/api/goal-agent/state | python3 -m json.tool
+sqlite3 /home/conrad/workspace/activitywatch-advisor/data/goal_agent/goal-agent.sqlite3 'PRAGMA quick_check;'
+```
+
+恢复时按文件比较并恢复源码、配置或 unit；不得用 Windows Garden 整树覆盖 Pi，不得用旧 Goal SQLite 覆盖新的证据、聊天、审批或版本。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-production-services-db-tailnet-tests-and-tavily; retrieved_notes="计划模式/01-整体架构与数据流.md,计划模式/02-当前完成与待补充.md" -->

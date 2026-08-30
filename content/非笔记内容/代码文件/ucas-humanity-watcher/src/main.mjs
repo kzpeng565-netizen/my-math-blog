@@ -73,7 +73,6 @@ try {
   }
 } catch (error) {
   await logger.error('startup_failed', { error });
-  await logger.flush();
   console.error(`启动失败：${error.message}`);
-  process.exitCode = 1;
+  await shutdown('startup_failed', 1);
 }

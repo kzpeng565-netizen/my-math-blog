@@ -36,7 +36,7 @@ npm run start:ui
 - 普通课表冲突继续由选课系统返回；程序会展示“与已选课程时间冲突”，不会重试。
 - 同时出现多个合格候选时全部展示，由用户选择。一个讲座成功后，与其时间重叠的其他候选会被禁用。
 
-运行配置位于 `%LOCALAPPDATA%\UCASHumanityWatcher\config.json`。修改后需要重启程序。`dashboardHost` 被强制限制为 `127.0.0.1`，`pollSeconds` 不允许低于 15 秒。
+运行配置位于 `%LOCALAPPDATA%\UCASHumanityWatcher\config.json`。修改后需要重启程序。仅接受扫描间隔、面板地址、校区关键词和每周排除时段；网站地址与 Edge 程序路径不能由本地配置改写。`dashboardHost` 被强制限制为 `127.0.0.1`，`pollSeconds` 不允许低于 15 秒。
 
 ## 预约结果
 

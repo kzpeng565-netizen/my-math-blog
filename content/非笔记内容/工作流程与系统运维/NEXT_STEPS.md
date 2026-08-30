@@ -732,3 +732,31 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==不要在第 28 天自动宣布“数据充足”。分别检查 W/L 日报覆盖、M 分类匹配、D 日快照连续性及 A/F/R 样本量；不达标的指标继续展示但不参与状态触发。先运行四个合格周的 shadow 判断，再考虑一次一个、可回滚的软参数实验。==
 
 <!-- ai_provenance: source=codex; date=2026-08-15; verification=design-recorded-implementation-pending; retrieved_notes="我的专注花园/系统层控制&识别系统执行效果.md" -->
+
+## 2026-08-31 后续事项：目标模式 4 周灰度
+
+### ☑ 已完成：生产部署、安全边界与镜像
+
+==Goal Agent、六视图 UI、固定 Garden 代理、独立 SQLite、审批/回退、FTS、Windows 导出器 v5、周日 20:30 timer 和 Tavily 同源密钥均已部署。Pi 服务和端口健康，Garden 仍为 tailnet-only；完整测试结果为 Advisor 199/199、Pi/Windows Garden 48/48、导出器 11/11。==
+
+### ☐ 用户补充课程与题源资料
+
+==先在 `非笔记内容/任务计划/目标模式资料清单.md` 逐项授权。三门课需要教师、教材、大纲、考核比例和考试日期；数学所需要至少三份可区分真实题源；遍历论需要双方确认教材与章节；抽象代数需要书面题组和口头题库。没有这些资料时保持未知，不让 Agent 补写。==
+
+### ☐ 验收第一条真实资料与任务写回闭环
+
+==用一份小型授权资料检查页码、哈希、Syncthing 和 FTS；随后只确认少量推荐日，观察 mutation → Obsidian 写入 → 新快照 ack → `plan_item_id → task_id` 映射。不要一次性接受全部首周任务。==
+
+### ☐ 验收第一次自然周复盘
+
+==2026-09-06 20:30 检查 `goal-agent-review.timer`、plan version、差异、ntfy receipt 和待审批修改。若资料不足，复盘应明确未知并重新排序可执行事项，不应虚构成绩或题源。==
+
+### ☐ 三周后再启用吞吐量判断
+
+==至少三周具有可比深度分钟后，才评估 22–31 小时是否可持续。Agent 可以在该范围内调整周承诺；修改范围本身仍需用户确认。==
+
+### ☐ 试运行结束后做继续/暂停决定
+
+==2026-09-27 后检查任务无丢失/重复、4 次可回退复盘、进度可追溯、资料不足无虚构、反馈成本可持续。未通过时保留数据和版本，暂停自动调整而不是删除历史。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=implementation-complete-natural-use-pending; retrieved_notes="计划模式/02-当前完成与待补充.md,计划模式/03-短期与长期升级计划.md" -->

@@ -95,16 +95,23 @@ export async function loadConfig({ runtimeRoot = runtimeRootFromEnvironment(), o
     await writeFile(configPath, `${JSON.stringify(initialConfig, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
   }
 
+  const allowedUserConfig = Object.fromEntries([
+    'pollSeconds',
+    'dashboardHost',
+    'dashboardPort',
+    'campusKeywords',
+    'weeklyBlocks',
+  ].filter((key) => Object.hasOwn(userConfig, key)).map((key) => [key, userConfig[key]]));
+
   const merged = validateConfig({
     ...clone(DEFAULT_CONFIG),
-    ...userConfig,
+    ...allowedUserConfig,
     ...overrides,
     weeklyBlocks: clone(overrides.weeklyBlocks || userConfig.weeklyBlocks || DEFAULT_CONFIG.weeklyBlocks),
     campusKeywords: clone(overrides.campusKeywords || userConfig.campusKeywords || DEFAULT_CONFIG.campusKeywords),
   });
 
   const edgeExecutable = overrides.edgeExecutable
-    || userConfig.edgeExecutable
     || await firstExistingPath(findEdgeExecutable());
 
   return {

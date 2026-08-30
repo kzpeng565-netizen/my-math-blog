@@ -84,10 +84,10 @@ export class DashboardServer {
   }
 
   async #loadAssets() {
-    const publicDir = join(this.projectRoot, 'public');
-    this.assets.set('/', { type: 'text/html; charset=utf-8', body: await readFile(join(publicDir, 'index.html')) });
-    this.assets.set('/app.js', { type: 'text/javascript; charset=utf-8', body: await readFile(join(publicDir, 'app.js')) });
-    this.assets.set('/styles.css', { type: 'text/css; charset=utf-8', body: await readFile(join(publicDir, 'styles.css')) });
+    const webDir = join(this.projectRoot, 'web');
+    this.assets.set('/', { type: 'text/html; charset=utf-8', body: await readFile(join(webDir, 'index.html')) });
+    this.assets.set('/app.js', { type: 'text/javascript; charset=utf-8', body: await readFile(join(webDir, 'app.js')) });
+    this.assets.set('/styles.css', { type: 'text/css; charset=utf-8', body: await readFile(join(webDir, 'styles.css')) });
   }
 
   async #handle(request, response) {

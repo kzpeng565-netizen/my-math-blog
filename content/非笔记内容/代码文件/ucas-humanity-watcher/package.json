@@ -12,5 +12,7 @@
     "start:ui": "node src/main.mjs --open-dashboard",
     "test": "node --test --test-concurrency=1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "playwright-core": "1.62.1"
+  }
 }
