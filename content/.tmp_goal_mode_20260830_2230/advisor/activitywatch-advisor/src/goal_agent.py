@@ -604,9 +604,13 @@ class GoalAgent:
             ("paper-harkin-2016", "research", "peer_reviewed", "https://doi.org/10.1037/bul0000025", "Harkin et al. progress monitoring meta-analysis", "已引用"),
             ("paper-gollwitzer-1999", "research", "peer_reviewed", "https://doi.org/10.1037/0003-066X.54.7.493", "Gollwitzer implementation intentions", "已引用"),
             ("paper-patall-2008", "research", "peer_reviewed", "https://doi.org/10.1037/0033-2909.134.2.270", "Patall et al. choice and motivation", "已引用"),
+            ("paper-seijts-2004", "research", "peer_reviewed", "https://doi.org/10.2307/20159574", "Seijts et al. learning goals for complex tasks", "已引用"),
+            ("paper-locke-latham-2002", "research", "peer_reviewed", "https://doi.org/10.1037/0003-066X.57.9.705", "Locke & Latham goal-setting theory", "已引用"),
             ("paper-dunlosky-2013", "research", "peer_reviewed", "https://doi.org/10.1177/1529100612453266", "Dunlosky et al. effective learning techniques", "已引用"),
             ("paper-roediger-2006", "research", "peer_reviewed", "https://doi.org/10.1111/j.1467-9280.2006.01693.x", "Roediger & Karpicke test-enhanced learning", "已引用"),
             ("paper-cepeda-2006", "research", "peer_reviewed", "https://doi.org/10.1037/0033-2909.132.3.354", "Cepeda et al. distributed practice", "已引用"),
+            ("paper-kluger-denisi-1996", "research", "peer_reviewed", "https://doi.org/10.1037/0033-2909.119.2.254", "Kluger & DeNisi feedback intervention meta-analysis", "已引用"),
+            ("paper-panadero-2017", "research", "peer_reviewed", "https://doi.org/10.3389/fpsyg.2017.00422", "Panadero self-regulated learning review", "已引用"),
         )
         for source_id, kind, grade, url, title, status in sources:
             connection.execute(

@@ -79,6 +79,22 @@ class GoalAgentTest(unittest.TestCase):
         self.assertTrue(state["boundaries"]["next_action_is_separate"])
         self.assertEqual({track["status"] for track in state["tracks"]}, {"unknown"})
         self.assertFalse(state["tavily"]["configured"])
+        with self.agent._connect() as connection:
+            source_ids = {
+                row[0] for row in connection.execute("SELECT id FROM source_record")
+            }
+        self.assertTrue({
+            "paper-harkin-2016",
+            "paper-gollwitzer-1999",
+            "paper-patall-2008",
+            "paper-seijts-2004",
+            "paper-locke-latham-2002",
+            "paper-dunlosky-2013",
+            "paper-roediger-2006",
+            "paper-cepeda-2006",
+            "paper-kluger-denisi-1996",
+            "paper-panadero-2017",
+        }.issubset(source_ids))
 
     def test_public_source_refresh_upserts_a_and_c_results(self) -> None:
         self.agent.tavily_search = lambda query: {
