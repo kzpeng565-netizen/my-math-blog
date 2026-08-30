@@ -110,6 +110,13 @@ class NextActionProxy:
         "unpin": "/api/recent-context/{id}/unpin",
         "confirm": "/api/recent-context/{id}/confirm",
     }
+    _GOAL_AGENT_PATHS = {
+        "state": "/api/goal-agent/state",
+        "plan": "/api/goal-agent/plan",
+        "feedback": "/api/goal-agent/feedback",
+        "chat": "/api/goal-agent/chat",
+        "review": "/api/goal-agent/review",
+    }
 
     def __init__(self, settings: dict[str, Any]):
         config = settings.get("next_action", {})
@@ -195,6 +202,49 @@ class NextActionProxy:
             "",
             "focus-garden-recent-context/1",
             extra_headers={"X-Focus-Garden-Bridge": "1"},
+        )
+
+    def goal_agent(
+        self,
+        target: str,
+        method: str,
+        *,
+        body: dict[str, Any] | None = None,
+    ) -> tuple[int, Any, str]:
+        """Forward only the Goal Agent's fixed, independently named API."""
+        if target not in self._GOAL_AGENT_PATHS:
+            raise ValueError("unknown Goal Agent endpoint")
+        return self._request_url(
+            self.base_url + self._GOAL_AGENT_PATHS[target],
+            method,
+            body,
+            "",
+            "focus-garden-goal-agent/1",
+            extra_headers={"X-Focus-Garden-Bridge": "1"},
+            timeout_seconds=90,
+        )
+
+    def goal_agent_scoped(
+        self,
+        path: str,
+        *,
+        body: dict[str, Any],
+    ) -> tuple[int, Any, str]:
+        allowed = (
+            re.fullmatch(r"/api/goal-agent/plan-items/[A-Za-z0-9_-]{4,80}/accept-day", path)
+            or re.fullmatch(r"/api/goal-agent/approvals/[A-Za-z0-9_-]{4,80}/decision", path)
+            or re.fullmatch(r"/api/goal-agent/versions/\d+/rollback", path)
+        )
+        if not allowed:
+            raise ValueError("invalid Goal Agent scoped path")
+        return self._request_url(
+            self.base_url + path,
+            "POST",
+            body,
+            "",
+            "focus-garden-goal-agent/1",
+            extra_headers={"X-Focus-Garden-Bridge": "1"},
+            timeout_seconds=90,
         )
 
     def _request_url(self, url: str, method: str, body: dict[str, Any] | None,
@@ -917,6 +967,24 @@ class GardenHandler(BaseHTTPRequestHandler):
         except Exception as exc:
             self._error(exc)
 
+    def _goal_agent(self, target: str, method: str, body: dict[str, Any] | None = None) -> None:
+        try:
+            status, data, _ = self.service.next_action.goal_agent(
+                target, method, body=body
+            )
+            self._json(data, status)
+        except Exception as exc:
+            self._error(exc)
+
+    def _goal_agent_scoped(self, path: str, body: dict[str, Any]) -> None:
+        try:
+            status, data, _ = self.service.next_action.goal_agent_scoped(
+                path, body=body
+            )
+            self._json(data, status)
+        except Exception as exc:
+            self._error(exc)
+
     def do_GET(self) -> None:
         parsed = urlparse(self.path)
         if parsed.path == "/api/health":
@@ -934,6 +1002,10 @@ class GardenHandler(BaseHTTPRequestHandler):
             return self._intervention("phone_pending", "GET", query=query)
         if parsed.path == "/api/tasks":
             return self._task_sync("state", "GET")
+        if parsed.path == "/api/goal-agent/state":
+            return self._goal_agent("state", "GET")
+        if parsed.path == "/api/goal-agent/plan":
+            return self._goal_agent("plan", "GET")
         if parsed.path == "/api/steam-gate/status":
             if self.headers.get("X-Computer-Intervention-Agent") != "1":
                 return self._json({"error": "computer agent required"}, HTTPStatus.UNAUTHORIZED)
@@ -970,6 +1042,18 @@ class GardenHandler(BaseHTTPRequestHandler):
                 return self._task_sync("mutations", "POST", body)
             if self.path == "/api/tasks/primary":
                 return self._task_sync("primary", "POST", body)
+            if self.path == "/api/goal-agent/feedback":
+                return self._goal_agent("feedback", "POST", body)
+            if self.path == "/api/goal-agent/chat":
+                return self._goal_agent("chat", "POST", body)
+            if self.path == "/api/goal-agent/review":
+                return self._goal_agent("review", "POST", body)
+            if (
+                re.fullmatch(r"/api/goal-agent/plan-items/[A-Za-z0-9_-]{4,80}/accept-day", self.path)
+                or re.fullmatch(r"/api/goal-agent/approvals/[A-Za-z0-9_-]{4,80}/decision", self.path)
+                or re.fullmatch(r"/api/goal-agent/versions/\d+/rollback", self.path)
+            ):
+                return self._goal_agent_scoped(self.path, body)
             if self.path == "/api/steam-night/closed":
                 if self.headers.get("X-Computer-Intervention-Agent") != "1":
                     return self._json({"error": "computer agent required"}, HTTPStatus.UNAUTHORIZED)

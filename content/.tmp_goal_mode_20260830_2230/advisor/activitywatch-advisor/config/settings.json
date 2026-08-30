@@ -129,6 +129,24 @@
     "max_content_chars": 500,
     "max_impact_chars": 100
   },
+  "goal_agent": {
+    "enabled": true,
+    "feature_flag": "goal_mode_trial_2026_09",
+    "trial_ends_on": "2026-09-27",
+    "database_path": "/home/conrad/workspace/activitywatch-advisor/data/goal_agent/goal-agent.sqlite3",
+    "material_root": "/home/conrad/workspace/behavior-context-sync/goal_agent",
+    "prompt_path": "/home/conrad/workspace/activitywatch-advisor/prompts/goal-agent.md",
+    "tavily_env_file": "/home/conrad/.config/activitywatch-advisor/tavily.env",
+    "tavily_credential_source": "same_key_as_codex_tavily_mcp",
+    "review_schedule": "Sunday 20:30 Asia/Shanghai",
+    "model": {
+      "name": "deepseek-v4-pro",
+      "thinking": "enabled",
+      "max_tokens": 4500,
+      "timeout_seconds": 80,
+      "retries": 1
+    }
+  },
   "processing": {
     "minimum_evidence_seconds": 30,
     "max_timeline_segments": 240,

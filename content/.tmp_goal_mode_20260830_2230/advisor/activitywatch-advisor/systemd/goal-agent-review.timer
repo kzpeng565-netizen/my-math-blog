@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Goal Agent full review every Sunday at 20:30
+
+[Timer]
+OnCalendar=Sun *-*-* 20:30:00 Asia/Shanghai
+Persistent=true
+RandomizedDelaySec=0
+Unit=goal-agent-review.service
+
+[Install]
+WantedBy=timers.target

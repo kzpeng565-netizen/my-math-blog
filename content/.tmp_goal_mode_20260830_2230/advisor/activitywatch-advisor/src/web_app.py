@@ -27,6 +27,7 @@ from computer_intervention import (
     save_computer_intervention_request,
 )
 from issue_feedback import receive_issue_feedback, recent_issues
+from goal_agent import GoalAgent, GoalAgentConflictError, GoalAgentNotFoundError
 from recent_context import (
     RecentContextConflictError,
     RecentContextCorruptError,
@@ -402,6 +403,11 @@ class AppState:
         self.env_file = env_file
         self.web_password = os.environ.get("NEXT_ACTION_WEB_PASSWORD", "")
         self.web_secret = os.environ.get("NEXT_ACTION_WEB_SECRET") or self.web_password
+        self.goal_agent = GoalAgent(
+            self.output_root,
+            self.settings,
+            env_file=env_file,
+        )
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -430,7 +436,7 @@ class Handler(BaseHTTPRequestHandler):
         self._json(status, {"error": message})
 
     def _body(self) -> dict[str, Any]:
-        length = min(int(self.headers.get("Content-Length", "0") or 0), 8192)
+        length = min(int(self.headers.get("Content-Length", "0") or 0), 65536)
         if not length:
             return {}
         try:
@@ -512,12 +518,22 @@ class Handler(BaseHTTPRequestHandler):
             and self.client_address[0] in {"127.0.0.1", "::1"}
             and self.headers.get("X-Focus-Garden-Bridge") == "1"
         )
-        if internal_bridge or task_sync_bridge or focus_garden_task_bridge or recent_context_bridge:
+        goal_agent_bridge = (
+            parsed_path.startswith("/api/goal-agent/")
+            and self.client_address[0] in {"127.0.0.1", "::1"}
+            and self.headers.get("X-Focus-Garden-Bridge") == "1"
+        )
+        if internal_bridge or task_sync_bridge or focus_garden_task_bridge or recent_context_bridge or goal_agent_bridge:
             return True
         if parsed_path == "/api/recent-context" or parsed_path.startswith("/api/recent-context/"):
             # Recent-context is only reachable through the fixed Focus Garden
             # proxy (loopback AND bridge header); global auth must not bypass it.
             self._error(HTTPStatus.UNAUTHORIZED, "login required")
+            return False
+        if parsed_path.startswith("/api/goal-agent/"):
+            # Goal data is exposed only through Focus Garden's fixed loopback
+            # proxy.  A valid Next Action cookie must not widen that surface.
+            self._error(HTTPStatus.UNAUTHORIZED, "focus garden bridge required")
             return False
         if self._authenticated():
             return True
@@ -569,6 +585,15 @@ class Handler(BaseHTTPRequestHandler):
             return
         if parsed.path == "/api/task-sync/state":
             self._json(HTTPStatus.OK, _task_sync_state(self._state()))
+            return
+        if parsed.path == "/api/goal-agent/state":
+            self._json(
+                HTTPStatus.OK,
+                self._state().goal_agent.state(_task_sync_state(self._state())),
+            )
+            return
+        if parsed.path == "/api/goal-agent/plan":
+            self._json(HTTPStatus.OK, self._state().goal_agent.plan())
             return
         if parsed.path == "/api/recent-context":
             query = parse_qs(parsed.query)
@@ -719,6 +744,63 @@ class Handler(BaseHTTPRequestHandler):
                         state.output_root,
                         self._body(),
                         timezone_name=state.settings.get("timezone", "Asia/Shanghai"),
+                    ),
+                )
+                return
+            if parsed.path == "/api/goal-agent/feedback":
+                self._json(HTTPStatus.CREATED, state.goal_agent.feedback(self._body()))
+                return
+            if parsed.path == "/api/goal-agent/chat":
+                self._json(HTTPStatus.OK, state.goal_agent.chat(self._body()))
+                return
+            if parsed.path == "/api/goal-agent/review":
+                body = self._body()
+                self._json(
+                    HTTPStatus.OK,
+                    state.goal_agent.review(body, use_model=body.get("use_model") is not False),
+                )
+                return
+            goal_day_match = re.fullmatch(
+                r"/api/goal-agent/plan-items/([A-Za-z0-9_-]{4,80})/accept-day",
+                parsed.path,
+            )
+            if goal_day_match:
+                body = self._body()
+                self._json(
+                    HTTPStatus.CREATED,
+                    state.goal_agent.accept_day(
+                        goal_day_match.group(1),
+                        body,
+                        lambda task_payload: enqueue_mutation(
+                            _context_path(state),
+                            state.output_root,
+                            task_payload,
+                            timezone_name=state.settings.get("timezone", "Asia/Shanghai"),
+                        ),
+                    ),
+                )
+                return
+            goal_approval_match = re.fullmatch(
+                r"/api/goal-agent/approvals/([A-Za-z0-9_-]{4,80})/decision",
+                parsed.path,
+            )
+            if goal_approval_match:
+                self._json(
+                    HTTPStatus.OK,
+                    state.goal_agent.approval_decision(
+                        goal_approval_match.group(1), self._body()
+                    ),
+                )
+                return
+            goal_rollback_match = re.fullmatch(
+                r"/api/goal-agent/versions/(\d+)/rollback",
+                parsed.path,
+            )
+            if goal_rollback_match:
+                self._json(
+                    HTTPStatus.OK,
+                    state.goal_agent.rollback(
+                        int(goal_rollback_match.group(1)), self._body()
                     ),
                 )
                 return
@@ -925,6 +1007,19 @@ class Handler(BaseHTTPRequestHandler):
             return
         except RecentContextNotFoundError:
             self._json(HTTPStatus.NOT_FOUND, {"error": "note not found"})
+            return
+        except GoalAgentConflictError as error:
+            self._json(
+                HTTPStatus.CONFLICT,
+                {
+                    "error": "plan version conflict",
+                    "code": "plan_version_conflict",
+                    "current_plan_version": error.current_version,
+                },
+            )
+            return
+        except GoalAgentNotFoundError:
+            self._json(HTTPStatus.NOT_FOUND, {"error": "goal agent record not found"})
             return
         except Exception as error:
             self._error(HTTPStatus.BAD_REQUEST, f"{type(error).__name__}: {error}")
