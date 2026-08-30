@@ -467,40 +467,5 @@ class GardenServiceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             proxy.recent_context("explode", "GET")
 
-    def test_goal_agent_proxy_only_forwards_fixed_loopback_paths_with_bridge_header(self):
-        response = MagicMock()
-        response.status = 200
-        response.read.return_value = b'{"plan_version":1}'
-        response.headers = {}
-        context = MagicMock()
-        context.__enter__.return_value = response
-        proxy = NextActionProxy({"next_action": {"base_url": "http://127.0.0.1:8767"}})
-        with patch("focus_garden.server.urlopen", return_value=context) as open_url:
-            status, data, _ = proxy.goal_agent("state", "GET")
-        request = open_url.call_args.args[0]
-        self.assertEqual((status, data["plan_version"]), (200, 1))
-        self.assertEqual(request.full_url, "http://127.0.0.1:8767/api/goal-agent/state")
-        self.assertEqual(request.get_header("X-focus-garden-bridge"), "1")
-        self.assertIsNone(request.get_header("Cookie"))
-        with self.assertRaises(ValueError):
-            proxy.goal_agent("files", "GET")
-
-        with patch("focus_garden.server.urlopen", return_value=context) as scoped_url:
-            proxy.goal_agent_scoped(
-                "/api/goal-agent/plan-items/w1-c-p1/accept-day",
-                body={"request_id": "garden-12345678", "base_plan_version": 1},
-            )
-        scoped_request = scoped_url.call_args.args[0]
-        self.assertEqual(
-            scoped_request.full_url,
-            "http://127.0.0.1:8767/api/goal-agent/plan-items/w1-c-p1/accept-day",
-        )
-        self.assertEqual(scoped_request.get_header("X-focus-garden-bridge"), "1")
-        with self.assertRaises(ValueError):
-            proxy.goal_agent_scoped(
-                "/api/goal-agent/../../private",
-                body={"request_id": "garden-12345678", "base_plan_version": 1},
-            )
-
 if __name__ == "__main__":
     unittest.main()

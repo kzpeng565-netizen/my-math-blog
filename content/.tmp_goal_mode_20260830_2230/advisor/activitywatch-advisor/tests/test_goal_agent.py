@@ -80,6 +80,48 @@ class GoalAgentTest(unittest.TestCase):
         self.assertEqual({track["status"] for track in state["tracks"]}, {"unknown"})
         self.assertFalse(state["tavily"]["configured"])
 
+    def test_public_source_refresh_upserts_a_and_c_results(self) -> None:
+        self.agent.tavily_search = lambda query: {
+            "status": "ok",
+            "results": [
+                {
+                    "title": "数学所 2028 级招生通知",
+                    "url": "https://amss.cas.cn/admission/example.html",
+                    "excerpt": "官方通知摘要",
+                },
+                {
+                    "title": "经验帖",
+                    "url": "https://example.org/experience",
+                    "excerpt": "未经互证的经验摘要",
+                },
+            ],
+        }
+        first = self.agent.refresh_public_sources()
+        second = self.agent.refresh_public_sources()
+        self.assertEqual(first["status"], "ok")
+        self.assertEqual(second["status"], "ok")
+        with self.agent._connect() as connection:
+            official = connection.execute(
+                "SELECT grade,reference_only,metadata_json FROM source_record WHERE url=?",
+                ("https://amss.cas.cn/admission/example.html",),
+            ).fetchone()
+            experience = connection.execute(
+                "SELECT grade,reference_only,status FROM source_record WHERE url=?",
+                ("https://example.org/experience",),
+            ).fetchone()
+            count = connection.execute(
+                "SELECT COUNT(*) FROM source_record WHERE url IN (?,?)",
+                (
+                    "https://amss.cas.cn/admission/example.html",
+                    "https://example.org/experience",
+                ),
+            ).fetchone()[0]
+        self.assertEqual((official["grade"], official["reference_only"]), ("A", 1))
+        self.assertIn("Tavily", official["metadata_json"])
+        self.assertEqual((experience["grade"], experience["reference_only"]), ("C", 1))
+        self.assertIn("互证", experience["status"])
+        self.assertEqual(count, 2)
+
     def test_recommendations_respect_each_day_cap(self) -> None:
         with self.agent._connect() as connection:
             rows = connection.execute(

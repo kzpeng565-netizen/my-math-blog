@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "exporter_version": 2,
+  "generated_at": "2026-07-27T20:00:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "sources": {
+    "profile": {
+      "path": "D:\\vault\\Profile.md",
+      "modified_at": "2026-07-27T19:00:00+08:00",
+      "sha256": "<sha256>"
+    },
+    "planned_tasks": {
+      "path": "D:\\vault\\ToDo-已经规划好的任务.md",
+      "modified_at": "2026-07-27T19:00:00+08:00",
+      "sha256": "<sha256>"
+    },
+    "pomodoro_log": {
+      "path": "D:\\vault\\番茄钟log.md",
+      "modified_at": "2026-07-27T19:00:00+08:00",
+      "sha256": "<sha256>"
+    }
+  },
+  "profile": {
+    "raw_markdown": "<完整但只读的 Profile Markdown>",
+    "source_modified_at": "2026-07-27T19:00:00+08:00",
+    "content_hash": "<sha256>"
+  },
+  "tasks": {
+    "open_task_count": 1,
+    "overdue_tasks": [],
+    "today_tasks": [
+      {
+        "title": "整理一个定义或证明框架",
+        "category": "数学学习",
+        "planning_batch": "2026-07-27 假期任务重排",
+        "priority": "highest",
+        "scheduled_date": "2026-07-27",
+        "due_date": null,
+        "recurrence": null,
+        "tomatoes_completed": 0,
+        "tomatoes_total": 2,
+        "source_order": 1,
+        "raw_line": "<原始任务行>"
+      }
+    ],
+    "near_term_tasks": [],
+    "later_tasks": [],
+    "recurring_tasks": [],
+    "latest_plan_heading": "2026-07-27 假期任务重排",
+    "latest_plan_notes_markdown": "先完成当前章节，再进入下一章。",
+    "parser_warnings": []
+  },
+  "pomodoro": {
+    "reference_only": true,
+    "last_recorded_session_end": null,
+    "last_24h": {
+      "session_count": 0,
+      "declared_minutes": 0
+    },
+    "last_3d": {
+      "session_count": 0,
+      "declared_minutes": 0,
+      "days_with_records": 0
+    },
+    "last_7d": {
+      "session_count": 0,
+      "declared_minutes": 0,
+      "days_with_records": 0
+    },
+    "data_quality": {
+      "extended_wall_clock_interval_count": 0,
+      "manual_missing_log_notes": 0,
+      "malformed_session_count": 0,
+      "reliability": "low",
+      "wall_clock_interpretation": "end-begin 可能包含中途暂停后继续番茄钟的时间。工作量始终按 duration 声明值统计，较长墙钟跨度不视为负面信号。"
+    },
+    "interpretation_warning": "番茄钟日志在假期中记录不完整，只能作为主动工作信号。无记录不能解释为无学习，且不能用于判断具体任务进度。"
+  }
+}

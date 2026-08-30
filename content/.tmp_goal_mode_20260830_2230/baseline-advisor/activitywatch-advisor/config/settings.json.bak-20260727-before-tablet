@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "timezone": "Asia/Shanghai",
+  "activitywatch_sync_root": "/home/conrad/workspace/activitywatch-sync",
+  "phone_archive_root": "/home/conrad/phone_usage/archive",
+  "phone_incoming_root": "/home/conrad/phone_usage/incoming",
+  "output_root": "/home/conrad/workspace/activitywatch-advisor/data",
+  "model": {
+    "endpoint": "https://api.deepseek.com/chat/completions",
+    "name": "deepseek-v4-flash",
+    "thinking": "enabled",
+    "max_tokens": 6000,
+    "timeout_seconds": 120,
+    "retries": 2
+  },
+  "semantic_model": {
+    "thinking": "disabled",
+    "max_tokens": 6000
+  },
+  "processing": {
+    "minimum_evidence_seconds": 30,
+    "max_timeline_segments": 240,
+    "timeline_noise_gap_seconds": 3,
+    "semantic_context_minutes": 5,
+    "title_max_characters": 180,
+    "heartbeat_fresh_seconds": 1200,
+    "heartbeat_stale_seconds": 2700
+  },
+  "state_rules": {
+    "rest_minimum_continuous_inactive_seconds": 180,
+    "entertainment_deviation_minimum_seconds": 30,
+    "rest_required_devices": [
+      "computer",
+      "phone"
+    ],
+    "future_devices": [
+      "tablet"
+    ]
+  },
+  "computer_app_names": {
+    "msedge.exe": "Microsoft Edge",
+    "chrome.exe": "Google Chrome",
+    "ChatGPT.exe": "ChatGPT",
+    "Obsidian.exe": "Obsidian",
+    "Weixin.exe": "微信",
+    "WeChatAppEx.exe": "微信小程序",
+    "WINWORD.EXE": "Microsoft Word",
+    "wemeetapp.exe": "腾讯会议",
+    "mathpix-snipping-tool.exe": "Mathpix",
+    "clash-verge.exe": "Clash Verge",
+    "powershell.exe": "PowerShell",
+    "WindowsTerminal.exe": "Windows Terminal",
+    "Code.exe": "Visual Studio Code",
+    "explorer.exe": "文件资源管理器",
+    "aw-qt.exe": "ActivityWatch",
+    "Cold Turkey Blocker.exe": "Cold Turkey"
+  },
+  "phone_app_names": {
+    "com.tencent.mm": "微信",
+    "com.tencent.mobileqq": "QQ",
+    "tv.danmaku.bili": "哔哩哔哩",
+    "com.bbk.launcher2": "手机桌面",
+    "com.llamalab.automate": "Automate",
+    "com.pl.getaway.getaway": "不做手机控",
+    "com.android.intentresolver": "系统应用选择器",
+    "com.vivo.doubleinstance": "Vivo 应用分身",
+    "com.vivo.globalsearch": "Vivo 全局搜索"
+  }
+}

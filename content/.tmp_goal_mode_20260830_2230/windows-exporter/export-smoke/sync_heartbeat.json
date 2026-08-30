@@ -1,0 +1,13 @@
+{
+  "last_checked_at": "2026-08-30T23:32:46+08:00",
+  "last_successful_export_at": "2026-08-30T23:32:46+08:00",
+  "status": "ok",
+  "source_changed": true,
+  "goal_materials": {
+    "status": "ok",
+    "document_count": 0,
+    "error_count": 0,
+    "changed": true
+  },
+  "error": null
+}

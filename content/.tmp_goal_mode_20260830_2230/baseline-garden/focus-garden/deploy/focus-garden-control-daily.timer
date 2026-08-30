@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily My Focus Garden delay-debt snapshot
+
+[Timer]
+OnCalendar=*-*-* 04:15:00 Asia/Shanghai
+Persistent=true
+RandomizedDelaySec=60
+Unit=focus-garden-control-daily.service
+
+[Install]
+WantedBy=timers.target

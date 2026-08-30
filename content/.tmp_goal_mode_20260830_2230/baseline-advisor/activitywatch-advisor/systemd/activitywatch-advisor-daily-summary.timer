@@ -1,0 +1,11 @@
+[Unit]
+Description=Send daily behavior statistics at 09:00
+
+[Timer]
+OnCalendar=*-*-* 09:00:00
+Persistent=true
+AccuracySec=30s
+Unit=activitywatch-advisor-daily-summary.service
+
+[Install]
+WantedBy=timers.target

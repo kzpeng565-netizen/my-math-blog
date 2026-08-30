@@ -1,0 +1,12 @@
+[Unit]
+Description=Record the daily My Focus Garden delay-debt snapshot
+After=focus-garden.service
+
+[Service]
+Type=oneshot
+User=conrad
+WorkingDirectory=/home/conrad/services/focus-garden
+ExecStart=/usr/bin/python3 /home/conrad/services/focus-garden/scripts/control_review.py --daily
+
+[Install]
+WantedBy=multi-user.target

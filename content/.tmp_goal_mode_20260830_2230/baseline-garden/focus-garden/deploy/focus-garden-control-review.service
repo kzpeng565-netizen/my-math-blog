@@ -1,0 +1,12 @@
+[Unit]
+Description=Freeze the weekly My Focus Garden control review
+After=focus-garden.service
+
+[Service]
+Type=oneshot
+User=conrad
+WorkingDirectory=/home/conrad/services/focus-garden
+ExecStart=/usr/bin/python3 /home/conrad/services/focus-garden/scripts/control_review.py
+
+[Install]
+WantedBy=multi-user.target

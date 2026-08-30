@@ -1,0 +1,13 @@
+[Unit]
+Description=Send the daily life report with 09:00/10:00/11:00 sleep-boundary retries
+
+[Timer]
+OnCalendar=*-*-* 09:00:00
+OnCalendar=*-*-* 10:00:00
+OnCalendar=*-*-* 11:00:00
+Persistent=true
+AccuracySec=30s
+Unit=activitywatch-advisor-daily-life.service
+
+[Install]
+WantedBy=timers.target
