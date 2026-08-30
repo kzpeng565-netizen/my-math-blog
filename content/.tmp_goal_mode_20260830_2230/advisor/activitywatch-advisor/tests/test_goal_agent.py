@@ -138,6 +138,40 @@ class GoalAgentTest(unittest.TestCase):
         self.assertIn("互证", experience["status"])
         self.assertEqual(count, 2)
 
+    def test_existing_database_backfills_new_seed_sources_without_reset(self) -> None:
+        with self.agent._connect() as connection:
+            connection.execute(
+                "DELETE FROM source_record WHERE id IN (?,?,?,?)",
+                (
+                    "paper-seijts-2004",
+                    "paper-locke-latham-2002",
+                    "paper-kluger-denisi-1996",
+                    "paper-panadero-2017",
+                ),
+            )
+        GoalAgent(
+            self.root / "data",
+            self.settings,
+            env_file=self.root / "missing.env",
+            now=lambda: self.current,
+            model_runner=self._model,
+        )
+        with self.agent._connect() as connection:
+            restored = connection.execute(
+                "SELECT COUNT(*) FROM source_record WHERE id IN (?,?,?,?)",
+                (
+                    "paper-seijts-2004",
+                    "paper-locke-latham-2002",
+                    "paper-kluger-denisi-1996",
+                    "paper-panadero-2017",
+                ),
+            ).fetchone()[0]
+            versions = connection.execute("SELECT COUNT(*) FROM plan_version").fetchone()[0]
+            plan_items = connection.execute("SELECT COUNT(*) FROM plan_item").fetchone()[0]
+        self.assertEqual(restored, 4)
+        self.assertEqual(versions, 1)
+        self.assertEqual(plan_items, 48)
+
     def test_recommendations_respect_each_day_cap(self) -> None:
         with self.agent._connect() as connection:
             rows = connection.execute(

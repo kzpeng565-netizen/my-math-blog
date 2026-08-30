@@ -427,6 +427,11 @@ class GoalAgent:
             )
 
     def _seed(self, connection: sqlite3.Connection) -> None:
+        # Source seeds are an idempotent data migration, not only first-run
+        # sample data.  Running this before the portfolio guard lets existing
+        # Goal Agent databases receive newly curated official/research sources
+        # without resetting plans, evidence, chats, or versions.
+        self._seed_sources(connection)
         if connection.execute("SELECT 1 FROM portfolio WHERE id=?", (PORTFOLIO_ID,)).fetchone():
             if not connection.execute("SELECT 1 FROM plan_version LIMIT 1").fetchone():
                 self._create_version(connection, "恢复缺失的初始版本", "seed", [], "system")
@@ -514,7 +519,6 @@ class GoalAgent:
                 (milestone_id, start, end, title, _json(acceptance), order),
             )
         self._seed_trial_week(connection, now)
-        self._seed_sources(connection)
         self._create_version(connection, "初始化四轨道与 4 周试运行", "seed", [], "system")
 
     def _seed_trial_week(self, connection: sqlite3.Connection, now: str) -> None:

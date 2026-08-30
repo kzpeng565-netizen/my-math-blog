@@ -10,5 +10,5 @@ modified: 2026-08-29T17:53:29.453Z
 # GTM259 Ergodic Theory with a view towards Number Theory-Manfred Einsiedler Thomas Ward — PDF annotations
 
 %%inkedmark
-v1:XYzBCsIwEET/Zbwu0jS11vyJiIfSBg0N2ZKEFgz9dzc3kbns7LyZgs3G5DjAKMLm7A5TkKbI3t9hGsLu5vyG6Vp11leSaPRW4IMQ7UuKCeZR4GYYRAXC4kK9XVjEpBx5sT9IqsjEnqOYkxqrKuc+MqoJmdlLstog3zXX5qB1p+nW9P2FVDvQn38eVV8=
+v1:lYzNCsIwEITfZbwu0jT9zZuI9FDaoKGhKUlowdJ3d4MI6k3msrMz8+1YtQ/GzVCCsBq9Qe0Ig3fWXqAywmbGeIcqcnGWNXHUW83lg+D1jYcB6rrDjFDwAoTJzOk288QmRO8m/VEJqTI46zybk+iTUs88GCoJ0TnLyaJn/i4xLRspC0ltVlUlibyhH98d9Gbn/7Orts5IlLJsXuxv3x1JTw==
 %%

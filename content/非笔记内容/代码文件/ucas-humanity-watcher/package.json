@@ -1,0 +1,16 @@
+{
+  "name": "ucas-humanity-watcher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "国科大人文讲座每分钟监控与人工确认预约工具",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node src/main.mjs",
+    "start:ui": "node src/main.mjs --open-dashboard",
+    "test": "node --test --test-concurrency=1"
+  },
+  "dependencies": {}
+}
