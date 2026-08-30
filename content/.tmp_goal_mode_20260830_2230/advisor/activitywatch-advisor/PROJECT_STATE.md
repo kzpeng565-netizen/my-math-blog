@@ -638,3 +638,15 @@ Focus Garden 系统状态首屏新增“同步状态”。`POST /api/control/syn
 Tailnet 实测同步前后 S7、证据和冻结截止时间不变。控制测试 6/6、Windows 全量 43/43；数据充足后的准入门槛和改进路线记录在本地 Obsidian Focus Garden 控制设计文档。
 
 <!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-api-browser-and-windows-tests -->
+
+## 2026-08-31：独立 Goal Agent 与 Focus Garden 目标模式
+
+“我的专注花园”已上线独立目标模式。Goal Agent 管理长期目标距离、月/周计划、证据和策略调整；Next Action 仍只推荐当前行动。二者的提示词、模型配置、聊天、SQLite 和审计历史独立，仅通过 task-sync 任务及稳定完成证据联动。
+
+当前 Portfolio 为“2028 级保研到数学所何伟鲲方向”，四轨道权重 40/20/30/10。首个 4 周灰度为 2026-08-31 至 09-27，每周 1590 分钟；生产计划 v1、本周 12 项、证据 0、授权资料 0，因此四轨道和吞吐量保持 unknown。
+
+Goal Agent 数据库为 `data/goal_agent/goal-agent.sqlite3`；Garden 只通过固定白名单代理 Advisor `127.0.0.1:8767`。`goal-agent-review.timer` 每周日 20:30 复盘。Tavily 已复用 Codex MCP 同源密钥并实测 HTTP 200，密钥只在 Pi 私有环境文件。
+
+验收：Advisor 199/199、Pi/Windows Garden 48/48、Goal 增量 12/12、Windows 导出器 11/11；SQLite `quick_check=ok`、权限 600，旧版本写请求返回 409 且无部分写入。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-production-tests-tailnet-db-and-tavily -->

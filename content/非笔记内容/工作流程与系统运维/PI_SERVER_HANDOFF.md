@@ -1481,7 +1481,7 @@ systemctl is-active activitywatch-advisor-web.service focus-garden.service goal-
 systemctl list-timers goal-agent-review.timer --all
 ss -lnt | grep -E ':(8767|8838) '
 curl -fsS http://127.0.0.1:8838/api/goal-agent/state | python3 -m json.tool
-sqlite3 /home/conrad/workspace/activitywatch-advisor/data/goal_agent/goal-agent.sqlite3 'PRAGMA quick_check;'
+python3 -c 'import sqlite3; p="/home/conrad/workspace/activitywatch-advisor/data/goal_agent/goal-agent.sqlite3"; c=sqlite3.connect(p); print(c.execute("PRAGMA quick_check").fetchone()[0])'
 ```
 
 恢复时按文件比较并恢复源码、配置或 unit；不得用 Windows Garden 整树覆盖 Pi，不得用旧 Goal SQLite 覆盖新的证据、聊天、审批或版本。

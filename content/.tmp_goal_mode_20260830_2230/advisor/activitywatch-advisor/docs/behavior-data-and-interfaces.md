@@ -712,3 +712,15 @@ data/statistics/daily_life/*.json
 - 实时聚合写入 `/home/conrad/services/focus-garden/data/control-live.json`，周级冻结权威仍是 `control-review.json`。
 - 冻结期内响应为 `snapshot_state=synced_live`，`decision_generated_at` 指向周快照；`GET /api/system-status` 返回最新聚合但不改变冻结结论。
 - API 只返回聚合量，不返回任务标题、原始活动或报告正文。
+
+## 2026-08-31：Goal Agent 数据与接口
+
+- 权威库：`data/goal_agent/goal-agent.sqlite3`；包含 portfolio、track、milestone、plan_item、evidence_event、progress_snapshot、plan_version、approval_request、source_record、chat_message、request_log、plan_item_task、material_record 和 FTS。
+- Windows 导出器 v5 输出稳定 `task_id`、`task_id@completed_date` 完成事件、任务修改时间，以及逐项授权资料的分页 gzip 文本。
+- Pi 资料输入：`/home/conrad/workspace/behavior-context-sync/goal_agent/materials/index.json` 与 `*.json.gz`；片段保存页码、来源路径、修改时间和 SHA-256。
+- GET：`/api/goal-agent/state`、`/api/goal-agent/plan`。
+- POST：`feedback`、`chat`、`review`、`plan-items/{id}/accept-day`、`approvals/{id}/decision`、`versions/{id}/rollback`。
+- 所有 POST 带 `request_id` 和 `base_plan_version`；409 不部分写入。
+- Tavily 状态只暴露 configured 布尔值；密钥不进入 JSON、SQLite、日志或项目文档。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=live-api-schema-exporter-and-db-checked -->

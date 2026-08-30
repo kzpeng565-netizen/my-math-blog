@@ -1410,3 +1410,38 @@ Focus Garden `GardenService.system_status()` 现返回任务正文脱敏的 `ste
 Tailnet 点击验收通过，S7 与冻结时间未变。控制测试 6/6、Windows 全量 43/43；Pi 全量 46 项中 45 项通过，唯一旧失败是生产 queue 非零但测试固定断言 0。服务 loopback-only。备份为 `/home/conrad/services/focus-garden/backups/20260815-133941-control-status-sync/`。
 
 <!-- ai_provenance: source=codex; date=2026-08-15; verification=pi-tests-live-tailnet-api-browser-and-windows-mirror -->
+
+## 2026-08-31：独立 Goal Agent 接管说明
+
+生产源、提示词和数据：
+
+```text
+/home/conrad/workspace/activitywatch-advisor/src/goal_agent.py
+/home/conrad/workspace/activitywatch-advisor/prompts/goal-agent.md
+/home/conrad/workspace/activitywatch-advisor/data/goal_agent/goal-agent.sqlite3
+/home/conrad/workspace/behavior-context-sync/goal_agent
+/home/conrad/.config/activitywatch-advisor/tavily.env  # private, 600, never print
+```
+
+Goal Agent 与 Next Action 共用 `activitywatch-advisor-web.service` 和 `127.0.0.1:8767`，但领域状态完全独立。Focus Garden `127.0.0.1:8838` 只代理固定 Goal API；外部入口仍为 tailnet-only `https://pi.taild4d3f7.ts.net:8460/`，禁止 Funnel。`goal-agent-review.timer` 每周日 20:30 Asia/Shanghai 运行。
+
+API：
+
+```text
+GET  /api/goal-agent/state
+GET  /api/goal-agent/plan
+POST /api/goal-agent/feedback
+POST /api/goal-agent/chat
+POST /api/goal-agent/plan-items/{id}/accept-day
+POST /api/goal-agent/review
+POST /api/goal-agent/approvals/{id}/decision
+POST /api/goal-agent/versions/{id}/rollback
+```
+
+所有 POST 需要 `request_id` 和 `base_plan_version`；冲突返回 409 且不部分应用。Goal Agent 只向 task-sync 排 mutation，Pi 不直接改 Obsidian。
+
+2026-08-31 快照：plan v1、4 条轨道、7 个里程碑、4 个 1590 分钟周、本周 12 项、证据 0、资料 0、资料缺口 7、来源 14、待审批 0；Tavily 公共测试查询 HTTP 200。测试：Advisor 199/199、Pi/Windows Garden 48/48、Goal 增量 12/12、Windows 导出器 11/11。SQLite `quick_check=ok`、600。
+
+部署备份：`/home/conrad/workspace/backups/goal-mode-20260830-221600/`。恢复时逐文件比较，不得以 Windows Garden 整树覆盖 Pi，不得用旧 Goal SQLite 覆盖新的证据、聊天、审批或版本。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-production-services-db-tailnet-tests-and-tavily -->

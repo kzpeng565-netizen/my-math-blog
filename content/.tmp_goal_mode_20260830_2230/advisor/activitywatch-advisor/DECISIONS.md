@@ -767,3 +767,35 @@ Windows Agent 每日 23:30 弹出 60 秒收尾框：用户可立即关闭配置�
 “同步状态”可以更新当天 D 和当前八项聚合，但不得替换冻结期内的状态、证据、唯一调整与截止时间。实时数据与周决策分别保存；正常周评审生成新结论时废弃旧实时快照。该按钮不是缩短七日冻结或触发参数调整的入口。
 
 <!-- ai_provenance: source=codex; date=2026-08-15; verification=implemented-and-tailnet-verified -->
+
+## 2026-08-31：Goal Agent 决策
+
+### D97. Goal Agent 与 Next Action 保持独立【有效】
+
+Goal Agent 负责长期距离、证据、月/周计划和策略；Next Action 只负责当前行动。两者只共享 task-sync 任务与完成证据，不共享提示词、聊天、SQLite 或审计历史。
+
+### D98. 不生成单一目标进度百分比【有效】
+
+四轨道分别显示内容覆盖、真实题源掌握、周执行、吞吐量和证据置信度。少于三周可比数据、课程考核比例未知或题源不足时保持 unknown/待核验；40/20/30/10 只用于资源分配。
+
+### D99. 推荐日必须由用户确认后写任务【有效】
+
+周任务先进入本周池。用户确认日期后 Goal Agent 才提交 task-sync mutation；Pi 不写 Markdown，桌面 Obsidian 插件仍是唯一写入者，新快照 ack 后才标记同步完成。
+
+### D100. 小调整自动、重大边界审批【有效】
+
+同月周任务、推荐日、任务拆分和低价值事项顺序可自动调整并生成版本；总目标、截止日期、资源权重、容量范围和重大跨月移动必须创建 ApprovalRequest。所有变化可审计、可回退。
+
+### D101. Goal 写请求使用幂等与乐观并发【有效】
+
+所有写请求带 `request_id` 与 `base_plan_version`。重复请求返回原结果，版本冲突返回 409，整次操作不部分应用；回退生成新版本而不删除历史。
+
+### D102. 学习资料逐项授权，外部搜索不含私人信息【有效】
+
+Windows 只导出资料清单中已勾选的 Vault 内 PDF/Markdown/文本，保留页码、来源路径、修改时间和 SHA-256，并剥离 MathInk/base64。Tavily 查询仅限公开招生和导师资料，不能包含成绩、简历或笔记正文。
+
+### D103. 开学杂项不进入目标模式【有效】
+
+作息统计、批量教材转 Markdown、人文课抢课、额外开学自学安排和夜间固定 Agent 工作制不占四轨道预算，也不进入 Goal Agent 提示词或检索范围。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=user-scope-and-production-behavior-checked -->

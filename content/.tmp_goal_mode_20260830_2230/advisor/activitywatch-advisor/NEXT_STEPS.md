@@ -716,3 +716,15 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 - [ ] 先运行四个数据合格周的 shadow 判断，再考虑一次一个、可回滚的软参数实验；硬锁规则仍只在月级人工维护。
 
 <!-- ai_provenance: source=codex; date=2026-08-15; verification=design-recorded-implementation-pending -->
+
+## 2026-08-31：Goal Agent 4 周灰度后续
+
+- [x] Goal Agent、六视图 UI、固定代理、独立 SQLite、审批/回退、FTS、导出器 v5、周复盘 timer 与 Tavily 同源密钥已部署并验证。
+- [ ] 补充三门课教师/教材/大纲/考核比例/考试日期，至少三份数学所真实题源，遍历论教材与章节，抽代书面和口头题库。
+- [ ] 用一份小型授权资料验收分页、哈希、Syncthing 和 FTS。
+- [ ] 只确认少量推荐日，验收 mutation → Obsidian 写入 → 快照 ack → 计划项映射。
+- [ ] 2026-09-06 20:30 验收第一次自然周复盘、版本差异和 ntfy receipt。
+- [ ] 至少三周可比深度分钟后才判断吞吐量；Agent 不得自行修改 22–31 小时范围。
+- [ ] 2026-09-27 按无丢失/重复、4 次可回退复盘、无虚构预测和反馈成本决定是否长期启用。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=implementation-complete-natural-use-pending -->

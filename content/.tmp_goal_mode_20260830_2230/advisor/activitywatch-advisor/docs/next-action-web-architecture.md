@@ -299,3 +299,11 @@ The final Next Action prompt continues to state `1 🍅 = 40 minutes` and tomato
 若 `procrastinated_task_titles` 非空，task 类型模型输出必须逐字选择其中标题，并在原因或证据中说明累计推迟天数；校验器会拒绝选择普通今天任务的结果，fallback 也使用同一优先级。午休禁工作、深夜睡眠等非 task 决策规则不受影响。Prompt 版本为 `next-action-v1.4-procrastination-priority`。
 
 <!-- ai_provenance: source=codex; date=2026-08-12; verification=advisor-35-tests-and-live-service -->
+
+## 2026-08-31：与 Goal Agent 的边界
+
+Goal Agent 不是 Next Action 的新版本。Next Action 继续只回答“当前做什么”，沿用自己的提示词、suggestion/response/outcome 归档和澄清状态；Goal Agent 独立保存长期目标、里程碑、周承诺、证据、聊天、审批和计划版本。
+
+二者只共享 task-sync 的任务事实、稳定 `task_id` 和完成事件。Goal Agent 可以在用户确认推荐日后提交 task mutation，但不能向 Next Action 注入长期聊天或绕过其既有健康、时段、拖延和休息规则。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=production-domain-separation-checked -->

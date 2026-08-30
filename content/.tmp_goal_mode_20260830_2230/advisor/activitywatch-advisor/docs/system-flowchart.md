@@ -367,3 +367,28 @@ data/current_state/next_action_context.json
 - 最近 Next Action 接受/拒绝/执行结果。
 
 这样后续任何 AI 或网页功能都优先读这个统一状态，而不是重新翻十几个目录。
+
+## 2026-08-31：目标模式独立闭环
+
+```mermaid
+flowchart LR
+  U["反馈/成绩/变化"] --> GA["独立 Goal Agent"]
+  V["Obsidian 授权资料与 Tasks"] --> EX["Windows 导出器 v5"]
+  EX -->|"Syncthing"| FTS["Pi FTS 与稳定完成事件"]
+  FTS --> GA
+  GA --> MET["分轨道确定性指标"]
+  MET --> AI["目标专用 DeepSeek"]
+  AI --> PERM{"权限边界"}
+  PERM -->|"同月小调整"| VER["计划版本"]
+  PERM -->|"重大调整"| APR["用户审批"]
+  APR --> VER
+  VER --> UI["Garden 目标模式"]
+  UI -->|"确认推荐日"| TS["task-sync mutation"]
+  TS --> OP["Obsidian 插件唯一写入"]
+  OP --> EX
+  NA["Next Action"] -. "只共享任务证据" .- TS
+```
+
+Goal Agent 与 Next Action 不共享提示词、聊天、SQLite 或审计。Garden 只在 Tailnet `:8460` 提供页面，并通过固定白名单代理到 Advisor loopback `:8767`。Tavily 仅允许不含个人信息的公开招生/导师查询。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=production-flow-and-security-boundaries-checked -->
