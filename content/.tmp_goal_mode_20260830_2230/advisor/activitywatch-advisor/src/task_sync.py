@@ -22,6 +22,7 @@ from common import atomic_write_json
 
 
 TASK_ID_RE = re.compile(r"^\^[A-Za-z0-9-]{4,32}$")
+CLIENT_REQUEST_ID_RE = re.compile(r"^[A-Za-z0-9_-]{8,120}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 PRIORITIES = {"highest", "high", "medium", "normal", "low", "lowest"}
 PROCRASTINATION_THRESHOLD_DAYS = 2
@@ -80,12 +81,14 @@ def _load_state(output_root: Path) -> dict[str, Any]:
             "daily_plans": {},
             "postponements": {},
             "primary_tasks": {},
+            "request_history": {},
         }
     state["revision"] = int(state.get("revision", 0) or 0)
     state.setdefault("completions", [])
     state.setdefault("daily_plans", {})
     state.setdefault("postponements", {})
     state.setdefault("primary_tasks", {})
+    state.setdefault("request_history", {})
     if not isinstance(state["completions"], list):
         state["completions"] = []
     if not isinstance(state["daily_plans"], dict):
@@ -94,6 +97,8 @@ def _load_state(output_root: Path) -> dict[str, Any]:
         state["postponements"] = {}
     if not isinstance(state["primary_tasks"], dict):
         state["primary_tasks"] = {}
+    if not isinstance(state["request_history"], dict):
+        state["request_history"] = {}
     return state
 
 
@@ -145,6 +150,51 @@ def _snapshot_tasks(snapshot: dict[str, Any], today: date) -> dict[str, dict[str
             task["bucket"] = _bucket(task, today)
             tasks[task_id] = task
     return tasks
+
+
+def _snapshot_completed_recent(snapshot: dict[str, Any]) -> list[dict[str, Any]]:
+    task_events = snapshot.get("task_events")
+    if not isinstance(task_events, dict):
+        return []
+    events = task_events.get("completed_recent")
+    if not isinstance(events, list):
+        return []
+    deduplicated: dict[str, dict[str, Any]] = {}
+    for raw in events[-1000:]:
+        if not isinstance(raw, dict):
+            continue
+        task_id = raw.get("task_id")
+        completed_at = str(raw.get("completed_at") or "")
+        day_text = completed_at[:10]
+        if not isinstance(task_id, str) or not TASK_ID_RE.fullmatch(task_id) or not DATE_RE.fullmatch(day_text):
+            continue
+        try:
+            date.fromisoformat(day_text)
+        except ValueError:
+            continue
+        event_id = str(raw.get("event_id") or _completion_key(task_id, day_text))
+        if event_id != _completion_key(task_id, day_text):
+            continue
+        deduplicated[event_id] = {
+            "event_id": event_id,
+            "task_id": task_id,
+            "title": str(raw.get("title") or "")[:500],
+            "completed_at": completed_at,
+            "occurrence_date": day_text,
+            "completion_time_precision": str(raw.get("completion_time_precision") or "date"),
+            "task_modified_at": raw.get("task_modified_at"),
+            "scheduled_date": raw.get("scheduled_date"),
+            "due_date": raw.get("due_date"),
+            "tomatoes_completed": raw.get("tomatoes_completed"),
+            "tomatoes_total": raw.get("tomatoes_total"),
+            "source": "obsidian_export",
+            "status": "completed",
+            "recurring": False,
+            "sync_pending": False,
+        }
+    return sorted(
+        deduplicated.values(), key=lambda item: (item["occurrence_date"], item["task_id"])
+    )[-500:]
 
 
 def _project_weekly_recurrence(task: dict[str, Any], today: date) -> None:
@@ -436,6 +486,7 @@ def effective_state(
     if not snapshot:
         snapshot = _read_json(output_root / "context_cache" / "current.json")
     tasks = _snapshot_tasks(snapshot, current.date())
+    exported_completed = _snapshot_completed_recent(snapshot)
     state = _load_state(output_root)
     for mutation in state["mutations"]:
         if isinstance(mutation, dict):
@@ -457,6 +508,22 @@ def effective_state(
     grouped = {key: [] for key in ("unassigned", "overdue", "today", "near_term", "later", "recurring")}
     for task in open_tasks:
         grouped[_bucket(task, current.date())].append(task)
+    pi_completed = [
+        {**item.get("task", {}), "event_id": _completion_key(str(item.get("task_id", "")), str(item.get("occurrence_date", ""))),
+         "status": "completed", "completed_at": item.get("completed_at"),
+         "occurrence_date": item.get("occurrence_date"), "completion_time_precision": "second",
+         "source": "pi_task_sync", "recurring": bool(item.get("recurring")),
+         "is_primary": bool(primary_tasks.get(current.date().isoformat(), {}).get("task_id") == item.get("task_id")),
+         "primary_date": current.date().isoformat() if primary_tasks.get(current.date().isoformat(), {}).get("task_id") == item.get("task_id") else None,
+         "sync_pending": bool(item.get("mutation_id") in {m.get("mutation_id") for m in state["mutations"]})}
+        for item in state["completions"]
+        if item.get("task_id") and item.get("occurrence_date")
+    ]
+    completed_by_id = {item["event_id"]: item for item in exported_completed}
+    completed_by_id.update({item["event_id"]: item for item in pi_completed})
+    completed_recent = sorted(
+        completed_by_id.values(), key=lambda item: (str(item.get("occurrence_date", "")), str(item.get("task_id", "")))
+    )[-500:]
     return {
         "schema_version": 1,
         "generated_at": generated_at,
@@ -465,14 +532,8 @@ def effective_state(
         "snapshot_sha256": _snapshot_hash(context_path),
         "tasks": grouped,
         "mutations": state["mutations"],
-        "completed_today": [
-            {**item.get("task", {}), "status": "completed", "completed_at": item.get("completed_at"),
-             "occurrence_date": item.get("occurrence_date"), "recurring": bool(item.get("recurring")),
-             "is_primary": bool(primary_tasks.get(current.date().isoformat(), {}).get("task_id") == item.get("task_id")),
-             "primary_date": current.date().isoformat() if primary_tasks.get(current.date().isoformat(), {}).get("task_id") == item.get("task_id") else None,
-             "sync_pending": bool(item.get("mutation_id") in {m.get("mutation_id") for m in state["mutations"]})}
-            for item in state["completions"] if item.get("occurrence_date") == current.date().isoformat()
-        ],
+        "completed_today": [item for item in completed_recent if item.get("occurrence_date") == current.date().isoformat()],
+        "completed_recent": completed_recent,
         "daily_scorecards": _daily_scorecards(state),
         "primary_tasks": primary_tasks,
         "steam_unlock_gate": _steam_unlock_gate(state, primary_tasks, current.date()),
@@ -570,6 +631,20 @@ def enqueue_mutation(
     task_id = str(payload.get("task_id", ""))
     if not TASK_ID_RE.fullmatch(task_id):
         raise ValueError("task_id must be an Obsidian block ID")
+    client_request_id = str(payload.get("request_id") or "")
+    if client_request_id and not CLIENT_REQUEST_ID_RE.fullmatch(client_request_id):
+        raise ValueError("request_id must be 8-120 safe characters")
+    state = _load_state(output_root)
+    if client_request_id:
+        previous = state["request_history"].get(client_request_id)
+        if isinstance(previous, dict) and isinstance(previous.get("mutation"), dict):
+            return {
+                "mutation": previous["mutation"],
+                "effective": effective_state(
+                    context_path, output_root, timezone_name=timezone_name, now=current
+                ),
+                "idempotent_replay": True,
+            }
     changes = _clean_changes(payload, creating=operation == "create") if operation not in {"complete", "complete_occurrence", "delete", "advance_tomatoes"} else {}
     current_effective = effective_state(context_path, output_root, timezone_name=timezone_name, now=current)
     current_tasks = {
@@ -579,7 +654,6 @@ def enqueue_mutation(
     }
     if operation == "create" and task_id in current_tasks:
         raise ValueError("task_id already exists")
-    state = _load_state(output_root)
     occurrence_date = current.date().isoformat()
     existing_completion = next((item for item in state["completions"]
                                 if item.get("completion_key") == _completion_key(task_id, occurrence_date)), None)
@@ -653,9 +727,24 @@ def enqueue_mutation(
         "created_at": current.isoformat(timespec="seconds"),
         "base_snapshot_sha256": _snapshot_hash(context_path),
     }
+    if client_request_id:
+        mutation["client_request_id"] = client_request_id
     if operation in {"complete", "complete_occurrence"}:
         completion["mutation_id"] = mutation["mutation_id"]
     state["mutations"].append(mutation)
+    if client_request_id:
+        state["request_history"][client_request_id] = {
+            "mutation": mutation,
+            "status": "queued",
+            "created_at": mutation["created_at"],
+        }
+        if len(state["request_history"]) > 500:
+            oldest = sorted(
+                state["request_history"],
+                key=lambda key: str(state["request_history"][key].get("created_at", "")),
+            )[: len(state["request_history"]) - 500]
+            for key in oldest:
+                state["request_history"].pop(key, None)
     state["revision"] += 1
     state["updated_at"] = mutation["created_at"]
     _save_state(output_root, state)
@@ -735,6 +824,13 @@ def acknowledge_mutations(
     state["mutations"] = [item for item in state["mutations"] if item.get("mutation_id") not in selected]
     acknowledged = before - len(state["mutations"])
     if acknowledged:
+        for record in state.get("request_history", {}).values():
+            if not isinstance(record, dict):
+                continue
+            mutation = record.get("mutation")
+            if isinstance(mutation, dict) and mutation.get("mutation_id") in selected:
+                record["status"] = "acknowledged"
+                record["acknowledged_at"] = _now(timezone_name).isoformat(timespec="seconds")
         state["revision"] += 1
         state["updated_at"] = _now(timezone_name).isoformat(timespec="seconds")
         _save_state(output_root, state)

@@ -443,6 +443,69 @@ class TaskSyncTests(unittest.TestCase):
             self.assertEqual(state["time_context"]["current_timestamp"], "2026-08-05T13:40:00+08:00")
             self.assertEqual(state["obsidian_context"]["tasks"]["today"][0]["task_id"], "^8m2kx7q4")
 
+    def test_exported_direct_completion_is_attributed_by_stable_id(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            context = self._snapshot(root)
+            snapshot = json.loads(context.read_text(encoding="utf-8"))
+            snapshot["task_events"] = {
+                "completed_recent": [
+                    {
+                        "event_id": "^goaltask@2026-08-05",
+                        "task_id": "^goaltask",
+                        "title": "目标模式任务",
+                        "completed_at": "2026-08-05",
+                        "completion_time_precision": "date",
+                        "task_modified_at": "2026-08-05T19:20:00+08:00",
+                    }
+                ]
+            }
+            context.write_text(json.dumps(snapshot), encoding="utf-8")
+            effective = effective_state(
+                context,
+                root,
+                now=datetime(2026, 8, 5, 20, 0, tzinfo=ZoneInfo("Asia/Shanghai")),
+            )
+            self.assertEqual(effective["completed_recent"][0]["task_id"], "^goaltask")
+            self.assertEqual(effective["completed_recent"][0]["source"], "obsidian_export")
+            self.assertEqual(effective["completed_today"][0]["completion_time_precision"], "date")
+
+    def test_client_request_id_replays_even_after_snapshot_ack(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            context = self._snapshot(root)
+            payload = {
+                "request_id": "goal-request-12345678",
+                "operation": "create",
+                "task_id": "^goalitem",
+                "title": "目标任务",
+                "scheduled_date": "2026-08-06",
+            }
+            first = enqueue_mutation(context, root, payload)
+            mutation = first["mutation"]
+            snapshot = json.loads(context.read_text(encoding="utf-8"))
+            snapshot["tasks"]["near_term_tasks"].append(
+                {
+                    "task_id": "^goalitem",
+                    "title": "目标任务",
+                    "scheduled_date": "2026-08-06",
+                    "priority": "normal",
+                    "source_order": 99,
+                    "task_source": "planned",
+                }
+            )
+            context.write_text(json.dumps(snapshot), encoding="utf-8")
+            digest = __import__("hashlib").sha256(context.read_bytes()).hexdigest()
+            acknowledge_mutations(
+                context,
+                root,
+                {"snapshot_sha256": digest, "mutation_ids": [mutation["mutation_id"]]},
+            )
+            replay = enqueue_mutation(context, root, payload)
+            self.assertTrue(replay["idempotent_replay"])
+            self.assertEqual(replay["mutation"]["mutation_id"], mutation["mutation_id"])
+            self.assertEqual(replay["effective"]["pending_mutation_count"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -29,6 +29,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any, Callable, Iterable
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -555,6 +556,43 @@ class GoalAgent:
                     now,
                 ),
             )
+        for week_number in range(2, 5):
+            week = date(2026, 8, 31) + timedelta(days=7 * (week_number - 1))
+            rolling = [
+                (
+                    item_id.replace("w1-", f"w{week_number}-"),
+                    minutes,
+                )
+                for item_id, _, _, minutes, _, _ in rows
+            ]
+            dates = self._recommend_dates(rolling, week)
+            for item_id, track_id, title, minutes, value, order in rows:
+                next_id = item_id.replace("w1-", f"w{week_number}-")
+                next_title = re.sub(
+                    r"（第一组）|：订正与知识缺口归档|：确认教材后完成首轮核心阅读|：闭卷复述定义与关键证明策略|：真实习题与待讨论问题记录|：真实题组书面基线与口头复述",
+                    "",
+                    title,
+                )
+                next_title = f"第 {week_number} 周滚动 · {next_title}"
+                connection.execute(
+                    "INSERT INTO plan_item(id,track_id,milestone_id,week_start,title,description,deep_minutes,"
+                    "recommended_date,status,value_score,material_required,material_status,sort_order,created_at,updated_at) "
+                    "VALUES(?,?,?, ?,?,?,?,?,'planned',?,1,'pending',?,?,?)",
+                    (
+                        next_id,
+                        track_id,
+                        "m-2026-09",
+                        week.isoformat(),
+                        next_title,
+                        "根据上一周证据滚动细化；Goal Agent 可在同月内调整推荐日、分钟数和拆分，资料不足时保持待核验。",
+                        minutes,
+                        dates[next_id],
+                        value,
+                        order,
+                        now,
+                        now,
+                    ),
+                )
 
     @staticmethod
     def _seed_sources(connection: sqlite3.Connection) -> None:
@@ -717,6 +755,7 @@ class GoalAgent:
             if not fts or fts["value"] != "1":
                 return {"status": "fts_unavailable", "document_count": len(documents), "indexed_chunk_count": 0}
             known = {row["id"]: row["sha256"] for row in connection.execute("SELECT id,sha256 FROM material_record")}
+            active_ids: set[str] = set()
             for document in documents:
                 if not isinstance(document, dict):
                     continue
@@ -727,7 +766,9 @@ class GoalAgent:
                 title = _clean_text(document.get("title"), 300)
                 if not record_id or not re.fullmatch(r"[0-9a-f]{64}", sha256) or not relative:
                     continue
+                active_ids.add(record_id)
                 if known.get(record_id) == sha256:
+                    connection.execute("UPDATE material_record SET status='indexed' WHERE id=?", (record_id,))
                     continue
                 target = (self.paths.material_root / "materials" / relative).resolve()
                 root = (self.paths.material_root / "materials").resolve()
@@ -772,6 +813,26 @@ class GoalAgent:
                         "indexed",
                         self._now().isoformat(timespec="seconds"),
                     ),
+                )
+            for row in connection.execute("SELECT id FROM material_record"):
+                if row["id"] not in active_ids:
+                    connection.execute("UPDATE material_record SET status='withdrawn' WHERE id=?", (row["id"],))
+                    connection.execute("DELETE FROM material_fts WHERE record_id=?", (row["id"],))
+            active_titles = " ".join(
+                row["title"] for row in connection.execute(
+                    "SELECT title FROM material_record WHERE status='indexed'"
+                )
+            )
+            readiness = {
+                "track-courses": any(course in active_titles for course in COURSES),
+                "track-amss-exam": any(word in active_titles for word in ("数学所", "数学分析", "高等代数")),
+                "track-ergodic": "遍历" in active_titles,
+                "track-algebra": any(word in active_titles for word in ("抽象代数", "抽代")),
+            }
+            for track_id, ready in readiness.items():
+                connection.execute(
+                    "UPDATE plan_item SET material_status=? WHERE track_id=? AND material_required=1",
+                    ("ready" if ready else "pending", track_id),
                 )
         return {"status": "ok", "document_count": len(documents), "indexed_chunk_count": indexed}
 
@@ -819,6 +880,25 @@ class GoalAgent:
         completed_ids = {event["plan_item_id"] for event in events if event["plan_item_id"] and event["evidence_type"] in {"completed", "task_completed"}}
         completed_minutes = sum(int(item["deep_minutes"]) for item in items if item["id"] in completed_ids or item["status"] == "completed")
         actual_minutes = sum(int(event["deep_minutes"] or 0) for event in events)
+        due = [item for item in items if item.get("recommended_date") and item["recommended_date"] <= today.isoformat()]
+        due_completed = [item for item in due if item["status"] == "completed" or item["id"] in completed_ids]
+        week_minutes: dict[str, int] = {}
+        for event in events:
+            if not event.get("deep_minutes"):
+                continue
+            try:
+                event_day = date.fromisoformat(str(event["occurred_at"])[:10])
+            except ValueError:
+                continue
+            key = _week_start(event_day).isoformat()
+            week_minutes[key] = week_minutes.get(key, 0) + int(event["deep_minutes"])
+        comparable_track_weeks = [value for _, value in sorted(week_minutes.items()) if value > 0]
+        track_forecast = round(sum(comparable_track_weeks[-2:]) / min(2, len(comparable_track_weeks))) if comparable_track_weeks else None
+        quantitative = sum(
+            1 for event in events
+            if event.get("score") is not None or event.get("completed_units") is not None or event.get("deep_minutes")
+        )
+        confidence = "high" if quantitative >= 6 and len(comparable_track_weeks) >= 3 else "medium" if quantitative >= 3 else "low" if quantitative else "unknown"
         common = {
             "content_coverage": {
                 "completed_deep_minutes": completed_minutes,
@@ -827,6 +907,17 @@ class GoalAgent:
             },
             "actual_deep_minutes": actual_minutes,
             "evidence_count": len(events),
+            "weekly_execution": {
+                "due_items": len(due),
+                "completed_items": len(due_completed),
+                "rate": round(len(due_completed) / len(due), 3) if due else None,
+            },
+            "throughput_forecast": {
+                "status": "known" if len(comparable_track_weeks) >= 3 else "unknown",
+                "comparable_weeks": len(comparable_track_weeks),
+                "weekly_minutes": track_forecast if len(comparable_track_weeks) >= 3 else None,
+            },
+            "evidence_confidence": confidence,
         }
         code = track["code"]
         if code == "courses":
@@ -1093,6 +1184,75 @@ class GoalAgent:
                 versions.append(item)
             return {"plan_version": self._current_version(connection), "milestones": milestones, "weeks": weeks, "versions": versions}
 
+    def _auto_adjust_short_term(self, connection: sqlite3.Connection) -> list[dict[str, Any]]:
+        """Fit the active same-month week to observed sustainable throughput.
+
+        This never changes the user-confirmed 22–31 hour range.  It also never
+        rewrites an item whose day was already accepted into task-sync.
+        """
+        today = self._now().date()
+        throughput = self._throughput(connection, today)
+        target = throughput.get("sustainable_capacity")
+        if throughput.get("status") != "known" or not isinstance(target, int):
+            return []
+        monday = _week_start(today)
+        row = connection.execute(
+            "SELECT MIN(week_start) AS value FROM plan_item WHERE archived=0 AND week_start>=?",
+            (monday.isoformat(),),
+        ).fetchone()
+        if not row or not row["value"]:
+            return []
+        week_text = str(row["value"])
+        if week_text[:7] != today.isoformat()[:7]:
+            return []
+        items = [dict(item) for item in connection.execute(
+            "SELECT * FROM plan_item WHERE archived=0 AND week_start=? ORDER BY value_score,sort_order",
+            (week_text,),
+        )]
+        current_total = sum(int(item["deep_minutes"]) for item in items)
+        target = int(_clamp(target, 1320, 1860))
+        if abs(current_total - target) < 40:
+            return []
+        changes: list[dict[str, Any]] = []
+        remaining = target - current_total
+        candidates = [item for item in items if not item["accepted_date"] and item["status"] != "completed" and int(item["auto_adjustable"])]
+        if remaining < 0:
+            for item in candidates:
+                reducible = max(0, int(item["deep_minutes"]) - 40)
+                amount = min(reducible, -remaining)
+                if amount <= 0:
+                    continue
+                after = int(item["deep_minutes"]) - amount
+                connection.execute("UPDATE plan_item SET deep_minutes=?,updated_at=? WHERE id=?", (after, self._now().isoformat(timespec="seconds"), item["id"]))
+                changes.append({"plan_item_id": item["id"], "field": "deep_minutes", "before": item["deep_minutes"], "after": after, "reason": "按最近两周真实吞吐量收缩低价值承诺，不滚入全部欠账"})
+                remaining += amount
+                if remaining >= 0:
+                    break
+        else:
+            for item in sorted(candidates, key=lambda value: (-int(value["value_score"]), int(value["sort_order"]))):
+                day_text = item["recommended_date"]
+                if not day_text:
+                    continue
+                day = date.fromisoformat(day_text)
+                cap = 180 if day.weekday() < 5 else 480
+                spare_day = cap - self._day_load(connection, day_text, exclude_id=item["id"]) - int(item["deep_minutes"])
+                amount = min(max(0, spare_day), max(0, 480 - int(item["deep_minutes"])), remaining)
+                if amount <= 0:
+                    continue
+                after = int(item["deep_minutes"]) + amount
+                connection.execute("UPDATE plan_item SET deep_minutes=?,updated_at=? WHERE id=?", (after, self._now().isoformat(timespec="seconds"), item["id"]))
+                changes.append({"plan_item_id": item["id"], "field": "deep_minutes", "before": item["deep_minutes"], "after": after, "reason": "按最近两周真实吞吐量增加高价值承诺"})
+                remaining -= amount
+                if remaining <= 0:
+                    break
+        final_total = connection.execute(
+            "SELECT SUM(deep_minutes) AS total FROM plan_item WHERE archived=0 AND week_start=?",
+            (week_text,),
+        ).fetchone()["total"] or 0
+        if not 1320 <= int(final_total) <= 1860:
+            raise ValueError("automatic adjustment would leave the confirmed weekly range")
+        return changes
+
     def feedback(self, payload: dict[str, Any]) -> dict[str, Any]:
         def operation(connection: sqlite3.Connection, current: int) -> dict[str, Any]:
             track_id = _clean_text(payload.get("track_id"), 80)
@@ -1170,6 +1330,7 @@ class GoalAgent:
                             None,
                         ),
                     )
+            changes.extend(self._auto_adjust_short_term(connection))
             if changes:
                 self._create_version(connection, "根据进度反馈更新周任务状态", "feedback", changes, "goal_agent")
             metrics = self._save_progress(connection, "feedback")
@@ -1217,6 +1378,7 @@ class GoalAgent:
             task_id = "^g" + hashlib.sha256(plan_item_id.encode("utf-8")).hexdigest()[:10]
             tomatoes = max(1, math.ceil(int(item["deep_minutes"]) / 40))
             mutation_result = enqueue_task({
+                "request_id": "goal-" + str(payload["request_id"]),
                 "operation": "create",
                 "task_id": task_id,
                 "title": f"[目标模式] {item['title']}",
@@ -1373,7 +1535,12 @@ class GoalAgent:
         return self._run_write("chat", payload, operation)
 
     def review(self, payload: dict[str, Any], *, use_model: bool = True) -> dict[str, Any]:
+        public_search = self.refresh_public_sources()
         context = self.state()
+        context["public_search"] = {
+            "status": public_search.get("status"),
+            "result_count": len(public_search.get("results", [])),
+        }
         model_result: dict[str, Any] = {"answer": "已完成确定性评估。", "plan_changes": [], "approval_request": None, "assessment": {}}
         generation: dict[str, Any] = {"status": "skipped"}
         model_error = None
@@ -1385,6 +1552,7 @@ class GoalAgent:
 
         def operation(connection: sqlite3.Connection, current: int) -> dict[str, Any]:
             changes = self._apply_model_changes(connection, model_result.get("plan_changes")) if use_model else []
+            changes.extend(self._auto_adjust_short_term(connection))
             approval_id = None
             requested = model_result.get("approval_request")
             if isinstance(requested, dict) and requested:
@@ -1399,7 +1567,7 @@ class GoalAgent:
             if changes:
                 self._create_version(connection, "完整复盘自动调整同月短期计划", "review", changes, "goal_agent")
             metrics = self._save_progress(connection, "review")
-            return {"ok": True, "assessment": model_result.get("assessment") or {}, "summary": _clean_text(model_result.get("answer"), 5000), "changes": changes, "approval_request_id": approval_id, "progress": metrics, "generation": generation, "model_status": "failed" if model_error else ("ok" if use_model else "skipped"), "model_error": model_error}
+            return {"ok": True, "assessment": model_result.get("assessment") or {}, "summary": _clean_text(model_result.get("answer"), 5000), "changes": changes, "approval_request_id": approval_id, "progress": metrics, "generation": generation, "model_status": "failed" if model_error else ("ok" if use_model else "skipped"), "model_error": model_error, "public_search": public_search}
 
         return self._run_write("review", payload, operation)
 
@@ -1537,6 +1705,45 @@ class GoalAgent:
                 continue
             results.append({"title": _clean_text(item.get("title"), 300), "url": _clean_text(item.get("url"), 1000), "excerpt": _clean_text(item.get("content"), 1000)})
         return {"status": "ok", "results": results}
+
+    def refresh_public_sources(self) -> dict[str, Any]:
+        result = self.tavily_search(
+            "site:amss.cas.cn 2028级 数学 推免 夏令营 春季选拔 招生通知"
+        )
+        if result.get("status") != "ok":
+            return result
+        fetched_at = self._now().isoformat(timespec="seconds")
+        with self._lock, self._connect() as connection:
+            for item in result.get("results", []):
+                url = str(item.get("url") or "")
+                title = _clean_text(item.get("title"), 300)
+                excerpt = _clean_text(item.get("excerpt"), 1000)
+                if not url or not title:
+                    continue
+                host = (urlparse(url).hostname or "").lower()
+                official = host.endswith("cas.cn") or host.endswith("ucas.ac.cn")
+                grade = "A" if official else "C"
+                status = "官方搜索结果，待核验发布日期与适用年级" if official else "单一搜索结果，待两个独立来源互证"
+                source_id = "web-" + hashlib.sha256(url.encode("utf-8")).hexdigest()[:24]
+                connection.execute(
+                    "INSERT INTO source_record(id,source_kind,grade,url,title,published_at,fetched_at,body_hash,excerpt,status,reference_only,metadata_json) "
+                    "VALUES(?,?,?,?,?,NULL,?,?,?,?,?,?) "
+                    "ON CONFLICT(id) DO UPDATE SET title=excluded.title,fetched_at=excluded.fetched_at,body_hash=excluded.body_hash,excerpt=excluded.excerpt,status=excluded.status,grade=excluded.grade",
+                    (
+                        source_id,
+                        "official_search" if official else "experience_search",
+                        grade,
+                        url,
+                        title,
+                        fetched_at,
+                        hashlib.sha256(excerpt.encode("utf-8")).hexdigest(),
+                        excerpt,
+                        status,
+                        1,
+                        _json({"provider": "Tavily", "query_policy": "fixed_public_only"}),
+                    ),
+                )
+        return result
 
 
 def main() -> int:

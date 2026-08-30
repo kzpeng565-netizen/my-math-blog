@@ -72,7 +72,9 @@ class GoalAgentTest(unittest.TestCase):
     def test_seed_has_exact_capacity_and_unknown_evidence(self) -> None:
         plan = self.agent.plan()
         self.assertEqual(plan["plan_version"], 1)
+        self.assertEqual(len(plan["weeks"]), 4)
         self.assertEqual(plan["weeks"][0]["minutes"], 1590)
+        self.assertTrue(all(week["minutes"] == 1590 for week in plan["weeks"]))
         state = self.agent.state()
         self.assertTrue(state["boundaries"]["next_action_is_separate"])
         self.assertEqual({track["status"] for track in state["tracks"]}, {"unknown"})
@@ -86,6 +88,32 @@ class GoalAgentTest(unittest.TestCase):
         for row in rows:
             weekday = datetime.fromisoformat(row["recommended_date"]).weekday()
             self.assertLessEqual(row["minutes"], 180 if weekday < 5 else 480)
+            self.assertGreaterEqual(row["minutes"], 120 if weekday < 5 else 360)
+
+    def test_three_weeks_of_evidence_adjust_next_week_inside_confirmed_range(self) -> None:
+        self.current = datetime(2026, 9, 21, 8, 0, tzinfo=ZoneInfo("Asia/Shanghai"))
+        with self.agent._connect() as connection:
+            for index, occurred_at in enumerate(("2026-09-01T20:00:00+08:00", "2026-09-08T20:00:00+08:00", "2026-09-15T20:00:00+08:00")):
+                connection.execute(
+                    "INSERT INTO evidence_event VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    (
+                        f"history-{index}", "track-courses", None, "weekly_total", occurred_at,
+                        1320, None, None, None, None, None, 3, 3, None, None, "{}", occurred_at,
+                    ),
+                )
+        result = self.agent.feedback({
+            "request_id": "capacity-12345678",
+            "base_plan_version": 1,
+            "track_id": "track-courses",
+            "evidence_type": "progress_update",
+            "deep_minutes": 0,
+        })
+        self.assertTrue(result["changes"])
+        with self.agent._connect() as connection:
+            total = connection.execute(
+                "SELECT SUM(deep_minutes) FROM plan_item WHERE week_start='2026-09-21'"
+            ).fetchone()[0]
+        self.assertEqual(total, 1320)
 
     def test_feedback_is_idempotent_and_conflict_is_409_material(self) -> None:
         payload = {
