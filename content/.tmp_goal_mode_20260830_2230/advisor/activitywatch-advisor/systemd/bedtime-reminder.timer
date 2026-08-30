@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the late-night device-use reminder once per minute overnight
+
+[Timer]
+OnCalendar=*-*-* 00..04:*:00
+Persistent=false
+AccuracySec=10s
+Unit=bedtime-reminder.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the behavior interpreter at minute 08 and 38
+
+[Timer]
+OnCalendar=*-*-* *:08,38:00
+Persistent=true
+AccuracySec=30s
+Unit=activitywatch-advisor.service
+
+[Install]
+WantedBy=timers.target

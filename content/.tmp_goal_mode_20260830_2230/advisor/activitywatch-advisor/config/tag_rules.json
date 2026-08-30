@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "tag_definitions": {
+    "ai_tool": {
+      "description": "ChatGPT、DeepSeek等AI工具，具体用途必须结合标题和相邻事实判断。",
+      "ai_policy": "不能仅凭AI工具本身判断为工作或娱乐。"
+    },
+    "automation_tool": {
+      "description": "Automate等自动化工具，前台存在不等于用户持续操作。",
+      "ai_policy": "只作为系统自动化背景，不单独证明工作。"
+    },
+    "communication_app": {
+      "description": "微信、QQ等通信应用处于前台。",
+      "ai_policy": "默认视为通信；只有同一事实组中存在明确工作主题证据时才可说明其服务于工作。"
+    },
+    "confirmed_rest": {
+      "description": "跨设备确定性规则确认的休息区间。",
+      "ai_policy": "必须保持为rest，不能覆盖。"
+    },
+    "content_feed": {
+      "description": "首页、推荐流等没有明确任务主题的信息流。",
+      "ai_policy": "必须单独分组，默认视为娱乐；明确任务/Profile证据存在时才可改判。"
+    },
+    "context_required": {
+      "description": "内容标题本身不足以证明工作用途，必须结合当前任务和Profile判断。",
+      "ai_policy": "不得仅凭前后是工作就并入工作；只有与只读任务/Profile存在明确语义重合时才可判为work。"
+    },
+    "data_unknown": {
+      "description": "主要设备状态或前台内容缺失。",
+      "ai_policy": "没有相邻证据时优先使用uncertain，不得编造。"
+    },
+    "entertainment_app": {
+      "description": "用户明确指定为娱乐的应用或内容。",
+      "ai_policy": "必须保持为entertainment，不能覆盖。"
+    },
+    "math_signal": {
+      "description": "标题中出现数学课程、定理、章节或数学笔记线索。",
+      "ai_policy": "这是数学学习提示，不是确定结论。"
+    },
+    "rule_conflict": {
+      "description": "相同优先级的规则给出了冲突的锁定活动。",
+      "ai_policy": "使用uncertain并提示检查规则。"
+    },
+    "system_maintenance_signal": {
+      "description": "标题或路径指向服务器、代码、工作流程或系统维护。",
+      "ai_policy": "这是系统维护工作提示，不是确定结论。"
+    },
+    "personal_image_generation": {
+      "description": "AI工具中的自拍、照片、头像、写真或图像生成类标题。",
+      "ai_policy": "默认视为娱乐；只有当前任务/Profile明确包含视觉素材、设计或图像生成工作时才可判为work。"
+    },
+    "shopping_app": {
+      "description": "闲鱼等购物平台的浏览、比价、下单或沟通。",
+      "ai_policy": "必须保持为shopping，不能覆盖，也不得计入娱乐或工作—娱乐混杂。"
+    },
+    "steam_entertainment": {
+      "description": "Steam 客户端、Steam 商店和已识别的 Steam 游戏使用。",
+      "ai_policy": "用户明确要求按娱乐处理；必须保持为entertainment，不能覆盖。"
+    }
+  },
+  "rules": [
+    {
+      "id": "computer.steam.entertainment",
+      "enabled": true,
+      "priority": 140,
+      "description": "Steam 客户端、Steam 页面及当前已识别的 Steam 游戏一律按娱乐处理。",
+      "match": {
+        "any": [
+          {
+            "field": "computer.app",
+            "operator": "regex",
+            "value": "(?i)^(steam|steamwebhelper|steam\\.exe|steamwebhelper\\.exe|game\\.exe)$"
+          },
+          {
+            "field": "computer.process",
+            "operator": "regex",
+            "value": "(?i)^(steam|steamwebhelper|steam\\.exe|steamwebhelper\\.exe|game\\.exe)$"
+          },
+          {
+            "field": "computer.title",
+            "operator": "regex",
+            "value": "(?i)Steam|祈愿诗篇"
+          },
+          {
+            "field": "computer.domain",
+            "operator": "contains",
+            "value": "steampowered.com"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "steam_entertainment",
+          "strength": "hard"
+        },
+        {
+          "name": "entertainment_app",
+          "strength": "hard"
+        }
+      ],
+      "locked_activity": "entertainment",
+      "force_boundary": true
+    },
+    {
+      "id": "computer.wechat.communication",
+      "enabled": true,
+      "priority": 120,
+      "description": "电脑微信独立前台直接按通信处理。",
+      "match": {
+        "field": "computer.app",
+        "operator": "in",
+        "value": [
+          "微信",
+          "微信小程序"
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "communication_app",
+          "strength": "hard"
+        }
+      ],
+      "locked_activity": "brief_communication",
+      "force_boundary": true
+    },
+    {
+      "id": "phone.messaging.signal",
+      "enabled": true,
+      "priority": 100,
+      "description": "手机微信或QQ提供通信信号。",
+      "match": {
+        "any": [
+          {
+            "field": "phone.apps_text",
+            "operator": "contains",
+            "value": "微信"
+          },
+          {
+            "field": "phone.apps_text",
+            "operator": "contains",
+            "value": "QQ"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "communication_app",
+          "strength": "hard"
+        }
+      ]
+    },
+    {
+      "id": "phone.messaging.when_computer_inactive",
+      "enabled": true,
+      "priority": 110,
+      "description": "电脑没有活跃操作时，手机通信应用作为主要通信活动。",
+      "match": {
+        "all": [
+          {
+            "field": "phone.app",
+            "operator": "in",
+            "value": [
+              "微信",
+              "QQ"
+            ]
+          },
+          {
+            "not": {
+              "field": "computer.status",
+              "operator": "equals",
+              "value": "not-afk"
+            }
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "communication_app",
+          "strength": "hard"
+        }
+      ],
+      "locked_activity": "brief_communication",
+      "force_boundary": true
+    },
+    {
+      "id": "telegram.entertainment",
+      "enabled": true,
+      "priority": 130,
+      "description": "用户明确指定Telegram归入娱乐。",
+      "match": {
+        "any": [
+          {
+            "field": "computer.app",
+            "operator": "contains",
+            "value": "Telegram"
+          },
+          {
+            "field": "computer.title",
+            "operator": "contains",
+            "value": "Telegram"
+          },
+          {
+            "field": "phone.apps_text",
+            "operator": "contains",
+            "value": "Telegram"
+          },
+          {
+            "field": "phone.package",
+            "operator": "contains",
+            "value": "telegram"
+          },
+          {
+            "field": "tablet.apps_text",
+            "operator": "contains",
+            "value": "Telegram"
+          },
+          {
+            "field": "tablet.package",
+            "operator": "contains",
+            "value": "telegram"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "entertainment_app",
+          "strength": "hard"
+        }
+      ],
+      "locked_activity": "entertainment",
+      "force_boundary": true
+    },
+    {
+      "id": "shopping.xianyu",
+      "enabled": true,
+      "priority": 130,
+      "description": "用户指定闲鱼属于购物，不属于娱乐。",
+      "match": {
+        "any": [
+          {
+            "field": "computer.title",
+            "operator": "contains",
+            "value": "闲鱼"
+          },
+          {
+            "field": "computer.domain",
+            "operator": "contains",
+            "value": "idlefish"
+          },
+          {
+            "field": "phone.apps_text",
+            "operator": "contains",
+            "value": "闲鱼"
+          },
+          {
+            "field": "phone.package",
+            "operator": "contains",
+            "value": "com.taobao.idlefish"
+          },
+          {
+            "field": "tablet.apps_text",
+            "operator": "contains",
+            "value": "闲鱼"
+          },
+          {
+            "field": "tablet.package",
+            "operator": "contains",
+            "value": "com.taobao.idlefish"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "shopping_app",
+          "strength": "hard"
+        }
+      ],
+      "locked_activity": "shopping",
+      "force_boundary": true
+    },
+    {
+      "id": "web.zhihu.homepage",
+      "enabled": true,
+      "priority": 90,
+      "description": "知乎首页是没有具体任务主题的信息流。",
+      "match": {
+        "all": [
+          {
+            "field": "computer.domain",
+            "operator": "equals",
+            "value": "zhihu.com"
+          },
+          {
+            "field": "computer.title",
+            "operator": "equals",
+            "value": "首页 - 知乎"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "content_feed",
+          "strength": "hard"
+        },
+        {
+          "name": "entertainment_app",
+          "strength": "hard"
+        }
+      ],
+      "locked_activity": "entertainment",
+      "force_boundary": true
+    },
+    {
+      "id": "web.zhihu.article.context_required",
+      "enabled": true,
+      "priority": 95,
+      "description": "知乎文章默认需要任务/Profile明确匹配才可判为工作。",
+      "match": {
+        "all": [
+          {
+            "field": "computer.domain",
+            "operator": "equals",
+            "value": "zhihu.com"
+          },
+          {
+            "not": {
+              "field": "computer.title",
+              "operator": "equals",
+              "value": "首页 - 知乎"
+            }
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "content_feed",
+          "strength": "strong"
+        },
+        {
+          "name": "context_required",
+          "strength": "hard"
+        }
+      ],
+      "force_boundary": true
+    },
+    {
+      "id": "tools.ai.personal_image_generation",
+      "enabled": true,
+      "priority": 96,
+      "description": "ChatGPT等AI工具中的自拍、照片、图像生成需求默认按娱乐候选处理。",
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "field": "computer.app",
+                "operator": "in",
+                "value": [
+                  "ChatGPT",
+                  "DeepSeek",
+                  "Gemini"
+                ]
+              },
+              {
+                "field": "computer.domain",
+                "operator": "in",
+                "value": [
+                  "chatgpt.com",
+                  "chat.deepseek.com",
+                  "gemini.google.com"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "computer.title",
+            "operator": "regex",
+            "value": "自拍|照片|写真|头像|图片|图像|生成自拍|生成照片|selfie|photo|image|portrait"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "personal_image_generation",
+          "strength": "hard"
+        },
+        {
+          "name": "context_required",
+          "strength": "hard"
+        }
+      ],
+      "force_boundary": true
+    },
+    {
+      "id": "tools.deepseek.platform.system_maintenance",
+      "enabled": true,
+      "priority": 97,
+      "description": "DeepSeek开放平台、计费、充值、API管理属于系统维护线索。",
+      "match": {
+        "any": [
+          {
+            "field": "computer.domain",
+            "operator": "equals",
+            "value": "platform.deepseek.com"
+          },
+          {
+            "field": "computer.title",
+            "operator": "contains",
+            "value": "DeepSeek 开放平台"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "system_maintenance_signal",
+          "strength": "hard"
+        }
+      ],
+      "force_boundary": true
+    },
+    {
+      "id": "tools.ai",
+      "enabled": true,
+      "priority": 40,
+      "description": "AI工具需要结合主题判断用途。",
+      "match": {
+        "any": [
+          {
+            "field": "computer.app",
+            "operator": "in",
+            "value": [
+              "ChatGPT",
+              "DeepSeek",
+              "Gemini"
+            ]
+          },
+          {
+            "field": "computer.domain",
+            "operator": "in",
+            "value": [
+              "chatgpt.com",
+              "chat.deepseek.com",
+              "gemini.google.com"
+            ]
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "ai_tool",
+          "strength": "fact"
+        }
+      ]
+    },
+    {
+      "id": "tools.automate",
+      "enabled": true,
+      "priority": 50,
+      "description": "Automate可能只是采集或自动化流程的前台状态。",
+      "match": {
+        "any": [
+          {
+            "field": "phone.apps_text",
+            "operator": "contains",
+            "value": "Automate"
+          },
+          {
+            "field": "tablet.apps_text",
+            "operator": "contains",
+            "value": "Automate"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "automation_tool",
+          "strength": "fact"
+        }
+      ]
+    },
+    {
+      "id": "topic.system_maintenance",
+      "enabled": true,
+      "priority": 30,
+      "description": "系统、服务器、代码或工作流程标题。",
+      "match": {
+        "any": [
+          {
+            "field": "computer.title",
+            "operator": "regex",
+            "value": "Pi Server|activitywatch-advisor|semantic-segmenter|系统运维|工作流程|Visual Studio Code|PowerShell|Windows Terminal"
+          },
+          {
+            "field": "computer.app",
+            "operator": "in",
+            "value": [
+              "Visual Studio Code",
+              "PowerShell",
+              "Windows Terminal"
+            ]
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "system_maintenance_signal",
+          "strength": "hint"
+        }
+      ]
+    },
+    {
+      "id": "topic.math",
+      "enabled": true,
+      "priority": 20,
+      "description": "数学学习标题提示。",
+      "match": {
+        "field": "computer.title",
+        "operator": "regex",
+        "value": "定理|引理|证明|习题|遍历|GTM|数学|第二章|Lemma|Theorem|Proof|Ergodic"
+      },
+      "add_tags": [
+        {
+          "name": "math_signal",
+          "strength": "hint"
+        }
+      ]
+    },
+    {
+      "id": "quality.all_primary_unknown",
+      "enabled": true,
+      "priority": 10,
+      "description": "电脑和手机均没有明确活动状态。",
+      "match": {
+        "all": [
+          {
+            "field": "computer.status",
+            "operator": "equals",
+            "value": "unknown"
+          },
+          {
+            "field": "phone.screen",
+            "operator": "equals",
+            "value": "unknown"
+          }
+        ]
+      },
+      "add_tags": [
+        {
+          "name": "data_unknown",
+          "strength": "hard"
+        }
+      ]
+    }
+  ]
+}

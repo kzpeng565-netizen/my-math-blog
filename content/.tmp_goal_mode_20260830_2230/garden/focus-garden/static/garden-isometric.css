@@ -1,0 +1,345 @@
+/* Isometric garden surface. Geometry is kept separate from the base UI theme. */
+.garden-stage{
+  min-height:680px;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 76%,rgba(69,96,51,.14) 0%,rgba(69,96,51,.06) 32%,transparent 58%),
+    linear-gradient(180deg,#cfdfb2 0%,#b7cc92 72%,#aec486 100%);
+  box-shadow:var(--shadow),inset 0 -70px 100px rgba(61,91,44,.08);
+}
+
+.garden-island{
+  --garden-size:5;
+  position:relative;
+  isolation:isolate;
+  width:min(82vw,820px);
+  aspect-ratio:1.6129;
+  margin:38px auto 68px;
+  filter:drop-shadow(0 22px 18px rgba(49,76,39,.25));
+}
+
+.island-shadow{
+  position:absolute;
+  z-index:0;
+  left:12%;
+  right:12%;
+  bottom:-7%;
+  height:20%;
+  border-radius:50%;
+  background:rgba(45,68,36,.24);
+  filter:blur(14px);
+}
+
+.island-face{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background-color:#896039;
+  background-image:
+    linear-gradient(rgba(92,61,31,.08),rgba(60,39,24,.22)),
+    url('/assets/blocks/grass_side.png'),
+    url('/assets/blocks/dirt.png');
+  background-size:100% 100%,64px 64px,64px 64px;
+  background-repeat:no-repeat,repeat-x,repeat;
+  background-position:0 0,0 0,0 0;
+  image-rendering:pixelated;
+}
+
+.island-face-left{
+  clip-path:polygon(0 40.32%,50% 80.65%,50% 100%,0 59.68%);
+  filter:brightness(.82) saturate(.95);
+}
+
+.island-face-right{
+  clip-path:polygon(50% 80.65%,100% 40.32%,100% 59.68%,50% 100%);
+  filter:brightness(.68) saturate(.9);
+  background-position:17px 0;
+}
+
+.island-face::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-color:#4f9137;
+  background-image:url('/assets/blocks/grass_top.png');
+  background-size:48px 48px;
+  background-blend-mode:multiply;
+}
+
+.island-face-left::after{
+  clip-path:polygon(0 40.32%,50% 80.65%,50% 83.5%,0 43.17%);
+}
+
+.island-face-right::after{
+  clip-path:polygon(50% 80.65%,100% 40.32%,100% 43.17%,50% 83.5%);
+}
+
+.garden-top{
+  position:absolute;
+  z-index:2;
+  inset:0 0 19.35% 0;
+  width:auto;
+  aspect-ratio:auto;
+  margin:0;
+  border:0;
+  box-shadow:none;
+  background:transparent;
+  transform:none;
+}
+
+.garden-top .garden-tile{
+  position:absolute;
+  display:block;
+  min-width:0;
+  min-height:0;
+  overflow:hidden;
+  clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);
+  border:0;
+  background-color:#72b744;
+  background-image:
+    linear-gradient(135deg,rgba(255,255,255,.14),rgba(34,95,31,.08)),
+    url('/assets/blocks/grass_top.png');
+  background-size:100% 100%;
+  background-blend-mode:soft-light,multiply;
+  filter:saturate(1.14);
+}
+
+.garden-top .garden-tile:nth-child(2n){background-color:#78bc47}
+.garden-top .garden-tile:nth-child(3n){filter:saturate(1.12) brightness(.97)}
+
+.garden-top .garden-tile::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);
+  box-shadow:inset 0 0 0 1px rgba(39,93,31,.38);
+}
+
+.garden-plants{
+  position:absolute;
+  z-index:4;
+  inset:0;
+  pointer-events:none;
+}
+
+.garden-plant{
+  position:absolute;
+  width:clamp(36px,calc(430px / var(--garden-size)),88px);
+  aspect-ratio:1;
+  transform:translate(-50%,-100%);
+  transform-origin:50% 100%;
+  pointer-events:auto;
+  cursor:help;
+  transition:transform .16s ease;
+}
+
+.garden-plant:hover{
+  transform:translate(-50%,calc(-100% - 6px)) scale(1.08);
+}
+
+.garden-plant .plant-shadow{
+  position:absolute;
+  z-index:0;
+  left:20%;
+  right:20%;
+  bottom:-3%;
+  height:16%;
+  border-radius:50%;
+  background:rgba(34,69,25,.42);
+  filter:blur(2px);
+  transform:skewX(-18deg);
+}
+
+.garden-plant img{
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  image-rendering:pixelated;
+  transform-origin:50% 100%;
+}
+
+.garden-plant .sprite-depth{
+  z-index:1;
+  opacity:.42;
+  filter:brightness(.58) saturate(.8);
+  transform:translateX(-50%) scaleX(.52) skewY(-4deg);
+}
+
+.garden-plant .sprite-front{
+  z-index:2;
+  transform:translateX(-50%);
+  filter:drop-shadow(4px 6px 0 rgba(36,68,27,.23));
+}
+
+.garden-plant .tip{
+  display:none;
+  position:absolute;
+  z-index:20;
+  left:50%;
+  bottom:108%;
+  width:190px;
+  transform:translateX(-50%);
+  background:var(--paper);
+  border:2px solid var(--deep);
+  padding:8px;
+  font-size:11px;
+  box-shadow:4px 4px 0 var(--deep);
+}
+
+.garden-plant:hover .tip{display:block}
+
+.garden-island.is-empty{filter:drop-shadow(0 22px 18px rgba(49,76,39,.2)) saturate(.88)}
+
+.garden-stage .garden-empty{
+  z-index:6;
+  inset:50% auto auto 50%;
+  width:min(300px,72%);
+  padding:14px 18px;
+  transform:translate(-50%,-20%);
+  border:2px solid rgba(21,85,63,.65);
+  border-radius:4px;
+  background:rgba(255,253,243,.9);
+  box-shadow:5px 5px 0 rgba(21,85,63,.3);
+  pointer-events:none;
+}
+
+.garden-stage .garden-empty .empty-sprout{display:none}
+.garden-stage .garden-empty h3{font-size:15px}
+.garden-stage .garden-empty p{font-size:12px;margin-bottom:0}
+
+@media(max-width:900px){
+  .garden-island{width:min(88vw,760px);margin-top:30px}
+}
+
+@media(max-width:560px){
+  .garden-stage{min-height:440px;overflow:hidden}
+  .garden-island{width:94vw;margin:28px 50% 48px;transform:translateX(-50%)}
+  .garden-plant{width:clamp(32px,calc(360px / var(--garden-size)),70px)}
+  .garden-plant .tip{width:150px}
+}
+
+/* User-supplied complete cube: its own geometry defines the perspective. */
+.garden-island.user-cube-garden{
+  width:min(94%,860px);
+  max-width:100%;
+  margin-top:30px;
+  filter:none;
+}
+
+.user-cube-garden .island-face{display:none}
+
+.user-cube-garden .island-shadow{
+  left:19%;
+  right:19%;
+  bottom:-1%;
+  height:7%;
+  background:rgba(37,52,29,.18);
+  filter:blur(10px);
+  transform:translate(-2%,-8%) skewX(-8deg);
+}
+
+.garden-island.user-cube-garden::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:38%;
+  right:38%;
+  bottom:-.4%;
+  height:3.6%;
+  border-radius:50%;
+  background:rgba(29,42,23,.36);
+  filter:blur(5px);
+}
+
+.user-cube-garden .island-shadow::after{
+  content:"";
+  position:absolute;
+  inset:18% 24% 16%;
+  border-radius:50%;
+  background:rgba(28,40,23,.34);
+  filter:blur(4px);
+}
+
+.user-cube-garden .garden-top{
+  inset:0;
+  overflow:visible;
+}
+
+.garden-cube-cell{
+  position:absolute;
+  overflow:visible;
+  pointer-events:none;
+}
+
+.garden-cube{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  image-rendering:pixelated;
+  user-select:none;
+}
+
+.garden-cube-cell .garden-plant{
+  width:45%;
+  pointer-events:auto;
+}
+
+@media(max-width:900px){
+  .garden-island.user-cube-garden{width:94%}
+}
+
+@media(max-width:560px){
+  .garden-island.user-cube-garden{width:96%;margin:24px auto 48px;transform:none}
+}
+
+/* The cube defines its own height; fixed stages left a large empty strip on phones.
+   Tooltips are allowed to escape the garden instead of being clipped by its frame. */
+.garden-stage{min-height:0;overflow:visible}
+.garden-island,.garden-cube-cell,.garden-plant{overflow:visible}
+.garden-plant .tip{z-index:1000;bottom:calc(100% + 12px);width:min(250px,72vw);line-height:1.45;pointer-events:none}
+@media(max-width:560px){
+  .garden-stage{min-height:0;overflow:visible;padding:12px}
+  .garden-island.user-cube-garden{width:96%;margin:24px auto 36px}
+  .garden-plant .tip{display:none!important}
+}
+
+.plant-category-tabs{
+  display:flex;
+  gap:8px;
+  margin:16px 0 10px;
+  padding-bottom:10px;
+  border-bottom:2px dashed var(--line);
+}
+
+.plant-category-tabs button{
+  border:2px solid var(--deep);
+  background:#edf3d7;
+  color:var(--deep);
+  padding:8px 14px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.plant-category-tabs button.active{
+  background:var(--deep);
+  color:white;
+  box-shadow:3px 3px 0 #9db582;
+}
+
+.plant-category-tabs .category-count{
+  display:inline-block;
+  margin-left:5px;
+  min-width:20px;
+  padding:1px 5px;
+  border-radius:10px;
+  background:rgba(255,255,255,.5);
+  font:700 10px Consolas,monospace;
+}
+
+.plant-category-tabs button.active .category-count{
+  background:rgba(255,255,255,.18);
+}

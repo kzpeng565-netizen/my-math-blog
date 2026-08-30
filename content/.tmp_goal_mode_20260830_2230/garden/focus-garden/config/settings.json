@@ -1,0 +1,27 @@
+{
+  "database": "data/focus-garden.sqlite3",
+  "pi_sync": {
+    "enabled": true,
+    "host": "pi.taild4d3f7.ts.net",
+    "early_sleep_cutoff": "00:30"
+  },
+  "next_action": {
+    "enabled": true,
+    "base_url": "http://127.0.0.1:8767",
+    "timeout_seconds": 90
+  },
+  "focus": {
+    "allowed_minutes": [5, 20, 30, 40, 45, 60],
+    "always_windows_blocks": ["steam游戏"]
+  },
+  "operations": {
+    "advisor_data_root": "/home/conrad/workspace/activitywatch-advisor/data",
+    "obsidian_sync_root": "/home/conrad/workspace/behavior-context-sync",
+    "archive_database_path": "/home/conrad/workspace/focus-garden-archive/focus-garden.sqlite3"
+  },
+  "cold_turkey": {
+    "mode": "live",
+    "executable": "D:\\Cold Turkey\\Cold Turkey Blocker.exe",
+    "agent_config": "D:\\tools\\computer-intervention-agent\\config.json"
+  }
+}

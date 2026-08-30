@@ -1,0 +1,16 @@
+{
+  "profiles": [
+    {
+      "id": "study",
+      "name": "学习",
+      "description": "屏蔽常刷网站、B 站与 Steam 游戏",
+      "blocks": ["常刷网站", "bilibili", "steam游戏"]
+    },
+    {
+      "id": "light",
+      "name": "轻专注",
+      "description": "屏蔽常刷网站与 Steam 游戏",
+      "blocks": ["常刷网站", "steam游戏"]
+    }
+  ]
+}

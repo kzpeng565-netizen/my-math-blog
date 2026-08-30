@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>我的专注花园</title>
+  <link rel="stylesheet" href="/style.css?v=20260809.4">
+  <link rel="stylesheet" href="/frequency.css">
+  <link rel="stylesheet" href="/garden-isometric.css">
+  <style>
+    .task-arrange-card{margin:18px 0;padding:18px;border:2px solid var(--line,#d7dfcf);border-radius:14px;background:var(--panel,#fffdf7)}
+    .task-arrange-card h3{margin:0 0 6px}.task-arrange-card .muted{margin:0 0 14px;color:var(--muted,#627063);font-size:.9rem}
+    .task-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.task-form-grid label{display:grid;gap:4px;font-size:.86rem;color:var(--muted,#627063)}
+    .task-form-grid label:first-child{grid-column:1/-1}.task-form-grid input,.task-form-grid select,.task-form-grid textarea{box-sizing:border-box;width:100%;padding:9px;border:1px solid var(--line,#d7dfcf);border-radius:8px;background:#fff;color:inherit;font:inherit}.task-form-grid textarea{min-height:72px;resize:vertical}
+    .task-form-actions{display:flex;gap:8px;align-items:center;margin-top:12px}.task-sync-status{margin:10px 0;color:var(--muted,#627063);font-size:.86rem}.task-list{display:grid;gap:8px}.task-item{padding:10px;border:1px solid var(--line,#d7dfcf);border-radius:10px;background:#fff}.task-item-main{display:flex;justify-content:space-between;gap:10px}.task-item-title{font-weight:650}.task-item-meta{margin-top:4px;color:var(--muted,#627063);font-size:.82rem}.task-item-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.task-item-actions button{padding:5px 8px;border:1px solid var(--line,#d7dfcf);border-radius:7px;background:#f5f7f2;color:inherit;cursor:pointer}.task-item-actions button:hover{background:#e9f1e2}@media(max-width:640px){.task-form-grid{grid-template-columns:1fr}.task-form-grid label:first-child{grid-column:auto}}
+    .task-page-shell{max-width:1240px;margin:auto;display:grid;gap:22px}.task-page-hero{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;padding:24px;background:linear-gradient(135deg,#fffdf3 0 74%,#e2f0b9 74%)}.task-page-mark{display:grid;place-items:center;width:60px;height:60px;border:3px solid var(--deep);background:var(--sun);box-shadow:4px 4px 0 var(--deep);font-size:30px}.task-page-hero h2{margin:3px 0 7px;font-size:27px}.task-page-hero p:not(.eyebrow){margin:0;color:var(--muted);font-size:13px;line-height:1.6}.task-page-hero .task-sync-status{grid-column:2/-1;margin:0}.task-workspace{display:grid;grid-template-columns:minmax(310px,.72fr) minmax(0,1.28fr);gap:22px;align-items:start}.task-composer,.task-board-panel{padding:23px}.task-composer{position:sticky;top:18px;background:linear-gradient(180deg,#fffdf4,#f3f7e7)}.task-form-hint,.task-count{border:2px solid var(--deep);background:#d9edb4;padding:5px 8px;font-size:11px;font-weight:900;white-space:nowrap}.task-title-field{display:grid;gap:6px;margin:20px 0 12px;color:var(--muted);font-size:12px;font-weight:800}.task-title-field input{border:3px solid var(--deep);padding:12px;background:#fff;color:var(--ink);font:inherit;font-size:15px}.task-composer .task-form-grid{margin-top:0}.task-form-grid input,.task-form-grid select{border:2px solid #90a78e;padding:9px;background:#fff;color:var(--ink);font:inherit}.task-form-actions .primary-button{width:auto;font-size:15px}.task-composer-note{border-top:2px dashed var(--line);padding-top:13px;margin:18px 0 0;color:var(--muted);font-size:12px;line-height:1.6}.task-board{display:grid;gap:16px;margin-top:20px}.task-group{border:2px solid var(--line);background:#fcfcf6}.task-group-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 13px;background:#edf3d7;border-bottom:2px solid var(--line)}.task-group-heading h3{margin:0;font-size:14px}.task-group-heading span{color:var(--muted);font-size:11px;font-weight:800}.task-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px;border-bottom:2px dashed var(--line)}.task-row:last-child{border-bottom:0}.task-row.is-primary{background:#fff9d9}.task-row-copy b{font-size:14px;line-height:1.5}.task-row-copy p{display:flex;flex-wrap:wrap;gap:5px 9px;margin:5px 0 0;color:var(--muted);font-size:11px}.task-row-copy p span{padding-left:9px;border-left:1px solid var(--line)}.task-row-controls{display:grid;gap:7px}.task-primary-actions{display:flex;justify-content:flex-end}.task-primary-actions button{border:2px solid var(--deep);background:var(--sun);padding:6px 10px;color:var(--deep);font:inherit;font-size:11px;font-weight:900;cursor:pointer}.task-primary-actions button.selected{background:#d9edb4}.task-primary-badge{display:inline-block;margin-left:8px;border:2px solid var(--deep);background:var(--sun);padding:2px 6px;font-size:10px;font-weight:900}.task-row-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.task-row-actions button{border:2px solid var(--deep);background:var(--paper);padding:6px 8px;color:var(--deep);font:inherit;font-size:11px;font-weight:900;cursor:pointer}.task-row-actions button:hover{background:#d9edb4}.task-row-actions button.danger{border-color:#8f3f39;background:#f9ddd0;color:#742b27}.task-empty{min-height:250px;display:grid;place-content:center;text-align:center;color:var(--muted)}.task-empty>div{font-size:46px;color:var(--green)}.task-empty h3{margin:4px}.task-empty p{max-width:310px;margin:0;line-height:1.6;font-size:13px}@media(max-width:900px){.task-workspace{grid-template-columns:1fr}.task-composer{position:static}.task-page-hero{grid-template-columns:auto minmax(0,1fr)}.task-page-hero .outline-button{grid-column:2}.task-page-hero .task-sync-status{grid-column:1/-1}}@media(max-width:560px){.task-page-hero{padding:18px;grid-template-columns:1fr}.task-page-mark{width:46px;height:46px}.task-page-hero .outline-button{grid-column:auto;width:100%}.task-workspace{gap:16px}.task-composer,.task-board-panel{padding:17px}.task-row{grid-template-columns:1fr}.task-row-actions{justify-content:flex-start}.task-row-actions button{flex:1}.task-row-controls{width:100%}.task-primary-actions{justify-content:flex-end}.task-group-heading{align-items:flex-start;flex-direction:column;gap:3px}}
+    /* Keep mobile text at the intended scale; Chrome otherwise boosts dense task cards. */
+    html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    .task-page-hero>div:nth-child(2){min-width:0}.task-page-hero h2,.task-page-hero p{overflow-wrap:anywhere}
+    .task-row-copy b{overflow-wrap:anywhere;word-break:break-word}
+    .sidebar{overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}.sidebar-foot,.sidebar nav{flex-shrink:0}
+    @media(max-height:760px) and (min-width:901px){.sidebar{padding:20px 16px}.brand{margin-bottom:18px}.nav-item{padding:10px 14px}.sidebar-foot{margin-top:20px;padding:14px 8px}}
+    @media(max-width:560px){.task-page-hero{display:flex;flex-wrap:wrap;gap:9px;padding:14px}.task-page-mark{display:none}.task-page-hero>div:nth-child(2){flex:1 1 155px}.task-page-hero h2{margin:0;font-size:22px;line-height:1.15}.task-page-hero .eyebrow{font-size:9px;letter-spacing:1.1px}.task-page-hero p:not(.eyebrow){display:none}.task-page-hero .outline-button{width:auto;margin-left:auto;padding:8px 10px;font-size:12px}.task-page-hero .task-sync-status{width:100%;font-size:12px;line-height:1.4}.task-group-heading{padding:8px 10px}.task-group-heading h3{font-size:13px}.task-row{gap:10px;padding:11px}.task-row-copy b{font-size:15px;line-height:1.42}.task-row-copy p{font-size:11px;line-height:1.45}.task-row-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));width:100%;gap:6px}.task-row-actions button{min-width:0;padding:7px 5px;white-space:nowrap}}
+    .planting-dock{display:grid;grid-template-columns:minmax(190px,.85fr) minmax(0,1.15fr);gap:20px;align-items:center;margin-top:20px;padding:20px 24px;background:linear-gradient(135deg,#fffdf3 0 65%,#d9edb4 65%)}.planting-dock h3{margin:3px 0 6px;font-size:21px}.planting-dock-copy p:not(.eyebrow){margin:0;color:var(--muted);font-size:12px;line-height:1.55}.planting-dock-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.planting-choice{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;border:3px solid var(--deep);background:var(--paper);padding:13px 12px;color:var(--deep);text-align:left;font:inherit;cursor:pointer;box-shadow:4px 4px 0 rgba(26,82,60,.22)}.planting-choice span{font-size:24px}.planting-choice b{font-size:14px}.planting-choice em{display:grid;place-items:center;min-width:28px;height:28px;padding:0 6px;background:var(--deep);color:#fff;font-style:normal;font-size:13px;font-weight:900}.planting-choice.advanced{background:#fff3bd}.planting-choice:disabled{cursor:not-allowed;opacity:.5;filter:grayscale(.45);box-shadow:none}.plant-tier-lock{display:block;margin:0 0 12px;border:2px solid var(--deep);background:#d9edb4;padding:8px 10px;color:var(--deep);font-size:12px;font-weight:900}
+    .focus-task-control{position:relative;margin:0 auto 17px;width:min(100%,390px);text-align:left}.focus-task-trigger{display:flex;align-items:center;justify-content:space-between;width:100%;gap:10px;border:2px solid var(--deep);background:#fffdf3;padding:10px 12px;color:var(--deep);font:800 13px/1.3 "Microsoft YaHei",system-ui,sans-serif;cursor:pointer;box-shadow:3px 3px 0 rgba(26,82,60,.2)}.focus-task-trigger span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.focus-task-trigger b{flex:0 0 auto;background:#d9edb4;padding:2px 6px;font-size:10px}.focus-task-panel{position:absolute;z-index:7;left:0;right:0;top:calc(100% + 6px);border:3px solid var(--deep);background:#fffdf3;box-shadow:5px 5px 0 rgba(26,82,60,.25);padding:10px}.focus-task-panel p{margin:0 0 8px;color:var(--muted);font-size:11px;line-height:1.45}.focus-task-list{display:grid;gap:5px;max-height:186px;overflow:auto}.focus-task-choice{width:100%;border:1px solid var(--line);background:#fff;text-align:left;padding:8px;color:var(--ink);font:700 12px/1.35 "Microsoft YaHei",system-ui,sans-serif;cursor:pointer}.focus-task-choice:hover{background:#d9edb4}.focus-task-choice small{display:block;margin-top:2px;color:var(--muted);font-weight:600}.focus-task-clear{margin-top:8px;border:0;background:transparent;color:var(--green);font:800 11px "Microsoft YaHei",system-ui,sans-serif;cursor:pointer}
+    @media(max-width:700px){.planting-dock{grid-template-columns:1fr;padding:17px}.planting-dock-actions{gap:9px}.planting-choice{padding:11px 9px;gap:6px}.planting-choice span{font-size:20px}.planting-choice b{font-size:12px}.planting-choice em{min-width:24px;height:24px;font-size:12px}}
+    .health-hero{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px;background:linear-gradient(135deg,#fffdf3 0 67%,#d9edb4 67%)}.health-hero h2{margin:3px 0 7px}.health-hero p:not(.eyebrow){margin:0;max-width:640px;color:var(--muted);font-size:13px;line-height:1.6}.health-summary{margin:16px 0;color:var(--muted);font-size:13px}.health-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.health-card{padding:18px}.health-card.wide{grid-column:1/-1}.health-card h3{margin:3px 0 12px;font-size:18px}.health-list{display:grid;gap:8px}.health-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 0;border-top:1px dashed var(--line)}.health-row:first-child{border-top:0}.health-row b{font-size:13px}.health-row small{color:var(--muted);font-size:11px;text-align:right}.health-dot{width:10px;height:10px;border-radius:50%;background:#a6a69a}.health-dot.ok{background:#2b8a5a;box-shadow:0 0 0 4px #d9edb4}.health-dot.warn{background:#c18424;box-shadow:0 0 0 4px #fff0bc}.health-dot.bad{background:#a84c45;box-shadow:0 0 0 4px #f9ddd0}.health-empty{color:var(--muted);font-size:13px;line-height:1.6}.health-policy-grid{margin-top:16px}@media(max-width:700px){.health-hero{align-items:flex-start;flex-direction:column;padding:18px}.health-hero .outline-button{width:100%}.health-board{grid-template-columns:1fr}.health-card.wide{grid-column:auto}.health-row{grid-template-columns:auto minmax(0,1fr)}.health-row small{grid-column:2;text-align:left}.health-policy-grid{margin-top:14px}}
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">✿</span><span>我的专注花园</span></div>
+      <nav>
+        <button class="nav-item active" data-page="focus"><span>◷</span><b>开始专注</b></button>
+        <button class="nav-item" data-page="next-action"><span>✦</span><b>下一步行动</b></button>
+        <button class="nav-item" data-page="recent-context"><span>◈</span><b>近期动态</b></button>
+        <button class="nav-item" data-page="tasks"><span>☷</span><b>任务清单</b></button>
+        <button class="nav-item" data-page="garden"><span>♣</span><b>我的花园</b></button>
+        <button class="nav-item" data-page="rewards"><span>▤</span><b>奖励记录</b></button>
+        <button class="nav-item" data-page="catalog"><span>❀</span><b>植物图鉴</b></button>
+        <button class="nav-item" data-page="settings"><span>⚙</span><b>系统状态</b></button>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="pixel-seed"></div>
+        <p>每 40 分钟<br>长出一份新绿</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-button" aria-label="菜单">☰</button>
+        <div>
+          <p class="eyebrow">LOCAL · PRIVATE</p>
+          <h1 id="pageTitle">开始专注</h1>
+        </div>
+        <div class="topbar-actions">
+          <button id="taskRefresh" class="sync-button task-refresh-button hidden" type="button"><span>↻</span><span>刷新清单</span></button>
+          <button id="syncBtn" class="sync-button"><span>↻</span><span id="syncText">同步奖励</span></button>
+        </div>
+      </header>
+
+      <section class="page active" id="page-focus">
+        <div class="focus-layout">
+          <article class="focus-card pixel-panel">
+            <div class="focus-target-control">
+              <button id="targetMore" class="text-button" type="button">更多</button>
+              <div id="targetMenu" class="hidden" aria-label="执行目标">
+                <button type="button" data-focus-target="windows,phone">电脑＋手机</button>
+                <button type="button" data-focus-target="windows">仅电脑</button>
+                <button type="button" data-focus-target="phone">仅手机</button>
+                <button type="button" data-focus-target="">不锁机</button>
+              </div>
+            </div>
+            <div class="focus-orb">
+              <div class="orb-sky"><div class="cloud c1"></div><div class="cloud c2"></div></div>
+              <div class="orb-ground"></div>
+              <img id="heroPlant" src="/assets/plants/sapling_oak.png" alt="树苗">
+            </div>
+            <p class="focus-kicker" id="focusKicker">准备好种下一段专注了吗？</p>
+            <div id="timerDisplay" class="timer-display">40:00</div>
+            <div class="preset-row" id="presetRow">
+              <button data-minutes="5">5</button><button data-minutes="20">20</button>
+              <button data-minutes="30">30</button><button data-minutes="40" class="selected">40</button>
+              <button data-minutes="45">45</button>
+              <button data-minutes="60">60</button>
+            </div>
+            <div class="focus-options">
+              <label class="focus-profile-control">
+                <span class="focus-profile-label"><span aria-hidden="true">✦</span> 专注模式</span>
+                <span class="focus-profile-select"><select id="profileSelect" aria-label="专注模式"></select></span>
+              </label>
+            </div>
+            <div class="focus-task-control">
+              <button id="focusTaskPicker" class="focus-task-trigger" type="button"><span>不关联任务</span><b>可选</b></button>
+              <div id="focusTaskPanel" class="focus-task-panel hidden">
+                <p>关联后，完成的 40 分钟专注会只计入该任务的 🍅 进度；没有 🍅 预估的任务仍可记录专注，但不会自动加数。</p>
+                <div id="focusTaskList" class="focus-task-list"><button class="focus-task-choice" type="button">加载任务中…</button></div>
+                <button id="focusTaskClear" class="focus-task-clear" type="button">取消关联</button>
+              </div>
+            </div>
+            <button id="startBtn" class="primary-button">开始专注</button>
+            <details class="focus-plan-panel">
+              <summary>预约专注</summary>
+              <label>开始时间<input id="scheduleAt" type="datetime-local"></label>
+              <button id="scheduleBtn" class="outline-button" type="button">创建预约</button>
+            </details>
+            <details class="focus-plan-panel">
+              <summary>连续专注</summary>
+              <label>专注时长<select id="cycleFocusMinutes"><option>30</option><option>40</option><option>45</option><option>60</option></select></label>
+              <label>休息时间<select id="cycleRestMinutes"><option>5</option><option>10</option><option>15</option><option>20</option></select></label>
+              <label>专注几轮<select id="cycleRounds"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+              <button id="cycleBtn" class="outline-button" type="button">开始连续专注</button>
+              <p>休息时不会尝试解除已开始的电脑或手机锁定；每一轮专注会分别触发一次锁定。</p>
+            </details>
+            <div id="focusPlans" class="focus-plans"></div>
+            <p class="lock-note">开始后会调用 Cold Turkey。锁定通常无法提前解除。</p>
+          </article>
+
+          <aside class="focus-side">
+            <div class="summary-grid">
+              <div class="stat-card"><span>累计专注</span><strong id="focusMinutes">0</strong><small>分钟</small></div>
+              <div class="stat-card"><span>已种植</span><strong id="plantCount">0</strong><small>株植物</small></div>
+              <div class="stat-card accent"><span>待种植</span><strong id="pendingCount">0</strong><small>份奖励</small></div>
+            </div>
+            <div class="pixel-panel progress-panel">
+              <div class="panel-heading"><div><p class="eyebrow">NEXT BLOOM</p><h2>距离下一份奖励</h2></div><strong id="creditText">0 / 40</strong></div>
+              <div class="progress-track"><div id="creditBar"></div></div>
+              <p>未满 40 分钟的部分会自动结转。</p>
+            </div>
+            <div class="pixel-panel latest-panel">
+              <div class="panel-heading"><div><p class="eyebrow">REWARD INBOX</p><h2>最近奖励</h2></div><button class="text-button" data-go="rewards">全部</button></div>
+              <div id="latestRewards" class="mini-list"></div>
+            </div>
+            <div class="pixel-panel frequency-panel">
+              <div class="panel-heading"><div><p class="eyebrow">GARDEN RHYTHM</p><h2>花园使用频率</h2></div></div>
+              <div id="usageFrequency" class="frequency-grid"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="page" id="page-next-action">
+        <div class="next-action-layout">
+          <div class="next-action-main">
+            <article class="pixel-panel next-action-hero">
+              <div class="next-action-sprout" aria-hidden="true">✦</div>
+              <div>
+                <p class="eyebrow">NEXT ACTION · PRIVATE</p>
+                <h2>现在，往哪里走？</h2>
+                <p>花园会借用你已有的行为线索，帮你把此刻缩小成一个能马上开始的小动作。</p>
+              </div>
+              <div class="next-action-hero-actions">
+                <button id="nextActionGenerate" class="primary-button">为我找下一步</button>
+                <button id="nextActionLoad" class="outline-button">查看当前建议</button>
+              </div>
+              <p id="nextActionStatus" class="next-action-status">建议不会修改任务、番茄钟或花园存档。</p>
+            </article>
+
+            <article id="nextActionLogin" class="pixel-panel next-action-login hidden">
+              <p class="eyebrow">UNLOCK NEXT ACTION</p>
+              <h2>先解锁行动助手</h2>
+              <p>这是 Next Action 原有的私有登录。密码只会提交给同一台 Pi 上的 Next Action 服务，花园不会保存它。</p>
+              <label>访问密码<input id="nextActionPassword" type="password" autocomplete="current-password" placeholder="输入 Next Action 密码"></label>
+              <button id="nextActionLoginBtn" class="primary-button">解锁并继续</button>
+            </article>
+
+            <article id="nextActionSuggestion" class="pixel-panel next-action-card">
+              <div class="next-action-empty">
+                <div class="empty-sprout">✦</div>
+                <h2>把今天的线索收拢成一步</h2>
+                <p>点击“为我找下一步”，或查看尚未结束的当前建议。</p>
+              </div>
+            </article>
+
+            <article id="nextActionFeedback" class="pixel-panel next-action-feedback hidden">
+              <div class="panel-heading"><div><p class="eyebrow">GENTLE CHECK-IN</p><h2>这一步进行得怎么样？</h2></div></div>
+              <div class="next-action-buttons">
+                <button id="nextActionAccept" class="primary-button">开始</button>
+                <button id="nextActionClarify" class="outline-button">说说哪里卡住</button>
+                <button id="nextActionAlternative" class="outline-button">换一个</button>
+                <button id="nextActionDecline" class="danger-button">现在不做</button>
+              </div>
+              <p id="nextActionAcceptNote" class="next-action-accept-note">如果你先说说卡点，接受只会指向最后生成的行动。</p>
+              <div id="nextActionClarifyBox" class="next-action-clarify hidden">
+                <div class="next-action-clarify-head"><p class="eyebrow" id="nextActionClarifyRound">行动澄清 0/2</p><p id="nextActionClarifyHint">写一句真实阻力；助手会给出更新后的行动。</p></div>
+                <div id="nextActionClarifyHistory" class="next-action-dialogue-list"></div>
+                <label>此刻卡住的是<textarea id="nextActionClarifyMessage" rows="3" maxlength="600" placeholder="例如：我知道该做什么，但第一步太大，怕一打开就拖很久。"></textarea></label>
+                <button id="nextActionClarifySubmit" class="primary-button">生成更贴合的一步</button>
+              </div>
+              <div id="nextActionReasonBox" class="next-action-reason hidden">
+                <label>卡在哪里？
+                  <select id="nextActionReason">
+                    <option value="too_tired">太累</option><option value="wrong_priority">优先级不对</option>
+                    <option value="too_difficult_or_large">太难或太大</option><option value="first_step_unclear">第一步不清楚</option>
+                    <option value="environment_inconvenient">环境不适合</option><option value="task_already_done">任务已完成</option>
+                    <option value="already_doing_something_else">已经在做别的事</option><option value="stale_data">数据过时</option><option value="other">其他</option>
+                  </select>
+                </label>
+                <label>补充说明（可选）<textarea id="nextActionDetail" rows="3" maxlength="2000" placeholder="写一句真实的阻力，之后可以用来复盘。"></textarea></label>
+                <button id="nextActionReasonSubmit" class="primary-button">保存反馈</button>
+              </div>
+              <div class="next-action-outcomes">
+                <span>结束时再记一笔：</span><button data-next-outcome="completed">完成了</button><button data-next-outcome="still_doing">正在做</button><button data-next-outcome="not_started">没开始</button>
+              </div>
+            </article>
+          </div>
+
+          <aside class="next-action-side">
+            <article class="pixel-panel next-action-side-card">
+              <p class="eyebrow">CURRENT CONTEXT</p><h2>当前情境</h2>
+              <div id="nextActionContextList" class="rc-context-list"><p class="setting-help">进入页面后加载。</p></div>
+              <button type="button" class="outline-button rc-context-link" data-go="recent-context">查看近期动态 →</button>
+            </article>
+            <article class="pixel-panel next-action-side-card">
+              <p class="eyebrow">RECENT READINGS</p><h2>近 3 条半小时报告</h2>
+              <div id="nextActionReportList" class="report-list"><p class="setting-help">进入页面后加载。</p></div>
+              <div id="nextActionReportDetail" class="report-detail hidden"></div>
+              <div id="nextActionReportFeedback" class="next-action-reason hidden">
+                <label>这份报告的问题
+                  <select id="nextActionReportCategory"><option value="0">AI行为判断错误</option><option value="1">数据缺失或设备状态错误</option><option value="2">AI输出格式或内容不合要求</option><option value="3">建议不合适</option><option value="4">其他问题</option></select>
+                </label>
+                <textarea id="nextActionReportMessage" rows="3" maxlength="2000" placeholder="这份解读哪里不对？"></textarea>
+                <button id="nextActionReportSubmit" class="outline-button">提交报告反馈</button>
+              </div>
+            </article>
+            <article class="pixel-panel next-action-side-card issue-card">
+              <p class="eyebrow">GARDEN NOTE</p><h2>记录系统问题</h2>
+              <p class="setting-help">建议、数据、网页、通知或规则不对时，把问题收进同一个 backlog。</p>
+              <select id="nextActionIssueCategory"><option value="ai_suggestion_quality">AI建议质量</option><option value="data_wrong_or_missing">数据明显不对</option><option value="web_ui">网页显示/交互问题</option><option value="notification">通知推送问题</option><option value="rule_mismatch">规则不符合我的习惯</option><option value="security_or_access">安全或访问问题</option><option value="docs_or_handoff">文档或交接问题</option><option value="other">其他</option></select>
+              <select id="nextActionIssueSeverity"><option value="low">低：之后再看</option><option value="medium" selected>中：影响体验</option><option value="high">高：影响判断</option><option value="blocking">阻塞：功能不能用</option></select>
+              <textarea id="nextActionIssueMessage" rows="4" maxlength="2000" placeholder="哪里不对？你本来希望它怎么做？"></textarea>
+              <button id="nextActionIssueSubmit" class="outline-button">提交问题</button>
+              <div id="nextActionIssueList" class="issue-list"></div>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section class="page" id="page-recent-context">
+        <div class="rc-shell">
+          <article class="pixel-panel rc-composer">
+            <p class="eyebrow">RECENT CONTEXT</p>
+            <h2>最近发生了什么，可能影响下一步行动？</h2>
+            <p class="setting-help">只记录与行动决策有关的短期情况；AI 不会改写你的原文，也不会修改任务或番茄钟。</p>
+            <label class="rc-field">动态内容
+              <textarea id="rcContent" rows="3" maxlength="500" placeholder="例如：明天下午临时要去实验室 / 最近头疼，不适合高强度工作"></textarea>
+            </label>
+            <label class="rc-field">影响时段
+              <input id="rcImpact" maxlength="100" placeholder="例如：明天下午 / 从今天到周末 / 直到老师回复" />
+            </label>
+            <div class="rc-actions">
+              <button id="rcSave" class="primary-button">记录</button>
+              <button id="rcRefresh" class="outline-button">刷新</button>
+            </div>
+            <p id="rcStatus" class="next-action-status">近期动态只用于辅助 Next Action 判断，不会写入 Obsidian、任务、番茄钟或花园存档。</p>
+          </article>
+          <div id="rcLists" class="rc-lists"></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-tasks">
+        <div class="task-page-shell">
+          <nav class="task-view-switch pixel-panel" aria-label="任务视图">
+            <button class="active" type="button" data-task-view="list"><span>☷</span><b>任务清单</b><small>安排与维护待办</small></button>
+            <button type="button" data-task-view="calendar"><span>▦</span><b>查看日历</b><small>六天与本月节奏</small></button>
+          </nav>
+          <p id="taskStatus" class="task-sync-status task-view-status">正在读取 Pi 上的有效任务…</p>
+
+          <div id="taskListView" class="task-workspace">
+            <article class="pixel-panel task-composer">
+              <div class="panel-heading"><div><p class="eyebrow">PLAN A TASK</p><h2>安排任务</h2></div><span class="task-form-hint">带 * 为必填</span></div>
+              <label class="task-title-field">任务描述 *<input id="taskTitle" maxlength="500" placeholder="例如：整理群论第三章笔记" autocomplete="off"></label>
+              <div class="task-form-grid">
+                <label>安排日期<input id="taskScheduledDate" type="date"></label>
+                <label>截止日期<input id="taskDueDate" type="date"></label>
+                <label>优先级<select id="taskPriority"><option value="normal">普通</option><option value="highest">最高</option><option value="high">高</option><option value="medium">中</option><option value="low">低</option><option value="lowest">最低</option></select></label>
+                <label>预计番茄数<input id="taskTomatoesTotal" type="number" min="0" max="99" placeholder="可选"></label>
+              </div>
+              <div class="task-form-actions"><button id="taskSave" class="primary-button" type="button">新建任务</button><button id="taskClear" class="outline-button" type="button">清空</button></div>
+              <p class="task-composer-note">🍅 仅表示预计工作量；1 个番茄为 40 分钟。循环任务请继续在 Obsidian 中维护。</p>
+            </article>
+
+            <article class="pixel-panel task-board-panel">
+              <div class="panel-heading"><div><p class="eyebrow">EFFECTIVE TASKS</p><h2>当前待办</h2></div><span id="taskCount" class="task-count">—</span></div>
+              <div id="taskList" class="task-board"><p class="setting-help">尚未读取任务。</p></div>
+            </article>
+          </div>
+
+          <div id="taskCalendarView" class="task-calendar-view hidden">
+            <article class="pixel-panel calendar-toolbar">
+              <div><p class="eyebrow">PLANNING CALENDAR</p><h2>任务日历</h2><p id="calendarRangeLabel">从今天开始，看到接下来六天。</p></div>
+              <div class="calendar-mode-tabs" role="tablist" aria-label="日历范围">
+                <button class="active" type="button" data-calendar-mode="week">最近六天</button>
+                <button type="button" data-calendar-mode="month">本月</button>
+              </div>
+            </article>
+            <div id="calendarBody" class="calendar-body"><p class="setting-help">正在准备日历…</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-garden">
+        <div class="garden-toolbar pixel-panel">
+          <div><p class="eyebrow">YOUR GROWING PLACE</p><h2>花园总览</h2></div>
+          <div class="period-tabs"><button class="active" data-period="all">总览</button><button data-period="day">日</button><button data-period="week">周</button><button data-period="month">月</button><button data-period="year">年</button></div>
+        </div>
+        <div class="garden-stage pixel-panel">
+          <div class="garden-meta"><span id="gardenSizeLabel">5 × 5</span><span id="gardenPeriodLabel">全部种植记录</span></div>
+          <div id="gardenGrid" class="garden-grid" aria-label="我的花园"></div>
+          <div id="gardenEmpty" class="garden-empty hidden"><div class="empty-sprout">♧</div><h3>这里还没有植物</h3><p>完成一次奖励后，从收件箱选择植物种下吧。</p></div>
+        </div>
+        <article class="planting-dock pixel-panel" aria-label="种植菜单">
+          <div class="planting-dock-copy"><p class="eyebrow">PLANTING DESK</p><h3>种植菜单</h3><p id="plantingDockHint">积攒初级种植机会，3 次可兑换 1 次高级种植。</p></div>
+          <div class="planting-dock-actions">
+            <button id="plantBasicMenu" class="planting-choice basic" type="button"><span>🌱</span><b>种植初级植物</b><em id="basicPlantOpportunityCount">0</em></button>
+            <button id="plantAdvancedMenu" class="planting-choice advanced" type="button"><span>✦</span><b>种植高级植物</b><em id="advancedPlantOpportunityCount">0</em></button>
+          </div>
+        </article>
+      </section>
+
+      <section class="page" id="page-rewards">
+        <div class="reward-summary summary-grid wide">
+          <div class="stat-card"><span>介入进度</span><strong id="interventionProgress">0 / 3</strong><small>领取 1 个初级植物</small></div>
+          <div class="stat-card"><span>初级机会</span><strong id="basicProgress">0</strong><small>可保留或直接种植</small></div>
+          <div class="stat-card accent"><span>高级资格</span><strong id="advancedAvailable">0</strong><small>次待种植</small></div>
+          <div class="stat-card"><span>已种初级 / 高级</span><strong id="tierPlantCount">0 / 0</strong><small>历史花园</small></div>
+        </div>
+        <article class="pixel-panel reward-ledger">
+          <div class="panel-heading"><div><p class="eyebrow">AUDITABLE LEDGER</p><h2>奖励发放记录</h2></div><span class="status-pill">自动去重</span></div>
+          <div id="rewardList" class="reward-list"></div>
+        </article>
+      </section>
+
+      <section class="page" id="page-catalog">
+        <article class="pixel-panel catalog-head"><p class="eyebrow">PLANT REGISTRY</p><h2>第一版植物图鉴</h2><p>当前素材仅供本地个人使用；可按初级和高级查看。</p></article>
+        <div id="catalogTierTabs" class="catalog-tier-tabs" role="tablist" aria-label="图鉴等级筛选"></div>
+        <div id="catalogGrid" class="catalog-grid"></div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <section id="controlReview" class="control-review" aria-live="polite">
+          <article class="pixel-panel control-state-card control-tone-unknown">
+            <p class="eyebrow">WEEKLY CONTROL</p>
+            <h2>正在读取周级系统判断…</h2>
+            <p>统计、证据和唯一调整建议会显示在这里。</p>
+          </article>
+        </section>
+        <article class="pixel-panel health-hero"><div><p class="eyebrow">LIVE OPERATIONS</p><h2>系统健康面板</h2><p>只读汇总 Pi 服务、任务同步、备份和设备桥接；不展示任务正文或行为原始数据。</p></div><button id="systemStatusRefresh" class="outline-button" type="button">刷新状态</button></article>
+        <p id="systemStatusSummary" class="health-summary">正在读取 Pi 的运行状态…</p>
+        <div id="systemStatusBoard" class="health-board" aria-live="polite"></div>
+        <div class="settings-grid health-policy-grid">
+          <article class="pixel-panel setting-card"><p class="eyebrow">FOCUS GUARD</p><h2>Cold Turkey</h2><div class="setting-line"><span>模式</span><b id="coldTurkeyMode">—</b></div><div class="setting-line"><span>允许 block</span><b>常刷网站 / bilibili</b></div><p class="setting-help">正式入口会真实锁定；安全测试入口只模拟命令。</p></article>
+          <article class="pixel-panel setting-card"><p class="eyebrow">SLEEP RULE</p><h2>早睡奖励</h2><div class="setting-line"><span>当前阈值</span><b id="sleepCutoff">00:30</b></div><div class="setting-line"><span>质量要求</span><b>resolved + high</b></div><p class="setting-help">这是手机停止使用的估计值，不宣称等同于真正入睡。</p></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <div class="modal-backdrop hidden" id="plantModal">
+    <div class="plant-modal pixel-panel">
+      <button class="modal-close" id="modalClose">×</button>
+      <p class="eyebrow">A NEW REWARD</p><h2>选择要种下的植物</h2>
+      <div class="reward-reason" id="modalReason"></div>
+      <div class="plant-picker" id="plantPicker"></div>
+      <button class="primary-button" id="plantConfirm" disabled>随机位置种下</button>
+    </div>
+  </div>
+  <div class="modal-backdrop hidden" id="calendarModal" role="dialog" aria-modal="true" aria-labelledby="calendarModalTitle">
+    <article class="calendar-modal pixel-panel">
+      <button class="modal-close" id="calendarModalClose" type="button" aria-label="关闭日期详情">×</button>
+      <div id="calendarModalContent"></div>
+    </article>
+  </div>
+  <script src="/app.js?v=20260810.1"></script>
+  <script src="/lease-status.js?v=20260815.2"></script>
+  <script src="/focus-pause-ui.js?v=20260806.1"></script>
+</body>
+</html>

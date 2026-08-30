@@ -1,0 +1,14 @@
+[Unit]
+Description=Create a consistent Focus Garden save snapshot for Syncthing
+After=focus-garden.service
+
+[Service]
+Type=oneshot
+User=conrad
+Group=conrad
+WorkingDirectory=/home/conrad/services/focus-garden
+ExecStart=/usr/bin/python3 /home/conrad/services/focus-garden/scripts/backup_save.py --source /home/conrad/services/focus-garden/data/focus-garden.sqlite3 --destination /home/conrad/workspace/focus-garden-archive/focus-garden.sqlite3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+UMask=0077

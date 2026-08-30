@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "notification_provider": "ntfy",
+  "notification_fallback_provider": "pushplus",
+  "notification_fallback_enabled": false,
+  "policies": {
+    "bedtime_stop": {
+      "enabled": true,
+      "active_window": {
+        "start": "00:30",
+        "end": "04:30",
+        "timezone": "Asia/Shanghai"
+      },
+      "activity": {
+        "devices": [
+          "phone",
+          "computer"
+        ],
+        "include_categories": [
+          "entertainment",
+          "work"
+        ],
+        "lookback_seconds": 180,
+        "minimum_active_seconds": 30,
+        "maximum_data_age_seconds": 120
+      },
+      "level_1": {
+        "enabled": true,
+        "priority": "default",
+        "title": "已到停止使用时间",
+        "message": "现在已经超过凌晨00:30，你仍在使用手机或电脑。\n请在5分钟内完成收尾，准备休息。"
+      },
+      "level_2": {
+        "enabled": true,
+        "delay_after_level_1_minutes": 5,
+        "maximum_notifications": 3,
+        "interval_minutes": 1,
+        "priority": "high",
+        "title": "请停止当前使用",
+        "message": "第一条提醒后你仍然在使用设备。\n请立即结束当前工作或娱乐，准备休息。"
+      },
+      "cooldown": {
+        "minutes": 25,
+        "on_expire": "recheck"
+      },
+      "daily_reset": {
+        "time": "04:30",
+        "cancel_pending_actions": true,
+        "reset_counters": true
+      },
+      "test_mode": {
+        "level_2_delay_seconds": 20,
+        "level_2_interval_seconds": 10,
+        "cooldown_seconds": 30
+      }
+    }
+  }
+}

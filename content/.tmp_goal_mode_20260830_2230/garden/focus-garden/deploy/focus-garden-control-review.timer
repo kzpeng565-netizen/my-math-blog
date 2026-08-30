@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly My Focus Garden control review
+
+[Timer]
+OnCalendar=Sun *-*-* 21:10:00 Asia/Shanghai
+Persistent=true
+RandomizedDelaySec=90
+Unit=focus-garden-control-review.service
+
+[Install]
+WantedBy=timers.target

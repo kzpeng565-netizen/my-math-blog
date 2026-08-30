@@ -1,0 +1,18 @@
+[Unit]
+Description=Send the previous day's behavior statistics through PushPlus
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=conrad
+Group=conrad
+WorkingDirectory=/home/conrad/workspace/activitywatch-advisor
+EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/pushplus.env
+ExecStart=/usr/bin/python3 /home/conrad/workspace/activitywatch-advisor/src/statistics_notifier.py --kind daily
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/conrad/workspace/activitywatch-advisor/data
