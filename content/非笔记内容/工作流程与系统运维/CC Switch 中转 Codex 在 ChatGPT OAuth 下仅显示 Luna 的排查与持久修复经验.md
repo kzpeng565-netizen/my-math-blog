@@ -119,7 +119,7 @@ C:\Users\15345\.codex\config.toml
 ```toml
 model_provider = "custom"
 model = "gpt-5.6-sol"
-model_catalog_json = "C:\\Users\\15345\\.codex\\cc-switch-model-catalog.json"
+model_catalog_json = "cc-switch-model-catalog-persistent.json"
 cli_auth_credentials_store = "file"
 
 [model_providers.custom]
@@ -134,7 +134,7 @@ base_url = "https://sub2api.52ai.pro"
 模型目录文件：
 
 ```text
-C:\Users\15345\.codex\cc-switch-model-catalog.json
+C:\Users\15345\.codex\cc-switch-model-catalog-persistent.json
 ```
 
 当前选择页目录包含：
@@ -187,7 +187,7 @@ hidden = false
 C:\Users\15345\.cc-switch\cc-switch.db
 C:\Users\15345\.codex\config.toml
 C:\Users\15345\.codex\auth.json
-C:\Users\15345\.codex\cc-switch-model-catalog.json
+C:\Users\15345\.codex\cc-switch-model-catalog-persistent.json
 ```
 
 `auth.json` 和数据库都可能含凭据，备份不得上传或提交 Git。
@@ -198,7 +198,7 @@ C:\Users\15345\.codex\cc-switch-model-catalog.json
 
 ```toml
 model = "gpt-5.6-sol"
-model_catalog_json = "C:\\Users\\15345\\.codex\\cc-switch-model-catalog.json"
+model_catalog_json = "cc-switch-model-catalog-persistent.json"
 cli_auth_credentials_store = "file"
 ```
 
@@ -253,7 +253,7 @@ Logged in using ChatGPT
 
 - `model_provider = "custom"`
 - `model = "gpt-5.6-sol"`
-- `model_catalog_json` 是绝对路径
+- `model_catalog_json` 指向不受 CC Switch 生成器管理的 `cc-switch-model-catalog-persistent.json`
 - `cli_auth_credentials_store = "file"`
 - `requires_openai_auth = true`
 - `base_url = "https://sub2api.52ai.pro"`
