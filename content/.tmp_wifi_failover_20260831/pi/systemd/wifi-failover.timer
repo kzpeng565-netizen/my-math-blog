@@ -1,0 +1,12 @@
+[Unit]
+Description=Check Raspberry Pi Wi-Fi failover every 30 seconds
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=30s
+AccuracySec=3s
+Persistent=false
+Unit=wifi-failover.service
+
+[Install]
+WantedBy=timers.target
