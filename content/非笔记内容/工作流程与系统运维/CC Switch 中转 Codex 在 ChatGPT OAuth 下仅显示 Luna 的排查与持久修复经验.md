@@ -177,6 +177,49 @@ hidden = false
 
 这次只验证了模型能力目录和选择器判定，没有上传真实图片到中转站；真实图片请求仍需由用户在重启后的新任务中自行确认。
 
+### 4.2 思考强度被缩减为少数档位
+
+==CC Switch 3.18.0 的 provider 编辑器会把 `settings_config.modelCatalog` 转换为 `cc-switch-model-catalog.json`。该数据结构只能表达粗粒度的“是否支持推理”，不能完整保存 Sol 的具体档位。==
+
+本次活动目录被重新生成后，Sol 一度只剩：
+
+```text
+default_reasoning_level = high
+supported_reasoning_levels = [none, high]
+```
+
+`models.json` 中则仍是旧的 `low, high, max`，两份目录互相不一致。桌面端实际读取 `config.toml` 中 `model_catalog_json` 指向的文件，因此修改未被引用的 `models.json` 不足以修复模型选择器。
+
+官方内置 Sol 目录包含六档：
+
+```text
+low, medium, high, xhigh, max, ultra
+```
+
+持久化修复采用以下结构：
+
+1. 从 Codex 内置目录复制 Sol 的 `default_reasoning_level` 和完整 `supported_reasoning_levels`。
+2. 写入独立文件 `cc-switch-model-catalog-persistent.json`。
+3. 将活动配置和中转 provider 模板的 `model_catalog_json` 都指向该文件。
+4. 从中转 provider 的 `settings_config` 中移除 `modelCatalog`，阻止 CC Switch 再生成并覆盖目录。
+5. 保留 provider 的 `auth`、中转地址、代理管理令牌和其他配置，不做整行重建。
+
+Sol 的关键字段应为：
+
+```json
+"default_reasoning_level": "low",
+"supported_reasoning_levels": [
+  { "effort": "low" },
+  { "effort": "medium" },
+  { "effort": "high" },
+  { "effort": "xhigh" },
+  { "effort": "max" },
+  { "effort": "ultra" }
+]
+```
+
+`config.toml` 中的 `model_reasoning_effort = "high"` 只表示当前默认选择，不应被误认为模型只支持 High。真正决定下拉列表的是 `supported_reasoning_levels`。
+
 ## 5. 正确修复流程
 
 ### 5.1 先备份
@@ -216,7 +259,7 @@ WHERE app_type = 'codex'
 "@
 ```
 
-手工更新数据库前必须退出 CC Switch 并备份数据库。不要用会把 `settings_config.auth` 覆盖为空的整行替换。
+手工更新数据库前必须退出 CC Switch 并备份数据库。不要用会把 `settings_config.auth` 覆盖为空的整行替换。若要保留完整六档，应确认 `settings_config` 中不再存在会触发目录再生成的 `modelCatalog`。
 
 ### 5.3 刷新 OAuth
 
@@ -330,6 +373,9 @@ OK
 | 中转日志显示 `gpt-reserve` | 新建任务并确认 `model` | 旧任务保存了旧模型绑定 |
 | `127.0.0.1:15721/health` 不通 | 查看 CC Switch `proxy_config` | 当前是直连中转站模式，本地代理未启用 |
 | Sol 请求成功但界面仍显示官方额度 | 区分额度面板与实际路由日志 | ChatGPT 账户额度 UI 不等于中转站计费与路由 |
+| Sol 只剩 None/High 或少数思考档位 | 检查活动目录和 provider 的 `settings_config.modelCatalog` | CC Switch 3.18.0 用粗粒度模型配置重生成目录 |
+| `models.json` 已有完整档位但界面没有 | 检查 `config.toml` 的 `model_catalog_json` | 桌面端读取的是另一份活动目录 |
+| 重启或切换 provider 后档位再次消失 | 检查 provider 是否重新出现 `modelCatalog` | CC Switch 再次接管并覆盖持久目录 |
 
 ## 8. 本次备份与回滚
 
@@ -342,6 +388,10 @@ C:\Users\15345\.cc-switch\backups\db_backup_20260831_004447_before_oauth_catalog
 C:\Users\15345\.cc-switch\backups\codex_config_20260831_005306_before_file_auth_store.toml
 C:\Users\15345\.cc-switch\backups\db_backup_20260831_005306_before_file_auth_store.db
 C:\Users\15345\.cc-switch\backups\db_backup_20260831_005837_before_fresh_oauth_sync.db
+C:\Users\15345\.cc-switch\backups\db_backup_*_before_reasoning_levels_fix.db
+C:\Users\15345\.cc-switch\backups\codex_config_*_before_reasoning_levels_fix.toml
+C:\Users\15345\.cc-switch\backups\codex_generated_catalog_*_before_reasoning_levels_fix.json
+C:\Users\15345\.cc-switch\backups\codex_models_*_before_reasoning_levels_fix.json
 ```
 
 完全回滚到本轮修复前：
@@ -354,6 +404,8 @@ C:\Users\15345\.cc-switch\backups\db_backup_20260831_005837_before_fresh_oauth_s
 
 该回滚会恢复到当时的 API Key 登录状态，并撤销本轮 OAuth 目录持久化修复。
 
+若只回滚思考强度修复，应恢复同一时间戳的 `before_reasoning_levels_fix` 数据库、配置和两份目录备份。恢复数据库会重新启用原来的 `settings_config.modelCatalog`，Sol 的档位也会再次缩减。
+
 ## 9. 官方文档依据
 
 - [Authentication：Alternative model providers](https://learn.chatgpt.com/docs/auth#alternative-model-providers)：`requires_openai_auth = true` 可使用 ChatGPT 或 API Key 登录自定义 provider。
@@ -361,3 +413,4 @@ C:\Users\15345\.cc-switch\backups\db_backup_20260831_005837_before_fresh_oauth_s
 - [Configuration Reference](https://learn.chatgpt.com/docs/config-file/config-reference)：`model_catalog_json` 是启动时加载的 JSON 模型目录路径。
 - [Codex App Server：model/list](https://learn.chatgpt.com/docs/app-server#list-models-model-list)：桌面客户端应根据 `model/list` 渲染模型选择器。
 - [Developer commands：codex debug models](https://learn.chatgpt.com/docs/developer-commands#codex-debug-models)：检查 Codex 看到的原始模型目录。
+- [Models：Reasoning levels](https://learn.chatgpt.com/docs/models#reasoning-levels)：Sol 支持 Low、Medium、High、XHigh 和 Max；本机内置目录还提供 Ultra。
