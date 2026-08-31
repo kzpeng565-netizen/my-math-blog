@@ -516,6 +516,7 @@ class GardenServiceTests(unittest.TestCase):
         self.assertIn('目标 &lt; 25 秒', page)
         self.assertIn("data-goal-course-unit", script)
         self.assertIn("details.taught_units", script)
+        self.assertIn("box.checked&&goalQuickChoices.common_mastery", script)
         self.assertIn("feedback_schema_version:2", script)
         self.assertIn("function renderGoalGradeComponents", script)
         self.assertIn("completion:goalQuickChoices.condition", script)

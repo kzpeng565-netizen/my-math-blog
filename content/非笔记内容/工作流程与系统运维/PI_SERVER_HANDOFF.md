@@ -1657,3 +1657,30 @@ Windows: D:\tools\pi-network-fallback-backups\20260831-162644/
 详见 [[树莓派课程表导入与系统适配]]。
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=checked; retrieved_notes="PI_SERVER_HANDOFF.md" -->
+
+## 2026-08-31：Goal 快速证据反馈 v2
+
+==生产 Focus Garden 已使用按任务类型生成的反馈 UI；Advisor `goal_agent.py` 校验 v2 performance/conditions，正式成绩权重、抽代书面题源和真题独立/新题/限时/评分条件均进入确定性指标。完整复盘从最近结构化证据检索已授权材料，不扩大 Vault 授权范围。外部入口仍只有 Tailnet `:8460`；Advisor `:8767` 与 Garden `:8838` 继续只在 loopback。==
+
+生产备份与镜像备份：
+
+```text
+/home/conrad/workspace/backups/goal-feedback-v2-20260831-204712
+D:\MyFocusGarden\.codex-backups\goal-feedback-v2-20260831-210720
+```
+
+验证：
+
+```text
+Advisor: 246 tests OK, skipped=1
+Pi Garden: 50 tests OK
+Tailnet page/state API: HTTP 200
+loopback invalid-condition write: HTTP 400 + transaction rollback
+activitywatch-advisor-web.service: active
+focus-garden.service: active
+goal-agent-review.timer: active
+```
+
+资源缓存版本为 `20260831.feedback3`。若页面仍显示旧通用长表，先普通刷新；不要修改 Funnel/Serve 或开放公网端口。回退优先逐文件恢复代码并重启两项服务；除数据库损坏外不要用备份 SQLite 覆盖新反馈。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=production-backup-full-tests-loopback-tailnet-browser-and-mirror; retrieved_notes="计划模式/06-任务类型快速证据反馈v2部署验收.md" -->

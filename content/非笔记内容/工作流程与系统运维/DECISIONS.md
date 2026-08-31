@@ -843,6 +843,12 @@
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=real-hotspot-switch-and-computer-away-test; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->
 
+### D112. 快速反馈只压缩重复输入，不降低证据条件【有效】
+
+==日常反馈按任务类型动态生成，并以 25 秒为真实用户可用性目标；只自动带入已确认的任务、课程、权重和题源，不猜测独立程度、正确性、新题、限时或掌握度。最终正确与独立正确、听课自评与实测能力、正式成绩与估分、熟题与新题必须分开保存。硬指标只有在来源、辅助、核对和测试条件完整时成立；信息不足继续显示未知。Agent 可检索已授权材料，但材料片段和模型总结不能递归充当新的学习事实。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=implemented-tested-and-tailnet-verified; retrieved_notes="计划模式/06-任务类型快速证据反馈v2部署验收.md" -->
+
 
 ## 2026-08-31：课表导入与系统适配
 

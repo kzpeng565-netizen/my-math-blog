@@ -684,3 +684,11 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 详见 [[树莓派课程表导入与系统适配]]。
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=checked; retrieved_notes="PROJECT_STATE.md" -->
+
+## 2026-08-31 状态更新：任务类型快速证据反馈 v2
+
+==Goal 模式“证据与资料”已上线任务驱动的快速表单。本周任务卡可直接“记进度”，课程卡可“记录上课”；课程、练习、证明、成绩、限时真题、阅读、讲解、口试和受阻分别只显示本类型字段。课程成绩绑定已确认考核比例；做题区分最终正确与独立正确；真题同时记录独立、新题、限时和评分条件。未填和未核验值保持未知，不转成 0。==
+
+==Goal Agent 保存结构化 performance/conditions 和判断边界，并在完整复盘时根据最近证据检索已授权材料片段。确定性达标指标先检查题源、辅助、核对、限时和新颖度，模型不能把单次自评或不完整条件提升为长期掌握。生产当前 plan version 3；Advisor 246 tests、Pi Garden 50 tests、Windows 镜像 test_service 27 tests 全部通过，Tailnet 页面/API 返回 200。`<25 秒` 仍需真实用户逐类型计时，不以自动化速度宣称达标。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-full-tests-loopback-tailnet-browser-and-windows-mirror; retrieved_notes="计划模式/06-任务类型快速证据反馈v2部署验收.md" -->
