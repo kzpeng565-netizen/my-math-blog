@@ -670,8 +670,8 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 ==Pi 间歇性 Tailnet 掉线已定位为板载 2.4 GHz Wi-Fi 在两个 UCAS BSSID/信道之间反复重关联，不是 UCAS 整体网络、Pi 负载、欠压或 Focus Garden 服务故障。电脑使用独立 5 GHz BSSID且稳定。当前暂不锁定 Pi BSSID。==
 
-==Windows `XYH 0563` 热点保持 On，PeerlessTimeoutEnabled=0；当前用户 Startup 隐藏 watchdog 每 5 分钟确保热点开启。Pi `wifi-failover.timer` 每 30 秒检查默认路由、IPv4 204 和 IPv6 HTTPS；双栈连续 4 次失败才切换热点。电脑 Tailnet peer 不参与触发，电脑被带走不会误切换。==
+==Windows `XYH 0563` 热点由用户按需开启；自动 Startup launcher 和常驻 watchdog 已移除，但 `D:\tools\pi-network-fallback` 中的热点保障脚本完整保留。Pi `wifi-failover.timer` 每 30 秒检查默认路由、IPv4 204 和 IPv6 HTTPS；双栈连续 4 次失败才尝试热点。电脑 Tailnet peer 不参与触发，电脑被带走不会误切换。热点未开启时，Pi 会恢复 UCAS并进入冷却。==
 
 ==Pi 热点 profile 已完成两次真实连接：Windows 客户端数 0→1，热点期间 SSH/Garden 可用，自动回切后恢复 UCAS。触屏面板已新增“一键恢复热点连接”，后端与自动 failover 共用脚本，连接失败立即恢复 UCAS。测试 9/9，timer enabled/active，面板循环进程已重启。==
 
-<!-- ai_provenance: source=codex; date=2026-08-31; verification=wifi-logs-real-switch-tests-systemd-and-windows-watchdog; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=wifi-logs-real-switch-tests-systemd-and-on-demand-hotspot-policy; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->

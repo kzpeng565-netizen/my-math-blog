@@ -31,7 +31,7 @@ Tailscale 因此出现 DERP 重连、endpoint timeout、TLS EOF/reset。Pi 本�
 
 ## 2. 备用热点真实验收
 
-Windows 移动热点：
+Windows 移动热点（真实测试时）：
 
 ```text
 SSID=XYH 0563
@@ -41,6 +41,8 @@ State=On
 地址=192.168.137.1/24
 PeerlessTimeoutEnabled=0
 ```
+
+当前运维策略为用户按需开启热点；不安装登录启动项，不运行常驻 Windows watchdog。相关脚本保留备用。
 
 Pi 已保存：
 
@@ -134,20 +136,14 @@ D:\tools\pi-network-fallback\install-hotspot-startup.ps1
 D:\tools\pi-network-fallback\remove-hotspot-startup.ps1
 ```
 
-当前用户启动项：
-
-```text
-%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Pi Hotspot Fallback.vbs
-```
-
-日志：
+可选日志：
 
 ```text
 %LOCALAPPDATA%\PiNetworkFallback\hotspot-ensure.jsonl
 %LOCALAPPDATA%\PiNetworkFallback\watchdog.jsonl
 ```
 
-Windows watchdog 登录后隐藏启动，每 5 分钟确认热点仍为 On。它使用命名互斥锁，重复启动不会生成多个进程。
+`ensure-hotspot.ps1` 可手动确保热点为 On；`hotspot-watchdog.ps1` 与安装/移除脚本继续保留，但当前没有 Startup launcher，也没有常驻 watchdog 进程。热点开关由用户按需控制。
 
 ## 5. 触屏一键恢复
 
@@ -177,14 +173,15 @@ nmcli -t -f NAME,DEVICE connection show --active
 journalctl -u wifi-failover.service --since '-30 min' --no-pager
 ```
 
-Windows：
+Windows（确认自动 watchdog 未启用）：
 
 ```powershell
 Get-CimInstance Win32_Process |
   Where-Object CommandLine -Like '*hotspot-watchdog.ps1*'
 
-Get-Content "$env:LOCALAPPDATA\PiNetworkFallback\watchdog.jsonl" -Tail 10
 Get-Content "$env:LOCALAPPDATA\PiNetworkFallback\hotspot-ensure.jsonl" -Tail 10
+
+Test-Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\Pi Hotspot Fallback.vbs"
 ```
 
 ## 7. 停用与恢复
@@ -195,10 +192,10 @@ Pi 暂停自动切换：
 sudo systemctl disable --now wifi-failover.timer
 ```
 
-Windows 移除登录 watchdog：
+Windows 脚本保留位置：
 
-```powershell
-& 'D:\tools\pi-network-fallback\remove-hotspot-startup.ps1'
+```text
+D:\tools\pi-network-fallback\
 ```
 
 备份：

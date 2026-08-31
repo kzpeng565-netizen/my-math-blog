@@ -769,7 +769,7 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 ### ☑ 已完成：电脑热点双向回退闭环
 
-==Windows 热点 `XYH 0563` 常驻保障、Pi 保存 profile、自动切换、自动回切和触屏“一键恢复热点连接”均已完成真实测试。热点期间 Windows 客户端数为 1，SSH/Garden 可用；回切后客户端归零并恢复 UCAS。==
+==Windows 热点 `XYH 0563` 按需开启；自动启动项已移除，但热点保障脚本保留。Pi 保存 profile、双栈故障切换、失败恢复、自动回切和触屏“一键恢复热点连接”均已完成真实测试。热点期间 Windows 客户端数为 1，SSH/Garden 可用；回切后客户端归零并恢复 UCAS。==
 
 ### ☐ 观察至少 24 小时 BSSID 漫游与 failover 事件
 

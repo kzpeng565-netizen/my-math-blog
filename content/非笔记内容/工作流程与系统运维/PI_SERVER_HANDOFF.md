@@ -1621,11 +1621,10 @@ Windows：
 
 ```text
 D:\tools\pi-network-fallback\
-%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Pi Hotspot Fallback.vbs
 %LOCALAPPDATA%\PiNetworkFallback\
 ```
 
-==timer 为 30 秒；触发条件只看默认路由、IPv4 204 与 IPv6 HTTPS。Windows peer 绝不作为切换条件。UCAS 双栈连续 4 次失败后切热点；热点失败恢复 UCAS并冷却 10 分钟；热点连续两次无外网则恢复 UCAS。==
+==Windows 热点由用户按需开启；Startup launcher 与常驻 watchdog 已移除，`D:\tools\pi-network-fallback` 脚本保留。Pi timer 为 30 秒；触发条件只看默认路由、IPv4 204 与 IPv6 HTTPS。Windows peer 绝不作为切换条件。UCAS 双栈连续 4 次失败后尝试热点；热点未开启或连接失败时恢复 UCAS并冷却 10 分钟；热点连续两次无外网则恢复 UCAS。==
 
 ==触屏 `panel.py` 的按钮已改为“一键恢复热点连接”，以后台线程执行 `wifi_failover.py --force-fallback`；成功显示 IP，失败立即恢复 UCAS。`.xinitrc` 循环已把面板进程从旧 PID 自动拉起为新 PID。==
 
@@ -1634,7 +1633,7 @@ D:\tools\pi-network-fallback\
 ```text
 Pi tests: 9/9
 wifi-failover.timer: enabled + active
-Windows hotspot watchdog: single instance, ensure_exit_code=0
+Windows on-demand scripts: retained; Startup watchdog inactive
 真实热点切换: 2 次成功
 真实 UCAS 回切: 2 次成功
 ```

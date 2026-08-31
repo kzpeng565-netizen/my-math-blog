@@ -1,4 +1,0 @@
-interface:
-  display_name: "Pi Ops System Context"
-  short_description: "Pi advisor and Focus Garden ops"
-  default_prompt: "Use the Pi ops system context to route advisor or Focus Garden work to the right docs and services, preserve private Tailnet boundaries, and update handoff docs after changes."

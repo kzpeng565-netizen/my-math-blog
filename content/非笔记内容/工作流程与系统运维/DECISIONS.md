@@ -839,6 +839,6 @@
 
 ### D111. 固定 UCAS BSSID 前必须先有真实可用回退【有效】
 
-==当前不固定 BSSID。电脑热点必须保持开启，Pi profile、自动切换、自动回切和触屏手动按钮均完成真实验收后，才允许依据长期监测选择 BSSID。固定后 AP 离线会失去漫游能力，因此仍必须保留热点 profile 和本地按钮。==
+==当前不固定 BSSID。电脑热点由用户按需开启，相关脚本、Pi profile、自动切换失败恢复、自动回切和触屏手动按钮均需保留。只有热点开启时的真实往返验收通过，并依据长期监测选择出稳定 AP 后，才允许固定 BSSID。固定后 AP 离线会失去漫游能力，因此仍必须保留 hotspot profile 和本地按钮。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=real-hotspot-switch-and-computer-away-test; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->

@@ -145,6 +145,38 @@ C:\Users\15345\.codex\cc-switch-model-catalog.json
 
 以上两个新增顶层配置也已写入 provider 的 `settings_config.config`，避免 CC Switch 再次覆盖。
 
+### 4.1 图片输入能力声明
+
+模型目录不仅决定模型是否显示，还会决定输入框是否允许附加图片。Sol 条目必须保持：
+
+```json
+"slug": "gpt-5.6-sol",
+"input_modalities": [
+  "text",
+  "image"
+],
+"supports_image_detail_original": true
+```
+
+本次后续故障的直接原因是补丁匹配了目录中的第一个模型块，把 `deepseek-v4-flash` 改成了图片模型，而 Sol 仍保留为：
+
+```json
+"input_modalities": [
+  "text"
+],
+"supports_image_detail_original": false
+```
+
+修复时必须按 `"slug": "gpt-5.6-sol"` 定位完整对象，不能只按 `input_modalities` 或 `supports_image_detail_original` 的第一次出现位置替换。修复后 app-server 的 `model/list` 应返回：
+
+```text
+gpt-5.6-sol
+inputModalities = ["text", "image"]
+hidden = false
+```
+
+这次只验证了模型能力目录和选择器判定，没有上传真实图片到中转站；真实图片请求仍需由用户在重启后的新任务中自行确认。
+
 ## 5. 正确修复流程
 
 ### 5.1 先备份
