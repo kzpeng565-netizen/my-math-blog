@@ -70,6 +70,58 @@ def _safe_http_error(error: HTTPError) -> str:
     return f"HTTP {int(error.code)}"
 
 
+def _decode_responses_body(raw: str) -> dict[str, Any]:
+    stripped = raw.lstrip()
+    if stripped.startswith("{"):
+        value = json.loads(stripped)
+        if not isinstance(value, dict):
+            raise ValueError("model response is not an object")
+        return value
+    completed: dict[str, Any] | None = None
+    fragments: list[str] = []
+    model_name = ""
+    usage: dict[str, Any] = {}
+    for line in raw.splitlines():
+        if not line.startswith("data:"):
+            continue
+        value = line[5:].strip()
+        if not value or value == "[DONE]":
+            continue
+        event = json.loads(value)
+        if not isinstance(event, dict):
+            continue
+        event_type = str(event.get("type") or "")
+        response = event.get("response")
+        if isinstance(response, dict):
+            model_name = str(response.get("model") or model_name)
+            if isinstance(response.get("usage"), dict):
+                usage = response["usage"]
+            if event_type == "response.completed":
+                completed = response
+        if event_type == "response.output_text.delta":
+            delta = event.get("delta")
+            if isinstance(delta, str):
+                fragments.append(delta)
+    if completed is not None and _extract_output_text(completed).strip():
+        return completed
+    if fragments:
+        return {
+            "status": "completed",
+            "model": (
+                str(completed.get("model") or model_name)
+                if completed
+                else model_name
+            ),
+            "usage": (
+                completed.get("usage", usage)
+                if completed
+                else usage
+            ),
+            "output_text": "".join(fragments),
+        }
+    raise ValueError("Responses stream did not contain a completed response")
+
+
 def request_goal_json(
     model: dict[str, Any],
     messages: list[dict[str, str]],
@@ -104,6 +156,7 @@ def request_goal_json(
         "reasoning": {"effort": str(model.get("reasoning_effort") or "medium")},
         "max_output_tokens": int(model.get("max_output_tokens") or 4500),
         "store": False,
+        "stream": True,
     }
     use_schema = bool(model.get("structured_output", True))
     if use_schema:
@@ -134,13 +187,15 @@ def request_goal_json(
             headers={
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
+                "Accept": "text/event-stream",
+                "User-Agent": "focus-garden-goal-agent/2",
             },
         )
         try:
             with urlopen(request, timeout=timeout) as response:
-                body = json.loads(response.read().decode("utf-8"))
-            if not isinstance(body, dict):
-                raise ValueError("model response is not an object")
+                body = _decode_responses_body(
+                    response.read().decode("utf-8")
+                )
             content = _extract_output_text(body)
             if not content.strip():
                 raise ValueError("model response has no output text")
@@ -171,7 +226,7 @@ def request_goal_json(
             # A compatible Responses gateway may not implement JSON Schema.
             # Retry once on the same model/protocol with the prompt-only JSON
             # contract; never fall back to DeepSeek or another provider.
-            if error.code in {400, 404, 422} and "text" in payload:
+            if error.code in {400, 403, 404, 422} and "text" in payload:
                 payload.pop("text", None)
                 schema_fallback_used = True
                 continue

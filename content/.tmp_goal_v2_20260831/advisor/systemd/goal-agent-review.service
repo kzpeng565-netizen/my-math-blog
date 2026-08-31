@@ -10,7 +10,7 @@ WorkingDirectory=/home/conrad/workspace/activitywatch-advisor
 EnvironmentFile=/home/conrad/.config/activitywatch-advisor/env
 EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/ntfy.env
 EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/tavily.env
+EnvironmentFile=-/home/conrad/.config/activitywatch-advisor/goal-agent.env
 ExecStart=/usr/bin/python3 src/goal_agent.py --settings config/settings.json --env-file /home/conrad/.config/activitywatch-advisor/env --review --notify
 NoNewPrivileges=true
 PrivateTmp=true
-

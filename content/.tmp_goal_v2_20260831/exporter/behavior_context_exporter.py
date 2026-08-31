@@ -17,7 +17,9 @@ from zoneinfo import ZoneInfo
 
 
 TIMEZONE = ZoneInfo("Asia/Shanghai")
-EXPORTER_VERSION = 5
+EXPORTER_VERSION = 6
+GOAL_MATERIAL_SCHEMA_VERSION = 2
+ALLOWED_MATERIAL_EXTENSIONS = {".pdf", ".md", ".txt"}
 SOURCE_NAMES = {
     "profile": "Profile.md",
     "task_collection": "ToDo-任务集合.md",
@@ -318,12 +320,124 @@ def parse_completed_tasks(
     }
 
 
+HANDWRITING_PLACEHOLDER = "[手写笔记：笔画采样已省略，请以周围文字或识别转写为准。]"
+_HIDDEN_INK_RE = re.compile(
+    r"(?ms)^[ \t]*%%inkedmark[ \t]*\r?\n.*?^[ \t]*%%[ \t]*(?:\r?\n|$)"
+)
+_FENCED_INK_RE = re.compile(
+    r"(?ms)^[ \t]*(?P<fence>`{3,}|~{3,})[ \t]*inkedmark\b[^\r\n]*\r?\n"
+    r"(?P<body>.*?)^[ \t]*(?P=fence)[ \t]*(?:\r?\n|$)"
+)
+_CAPTION_RE = re.compile(r"(?mi)^[ \t]*caption:[ \t]*(?P<caption>[^\r\n]*)$")
+_MANAGED_TEXT_RE = re.compile(
+    r"(?s)<!--inkedmark-text-->(.*?)<!--/inkedmark-text-->"
+)
+_MANAGED_PAGE_RE = re.compile(r"<!--inkedmark-page:(\d+)-->")
+_MARKDOWN_IMAGE_RE = re.compile(
+    r"!\[([^\r\n\]]*)\]\((?:<([^>\r\n]+)>|([^\s)\r\n]+))\)"
+)
+
+
 def sanitize_material_text(text: str) -> str:
-    """Remove MathInk stroke payloads before any material leaves the vault."""
-    text = re.sub(r"```inkedmark\b.*?```", "手写笔记", text, flags=re.DOTALL | re.IGNORECASE)
-    text = re.sub(r"%%inkedmark\b.*?%%", "手写笔记", text, flags=re.DOTALL | re.IGNORECASE)
-    text = re.sub(r"data:image/[^;\s]+;base64,[A-Za-z0-9+/=\r\n]+", "[图片数据已省略]", text)
+    """Remove MathInk samples/base64 while retaining AI-readable Markdown."""
+
+    def replace_fenced(match: re.Match[str]) -> str:
+        caption_match = _CAPTION_RE.search(match.group("body"))
+        caption = caption_match.group("caption").strip() if caption_match else ""
+        if caption:
+            return f"[手写笔记：笔画采样已省略。识别转写：{caption}]\n"
+        return HANDWRITING_PLACEHOLDER + "\n"
+
+    text = _FENCED_INK_RE.sub(replace_fenced, text)
+    text = _HIDDEN_INK_RE.sub(HANDWRITING_PLACEHOLDER + "\n", text)
+    text = re.sub(
+        r"data:image/[^;\s]+;base64,[A-Za-z0-9+/=\r\n]+",
+        "[图片数据已省略]",
+        text,
+        flags=re.IGNORECASE,
+    )
+    # Preserve the managed transcription itself but remove implementation-only
+    # markers. MathInk page headings remain ordinary Markdown.
+    text = text.replace("<!--inkedmark-text-->", "")
+    text = text.replace("<!--/inkedmark-text-->", "")
+    text = re.sub(r"<!--/?inkedmark-page:\d+-->", "", text)
+    # Standard Markdown image projection remains visible. World-space layout
+    # metadata is irrelevant to the Goal Agent and may be large/noisy.
+    text = re.sub(r"<!--\s*mathink:image\s+\{[^\r\n]*\}\s*-->", "", text)
     return text
+
+
+def material_text_metadata(raw_text: str) -> dict[str, Any]:
+    managed = _MANAGED_TEXT_RE.search(raw_text)
+    images = [
+        {
+            "alt": match.group(1).strip(),
+            "path": (match.group(2) or match.group(3) or "").strip(),
+        }
+        for match in _MARKDOWN_IMAGE_RE.finditer(raw_text)
+    ][:100]
+    return {
+        "note_format": (
+            "mathink_markdown"
+            if _HIDDEN_INK_RE.search(raw_text)
+            or _FENCED_INK_RE.search(raw_text)
+            or managed
+            or "mathink:image" in raw_text
+            else "markdown"
+        ),
+        "has_handwriting_payload": bool(
+            _HIDDEN_INK_RE.search(raw_text) or _FENCED_INK_RE.search(raw_text)
+        ),
+        "has_managed_recognition": bool(managed and managed.group(1).strip()),
+        "recognized_pages": sorted(
+            {int(value) for value in _MANAGED_PAGE_RE.findall(raw_text)}
+        ),
+        "markdown_images": images,
+        "image_binary_exported": False,
+    }
+
+
+def _within_vault(path: Path, root: Path) -> bool:
+    return path == root or root in path.parents
+
+
+def _excluded_material_path(path: Path, authorization_root: Path) -> bool:
+    try:
+        relative_parts = path.relative_to(authorization_root).parts
+    except ValueError:
+        return True
+    if any(part.startswith(".") for part in relative_parts[:-1]):
+        return True
+    name = path.name.lower()
+    return (
+        name.startswith(".")
+        or name.startswith("~")
+        or name.startswith("~syncthing~")
+        or ".sync-conflict-" in name
+        or name.endswith(".ink.md")
+        or ".ink.sync-conflict-" in name
+        or name.endswith(".tmp")
+        or name.endswith(".temp")
+        or name.endswith(".bak")
+    )
+
+
+def _manifest_extensions(line: str) -> set[str]:
+    match = re.search(
+        r"(?:extensions?|扩展名)\s*=\s*([A-Za-z0-9.,\s]+)",
+        line,
+        re.IGNORECASE,
+    )
+    if not match:
+        return set(ALLOWED_MATERIAL_EXTENSIONS)
+    values = {
+        "." + value.strip().lower().lstrip(".")
+        for value in match.group(1).split(",")
+        if value.strip()
+    }
+    if not values or not values.issubset(ALLOWED_MATERIAL_EXTENSIONS):
+        return set()
+    return values
 
 
 def parse_goal_material_manifest(markdown: str, vault_root: Path) -> list[dict[str, Any]]:
@@ -335,15 +449,29 @@ def parse_goal_material_manifest(markdown: str, vault_root: Path) -> list[dict[s
             continue
         wiki = re.search(r"\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]", line)
         markdown_link = re.search(r"\[[^\]]*\]\(([^)]+)\)", line)
-        explicit = re.search(r"(?:路径|path)\s*[:：]\s*`?([^`|]+?)`?\s*$", line, re.IGNORECASE)
+        explicit = re.search(
+            r"(?:路径|path)\s*[:：]\s*`?([^`|]+?)`?(?:\s*[|｜].*)?$",
+            line,
+            re.IGNORECASE,
+        )
         raw_target = (wiki.group(1) if wiki else markdown_link.group(1) if markdown_link else explicit.group(1) if explicit else "").strip()
         if not raw_target:
             result.append({"line": line_number, "status": "missing_path", "label": line.strip()[:240]})
             continue
+        extensions = _manifest_extensions(line)
+        if not extensions:
+            result.append(
+                {
+                    "line": line_number,
+                    "status": "invalid_extensions",
+                    "label": line.strip()[:240],
+                }
+            )
+            continue
         candidate = Path(raw_target)
         if not candidate.is_absolute():
             candidate = root / candidate
-        if not candidate.suffix:
+        if not candidate.exists() and not candidate.suffix:
             markdown_candidate = candidate.with_suffix(".md")
             if markdown_candidate.is_file():
                 candidate = markdown_candidate
@@ -352,19 +480,94 @@ def parse_goal_material_manifest(markdown: str, vault_root: Path) -> list[dict[s
         except OSError:
             result.append({"line": line_number, "status": "invalid_path", "label": line.strip()[:240]})
             continue
-        if root not in resolved.parents or resolved.suffix.lower() not in {".pdf", ".md", ".txt"}:
+        if not _within_vault(resolved, root) or resolved == root:
             result.append({"line": line_number, "status": "not_allowed", "label": line.strip()[:240]})
+            continue
+        label = re.sub(r"^\s*-\s*\[[xX]\]\s+", "", line)
+        label = re.sub(r"\[\[[^\]]+\]\]|\[[^\]]*\]\([^)]+\)", "", label)
+        label = re.sub(r"(?:路径|path)\s*[:：].*$", "", label, flags=re.IGNORECASE)
+        label = re.sub(
+            r"(?:extensions?|扩展名)\s*=.*$",
+            "",
+            label,
+            flags=re.IGNORECASE,
+        ).strip(" |｜-")
+        if resolved.is_dir():
+            files = [
+                path.resolve()
+                for path in resolved.rglob("*")
+                if path.is_file()
+                and path.suffix.lower() in extensions
+                and not _excluded_material_path(path, resolved)
+            ]
+            files.sort(key=lambda path: path.relative_to(root).as_posix().casefold())
+            if len(files) > 5000:
+                result.append(
+                    {
+                        "line": line_number,
+                        "status": "too_many_files",
+                        "source_path": resolved.relative_to(root).as_posix(),
+                        "label": label or resolved.name,
+                    }
+                )
+                continue
+            new_count = 0
+            for file_path in files:
+                if file_path in seen:
+                    continue
+                seen.add(file_path)
+                new_count += 1
+                relative = file_path.relative_to(root).as_posix()
+                result.append(
+                    {
+                        "line": line_number,
+                        "status": "authorized",
+                        "authorization_kind": "directory",
+                        "authorization_root": resolved.relative_to(root).as_posix(),
+                        "source_path": str(file_path),
+                        "vault_relative_path": relative,
+                        "title": f"{label or resolved.name} · {relative}",
+                        "extensions": sorted(value.lstrip(".") for value in extensions),
+                    }
+                )
+            if new_count == 0:
+                result.append(
+                    {
+                        "line": line_number,
+                        "status": "authorized_empty_directory",
+                        "authorization_kind": "directory",
+                        "authorization_root": resolved.relative_to(root).as_posix(),
+                        "source_path": str(resolved),
+                        "vault_relative_path": resolved.relative_to(root).as_posix(),
+                        "title": label or resolved.name,
+                        "extensions": sorted(value.lstrip(".") for value in extensions),
+                    }
+                )
             continue
         if not resolved.is_file():
             result.append({"line": line_number, "status": "missing_file", "source_path": str(resolved), "label": line.strip()[:240]})
             continue
+        if (
+            resolved.suffix.lower() not in extensions
+            or resolved.suffix.lower() not in ALLOWED_MATERIAL_EXTENSIONS
+            or _excluded_material_path(resolved, resolved.parent)
+        ):
+            result.append({"line": line_number, "status": "not_allowed", "label": line.strip()[:240]})
+            continue
         if resolved in seen:
             continue
         seen.add(resolved)
-        label = re.sub(r"^\s*-\s*\[[xX]\]\s+", "", line)
-        label = re.sub(r"\[\[[^\]]+\]\]|\[[^\]]*\]\([^)]+\)", "", label)
-        label = re.sub(r"(?:路径|path)\s*[:：].*$", "", label, flags=re.IGNORECASE).strip(" |｜-")
-        result.append({"line": line_number, "status": "authorized", "source_path": str(resolved), "title": label or resolved.stem})
+        result.append(
+            {
+                "line": line_number,
+                "status": "authorized",
+                "authorization_kind": "file",
+                "source_path": str(resolved),
+                "vault_relative_path": resolved.relative_to(root).as_posix(),
+                "title": label or resolved.stem,
+                "extensions": sorted(value.lstrip(".") for value in extensions),
+            }
+        )
     return result
 
 
@@ -396,10 +599,25 @@ def _chunks_from_text(text: str, *, pages: bool) -> list[dict[str, Any]]:
     return chunks
 
 
-def _extract_material(path: Path, config: dict[str, Any]) -> tuple[list[dict[str, Any]], int]:
+def _extract_material(
+    path: Path,
+    config: dict[str, Any],
+) -> tuple[list[dict[str, Any]], int, dict[str, Any]]:
     if path.suffix.lower() in {".md", ".txt"}:
         text = path.read_text(encoding="utf-8")
-        return _chunks_from_text(text, pages=False), 1
+        metadata = (
+            material_text_metadata(text)
+            if path.suffix.lower() == ".md"
+            else {
+                "note_format": "text",
+                "has_handwriting_payload": False,
+                "has_managed_recognition": False,
+                "recognized_pages": [],
+                "markdown_images": [],
+                "image_binary_exported": False,
+            }
+        )
+        return _chunks_from_text(text, pages=False), 1, metadata
     executable = str(config.get("pdftotext_path") or shutil.which("pdftotext") or "")
     if not executable:
         raise RuntimeError("pdftotext is not available")
@@ -412,7 +630,18 @@ def _extract_material(path: Path, config: dict[str, Any]) -> tuple[list[dict[str
     )
     text = completed.stdout.decode("utf-8", errors="replace")
     pages = text.split("\f")
-    return _chunks_from_text(text, pages=True), max(1, len([page for page in pages if page.strip()]))
+    return (
+        _chunks_from_text(text, pages=True),
+        max(1, len([page for page in pages if page.strip()])),
+        {
+            "note_format": "pdf_text",
+            "has_handwriting_payload": False,
+            "has_managed_recognition": False,
+            "recognized_pages": [],
+            "markdown_images": [],
+            "image_binary_exported": False,
+        },
+    )
 
 
 def export_goal_materials(
@@ -426,27 +655,44 @@ def export_goal_materials(
     entries = parse_goal_material_manifest(manifest_markdown, vault_root)
     documents: list[dict[str, Any]] = []
     errors: list[dict[str, Any]] = []
+    empty_directories: list[dict[str, Any]] = []
     for entry in entries:
+        if entry.get("status") == "authorized_empty_directory":
+            empty_directories.append(
+                {
+                    key: entry.get(key)
+                    for key in (
+                        "line",
+                        "title",
+                        "vault_relative_path",
+                        "authorization_root",
+                        "extensions",
+                    )
+                }
+            )
+            continue
         if entry.get("status") != "authorized":
             errors.append(entry)
             continue
         path = Path(entry["source_path"])
         content = path.read_bytes()
         digest = sha256_bytes(content)
-        record_id = "material-" + hashlib.sha256(str(path).casefold().encode("utf-8")).hexdigest()[:24]
+        relative_path = str(entry["vault_relative_path"])
+        record_id = "material-" + hashlib.sha256(relative_path.casefold().encode("utf-8")).hexdigest()[:24]
         export_file = f"{record_id}-{digest[:16]}.json.gz"
         modified_at = iso(datetime.fromtimestamp(path.stat().st_mtime, TIMEZONE))
         try:
-            chunks, page_count = _extract_material(path, config)
+            chunks, page_count, metadata = _extract_material(path, config)
             payload = {
-                "schema_version": 1,
+                "schema_version": GOAL_MATERIAL_SCHEMA_VERSION,
                 "id": record_id,
                 "title": entry["title"],
-                "source_path": str(path),
+                "source_path": relative_path,
                 "sha256": digest,
                 "modified_at": modified_at,
                 "generated_at": iso(generated_at),
                 "page_count": page_count,
+                "metadata": metadata,
                 "chunks": chunks,
             }
             encoded = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
@@ -454,13 +700,14 @@ def export_goal_materials(
             documents.append({
                 "id": record_id,
                 "title": entry["title"],
-                "source_path": str(path),
+                "source_path": relative_path,
                 "sha256": digest,
                 "modified_at": modified_at,
                 "page_count": page_count,
                 "chunk_count": len(chunks),
                 "export_file": export_file,
                 "status": "ready",
+                "metadata": metadata,
             })
         except (OSError, RuntimeError, subprocess.SubprocessError, UnicodeDecodeError) as error:
             errors.append({
@@ -470,11 +717,12 @@ def export_goal_materials(
                 "error": f"{type(error).__name__}: {error}"[:300],
             })
     index = {
-        "schema_version": 1,
+        "schema_version": GOAL_MATERIAL_SCHEMA_VERSION,
         "generated_at": iso(generated_at),
         "manifest_sha256": sha256_bytes(manifest_markdown.encode("utf-8")),
         "document_count": len(documents),
         "documents": documents,
+        "empty_directories": empty_directories,
         "errors": errors,
     }
     index_path = materials_root / "index.json"
@@ -486,7 +734,13 @@ def export_goal_materials(
             previous_value = {}
     changed = any(
         previous_value.get(key) != index.get(key)
-        for key in ("schema_version", "manifest_sha256", "documents", "errors")
+        for key in (
+            "schema_version",
+            "manifest_sha256",
+            "documents",
+            "empty_directories",
+            "errors",
+        )
     )
     atomic_write_json(index_path, index)
     return {
@@ -606,8 +860,18 @@ def build_snapshot(
             "event_identity": completed_stats["event_identity"],
         },
         "goal_materials": {
-            "authorized_count": sum(1 for item in authorized_materials if item.get("status") == "authorized"),
-            "problem_count": sum(1 for item in authorized_materials if item.get("status") != "authorized"),
+            "authorized_count": sum(
+                1
+                for item in authorized_materials
+                if item.get("status")
+                in {"authorized", "authorized_empty_directory"}
+            ),
+            "problem_count": sum(
+                1
+                for item in authorized_materials
+                if item.get("status")
+                not in {"authorized", "authorized_empty_directory"}
+            ),
             "manifest_modified_at": source_info(paths["goal_materials"], contents["goal_materials"])["modified_at"],
         },
         "pomodoro": parse_pomodoro(decoded["pomodoro_log"], generated_at),

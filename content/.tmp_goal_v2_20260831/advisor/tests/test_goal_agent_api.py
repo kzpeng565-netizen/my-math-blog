@@ -34,6 +34,18 @@ def _settings(root: Path) -> dict:
             "material_root": str(root / "materials"),
             "prompt_path": str(root / "goal-agent.md"),
             "tavily_env_file": str(root / "missing-tavily.env"),
+            "model_env_file": str(root / "missing-goal-model.env"),
+            "model": {
+                "provider": "openai_compatible",
+                "protocol": "responses",
+                "endpoint": "https://example.invalid/v1/responses",
+                "name": "gpt-5.6-sol",
+                "api_key_env": "GOAL_AGENT_API_KEY",
+                "reasoning_effort": "medium",
+                "max_output_tokens": 4500,
+                "timeout_seconds": 1,
+                "retries": 0,
+            },
         },
     }
 
@@ -78,6 +90,9 @@ class GoalAgentApiTests(unittest.TestCase):
         status, state = self._request("/api/goal-agent/state")
         self.assertEqual(status, 200)
         self.assertTrue(state["boundaries"]["next_action_is_separate"])
+        self.assertEqual(state["schema_version"], 2)
+        self.assertEqual(state["model"]["name"], "gpt-5.6-sol")
+        self.assertEqual(len(state["course_profiles"]), 3)
         status, plan = self._request("/api/goal-agent/plan")
         self.assertEqual(status, 200)
         self.assertEqual(plan["plan_version"], 1)
@@ -111,6 +126,37 @@ class GoalAgentApiTests(unittest.TestCase):
         self.assertEqual(status, 409)
         self.assertEqual(conflict["code"], "plan_version_conflict")
         self.assertEqual(conflict["current_plan_version"], 1)
+
+    def test_course_progress_feedback_is_exposed_in_state(self) -> None:
+        status, created = self._request(
+            "/api/goal-agent/feedback",
+            "POST",
+            {
+                "request_id": "api-course-12345678",
+                "base_plan_version": 1,
+                "track_id": "track-courses",
+                "evidence_type": "course_progress",
+                "deep_minutes": 90,
+                "details": {
+                    "course": "微分几何",
+                    "taught_units": [
+                        {
+                            "unit_id": "differential-geometry-01-01",
+                            "mastery": 2,
+                        }
+                    ],
+                    "exercise_attempted": 2,
+                    "exercise_correct": 1,
+                },
+            },
+        )
+        self.assertEqual(status, 201)
+        self.assertGreater(created["plan_version"], 1)
+        status, state = self._request("/api/goal-agent/state")
+        self.assertEqual(status, 200)
+        progress = state["course_progress"]["by_course"]["微分几何"]
+        self.assertEqual(progress["confirmed_taught_units"], 1)
+        self.assertNotIn("微分几何", state["course_progress"]["pending_input"])
 
     def test_unknown_goal_subpath_is_not_widened_by_bridge(self) -> None:
         status, _ = self._request("/api/goal-agent/private-files")

@@ -37,6 +37,18 @@ class GoalAgentTest(unittest.TestCase):
                 "database_path": str(self.root / "goal.sqlite3"),
                 "material_root": str(self.root / "materials-root"),
                 "tavily_env_file": str(self.root / "missing-tavily.env"),
+                "model_env_file": str(self.root / "missing-goal-model.env"),
+                "model": {
+                    "provider": "openai_compatible",
+                    "protocol": "responses",
+                    "endpoint": "https://example.invalid/v1/responses",
+                    "name": "gpt-5.6-sol",
+                    "api_key_env": "GOAL_AGENT_API_KEY",
+                    "reasoning_effort": "medium",
+                    "max_output_tokens": 4500,
+                    "timeout_seconds": 1,
+                    "retries": 0,
+                },
             },
         }
         self.agent = GoalAgent(
@@ -76,9 +88,25 @@ class GoalAgentTest(unittest.TestCase):
         self.assertEqual(plan["weeks"][0]["minutes"], 1590)
         self.assertTrue(all(week["minutes"] == 1590 for week in plan["weeks"]))
         state = self.agent.state()
+        self.assertEqual(state["schema_version"], 2)
         self.assertTrue(state["boundaries"]["next_action_is_separate"])
         self.assertEqual({track["status"] for track in state["tracks"]}, {"unknown"})
         self.assertFalse(state["tavily"]["configured"])
+        self.assertEqual(state["model"]["name"], "gpt-5.6-sol")
+        self.assertEqual(state["model"]["reasoning_effort"], "medium")
+        self.assertIsNone(state["model"]["fallback_provider"])
+        self.assertEqual(
+            {profile["confirmation_status"] for profile in state["course_profiles"]},
+            {"partial_confirmed"},
+        )
+        self.assertEqual(
+            state["course_progress"]["pending_input"],
+            ["概率论", "泛函分析", "微分几何"],
+        )
+        self.assertNotIn(
+            "课程基线检索练习",
+            " ".join(item["title"] for item in state["current_week"]["items"]),
+        )
         with self.agent._connect() as connection:
             source_ids = {
                 row[0] for row in connection.execute("SELECT id FROM source_record")
@@ -228,6 +256,11 @@ class GoalAgentTest(unittest.TestCase):
     def test_accept_day_queues_existing_task_protocol_and_versions(self) -> None:
         state = self.agent.state()
         item = next(item for item in state["current_week"]["items"] if item["id"] == "w1-c-p1")
+        with self.agent._connect() as connection:
+            connection.execute(
+                "UPDATE plan_item SET input_state='ready' WHERE id=?",
+                (item["id"],),
+            )
         captured = []
 
         def enqueue(body):
@@ -248,6 +281,9 @@ class GoalAgentTest(unittest.TestCase):
         plan = self.agent.plan()
         with self.agent._connect() as connection:
             item = dict(connection.execute("SELECT * FROM plan_item WHERE id='w1-c-p1'").fetchone())
+            connection.execute(
+                "UPDATE plan_item SET input_state='ready' WHERE id='w1-c-p1'"
+            )
         created = self.agent.accept_day(
             item["id"],
             {"request_id": "sync-create-12345678", "base_plan_version": plan["plan_version"], "date": item["recommended_date"]},
@@ -277,6 +313,9 @@ class GoalAgentTest(unittest.TestCase):
     def test_rollback_creates_new_auditable_version(self) -> None:
         with self.agent._connect() as connection:
             item = dict(connection.execute("SELECT * FROM plan_item WHERE id='w1-c-p1'").fetchone())
+            connection.execute(
+                "UPDATE plan_item SET input_state='ready' WHERE id='w1-c-p1'"
+            )
         accepted = self.agent.accept_day(
             item["id"],
             {**self.request("rollbackprep"), "date": item["recommended_date"]},
@@ -288,6 +327,118 @@ class GoalAgentTest(unittest.TestCase):
         )
         self.assertEqual(result["rolled_back_to"], 1)
         self.assertGreater(result["new_version"], accepted["plan_version"])
+
+    def test_accept_day_rejects_unconfirmed_course_scope(self) -> None:
+        state = self.agent.state()
+        item = next(
+            item for item in state["current_week"]["items"]
+            if item["id"] == "w1-c-d1"
+        )
+        with self.assertRaisesRegex(ValueError, "waiting for confirmed"):
+            self.agent.accept_day(
+                item["id"],
+                {
+                    **self.request("unreadyday"),
+                    "date": item["recommended_date"],
+                },
+                lambda body: {"mutation": {"mutation_id": "unexpected"}},
+            )
+
+    def test_course_progress_records_unit_mastery_and_rewrites_week(self) -> None:
+        self.current = datetime(
+            2026,
+            8,
+            31,
+            20,
+            0,
+            tzinfo=ZoneInfo("Asia/Shanghai"),
+        )
+        result = self.agent.feedback(
+            {
+                **self.request("courseprogress"),
+                "track_id": "track-courses",
+                "evidence_type": "course_progress",
+                "deep_minutes": 120,
+                "difficulty": 3,
+                "confidence": 3,
+                "details": {
+                    "course": "微分几何",
+                    "taught_units": [
+                        {
+                            "unit_id": "differential-geometry-01-01",
+                            "mastery": 2,
+                        },
+                        {
+                            "unit_id": "differential-geometry-01-02",
+                            "mastery": 1,
+                        },
+                    ],
+                    "exercise_attempted": 3,
+                    "exercise_correct": 2,
+                    "proof_recall": [
+                        {
+                            "unit_id": "differential-geometry-01-01",
+                            "result": "partial",
+                            "note": "弧长参数化仍需重建",
+                        }
+                    ],
+                    "note": "第一节课笔记为 几何/微分几何/1.1.md",
+                },
+            }
+        )
+        self.assertTrue(result["changes"])
+        state = self.agent.state()
+        progress = state["course_progress"]["by_course"]["微分几何"]
+        self.assertEqual(progress["confirmed_taught_units"], 2)
+        self.assertEqual(progress["mastery_distribution"]["2"], 1)
+        self.assertEqual(progress["mastery_distribution"]["1"], 1)
+        items = [
+            item
+            for item in state["current_week"]["items"]
+            if item["course_id"] == "differential-geometry"
+        ]
+        self.assertTrue(all("平面曲线" in item["title"] for item in items))
+        self.assertTrue(all(item["input_state"] == "awaiting_material" for item in items))
+        with self.agent._connect() as connection:
+            self.assertEqual(
+                connection.execute(
+                    "SELECT COUNT(*) FROM course_progress_event"
+                ).fetchone()[0],
+                1,
+            )
+
+    def test_course_progress_rejects_unit_from_another_course(self) -> None:
+        with self.assertRaisesRegex(ValueError, "does not belong"):
+            self.agent.feedback(
+                {
+                    **self.request("badcourseunit"),
+                    "track_id": "track-courses",
+                    "evidence_type": "course_progress",
+                    "details": {
+                        "course": "微分几何",
+                        "taught_units": [
+                            {
+                                "unit_id": "probability-01-01",
+                                "mastery": 2,
+                            }
+                        ],
+                    },
+                }
+            )
+
+    def test_goal_model_config_never_inherits_global_deepseek(self) -> None:
+        captured = {}
+
+        def model_runner(model, messages):
+            captured.update(model)
+            return self._model(model, messages)
+
+        self.agent._model_runner = model_runner
+        self.agent._model("test", "hello", {"x": 1})
+        self.assertEqual(captured["name"], "gpt-5.6-sol")
+        self.assertEqual(captured["protocol"], "responses")
+        self.assertEqual(captured["reasoning_effort"], "medium")
+        self.assertNotIn("thinking", captured)
 
 
 class GoalAgentCalculationsTest(unittest.TestCase):

@@ -138,13 +138,19 @@
     "prompt_path": "/home/conrad/workspace/activitywatch-advisor/prompts/goal-agent.md",
     "tavily_env_file": "/home/conrad/.config/activitywatch-advisor/tavily.env",
     "tavily_credential_source": "same_key_as_codex_tavily_mcp",
+    "model_env_file": "/home/conrad/.config/activitywatch-advisor/goal-agent.env",
     "review_schedule": "Sunday 20:30 Asia/Shanghai",
     "model": {
-      "name": "deepseek-v4-pro",
-      "thinking": "enabled",
-      "max_tokens": 4500,
+      "provider": "openai_compatible",
+      "protocol": "responses",
+      "endpoint": "https://sub2api.52ai.pro/v1/responses",
+      "name": "gpt-5.6-sol",
+      "api_key_env": "GOAL_AGENT_API_KEY",
+      "reasoning_effort": "medium",
+      "max_output_tokens": 4500,
       "timeout_seconds": 80,
-      "retries": 1
+      "retries": 1,
+      "structured_output": true
     }
   },
   "processing": {

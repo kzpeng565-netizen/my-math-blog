@@ -502,5 +502,22 @@ class GardenServiceTests(unittest.TestCase):
                 body={"request_id": "garden-12345678", "base_plan_version": 1},
             )
 
+    def test_goal_mode_exposes_course_progress_and_gpt_sol_without_deepseek_fallback(self):
+        root = Path(__file__).resolve().parents[1]
+        page = (root / "static" / "index.html").read_text(encoding="utf-8")
+        script = (root / "static" / "app.js").read_text(encoding="utf-8")
+        styles = (root / "static" / "style.css").read_text(encoding="utf-8")
+        self.assertIn('id="goalModel"', page)
+        self.assertIn('value="course_progress"', page)
+        self.assertIn('id="goalCourseUnitPicker"', page)
+        self.assertIn('id="goalCourseExerciseAttempted"', page)
+        self.assertIn('id="goalCourseProofRecall"', page)
+        self.assertIn("data-goal-course-unit", script)
+        self.assertIn("details.taught_units", script)
+        self.assertIn("不回退到 DeepSeek", script)
+        self.assertIn("awaiting_course_progress", script)
+        self.assertIn(".goal-course-profile-grid", styles)
+        self.assertIn(".goal-course-unit-picker", styles)
+
 if __name__ == "__main__":
     unittest.main()

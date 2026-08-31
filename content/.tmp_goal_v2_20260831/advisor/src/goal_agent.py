@@ -1197,7 +1197,22 @@ class GoalAgent:
                     continue
                 active_ids.add(record_id)
                 if known.get(record_id) == sha256:
-                    connection.execute("UPDATE material_record SET status='indexed' WHERE id=?", (record_id,))
+                    connection.execute(
+                        "UPDATE material_record SET title=?,source_path=?,modified_at=?,"
+                        "page_count=?,status='indexed',metadata_json=? WHERE id=?",
+                        (
+                            title,
+                            source_path,
+                            document.get("modified_at"),
+                            document.get("page_count"),
+                            _json(
+                                document.get("metadata")
+                                if isinstance(document.get("metadata"), dict)
+                                else {}
+                            ),
+                            record_id,
+                        ),
+                    )
                     continue
                 target = (self.paths.material_root / "materials" / relative).resolve()
                 root = (self.paths.material_root / "materials").resolve()
@@ -1878,6 +1893,201 @@ class GoalAgent:
             raise ValueError("automatic adjustment would leave the confirmed weekly range")
         return changes
 
+    def _normalize_course_progress(
+        self,
+        connection: sqlite3.Connection,
+        details: dict[str, Any],
+    ) -> dict[str, Any]:
+        course_name = _clean_text(details.get("course"), 80)
+        course_id = COURSE_IDS.get(course_name)
+        if not course_id:
+            raise ValueError("course_progress requires a known course")
+        raw_units = details.get("taught_units")
+        if not isinstance(raw_units, list) or not raw_units:
+            raise ValueError("course_progress requires at least one taught unit")
+        taught_units: list[dict[str, Any]] = []
+        seen: set[str] = set()
+        for raw in raw_units[:30]:
+            if not isinstance(raw, dict):
+                raise ValueError("each taught unit must be an object")
+            unit_id = _clean_text(raw.get("unit_id"), 100)
+            try:
+                mastery = int(raw.get("mastery"))
+            except (TypeError, ValueError):
+                raise ValueError("course mastery must be 0, 1, 2, or 3") from None
+            if mastery not in range(4):
+                raise ValueError("course mastery must be 0, 1, 2, or 3")
+            row = connection.execute(
+                "SELECT id,title FROM course_unit WHERE id=? AND course_id=?",
+                (unit_id, course_id),
+            ).fetchone()
+            if not row:
+                raise ValueError("course unit does not belong to the selected course")
+            if unit_id in seen:
+                continue
+            seen.add(unit_id)
+            taught_units.append(
+                {
+                    "unit_id": unit_id,
+                    "title": row["title"],
+                    "mastery": mastery,
+                }
+            )
+        if not taught_units:
+            raise ValueError("course_progress requires at least one unique unit")
+        attempted = details.get("exercise_attempted")
+        correct = details.get("exercise_correct")
+        attempted = None if attempted in (None, "") else int(attempted)
+        correct = None if correct in (None, "") else int(correct)
+        if attempted is not None and not 0 <= attempted <= 10000:
+            raise ValueError("exercise_attempted is outside the accepted range")
+        if correct is not None:
+            if attempted is None:
+                raise ValueError("exercise_correct requires exercise_attempted")
+            if not 0 <= correct <= attempted:
+                raise ValueError("exercise_correct must be between 0 and attempted")
+        proof_recall = details.get("proof_recall")
+        if proof_recall in (None, ""):
+            proof_recall = []
+        if not isinstance(proof_recall, list):
+            raise ValueError("proof_recall must be a list")
+        normalized_proof: list[dict[str, Any]] = []
+        for item in proof_recall[:20]:
+            if isinstance(item, str):
+                normalized_proof.append({"note": _clean_text(item, 500)})
+                continue
+            if not isinstance(item, dict):
+                raise ValueError("proof_recall items must be text or objects")
+            unit_id = _clean_text(item.get("unit_id"), 100)
+            if unit_id and unit_id not in seen:
+                row = connection.execute(
+                    "SELECT 1 FROM course_unit WHERE id=? AND course_id=?",
+                    (unit_id, course_id),
+                ).fetchone()
+                if not row:
+                    raise ValueError("proof_recall unit does not belong to the selected course")
+            normalized_proof.append(
+                {
+                    "unit_id": unit_id or None,
+                    "result": _clean_text(item.get("result"), 80) or None,
+                    "note": _clean_text(item.get("note"), 500) or None,
+                }
+            )
+        return {
+            "course": course_name,
+            "course_id": course_id,
+            "taught_units": taught_units,
+            "exercise_attempted": attempted,
+            "exercise_correct": correct,
+            "proof_recall": normalized_proof,
+            "note": _clean_text(details.get("note"), 2000) or None,
+        }
+
+    def _save_course_progress(
+        self,
+        connection: sqlite3.Connection,
+        *,
+        evidence_event_id: str,
+        occurred_at: str,
+        normalized: dict[str, Any],
+    ) -> list[dict[str, Any]]:
+        course_event_id = "course-" + uuid.uuid4().hex
+        now = self._now().isoformat(timespec="seconds")
+        connection.execute(
+            "INSERT INTO course_progress_event("
+            "id,evidence_event_id,course_id,occurred_at,taught_units_json,"
+            "exercise_attempted,exercise_correct,proof_recall_json,note,created_at"
+            ") VALUES(?,?,?,?,?,?,?,?,?,?)",
+            (
+                course_event_id,
+                evidence_event_id,
+                normalized["course_id"],
+                occurred_at,
+                _json(normalized["taught_units"]),
+                normalized["exercise_attempted"],
+                normalized["exercise_correct"],
+                _json(normalized["proof_recall"]),
+                normalized["note"],
+                now,
+            ),
+        )
+        for unit in normalized["taught_units"]:
+            connection.execute(
+                "INSERT INTO course_unit_mastery("
+                "course_id,unit_id,mastery,last_event_id,updated_at"
+                ") VALUES(?,?,?,?,?) "
+                "ON CONFLICT(course_id,unit_id) DO UPDATE SET "
+                "mastery=excluded.mastery,last_event_id=excluded.last_event_id,"
+                "updated_at=excluded.updated_at",
+                (
+                    normalized["course_id"],
+                    unit["unit_id"],
+                    unit["mastery"],
+                    course_event_id,
+                    now,
+                ),
+            )
+        event_day = datetime.fromisoformat(
+            occurred_at.replace("Z", "+00:00")
+        ).date()
+        week = _week_start(event_day).isoformat()
+        rows = connection.execute(
+            "SELECT * FROM plan_item WHERE course_id=? AND week_start=? "
+            "AND archived=0 ORDER BY sort_order",
+            (normalized["course_id"], week),
+        ).fetchall()
+        changes: list[dict[str, Any]] = []
+        titles = [unit["title"] for unit in normalized["taught_units"]]
+        scope = "、".join(titles[:3])
+        if len(titles) > 3:
+            scope += f"等 {len(titles)} 个小节"
+        for index, row in enumerate(rows):
+            if row["accepted_date"]:
+                continue
+            title = (
+                f"{normalized['course']}：复述本周 {scope} 的定义与定理"
+                if index == 0
+                else f"{normalized['course']}：完成 {scope} 的证明重建与当前章节习题"
+            )
+            description = (
+                f"用户已确认本周实际讲到：{scope}。"
+                "Goal Agent 可读取已授权笔记的可见 Markdown/LaTeX、"
+                "MathInk 忠实识别文字和标准图片引用；手写占位符本身不算掌握证据。"
+            )
+            input_state = (
+                "ready"
+                if row["material_status"] == "ready"
+                else "awaiting_material"
+            )
+            before = {
+                "title": row["title"],
+                "description": row["description"],
+                "input_state": row["input_state"],
+                "status": row["status"],
+            }
+            after = {
+                "title": title,
+                "description": description,
+                "input_state": input_state,
+                "status": "in_progress",
+            }
+            connection.execute(
+                "UPDATE plan_item SET title=?,description=?,input_state=?,"
+                "status='in_progress',updated_at=? WHERE id=?",
+                (title, description, input_state, now, row["id"]),
+            )
+            if before != after:
+                changes.append(
+                    {
+                        "plan_item_id": row["id"],
+                        "field": "course_scope",
+                        "before": before,
+                        "after": after,
+                        "reason": "用户确认了本周实际授课小节与掌握度。",
+                    }
+                )
+        return changes
+
     def feedback(self, payload: dict[str, Any]) -> dict[str, Any]:
         def operation(connection: sqlite3.Connection, current: int) -> dict[str, Any]:
             track_id = _clean_text(payload.get("track_id"), 80)
@@ -1905,6 +2115,18 @@ class GoalAgent:
             source_id = _clean_text(payload.get("source_id"), 160) or None
             event_id = "ev-" + uuid.uuid4().hex
             event_payload = payload.get("details") if isinstance(payload.get("details"), dict) else {}
+            course_progress = None
+            if evidence_type == "course_progress":
+                if track_id != "track-courses":
+                    raise ValueError("course_progress must use the courses track")
+                course_progress = self._normalize_course_progress(
+                    connection,
+                    event_payload,
+                )
+                event_payload = {
+                    **event_payload,
+                    **course_progress,
+                }
             connection.execute(
                 "INSERT INTO evidence_event VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 (
@@ -1928,6 +2150,15 @@ class GoalAgent:
                 ),
             )
             changes: list[dict[str, Any]] = []
+            if course_progress:
+                changes.extend(
+                    self._save_course_progress(
+                        connection,
+                        evidence_event_id=event_id,
+                        occurred_at=occurred_at,
+                        normalized=course_progress,
+                    )
+                )
             status = str(payload.get("status") or "").strip()
             if plan_item_id and status in {"planned", "in_progress", "blocked", "completed"}:
                 before = connection.execute("SELECT status FROM plan_item WHERE id=?", (plan_item_id,)).fetchone()["status"]
@@ -1988,6 +2219,10 @@ class GoalAgent:
             ).fetchone()
             if not item:
                 raise GoalAgentNotFoundError(plan_item_id)
+            if item["input_state"] != "ready":
+                raise ValueError(
+                    "plan item is waiting for confirmed course progress or authorized material"
+                )
             accepted_date = _parse_date(payload.get("date") or item["recommended_date"], required=True)
             accepted_day = date.fromisoformat(accepted_date)
             week = date.fromisoformat(item["week_start"])
@@ -2029,20 +2264,26 @@ class GoalAgent:
         return self._run_write(f"accept-day:{plan_item_id}", payload, operation)
 
     def _model(self, purpose: str, user_message: str, context: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
-        _load_env_file(self.env_file)
+        _load_env_file(self.paths.model_env)
         model = {
-            **self.settings.get("model", {}),
             **self.settings.get("goal_agent_model", {}),
             **self.config.get("model", {}),
         }
-        model.setdefault("name", "deepseek-v4-pro")
-        model.setdefault("thinking", "enabled")
-        model.setdefault("max_tokens", 4500)
+        model.setdefault("provider", "openai_compatible")
+        model.setdefault("protocol", "responses")
+        model.setdefault("endpoint", "https://sub2api.52ai.pro/v1/responses")
+        model.setdefault("name", "gpt-5.6-sol")
+        model.setdefault("api_key_env", "GOAL_AGENT_API_KEY")
+        model.setdefault("reasoning_effort", "medium")
+        model.setdefault("max_output_tokens", 4500)
         model.setdefault("timeout_seconds", 80)
         model.setdefault("retries", 1)
+        model.setdefault("structured_output", True)
         default_system = (
             "你是独立的目标 Agent，不是 Next Action。你衡量长期目标距离、解释证据不足、"
             "调整月/周策略。禁止伪造课程考核、题源、成绩或招生规则。少于三周可比数据时必须说未知。"
+            "三门课只根据用户确认的实际授课小节、掌握度和已授权笔记制定任务；"
+            "MathInk 手写占位符、图片引用或文件修改时间都不能单独证明用户已经掌握。"
             "你可以建议同月 plan item 的 recommended_date/deep_minutes/status，但总目标、截止日期、"
             "权重、每日容量或重大跨月移动只能放入 approval_request。"
             "只返回 JSON：{answer:string,plan_changes:list,approval_request:object|null,assessment:object}."

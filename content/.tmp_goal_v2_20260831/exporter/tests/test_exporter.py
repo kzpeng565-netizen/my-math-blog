@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from behavior_context_exporter import (
     export,
     export_goal_materials,
+    material_text_metadata,
     parse_completed_tasks,
     parse_goal_material_manifest,
     parse_pomodoro,
@@ -114,6 +115,62 @@ class GoalMaterialTests(unittest.TestCase):
         self.assertIn("手写笔记", cleaned)
         self.assertNotIn("STROKES", cleaned)
 
+    def test_mathink_recognition_and_standard_image_projection_are_preserved(self):
+        source = (
+            "正文\n"
+            "<!--inkedmark-text-->\n"
+            "<!--inkedmark-page:1-->\n## Page 1\n\n"
+            "## Faithful transcription\n$T=r'/|r'|$\n"
+            "<!--/inkedmark-page:1-->\n"
+            "<!--/inkedmark-text-->\n"
+            "![课堂图](<1.1.assets/curve.png>)\n"
+            '<!-- mathink:image {"version":1,"id":"img-1","x":1,"y":2} -->\n'
+            "%%inkedmark\nv3:BASE64-STROKES\n%%\n"
+        )
+        cleaned = sanitize_material_text(source)
+        metadata = material_text_metadata(source)
+        self.assertIn("Faithful transcription", cleaned)
+        self.assertIn("$T=r'/|r'|$", cleaned)
+        self.assertIn("![课堂图](<1.1.assets/curve.png>)", cleaned)
+        self.assertNotIn("mathink:image", cleaned)
+        self.assertNotIn("BASE64-STROKES", cleaned)
+        self.assertEqual(metadata["note_format"], "mathink_markdown")
+        self.assertTrue(metadata["has_handwriting_payload"])
+        self.assertTrue(metadata["has_managed_recognition"])
+        self.assertEqual(metadata["recognized_pages"], [1])
+        self.assertFalse(metadata["image_binary_exported"])
+
+    def test_directory_authorization_recurses_and_excludes_private_payload_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            notes = root / "几何" / "微分几何"
+            notes.mkdir(parents=True)
+            (notes / "1.1.md").write_text("可见正文", encoding="utf-8")
+            (notes / "legacy.ink.md").write_text("RAW", encoding="utf-8")
+            (notes / "note.ink.sync-conflict-device.md").write_text(
+                "RAW",
+                encoding="utf-8",
+            )
+            hidden = notes / ".space"
+            hidden.mkdir()
+            (hidden / "private.md").write_text("RAW", encoding="utf-8")
+            result = parse_goal_material_manifest(
+                "- [x] 微分几何学习目录｜[[几何/微分几何/]]｜extensions=md,txt",
+                root,
+            )
+            authorized = [
+                item for item in result if item["status"] == "authorized"
+            ]
+            self.assertEqual(len(authorized), 1)
+            self.assertEqual(
+                authorized[0]["vault_relative_path"],
+                "几何/微分几何/1.1.md",
+            )
+            self.assertEqual(
+                authorized[0]["authorization_kind"],
+                "directory",
+            )
+
     def test_markdown_is_exported_as_gzip_chunks_with_hash(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -130,7 +187,10 @@ class GoalMaterialTests(unittest.TestCase):
             index = json.loads((output / "goal_agent" / "materials" / "index.json").read_text(encoding="utf-8"))
             self.assertEqual(index["document_count"], 1)
             document = index["documents"][0]
+            self.assertEqual(index["schema_version"], 2)
             self.assertEqual(len(document["sha256"]), 64)
+            self.assertEqual(document["source_path"], "遍历论.md")
+            self.assertEqual(document["metadata"]["note_format"], "markdown")
             self.assertTrue((output / "goal_agent" / "materials" / document["export_file"]).is_file())
 
 
