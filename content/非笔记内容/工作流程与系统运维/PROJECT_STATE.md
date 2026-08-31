@@ -665,3 +665,13 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==Goal Agent 独立使用 `gpt-5.6-sol`、Responses API、`medium` 推理，密钥位于 Pi 私有 `goal-agent.env`（600）。中转站不接受 JSON Schema 时仅在同一模型/协议内退回提示词 JSON 契约，不使用 DeepSeek fallback；Next Action 与其他 AI 组件路由不变。验证结果为 Goal 24/24、Advisor 209/209、Pi/Windows Garden 49/49、导出器 13/13；Pi 真实复盘返回合法 JSON、0 项修改和 8 条公开搜索结果。模型误报单日 636 分钟后，确定性 API 复核为 456 分钟并拒绝该事实判断。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-tests-tailnet-api-sqlite-migration-exporter-and-browser; retrieved_notes="计划模式/02-当前完成与待补充.md,计划模式/05-v2课程进度与GPT-5.6迁移验收.md" -->
+
+## 2026-08-31 状态更新：UCAS 漫游检测与电脑热点自动回退
+
+==Pi 间歇性 Tailnet 掉线已定位为板载 2.4 GHz Wi-Fi 在两个 UCAS BSSID/信道之间反复重关联，不是 UCAS 整体网络、Pi 负载、欠压或 Focus Garden 服务故障。电脑使用独立 5 GHz BSSID且稳定。当前暂不锁定 Pi BSSID。==
+
+==Windows `XYH 0563` 热点保持 On，PeerlessTimeoutEnabled=0；当前用户 Startup 隐藏 watchdog 每 5 分钟确保热点开启。Pi `wifi-failover.timer` 每 30 秒检查默认路由、IPv4 204 和 IPv6 HTTPS；双栈连续 4 次失败才切换热点。电脑 Tailnet peer 不参与触发，电脑被带走不会误切换。==
+
+==Pi 热点 profile 已完成两次真实连接：Windows 客户端数 0→1，热点期间 SSH/Garden 可用，自动回切后恢复 UCAS。触屏面板已新增“一键恢复热点连接”，后端与自动 failover 共用脚本，连接失败立即恢复 UCAS。测试 9/9，timer enabled/active，面板循环进程已重启。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=wifi-logs-real-switch-tests-systemd-and-windows-watchdog; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->

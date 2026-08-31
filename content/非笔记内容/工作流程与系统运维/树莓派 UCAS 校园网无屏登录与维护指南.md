@@ -222,3 +222,13 @@ sudo systemctl stop ucas-chromedriver-<随机ID>.service
 - 普通 WebDriver 点击可能被页面层拦截，使用页面 JavaScript 触发后成功。
 - 关闭 SSH 客户端不保证远端 ChromeDriver 同时退出；临时 systemd 单元更容易可靠回收。
 - 凭据应始终留在本地内存和加密隧道中，任何调试输出都不得打印表单值。
+
+## 9. 无线漫游与电脑热点回退
+
+==2026-08-31 已确认电脑和 Pi 虽同连 UCAS，但电脑使用 5 GHz，Pi 使用 2.4 GHz 并在两个 BSSID 之间反复漫游。当前不锁定 BSSID，先由 `wifi-failover.timer` 继续记录双栈外网健康。==
+
+==Pi 每 30 秒检查默认路由、IPv4 204 和 IPv6 HTTPS；只有 IPv4/IPv6 连续约 2 分钟均失败时才尝试电脑热点 `XYH 0563`。Windows Tailnet peer 不作为触发条件，因此电脑被带走、关机或休眠时，只要 UCAS 外网正常，Pi 不会切换。==
+
+==电脑热点与 Pi 保存 profile 已完成两轮真实切换和安全回切。触屏页面新增“一键恢复热点连接”，失败时会立即恢复 UCAS。完整架构、日志、停用和恢复方法见 [[树莓派UCAS无线漫游与电脑热点自动回退]]。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=live-roaming-logs-and-real-fallback-tests; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->

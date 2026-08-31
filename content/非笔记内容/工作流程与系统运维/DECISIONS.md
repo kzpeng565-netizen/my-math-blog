@@ -828,3 +828,17 @@
 ==v1→v2 只改动未确认日期且没有 plan_item_task 映射的任务。已写入任务系统的任务必须保持原样；数据库迁移生成新 plan version 并保留 v1。普通回退通过版本系统完成，不能用旧 SQLite 覆盖新的反馈、聊天和版本。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=production-schema-tests-and-tailnet-api; retrieved_notes="计划模式/01-整体架构与数据流.md,计划模式/05-v2课程进度与GPT-5.6迁移验收.md" -->
+
+### D109. 电脑 Tailnet peer 不得作为网络故障触发条件【有效】
+
+==电脑可能被带走、关机或休眠。Pi 只根据本机默认路由、IPv4 204 与 IPv6 HTTPS 判断网络是否失效；Windows peer 只作诊断，不参与自动切换。只要 UCAS 外网正常，电脑不在场时不得切换热点。==
+
+### D110. 自动热点回退使用双栈连续失败与冷却【有效】
+
+==Pi 每 30 秒检查一次，只有 IPv4 和 IPv6 连续 4 次均失败或没有默认路由时，才尝试 `netplan-wlan0-XYH 0563`。热点激活失败立即恢复 UCAS并冷却 10 分钟；热点健康时保持，连续两次失去外网才恢复 UCAS。手动其他 Wi-Fi 不被覆盖。==
+
+### D111. 固定 UCAS BSSID 前必须先有真实可用回退【有效】
+
+==当前不固定 BSSID。电脑热点必须保持开启，Pi profile、自动切换、自动回切和触屏手动按钮均完成真实验收后，才允许依据长期监测选择 BSSID。固定后 AP 离线会失去漫游能力，因此仍必须保留热点 profile 和本地按钮。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=real-hotspot-switch-and-computer-away-test; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->

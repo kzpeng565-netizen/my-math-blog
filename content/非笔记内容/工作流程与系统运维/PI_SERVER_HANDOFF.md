@@ -1603,3 +1603,49 @@ D:\MyFocusGarden-backups\goal-v2-20260831-135632
 - 密钥不得从 `goal-agent.env` 读出、复制到日志或加入备份文档。
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-production-tests-tailnet-api-sqlite-migration-and-windows-mirror; retrieved_notes="计划模式/05-v2课程进度与GPT-5.6迁移验收.md,目标模式课程档案.md" -->
+
+## 2026-08-31：UCAS Wi-Fi failover 与触屏恢复
+
+### 生产组件
+
+```text
+/home/conrad/workspace/activitywatch-advisor/scripts/wifi_failover.py
+/home/conrad/workspace/activitywatch-advisor/config/wifi_failover.json
+/etc/systemd/system/wifi-failover.service
+/etc/systemd/system/wifi-failover.timer
+/var/lib/wifi-failover/state.json
+/var/lib/wifi-failover/events.jsonl
+```
+
+Windows：
+
+```text
+D:\tools\pi-network-fallback\
+%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Pi Hotspot Fallback.vbs
+%LOCALAPPDATA%\PiNetworkFallback\
+```
+
+==timer 为 30 秒；触发条件只看默认路由、IPv4 204 与 IPv6 HTTPS。Windows peer 绝不作为切换条件。UCAS 双栈连续 4 次失败后切热点；热点失败恢复 UCAS并冷却 10 分钟；热点连续两次无外网则恢复 UCAS。==
+
+==触屏 `panel.py` 的按钮已改为“一键恢复热点连接”，以后台线程执行 `wifi_failover.py --force-fallback`；成功显示 IP，失败立即恢复 UCAS。`.xinitrc` 循环已把面板进程从旧 PID 自动拉起为新 PID。==
+
+验证：
+
+```text
+Pi tests: 9/9
+wifi-failover.timer: enabled + active
+Windows hotspot watchdog: single instance, ensure_exit_code=0
+真实热点切换: 2 次成功
+真实 UCAS 回切: 2 次成功
+```
+
+恢复点：
+
+```text
+Pi: /home/conrad/workspace/backups/wifi-failover-20260831-1648/
+Windows: D:\tools\pi-network-fallback-backups\20260831-162644/
+```
+
+详细 runbook：`非笔记内容/工作流程与系统运维/树莓派UCAS无线漫游与电脑热点自动回退.md`。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=live-systemd-windows-startup-and-real-switch-tests; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->

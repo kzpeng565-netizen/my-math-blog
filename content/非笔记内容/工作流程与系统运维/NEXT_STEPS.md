@@ -764,3 +764,19 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==2026-09-27 后检查任务无丢失/重复、4 次可回退复盘、进度可追溯、资料不足无虚构、反馈成本可持续。未通过时保留数据和版本，暂停自动调整而不是删除历史。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=implementation-complete-natural-use-pending; retrieved_notes="计划模式/02-当前完成与待补充.md,计划模式/03-短期与长期升级计划.md" -->
+
+## 2026-08-31 后续观察：UCAS BSSID 与热点回退
+
+### ☑ 已完成：电脑热点双向回退闭环
+
+==Windows 热点 `XYH 0563` 常驻保障、Pi 保存 profile、自动切换、自动回切和触屏“一键恢复热点连接”均已完成真实测试。热点期间 Windows 客户端数为 1，SSH/Garden 可用；回切后客户端归零并恢复 UCAS。==
+
+### ☐ 观察至少 24 小时 BSSID 漫游与 failover 事件
+
+==查看 `/var/lib/wifi-failover/events.jsonl`、NetworkManager 和 wpa_supplicant 日志，统计 UCAS BSSID 切换次数、双栈失败持续时间及是否达到 4 次阈值。电脑离开但 UCAS 正常时应始终为 `primary_healthy`。==
+
+### ☐ 数据充分后再决定是否固定 BSSID
+
+==只有某个 BSSID 在不同时段持续更强、漫游确实与 Tailnet 失败同步，并且热点回退保持可用时，才固定。固定前后各做一次热点切换；若 AP 不稳定则撤销固定，不删除其他 UCAS 配置。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=implementation-complete-monitoring-pending; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->
