@@ -352,40 +352,26 @@
             <div id="goalCourseProfileGrid" class="goal-course-profile-grid"></div>
             <div class="goal-evidence-layout">
               <article class="pixel-panel goal-feedback-card">
-                <p class="eyebrow">PROGRESS INPUT</p><h2>反馈真实进度与变化</h2>
-                <div class="goal-form-grid">
-                  <label>轨道<select id="goalFeedbackTrack"></select></label>
-                  <label>关联周任务<select id="goalFeedbackItem"><option value="">不关联具体任务</option></select></label>
-                  <label>证据类型<select id="goalFeedbackType"><option value="progress_update">一般进度</option><option value="completed">任务完成</option><option value="course_progress">实际授课小节与掌握度</option><option value="course_component">课程成绩/考核</option><option value="exam_mock">数学所限时真题</option><option value="ergodic_scope_confirmed">遍历论范围确认</option><option value="ergodic_note">遍历论读书笔记页数</option><option value="ergodic_talk">遍历论讲解分钟</option><option value="ergodic_questions">遍历论问题单</option><option value="algebra_written">抽代书面题组</option><option value="algebra_oral">抽代口头模拟</option></select></label>
-                  <label>课程（可选）<select id="goalFeedbackCourse"><option value="">—</option><option>概率论</option><option>泛函分析</option><option>微分几何</option></select></label>
-                  <label>深度学习分钟<input id="goalFeedbackMinutes" type="number" min="0" max="1440" placeholder="只填持续推理时间"></label>
-                  <label>状态<select id="goalFeedbackStatus"><option value="">不改变</option><option value="in_progress">进行中</option><option value="completed">已完成</option><option value="blocked">受阻</option></select></label>
-                  <label>分数<input id="goalFeedbackScore" type="number" step="0.1" placeholder="可选"></label>
-                  <label>满分<input id="goalFeedbackMax" type="number" step="0.1" placeholder="例如 150"></label>
-                  <label>课程成绩权重 %<input id="goalFeedbackWeight" type="number" min="0" max="100" step="0.1" placeholder="已确认比例才填写"></label>
-                  <label>完成量<input id="goalFeedbackUnits" type="number" step="0.1" placeholder="页数/分钟/题数"></label>
-                  <label>真实题源 ID<input id="goalFeedbackSource" maxlength="160" placeholder="不同卷请用不同 ID"></label>
-                  <label>抽代口头四项<input id="goalFeedbackOral" maxlength="40" placeholder="定义,例子,策略,追问；如 4,4,4,4"></label>
-                  <label>困难度（1–5）<input id="goalFeedbackDifficulty" type="number" min="1" max="5"></label>
-                  <label>信心（1–5）<input id="goalFeedbackConfidence" type="number" min="1" max="5"></label>
+                <div class="goal-quick-head"><div><p class="eyebrow">EVIDENCE QUICK INPUT</p><h2>记录这次真实表现</h2></div><span>目标 &lt; 25 秒</span></div>
+                <p class="setting-help">只填写系统不知道的增量事实。任务、课程和范围会自动带入；未核对、用过提示和熟题都会如实保留。</p>
+                <div class="goal-quick-context">
+                  <label>关联任务<select id="goalFeedbackItem"><option value="">不关联具体任务</option></select></label>
+                  <label>记录类型<select id="goalFeedbackType">
+                    <option value="exercise">章节练习 / 书面题</option><option value="course">实际授课与掌握度</option><option value="proof">定义复述 / 证明重建</option><option value="grade">课程成绩</option><option value="mock">限时真题</option><option value="reading">阅读 / 笔记</option><option value="talk">讲解</option><option value="oral">口头模拟</option><option value="blocked">受阻 / 调整请求</option>
+                  </select></label>
                 </div>
-                <section id="goalCourseProgressFields" class="goal-course-progress-fields hidden">
-                  <div>
-                    <p class="eyebrow">ACTUAL LECTURE SCOPE</p>
-                    <h3>确认这周真正讲到的小节</h3>
-                    <p class="setting-help">勾选小节并分别填写 0–3 掌握度。Agent 不会根据笔记修改时间或课时表自动推断已学完。</p>
-                  </div>
-                  <div id="goalCourseUnitPicker" class="goal-course-unit-picker"></div>
+                <input id="goalFeedbackTrack" type="hidden">
+                <section id="goalQuickFields" class="goal-quick-fields"></section>
+                <section id="goalQuickAdaptive" class="goal-quick-adaptive hidden"></section>
+                <details class="goal-quick-more"><summary>补充记录（可跳过）</summary>
                   <div class="goal-form-grid">
-                    <label>习题尝试数<input id="goalCourseExerciseAttempted" type="number" min="0" max="10000"></label>
-                    <label>习题正确数<input id="goalCourseExerciseCorrect" type="number" min="0" max="10000"></label>
+                    <label>实际深度分钟<input id="goalFeedbackMinutes" type="number" min="0" max="1440" inputmode="numeric" placeholder="有可靠计时再填"></label>
+                    <label>任务状态<select id="goalFeedbackStatus"><option value="">不改变</option><option value="in_progress">进行中</option><option value="completed">已完成</option><option value="blocked">受阻</option></select></label>
                   </div>
-                  <label>定义/证明复述结果<textarea id="goalCourseProofRecall" rows="3" maxlength="2000" placeholder="每行一项；例如：弧长参数化证明只能复述到换元"></textarea></label>
-                  <label>本节课补充说明<textarea id="goalCourseNote" rows="2" maxlength="2000" placeholder="例如：第一节课笔记是 几何/微分几何/1.1.md"></textarea></label>
-                </section>
-                <label>阻塞原因<textarea id="goalFeedbackBlocked" rows="2" maxlength="1000" placeholder="哪里卡住了？"></textarea></label>
-                <label>任务或情况变化<textarea id="goalFeedbackChange" rows="2" maxlength="2000" placeholder="课程、材料、时间或目标发生了什么变化？"></textarea></label>
-                <button id="goalFeedbackSubmit" class="primary-button" type="button">提交进度证据</button>
+                  <label>一句补充说明<textarea id="goalFeedbackNote" rows="2" maxlength="1000" placeholder="只写结构化选项没有表达的事实"></textarea></label>
+                </details>
+                <div id="goalEvidenceBoundary" class="goal-evidence-boundary">保存后会显示这次证据能支持什么，以及仍不能判断什么。</div>
+                <button id="goalFeedbackSubmit" class="primary-button" type="button">保存本次反馈</button>
               </article>
               <aside class="goal-evidence-side">
                 <article class="pixel-panel"><p class="eyebrow">MATERIAL GAPS</p><h2>待授权与待核验</h2><div id="goalMaterialGaps"></div></article>
