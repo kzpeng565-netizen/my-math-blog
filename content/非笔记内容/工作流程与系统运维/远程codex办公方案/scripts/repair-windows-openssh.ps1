@@ -1,6 +1,8 @@
 [CmdletBinding()]
 param()
 
+# Run this script from an elevated Windows PowerShell session.
+# It creates a restricted pre-repair backup before changing OpenSSH.
 $ErrorActionPreference = 'Stop'
 
 $timestamp = Get-Date -Format 'yyyy-MM-dd_HHmmss'
@@ -61,7 +63,12 @@ $listenerBefore = Get-NetTCPConnection -LocalPort 22 -State Listen -ErrorAction 
     Port22Listening = $null -ne $listenerBefore
 } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $backupRoot 'pre-repair-state.json') -Encoding UTF8
 
-Get-ChildItem -LiteralPath $backupRoot -Recurse -File |
+$filesToHash = @(
+    Get-ChildItem -LiteralPath $backupRoot -Recurse -File |
+        Where-Object { $_.Name -ne 'backup-sha256.csv' }
+)
+
+$filesToHash |
     Get-FileHash -Algorithm SHA256 |
     Select-Object Path, Hash |
     Export-Csv -LiteralPath (Join-Path $backupRoot 'backup-sha256.csv') -NoTypeInformation -Encoding UTF8
