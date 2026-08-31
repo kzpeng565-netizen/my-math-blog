@@ -1684,3 +1684,27 @@ goal-agent-review.timer: active
 资源缓存版本为 `20260831.feedback3`。若页面仍显示旧通用长表，先普通刷新；不要修改 Funnel/Serve 或开放公网端口。回退优先逐文件恢复代码并重启两项服务；除数据库损坏外不要用备份 SQLite 覆盖新反馈。
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=production-backup-full-tests-loopback-tailnet-browser-and-mirror; retrieved_notes="计划模式/06-任务类型快速证据反馈v2部署验收.md" -->
+
+## 2026-08-31：概率论教材更正与启动任务
+
+==概率论课程档案已更正：F.-G. Le Gall, *Measure Theory, Probability and Stochastic Processes* (Springer, 2022) 为主教材，R. Durrett, *Probability: Theory and Examples* 为参考书。Goal Agent plan version 4 新增可回退的启动学习迁移：本周 5 项 GTM259/概率论基础任务为 ready；它们不计作授课进度，真实 course_progress 或作业出现后由原课内闭环接管。==
+
+生产改动：
+
+- `src/goal_agent.py`：课程档案、一次性迁移、资料刷新时的启动任务 ready 保持；
+- `prompts/goal-agent.md`：加入“信息不齐也不空转，但不得冒充课内进度”的双通道规则；
+- `tests/test_goal_agent.py`、`tests/test_goal_agent_api.py`：教材、启动状态、容量与让位行为回归。
+
+验证：
+
+- Goal/Goal API/模型客户端：30 tests OK；
+- Advisor 全量：247 tests OK，skipped=1；
+- Advisor loopback、Garden loopback 代理、Tailnet `:8460/api/goal-agent/state` 均返回 plan version 4、正确教材和 5 个 ready 启动任务；
+- 每日深度分钟为 180/180/120/120/177/396/417，未突破工作日 180、周末 480；
+- `activitywatch-advisor-web.service`、`focus-garden.service`、`goal-agent-review.timer` 均 active。
+
+回滚备份：
+
+`/home/conrad/workspace/backups/goal-course-startup-20260901-022714/`
+
+回滚时优先逐文件恢复源码/提示词/测试并重启 `activitywatch-advisor-web.service`；只有需要撤销本次 plan version 4 数据迁移且确认没有新增反馈时，才考虑恢复备份 SQLite。
