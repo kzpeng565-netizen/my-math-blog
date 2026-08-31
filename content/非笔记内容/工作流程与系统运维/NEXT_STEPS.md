@@ -780,3 +780,12 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 ==只有某个 BSSID 在不同时段持续更强、漫游确实与 Tailnet 失败同步，并且热点回退保持可用时，才固定。固定前后各做一次热点切换；若 AP 不稳定则撤销固定，不删除其他 UCAS 配置。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=implementation-complete-monitoring-pending; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->
+
+
+## 2026-08-31：课表导入与系统适配
+
+==课程导入和系统适配已完成，Advisor 241/241、Pi/Windows Garden 各50/50通过。后续如课表变更，重新上传并运行独立导入命令；不自动猜测停课或调课。下一轮自然半小时/每日报告会读取课表，历史报告不重算。==
+
+详见 [[树莓派课程表导入与系统适配]]。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=checked; retrieved_notes="NEXT_STEPS.md" -->

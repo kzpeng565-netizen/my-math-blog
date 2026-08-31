@@ -675,3 +675,12 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==Pi 热点 profile 已完成两次真实连接：Windows 客户端数 0→1，热点期间 SSH/Garden 可用，自动回切后恢复 UCAS。触屏面板已新增“一键恢复热点连接”，后端与自动 failover 共用脚本，连接失败立即恢复 UCAS。测试 9/9，timer enabled/active，面板循环进程已重启。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=wifi-logs-real-switch-tests-systemd-and-on-demand-hotspot-policy; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->
+
+
+## 2026-08-31：课表导入与系统适配
+
+==课表已导入 Advisor，24 条规则展开去重后为 214 次课程、11 种课程名称。Next Action、Goal Agent、半小时/每日复盘和花园页面共用同一课表。默认出勤，课前20分钟至下课受保护；不增加统计、番茄或奖励，不改变课外学习预算，不新增推送。==
+
+详见 [[树莓派课程表导入与系统适配]]。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=checked; retrieved_notes="PROJECT_STATE.md" -->

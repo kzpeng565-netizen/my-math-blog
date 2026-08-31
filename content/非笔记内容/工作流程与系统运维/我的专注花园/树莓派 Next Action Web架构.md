@@ -318,3 +318,12 @@ POST /api/next-action with unresolved active suggestion         -> 409 pending_o
 ==若 `procrastinated_task_titles` 非空，task 类型模型输出必须逐字选择其中标题，并在原因或证据中说明累计推迟天数；校验器会拒绝选择普通今天任务的结果，fallback 也使用同一优先级。午休禁工作、深夜睡眠等非 task 决策规则不受影响。Prompt 版本为 `next-action-v1.4-procrastination-priority`。==
 
 <!-- ai_provenance: source=codex; date=2026-08-12; verification=advisor-35-tests-and-live-service; retrieved_notes="非笔记内容/工作流程与系统运维/PI_SERVER_HANDOFF.md" -->
+
+
+## 2026-08-31：课表导入与系统适配
+
+==Next Action保护课程前20分钟至下课。课程提示复用no_action，source=course_schedule、read_only=true、duration_minutes=0；不进入接受/完成或待反馈闭环。生成、模型返回后、追问、fallback及接受旧建议均核对课程约束，已开始任务仍可正常记录结果。页面新增课程卡片和周切换。==
+
+详见 [[树莓派课程表导入与系统适配]]。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=checked; retrieved_notes="我的专注花园/树莓派 Next Action Web架构.md" -->

@@ -1648,3 +1648,12 @@ Windows: D:\tools\pi-network-fallback-backups\20260831-162644/
 详细 runbook：`非笔记内容/工作流程与系统运维/树莓派UCAS无线漫游与电脑热点自动回退.md`。
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=live-systemd-windows-startup-and-real-switch-tests; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->
+
+
+## 2026-08-31：课表导入与系统适配
+
+==课表权威为 Advisor data/course_schedule/current.json；原始ICS、版本和导入记录分开保存。两个Web服务已重启，真实Tailnet课表接口返回相同214次课程。Windows仅镜像本次代码和测试；Pi代码、配置、数据库备份位于 backups/20260831-course-schedule/。常规回退保留最新业务数据库。==
+
+详见 [[树莓派课程表导入与系统适配]]。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=checked; retrieved_notes="PI_SERVER_HANDOFF.md" -->

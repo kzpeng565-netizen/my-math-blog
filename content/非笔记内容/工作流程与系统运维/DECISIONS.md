@@ -842,3 +842,12 @@
 ==当前不固定 BSSID。电脑热点由用户按需开启，相关脚本、Pi profile、自动切换失败恢复、自动回切和触屏手动按钮均需保留。只有热点开启时的真实往返验收通过，并依据长期监测选择出稳定 AP 后，才允许固定 BSSID。固定后 AP 离线会失去漫游能力，因此仍必须保留 hotspot profile 和本地按钮。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=real-hotspot-switch-and-computer-away-test; retrieved_notes="树莓派UCAS无线漫游与电脑热点自动回退.md" -->
+
+
+## 2026-08-31：课表导入与系统适配
+
+==课程按用户要求默认出勤，不核验、不推断授课章节或掌握程度。课表仅作为安排背景，独立于设备事实、番茄和奖励。课前20分钟至下课不安排其他行动；工作日180分钟、周末480分钟、周22–31小时仍全部用于课外深度学习。导入不改已确认计划，也不新增通知。==
+
+详见 [[树莓派课程表导入与系统适配]]。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=checked; retrieved_notes="DECISIONS.md" -->
