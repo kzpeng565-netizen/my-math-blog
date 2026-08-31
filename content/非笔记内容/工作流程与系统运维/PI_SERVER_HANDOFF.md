@@ -1571,6 +1571,21 @@ Windows exporter: 13/13
 
 生产 Tailnet API 已验证 schema v2、plan v2、12 个本周任务、1590 分钟、3 个课程档案、45 份资料。v2 迁移创建 48 项差异；旧“课程基线检索练习”计数为 0。
 
+Pi 真实 `POST /api/goal-agent/review` 已验证：
+
+```text
+model_status=ok
+provider=openai_compatible
+protocol=responses
+model=gpt-5.6-sol
+reasoning_effort=medium
+schema_fallback_used=true
+changes=0
+public_search=8
+```
+
+该次模型说明误报 2026-09-05 为 636 分钟；服务端/API 逐项汇总为 456 分钟，未超过 480 上限，且没有应用模型修改。排障时继续以确定性任务数据为准。
+
 备份：
 
 ```text

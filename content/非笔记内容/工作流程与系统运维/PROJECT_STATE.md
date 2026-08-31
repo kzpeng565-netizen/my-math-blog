@@ -662,6 +662,6 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 ==Windows Behavior Context Exporter 升级到 v6，已授权四个学习目录、教材 PDF 和课程档案，共 45 份资料、0 个错误。`几何/微分几何/1.1.md` 已按 MathInk 可见层索引：普通 Markdown、LaTeX 和忠实识别文字保留，笔迹 payload、base64、图片二进制和画布坐标不导出。==
 
-==Goal Agent 独立使用 `gpt-5.6-sol`、Responses API、`medium` 推理，密钥位于 Pi 私有 `goal-agent.env`（600）。中转站不接受 JSON Schema 时仅在同一模型/协议内退回提示词 JSON 契约，不使用 DeepSeek fallback；Next Action 与其他 AI 组件路由不变。验证结果为 Goal 24/24、Advisor 209/209、Pi/Windows Garden 49/49、导出器 13/13；Tailnet API 已返回 schema v2、plan v2、45 资料和新 UI。==
+==Goal Agent 独立使用 `gpt-5.6-sol`、Responses API、`medium` 推理，密钥位于 Pi 私有 `goal-agent.env`（600）。中转站不接受 JSON Schema 时仅在同一模型/协议内退回提示词 JSON 契约，不使用 DeepSeek fallback；Next Action 与其他 AI 组件路由不变。验证结果为 Goal 24/24、Advisor 209/209、Pi/Windows Garden 49/49、导出器 13/13；Pi 真实复盘返回合法 JSON、0 项修改和 8 条公开搜索结果。模型误报单日 636 分钟后，确定性 API 复核为 456 分钟并拒绝该事实判断。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-tests-tailnet-api-sqlite-migration-exporter-and-browser; retrieved_notes="计划模式/02-当前完成与待补充.md,计划模式/05-v2课程进度与GPT-5.6迁移验收.md" -->
