@@ -810,3 +810,21 @@
 ==作息统计、批量教材转 Markdown、人文课抢课、额外开学自学安排和夜间固定 Agent 工作制明确排除，不占四轨道预算，也不进入 Goal Agent 提示词或资料检索。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=user-scope-and-production-behavior-checked; retrieved_notes="计划模式/00-目标模式总览与方案设计.md,计划模式/01-整体架构与数据流.md" -->
+
+### D105. 本学期课程进度只由用户确认，不从笔记时间或课时表推断【有效】
+
+==概率论、泛函分析和微分几何每周由用户选择实际讲到的小节，并逐项填写 0–3 掌握度。Goal Agent 可以读取授权笔记生成复述、证明重建和当前章节习题，但文件修改时间、笔记数量和大纲学时不得自动解释为“已学完”。未填写授课进度的课程任务保持 awaiting_course_progress，不能写入 task-sync。==
+
+### D106. MathInk 只向 Goal Agent 暴露 AI 可读投影【有效】
+
+==普通 Markdown、LaTeX、`inkedmark-text` 忠实识别段、分页识别文字和标准相对图片引用可以进入资料索引；压缩笔迹、base64、图片二进制和 `mathink:image` 布局坐标必须移除。手写占位符或图片路径本身不是掌握证据。目录递归继续排除 `.ink.md`、冲突文件、隐藏目录和临时文件。==
+
+### D107. 仅 Goal Agent 使用 GPT-5.6 Sol，且不回退到 DeepSeek【有效】
+
+==Goal Agent 固定使用中转站 `gpt-5.6-sol`、Responses API、`medium` 推理和独立 `GOAL_AGENT_API_KEY`。JSON Schema 不兼容时，只允许同一模型/同一 Responses 协议的提示词 JSON 契约回退。模型失败时保留确定性功能，不切换 DeepSeek。Next Action、行为报告、语义分析等既有路由不随之改变。==
+
+### D108. 课程/资料迁移不得覆盖已确认任务或历史计划【有效】
+
+==v1→v2 只改动未确认日期且没有 plan_item_task 映射的任务。已写入任务系统的任务必须保持原样；数据库迁移生成新 plan version 并保留 v1。普通回退通过版本系统完成，不能用旧 SQLite 覆盖新的反馈、聊天和版本。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=production-schema-tests-and-tailnet-api; retrieved_notes="计划模式/01-整体架构与数据流.md,计划模式/05-v2课程进度与GPT-5.6迁移验收.md" -->

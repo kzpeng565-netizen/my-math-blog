@@ -653,3 +653,15 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==验收结果：Advisor 199/199、Pi Garden 48/48、Goal 增量 12/12、Windows 导出器 11/11、Windows Garden 镜像 48/48。Goal SQLite `quick_check=ok`、权限 600；旧计划版本写请求实测返回 409 且不产生证据。尚未点击真实“确认这一天”、未运行真实 AI 对话，也尚未经历第一次自然周复盘。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-production-tests-tailnet-api-tavily-and-windows-mirror; retrieved_notes="计划模式/00-目标模式总览与方案设计.md,计划模式/02-当前完成与待补充.md" -->
+
+## 2026-08-31 状态更新：目标模式 v2 课程闭环与 GPT-5.6 Sol
+
+==Goal Agent 生产 schema 已升为 v2、计划升为 v2。迁移保留 48 个计划项和 v1 历史，并生成 48 项可回退差异。三门课固定为概率论、泛函分析和微分几何；课程首周不再预设检索基线，而等待用户确认实际授课小节和 0–3 掌握度。当前本周仍为 12 项、1590 分钟，其中 6 项课程任务等待授课进度，数学所 2 项与抽象代数 1 项等待真实资料，遍历论 3 项资料已可用。==
+
+==课程档案已录入教师、教材、大纲、考核比例和课时冲突，考试日期仍未知。生产库新增 course_profile、course_unit、course_progress_event、course_unit_mastery；共 3 个课程档案、110 个稳定小节。用户提交 course_progress 后，系统只改写同课程本周两项任务的标题、说明和 ready 状态，不改变周总分钟。未 ready 的任务不能确认日期或写入 task-sync。==
+
+==Windows Behavior Context Exporter 升级到 v6，已授权四个学习目录、教材 PDF 和课程档案，共 45 份资料、0 个错误。`几何/微分几何/1.1.md` 已按 MathInk 可见层索引：普通 Markdown、LaTeX 和忠实识别文字保留，笔迹 payload、base64、图片二进制和画布坐标不导出。==
+
+==Goal Agent 独立使用 `gpt-5.6-sol`、Responses API、`medium` 推理，密钥位于 Pi 私有 `goal-agent.env`（600）。中转站不接受 JSON Schema 时仅在同一模型/协议内退回提示词 JSON 契约，不使用 DeepSeek fallback；Next Action 与其他 AI 组件路由不变。验证结果为 Goal 24/24、Advisor 209/209、Pi/Windows Garden 49/49、导出器 13/13；Tailnet API 已返回 schema v2、plan v2、45 资料和新 UI。==
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-tests-tailnet-api-sqlite-migration-exporter-and-browser; retrieved_notes="计划模式/02-当前完成与待补充.md,计划模式/05-v2课程进度与GPT-5.6迁移验收.md" -->

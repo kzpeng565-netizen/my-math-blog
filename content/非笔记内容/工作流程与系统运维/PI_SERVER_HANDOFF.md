@@ -1487,3 +1487,104 @@ python3 -c 'import sqlite3; p="/home/conrad/workspace/activitywatch-advisor/data
 恢复时按文件比较并恢复源码、配置或 unit；不得用 Windows Garden 整树覆盖 Pi，不得用旧 Goal SQLite 覆盖新的证据、聊天、审批或版本。
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-production-services-db-tailnet-tests-and-tavily; retrieved_notes="计划模式/01-整体架构与数据流.md,计划模式/02-当前完成与待补充.md" -->
+
+## 2026-08-31：Goal Agent v2 课程进度与 GPT-5.6 Sol（替代上方 v1 口径）
+
+### 当前权威状态
+
+| 对象 | 当前值 |
+|---|---|
+| Goal schema / plan | schema v2；plan v2；v1 保留可回退 |
+| Goal 模型 | `gpt-5.6-sol`，Responses API，`medium` |
+| Goal 模型客户端 | `/home/conrad/workspace/activitywatch-advisor/src/goal_model_client.py` |
+| Goal 私有模型环境 | `/home/conrad/.config/activitywatch-advisor/goal-agent.env`，600，只含 `GOAL_AGENT_API_KEY` |
+| 课程档案 | 3 门；110 个 course_unit |
+| 授权资料 | 45 份 indexed；0 个导出错误 |
+| Windows 导出器 | v6，`D:\mathblog\tools\behavior-context-exporter` |
+| Garden Windows 镜像 | `D:\MyFocusGarden`，49/49 |
+
+### 课程数据
+
+新增表：
+
+```text
+course_profile
+course_unit
+course_progress_event
+course_unit_mastery
+```
+
+`plan_item` 新增 `course_id` 和 `input_state`：
+
+- `awaiting_course_progress`：等待用户确认授课小节；
+- `awaiting_material`：授课范围或真实资料已知不足；
+- `ready`：允许用户确认推荐日。
+
+`POST /api/goal-agent/feedback` 新证据类型：
+
+```json
+{
+  "evidence_type": "course_progress",
+  "track_id": "track-courses",
+  "details": {
+    "course": "微分几何",
+    "taught_units": [
+      {"unit_id": "differential-geometry-01-01", "mastery": 2}
+    ],
+    "exercise_attempted": 3,
+    "exercise_correct": 2,
+    "proof_recall": ["弧长参数化证明仍需重建"],
+    "note": "第一节课笔记为 几何/微分几何/1.1.md"
+  }
+}
+```
+
+### MathInk 与导出器
+
+资料清单现在支持：
+
+```text
+- [x] 微分几何学习目录｜[[几何/微分几何/]]｜extensions=md,txt,pdf
+```
+
+导出器 v6 保留可见 Markdown/LaTeX、`inkedmark-text`、分页识别文字和标准图片链接；排除 `.ink.md`、冲突文件、隐藏目录、笔迹 payload、base64、图片二进制和 `mathink:image` 坐标。资料 ID 基于 Vault 相对路径。
+
+`几何/微分几何/1.1.md` 已生产索引为：
+
+```text
+source_path=几何/微分几何/1.1.md
+note_format=mathink_markdown
+has_handwriting_payload=true
+image_binary_exported=false
+chunk_count=1
+```
+
+### 部署与测试
+
+```text
+Goal targeted: 24/24
+Advisor full: 209/209
+Pi Garden: 49/49
+Windows Garden: 49/49
+Windows exporter: 13/13
+```
+
+生产 Tailnet API 已验证 schema v2、plan v2、12 个本周任务、1590 分钟、3 个课程档案、45 份资料。v2 迁移创建 48 项差异；旧“课程基线检索练习”计数为 0。
+
+备份：
+
+```text
+/home/conrad/workspace/backups/goal-v2-20260831-134441/
+D:\mathblog\tools\behavior-context-exporter-backups\goal-v2-20260831-1342
+D:\MyFocusGarden-backups\goal-v2-20260831-135632
+```
+
+### 模型故障边界
+
+- Goal Agent 不再继承 `config/settings.json -> model` 的 DeepSeek endpoint；
+- 中转站的 JSON Schema 请求返回不兼容时，只在 `gpt-5.6-sol` Responses 内退回提示词 JSON；
+- GPT/Tavily 失败不影响确定性评估、反馈保存、审批和回退；
+- Next Action 与其他 AI 组件继续使用各自原模型；
+- 密钥不得从 `goal-agent.env` 读出、复制到日志或加入备份文档。
+
+<!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-production-tests-tailnet-api-sqlite-migration-and-windows-mirror; retrieved_notes="计划模式/05-v2课程进度与GPT-5.6迁移验收.md,目标模式课程档案.md" -->

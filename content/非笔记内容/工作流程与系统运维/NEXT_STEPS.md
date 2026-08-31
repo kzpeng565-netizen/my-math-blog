@@ -737,15 +737,19 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 
 ### ☑ 已完成：生产部署、安全边界与镜像
 
-==Goal Agent、六视图 UI、固定 Garden 代理、独立 SQLite、审批/回退、FTS、Windows 导出器 v5、周日 20:30 timer 和 Tavily 同源密钥均已部署。Pi 服务和端口健康，Garden 仍为 tailnet-only；完整测试结果为 Advisor 199/199、Pi/Windows Garden 48/48、导出器 11/11。==
+==目标模式 v2 已部署：Goal Agent schema/plan v2、课程小节与掌握度、GPT-5.6 Sol Responses、MathInk 可见层、目录授权和等待状态 UI 均已上线。生产仍为 loopback + Tailnet-only；验证结果为 Goal 24/24、Advisor 209/209、Pi/Windows Garden 49/49、导出器 13/13。==
 
-### ☐ 用户补充课程与题源资料
+### ☐ 提交第一条真实课程进度
 
-==先在 `非笔记内容/任务计划/目标模式资料清单.md` 逐项授权。三门课需要教师、教材、大纲、考核比例和考试日期；数学所需要至少三份可区分真实题源；遍历论需要双方确认教材与章节；抽象代数需要书面题组和口头题库。没有这些资料时保持未知，不让 Agent 补写。==
+==三门课教师、教材、大纲和考核比例已录入，资料已授权。现在打开“目标模式 → 证据与资料”，先为微分几何第一节课选择实际讲到的小节并填写 0–3 掌握度；概率论和泛函分析第一节课后重复。考试日期仍保持未知。==
 
-### ☐ 验收第一条真实资料与任务写回闭环
+### ☐ 补充数学所、遍历论范围与抽象代数题源
 
-==用一份小型授权资料检查页码、哈希、Syncthing 和 FTS；随后只确认少量推荐日，观察 mutation → Obsidian 写入 → 新快照 ack → `plan_item_id → task_id` 映射。不要一次性接受全部首周任务。==
+==数学所仍需至少三份可区分真实题源；GTM259 已存在，但需确认 2027-01-31 前章节范围；抽象代数仍需书面题组和口头题库。没有这些资料时对应任务保持 awaiting_material。==
+
+### ☐ 验收第一条 ready 任务写回闭环
+
+==提交课程进度后，检查微分几何本周两项任务是否改成具体章节并变为“可安排”。随后只确认一项日期，观察 mutation → Obsidian 写入 → 新快照 ack → `plan_item_id → task_id` 映射。不要一次性接受全部首周任务。==
 
 ### ☐ 验收第一次自然周复盘
 
