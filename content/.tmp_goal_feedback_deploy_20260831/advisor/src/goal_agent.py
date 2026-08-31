@@ -2060,6 +2060,12 @@ class GoalAgent:
             value = _clean_text(details.get(key), 120)
             if value:
                 normalized[key] = value
+        weight = details.get("weight")
+        if weight not in (None, ""):
+            weight = float(weight)
+            if not 0 < weight <= 1:
+                raise ValueError("grade weight must be between 0 and 1")
+            normalized["weight"] = weight
         if normalized_oral:
             normalized["oral_scores"] = normalized_oral
         if kind == "course":
@@ -2317,11 +2323,15 @@ class GoalAgent:
                     raise ValueError(f"{label} must be between 1 and 5")
             score_value = payload.get("score")
             maximum_value = payload.get("max_score")
-            if score_value not in (None, ""):
+            if score_value in (None, ""):
+                score_value = None
+            else:
                 score_value = float(score_value)
                 if score_value < 0:
                     raise ValueError("score must be non-negative")
-            if maximum_value not in (None, ""):
+            if maximum_value in (None, ""):
+                maximum_value = None
+            else:
                 maximum_value = float(maximum_value)
                 if maximum_value <= 0:
                     raise ValueError("max_score must be positive")
@@ -2629,6 +2639,18 @@ class GoalAgent:
             "status": public_search.get("status"),
             "result_count": len(public_search.get("results", [])),
         }
+        query_parts: list[str] = []
+        for event in context.get("recent_evidence", [])[-5:]:
+            details = event.get("payload") if isinstance(event.get("payload"), dict) else {}
+            performance = details.get("performance") if isinstance(details.get("performance"), dict) else {}
+            for value in (
+                details.get("course"), details.get("component"), performance.get("object"),
+                details.get("note"), event.get("source_id"),
+            ):
+                text = _clean_text(value, 160)
+                if text:
+                    query_parts.append(text)
+        context["material_snippets"] = self.search_materials(" ".join(query_parts), limit=6) if query_parts else []
         model_result: dict[str, Any] = {"answer": "已完成确定性评估。", "plan_changes": [], "approval_request": None, "assessment": {}}
         generation: dict[str, Any] = {"status": "skipped"}
         model_error = None

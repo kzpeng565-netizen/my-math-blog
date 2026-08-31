@@ -426,6 +426,78 @@ class GoalAgentTest(unittest.TestCase):
                 }
             )
 
+    def test_v2_exercise_keeps_performance_conditions_and_boundary(self) -> None:
+        result = self.agent.feedback(
+            {
+                **self.request("v2exercise"),
+                "track_id": "track-algebra",
+                "evidence_type": "algebra_written",
+                "score": 4,
+                "max_score": 5,
+                "source_id": "algebra-sheet-01",
+                "details": {
+                    "feedback_schema_version": 2,
+                    "feedback_kind": "exercise",
+                    "performance": {
+                        "attempted": 5,
+                        "correct": 4,
+                        "independent_correct": 2,
+                        "result": "done",
+                    },
+                    "conditions": {
+                        "assistance": "hint",
+                        "verification": "reference",
+                    },
+                },
+            }
+        )
+        self.assertIn("最终正确与独立正确已分开保存", result["evidence_boundary"])
+        event = self.agent.state()["recent_evidence"][-1]
+        self.assertEqual(event["payload"]["performance"]["independent_correct"], 2)
+        self.assertEqual(event["payload"]["conditions"]["assistance"], "hint")
+        algebra = next(track for track in self.agent.state()["tracks"] if track["code"] == "abstract_algebra")
+        self.assertEqual(algebra["mastery"]["written_streak"], 0)
+
+    def test_v2_exercise_rejects_impossible_counts(self) -> None:
+        with self.assertRaisesRegex(ValueError, "independent_correct"):
+            self.agent.feedback(
+                {
+                    **self.request("badv2counts"),
+                    "track_id": "track-courses",
+                    "evidence_type": "progress_update",
+                    "details": {
+                        "feedback_schema_version": 2,
+                        "feedback_kind": "exercise",
+                        "performance": {"attempted": 5, "correct": 3, "independent_correct": 4},
+                        "conditions": {"assistance": "hint", "verification": "reference"},
+                    },
+                }
+            )
+
+    def test_v2_grade_preserves_confirmed_weight(self) -> None:
+        self.agent.feedback(
+            {
+                **self.request("v2grade"),
+                "track_id": "track-courses",
+                "evidence_type": "course_component",
+                "score": 88,
+                "max_score": 100,
+                "details": {
+                    "feedback_schema_version": 2,
+                    "feedback_kind": "grade",
+                    "course": "微分几何",
+                    "component": "midterm",
+                    "weight": 0.3,
+                    "performance": {},
+                    "conditions": {"origin": "official"},
+                },
+            }
+        )
+        event = self.agent.state()["recent_evidence"][-1]
+        self.assertEqual(event["payload"]["weight"], 0.3)
+        course_track = next(track for track in self.agent.state()["tracks"] if track["code"] == "courses")
+        self.assertEqual(course_track["course_scenarios"]["微分几何"]["known_weight"], 0.3)
+
     def test_goal_model_config_never_inherits_global_deepseek(self) -> None:
         captured = {}
 
@@ -463,6 +535,42 @@ class GoalAgentCalculationsTest(unittest.TestCase):
             {"occurred_at": "2027-01-15", "score": 130, "max_score": 150, "source_id": "paper-c"},
         ])
         self.assertFalse(repeated["criterion_met"])
+
+    def test_v2_mock_requires_new_timed_independent_verified_conditions(self) -> None:
+        event = {
+            "occurred_at": "2027-01-01",
+            "score": 125,
+            "max_score": 150,
+            "source_id": "paper-a",
+            "payload": {
+                "feedback_schema_version": 2,
+                "feedback_kind": "mock",
+                "conditions": {
+                    "completion": "timed",
+                    "novelty": "repeat",
+                    "verification": "reference",
+                    "assistance": "none",
+                },
+            },
+        }
+        result = consecutive_exam_passes([event])
+        self.assertFalse(result["recent"][0]["condition_complete"])
+        event["payload"]["conditions"]["novelty"] = "new"
+        result = consecutive_exam_passes([event])
+        self.assertTrue(result["recent"][0]["condition_complete"])
+
+    def test_v2_self_estimated_grade_is_not_used_in_scenario(self) -> None:
+        event = {
+            "score": 100,
+            "max_score": 100,
+            "payload": {
+                "weight": 0.4,
+                "feedback_schema_version": 2,
+                "feedback_kind": "grade",
+                "conditions": {"origin": "self"},
+            },
+        }
+        self.assertEqual(course_grade_scenario([event])["state"], "unknown")
 
 
 if __name__ == "__main__":
