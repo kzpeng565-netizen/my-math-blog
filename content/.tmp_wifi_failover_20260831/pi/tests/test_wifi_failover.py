@@ -17,11 +17,12 @@ class FakeRunner:
         self,
         *,
         active: str | None,
-        tailnet: list[bool],
+        internet: list[bool],
         activations: dict[str, bool] | None = None,
     ) -> None:
         self.active = active
-        self.tailnet = list(tailnet)
+        self.internet = list(internet)
+        self.current_internet = True
         self.activations = activations or {}
         self.commands: list[list[str]] = []
 
@@ -32,9 +33,21 @@ class FakeRunner:
             if self.active is None:
                 return CommandResult(0, "")
             return CommandResult(0, f"{self.active}:wlan0\n")
-        if args[:2] == ["/usr/bin/tailscale", "ping"]:
-            value = self.tailnet.pop(0) if self.tailnet else False
-            return CommandResult(0 if value else 1, "pong from xyh\n" if value else "")
+        if args[:4] == ["/usr/sbin/ip", "route", "show", "default"]:
+            self.current_internet = (
+                self.internet.pop(0) if self.internet else False
+            )
+            return CommandResult(0, "default via 10.0.0.1 dev wlan0\n")
+        if args[:2] == ["/usr/bin/curl", "-4"]:
+            return CommandResult(
+                0 if self.current_internet else 28,
+                "204" if self.current_internet else "000",
+            )
+        if args[:2] == ["/usr/bin/curl", "-6"]:
+            return CommandResult(
+                0 if self.current_internet else 28,
+                "200" if self.current_internet else "000",
+            )
         if args[:3] == ["/usr/bin/nmcli", "connection", "up"]:
             profile = args[3]
             success = self.activations.get(profile, True)
@@ -53,7 +66,8 @@ class WifiFailoverTests(unittest.TestCase):
             "enabled": True,
             "primary_profile": "UCAS",
             "fallback_profile": "netplan-wlan0-XYH 0563",
-            "windows_peer": "xyh",
+            "ipv4_probe_url": "https://www.gstatic.com/generate_204",
+            "ipv6_probe_url": "https://www.cloudflare.com/",
             "primary_failure_threshold": 4,
             "fallback_failure_threshold": 2,
             "failed_switch_cooldown_seconds": 600,
@@ -73,8 +87,8 @@ class WifiFailoverTests(unittest.TestCase):
             clock=lambda: self.now,
         )
 
-    def test_four_primary_failures_switch_to_hotspot(self) -> None:
-        runner = FakeRunner(active="UCAS", tailnet=[False] * 4)
+    def test_four_primary_internet_failures_switch_to_hotspot(self) -> None:
+        runner = FakeRunner(active="UCAS", internet=[False] * 4)
         controller = self.controller(runner)
         actions = [controller.run_once()["action"] for _ in range(4)]
         self.assertEqual(actions[-1], "switched_to_fallback")
@@ -83,7 +97,7 @@ class WifiFailoverTests(unittest.TestCase):
     def test_failed_hotspot_activation_restores_primary_and_sets_cooldown(self) -> None:
         runner = FakeRunner(
             active="UCAS",
-            tailnet=[False] * 4,
+            internet=[False] * 4,
             activations={
                 "netplan-wlan0-XYH 0563": False,
                 "UCAS": True,
@@ -102,7 +116,7 @@ class WifiFailoverTests(unittest.TestCase):
     def test_healthy_hotspot_is_held_instead_of_flapping_back(self) -> None:
         runner = FakeRunner(
             active="netplan-wlan0-XYH 0563",
-            tailnet=[True],
+            internet=[True],
         )
         event = self.controller(runner).run_once()
         self.assertEqual(event["action"], "fallback_healthy_hold")
@@ -111,7 +125,7 @@ class WifiFailoverTests(unittest.TestCase):
     def test_two_hotspot_failures_restore_primary(self) -> None:
         runner = FakeRunner(
             active="netplan-wlan0-XYH 0563",
-            tailnet=[False, False],
+            internet=[False, False],
         )
         controller = self.controller(runner)
         self.assertEqual(
@@ -125,10 +139,38 @@ class WifiFailoverTests(unittest.TestCase):
         self.assertEqual(runner.active, "UCAS")
 
     def test_manual_other_wifi_is_never_overridden(self) -> None:
-        runner = FakeRunner(active="Other WiFi", tailnet=[False])
+        runner = FakeRunner(active="Other WiFi", internet=[False])
         event = self.controller(runner).run_once()
         self.assertEqual(event["action"], "manual_other_profile_preserved")
         self.assertEqual(runner.active, "Other WiFi")
+
+    def test_computer_absence_does_not_trigger_when_internet_is_healthy(self) -> None:
+        runner = FakeRunner(active="UCAS", internet=[True] * 6)
+        controller = self.controller(runner)
+        actions = [controller.run_once()["action"] for _ in range(6)]
+        self.assertEqual(set(actions), {"primary_healthy"})
+        self.assertEqual(runner.active, "UCAS")
+
+    def test_manual_fallback_failure_restores_ucas(self) -> None:
+        runner = FakeRunner(
+            active="UCAS",
+            internet=[],
+            activations={
+                "netplan-wlan0-XYH 0563": False,
+                "UCAS": True,
+            },
+        )
+        event = self.controller(runner).force_fallback()
+        self.assertFalse(event["success"])
+        self.assertTrue(event["primary_restored"])
+        self.assertEqual(runner.active, "UCAS")
+
+    def test_manual_fallback_success(self) -> None:
+        runner = FakeRunner(active="UCAS", internet=[])
+        event = self.controller(runner).force_fallback()
+        self.assertTrue(event["success"])
+        self.assertEqual(event["action"], "manual_switched_to_fallback")
+        self.assertEqual(runner.active, "netplan-wlan0-XYH 0563")
 
 
 if __name__ == "__main__":

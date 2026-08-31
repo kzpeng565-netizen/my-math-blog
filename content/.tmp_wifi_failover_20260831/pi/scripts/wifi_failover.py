@@ -1,15 +1,19 @@
 from __future__ import annotations
 
 import argparse
-import fcntl
 import json
 import os
 import subprocess
 import tempfile
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable
+
+try:
+    import fcntl
+except ImportError:  # Windows-only unit tests
+    fcntl = None
 
 
 @dataclass(frozen=True)
@@ -84,7 +88,6 @@ class WifiFailover:
         self.clock = clock
         self.primary = str(config["primary_profile"])
         self.fallback = str(config["fallback_profile"])
-        self.peer = str(config["windows_peer"])
         self.state_path = Path(config["state_path"])
         self.events_path = Path(config["events_path"])
         self.lock_path = Path(config["lock_path"])
@@ -97,7 +100,7 @@ class WifiFailover:
             "cooldown_until": None,
             "last_probe_at": None,
             "last_active_profile": None,
-            "last_tailnet_ok": None,
+            "last_internet_ok": None,
             "last_action": "initialized",
             "last_switch_at": None,
         }
@@ -123,20 +126,69 @@ class WifiFailover:
                 return name.replace("\\:", ":")
         return None
 
-    def _tailnet_ok(self) -> bool:
+    def _has_default_route(self) -> bool:
         result = self.runner.run(
             [
-                "/usr/bin/tailscale",
-                "ping",
-                "--timeout=4s",
-                "--c",
-                "1",
-                self.peer,
+                "/usr/sbin/ip",
+                "route",
+                "show",
+                "default",
             ],
-            timeout=8,
+            timeout=5,
         )
-        combined = result.stdout + "\n" + result.stderr
-        return "pong from" in combined.lower()
+        return result.returncode == 0 and bool(result.stdout.strip())
+
+    def _probe_url(self, *, ipv6: bool, url: str) -> bool:
+        result = self.runner.run(
+            [
+                "/usr/bin/curl",
+                "-6" if ipv6 else "-4",
+                "-L",
+                "-sS",
+                "-o",
+                "/dev/null",
+                "-w",
+                "%{http_code}",
+                "--max-time",
+                "7",
+                url,
+            ],
+            timeout=10,
+        )
+        if result.returncode != 0:
+            return False
+        code = result.stdout.strip()
+        if not code.isdigit():
+            return False
+        status = int(code)
+        return status == 204 if not ipv6 else 200 <= status < 400
+
+    def _internet_health(self) -> dict[str, bool]:
+        default_route = self._has_default_route()
+        ipv4 = self._probe_url(
+            ipv6=False,
+            url=str(
+                self.config.get(
+                    "ipv4_probe_url",
+                    "https://www.gstatic.com/generate_204",
+                )
+            ),
+        )
+        ipv6 = self._probe_url(
+            ipv6=True,
+            url=str(
+                self.config.get(
+                    "ipv6_probe_url",
+                    "https://www.cloudflare.com/",
+                )
+            ),
+        )
+        return {
+            "default_route": default_route,
+            "ipv4_ok": ipv4,
+            "ipv6_ok": ipv6,
+            "internet_ok": default_route and (ipv4 or ipv6),
+        }
 
     def _activate(self, profile: str) -> bool:
         result = self.runner.run(
@@ -168,16 +220,17 @@ class WifiFailover:
         now = self.clock()
         state = load_json(self.state_path, self._default_state())
         active = self._active_profile()
-        reachable = self._tailnet_ok()
+        health = self._internet_health()
+        reachable = health["internet_ok"]
         event: dict[str, Any] = {
             "at": now.isoformat(timespec="seconds"),
             "active_profile": active,
-            "tailnet_ok": reachable,
+            **health,
             "action": "none",
         }
         state["last_probe_at"] = event["at"]
         state["last_active_profile"] = active
-        state["last_tailnet_ok"] = reachable
+        state["last_internet_ok"] = reachable
 
         if not bool(self.config.get("enabled", True)):
             event["action"] = "disabled"
@@ -205,11 +258,7 @@ class WifiFailover:
                     restored = self._activate(self.primary)
                     cooldown = int(self.config.get("failed_switch_cooldown_seconds", 600))
                     state["cooldown_until"] = (
-                        now.timestamp() + cooldown
-                    )
-                    state["cooldown_until"] = datetime.fromtimestamp(
-                        float(state["cooldown_until"]),
-                        timezone.utc,
+                        now + timedelta(seconds=cooldown)
                     ).isoformat(timespec="seconds")
                     state["primary_failures"] = 0
                     state["last_action"] = "fallback_failed_primary_restored"
@@ -261,14 +310,54 @@ class WifiFailover:
         self._append_event(event)
         return event
 
-    def locked_run(self) -> dict[str, Any] | None:
+    def force_fallback(self) -> dict[str, Any]:
+        now = self.clock()
+        state = load_json(self.state_path, self._default_state())
+        before = self._active_profile()
+        event: dict[str, Any] = {
+            "at": now.isoformat(timespec="seconds"),
+            "active_profile": before,
+            "action": "manual_fallback_requested",
+        }
+        if self._activate(self.fallback):
+            state["primary_failures"] = 0
+            state["fallback_failures"] = 0
+            state["last_switch_at"] = event["at"]
+            state["last_active_profile"] = self.fallback
+            state["last_action"] = "manual_switched_to_fallback"
+            event["action"] = "manual_switched_to_fallback"
+            event["success"] = True
+        else:
+            restored = self._activate(self.primary)
+            state["last_active_profile"] = (
+                self.primary if restored else self._active_profile()
+            )
+            state["last_action"] = "manual_fallback_failed"
+            event["action"] = "manual_fallback_failed"
+            event["success"] = False
+            event["primary_restored"] = restored
+        atomic_write_json(self.state_path, state)
+        self._append_event(event)
+        return event
+
+    def _locked(self, operation: Callable[[], dict[str, Any]]) -> dict[str, Any] | None:
         self.lock_path.parent.mkdir(parents=True, exist_ok=True)
         with self.lock_path.open("a+", encoding="utf-8") as lock:
-            try:
-                fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
-            except BlockingIOError:
-                return None
-            return self.run_once()
+            if fcntl is not None:
+                try:
+                    fcntl.flock(
+                        lock.fileno(),
+                        fcntl.LOCK_EX | fcntl.LOCK_NB,
+                    )
+                except BlockingIOError:
+                    return None
+            return operation()
+
+    def locked_run(self) -> dict[str, Any] | None:
+        return self._locked(self.run_once)
+
+    def locked_force_fallback(self) -> dict[str, Any] | None:
+        return self._locked(self.force_fallback)
 
 
 def main() -> int:
@@ -278,9 +367,17 @@ def main() -> int:
         type=Path,
         default=Path("/home/conrad/workspace/activitywatch-advisor/config/wifi_failover.json"),
     )
+    parser.add_argument("--force-fallback", action="store_true")
     args = parser.parse_args()
     config = json.loads(args.config.read_text(encoding="utf-8"))
-    WifiFailover(config).locked_run()
+    controller = WifiFailover(config)
+    event = (
+        controller.locked_force_fallback()
+        if args.force_fallback
+        else controller.locked_run()
+    )
+    if args.force_fallback and event and not event.get("success"):
+        return 1
     return 0
 
 

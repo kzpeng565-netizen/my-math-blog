@@ -1,5 +1,5 @@
 [Unit]
-Description=Fail over Raspberry Pi Wi-Fi to the Windows hotspot
+Description=Fail over Raspberry Pi Wi-Fi after sustained Internet loss
 After=NetworkManager.service tailscaled.service
 Wants=NetworkManager.service tailscaled.service
 
@@ -14,4 +14,3 @@ PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=read-only
 ReadWritePaths=/var/lib/wifi-failover /run/wifi-failover
-
