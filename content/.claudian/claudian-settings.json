@@ -1,7 +1,7 @@
 {
   "userName": "",
   "permissionMode": "yolo",
-  "model": "gpt-5.5",
+  "model": "deepseek-v4-flash",
   "thinkingBudget": "off",
   "effortLevel": "medium",
   "serviceTier": "default",
@@ -51,8 +51,8 @@
       "customModels": "",
       "discoveredModels": [
         {
-          "model": "gpt-5.6-sol",
-          "displayName": "GPT-5.6-Sol",
+          "model": "deepseek-v4-flash",
+          "displayName": "DeepSeek-V4-Flash",
           "description": "Latest frontier agentic coding model.",
           "supportedReasoningEfforts": [
             {
@@ -60,105 +60,33 @@
               "description": "Fast responses with lighter reasoning"
             },
             {
-              "value": "medium",
-              "description": "Balances speed and reasoning depth for everyday tasks"
-            },
-            {
               "value": "high",
-              "description": "Greater reasoning depth for complex problems"
-            },
-            {
-              "value": "xhigh",
               "description": "Extra high reasoning depth for complex problems"
             },
             {
               "value": "max",
               "description": "Maximum reasoning depth for the hardest problems"
-            },
-            {
-              "value": "ultra",
-              "description": "Maximum reasoning with automatic task delegation"
             }
           ],
-          "defaultReasoningEffort": "low",
-          "serviceTiers": [
-            {
-              "id": "priority",
-              "name": "Fast",
-              "description": "1.5x speed, increased usage"
-            }
-          ],
+          "defaultReasoningEffort": "high",
+          "serviceTiers": [],
           "defaultServiceTier": null,
           "inputModalities": [
-            "text",
-            "image"
+            "text"
           ],
           "isDefault": true
         },
         {
-          "model": "gpt-5.6-terra",
-          "displayName": "GPT-5.6-Terra",
-          "description": "Balanced agentic coding model for everyday work.",
+          "model": "gpt-5.6-sol",
+          "displayName": "GPT-5.6 Sol",
+          "description": "GPT-5.6 Sol through the configured OpenAI-compatible provider.",
           "supportedReasoningEfforts": [
             {
               "value": "low",
               "description": "Fast responses with lighter reasoning"
             },
             {
-              "value": "medium",
-              "description": "Balances speed and reasoning depth for everyday tasks"
-            },
-            {
               "value": "high",
-              "description": "Greater reasoning depth for complex problems"
-            },
-            {
-              "value": "xhigh",
-              "description": "Extra high reasoning depth for complex problems"
-            },
-            {
-              "value": "max",
-              "description": "Maximum reasoning depth for the hardest problems"
-            },
-            {
-              "value": "ultra",
-              "description": "Maximum reasoning with automatic task delegation"
-            }
-          ],
-          "defaultReasoningEffort": "medium",
-          "serviceTiers": [
-            {
-              "id": "priority",
-              "name": "Fast",
-              "description": "1.5x speed, increased usage"
-            }
-          ],
-          "defaultServiceTier": null,
-          "inputModalities": [
-            "text",
-            "image"
-          ],
-          "isDefault": false
-        },
-        {
-          "model": "gpt-5.6-luna",
-          "displayName": "GPT-5.6-Luna",
-          "description": "Fast and affordable agentic coding model.",
-          "supportedReasoningEfforts": [
-            {
-              "value": "low",
-              "description": "Fast responses with lighter reasoning"
-            },
-            {
-              "value": "medium",
-              "description": "Balances speed and reasoning depth for everyday tasks"
-            },
-            {
-              "value": "high",
-              "description": "Greater reasoning depth for complex problems"
-            },
-            {
-              "value": "xhigh",
               "description": "Extra high reasoning depth for complex problems"
             },
             {
@@ -166,123 +94,37 @@
               "description": "Maximum reasoning depth for the hardest problems"
             }
           ],
-          "defaultReasoningEffort": "medium",
-          "serviceTiers": [
-            {
-              "id": "priority",
-              "name": "Fast",
-              "description": "1.5x speed, increased usage"
-            }
-          ],
-          "defaultServiceTier": null,
-          "inputModalities": [
-            "text",
-            "image"
-          ],
-          "isDefault": false
-        },
-        {
-          "model": "gpt-5.5",
-          "displayName": "GPT-5.5",
-          "description": "Frontier model for complex coding, research, and real-world work.",
-          "supportedReasoningEfforts": [
-            {
-              "value": "low",
-              "description": "Fast responses with lighter reasoning"
-            },
-            {
-              "value": "medium",
-              "description": "Balances speed and reasoning depth for everyday tasks"
-            },
-            {
-              "value": "high",
-              "description": "Greater reasoning depth for complex problems"
-            },
-            {
-              "value": "xhigh",
-              "description": "Extra high reasoning depth for complex problems"
-            }
-          ],
-          "defaultReasoningEffort": "medium",
-          "serviceTiers": [
-            {
-              "id": "priority",
-              "name": "Fast",
-              "description": "1.5x speed, increased usage"
-            }
-          ],
-          "defaultServiceTier": null,
-          "inputModalities": [
-            "text",
-            "image"
-          ],
-          "isDefault": false
-        },
-        {
-          "model": "gpt-5.4",
-          "displayName": "GPT-5.4",
-          "description": "Strong model for everyday coding.",
-          "supportedReasoningEfforts": [
-            {
-              "value": "low",
-              "description": "Fast responses with lighter reasoning"
-            },
-            {
-              "value": "medium",
-              "description": "Balances speed and reasoning depth for everyday tasks"
-            },
-            {
-              "value": "high",
-              "description": "Greater reasoning depth for complex problems"
-            },
-            {
-              "value": "xhigh",
-              "description": "Extra high reasoning depth for complex problems"
-            }
-          ],
-          "defaultReasoningEffort": "medium",
-          "serviceTiers": [
-            {
-              "id": "priority",
-              "name": "Fast",
-              "description": "1.5x speed, increased usage"
-            }
-          ],
-          "defaultServiceTier": null,
-          "inputModalities": [
-            "text",
-            "image"
-          ],
-          "isDefault": false
-        },
-        {
-          "model": "gpt-5.4-mini",
-          "displayName": "GPT-5.4-Mini",
-          "description": "Small, fast, and cost-efficient model for simpler coding tasks.",
-          "supportedReasoningEfforts": [
-            {
-              "value": "low",
-              "description": "Fast responses with lighter reasoning"
-            },
-            {
-              "value": "medium",
-              "description": "Balances speed and reasoning depth for everyday tasks"
-            },
-            {
-              "value": "high",
-              "description": "Greater reasoning depth for complex problems"
-            },
-            {
-              "value": "xhigh",
-              "description": "Extra high reasoning depth for complex problems"
-            }
-          ],
-          "defaultReasoningEffort": "medium",
+          "defaultReasoningEffort": "high",
           "serviceTiers": [],
           "defaultServiceTier": null,
           "inputModalities": [
-            "text",
-            "image"
+            "text"
+          ],
+          "isDefault": false
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "displayName": "DeepSeek-V4-Pro",
+          "description": "Most capable frontier agentic coding model.",
+          "supportedReasoningEfforts": [
+            {
+              "value": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "value": "high",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "value": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            }
+          ],
+          "defaultReasoningEffort": "high",
+          "serviceTiers": [],
+          "defaultServiceTier": null,
+          "inputModalities": [
+            "text"
           ],
           "isDefault": false
         }
@@ -293,7 +135,7 @@
       "reasoningSummary": "detailed",
       "environmentVariables": "",
       "environmentHash": "runtime-input:v1:f7883676baae8bb27f2a882fee027044b37a0430fe24027a0bf5635e811e3e94",
-      "catalogTimestamp": 1787644941428,
+      "catalogTimestamp": 1788137566623,
       "catalogFingerprint": "2:225642923134fd4bffc4a0f0fe4c1d08c18e71e326628c4c1899b1924d70d684",
       "installationMethodsByHost": {
         "device:a65af03f-bce5-4793-af1e-205a19208756": "native-windows"
@@ -340,7 +182,7 @@
   "settingsProvider": "codex",
   "savedProviderModel": {
     "claude": "claude-code/deepseek-v4-flash",
-    "codex": "gpt-5.5"
+    "codex": "deepseek-v4-flash"
   },
   "savedProviderEffort": {
     "claude": "max",
