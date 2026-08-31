@@ -9,7 +9,11 @@ from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from goal_model_client import _extract_output_text, request_goal_json
+from goal_model_client import (
+    _decode_responses_body,
+    _extract_output_text,
+    request_goal_json,
+)
 
 
 class GoalModelClientTests(unittest.TestCase):
@@ -32,6 +36,54 @@ class GoalModelClientTests(unittest.TestCase):
             ),
             '{"answer":"ok"}',
         )
+
+    def test_decodes_gateway_sse_when_completed_object_omits_output(self) -> None:
+        text = json.dumps(
+            {
+                "answer": "ok",
+                "assessment": {},
+                "plan_changes": [],
+                "approval_request": None,
+            }
+        )
+        stream = "\n".join(
+            [
+                'event: response.output_text.delta',
+                "data: "
+                + json.dumps(
+                    {
+                        "type": "response.output_text.delta",
+                        "delta": text[:20],
+                    }
+                ),
+                "",
+                'event: response.output_text.delta',
+                "data: "
+                + json.dumps(
+                    {
+                        "type": "response.output_text.delta",
+                        "delta": text[20:],
+                    }
+                ),
+                "",
+                'event: response.completed',
+                "data: "
+                + json.dumps(
+                    {
+                        "type": "response.completed",
+                        "response": {
+                            "status": "completed",
+                            "model": "gpt-5.6-sol",
+                            "output": [],
+                            "usage": {"total_tokens": 10},
+                        },
+                    }
+                ),
+            ]
+        )
+        decoded = _decode_responses_body(stream)
+        self.assertEqual(decoded["output_text"], text)
+        self.assertEqual(decoded["model"], "gpt-5.6-sol")
 
     def test_uses_responses_reasoning_and_never_deepseek_fields(self) -> None:
         response = MagicMock()
