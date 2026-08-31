@@ -7,6 +7,6 @@ Set shell = CreateObject("WScript.Shell")
 
 scriptDirectory = fileSystem.GetParentFolderName(WScript.ScriptFullName)
 syncScript = fileSystem.BuildPath(scriptDirectory, "push-activitywatch.ps1")
-command = "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File """ & syncScript & """"
+command = "powershell.exe -NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & syncScript & """"
 
 shell.Run command, 0, False
