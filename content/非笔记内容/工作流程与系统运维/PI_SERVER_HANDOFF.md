@@ -1725,4 +1725,4 @@ goal-agent-review.timer: active
 
 备份：/home/conrad/workspace/backups/goal-v3-20260901-110334/；Windows exporter 备份为 D:\mathblog\tools\behavior-context-exporter-backups\goal-v3-20260901-110336。
 
-详见 [[计划模式/08-目标模式v3真实课堂作业接入与日期修复部署验收]]。
+详见 [[08-目标模式v3真实课堂作业接入与日期修复部署验收]]。
