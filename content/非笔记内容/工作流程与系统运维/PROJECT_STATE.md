@@ -656,7 +656,7 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 ## 2026-08-31 状态更新：目标模式 v2 课程闭环与 GPT-5.6 Sol
 
-==Goal Agent 生产 schema v2 保持不变，当前 plan version 4。概率论教材已更正为 Le Gall 主教材、Durrett 参考书；本周仍为 12 项、1590 分钟。课程轨道改为“启动任务 + 课内任务”双通道：5 项 GTM259/概率论基础任务已 ready 并覆盖 2026-08-31 至 09-04；真实授课小节或作业出现后，原有 course_progress 闭环会改写同课程任务，启动任务不冒充课内进度。==
+==Goal Agent 生产已升至 schema v3、plan version 5。本周保持 12 项、1590 分钟；2026-09-01 起由 GTM259 与抽象代数先行，概率论保持 awaiting_course_progress。新课堂笔记自动生成“实际主题 + 建议目录映射 + 教材对照”草稿，用户确认后才计入进度；作业按文件名发现并拆成多个不超过 180 分钟的学习任务。==
 
 ==课程档案已录入教师、教材、大纲、考核比例和课时冲突，考试日期仍未知。生产库新增 course_profile、course_unit、course_progress_event、course_unit_mastery；共 3 个课程档案、110 个稳定小节。用户提交 course_progress 后，系统只改写同课程本周两项任务的标题、说明和 ready 状态，不改变周总分钟。未 ready 的任务不能确认日期或写入 task-sync。==
 
@@ -689,6 +689,6 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 ==Goal 模式“证据与资料”已上线任务驱动的快速表单。本周任务卡可直接“记进度”，课程卡可“记录上课”；课程、练习、证明、成绩、限时真题、阅读、讲解、口试和受阻分别只显示本类型字段。课程成绩绑定已确认考核比例；做题区分最终正确与独立正确；真题同时记录独立、新题、限时和评分条件。未填和未核验值保持未知，不转成 0。==
 
-==Goal Agent 保存结构化 performance/conditions 和判断边界，并在完整复盘时根据最近证据检索已授权材料片段。确定性达标指标先检查题源、辅助、核对、限时和新颖度，模型不能把单次自评或不完整条件提升为长期掌握。生产当前 plan version 4；Advisor 247 tests（skipped=1）、Pi Garden 50 tests、Windows 镜像 test_service 27 tests 全部通过，Tailnet 页面/API 返回 200。`<25 秒` 仍需真实用户逐类型计时，不以自动化速度宣称达标。==
+==Goal Agent 保存结构化 performance/conditions 和判断边界，并在完整复盘时根据最近证据检索已授权材料片段。确定性达标指标先检查题源、辅助、核对、限时和新颖度，模型不能把单次自评或不完整条件提升为长期掌握。生产当前 plan version 5；Advisor 253 tests（skipped=1）、Pi Garden 50 tests、Windows exporter 13 tests 全部通过，Tailnet 页面/API 返回 200。`<25 秒` 仍需真实用户逐类型计时，不以自动化速度宣称达标。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-full-tests-loopback-tailnet-browser-and-windows-mirror; retrieved_notes="计划模式/06-任务类型快速证据反馈v2部署验收.md" -->

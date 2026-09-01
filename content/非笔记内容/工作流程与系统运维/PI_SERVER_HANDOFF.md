@@ -1708,3 +1708,21 @@ goal-agent-review.timer: active
 `/home/conrad/workspace/backups/goal-course-startup-20260901-022714/`
 
 回滚时优先逐文件恢复源码/提示词/测试并重启 `activitywatch-advisor-web.service`；只有需要撤销本次 plan version 4 数据迁移且确认没有新增反馈时，才考虑恢复备份 SQLite。
+
+## 2026-09-01：Goal Agent v3 真实课堂与作业接入
+
+==生产 schema v3 / plan version 5 已上线。新材料沿 Windows 安全 exporter → Syncthing → Pi FTS 进入 material_candidate；goal-agent-intake.timer 每 5 分钟分析一次。Focus Garden 新增待确认队列，课堂主题、目录映射和作业拆分均需用户确认。==
+
+==“确认这一天”已改为只计算 accepted/synced 已承诺负载；真实超载返回 HTTP 422、已承诺分钟和同月可选日期。2026-09-01 起 GTM259 与抽象代数 6 项为 ready，概率论 2 项等待实际课堂。==
+
+生产文件：
+
+- Advisor：src/goal_agent.py、src/goal_model_client.py、src/web_app.py、prompts/goal-agent.md；
+- Garden：focus_garden/server.py、static/index.html、static/app.js、static/goal-v3.js、static/style.css；
+- systemd：goal-agent-intake.service / .timer。
+
+验证：Advisor 253 tests OK（skipped=1）；Garden 50 tests OK；exporter 13 tests OK；SQLite quick_check=ok；Tailnet schema=3、plan=5。真实合成课堂/作业完成自动分析后已删除并标记 ignored。
+
+备份：/home/conrad/workspace/backups/goal-v3-20260901-110334/；Windows exporter 备份为 D:\mathblog\tools\behavior-context-exporter-backups\goal-v3-20260901-110336。
+
+详见 [[计划模式/08-目标模式v3真实课堂作业接入与日期修复部署验收]]。
