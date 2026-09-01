@@ -147,3 +147,49 @@
 3. 核对备份清单后重新加载插件。
 
 不得使用 `git reset` 或全仓库格式化回滚本任务。
+
+
+## 10. Copilot 4.0.4 官方更新与补丁（2026-09-01）
+
+用户确认继续更新 Copilot 后，已从官方 GitHub release 更新至当前最新正式版 **4.0.4**。官方 release 发布日期为 **2026-08-28**。
+
+### 更新与保留
+
+- 新源码：`D:\Obsidian-Copilot-MathInk-Project-4.0.4`
+- 官方 4.0.4 基线提交：`48d542a`
+- MathInk 补丁提交：`06f0755`
+- 当前部署目录：`.obsidian/plugins/copilot`
+- `manifest.json` 版本：`4.0.4`
+- 原 `data.json` 未覆盖，升级前后当前版本 data.json 哈希保持：`7999A6868339A70CF00D0738B75E039FAACA086A2F05CB6030A51B045C32BAB3`
+- Vault QA、模型/API、Embedding、Project、排除规则和其他 Copilot 设置沿用原 data.json。
+- 升级前备份：`D:\Obsidian-Copilot-MathInk-Project-4.0.4\artifacts\backups\copilot-pre-upgrade-3.3.3-20260901-220624`
+
+### 4.0.4 上重新应用的补丁
+
+- `sanitizeMathInkMarkdown()` 只处理 AI、索引、搜索和上下文读取副本。
+- inline `inkedmark` 只投影 `caption:`；`vN:` 和 `%%inkedmark` 编码不写回、不删除。
+- 活动笔记、嵌入笔记、Vault QA/Project 上下文、词法/语义索引、Grep、`readNote`、@mention 和相关笔记预览均重新接入清洗边界。
+- 旧 Quick Command 的本地时间前缀和 `copilot/copilot-conversations/quickcmd-<timestamp>.md` 保存行为已迁移到 4.0.4 源码。
+
+### 当前部署哈希
+
+- `main.js`: `2A0E345724DA8D848EEB8EE9890E30D6817789B96345423447F43A743A372DE3`
+- `manifest.json`: `07E43D507EA7B3EA0BB8F20AB5A020515055B05483D1CBCDC6718C60597871B4`
+- `styles.css`: `038DD7F7494CE2EFA401ED188749B21C6AFDFADEA0130D19BDBCBF3AC9C92D8C`
+
+### 验证
+
+- 补丁专项测试：54 tests passed。
+- TypeScript：passed。
+- 本次修改文件 ESLint：passed。
+- 生产构建：passed。
+- 官方 4.0.4 全量测试：451 suites passed、8 个平台/环境相关 suites failed；6267 tests passed、25 failed、22 skipped。失败集中在 Windows symlink、Agent Mode 路径/环境变量和平台差异测试，未出现在 MathInk 清洗专项测试中。
+- Copilot 已通过 Obsidian CLI 重新加载。
+
+### 索引注意
+
+Copilot Force reindex 仍然是独立动作，尚未在本次版本更新中自动执行。当前旧索引有完整备份；执行重建会把清洗后的 Vault 内容发送给现有 Embedding 目标 SiliconFlow `Qwen/Qwen3-Embedding-0.6B`，并可能消耗配额。
+
+### 4.0.4 回滚
+
+关闭或停用 Copilot 后，从上述升级前备份恢复 `main.js`、`manifest.json`、`styles.css`、`data.json`；若需要恢复旧索引，同时恢复 `indexes/` 下的旧 `copilot-index-*` 文件。

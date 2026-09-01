@@ -121,8 +121,10 @@ def build_sleep_goal_summary(settings: dict[str, Any], advisor_data_root: Path,
     if end < start:
         end = start
     display_today = min(max(today, start), end)
-    week_start = display_today - timedelta(days=display_today.weekday())
-    week_start = max(start, week_start)
+    # Anchor each seven-day cycle to the goal start date.  This preserves the
+    # user's literal "seven days" rule even when the semester starts midweek.
+    cycle_index = max(0, (display_today - start).days // 7)
+    week_start = start + timedelta(days=cycle_index * 7)
     week_end = min(end, week_start + timedelta(days=6))
     records = [_day_record(advisor_data_root, week_start + timedelta(days=i), today)
                for i in range((week_end - week_start).days + 1)]

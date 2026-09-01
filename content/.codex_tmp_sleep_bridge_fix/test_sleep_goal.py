@@ -23,8 +23,8 @@ class SleepGoalTests(unittest.TestCase):
             root = Path(folder)
             for day, value in {
                 "2026-09-01": "00:20", "2026-09-02": "00:30",
-                "2026-09-03": "00:40", "2026-09-04": "00:55",
-                "2026-09-05": "00:25", "2026-09-06": "00:29",
+                "2026-09-03": "00:30", "2026-09-04": "00:55",
+                "2026-09-05": "00:30", "2026-09-06": "00:29",
                 "2026-09-07": "01:00",
             }.items():
                 self.make_summary(root, day, value)
@@ -54,3 +54,5 @@ class SleepGoalTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
