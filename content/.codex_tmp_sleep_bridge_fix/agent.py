@@ -45,7 +45,7 @@ DEFAULT_CONFIG = {
             "default_lock_minutes": 30,
         },
         "steam游戏": {
-            "cold_turkey_block": "steam游戏",
+            "cold_turkey_block": "steam",
             "display_name": "Steam 游戏",
             "default_lock_minutes": 30,
         },
@@ -1563,13 +1563,16 @@ def _launch_intervention_ui(
         "--response",
         str(response_path),
     ]
+    kind = str(payload.get("kind", "offer"))
+    print(f"[{now_iso()}] UI launch: {kind} timeout={payload.get('timeout_seconds', '')}", flush=True)
     try:
         process = subprocess.Popen(
             command,
             cwd=str(ROOT),
             creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
         )
-    except OSError:
+    except OSError as error:
+        print(f"[{now_iso()}] UI launch failed: {kind} {type(error).__name__}", flush=True)
         request_path.unlink(missing_ok=True)
         return {}
     if not wait:
@@ -1593,6 +1596,7 @@ def _launch_intervention_ui(
         except subprocess.TimeoutExpired:
             process.kill()
     result = load_json(response_path, {})
+    print(f"[{now_iso()}] UI finished: {kind} decision={result.get('decision', '') if isinstance(result, dict) else ''} exit={process.returncode}", flush=True)
     request_path.unlink(missing_ok=True)
     response_path.unlink(missing_ok=True)
     return result if isinstance(result, dict) else {}

@@ -875,3 +875,13 @@
 ### D112. 2026-09-01 起 GTM259 与抽象代数先行【有效】
 
 ==概率论取消先行自学，等待真实课堂。抽象代数使用 [[代数/抽象代数/]] 与 [[代数/抽象代数习题课/]]；首轮从群论基础、商群同构、群作用和 Sylow 定理开始。==
+
+### D78. 作息目标使用七天锚定周期并显示在首页【有效】
+
+==从 2026-09-01 开始，每七天为一个目标周期：至少 5 天夜间最后手机使用时间不晚于 00:30，另外 2 天不晚于 01:00；周期持续到 2027-01-17。Focus Garden 只读取 Advisor `statistics/daily_life/YYYY-MM-DD.json` 的 `phone_sleep_boundary`，未知或未 `resolved` 不得计为达标。首页只显示确定性统计和测量边界，不把推断当作真实生理入睡。==
+
+### D79. Cold Turkey 硬锁必须校验错误文本【有效】
+
+==Cold Turkey CLI 可能在 block 名不存在时返回 exit code 0，因此 Windows agent 不再只以返回码判定成功。策略显示名与实际 block 名分离；当前 Steam 策略显示名为 `steam游戏`，实际 allowlist block 为 `steam`。==
+
+<!-- ai_provenance: source=codex; date=2026-09-01; verification=real-list-blocks-and-agent-regression-tests -->

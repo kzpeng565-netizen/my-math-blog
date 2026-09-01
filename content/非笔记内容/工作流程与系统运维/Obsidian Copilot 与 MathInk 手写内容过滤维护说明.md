@@ -193,3 +193,37 @@ Copilot Force reindex 仍然是独立动作，尚未在本次版本更新中自�
 ### 4.0.4 回滚
 
 关闭或停用 Copilot 后，从上述升级前备份恢复 `main.js`、`manifest.json`、`styles.css`、`data.json`；若需要恢复旧索引，同时恢复 `indexes/` 下的旧 `copilot-index-*` 文件。
+
+
+## 11. vivo Pad5e 部署验证（2026-09-01）
+
+已按用户要求检查并更新 vivo Pad5e。设备通过明确 ADB serial 核验：
+
+- Serial：`401G5700FB0000H`
+- Manufacturer：`vivo`
+- Model：`PA2535`
+- Product：`DPD2345M`
+- Vault：`/storage/emulated/0/Documents/数学笔记`
+- Plugin：`/storage/emulated/0/Documents/数学笔记/.obsidian/plugins/copilot`
+
+检查结果：平板在本轮开始前已经通过 Vault 同步取得与桌面相同的 Copilot 4.0.4 MathInk 补丁构建，因此没有重复覆盖相同的三件构建文件。已完成：
+
+1. 备份平板 Copilot 的 `main.js`、`manifest.json`、`styles.css`、设备专用 `data.json` 和现有 credential-backup 文件。
+2. 比较平板与桌面构建哈希，三件构建文件完全一致。
+3. 保留平板自己的 `data.json`，未用桌面 `data.json` 覆盖。
+4. force-stop 并重新启动平板上的 Obsidian，使 4.0.4 文件重新加载。
+5. 读取最近 500 行 bounded logcat，未发现 Copilot、MathInk、FATAL EXCEPTION 或 AndroidRuntime 启动错误。
+
+平板构建哈希：
+
+- `main.js`: `2a0e345724da8d848eeb8ee9890e30d6817789b96345423447f43a743a372de3`
+- `manifest.json`: `07e43d507ea7b3ea0bb8f20ab5a020515055b05483d1cbcdc6718c60597871b4`
+- `styles.css`: `038dd7f7494ce2efa401ed188749b21c6afdfadea0130d19bdbcbf3ac9c92d8c`
+- 平板 `data.json`: `446b18cf71f0bee4287e9f128d0f80c83dba0712c9b45f025cfd4587a8877bcb`
+
+> 注意：上面平板 `data.json` 的哈希仅用于识别设备配置，不能与桌面 `data.json` 互换。
+
+平板备份：`D:\Obsidian-Copilot-MathInk-Project-4.0.4\artifacts\backups\tablet-copilot-pre-update-20260901-225942`
+
+设备部署清单：`D:\Obsidian-Copilot-MathInk-Project-4.0.4\artifacts\deployments\tablet-pa2535-copilot-4.0.4-20260901-2303\DEPLOYMENT_MANIFEST.md`
+

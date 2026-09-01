@@ -1726,3 +1726,12 @@ goal-agent-review.timer: active
 备份：/home/conrad/workspace/backups/goal-v3-20260901-110334/；Windows exporter 备份为 D:\mathblog\tools\behavior-context-exporter-backups\goal-v3-20260901-110336。
 
 详见 [[08-目标模式v3真实课堂作业接入与日期修复部署验收]]。
+
+## 2026-09-01：本次运行故障修复与作息目标
+
+- 半小时报告 timer 仍为每小时 08/38 分，报告持续生成；ntfy 检测按 `would_intervene` 条件发送，详见 [[半小时提醒_手机桥接_作息统计修复交接]]。
+- Steam 夜间流程的实际 Cold Turkey block 改为 `steam`，并修复 exit code 0 掩盖 `Invalid block name` 的问题。
+- Android Focus Bridge 当前 Pi 心跳已恢复 `public_https/no_pending`；Android 源码增加心跳请求去重，待 ADB 重新可见后安装构建产物。
+- 首页新增作息统计卡片：2026-09-01—2027-01-17，七天 5 个 00:30 前、2 个 01:00 前，来源为 Advisor 手机夜间亮屏边界。
+
+完整命令、验证证据、备份和回滚见 [[半小时提醒_手机桥接_作息统计修复交接]]。

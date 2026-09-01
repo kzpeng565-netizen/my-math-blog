@@ -797,3 +797,10 @@ D:\anaconda\python.exe D:\tools\computer-intervention-agent\agent.py
 详见 [[树莓派课程表导入与系统适配]]。
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=checked; retrieved_notes="NEXT_STEPS.md" -->
+
+### 2026-09-01：本次修复后的下一步
+
+- [ ] ADB 设备重新出现后安装 `D:\MyFocusGarden\focus-bridge-android\app\build\outputs\apk\debug\app-debug.apk`，复测手机 Focus Bridge 最近 3 条 `public_https` 心跳。
+- [ ] 下一个 23:30 自然周期确认 Windows agent 日志含 `UI launch: steam_night_prompt` / `UI finished: steam_night_prompt`，并确认 `hard_lock_result` 使用 `steam` 且没有 `Invalid block name`。
+- [ ] 从 2026-09-02 起每天查看首页“作息目标”，只在 Advisor daily-life 日报 `resolved` 后结算前一晚；未知数据先排查采集，不手工补成达标。
+- [ ] 需要回退时使用 [[半小时提醒_手机桥接_作息统计修复交接]] 中列出的逐文件备份，不恢复或覆盖 Garden SQLite。

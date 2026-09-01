@@ -692,3 +692,17 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 ==Goal Agent 保存结构化 performance/conditions 和判断边界，并在完整复盘时根据最近证据检索已授权材料片段。确定性达标指标先检查题源、辅助、核对、限时和新颖度，模型不能把单次自评或不完整条件提升为长期掌握。生产当前 plan version 5；Advisor 253 tests（skipped=1）、Pi Garden 50 tests、Windows exporter 13 tests 全部通过，Tailnet 页面/API 返回 200。`<25 秒` 仍需真实用户逐类型计时，不以自动化速度宣称达标。==
 
 <!-- ai_provenance: source=codex; date=2026-08-31; verification=pi-full-tests-loopback-tailnet-browser-and-windows-mirror; retrieved_notes="计划模式/06-任务类型快速证据反馈v2部署验收.md" -->
+
+## 2026-09-01 状态更新：半小时提醒、Steam 锁机、手机桥接与作息目标
+
+==现场确认 `activitywatch-advisor.timer` 仍按每小时 08/38 分运行，2026-09-01 半小时报告连续写入；ntfy 半小时检测只在 `would_intervene=true` 时发送，其他窗口的 `shadow_candidate_would_not_intervene` 是策略性跳过，不是定时器未启动。==
+
+==修复 Windows agent 的 Cold Turkey 假成功：实际 `-list-blocks` 中可用 block 为 `steam`，原配置调用不存在的 `steam游戏` 时虽返回 exit code 0 但输出 `Invalid block name`。现保留策略显示名 `steam游戏`，映射到实际 block `steam`，并在硬锁函数先检查错误文本。==
+
+==截图中的 Android `UnknownHostException` 是当时手机无法解析 Funnel 主机名；权限连接不是根因。当前 Pi 最近多条心跳为 `app_version=1.3.4`、`transport=public_https`、`last_poll_status=no_pending`、无 `last_error`。Android 源码新增前台心跳请求去重和更明确的失败日志，APK 已离线构建通过；待 ADB 设备重新出现后覆盖安装并做真机复测。==
+
+==Focus Garden 首页新增“作息目标”卡片和 `/api/sleep-goal`。目标周期为 2026-09-01 至 2027-01-17，每七天至少 5 天不晚于 00:30，另外 2 天不晚于 01:00；数据来自 Advisor `daily_life` 的手机夜间亮屏边界，只作估计，不等同于生理入睡。==
+
+详细交接与回滚路径见 [[半小时提醒_手机桥接_作息统计修复交接]]。
+
+<!-- ai_provenance: source=codex; date=2026-09-01; verification=pi-production-api-systemd-windows-agent-tests-android-build; retrieved_notes="PI_SERVER_HANDOFF.md,树莓派行为数据与接口索引.md" -->
