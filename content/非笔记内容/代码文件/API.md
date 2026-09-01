@@ -1,0 +1,2 @@
+https://sub2api.52ai.pro/monitor
+sk-64536a7e541746f8454986a2c9d3748bb92b6ecff954b698aff534c2ba84abca
