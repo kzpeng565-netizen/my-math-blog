@@ -3,7 +3,7 @@ copilot-command-context-menu-enabled: true
 copilot-command-slash-enabled: true
 copilot-command-context-menu-order: 100
 copilot-command-model-key: gemini-2.5-flash|google
-copilot-command-last-used: 1782541183738
+copilot-command-last-used: 1788261804890
 ---
 # 角色
 
