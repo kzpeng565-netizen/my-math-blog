@@ -885,3 +885,159 @@
 ==Cold Turkey CLI 可能在 block 名不存在时返回 exit code 0，因此 Windows agent 不再只以返回码判定成功。策略显示名与实际 block 名分离；当前 Steam 策略显示名为 `steam游戏`，实际 allowlist block 为 `steam`。==
 
 <!-- ai_provenance: source=codex; date=2026-09-01; verification=real-list-blocks-and-agent-regression-tests -->
+
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=checked; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md" -->
+
+## 2026-09-03 决策：三阶段先 staging 验收，Semantic 保持 shadow-safe
+
+==Context Pack 缺少近期动态、课程表、计划、进度或 task-sync 核心来源时必须报告 `not_ready`；不能靠扩充模型提示词掩盖缺失，也不能据此执行自动写入。==
+
+==Semantic development 评测与最终回答/学习完成是不同证据层。当前 staging 的 20 条 Recall@5 结果来自确定性测试 embedder；在真实 Qwen embedding 服务和生产权限/过滤合同通过前，不启用生产主召回。==
+
+==Goal 写入、task-sync 排队和 Obsidian snapshot ack 必须分别报告。未得到快照确认时，只能说已应用/已排队/待确认，不能说 Markdown 已写回。==
+
+生产 Pi 权威树恢复可访问后，继续执行逐文件比较、备份、服务重启和生产 API/数据库验收。
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=policy-save-and-live-endpoint-check; retrieved_notes="Tailscale中继配置与当前故障交接-2026-09-03.md" -->
+
+### D113. Peer Relay capability 必须与普通网络 grant 分离配置【有效】
+
+==`tailscale.com/cap/relay` 只授予使用中继的能力，不能替代设备之间的普通 `ip` 网络访问。当前单用户 Tailnet 使用 `kzpeng565@gmail.com` → `autogroup:self` → `ip: ["*"]` 恢复自有设备互访，并单独保留 relay capability grant。==
+
+- 策略保存后必须检查网络图中的普通源/目标规则，不能只看 relay candidate 是否存在。
+- 页面验收必须分层：Pad5e 命令行 HTTP、Pad5e Chrome 实际页面、Pi loopback/Serve、Peer Relay 连接类型分别记录。
+- `tailscale ping` 经 DERP 或成功返回，不等于 Peer Relay 已稳定使用；专项验收必须看到连续的 `peer-relay(...:40000)` 证据。
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=production-deployed-and-tested; retrieved_notes="目标模式/09-Goal Agent三阶段实施验收记录-2026-09-03.md" -->
+
+## 2026-09-03 决策：生产代码先上线，Semantic 主召回等待 provider 门禁
+
+生产三阶段代码已经部署并通过 API、数据库、服务和权威测试验收；由于生产没有配置 embedding provider，继续执行阶段二停止条件，保持 `semantic_shadow_only`，不把未评测远程向量结果交给 Goal Agent。
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=relay-vps-metrics-pad5e-hotspot-chrome; retrieved_notes="Tailscale中继配置与当前故障交接-2026-09-03.md" -->
+
+### D114. Peer Relay 验收必须绑定网络条件与实际 VNI 流量【有效】
+
+==同一台 Pad5e 在 UCAS 下可回退 DERP(sin)，在 `vivo X90` 手机热点下却能稳定显示 `via peer-relay(47.116.106.206:40000:vni:88)`。因此路径类型必须按网络条件分别记录，不能用一个网络的 DERP 结果否定另一个网络的 Peer Relay。==
+
+- 严格通过证据：连续 5 次 `tailscale ping` 显示 `peer-relay(...:40000)`，并且中继 VPS 的对应 VNI 有持续增长的双向 Packets/Bytes。
+- 页面 HTTP 200 和 Chrome 实际加载是业务验收，必须与 Relay 路径验收分开报告。
+- UCAS 仍可使用 DERP 作为可用回退；只有要求 Peer Relay 专项通过时，才需要在热点等可建立 UDP 40000 的网络下完成 VNI 验收。
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=custom-derp-ucas-10x-debug-derp-long-lived-pad5e-tcp443-http; retrieved_notes="Tailscale中继配置与当前故障交接-2026-09-03.md" -->
+
+### D115. UCAS 主路径使用自建 DERP，保留公共回退【有效】
+
+==UCAS 下 Pad5e 的 UDP Peer Relay 不通，但自建 DERP 的 TCP443 路径已通过 10/10 Windows/Pi 诊断并观察到 Pad5e 长连接。自建 DERP 用作近距离回退，不关闭公共 DERP。==
+
+- `derpMap` 必须保留公共 region，除非另有完整回滚和长期稳定性证据。
+- `derper` 需要独立的公网域名、TLS、TCP443、UDP3478 和与 tailscaled 相容的客户端验证。
+- 业务 HTTP 200、DERP 诊断、长连接和 24 小时稳定性属于不同验收层。
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=production-recheck-after-progress-and-cache-implementation; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md" -->
+
+### D116. Semantic 新锚点索引必须保留旧 ready 版本并等待具体传输授权【有效】
+
+==文件路径、标题、课程、章节等来源锚点可以改善章节/题号召回，但它们与清洗后的材料正文一样属于非公开输入；只有在明确允许发送到具体 embedding endpoint 后，才执行真实 Qwen 重建。重建前保留旧 ready build，失败或中断不得激活半成品。==
+
+### D117. 当前生产采用已验证 hybrid，不宣称纯 Semantic 达标【有效】
+
+==旧 production development evaluation 的纯 Semantic Recall@5=83.33%，FTS 和 hybrid Recall@5=100%。因此当前继续使用 Semantic/FTS hybrid，并保持 `semantic_shadow_only`；缓存暖样本约 355–369ms只证明实现路径有效，不代替完整 p95 门禁。==
+
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=production-recheck-stale-index-and-context-replay; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md" -->
+
+### D118. Active Semantic index 必须验证授权窗口覆盖率【有效】
+
+==材料目录可以在索引建立后继续变化，因此 `ready` 不能只由“存在向量”决定。必须比较 active build/model 下的 ready embedding 数与授权窗口数；缺失时报告 `stale` 并降级 FTS，避免新材料被静默漏检。==
+
+### D119. Semantic status 查询必须避免向量 blob 全表扫描【有效】
+
+==Pi 状态接口只需要计数和元数据，使用 `(status,build_id,model,window_id)` 与 note-level 对应窄索引；首次 schema 建索引可以较慢，后续 status 请求必须快速且不读取正文/向量到响应。==
+
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=production-summary-anchor-v3-evaluation-and-hybrid-fix; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md" -->
+
+### D120. Semantic 使用原始自然语言，KeywordPack 扩展只进入 FTS【有效】
+
+==Qwen Semantic 查询不得注入全目录或大量 exact/source token；这会稀释语义向量。Semantic 使用原始用户请求，KeywordPack 的 exact、alias、source 锚点进入 FTS/exact 辅助通道。==
+
+### D121. Hybrid 保留 Semantic top-5，再用 FTS-only 记录补位【有效】
+
+==Semantic 与 FTS 按 record ID 合并，不能按 window ID 让同一文档占多个 primary。Context@6 先保留 Semantic top-5，再加入最高 FTS-only record；通道重合时剩余预算可用于相邻窗口 hydration。==
+
+### D122. Summary-anchor v3 通过生产质量门禁【有效】
+
+==最终 24 条评测的 unscoped Semantic Recall@5=95.83%，scope-constrained Semantic 与 hybrid=100%，warm p95=402.28ms，duplicate/forbidden=0；因此阶段二质量门禁通过。动态材料变化后的 `stale` + FTS fallback 是正常运行状态。==
+
+## 2026-09-05：目标模式首屏与材料发现解耦
+
+- 目标模式默认采用“轻量摘要首屏 → 后台详细状态”的渐进加载，不再把材料扫描放在进入页面的关键路径。
+- 材料发现只由五分钟 intake timer 或“检查新笔记”显式触发；“重载目标模式”刷新目标状态，但不隐式运行材料发现。Garden 代理必须原样保留 `state?discover=0` 语义，不得把查询参数降级为完整发现。
+- 菜单切换复用首次加载缓存；涉及写入的确认、反馈、复盘、审批和回退仍强制刷新，避免显示旧计划版本。
+- 安全导出没有任何可见文字时，不把该文件作为可操作的课堂/作业候选；若之后出现可见文字和新内容哈希，可再创建新候选。
+- 顶栏操作按菜单归属显示：同步奖励仅属于花园与奖励记录，目标模式使用独立重载按钮。
+
+## 2026-09-05：Goal Agent 回答校准规则
+
+- 聊天/完整复盘采用“每次回答先重建或校验语义索引”的硬门禁；不允许直接用 `retrieval_degraded` 给学习建议。
+- 无变化重建必须是 no-op：复用 active build，不调用 provider、不新增 semantic history；只有输入窗口变化才创建可回滚新版本。
+- 作业优先级由 `priority_context` 明确提供，而不是仅依赖模型从 plan 文本猜测。已确认 DDL 的未完成作业优先；DDL 未知的必修课作业仍提前安排，但必须逐次标注“DDL未知，需核验”。
+- 只有 `due_date` 具有截止语义。推荐日、确认执行日和任务安排日不得称为到期或逾期。
+- 作业优先与穿插学习同时成立：一到两个作业块后可穿插一个其他学习块/必要健康任务，总量服从日容量。
+- 任务引用拒绝 low confidence；Goal plan/task-sync 同项合并；宽泛计划请求不建立伪引用。
+- 阶段性 recurring task 在 effective state 互斥激活；运行时抑制不删除 Vault 源任务，并以 `prevented_conflicts` 留痕。
+
+## 2026-09-05：Goal Mode 详情请求不得触发无变化 SQLite 写放大
+
+- 决策：材料导入必须以安全材料索引签名作为 no-op 边界；内容、FTS 和窗口均未变化时，不在每次 `state()` 详情请求中更新 `material_record`。
+- 决策：同一 Advisor 进程中的材料导入必须串行；SQLite 忙等待保留 60 秒，以覆盖 intake 与在线只读详情之间的短暂写事务竞争。
+- 证据：详情请求曾因 `database is locked` 让 Advisor 连接提前关闭，Garden 将底层异常呈现为 `Remote end closed connection without response`；修复后直接、代理、六路并发和 intake smoke 均成功。
+
+<!-- ai_provenance: source=codex; date=2026-09-08; verification=pi-production-schema-v5-api-and-review-smoke; retrieved_notes="目标模式/12-Goal Mode月计划与滚动周复盘部署验收-2026-09-08.md" -->
+
+### D123. 采用自然月与滚动波周计划【有效】
+
+==自然月保存目标、里程碑、容量与依据；未来周公开层只保存 title 和 rough_minutes。详细任务只在临近执行周依据最新复盘生成，不再一次性预制四周内容。==
+
+### D124. 周复盘草案不得自动生效【有效】
+
+==复盘器、规划器、审查器分阶段运行并保存不可变事实快照。草案必须整版批准后才能在同一事务中更新月计划、周粗计划和详细计划；聊天只能产生草案修订版。==
+
+### D125. 审查器必须逐项明确放行候选【有效】
+
+==候选除了通过 fact_id、课程范围、必要性、重复和容量硬校验外，还必须出现在审查器的 accepted_fingerprints；未点名候选自动删除，审查器失败则整份计划阻塞。证据不足允许零任务。==
+
+### D126. 必修课作业预留从 200 分钟开始并封顶 360 分钟【有效】
+
+==每门必修课前两个可靠样本不足时固定预留 200 分钟；之后使用近期实际需求滚动中位数 +15%，按 20 分钟取整并限制在 120–360 分钟。预留占容量但不是可完成任务。==
+
+### D127. Goal 任务完成必须与反馈和任务清单状态一致【有效】
+
+==只有带稳定 Goal 映射的任务拦截完成操作。表单成功提交后以幂等复合操作保存反馈、更新 Goal 状态并提交 task-sync complete mutation；任务保留在已完成区域，不能从清单删除。==
+
+### D128. 完整复盘的 Context 编译串行且使用长请求窗口【有效】
+
+==同一 Advisor 进程内的语义预检与 Context Pack 编译使用同一可重入锁，避免查询缓存并发写锁；Garden 只对完整复盘使用 900 秒上游窗口，其他 Goal 请求不扩大。==
+
+<!-- ai_provenance: source=codex; date=2026-09-09; verification=pi-production-real-background-review-and-api-tests; retrieved_notes="目标模式/目标模式：整体架构与数据流.md" -->
+
+### D129. 拒绝草案不受生效计划版本推进影响【有效】
+
+==拒绝只以草案仍为 pending 为条件并保持幂等；批准继续严格比较 base_plan_version。任务完成等正常操作推进计划版本时，不得阻止用户拒绝旧草案。==
+
+### D130. 完整复盘必须由持久化后台任务执行【有效】
+
+==浏览器请求只负责入队；独立 worker 以数据库租约、心跳、崩溃重领和事实哈希 supersede 执行。关闭浏览器或重启 Garden/Advisor 不得中止已入队复盘。==
+
+### D131. 本周任务拒绝采用七日可恢复软删除【有效】
+
+==只允许拒绝未完成、未确认日期且没有 task-sync 映射的 Goal 任务。拒绝项七个完整日内可恢复，期间不占活动容量；到期归档但永久保留审计记录。==
+
+### D132. 任务优先级由确定性规则持久化【有效】
+
+==优先级按真实 DDL、有效结转、月度里程碑差距和核验任务规则计算，模型不得任意指定；确认日期前允许用户覆盖，task-sync 使用持久化 priority，不再从 value_score 推断。==
+
+### D133. 材料陈旧时禁止复盘，最新课堂笔记按课程确定性纳入【有效】
+
+==导出心跳或索引超过 2700 秒时，复盘进入 waiting_for_context，最长等待 24 小时且不得调用模型。每门课同时记录最新已确认课堂记录和最新待确认笔记；待确认项只能形成数据缺口。==

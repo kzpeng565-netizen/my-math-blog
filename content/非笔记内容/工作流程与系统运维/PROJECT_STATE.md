@@ -705,4 +705,187 @@ C:\Users\15345\.codex\skills\pi-ops-system-context
 
 详细交接与回滚路径见 [[半小时提醒_手机桥接_作息统计修复交接]]。
 
+==2026-09-01 23:30 Steam 自然周期已验证：选择 UI 记录 `UI launch`/`UI finished`，无操作后 `decision=timeout`，随后 `hard_lock_result.cold_turkey_block=steam`、`status=success` 且无 Invalid block name。==
+
+==2026-09-01 23:46 设备侧最终闭环：使用独立 ADB server 5038 核对手机 `V2241A/PD2241` 与 vivo Pad5e `PA2535/DPD2345M`；手机覆盖安装 Focus Bridge 1.3.4 (19) 成功，安装后 Pi 连续收到 `public_https` 心跳且 `last_error` 为空；平板 AutomateAccessibilityService 仍 binding。==
+
+
 <!-- ai_provenance: source=codex; date=2026-09-01; verification=pi-production-api-systemd-windows-agent-tests-android-build; retrieved_notes="PI_SERVER_HANDOFF.md,树莓派行为数据与接口索引.md" -->
+
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=checked; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md" -->
+
+## 2026-09-03：Goal Agent 三阶段上下文、手写可见层与语义检索（隔离 staging）
+
+==三阶段实现已在本地隔离 staging 完成：Context Pack/readiness、MathInk 安全投影与 10 条请求回放；低切分 Semantic note/window 索引与 20 条开发集评测；operation registry、批量授权执行验证和 Garden UI 协作。Advisor staging 为 156 passed、1 skipped，Garden staging service 为 27 passed。==
+
+==Pi 生产部署尚未执行。2026-09-03 的 Pi MagicDNS、最后已知局域网地址和 Tailnet `:8460` 均连接超时，因此没有修改生产源码、数据库、服务或静态资源。==
+
+详见 [[目标模式/09-Goal Agent三阶段实施验收记录-2026-09-03]]；本地回退备份为 `D:\mathblog\quartz\content\.codex_tmp_goal_backups\goal-implementation-final-verified-20260903-105406`。
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=pad5e-chrome-pi-ssh-http-and-policy-netmap; retrieved_notes="Tailscale中继配置与当前故障交接-2026-09-03.md" -->
+
+## 2026-09-03：Tailscale Peer Relay ACL 修复与 Pad5e 页面恢复
+
+==本次故障根因是 Access controls 中只保留了 Peer Relay capability grant，没有保留普通设备互访的 `ip` grant。补充 `kzpeng565@gmail.com` → `autogroup:self` 的 `ip: ["*"]` 后，Tailscale 网络图恢复普通节点间访问。==
+
+- Pad5e `PA2535` / `100.124.57.79` 的 Tailscale VPN 为 Connected，`tun1` 正常；Chrome 实际加载 Paseo 与 Focus Garden。
+- Paseo `https://xyh.taild4d3f7.ts.net/` 与 Focus Garden `https://pi.taild4d3f7.ts.net:8460/` 均从 Pad5e 返回 HTTP 200。
+- Pi `tailscaled.service`、`focus-garden.service` active；Pi 本地 `127.0.0.1:8838` 返回 200，`:8460` Serve 仍为 tailnet-only；本次没有修改 Pi 服务、数据库或静态资源。
+- 当前页面恢复使用 DERP(sin)，Peer Relay 候选仍存在，但 `peer-relay(...:40000)` 还需连续 5 次及跨校园 Wi-Fi/手机热点验收。
+- 后续仍需手动测试 Pad5e 切回 `vivo X90` 热点和熄屏约 30 分钟后的恢复；Pi `tailscale serve status` 中已有历史 Funnel 项需另行安全审计。
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=production-deployed-and-tested; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md,目标模式/09-Goal Agent三阶段实施验收记录-2026-09-03.md" -->
+
+## 2026-09-03：三阶段实现已部署到 Pi，Semantic 保持 shadow-only
+
+==Pi 生产逐文件部署已完成。Advisor 的 Goal Agent/Context Pack/Semantic index/Operation Gateway/task-sync 来源标签和提示词，以及 Focus Garden 的 Context Pack/operation 代理和授权界面均已激活；Pi 原有 settings、Focus Garden 配置、control_metrics、sleep_goal、course_schedule 和私有素材均保留。==
+
+- Pi 代码 dated backup：`/home/conrad/workspace/backups/goal-agent-three-stage-20260903-120507/`；post-deploy Goal SQLite 一致副本 `quick_check=ok`；
+- Advisor 标准库全量：277 tests OK，skipped=1；
+- Focus Garden 标准库全量：52 tests OK；
+- `activitywatch-advisor-web.service`、`focus-garden.service`、`goal-agent-intake.timer`、`goal-agent-review.timer`：active；
+- Tailnet `:8460`：schema 4、plan 6、GPT-5.6 Sol；Context Pack compile/get、HTML cache-busting 和数据库 payload 安全检查通过。
+
+==生产 embedding provider 未配置，Semantic 当前明确保持 `not_ready`/`retrieval_degraded` shadow-only。真实 Qwen3-Embedding-8B development 评测和主召回激活仍是待完成门禁；不以本地确定性 embedder 结果冒充生产质量。==
+生产 embedding scope dry-run manifest：`/home/conrad/workspace/activitywatch-advisor/data/goal_agent/semantic-scope-dry-run-20260903.json`；范围 133 个已授权文档、1807 个窗口，manifest 不含正文，provider 缺失时 `activation_allowed=false`。
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=relay-vps-ssh-tailscaled-metrics-pad5e-hotspot-chrome; retrieved_notes="Tailscale中继配置与当前故障交接-2026-09-03.md" -->
+
+## 2026-09-03：Peer Relay 服务修复与热点路径验收
+
+==中继 VPS 已建立 root 密钥 SSH，`tailscaled.service` 重启后 active，UDP `40000` 和静态端点保持正确。Pad5e 切换到 `vivo X90` 手机热点后，Windows→Pad5e 连续 5 次均显示 `peer-relay(47.116.106.206:40000)`，VPS VNI 88 双向包持续增长，Paseo/Focus Garden HTTP 与 Chrome 页面均通过。==
+
+UCAS 路径仍主要使用 DERP(sin)，作为不同网络的回退结果单独记录；不能用 UCAS 的 DERP 结果否定热点路径下已通过的 Peer Relay。后续保留 UCAS/热点各自的网络稳定性与熄屏恢复验收。
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=custom-derp-ucas-10x-debug-derp-long-lived-pad5e-tcp443-http; retrieved_notes="Tailscale中继配置与当前故障交接-2026-09-03.md" -->
+
+## 2026-09-03：自建 DERP 在 UCAS 下验收通过
+
+==方案二已完成基础验收：ECS `derp.pengmath.me` 的 TCP443/UDP3478、Let's Encrypt、region 900 `pym` 和 `verify-clients` 正常；Windows/Pi 在 UCAS 下各 10/10 DERP/STUN 诊断成功，Pad5e UCAS 长连接已出现在 ECS derper，Paseo/Focus Garden HTTP 200。==
+
+自建 DERP 作为 direct/Peer Relay 不可用时的近距离 TCP443 回退，公共 DERP 保持开启；Pad5e 熄屏恢复和 24 小时稳定性仍待观察。
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=production-recheck-after-progress-and-cache-implementation; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md" -->
+
+## 2026-09-03：Goal Agent 三阶段最新复核
+
+==三阶段代码继续保持 Pi 生产可用：Advisor 281 tests OK（skipped=1）、Focus Garden 52 tests OK、相关服务和 Goal timers active、Tailnet Goal 入口 HTTP 200、Goal SQLite quick/integrity check 均 OK。==
+
+==Semantic 当前 active build 仍为旧的 `sem-4d2cce788bff40eab58002bedb7366a1`，1836 个 ready window；旧的 Semantic + FTS hybrid 搜索不变。新代码包含安全来源锚点、输入 hash、note-level cache 和重建进度元数据，但新的 Qwen summary-anchor build 尚未发送或激活。==
+
+==阶段二按停止条件保持 `semantic_shadow_only`。旧 production development evaluation 的 Semantic Recall@5=83.33%，FTS/hybrid=100%，forbidden=0、duplicate-primary=0；不能把纯 Semantic 90% 门槛或新锚点评测称为已通过。==
+
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=production-recheck-stale-index-and-context-replay; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md" -->
+
+## 2026-09-03：Semantic 索引漂移检测与 Context Pack 回放
+
+==生产发现 1836 个授权窗口中有 1 个尚未 embedding。Semantic ready_info 现按 active build、model、授权窗口覆盖率计算：当前报告 `stale`，而不是错误报告 `ready`；Context Pack 自动进入 retrieval_degraded，FTS 继续可用。==
+
+==Pi Advisor 282 tests OK（skipped=1），Focus Garden 52 tests OK；Tailnet 三个入口 HTTP 200；10 条生产 Context Pack 回放 10/10 通过且不写入、不调用外部 provider；SQLite quick/integrity check OK。==
+
+
+<!-- ai_provenance: source=codex; date=2026-09-03; verification=production-summary-anchor-v3-evaluation-and-hybrid-fix; retrieved_notes="目标模式/09-Goal Agent三阶段上下文与手写语义检索实施计划.md" -->
+
+## 2026-09-03：Goal Agent 三阶段最终完成
+
+==summary-anchor v3 Qwen 索引已生产激活并通过 24 条评测：unscoped Semantic Recall@5=95.83%，scope-constrained Semantic/Hybrid=100%，warm p95=402.28ms，duplicate/forbidden=0。阶段一、二、三全部完成。==
+
+==Pi Advisor 285 tests OK（skipped=1），Focus Garden 52 tests OK；Tailnet、服务、SQLite 和 Context Pack 门禁通过。材料后续变化会使 Semantic 自动 `stale` 并回退 FTS，待日常增量 rebuild。==
+
+## 2026-09-04：OpenLux Luna 路由、材料分析提示词与半小时报告迁移
+
+- Goal Agent 材料分析和周复盘已切换到 `https://api.openlux.ai/v1/responses` 的 `gpt-5.6-luna`，Responses `reasoning_effort=medium`；目标模式聊天仍保持 `gpt-5.6-sol`。
+- 目标模式进入时先执行材料发现；`goal-agent-intake.service` 已改为 `--discover-only`，不会在后台自动调用模型。材料卡片点击“分析”才针对单文件调用 Luna。
+- 课堂笔记提示词已改为概念结构分析：合并同一理论链条，把推论、命题、注和公式编号放入来源定位，不再把原始标题机械平铺；课堂掌握度改为必须人工选择，不再默认 1。
+- 半小时报告链路的 parser、recent-context selector 和 report 已切换为 OpenLux Luna medium；不影响目标模式聊天和其他明确独立路由。
+- Luna 密钥来源为 Windows `C:\Users\15345\Desktop\luna的密钥.txt`，Pi 运行期仅保存于 `/home/conrad/.config/activitywatch-advisor/goal-agent-luna.env`，权限 `600`；未写入仓库、前端、SQLite 或文档。
+- 旧 AI 配置已备份并通过 SHA256 校验：`/home/conrad/workspace/backups/ai-routing-before-luna-20260904-203500/`。备份包含旧 settings、Goal/recent-context 代码和提示词，以及原 Goal 环境文件。
+- 验收：Advisor 全量 `285 tests OK (skipped=1)`；Focus Garden `52 tests OK`；真实材料分析 smoke 使用 `gpt-5.6-luna/medium` 并将泛函分析材料整理为 5 个概念主题；周复盘 smoke 为 Luna/medium；半小时 parser 与 selector smoke 均为 Luna/medium；相关服务 active。
+- 仍需用户在真实 Focus Garden 页面确认一次：进入目标模式时只识别不分析，点击“分析”后显示新的分组结果；聊天继续走 Sol。
+
+## 2026-09-04：AI 课程目录映射与待确认队列刷新修复
+
+- 课堂笔记分析现在把当前课程目录的 `course_catalog` 一并传给 Luna；Luna 必须返回有效 `catalog_unit_id` 或 `null`，并给出 `catalog_reason`。有效映射会在填写表单时自动预选；没有可靠对应时自动保持“不映射”，仍可人工调整后整体确认。
+- 课程目录映射仍属于用户最终确认的一部分；分析阶段不会直接写入课程掌握度或课程目录覆盖。
+- 修复“忽略”后的慢刷新：目标模式进入时继续 discovery；忽略、分析、分类、确认等普通操作使用 `state?discover=0` 快速状态刷新，不重复扫描全部材料。`state(refresh_materials=False)` 实测约 121 ms。
+- 泛函分析真实候选重新分析成功：Luna/medium 生成概念分组并返回自动目录映射；候选仍保持 `awaiting_confirmation`，没有自动写入课程进度。
+- 回归：Advisor 77 项 Goal/模型/recent-context 测试通过；Focus Garden 52 项测试通过；服务仍为 active。
+
+## 2026-09-04：作业时间估计改为按题目难度分档
+
+- 作业分析不再依据“证明题/选择题/普通题”等题目类型直接赋予时间。
+- Luna 分析每道题的完成难度：`easy`、`moderate`、`hard`、`very_hard`，系统固定映射为 20、40、60、90 分钟；最终分钟数由系统根据 difficulty 计算，不直接信任模型任意分钟值。
+- Luna 提示词要求综合推理链长度、构造要求、先修知识跨度、步骤数量、多个引理/反例需求和预计卡点判断难度；信息不足时使用 `moderate` 并标记不确定性。
+- 未调用 Luna 的确定性回退不再根据题目类型判断，统一使用 `moderate=40` 并标记为 fallback；这不是正式难度判断。
+- 作业确认提交后，系统先创建 Goal SQLite 中的 `assignment`、`assignment_block` 和未确认的 `plan_item`，并计算推荐日期；此时尚未进入 Obsidian Tasks/task-sync 队列。
+- 只有继续点击“确认全部无冲突学习块”并通过容量检查后，系统才逐项执行 `accept-day`、写入 task-sync mutation queue；随后仍需桌面 Obsidian 写入器执行并收到 snapshot ack，才能报告为已同步。
+- 当前回退备份：`/home/conrad/workspace/backups/assignment-estimation-before-difficulty-20260904-223500/`。
+- Advisor 全量回归：285 tests OK（skipped=1）。
+
+## 2026-09-05：简化 Luna 作业完成时间判断规则
+
+- 作业题仍使用四档：20、40、60、90 分钟；Luna 先输出 `easy/moderate/hard/very_hard`，系统固定映射分钟数。
+- 提示词改为直观完成时间判断，不再要求过度精细分析：三个或更多小问按整体难度选 60/90；定理直接应用或常规题选 20/40；涉及构造选 60/90；两个小问或多步常规题通常选 40/60。
+- 同一道顶层编号题的小问保持为一个 problem，不拆散；`difficulty_reason` 只用一句话说明小问数量、常规应用或构造等主要依据。
+- 仍禁止仅依据“证明题/计算题/选择题”等题型直接分档；信息不足时回退 40 分钟并标记不确定。
+- 真实泛函分析作业 smoke：题目1（两个证明小问、多性质论证）=60 分钟，题目2（两个常规小问）=40 分钟，合并为100分钟学习块；模型为 OpenLux `gpt-5.6-luna`、medium。
+- 回退备份：`/home/conrad/workspace/backups/assignment-luna-prompt-before-simple-rules-20260905/`；Goal Agent 38 项专项测试通过。
+
+## 2026-09-05：目标模式渐进加载、手动重载与空文本候选修复
+
+- 新增轻量只读接口 `GET /api/goal-agent/summary`：不等待材料摄取锁，只返回总目标、轨道摘要和当前周任务；Pi 回环 3 次实测约 `33 ms`，Windows 经真实 `:8460` Tailnet 入口约 `187 ms`。
+- 目标模式首屏先并行加载 `summary + plan`，当前任务出现后再后台加载证据、资料、聊天和审批历史；进入目标模式不再自动扫描全部材料。
+- 修复 Focus Garden 固定代理曾丢弃 `?discover=0` 的问题；详细状态现在确实绕过材料发现。Garden 回环实测约 `0.28–1.44 s`，Windows Tailnet 实测约 `0.80 s`。
+- 页面内保留首次加载结果；切换菜单后返回直接复用内存状态。右上角新增“重载目标模式”，只有点击该按钮或完成写操作后才主动刷新目标数据。
+- “同步奖励”只在“我的花园”和“奖励记录”显示；“刷新清单”仍只在任务清单显示；“重载目标模式”只在目标模式显示。
+- 没有安全可见文字的材料不再进入待确认队列；已撤回或已改名且仍处于失败状态的候选会自动标记为 `superseded`。截图中的 `概率论习题1.md` 与 `概率论习题02.md` 旧候选已移出队列，当前活动的同类空文本错误为 `0`。
+- 回归：Advisor 41 项专项测试、Focus Garden 28 项测试均通过；两个服务已重启并为 `active`。以上为 API/代码自动验证，仍需在 vivo Pad5e 浏览器确认视觉与自然使用体验。
+
+## 2026-09-05：Goal Agent 聊天优先级、索引门禁、引用与冲突校准
+
+- 生产配置新增 `goal_agent.rebuild_semantic_before_answer=true`。每次聊天或完整复盘在编译 Context Pack 前运行语义索引重建；重建失败或最终检索状态不是 `semantic` 时停止回答，不再静默生成 `retrieval_degraded` 建议。
+- 无材料变化时，重建执行完整覆盖/哈希校验但复用当前 build，不调用 embedding provider、不创建新版本和历史向量，避免 790MB Goal SQLite 因每次回答归档而持续膨胀。材料变化时才嵌入缺失窗口并保留可回滚版本。
+- Context Pack 新增 `priority_context`：真实未完成作业按已确认 `due_date` 优先；DDL 未知的必修课作业继续给临时顺序，但必须标注“DDL未知，需核验”，并以尽量在下周一或下一次相关课程前完成作为规划目标，而非虚构 DDL。
+- 日期语义固定：只有 `due_date` 可称 DDL/截止/到期；`recommended_date` 是推荐日，`accepted_date` 是用户确认执行日，`scheduled_date` 是任务安排日。过去的推荐日只能称“推荐日已过/计划欠账”。
+- 作业保持最高优先级，但每完成一到两个作业块可穿插一个其他学习块或必要健康任务，且继续受每日容量约束。
+- 修复任务引用：宽泛的“周末做什么”不再产生 20 个低置信度引用；显式 GTM259/Recurrence/Sylow/Hahn–Banach/章节信号保留 medium/high 引用；同一 Goal plan 与 task-sync 项合并。
+- 修复阶段冲突：同一 planning batch 的“第1–4周”与“第5–12周” recurring task 只激活当前阶段。2026-09-05 生产 effective state 已抑制未来第5–12周 7项任务，保留第1–4周任务；源 Vault 任务未删除，抑制记录在 `prevented_conflicts`。
+- 当前语义索引仍为 `stale`，缺 4 个窗口；下一次真实聊天会先重建这 4 个窗口，成功后才回答。因该 smoke 会把授权材料投递给 SiliconFlow embedding provider，并把 Context Pack 发送到聊天模型，未在没有单独敏感传输批准时主动执行。
+- 生产全量回归：296 tests OK，1 skipped；Advisor、Focus Garden、intake timer 均 active。
+- 已安装个人 Skill：`C:\Users\15345\.codex\skills\goal-mode-calibration`，显示名“目标模式校准”。
+
+## 2026-09-05：Goal Mode 详情加载锁修复
+
+- 根因：`/api/goal-agent/state?discover=0` 会在每次详情请求前重复执行材料导入；已完成导入的 `material_record` 仍被无条件更新，多个 Garden 请求与 `goal-agent-intake.service` 竞争 Goal SQLite 写锁，Advisor 线程因 `database is locked` 异常断开，Garden 才显示 `Remote end closed connection without response`。
+- 修复：Pi 生产 `src/goal_agent.py` 串行化进程内材料导入，按安全材料索引签名跳过无变化重导入，跳过已存在 FTS/窗口的无变化材料写入，并将 SQLite busy timeout 从 20 秒提高到 60 秒。保留精确回滚备份 `/home/conrad/workspace/activitywatch-advisor/backups/20260905-1945-goal-state-lock-fix/`。
+- 验证：`py_compile`、Goal Agent/API/Context Replay 44 项测试、SQLite `quick_check=ok`；Advisor 与 Focus Garden 详情接口均返回 HTTP 200、209239 bytes；六路并发详情请求均成功；semantic index 为 `ready`，相关服务与 intake timer 为 `active`。
+- 限界：Pi 本机对自己的 `:8460` Tailnet Serve 回环不可用；本次 Windows 端 Tailscale 本地 API 权限不足，未完成真实浏览器端 Tailnet UI 验收，需用可访问 Tailnet 的客户端再点开当前任务确认视觉显示。
+
+<!-- ai_provenance: source=codex; date=2026-09-08; verification=pi-production-schema-v5-80-goal-tests-53-garden-tests-no-model-review-smoke; retrieved_notes="目标模式/12-Goal Mode月计划与滚动周复盘部署验收-2026-09-08.md" -->
+
+## 2026-09-08：Goal Mode 月计划—滚动周计划—复盘闭环上线
+
+==生产 Goal SQLite 已迁移到 schema v5：未来周只保留 title/rough_minutes；周复盘封存 review_fact 后依次运行复盘器、规划器和审查器，保存未生效 planning_draft，整版批准后才原子更新月计划、周粗计划和目标周详细任务。==
+
+==三门必修课作业预留初始为每门每周 200 分钟，至少两个可靠作业样本后按滚动中位数 +15% 调整，自动范围 120–360 分钟；吞吐量不足三个完整自然周或实际耗时覆盖率不足 80% 时继续使用 1590 分钟基准。==
+
+==生产迁移保留 52 个计划项、6 个确认日期、3 个完成状态和 6 个 task 映射；24 个未来旧预制项只归档不删除。Advisor 80 tests、Garden 53 tests、生产/离线 SQLite quick/integrity、Tailnet 四个入口以及不调用模型的 27-fact 复盘 smoke 均通过。==
+
+Goal 完成表单现要求整数实际分钟或显式“未记录”；提交成功后任务保留在“今日已完成”并显示完成同步状态。并发 Context Pack 编译已串行化，完整复盘代理窗口为 900 秒。Pad5e 只剩真实页面触控验收；设备可 ping，但本次没有可用 ADB transport/当次无线调试端口。
+
+<!-- ai_provenance: source=codex; date=2026-09-09; verification=pi-production-schema-v6-real-review-exporter-tests-integrity; retrieved_notes="目标模式/目标模式：整体架构与数据流.md" -->
+
+## 2026-09-09：Goal Mode 复盘可靠性、任务拒绝与最新课堂笔记修复上线
+
+==生产 Goal SQLite 已迁移到 schema v6。草案拒绝只要求草案仍为 pending，不再错误比较当前计划版本；批准仍严格校验 base_plan_version。截图中的 v21 旧草案已在当前 v24 下成功拒绝，重复拒绝保持幂等且计划版本未变化。==
+
+==完整复盘已改为持久化后台任务：POST 只入队，`goal-agent-review-worker.service` 通过租约、心跳和过期重领独立执行。真实验收中原任务在服务重启后被重领，发现事实更新后自动 supersede，并由替代任务完成复盘和草案生成。==
+
+- `plan_item` 现持久化确定性优先级及依据，并支持未同步、未确认日期任务的拒绝/七日内恢复；拒绝项从活动容量排除但保留审计记录。
+- Windows 导出器修复陈旧锁永久阻塞问题；规范任务 `Behavior Context Exporter Timer` 已安装为登录启动、每 20 分钟运行和错过后补跑。旧任务因动作/配置不同按规则保留。
+- 材料导出由 134 份恢复；真实复盘快照含 142 份材料和三门课 2026-09-08 最新笔记，随后定时导出继续增长到 144 份。系统立即把 2026-09-09 新出现的微分几何 `4..md` 识别为最新待分析候选；文档数量是动态指标，待确认笔记只作为数据缺口，不自动推断课程进度。
+- 真实后台复盘 `review-job-ff33657159724b14bd045ca6324a0dac` 完成，报告引用 15 个事实；本周已有 1590 分钟任务并占用 600 分钟作业预留，审查器因此接受 0 个新增任务，没有为填满容量凑数。
+- 生产回归：Advisor 316 tests OK（skipped=1），Garden 53 tests OK，Windows exporter 14 tests OK；Goal SQLite `quick_check=ok`、`integrity_check=ok`；Advisor、Garden、review worker 和周日 timer 均 active。
+- 已把生产验证后的 Garden `server.py`、`app.js`、`style.css`、`index.html`、`goal-v3.js` 和测试镜像到 `D:\MyFocusGarden`；镜像全量 53 tests OK，旧文件备份在 `D:\MyFocusGarden\backups\goal-mode-20260909-schema-v6-mirror\`。
+- 精确回滚备份：`/home/conrad/backups/goal-mode-20260908-234725/`；最终初始化锁修复的单文件备份位于 `/home/conrad/backups/goal-mode-20260909-final-init-fix/`。Pad5e 在 Tailscale 在线，但当前无线调试动态端口不可用，设备级触控验收仍待补充。
